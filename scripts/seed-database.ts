@@ -234,9 +234,9 @@ try {
       target: featureFlags.key,
       set: { enabled: true, configuration: { fallback: 'bundled-catalog' }, updatedAt: now },
     })
-    await tx.insert(featureFlags).values({ key: 'media_uploads', enabled: false, configuration: { provider: 'local', reason: 'blob-usage-threshold' }, updatedAt: now }).onConflictDoUpdate({
+    await tx.insert(featureFlags).values({ key: 'media_uploads', enabled: true, configuration: { provider: 'vercel-blob', access: 'public', region: 'fra1', maxBytes: 2097152 }, updatedAt: now }).onConflictDoUpdate({
       target: featureFlags.key,
-      set: { enabled: false, configuration: { provider: 'local', reason: 'blob-usage-threshold' }, updatedAt: now },
+      set: { enabled: true, configuration: { provider: 'vercel-blob', access: 'public', region: 'fra1', maxBytes: 2097152 }, updatedAt: now },
     })
   })
 

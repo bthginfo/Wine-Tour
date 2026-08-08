@@ -30,7 +30,7 @@ The pilot hashes entered passwords with Web Crypto before comparison and stores 
 
 ## Hosted data foundation
 
-The Vercel project is connected to a Neon Postgres resource in Frankfurt for development, preview and production. Drizzle owns the versioned schema in `db/schema.ts`; the first migration creates the editorial graph plus future-ready workspace, event, cellar, note, rating and media tables.
+The Vercel project is connected to a free Neon Postgres resource in Frankfurt for development, preview and production. Drizzle owns the versioned schema in `db/schema.ts`; the first migration creates the editorial graph plus future-ready workspace, event, cellar, note, rating and media tables.
 
 Database commands require Vercel-injected environment variables and do not need a checked-in `.env` file:
 
@@ -42,7 +42,7 @@ vercel env run -e production -- npm run db:seed
 
 The seed validates catalogue, business graph and curriculum before synchronising curated entities, relations and a versioned snapshot. `/api/health` reports database and catalogue status; `/api/catalog` provides a paginated read-only catalogue boundary. There is deliberately no public database write API until server authentication, sessions and row-level authorization exist.
 
-Media metadata is provider-neutral (`local`, `vercel-blob`, `neon-object-storage` or `external`). Vercel Blob provisioning is currently blocked by the Hobby account's storage usage threshold, so personal bottle images remain browser-local until a secure object store is available.
+Bottle photos are resized in the browser, then uploaded through the size- and type-restricted `/api/media/upload` function to the public `wine-tour-media` Vercel Blob store in Frankfurt. Cellar records keep only the returned media URL. The upload boundary is intentionally narrow while authentication is browser-local; production user authorization must be added before opening broader partner and editorial media uploads.
 
 ## Architecture
 
@@ -61,7 +61,7 @@ Media metadata is provider-neutral (`local`, `vercel-blob`, `neon-object-storage
 - `src/enhancements.css` — focused late-stage component refinements
 - `src/assets/ATTRIBUTIONS.md` — image provenance
 - `db/schema.ts` / `db/migrations/` — Drizzle schema and reviewed SQL migrations
-- `server/db.ts` / `api/` — pooled server database boundary and read-only functions
+- `server/db.ts` / `api/` — pooled server database boundary, read APIs and restricted bottle-media upload
 - `scripts/seed-database.ts` — validated Neon catalogue synchronisation
 
 Curated source data is never mutated by personal cellar, rating, tasting or admin records. That separation makes a future hosted repository replacement straightforward.

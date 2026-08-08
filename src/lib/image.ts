@@ -17,3 +17,20 @@ export async function prepareBottlePhoto(file: File): Promise<string> {
   source.close()
   return canvas.toDataURL('image/webp', .82)
 }
+
+export async function uploadBottlePhoto(preparedDataUrl: string): Promise<string> {
+  const image = await (await fetch(preparedDataUrl)).blob()
+  const response = await fetch('/api/media/upload', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'image/webp',
+      'X-Vine-Upload': 'bottle-photo-v1',
+    },
+    body: image,
+  })
+
+  if (!response.ok) throw new Error('Bottle photo upload failed.')
+  const result = await response.json() as { url?: string }
+  if (!result.url) throw new Error('Bottle photo upload returned no URL.')
+  return result.url
+}
