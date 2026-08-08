@@ -154,11 +154,58 @@ export const lessonGrapes = pgTable('lesson_grapes', {
 export const users = pgTable('users', {
   id: uuid('id').defaultRandom().primaryKey(),
   username: text('username').notNull(),
+  usernameNormalized: text('username_normalized').notNull(),
+  passwordHash: text('password_hash').notNull(),
+  passwordSalt: text('password_salt').notNull(),
   displayName: text('display_name'),
   email: text('email'),
   role: membershipRole('role').default('member').notNull(),
+  disabled: boolean('disabled').default(false).notNull(),
+  failedLoginAttempts: integer('failed_login_attempts').default(0).notNull(),
+  lockedUntil: timestamp('locked_until', { withTimezone: true }),
+  lastLoginAt: timestamp('last_login_at', { withTimezone: true }),
   ...timestamps,
-}, table => [uniqueIndex('users_username_unique').on(table.username), uniqueIndex('users_email_unique').on(table.email)])
+}, table => [uniqueIndex('users_username_unique').on(table.username), uniqueIndex('users_username_normalized_unique').on(table.usernameNormalized), uniqueIndex('users_email_unique').on(table.email)])
+
+export const userRoles = pgTable('user_roles', {
+  userId: uuid('user_id').notNull().references(() => users.id, { onDelete: 'cascade' }),
+  role: membershipRole('role').notNull(),
+  grantedBy: uuid('granted_by').references(() => users.id, { onDelete: 'set null' }),
+  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
+}, table => [primaryKey({ columns: [table.userId, table.role] }), index('user_roles_role_idx').on(table.role)])
+
+export const sessions = pgTable('sessions', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  userId: uuid('user_id').notNull().references(() => users.id, { onDelete: 'cascade' }),
+  tokenHash: text('token_hash').notNull(),
+  expiresAt: timestamp('expires_at', { withTimezone: true }).notNull(),
+  lastSeenAt: timestamp('last_seen_at', { withTimezone: true }).defaultNow().notNull(),
+  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
+}, table => [uniqueIndex('sessions_token_hash_unique').on(table.tokenHash), index('sessions_user_idx').on(table.userId), index('sessions_expiry_idx').on(table.expiresAt)])
+
+export const userStates = pgTable('user_states', {
+  userId: uuid('user_id').notNull().references(() => users.id, { onDelete: 'cascade' }),
+  key: text('key').notNull(),
+  value: jsonb('value').notNull(),
+  updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow().notNull(),
+}, table => [primaryKey({ columns: [table.userId, table.key] })])
+
+export const platformStates = pgTable('platform_states', {
+  key: text('key').primaryKey(),
+  value: jsonb('value').notNull(),
+  updatedBy: uuid('updated_by').references(() => users.id, { onDelete: 'set null' }),
+  updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow().notNull(),
+})
+
+export const auditLog = pgTable('audit_log', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  actorUserId: uuid('actor_user_id').references(() => users.id, { onDelete: 'set null' }),
+  action: text('action').notNull(),
+  entityType: text('entity_type').notNull(),
+  entityId: text('entity_id').notNull(),
+  details: jsonb('details').notNull(),
+  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
+}, table => [index('audit_log_actor_idx').on(table.actorUserId), index('audit_log_entity_idx').on(table.entityType, table.entityId)])
 
 export const workspaces = pgTable('workspaces', {
   id: text('id').primaryKey(),

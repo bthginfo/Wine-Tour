@@ -1,5 +1,5 @@
 import { drizzle } from 'drizzle-orm/node-postgres'
-import { sql } from 'drizzle-orm'
+import { inArray, sql } from 'drizzle-orm'
 import { Pool } from 'pg'
 import { createServer } from 'vite'
 import {
@@ -13,6 +13,7 @@ import {
   grapes as grapeTable,
   lessonGrapes,
   lessonRegions,
+  platformStates,
   producerRegions,
   producers as producerTable,
   regionGrapes,
@@ -63,6 +64,8 @@ const db = drizzle(pool)
 const now = new Date()
 const commitSha = process.env.VERCEL_GIT_COMMIT_SHA?.trim()
 const version = commitSha ? commitSha.slice(0, 12) : new Date().toISOString().slice(0, 10)
+const legacyDemoEventIds = ['riesling-latitude-light','marlborough-beyond-citrus','pinot-place-table','private-cellar-circle']
+const legacyDemoWorkspaceIds = ['workspace-member','workspace-host','workspace-winery','workspace-merchant','workspace-admin']
 
 const uniquePairs = <T extends Record<string, string>>(rows: T[], key: (row: T) => string) => {
   const seen = new Set<string>()
@@ -184,7 +187,10 @@ try {
     if (lessonRegionRows.length) await tx.insert(lessonRegions).values(lessonRegionRows)
     if (lessonGrapeRows.length) await tx.insert(lessonGrapes).values(lessonGrapeRows)
 
-    await tx.insert(workspaces).values(demoWorkspaces.map(workspace => ({
+    await tx.delete(tastingEvents).where(inArray(tastingEvents.id,legacyDemoEventIds))
+    await tx.delete(workspaces).where(inArray(workspaces.id,legacyDemoWorkspaceIds))
+
+    if (demoWorkspaces.length) await tx.insert(workspaces).values(demoWorkspaces.map(workspace => ({
       id: workspace.id,
       name: workspace.name,
       role: workspace.role,
@@ -197,7 +203,7 @@ try {
       set: { name: sql`excluded.name`, role: sql`excluded.role`, verification: sql`excluded.verification`, state: sql`excluded.state`, content: sql`excluded.content`, updatedAt: now },
     })
 
-    await tx.insert(tastingEvents).values(demoEvents.map(event => ({
+    if (demoEvents.length) await tx.insert(tastingEvents).values(demoEvents.map(event => ({
       id: event.id,
       workspaceId: event.workspaceId,
       title: event.title,
@@ -212,6 +218,17 @@ try {
       target: tastingEvents.id,
       set: { workspaceId: sql`excluded.workspace_id`, title: sql`excluded.title`, summary: sql`excluded.summary`, modality: sql`excluded.modality`, visibility: sql`excluded.visibility`, state: sql`excluded.state`, startsAt: sql`excluded.starts_at`, content: sql`excluded.content`, updatedAt: now },
     })
+
+    await tx.insert(platformStates).values([
+      { key:'partnerProfiles', value:demoPartnerProfiles },
+      { key:'events', value:demoEvents },
+      { key:'winerySections', value:demoWinerySections },
+      { key:'offers', value:demoOffers },
+      { key:'placements', value:demoPlacements },
+      { key:'approvals', value:demoApprovals },
+      { key:'feeConfiguration', value:demoFeeConfiguration },
+      { key:'additions', value:[] },
+    ]).onConflictDoNothing()
 
     const catalogCounts = { ...counts, articles:learningModules.length, legacyArticles:articles.length }
     const catalogPayload = { regions, grapes, producers, wines, aromas, lessons:learningModules, legacyArticles:articles }

@@ -1,4 +1,4 @@
-import { useMemo, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type FormEvent, type ReactNode } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
   ArrowRight,
@@ -38,13 +38,16 @@ import {
 import { producers, regions, wines } from "./data/catalog";
 import { repository } from "./data/repository";
 import { useLocale } from "./i18n";
+import { useAuth } from "./auth";
 import { useUiCopy } from "./uiCopy";
 import type {
+  ApprovalRecord,
   BusinessWorkspace,
   EventModality,
   EventVisibility,
   MerchantOffer,
   PartnerProfile,
+  PlatformFeeConfiguration,
   PromotionalPlacement,
   PublishState,
   TastingEvent,
@@ -494,9 +497,10 @@ export function EventDetail() {
       </div>
     );
   const content = eventCopy(event, ui);
-  const host = demoPartnerProfiles.find(
+  const host = repository.partnerProfiles.all(demoPartnerProfiles).find(
     (item) => item.id === event.hostProfileId,
-  )!;
+  );
+  const hostWorkspace=repository.workspaces.all(demoWorkspaces).find(item=>item.id===event.workspaceId)
   const region = regions.find((item) => item.id === event.regionId);
   const eventWines = wines.filter((wine) =>
     event.featuredWineIds.includes(wine.id),
@@ -529,10 +533,10 @@ export function EventDetail() {
           </div>
           <h1>{content.title}</h1>
           <p>{content.summary}</p>
-          <Link to={`/hosts/${host.id}`}>
+          {host?<Link to={`/hosts/${host.id}`}>
             {ui.hostedBy} {host.displayName}
             <ArrowRight />
-          </Link>
+          </Link>:<span>{ui.hostedBy} {hostWorkspace?.name??ui.professionalHost}</span>}
         </div>
         <div className="event-ticket-panel">
           <span>{ui.ticket}</span>
@@ -883,8 +887,12 @@ export function PartnerProfilePage() {
 }
 
 function useWorkspace(preferred?: BusinessWorkspace["role"]) {
-  const all = repository.workspaces.all(demoWorkspaces);
-  const targetRole = preferred ?? "admin";
+  const {user}=useAuth()
+  const available = repository.workspaces.all(demoWorkspaces);
+  const permitted = user?.roles.includes('admin')?available:available.filter(workspace=>user?.workspaceIds.includes(workspace.id))
+  const targetRole = preferred ?? user?.role ?? "member";
+  const fallback:BusinessWorkspace={id:'workspace-unavailable',name:'Workspace',role:targetRole,verification:'unverified',publishState:'draft',plan:targetRole==='member'?'member':'studio',planStatus:'active',checklist:[]}
+  const all=permitted.length?permitted:[fallback]
   const initial =
     all.find(
       (item) =>
@@ -911,6 +919,7 @@ function StudioNav({ workspace }: { workspace: BusinessWorkspace }) {
     <nav className="studio-nav">
       <Link to="/studio">{ui.workspace}</Link>
       <Link to="/studio/events">{ui.eventsNav}</Link>
+      {workspace.role !== "member" && workspace.role !== "admin" && <Link to="/studio/profile">{ui.partnerProfile}</Link>}
       {workspace.role === "winery" && (
         <Link to="/studio/site">{ui.siteComposer}</Link>
       )}
@@ -920,10 +929,7 @@ function StudioNav({ workspace }: { workspace: BusinessWorkspace }) {
           <Link to="/studio/offers">{ui.offersTitle}</Link>
         </>
       )}
-      {(workspace.role === "admin" ||
-        workspace.role === "host" ||
-        workspace.role === "winery" ||
-        workspace.role === "merchant") && (
+      {workspace.role === "admin" && (
         <Link to="/studio/placements">{ui.placementTitle}</Link>
       )}
     </nav>
@@ -1084,6 +1090,13 @@ export function StudioHome() {
             <strong>{ui.manageEvents}</strong>
             <ArrowRight />
           </Link>
+          {workspace.role !== "member" && workspace.role !== "admin" && (
+            <Link to="/studio/profile">
+              <Users />
+              <strong>{ui.partnerProfile}</strong>
+              <ArrowRight />
+            </Link>
+          )}
           {(workspace.role === "winery" || workspace.role === "merchant") && (
             <Link to="/studio/site">
               <Layers3 />
@@ -1098,7 +1111,7 @@ export function StudioHome() {
               <ArrowRight />
             </Link>
           )}
-          {workspace.role !== "member" && (
+          {workspace.role === "admin" && (
             <Link to="/studio/placements">
               <Sparkles />
               <strong>{ui.managePlacements}</strong>
@@ -1119,8 +1132,57 @@ export function StudioHome() {
   );
 }
 
+export function StudioProfile(){
+  const {all,workspace,setWorkspaceId}=useWorkspace()
+  const {locale}=useLocale()
+  const {user}=useAuth()
+  const ui=useUiCopy()
+  const copy={
+    en:{title:'Partner profile editor',body:'Define the public identity attached to this workspace. Editorial catalogue facts remain separate and protected.',tagline:'Short promise',story:'Profile story',markets:'Markets, comma separated',languages:'Languages, comma separated',expertise:'Expertise, comma separated',service:'Service area',contact:'Contact URL',shop:'Shop URL',producer:'Linked catalogue winery',none:'No catalogue winery linked',save:'Save profile',saved:'Profile saved and sent for review',choose:'Choose a host, winery or merchant workspace to edit its profile.'},
+    de:{title:'Partnerprofil-Editor',body:'Definiere die öffentliche Identität dieses Workspaces. Redaktionelle Katalogfakten bleiben getrennt und geschützt.',tagline:'Kurzes Versprechen',story:'Profilgeschichte',markets:'Märkte, kommagetrennt',languages:'Sprachen, kommagetrennt',expertise:'Expertise, kommagetrennt',service:'Einsatzgebiet',contact:'Kontakt-URL',shop:'Shop-URL',producer:'Verknüpftes Katalog-Weingut',none:'Kein Katalog-Weingut verknüpft',save:'Profil speichern',saved:'Profil gespeichert und zur Prüfung gesendet',choose:'Wähle einen Host-, Weinguts- oder Händler-Workspace, um dessen Profil zu bearbeiten.'},
+    fr:{title:'Éditeur de profil partenaire',body:'Définissez l’identité publique liée à cet espace. Les faits éditoriaux du catalogue restent séparés et protégés.',tagline:'Promesse courte',story:'Histoire du profil',markets:'Marchés, séparés par des virgules',languages:'Langues, séparées par des virgules',expertise:'Expertise, séparée par des virgules',service:'Zone de service',contact:'URL de contact',shop:'URL de boutique',producer:'Domaine du catalogue relié',none:'Aucun domaine relié',save:'Enregistrer le profil',saved:'Profil enregistré et envoyé en révision',choose:'Choisissez un espace hôte, domaine ou marchand pour modifier son profil.'},
+    es:{title:'Editor de perfil de socio',body:'Define la identidad pública vinculada a este espacio. Los datos editoriales del catálogo siguen separados y protegidos.',tagline:'Promesa breve',story:'Historia del perfil',markets:'Mercados, separados por comas',languages:'Idiomas, separados por comas',expertise:'Especialidad, separada por comas',service:'Área de servicio',contact:'URL de contacto',shop:'URL de tienda',producer:'Bodega del catálogo vinculada',none:'Sin bodega vinculada',save:'Guardar perfil',saved:'Perfil guardado y enviado a revisión',choose:'Elige un espacio de anfitrión, bodega o comerciante para editar su perfil.'},
+  }[locale]
+  const [profiles,setProfiles]=useState(()=>repository.partnerProfiles.all(demoPartnerProfiles))
+  const existing=profiles.find(item=>item.workspaceId===workspace.id)
+  const validRole=workspace.role==='host'||workspace.role==='winery'||workspace.role==='merchant'
+  const profileKind:PartnerProfile['kind']=workspace.role==='winery'?'winery':workspace.role==='merchant'?'merchant':'host'
+  const blank:PartnerProfile={id:`profile-${workspace.id}`,workspaceId:workspace.id,kind:profileKind,displayName:workspace.name,tagline:'',story:'',languages:[],markets:[],serviceArea:'',verification:'unverified',publishState:'draft',expertise:[]}
+  const [draft,setDraft]=useState<PartnerProfile>(existing??blank)
+  const [saved,setSaved]=useState(false)
+  useEffect(()=>{const found=profiles.find(item=>item.workspaceId===workspace.id);setDraft(found??{...blank,id:`profile-${workspace.id}`,workspaceId:workspace.id,kind:profileKind,displayName:workspace.name});setSaved(false)},[workspace.id])
+  const list=(value:string)=>value.split(',').map(item=>item.trim()).filter(Boolean)
+  const submit=(event:FormEvent)=>{
+    event.preventDefault()
+    const nextProfile:PartnerProfile={...draft,publishState:user?.roles.includes('admin')?draft.publishState:'draft',verification:user?.roles.includes('admin')?draft.verification:'pending'}
+    const next=profiles.some(item=>item.id===nextProfile.id)?profiles.map(item=>item.id===nextProfile.id?nextProfile:item):[...profiles,nextProfile]
+    repository.partnerProfiles.save(next);setProfiles(next);setDraft(nextProfile)
+    if(!user?.roles.includes('admin')){
+      const approvals=repository.approvals.all(demoApprovals),approvalId=`profile-review-${nextProfile.id}`
+      const record:ApprovalRecord={id:approvalId,workspaceId:workspace.id,kind:workspace.role==='winery'?'winery-claim':'review',subjectId:nextProfile.id,title:nextProfile.displayName,submittedAt:new Date().toISOString(),state:'pending'}
+      repository.approvals.save(approvals.some(item=>item.id===approvalId)?approvals.map(item=>item.id===approvalId?record:item):[...approvals,record])
+    }
+    setSaved(true)
+  }
+  return <div className="page business-page"><StudioHeader workspace={workspace} all={all} setWorkspaceId={setWorkspaceId} title={copy.title} body={copy.body}/>{!validRole?<div className="business-empty"><Users/><p>{copy.choose}</p></div>:<form className="partner-profile-editor" onSubmit={submit}>
+    <label>{ui.heading}<input required value={draft.displayName} onChange={event=>setDraft({...draft,displayName:event.target.value})}/></label>
+    <label>{copy.tagline}<input required value={draft.tagline} onChange={event=>setDraft({...draft,tagline:event.target.value})}/></label>
+    <label className="wide">{copy.story}<textarea required value={draft.story} onChange={event=>setDraft({...draft,story:event.target.value})}/></label>
+    <label>{copy.languages}<input value={draft.languages.join(', ')} onChange={event=>setDraft({...draft,languages:list(event.target.value)})}/></label>
+    <label>{copy.markets}<input value={draft.markets.join(', ')} onChange={event=>setDraft({...draft,markets:list(event.target.value)})}/></label>
+    <label>{copy.expertise}<input value={draft.expertise.join(', ')} onChange={event=>setDraft({...draft,expertise:list(event.target.value)})}/></label>
+    <label>{copy.service}<input value={draft.serviceArea} onChange={event=>setDraft({...draft,serviceArea:event.target.value})}/></label>
+    <label>{copy.contact}<input type="url" value={draft.contactUrl??''} onChange={event=>setDraft({...draft,contactUrl:event.target.value||undefined})}/></label>
+    <label>{copy.shop}<input type="url" value={draft.shopUrl??''} onChange={event=>setDraft({...draft,shopUrl:event.target.value||undefined})}/></label>
+    {workspace.role==='winery'&&<label className="wide">{copy.producer}<select value={draft.producerId??''} onChange={event=>setDraft({...draft,producerId:event.target.value||undefined})}><option value="">{copy.none}</option>{producers.map(producer=><option value={producer.id} key={producer.id}>{producer.name}</option>)}</select></label>}
+    {user?.roles.includes('admin')&&<><label>{ui.publishState}<select value={draft.publishState} onChange={event=>setDraft({...draft,publishState:event.target.value as PublishState})}><option value="draft">{ui.draft}</option><option value="published">{ui.published}</option><option value="paused">{ui.paused}</option></select></label><label>{ui.verification}<select value={draft.verification} onChange={event=>setDraft({...draft,verification:event.target.value as PartnerProfile['verification']})}><option value="unverified">{ui.unverified}</option><option value="pending">{ui.verificationPending}</option><option value="verified">{ui.verified}</option></select></label></>}
+    <footer className="wide"><button className="primary-button"><Check/>{copy.save}</button>{saved&&<span><Check/>{copy.saved}</span>}</footer>
+  </form>}</div>
+}
+
 export function StudioEvents() {
   const { all, workspace, setWorkspaceId } = useWorkspace("host");
+  const {user}=useAuth()
   const { locale } = useLocale();
   const ui = useUiCopy();
   const [events, setEvents] = useState(() => repository.events.all(demoEvents));
@@ -1161,9 +1223,7 @@ export function StudioEvents() {
     const next: TastingEvent = {
       id: `event-${crypto.randomUUID()}`,
       workspaceId: workspace.id,
-      hostProfileId:
-        demoPartnerProfiles.find((profile) => profile.workspaceId === workspace.id)?.id ??
-        "atlas-tasting-studio",
+      hostProfileId:repository.partnerProfiles.all(demoPartnerProfiles).find((profile) => profile.workspaceId === workspace.id)?.id ?? workspace.id,
       title,
       summary,
       modality,
@@ -1186,8 +1246,9 @@ export function StudioEvents() {
       },
       cancellationTerms: "",
       journeyId: journeyId || undefined,
+      journey: journeys.find(item=>item.id===journeyId),
       featuredWineIds,
-      inviteCode: `VINE-${Math.random().toString(36).slice(2, 6).toUpperCase()}`,
+      inviteCode: Array.from(crypto.getRandomValues(new Uint8Array(6)),value=>'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'[value%32]).join(''),
     };
     const updated = [...events, next];
     repository.events.save(updated);
@@ -1199,6 +1260,12 @@ export function StudioEvents() {
     setCreating(false);
   };
   const toggle = (id: string) => {
+    const target=events.find(item=>item.id===id)
+    if(target?.publishState!=='published'&&!user?.roles.includes('admin')){
+      const approvals=repository.approvals.all(demoApprovals),approvalId=`event-review-${id}`,record={id:approvalId,workspaceId:workspace.id,kind:'public-event' as const,subjectId:id,title:target?.title??id,submittedAt:new Date().toISOString(),state:'pending' as const}
+      repository.approvals.save(approvals.some(item=>item.id===approvalId)?approvals.map(item=>item.id===approvalId?record:item):[...approvals,record])
+      return
+    }
     const updated = events.map((item) =>
       item.id === id
         ? {
@@ -1792,6 +1859,7 @@ function OfferRows({
 
 export function StudioOffers() {
   const { all, workspace, setWorkspaceId } = useWorkspace("merchant");
+  const {user}=useAuth()
   const ui = useUiCopy();
   const [offers, setOffers] = useState(() => repository.offers.all(demoOffers));
   const [wineId, setWineId] = useState(wines[0].id);
@@ -1823,7 +1891,13 @@ export function StudioOffers() {
     setUrl("https://");
     setPrice("0");
   };
-  const toggle = (id: string) =>
+  const toggle = (id: string) => {
+    const target=offers.find(item=>item.id===id)
+    if(target?.publishState!=='published'&&!user?.roles.includes('admin')){
+      const approvals=repository.approvals.all(demoApprovals),approvalId=`offer-review-${id}`,record={id:approvalId,workspaceId:workspace.id,kind:'offer' as const,subjectId:id,title:wines.find(item=>item.id===target?.wineId)?.name??id,submittedAt:new Date().toISOString(),state:'pending' as const}
+      repository.approvals.save(approvals.some(item=>item.id===approvalId)?approvals.map(item=>item.id===approvalId?record:item):[...approvals,record])
+      return
+    }
     persist(
       offers.map((item) =>
         item.id === id
@@ -1835,7 +1909,8 @@ export function StudioOffers() {
             }
           : item,
       ),
-    );
+    )
+  };
   return (
     <div className="page business-page">
       <StudioHeader
@@ -1909,6 +1984,12 @@ export function StudioPlacements() {
   const [placements, setPlacements] = useState(() =>
     repository.placements.all(demoPlacements),
   );
+  const profiles=repository.partnerProfiles.all(demoPartnerProfiles)
+  const [profileId,setProfileId]=useState(profiles[0]?.id??'')
+  const [surface,setSurface]=useState<PromotionalPlacement['surface']>('home')
+  const [disclosure,setDisclosure]=useState<PromotionalPlacement['disclosure']>('featured')
+  const [startsAt,setPlacementStart]=useState(new Date().toISOString().slice(0,10))
+  const [endsAt,setPlacementEnd]=useState(new Date(Date.now()+30*86400000).toISOString().slice(0,10))
   const managed =
     workspace.role === "admin"
       ? placements
@@ -1923,6 +2004,12 @@ export function StudioPlacements() {
         item.id === id ? { ...item, ...change } : item,
       ),
     );
+  const addPlacement=(event:FormEvent)=>{
+    event.preventDefault()
+    const profile=profiles.find(item=>item.id===profileId)
+    if(!profile)return
+    persist([...placements,{id:crypto.randomUUID(),workspaceId:profile.workspaceId,partnerProfileId:profile.id,surface,startsAt,endsAt,priority:1,disclosure,enabled:true}])
+  }
   return (
     <div className="page business-page">
       <StudioHeader
@@ -1932,9 +2019,17 @@ export function StudioPlacements() {
         title={ui.placementTitle}
         body={ui.placementBody}
       />
+      {workspace.role==='admin'&&profiles.length>0&&<form className="placement-composer" onSubmit={addPlacement}>
+        <label>{ui.partnerProfile}<select value={profileId} onChange={event=>setProfileId(event.target.value)}>{profiles.map(profile=><option value={profile.id} key={profile.id}>{profile.displayName}</option>)}</select></label>
+        <label>{ui.surface}<select value={surface} onChange={event=>setSurface(event.target.value as PromotionalPlacement['surface'])}><option value="home">{ui.homeLabel}</option><option value="map">{ui.worldAtlas}</option><option value="region">{ui.region}</option><option value="search">{ui.search}</option></select></label>
+        <label>{ui.commercialLayer}<select value={disclosure} onChange={event=>setDisclosure(event.target.value as PromotionalPlacement['disclosure'])}><option value="featured">{ui.featured}</option><option value="sponsored">{ui.sponsored}</option></select></label>
+        <label>{ui.starts}<input type="date" required value={startsAt} onChange={event=>setPlacementStart(event.target.value)}/></label>
+        <label>{ui.ends}<input type="date" required min={startsAt} value={endsAt} onChange={event=>setPlacementEnd(event.target.value)}/></label>
+        <button className="primary-button"><Plus/>{ui.managePlacements}</button>
+      </form>}
       <section className="placement-list">
         {managed.map((item) => {
-          const profile = demoPartnerProfiles.find(
+          const profile = repository.partnerProfiles.all(demoPartnerProfiles).find(
             (profile) => profile.id === item.partnerProfileId,
           );
           return (
@@ -1950,6 +2045,7 @@ export function StudioPlacements() {
                 >
                   {item.enabled ? ui.enabled : ui.disabled}
                 </button>
+                <button aria-label={ui.deleteLabel} onClick={()=>persist(placements.filter(candidate=>candidate.id!==item.id))}><Trash2/></button>
               </header>
               <div>
                 <label>
@@ -2022,10 +2118,24 @@ export function BusinessAdminPanel() {
   const [approvals, setApprovals] = useState(() =>
     repository.approvals.all(demoApprovals),
   );
-  const [fees] = useState(() =>
+  const [fees, setFees] = useState(() =>
     repository.feeConfiguration.get(demoFeeConfiguration),
   );
+  const saveFees=(next:PlatformFeeConfiguration)=>{setFees(next);repository.feeConfiguration.save(next)}
   const update = (id: string, state: "approved" | "rejected") => {
+    const approval=approvals.find(item=>item.id===id)
+    if(approval){
+      if(approval.kind==='public-event'){
+        const events=repository.events.all(demoEvents)
+        repository.events.save(events.map(item=>item.id===approval.subjectId?{...item,publishState:state==='approved'?'published':'draft'}:item))
+      }else if(approval.kind==='offer'){
+        const offers=repository.offers.all(demoOffers)
+        repository.offers.save(offers.map(item=>item.id===approval.subjectId?{...item,publishState:state==='approved'?'published':'draft'}:item))
+      }else if(approval.kind==='review'||approval.kind==='winery-claim'){
+        const profiles=repository.partnerProfiles.all(demoPartnerProfiles)
+        repository.partnerProfiles.save(profiles.map(item=>item.id===approval.subjectId?{...item,publishState:state==='approved'?'published':'draft',verification:state==='approved'?'verified':'unverified'}:item))
+      }
+    }
     const next = approvals.map((item) =>
       item.id === id ? { ...item, state } : item,
     );
@@ -2071,18 +2181,18 @@ export function BusinessAdminPanel() {
         <aside>
           <span>{ui.commercialLayer}</span>
           <h3>{ui.configurable}</h3>
-          <dl>
+          <dl className="fee-controls">
             <div>
               <dt>{ui.recurringPlans}</dt>
-              <dd>{fees.recurringPartnerPlans ? ui.enabled : ui.disabled}</dd>
+              <dd><input aria-label={ui.recurringPlans} type="checkbox" checked={fees.recurringPartnerPlans} onChange={event=>saveFees({...fees,recurringPartnerPlans:event.target.checked})}/></dd>
             </div>
             <div>
               <dt>{ui.ticketFees}</dt>
-              <dd>{fees.ticketFeeBps / 100}%</dd>
+              <dd><input aria-label={ui.ticketFees} type="number" min="0" max="30" step=".1" value={fees.ticketFeeBps/100} onChange={event=>saveFees({...fees,ticketFeeBps:Math.round(Number(event.target.value)*100)})}/>%</dd>
             </div>
             <div>
               <dt>{ui.affiliateLinks}</dt>
-              <dd>{fees.merchantAffiliateLinks ? ui.enabled : ui.disabled}</dd>
+              <dd><input aria-label={ui.affiliateLinks} type="checkbox" checked={fees.merchantAffiliateLinks} onChange={event=>saveFees({...fees,merchantAffiliateLinks:event.target.checked})}/></dd>
             </div>
             <div>
               <dt>{ui.paymentFuture}</dt>
@@ -2098,20 +2208,25 @@ export function BusinessAdminPanel() {
 
 export function FeaturedBusinessHome() {
   const ui = useUiCopy();
+  const today=new Date().toISOString().slice(0,10)
+  const profiles=repository.partnerProfiles.all(demoPartnerProfiles)
+  const placement=repository.placements.all(demoPlacements).filter(item=>item.enabled&&item.surface==='home'&&item.startsAt<=today&&item.endsAt>=today).sort((a,b)=>b.priority-a.priority)[0]
+  const profile=placement?profiles.find(item=>item.id===placement.partnerProfileId&&item.publishState==='published'):undefined
+  if(!profile)return null
   return (
     <section className="featured-business-home">
       <div>
         <span className="placement-disclosure featured">{ui.featured}</span>
-        <small>{ui.professionalHost}</small>
-        <h2>{ui.homePlacementTitle}</h2>
-        <p>{ui.homePlacementBody}</p>
+        <small>{profile.kind==='host'?ui.professionalHost:profile.kind==='winery'?ui.winery:ui.merchant}</small>
+        <h2>{profile.displayName}</h2>
+        <p>{profile.tagline}</p>
         <div>
           <Link to="/events" className="primary-button">
             {ui.viewEvents}
             <ArrowRight />
           </Link>
-          <Link to="/hosts/atlas-tasting-studio">
-            {ui.hostProfile}
+          <Link to={profile.kind==='host'?`/hosts/${profile.id}`:`/partners/${profile.id}`}>
+            {profile.kind==='host'?ui.hostProfile:ui.partnerProfile}
             <ArrowRight />
           </Link>
         </div>
@@ -2137,7 +2252,7 @@ export function AtlasCommercialPlacements() {
   return (
     <div className="atlas-commercial-overlay">
       {placements.map((item) => {
-        const profile = demoPartnerProfiles.find(
+        const profile = repository.partnerProfiles.all(demoPartnerProfiles).find(
           (profile) => profile.id === item.partnerProfileId,
         );
         return profile ? (

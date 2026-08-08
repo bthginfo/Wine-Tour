@@ -12,6 +12,7 @@ import { validateCatalog } from './data/catalog'
 import { validateBusinessData } from './data/business'
 import { businessUiCopyCompleteness, uiCopyCompleteness } from './uiCopy'
 import { learningValidation } from './learningCurriculum'
+import { validateClassicBlends } from './BlendConnections'
 
 const learningAudit=learningValidation()
 const errors=[
@@ -21,6 +22,7 @@ const errors=[
   ...Object.entries(businessUiCopyCompleteness).flatMap(([locale,keys])=>keys.map(key=>`Incomplete ${locale} business UI copy: ${key}`)),
   ...(learningAudit.modules===11?[]:[`Expected 11 fully authored learning modules, found ${learningAudit.modules}`]),
   ...learningAudit.issues,
+  ...validateClassicBlends(),
 ]
 if(errors.length) throw new Error(`Content validation failed:\n${errors.join('\n')}`)
 

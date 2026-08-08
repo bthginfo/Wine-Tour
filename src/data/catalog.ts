@@ -41,7 +41,7 @@ const countryCenters: Record<string, [number, number]> = {
 }
 
 const grapesRaw = [
-  ['Cabernet Sauvignon','red'],['Merlot','red'],['Cabernet Franc','red'],['Petit Verdot','red'],['Pinot Noir','red'],['Pinot Meunier','red'],['Gamay','red'],['Syrah / Shiraz','red'],['Grenache / Garnacha','red'],['Mourvèdre / Monastrell','red'],['Cinsault','red'],['Carignan','red'],['Tempranillo','red'],['Sangiovese','red'],['Nebbiolo','red'],['Barbera','red'],['Corvina','red'],['Aglianico','red'],['Montepulciano','red'],['Nero d’Avola','red'],['Nerello Mascalese','red'],['Malbec','red'],['Carmenère','red'],['Tannat','red'],['Pinotage','red'],['Zinfandel / Primitivo','red'],['Blaufränkisch / Lemberger','red'],['Zweigelt','red'],['Xinomavro','red'],['Agiorgitiko','red'],['Saperavi','red'],['Areni Noir','red'],['Touriga Nacional','red'],['Baga','red'],['Mencía','red'],['Listán Negro','red'],['País','red'],['Plavac Mali','red'],['Kalecik Karası','red'],['Öküzgözü','red'],['Mavro','red'],['Poulsard','red'],['Trousseau','red'],['Graciano','red'],
+  ['Cabernet Sauvignon','red'],['Merlot','red'],['Cabernet Franc','red'],['Petit Verdot','red'],['Pinot Noir','red'],['Pinot Meunier','red'],['Gamay','red'],['Syrah / Shiraz','red'],['Grenache / Garnacha','red'],['Mourvèdre / Monastrell','red'],['Cinsault','red'],['Carignan','red'],['Tempranillo','red'],['Sangiovese','red'],['Nebbiolo','red'],['Barbera','red'],['Corvina','red'],['Corvinone','red'],['Rondinella','red'],['Molinara','red'],['Aglianico','red'],['Montepulciano','red'],['Nero d’Avola','red'],['Nerello Mascalese','red'],['Malbec','red'],['Carmenère','red'],['Tannat','red'],['Pinotage','red'],['Zinfandel / Primitivo','red'],['Blaufränkisch / Lemberger','red'],['Zweigelt','red'],['Xinomavro','red'],['Agiorgitiko','red'],['Saperavi','red'],['Areni Noir','red'],['Touriga Nacional','red'],['Baga','red'],['Mencía','red'],['Listán Negro','red'],['País','red'],['Plavac Mali','red'],['Kalecik Karası','red'],['Öküzgözü','red'],['Mavro','red'],['Poulsard','red'],['Trousseau','red'],['Graciano','red'],['Maturana Tinta','red'],
   ['Teroldego','red'],['Frappato','red'],['Mondeuse','red'],
   ['Chardonnay','white'],['Sauvignon Blanc','white'],['Riesling','white'],['Chenin Blanc','white'],['Sémillon','white'],['Pinot Gris','white'],['Pinot Blanc','white'],['Grüner Veltliner','white'],['Silvaner','white'],['Viognier','white'],['Marsanne','white'],['Roussanne','white'],['Gewürztraminer','white'],['Albariño / Alvarinho','white'],['Godello','white'],['Verdejo','white'],['Viura / Macabeo','white'],['Furmint','white'],['Assyrtiko','white'],['Carricante','white'],['Garganega','white'],['Verdicchio','white'],['Vermentino','white'],['Fiano','white'],['Arneis','white'],['Cortese','white'],['Glera','white'],['Muscat','white'],['Palomino','white'],['Pedro Ximénez','white'],['Rkatsiteli','white'],['Mtsvane','white'],['Kisi','white'],['Koshu','white'],['Torrontés','white'],['Sercial','white'],['Verdelho','white'],['Bual','white'],['Malmsey','white'],['Ribolla Gialla','white'],['Malvasia Istriana','white'],['Graševina','white'],['Narince','white'],['Xynisteri','white'],['Savagnin','white'],['Aligoté','white'],['Muscadelle','white'],['Xarel-lo','white'],['Parellada','white'],['Malvasia','white'],['Clairette','white'],['Grillo','white'],['Grenache Blanc','white'],['Obaideh','white'],['Merwah','white'],['Melon de Bourgogne','white'],['Petit Manseng','white'],['Gros Manseng','white'],['Jacquère','white'],['Hondarrabi Zuri','white']
 ] as const
@@ -174,8 +174,9 @@ function aromaIdsForGrape(name:string,color:'red'|'white') {
 const grapeOrigins: Record<string,string> = {
   'cabernet-sauvignon':'Bordeaux, France', merlot:'Bordeaux, France', 'cabernet-franc':'South-west France and the Loire', 'petit-verdot':'Bordeaux, France',
   'pinot-noir':'Bourgogne, France', 'pinot-meunier':'France', gamay:'Bourgogne and Beaujolais, France', 'syrah-shiraz':'Northern Rhône, France',
+  corvina:'Valpolicella, Italy',corvinone:'Valpolicella, Italy',rondinella:'Valpolicella, Italy',molinara:'Valpolicella, Italy','maturana-tinta':'Rioja, Spain',
   'grenache-garnacha':'Aragón, Spain', 'mourvedre-monastrell':'Mediterranean Spain', cinsault:'Southern France', carignan:'Aragón and the western Mediterranean',
-  tempranillo:'Northern Spain', sangiovese:'Central Italy', nebbiolo:'Piemonte, Italy', barbera:'Piemonte, Italy', corvina:'Veneto, Italy',
+  tempranillo:'Northern Spain', sangiovese:'Central Italy', nebbiolo:'Piemonte, Italy', barbera:'Piemonte, Italy',
   aglianico:'Southern Italy, with ancient Greek ancestry', montepulciano:'Central Italy', 'nero-d-avola':'Sicily, Italy', 'nerello-mascalese':'Sicily, Italy',
   malbec:'South-west France', carmenere:'Bordeaux, France', tannat:'South-west France', pinotage:'South Africa', 'zinfandel-primitivo':'Croatian Adriatic ancestry',
   'blaufrankisch-lemberger':'Central Europe', zweigelt:'Austria', xinomavro:'Northern Greece', agiorgitiko:'Peloponnese, Greece', saperavi:'Georgia',
@@ -264,7 +265,7 @@ const regionGrapes: Record<string, string[]> = {
   'saint-emilion':['Merlot','Cabernet Franc','Cabernet Sauvignon'], 'graves-sauternes':['Sémillon','Sauvignon Blanc','Muscadelle'],
   bourgogne:['Pinot Noir','Chardonnay'], chablis:['Chardonnay'], 'cote-de-nuits':['Pinot Noir'], champagne:['Chardonnay','Pinot Noir','Pinot Meunier'],
   vouvray:['Chenin Blanc'], 'centre-loire':['Sauvignon Blanc','Pinot Noir'], mosel:['Riesling'], rheingau:['Riesling','Pinot Noir'],
-  barolo:['Nebbiolo'], barbaresco:['Nebbiolo'], 'chianti-classico':['Sangiovese'], montalcino:['Sangiovese'], valpolicella:['Corvina'], soave:['Garganega'],
+  barolo:['Nebbiolo'], barbaresco:['Nebbiolo'], 'chianti-classico':['Sangiovese'], montalcino:['Sangiovese'], valpolicella:['Corvina','Corvinone','Rondinella','Molinara'], soave:['Garganega'],
   etna:['Nerello Mascalese','Carricante'], 'rioja-alta':['Tempranillo','Grenache / Garnacha','Viura / Macabeo'], 'ribera-del-duero':['Tempranillo'],
   jerez:['Palomino','Pedro Ximénez','Muscat'], douro:['Touriga Nacional'], madeira:['Sercial','Verdelho','Bual','Malmsey'],
   oakville:['Cabernet Sauvignon','Cabernet Franc','Petit Verdot','Sauvignon Blanc'], 'napa-valley':['Cabernet Sauvignon','Chardonnay','Sauvignon Blanc'],
@@ -286,7 +287,7 @@ const regionGrapes: Record<string, string[]> = {
   'trentino-alto-adige':['Pinot Gris','Chardonnay','Teroldego'],'franciacorta':['Chardonnay','Pinot Noir'],'valtellina':['Nebbiolo'],'emilia-romagna':['Barbera','Sangiovese'],
   marche:['Verdicchio','Montepulciano'],abruzzo:['Montepulciano'],campania:['Aglianico','Fiano'],puglia:['Zinfandel / Primitivo','Aglianico'],
   vittoria:['Nero d’Avola','Frappato'],marsala:['Grillo'],sardegna:['Vermentino','Grenache / Garnacha','Carignan'],
-  rioja:['Tempranillo','Grenache / Garnacha','Graciano','Viura / Macabeo'],'rioja-alavesa':['Tempranillo','Grenache / Garnacha','Viura / Macabeo'],'rioja-oriental':['Grenache / Garnacha','Tempranillo','Graciano'],
+  rioja:['Tempranillo','Grenache / Garnacha','Graciano','Carignan','Maturana Tinta','Viura / Macabeo'],'rioja-alavesa':['Tempranillo','Grenache / Garnacha','Graciano','Carignan','Maturana Tinta','Viura / Macabeo'],'rioja-oriental':['Grenache / Garnacha','Tempranillo','Graciano','Carignan','Maturana Tinta'],
   'priorat-montsant':['Grenache / Garnacha','Carignan','Syrah / Shiraz'],'rias-baixas':['Albariño / Alvarinho'],rueda:['Verdejo','Sauvignon Blanc','Viura / Macabeo'],
   penedes:['Xarel-lo','Parellada','Viura / Macabeo'],bierzo:['Mencía','Godello'],toro:['Tempranillo'],
   'jumilla-yecla':['Mourvèdre / Monastrell'],navarra:['Grenache / Garnacha','Tempranillo'],'basque-country-txakoli':['Hondarrabi Zuri'],
@@ -437,7 +438,7 @@ const wineSpecs: WineSpec[] = [
   ['Sauvignon Blanc','Cloudy Bay','marlborough',['Sauvignon Blanc'],'white'], ['Te Koko','Cloudy Bay','marlborough',['Sauvignon Blanc'],'white'],
   ['Barolo Cascina Francia','Giacomo Conterno','barolo',['Nebbiolo'],'red'], ['Barbaresco','Gaja','barbaresco',['Nebbiolo'],'red'],
   ['Chianti Classico Riserva','Antinori','chianti-classico',['Sangiovese'],'red'], ['Brunello di Montalcino','Biondi-Santi','montalcino',['Sangiovese'],'red'],
-  ['Amarone della Valpolicella','Giuseppe Quintarelli','valpolicella',['Corvina'],'red'], ['Soave Classico','Pieropan','soave',['Garganega'],'white'],
+  ['Amarone della Valpolicella','Giuseppe Quintarelli','valpolicella',['Corvina','Corvinone','Rondinella'],'red'], ['Soave Classico','Pieropan','soave',['Garganega'],'white'],
   ['Etna Rosso','Benanti','etna',['Nerello Mascalese'],'red'], ['Brunello Riserva','Biondi-Santi','montalcino',['Sangiovese'],'red'],
   ['Rioja Gran Reserva 904','La Rioja Alta','rioja-alta',['Tempranillo','Grenache / Garnacha'],'red'], ['Tondonia Reserva','López de Heredia','rioja-alta',['Tempranillo','Grenache / Garnacha'],'red'],
   ['Único','Vega Sicilia','ribera-del-duero',['Tempranillo','Cabernet Sauvignon'],'red'], ['Fino Inocente','Valdespino','jerez',['Palomino'],'fortified'],
@@ -538,7 +539,7 @@ const wineSpecs: WineSpec[] = [
   ['Rosso di Montalcino','Biondi-Santi','montalcino',['Sangiovese'],'red'],
   ['Sassicaia','Tenuta San Guido','bolgheri',['Cabernet Sauvignon','Cabernet Franc'],'red'],
   ['Guidalberto','Tenuta San Guido','bolgheri',['Cabernet Sauvignon','Merlot'],'red'],
-  ['Valpolicella Classico Superiore','Giuseppe Quintarelli','valpolicella',['Corvina'],'red'],
+  ['Valpolicella Classico Superiore','Giuseppe Quintarelli','valpolicella',['Corvina','Corvinone','Rondinella'],'red'],
   ['Alzero','Giuseppe Quintarelli','valpolicella',['Cabernet Franc','Cabernet Sauvignon','Merlot'],'red'],
   ['Primofiore','Giuseppe Quintarelli','valpolicella',['Corvina','Cabernet Franc','Cabernet Sauvignon'],'red'],
   ['Soave Classico Calvarino','Pieropan','soave',['Garganega'],'white'],

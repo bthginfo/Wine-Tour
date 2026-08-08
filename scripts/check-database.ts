@@ -28,7 +28,17 @@ try {
   if (!mediaUploads.rowCount || !mediaUploads.rows[0].enabled || mediaUploads.rows[0].configuration?.provider !== 'vercel-blob') {
     throw new Error('Vercel Blob media uploads are not enabled in the production feature flags.')
   }
-  console.log(JSON.stringify({ ok:true, counts, snapshot:snapshot.rows[0], mediaUploads:mediaUploads.rows[0] }))
+  const backend = await pool.query(`
+    select
+      (select count(*)::int from users where disabled = false) as users,
+      (select count(*)::int from user_roles where role = 'admin') as admins,
+      (select count(*)::int from platform_states) as platform_states,
+      (select count(*)::int from workspaces) as workspaces
+  `)
+  const backendCounts = backend.rows[0] as {users:number;admins:number;platform_states:number;workspaces:number}
+  if (backendCounts.admins < 1) throw new Error('No active administrator role is provisioned.')
+  if (backendCounts.platform_states < 8) throw new Error(`Only ${backendCounts.platform_states} platform state records are present; expected at least 8.`)
+  console.log(JSON.stringify({ ok:true, counts, backend:backendCounts, snapshot:snapshot.rows[0], mediaUploads:mediaUploads.rows[0] }))
 } finally {
   await pool.end()
 }

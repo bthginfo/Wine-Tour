@@ -185,9 +185,10 @@ export interface TastingNote {
 export interface User {
   id: string
   username: string
-  passwordHash: string
-  salt: string
-  role: 'admin' | 'host' | 'contributor' | 'member'
+  displayName?: string
+  role: MembershipRole
+  roles: MembershipRole[]
+  workspaceIds: string[]
 }
 
 export type MembershipRole = 'member' | 'host' | 'winery' | 'merchant' | 'admin'
@@ -254,6 +255,7 @@ export interface TastingEvent {
   ticket: { type: 'free' | 'paid'; amountMinor: number; currency: 'EUR' | 'USD' | 'GBP'; platformFeeBps: number }
   cancellationTerms: string
   journeyId?: string
+  journey?: TastingJourney
   featuredWineIds: string[]
   inviteCode?: string
 }

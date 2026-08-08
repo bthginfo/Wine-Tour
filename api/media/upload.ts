@@ -1,4 +1,7 @@
 import { put } from '@vercel/blob'
+import { mediaAssets } from '../../db/schema.js'
+import { getSessionUser } from '../../server/auth.js'
+import { database } from '../../server/db.js'
 
 const MAX_BYTES = 2 * 1024 * 1024
 const responseHeaders = { 'Cache-Control': 'no-store' }
@@ -15,6 +18,10 @@ function sameOrigin(request: Request) {
 }
 
 export async function POST(request: Request) {
+  const user = await getSessionUser(request)
+  if (!user) {
+    return Response.json({ error: 'AUTH_REQUIRED' }, { status: 401, headers: responseHeaders })
+  }
   if (request.headers.get('x-vine-upload') !== 'bottle-photo-v1' || !sameOrigin(request)) {
     return Response.json({ error: 'Upload request rejected.' }, { status: 403, headers: responseHeaders })
   }
@@ -39,7 +46,18 @@ export async function POST(request: Request) {
       contentType: 'image/webp',
       cacheControlMaxAge: 31_536_000,
     })
-    return Response.json({ url: blob.url, pathname: blob.pathname }, { headers: responseHeaders })
+    const [asset] = await database.insert(mediaAssets).values({
+      provider: 'vercel-blob',
+      access: 'public',
+      storageKey: blob.pathname,
+      url: blob.url,
+      mimeType: 'image/webp',
+      altText: 'Bottle photograph',
+      ownerUserId: user.id,
+      entityType: 'cellar-item',
+      metadata: { uploadedBy: user.username, source: 'cellar-bottle-upload' },
+    }).returning({ id: mediaAssets.id })
+    return Response.json({ assetId: asset.id, url: blob.url, pathname: blob.pathname }, { headers: responseHeaders })
   } catch (error) {
     console.error('Bottle photo upload failed', error)
     return Response.json({ error: 'Bottle photo storage is temporarily unavailable.' }, { status: 503, headers: responseHeaders })

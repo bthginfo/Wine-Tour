@@ -23,6 +23,7 @@ import {
   wines,
 } from "./data/catalog";
 import { repository } from "./data/repository";
+import { applyCatalogAdditions } from "./data/catalogExtensions";
 import { useLocale, type Locale } from "./i18n";
 
 type RecordType = "region" | "grape" | "producer" | "wine" | "tasting";
@@ -32,7 +33,7 @@ type EditorialDraft = {
   baseId?: string;
   name: string;
   slug: string;
-  status: "draft" | "review";
+  status: "draft" | "review" | "published";
   locale: Locale;
   summary: string;
   description: string;
@@ -343,6 +344,13 @@ const copy = {
   },
 } as const;
 
+const backendCopy:Record<Locale,{body:string;local:string;published:string}>={
+  en:{body:'Search the full catalogue, open a record and prepare a sourced change set. Drafts are saved to the protected editorial queue; published records become part of the public atlas.',local:'Shared editorial queue',published:'Published in atlas'},
+  de:{body:'Durchsuche den vollständigen Katalog, öffne einen Eintrag und bereite einen belegten Änderungssatz vor. Entwürfe liegen geschützt in der Redaktionswarteschlange; veröffentlichte Einträge werden Teil des öffentlichen Atlas.',local:'Gemeinsame Redaktionswarteschlange',published:'Im Atlas veröffentlicht'},
+  fr:{body:'Recherchez tout le catalogue, ouvrez une fiche et préparez une modification sourcée. Les brouillons restent dans la file protégée ; les fiches publiées rejoignent l’atlas public.',local:'File éditoriale partagée',published:'Publié dans l’atlas'},
+  es:{body:'Busca en todo el catálogo, abre un registro y prepara un cambio con fuentes. Los borradores quedan en la cola protegida; los registros publicados pasan al atlas público.',local:'Cola editorial compartida',published:'Publicado en el atlas'},
+}
+
 const editorOptions: Record<Locale, Record<string, string>> = {
   en: {
     white: "White",
@@ -459,7 +467,7 @@ function loadEditorialDrafts(): EditorialDraft[] {
 
 export function EditorialStudio() {
   const { locale } = useLocale();
-  const c = copy[locale];
+  const c = { ...copy[locale], ...backendCopy[locale] };
   const optionCopy = editorOptions[locale];
   const [drafts, setDrafts] = useState<EditorialDraft[]>(
     loadEditorialDrafts,
@@ -531,6 +539,7 @@ export function EditorialStudio() {
   const persist = (next: EditorialDraft[]) => {
     setDrafts(next);
     repository.additions.save(next as unknown as Record<string, unknown>[]);
+    applyCatalogAdditions(next);
   };
   const updateField = (key: string, value: string | string[]) =>
     setDraft((current) => ({
@@ -913,6 +922,9 @@ export function EditorialStudio() {
                     <option value="draft">{c.draft}</option>
                     <option value="review" disabled={!draft.sourceUrls.length}>
                       {c.review}
+                    </option>
+                    <option value="published" disabled={!draft.sourceUrls.length}>
+                      {c.published}
                     </option>
                   </select>
                 </label>

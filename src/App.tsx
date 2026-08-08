@@ -89,13 +89,16 @@ import mediterraneanVines from "./assets/region-mediterranean-vines.jpg";
 import andesVineyard from "./assets/region-andes-vineyard.jpg";
 import maritimeVineyard from "./assets/region-maritime-vineyard.jpg";
 import volcanicVineyard from "./assets/region-volcanic-vineyard.jpg";
-import { AtlasCommercialPlacements, BusinessAdminPanel, EventDetail, EventsMarketplace, FeaturedBusinessHome, HostProfile, PartnerProfilePage, ProducerBusinessLayer, StudioEvents, StudioHome, StudioOffers, StudioPlacements, StudioSite, WineMerchantOffers } from "./BusinessPlatform";
+import { AtlasCommercialPlacements, BusinessAdminPanel, EventDetail, EventsMarketplace, FeaturedBusinessHome, HostProfile, PartnerProfilePage, ProducerBusinessLayer, StudioEvents, StudioHome, StudioOffers, StudioPlacements, StudioProfile, StudioSite, WineMerchantOffers } from "./BusinessPlatform";
 import { CellarExperience } from "./CellarExperience";
 import { AcademyMasterclass, GrapeAmpelography, GrapeDeepDive, ProducerDecisionMap, RegionFieldGuide, WineEvolutionLesson } from "./LearningDepth";
 import { InlineLearningChapter, LearningHub, LearningLesson, learningUi } from "./LearningSystem";
 import { learningBlockById, learningModuleById, learningModules } from "./learningCurriculum";
 import { DatabaseStatus } from "./DatabaseStatus";
 import { EditorialStudio } from "./EditorialStudio";
+import { AccountRoleManager } from "./AccountRoleManager";
+import { ConnectedTastingRoom } from "./ConnectedTastingRoom";
+import { BlendConnections } from "./BlendConnections";
 
 function regionHeroFor(region:{country:string;climate:string;soil:string;lat:number}){
   const signal=`${region.country} ${region.climate} ${region.soil}`.toLowerCase()
@@ -138,13 +141,14 @@ export default function App() {
         <Route path="/learn/:slug" element={<LearningLesson />} />
         <Route path="/tastings" element={<TastingsPage />} />
         <Route path="/tastings/build" element={<TastingBuilder />} />
-        <Route path="/tastings/:id" element={<TastingRoom />} />
+        <Route path="/tastings/:id" element={<ConnectedTastingRoom renderJourney={journey=><JourneyExperience journey={journey}/>} />} />
         <Route path="/events" element={<EventsMarketplace />} />
         <Route path="/events/:id" element={<EventDetail />} />
         <Route path="/hosts/:id" element={<HostProfile />} />
         <Route path="/partners/:id" element={<PartnerProfilePage />} />
         <Route path="/studio" element={<StudioGuard><StudioHome /></StudioGuard>} />
         <Route path="/studio/events" element={<StudioGuard><StudioEvents /></StudioGuard>} />
+        <Route path="/studio/profile" element={<StudioGuard><StudioProfile /></StudioGuard>} />
         <Route path="/studio/site" element={<StudioGuard><StudioSite /></StudioGuard>} />
         <Route path="/studio/offers" element={<StudioGuard><StudioOffers /></StudioGuard>} />
         <Route path="/studio/placements" element={<StudioGuard><StudioPlacements /></StudioGuard>} />
@@ -162,7 +166,7 @@ function StudioGuard({children}:{children:ReactNode}){
   const {user,ready}=useAuth()
   const ui=useUiCopy()
   if(!ready)return <div className="page guarded" aria-busy="true" role="status" aria-label={ui.studioNav}><span className="loading-orbit"/></div>
-  return user?.role==='admin'?children:<Navigate to="/profile" replace/>
+  return user?children:<Navigate to="/profile" replace/>
 }
 
 function AppShell({
@@ -204,11 +208,11 @@ function AppShell({
             <Users size={20} />
             <span>{ui.eventsNav}</span>
           </NavLink>
-          {user?.role==='admin'&&<NavLink to="/studio">
+          {user&&<NavLink to="/studio">
             <Settings size={20} />
             <span>{ui.studioNav}</span>
           </NavLink>}
-          {user?.role==='admin'&&<NavLink to="/admin" className="admin-nav-entry">
+          {user?.roles.includes('admin')&&<NavLink to="/admin" className="admin-nav-entry">
             <ShieldCheck size={20} />
             <span>{t('admin')} · {ui.studioNav}</span>
           </NavLink>}
@@ -372,14 +376,12 @@ function HomePage() {
       </section>
       <section className="home-strip">
         <div>
-          <span className="live-dot" />
-          {copy.openTonight}
+          <Layers3 size={16}/>
+          {ui.planJourney}
         </div>
-        <p>
-          {copy.guidedTable}
-        </p>
-        <Link to="/tastings/open-table">
-          {copy.joinTime} <ArrowRight size={16} />
+        <p>{copy.tastingsIntro}</p>
+        <Link to="/tastings/build">
+          {ui.planJourney} <ArrowRight size={16} />
         </Link>
       </section>
       <FeaturedBusinessHome />
@@ -938,6 +940,7 @@ function GrapePage() {
       </section>
       <GrapeDeepDive grape={grape} locale={locale}/>
       <GrapeAmpelography grape={grape} locale={locale}/>
+      <BlendConnections grapeId={grape.id}/>
       <section className="knowledge-panels">
         <article><span className="eyebrow">{ui.styleRange}</span><h3>{ui.lookExpressions}</h3><ul>{content.styles.map(item=><li key={item}>{item}</li>)}</ul></article>
         <article><span className="eyebrow">{ui.atTable}</span><h3>{ui.pairStructure}</h3><ul>{content.pairings.map(item=><li key={item}>{item}</li>)}</ul></article>
@@ -1266,7 +1269,7 @@ function WinePage() {
           <h2>{ui.rememberQuestion}</h2>
           <p>{ui.noteBody}</p>
         </div>
-        <Link to="/tastings/open-table" className="primary-button ink">
+        <Link to="/cellar" className="primary-button ink">
           {ui.openNotes}
         </Link>
       </section>
@@ -1627,11 +1630,11 @@ function ArticlePage() {
   );
 }
 
-const tastingFlight = wines.slice(12, 17);
 function TastingsPage() {
-  const { t } = useLocale();
+  const { t,locale } = useLocale();
   const ui=useUiCopy()
   const copy = usePageCopy();
+  const startCopy={en:{privateTitle:'Build a private tasting journey',privateBody:'Choose the wines, then weave regions, producers, grapes, aromas and authored lessons into your own running order.',privateAction:'Open journey builder',publicTitle:'Discover published tastings',publicBody:'Public events appear only after a real host creates and publishes them. There are no fabricated listings.',publicAction:'Browse events'},de:{privateTitle:'Private Verkostungsreise bauen',privateBody:'Wähle die Weine und verknüpfe Regionen, Weingüter, Rebsorten, Aromen und ausgearbeitete Lektionen zu deinem eigenen Ablauf.',privateAction:'Journey-Builder öffnen',publicTitle:'Veröffentlichte Tastings entdecken',publicBody:'Öffentliche Events erscheinen erst, wenn ein echter Host sie erstellt und veröffentlicht. Es gibt keine erfundenen Einträge.',publicAction:'Events durchsuchen'},fr:{privateTitle:'Composer un parcours privé',privateBody:'Choisissez les vins puis reliez régions, domaines, cépages, arômes et leçons rédigées dans votre propre déroulé.',privateAction:'Ouvrir le compositeur',publicTitle:'Découvrir les dégustations publiées',publicBody:'Les événements publics apparaissent uniquement lorsqu’un véritable hôte les crée et les publie. Aucun événement n’est inventé.',publicAction:'Voir les événements'},es:{privateTitle:'Crear un recorrido de cata privado',privateBody:'Elige los vinos y enlaza regiones, bodegas, variedades, aromas y lecciones desarrolladas en tu propio orden.',privateAction:'Abrir el creador',publicTitle:'Descubrir catas publicadas',publicBody:'Los eventos públicos solo aparecen cuando un anfitrión real los crea y publica. No hay listados inventados.',publicAction:'Ver eventos'}}[locale]
   const [code, setCode] = useState("");
   const navigate = useNavigate();
   return (
@@ -1643,36 +1646,9 @@ function TastingsPage() {
       >
         <p>{copy.tastingsIntro}</p>
       </PageIntro>
-      <section className="tasting-feature">
-        <img
-          src={tastingStill}
-          alt={ui.tastingImageAlt}
-        />
-        <div>
-          <span className="status-chip">
-            <i />
-            {copy.openTasting}
-          </span>
-          <h2>{copy.tableTitle}</h2>
-          <p>{copy.tableIntro}</p>
-          <dl>
-            <div>
-              <dt>{copy.tonight}</dt>
-              <dd>19:30 · 75 {ui.minuteShort}</dd>
-            </div>
-            <div>
-              <dt>{copy.host}</dt>
-              <dd>Mara Chen</dd>
-            </div>
-            <div>
-              <dt>{copy.seats}</dt>
-              <dd>{ui.tastingSeats}</dd>
-            </div>
-          </dl>
-          <Link to="/tastings/open-table" className="primary-button">
-            {copy.joinTable}
-          </Link>
-        </div>
+      <section className="tasting-start-grid">
+        <article><Layers3/><span className="eyebrow">{ui.storyline}</span><h2>{startCopy.privateTitle}</h2><p>{startCopy.privateBody}</p><Link to="/tastings/build" className="primary-button">{startCopy.privateAction}<ArrowRight/></Link></article>
+        <article><Users/><span className="eyebrow">{ui.eventsNav}</span><h2>{startCopy.publicTitle}</h2><p>{startCopy.publicBody}</p><Link to="/events" className="secondary-button">{startCopy.publicAction}<ArrowRight/></Link></article>
       </section>
       <section className="join-panel">
         <div>
@@ -1690,36 +1666,13 @@ function TastingsPage() {
             value={code}
             maxLength={6}
             onChange={(e) => setCode(e.target.value.toUpperCase())}
-            placeholder="CELLAR"
+            placeholder="ABC123"
             aria-label={ui.tastingCode}
           />
           <button className="primary-button" disabled={code.length < 4}>
             {t("join")}
           </button>
         </form>
-      </section>
-      <section className="related-section">
-        <span className="eyebrow">{copy.comingUp}</span>
-        <div className="session-list">
-          <div>
-            <b>14</b>
-            <span>{ui.sepAbbr}</span>
-            <div>
-              <h3>{ui.rieslingSession}</h3>
-              <p>{ui.inviteOnly} · {ui.hostedBy} Jo Becker</p>
-            </div>
-            <LockKeyhole />
-          </div>
-          <div>
-            <b>27</b>
-            <span>{ui.sepAbbr}</span>
-            <div>
-              <h3>{ui.mediterraneanReds}</h3>
-              <p>{ui.openTable} · 16 {ui.seats}</p>
-            </div>
-            <Users />
-          </div>
-        </div>
       </section>
     </div>
   );
@@ -1748,15 +1701,7 @@ function referenceTitle(type:TastingChapterType,id:string|undefined,locale:Local
   return optionsForChapter(type,locale).find(item=>item.id===id)?.label.split(' · ')[0] ?? ui.untitledChapter
 }
 function defaultJourney(locale:Locale,ui:ReturnType<typeof useUiCopy>):TastingJourney {
-  const first=wines[12], second=wines[13], region=regions.find(item=>item.id===first.regionId)!, producer=producers.find(item=>item.id===first.producerId)!
-  const chapters:Array<Omit<TastingChapter,'id'>>=[
-    {type:'host-note',title:ui.welcomeTable,hostNote:ui.welcomeQuestion,duration:4},
-    {type:'wine',referenceId:first.id,title:first.name,duration:12}, {type:'region',referenceId:region.id,title:region.name,duration:7},
-    {type:'producer',referenceId:producer.id,title:producer.name,duration:6}, {type:'article',referenceId:'red-white-rose',title:articleContent(articles.find(item=>item.id==='red-white-rose')!,locale).title,duration:8},
-    {type:'pause',title:ui.waterBreadConversation,hostNote:ui.compareNoticed,duration:5},
-    {type:'wine',referenceId:second.id,title:second.name,duration:12},
-  ]
-  return {id:crypto.randomUUID(),title:ui.defaultJourneyTitle,description:ui.defaultJourneyDescription,pace:'host',access:'invite',chapters:chapters.map(item=>({...item,id:crypto.randomUUID()})),updatedAt:new Date().toISOString()}
+  return {id:crypto.randomUUID(),title:ui.defaultJourneyTitle,description:ui.defaultJourneyDescription,pace:'host',access:'invite',chapters:[],updatedAt:new Date().toISOString()}
 }
 function TastingBuilder() {
   const {locale}=useLocale()
@@ -1811,7 +1756,7 @@ function TastingBuilder() {
   </div>
 }
 
-function JourneyExperience({journey}:{journey:TastingJourney}) {
+export function JourneyExperience({journey}:{journey:TastingJourney}) {
   const {locale}=useLocale()
   const ui=useUiCopy()
   const chapterTypes=chapterTypesFor(ui,locale)
@@ -1844,11 +1789,12 @@ function JourneyExperience({journey}:{journey:TastingJourney}) {
   </div>
 }
 
+const tastingFlight=wines.slice(0,0)
 function TastingRoom() {
   const {locale}=useLocale()
   const ui=useUiCopy()
   const cellarAction={en:{add:'Add to my cellar',added:'In my cellar'},de:{add:'In meinen Keller legen',added:'In meinem Keller'},fr:{add:'Ajouter à ma cave',added:'Dans ma cave'},es:{add:'Añadir a mi bodega',added:'En mi bodega'}}[locale]
-  const { id = "open-table" } = useParams();
+  const { id = "" } = useParams();
   const journey=repository.journeys.all().find(item=>item.id===id)
   if(journey) return <JourneyExperience journey={journey}/>
   const [current, setCurrent] = useState(0);
@@ -2345,7 +2291,7 @@ function AdminPage() {
   const { t } = useLocale();
   const ui=useUiCopy()
   const copy = usePageCopy();
-  if (user?.role !== "admin")
+  if (!user?.roles.includes("admin"))
     return (
       <div className="page guarded">
         <ShieldCheck />
@@ -2384,6 +2330,7 @@ function AdminPage() {
           <span>{t("wines")}</span>
         </div>
       </section>
+      <AccountRoleManager />
       <EditorialStudio />
       <BusinessAdminPanel />
     </div>
@@ -2394,7 +2341,9 @@ function ProfilePage() {
   const { user, logout } = useAuth();
   const { locale, setLocale, t } = useLocale();
   const copy = usePageCopy();
+  const ui = useUiCopy();
   const [authOpen, setAuthOpen] = useState(false);
+  const roleNames={en:{member:'Private member',host:'Professional host',winery:'Winery',merchant:'Wine merchant',admin:'Administrator'},de:{member:'Privatperson',host:'Professioneller Host',winery:'Weingut',merchant:'Weinhändler',admin:'Administrator'},fr:{member:'Membre privé',host:'Hôte professionnel',winery:'Domaine',merchant:'Marchand de vin',admin:'Administrateur'},es:{member:'Persona privada',host:'Anfitrión profesional',winery:'Bodega',merchant:'Comerciante de vino',admin:'Administrador'}}[locale]
   return (
     <div className="page profile-page">
       <PageIntro
@@ -2412,7 +2361,7 @@ function ProfilePage() {
           {user?.username.charAt(0).toUpperCase() || <CircleUserRound />}
         </div>
         <div>
-          <span>{user?.role || copy.guestExplorer}</span>
+          {user?<div className="profile-role-chips">{user.roles.map(role=><span key={role}>{roleNames[role]}</span>)}</div>:<span>{copy.guestExplorer}</span>}
           <h2>{user?.username || copy.localProfile}</h2>
           <p>
             {user
@@ -2464,7 +2413,21 @@ function ProfilePage() {
           </div>
           <ChevronRight />
         </div>
-        {user?.role === "admin" && (
+        {user && (
+          <Link to="/studio">
+            <div>
+              <span className="settings-icon">
+                <Settings />
+              </span>
+              <div>
+                <h3>{ui.studioNav}</h3>
+                <p>{ui.studioBody}</p>
+              </div>
+            </div>
+            <ChevronRight />
+          </Link>
+        )}
+        {user?.roles.includes("admin") && (
           <Link to="/admin">
             <div>
               <span className="settings-icon">
@@ -2493,13 +2456,14 @@ function ProfilePage() {
 
 function AuthSheet({ onClose }: { onClose: () => void }) {
   const { login, register } = useAuth();
-  const { t } = useLocale();
+  const { t,locale } = useLocale();
   const copy = usePageCopy();
   const [mode, setMode] = useState<"login" | "register">("login");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
+  const errors={en:{INVALID_CREDENTIALS:'Username or password is incorrect.',USERNAME_FORMAT:'Use 3–32 letters, numbers, dots, hyphens or underscores.',PASSWORD_LENGTH:'Use a password between 8 and 128 characters.',USERNAME_TAKEN:'This username is already taken.',ACCOUNT_DISABLED:'This account has been disabled by an administrator.',ACCOUNT_LOCKED:'Too many attempts. Try again in 15 minutes.',BACKEND_UNAVAILABLE:'The account service is temporarily unavailable.'},de:{INVALID_CREDENTIALS:'Benutzername oder Passwort ist falsch.',USERNAME_FORMAT:'Nutze 3–32 Buchstaben, Zahlen, Punkte, Bindestriche oder Unterstriche.',PASSWORD_LENGTH:'Nutze ein Passwort mit 8 bis 128 Zeichen.',USERNAME_TAKEN:'Dieser Benutzername ist bereits vergeben.',ACCOUNT_DISABLED:'Dieses Konto wurde administrativ deaktiviert.',ACCOUNT_LOCKED:'Zu viele Versuche. Probiere es in 15 Minuten erneut.',BACKEND_UNAVAILABLE:'Der Kontodienst ist vorübergehend nicht erreichbar.'},fr:{INVALID_CREDENTIALS:'Identifiant ou mot de passe incorrect.',USERNAME_FORMAT:'Utilisez 3 à 32 lettres, chiffres, points, tirets ou tirets bas.',PASSWORD_LENGTH:'Utilisez un mot de passe de 8 à 128 caractères.',USERNAME_TAKEN:'Cet identifiant est déjà utilisé.',ACCOUNT_DISABLED:'Ce compte a été désactivé par un administrateur.',ACCOUNT_LOCKED:'Trop de tentatives. Réessayez dans 15 minutes.',BACKEND_UNAVAILABLE:'Le service de compte est temporairement indisponible.'},es:{INVALID_CREDENTIALS:'El usuario o la contraseña no son correctos.',USERNAME_FORMAT:'Usa entre 3 y 32 letras, números, puntos, guiones o guiones bajos.',PASSWORD_LENGTH:'Usa una contraseña de entre 8 y 128 caracteres.',USERNAME_TAKEN:'Este nombre de usuario ya está en uso.',ACCOUNT_DISABLED:'Un administrador ha desactivado esta cuenta.',ACCOUNT_LOCKED:'Demasiados intentos. Vuelve a probar en 15 minutos.',BACKEND_UNAVAILABLE:'El servicio de cuentas no está disponible temporalmente.'}}[locale]
   async function submit(e: FormEvent) {
     e.preventDefault();
     setBusy(true);
@@ -2508,7 +2472,7 @@ function AuthSheet({ onClose }: { onClose: () => void }) {
         ? await login(username, password)
         : await register(username, password);
     setBusy(false);
-    if (result) setError(result);
+    if (result) setError(errors[result as keyof typeof errors]??errors.BACKEND_UNAVAILABLE);
     else onClose();
   }
   return (

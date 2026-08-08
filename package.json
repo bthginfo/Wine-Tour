@@ -11,6 +11,7 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:seed": "tsx scripts/seed-database.ts",
+    "db:admin": "tsx scripts/create-admin.ts",
     "db:check": "tsx scripts/check-database.ts"
   },
   "dependencies": {
