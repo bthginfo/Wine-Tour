@@ -26,7 +26,7 @@ import { repository } from "./data/repository";
 import { applyCatalogAdditions } from "./data/catalogExtensions";
 import { useLocale, type Locale } from "./i18n";
 
-type RecordType = "region" | "grape" | "producer" | "wine" | "tasting";
+type RecordType = "region" | "grape" | "producer" | "wine";
 type EditorialDraft = {
   id: string;
   recordType: RecordType;
@@ -44,7 +44,7 @@ type EditorialDraft = {
 };
 type CatalogRow = {
   id: string;
-  type: Exclude<RecordType, "tasting">;
+  type: RecordType;
   name: string;
   meta: string;
 };
@@ -53,7 +53,7 @@ const copy = {
   en: {
     workspace: "Editorial records",
     title: "Shape every public fact before it reaches the atlas",
-    body: "Search the full catalogue, open a record and prepare a sourced change set. Drafts remain local until server authentication and protected write APIs are connected.",
+    body: "Search the full catalogue, open a record and prepare a sourced change set. Drafts are saved to the protected editorial queue; published records become part of the public atlas.",
     catalog: "Catalogue",
     drafts: "Drafts",
     newRecord: "New record",
@@ -121,12 +121,12 @@ const copy = {
     delete: "Delete draft",
     empty: "No drafts yet.",
     selectMany: "Use Ctrl/Cmd to select several relationships.",
-    local: "Local editorial queue",
+    local: "Shared editorial queue",
   },
   de: {
     workspace: "Redaktionelle Einträge",
     title: "Jede öffentliche Aussage formen, bevor sie in den Atlas gelangt",
-    body: "Durchsuche den vollständigen Katalog, öffne einen Eintrag und bereite einen belegten Änderungssatz vor. Entwürfe bleiben lokal, bis Server-Authentifizierung und geschützte Schreib-APIs verbunden sind.",
+    body: "Durchsuche den vollständigen Katalog, öffne einen Eintrag und bereite einen belegten Änderungssatz vor. Entwürfe liegen geschützt in der Redaktionswarteschlange; veröffentlichte Einträge werden Teil des öffentlichen Atlas.",
     catalog: "Katalog",
     drafts: "Entwürfe",
     newRecord: "Neuer Eintrag",
@@ -194,12 +194,12 @@ const copy = {
     delete: "Entwurf löschen",
     empty: "Noch keine Entwürfe.",
     selectMany: "Mit Strg/Cmd mehrere Beziehungen wählen.",
-    local: "Lokale Redaktionswarteschlange",
+    local: "Gemeinsame Redaktionswarteschlange",
   },
   fr: {
     workspace: "Fiches éditoriales",
     title: "Façonner chaque fait public avant son entrée dans l’atlas",
-    body: "Recherchez tout le catalogue, ouvrez une fiche et préparez une modification sourcée. Les brouillons restent locaux jusqu’à la connexion de l’authentification serveur et des API d’écriture protégées.",
+    body: "Recherchez tout le catalogue, ouvrez une fiche et préparez une modification sourcée. Les brouillons restent dans la file protégée ; les fiches publiées rejoignent l’atlas public.",
     catalog: "Catalogue",
     drafts: "Brouillons",
     newRecord: "Nouvelle fiche",
@@ -267,12 +267,12 @@ const copy = {
     delete: "Supprimer",
     empty: "Aucun brouillon.",
     selectMany: "Ctrl/Cmd pour sélectionner plusieurs relations.",
-    local: "File éditoriale locale",
+    local: "File éditoriale partagée",
   },
   es: {
     workspace: "Registros editoriales",
     title: "Dar forma a cada dato público antes de que llegue al atlas",
-    body: "Busca en todo el catálogo, abre un registro y prepara un cambio con fuentes. Los borradores siguen locales hasta conectar autenticación de servidor y API de escritura protegidas.",
+    body: "Busca en todo el catálogo, abre un registro y prepara un cambio con fuentes. Los borradores quedan en la cola protegida; los registros publicados pasan al atlas público.",
     catalog: "Catálogo",
     drafts: "Borradores",
     newRecord: "Nuevo registro",
@@ -340,7 +340,7 @@ const copy = {
     delete: "Eliminar borrador",
     empty: "Todavía no hay borradores.",
     selectMany: "Usa Ctrl/Cmd para seleccionar varias relaciones.",
-    local: "Cola editorial local",
+    local: "Cola editorial compartida",
   },
 } as const;
 
@@ -441,7 +441,7 @@ function arrayValue(fields: Record<string, string | string[]>, key: string) {
 }
 
 function loadEditorialDrafts(): EditorialDraft[] {
-  const allowed: RecordType[] = ["region", "grape", "producer", "wine", "tasting"];
+  const allowed: RecordType[] = ["region", "grape", "producer", "wine"];
   return repository.additions.all().flatMap((entry) => {
     const candidate = String(entry.recordType ?? entry.type ?? "").toLowerCase() as RecordType;
     if (!allowed.includes(candidate)) return [];
@@ -852,7 +852,7 @@ export function EditorialStudio() {
                 onChange={(event) => startNew(event.target.value as RecordType)}
               >
                 {(
-                  ["region", "grape", "producer", "wine", "tasting"] as const
+                  ["region", "grape", "producer", "wine"] as const
                 ).map((value) => (
                   <option value={value} key={value}>
                     {c[value]}
@@ -1292,42 +1292,6 @@ export function EditorialStudio() {
                         value={fieldValue(draft.fields, "window")}
                         onChange={(event) =>
                           updateField("window", event.target.value)
-                        }
-                      />
-                    </label>
-                  </>
-                )}
-                {draft.recordType === "tasting" && (
-                  <>
-                    <label>
-                      {c.access}
-                      <select
-                        value={fieldValue(draft.fields, "access")}
-                        onChange={(event) =>
-                          updateField("access", event.target.value)
-                        }
-                      >
-                        <option value="private">{optionCopy.private}</option>
-                        <option value="invite">{optionCopy.invite}</option>
-                        <option value="open">{optionCopy.open}</option>
-                      </select>
-                    </label>
-                    <label>
-                      {c.date}
-                      <input
-                        type="datetime-local"
-                        value={fieldValue(draft.fields, "startsAt")}
-                        onChange={(event) =>
-                          updateField("startsAt", event.target.value)
-                        }
-                      />
-                    </label>
-                    <label className="wide">
-                      {c.storyline}
-                      <textarea
-                        value={fieldValue(draft.fields, "storyline")}
-                        onChange={(event) =>
-                          updateField("storyline", event.target.value)
                         }
                       />
                     </label>

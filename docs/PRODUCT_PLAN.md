@@ -2,7 +2,7 @@
 
 ## Outcome
 
-Build a polished mobile-first wine discovery and tasting web app that makes the relationships between place, grape, producer, wine and personal memory feel tangible. The first deployment is a broad world atlas rather than a ten-region teaser: it covers every major established wine country, all 13 German quality-wine regions and important emerging origins. The deployable pilot will be fully interactive and persist user-created data in the current browser. Its architecture will isolate persistence behind a repository layer so a hosted database can replace browser storage later without redesigning the UI.
+Build a polished mobile-first wine discovery and tasting web app that makes the relationships between place, grape, producer, wine and personal memory feel tangible. The first deployment is a broad world atlas rather than a ten-region teaser: it covers every major established wine country, all 13 German quality-wine regions and important emerging origins. User accounts, cellar records, tasting notes, workspaces and publication data persist in Neon Postgres; the browser repository remains an optimistic cache for resilient interaction.
 
 ## Audience and jobs
 
@@ -83,10 +83,10 @@ The same principle applies to aromas: Aroma family → Aroma → Grape → Regio
 ### Auth and roles
 
 - Username + password registration/login.
-- Password is hashed in-browser; no plaintext storage.
-- Seeded demo admin plus self-registered member role.
-- Route/operation checks for `admin`, `host`, `contributor`, `member`.
-- Explicit in-app note that this is local pilot authentication, not production security.
+- Passwords are hashed server-side with scrypt and individual random salts; plaintext is never stored.
+- Opaque server sessions use `HttpOnly`, `SameSite` cookies and hashed database tokens.
+- Self-registration creates a member workspace; administrators grant `host`, `winery`, `merchant` and `admin` roles.
+- Route and operation checks are repeated server-side, with origin validation, rate limits and an audit trail.
 
 ### Tastings
 
@@ -154,10 +154,10 @@ Aroma ──< TastingNoteAroma >── TastingNote
 
 ## Technical architecture
 
-- Vite + React + TypeScript for a fast static Vercel deployment.
+- Vite + React + TypeScript on Vercel, with serverless API functions for authenticated operations.
 - React Router for routeable entity details and share/join URLs.
 - Tailwind or a compact custom token system for consistent responsive UI.
-- Repository/data-service boundary backed by localStorage for the pilot.
+- Repository/data-service boundary backed by Neon Postgres and an optimistic local cache.
 - React Leaflet + Leaflet for the interactive atlas.
 - QR generation client-side.
 - Seed data in typed modules, separate from UI copy and locale dictionaries.

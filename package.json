@@ -5,9 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && tsc -p tsconfig.server.json --pretty false && npm run validate:learning && vite build",
+    "build": "tsc -b && tsc -p tsconfig.server.json --pretty false && npm run validate:release && vite build",
     "typecheck": "tsc -b --pretty false && tsc -p tsconfig.server.json --pretty false",
+    "validate:catalog": "node scripts/validate-catalog.mjs",
     "validate:learning": "node scripts/validate-learning.mjs",
+    "validate:security": "node scripts/validate-security.mjs",
+    "validate:release": "npm run validate:catalog && npm run validate:learning && npm run validate:security",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:seed": "tsx scripts/seed-database.ts",

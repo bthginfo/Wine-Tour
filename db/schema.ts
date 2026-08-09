@@ -183,6 +183,14 @@ export const sessions = pgTable('sessions', {
   createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
 }, table => [uniqueIndex('sessions_token_hash_unique').on(table.tokenHash), index('sessions_user_idx').on(table.userId), index('sessions_expiry_idx').on(table.expiresAt)])
 
+export const requestRateLimits = pgTable('request_rate_limits', {
+  key: text('key').primaryKey(),
+  count: integer('count').default(0).notNull(),
+  windowStart: timestamp('window_start', { withTimezone: true }).defaultNow().notNull(),
+  expiresAt: timestamp('expires_at', { withTimezone: true }).notNull(),
+  updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow().notNull(),
+}, table => [index('request_rate_limits_expiry_idx').on(table.expiresAt)])
+
 export const userStates = pgTable('user_states', {
   userId: uuid('user_id').notNull().references(() => users.id, { onDelete: 'cascade' }),
   key: text('key').notNull(),

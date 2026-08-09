@@ -2,7 +2,7 @@
 
 Vine Atlas is a mobile-first wine knowledge graph and tasting companion. It connects places, grapes, producers, wines, aromas, learning notes and personal memories in one routeable React application.
 
-The current editorial catalogue contains 222 wine regions, 107 grape varieties, 203 producers, 409 wines, 77 aroma references and 11 fully authored interactive masterclasses. The public curriculum exposes only modules that pass the four-language depth, source and similarity audit; unfinished curriculum drafts are not counted as published lessons.
+The current editorial catalogue contains 222 wine regions, 111 grape varieties, 203 producers, 409 wines, 77 aroma references and 11 fully authored interactive masterclasses. The public curriculum exposes only modules that pass the four-language depth, source and similarity audit; unfinished curriculum drafts are not counted as published lessons.
 
 ## Run locally
 
@@ -22,15 +22,15 @@ The build includes `validate:learning`. It fails when a visible masterclass miss
 
 The Vite development server prints the local URL, normally `http://localhost:5173`. Nested routes work on Vercel through the SPA rewrite in `vercel.json`.
 
-## Local curator access
+## Accounts and access
 
-The application provisions its browser-local administrator from a deterministic SHA-256 digest constant. The administrator password is distributed separately and is never stored in source, documentation, UI copy, fixtures or build artifacts.
+Accounts use a deliberately simple username-and-password interface backed by Neon. Passwords are derived server-side with Node's `scrypt` and individual random salts; sessions use random opaque tokens whose SHA-256 digests are stored in Postgres. The browser receives only an `HttpOnly`, `SameSite=Lax` session cookie. Registration, login, state writes, role changes and media uploads are rate-limited, mutation requests are origin-checked, and role checks are repeated at each server boundary.
 
-The pilot hashes entered passwords with Web Crypto before comparison and stores only hashes, salts, sessions, cellar data, ratings and notes in localStorage. It does not provide production-grade authentication or sync data between browsers. A hosted release needs server-side password hashing, secure sessions, recovery, rate limiting and a relational database.
+Every account starts as a member. An administrator can grant host, winery, merchant or administrator roles and the matching isolated workspace. The bootstrap administrator password is distributed separately and is never stored in source, documentation, UI copy, fixtures or build artifacts. Password recovery, email verification and payment identity are intentionally deferred until the corresponding product flows are introduced.
 
 ## Hosted data foundation
 
-The Vercel project is connected to a free Neon Postgres resource in Frankfurt for development, preview and production. Drizzle owns the versioned schema in `db/schema.ts`; the first migration creates the editorial graph plus future-ready workspace, event, cellar, note, rating and media tables.
+The Vercel project is connected to a Neon Postgres resource in Frankfurt for development, preview and production. Drizzle owns the versioned schema in `db/schema.ts`; migrations create the editorial graph, accounts, workspaces, events, cellar records, notes, ratings, audit records, rate limits and media metadata.
 
 Database commands require Vercel-injected environment variables and do not need a checked-in `.env` file:
 
@@ -40,18 +40,18 @@ vercel env run -e production -- npm run db:migrate
 vercel env run -e production -- npm run db:seed
 ```
 
-The seed validates catalogue, business graph and curriculum before synchronising curated entities, relations and a versioned snapshot. `/api/health` reports database and catalogue status; `/api/catalog` provides a paginated read-only catalogue boundary. There is deliberately no public database write API until server authentication, sessions and row-level authorization exist.
+The seed validates catalogue, business graph and curriculum before synchronising curated entities, relations and a versioned snapshot. `/api/health` reports database and catalogue status; `/api/catalog` provides a paginated read-only catalogue boundary. Authenticated writes pass through `/api/state`, which separates personal records from shared publication data and enforces workspace ownership and role-specific permissions.
 
-Bottle photos are resized in the browser, then uploaded through the size- and type-restricted `/api/media/upload` function to the public `wine-tour-media` Vercel Blob store in Frankfurt. Cellar records keep only the returned media URL. The upload boundary is intentionally narrow while authentication is browser-local; production user authorization must be added before opening broader partner and editorial media uploads.
+Bottle photos are resized in the browser, then uploaded through the authenticated, size-, rate- and signature-restricted `/api/media/upload` function to the `wine-tour-media` Vercel Blob store. Cellar records keep the returned media identifier and URL. Media uploads are currently limited to prepared WebP bottle photographs; partner and editorial media require dedicated moderation flows before they are opened.
 
 ## Architecture
 
 - `src/data/catalog.ts` — typed curated catalogue and startup validation
 - `src/learningCurriculum.ts` — authored interactive curriculum and hard validation
 - `src/LearningSystem.tsx` — learning hub, portable blocks and lesson runtime
-- `src/data/repository.ts` — local persistence boundary
-- `src/data/business.ts` — future-ready workspaces, events, offers, placements and approval fixtures
-- `src/auth.tsx` — session context and Web Crypto password hashing
+- `src/data/repository.ts` — optimistic browser cache plus authenticated server synchronisation
+- `src/data/business.ts` — workspace, event, offer, placement and approval domain definitions
+- `src/auth.tsx` — account and session context
 - `src/i18n.tsx` — locale registry and English, German, French and Spanish UI dictionaries
 - `src/App.tsx` — routed product workflows and reusable interface components
 - `src/BusinessPlatform.tsx` — host, winery, merchant, marketplace and studio experiences
@@ -61,7 +61,8 @@ Bottle photos are resized in the browser, then uploaded through the size- and ty
 - `src/enhancements.css` — focused late-stage component refinements
 - `src/assets/ATTRIBUTIONS.md` — image provenance
 - `db/schema.ts` / `db/migrations/` — Drizzle schema and reviewed SQL migrations
-- `server/db.ts` / `api/` — pooled server database boundary, read APIs and restricted bottle-media upload
+- `server/auth.ts` / `server/security.ts` — password, session, role, CSRF, rate-limit and payload boundaries
+- `server/db.ts` / `api/` — pooled server database boundary, scoped writes, read APIs and restricted bottle-media upload
 - `scripts/seed-database.ts` — validated Neon catalogue synchronisation
 
 Curated source data is never mutated by personal cellar, rating, tasting or admin records. That separation makes a future hosted repository replacement straightforward.

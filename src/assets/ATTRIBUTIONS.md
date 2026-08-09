@@ -17,6 +17,16 @@ The image assets were created specifically for Vine Atlas with OpenAI image gene
 - `region-andes-vineyard.jpg` — original generated landscape, created 2026-08-08. Generic high-altitude Andean vineyard setting.
 - `region-maritime-vineyard.jpg` — original generated landscape, created 2026-08-08. Generic cool maritime vineyard setting.
 - `region-volcanic-vineyard.jpg` — original generated landscape, created 2026-08-08. Generic Atlantic volcanic-island vineyard setting.
+- `region-river-slate.jpg` — original generated editorial landscape, created 2026-08-08. Cool river valley, slate terraces and old vines; no named estate is depicted.
+- `region-estuary-limestone.jpg` — original generated editorial landscape, created 2026-08-08. Atlantic estuary, limestone escarpment and vineyard rows; no named estate is depicted.
+- `region-alpine-lake.jpg` — original generated editorial landscape, created 2026-08-08. Alpine lake, steep vineyard rows and mountain foothills; no named estate is depicted.
+- `region-ancient-bush-vines.jpg` — original generated editorial landscape, created 2026-08-08. Old low-trained bush vines on a dry Mediterranean plateau; no named estate is depicted.
+- `region-coastal-fog.jpg` — original generated editorial landscape, created 2026-08-08. Cool coastal vineyard under morning fog; no named estate is depicted.
+- `region-volcanic-altitude.jpg` — original generated editorial landscape, created 2026-08-08. High-elevation terraces on volcanic material; no named estate is depicted.
+- `region-windswept-island.jpg` — original generated editorial landscape, created 2026-08-08. Wind-protected island vines, stone shelters and an Atlantic shore; no named estate is depicted.
+- `region-continental-plateau.jpg` — original generated editorial landscape, created 2026-08-08. Warm inland plateau, pale clay-limestone ground and dry-farmed rows; no named estate is depicted.
+- `region-bordeaux-estuary.jpg` — original generated editorial landscape, created 2026-08-08. Low gravel vineyard parcels, hedgerows and broad Gironde-estuary influence; no named estate is depicted.
+- `region-marlborough-wairau.jpg` — original generated editorial landscape, created 2026-08-08. Broad alluvial Wairau-style valley floor, long vine rows and dry distant ranges; no named estate is depicted.
 
 The application imports web-optimised JPEG derivatives of all generated imagery. The first five original PNG masters remain in the repository for future art direction; the newer generated masters remain in the local image-generation output store.
 

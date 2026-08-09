@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState, type FormEvent, type ReactNode } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import {
   ArrowRight,
   BadgeCheck,
@@ -10,6 +10,7 @@ import {
   Clock3,
   ExternalLink,
   Globe2,
+  ImagePlus,
   Layers3,
   Link2,
   MapPin,
@@ -24,6 +25,7 @@ import {
   Wine,
   X,
 } from "lucide-react";
+import { deleteWorkspaceImage, prepareImage, uploadWorkspaceImage } from "./lib/image";
 import {
   demoApprovals,
   demoEvents,
@@ -67,22 +69,22 @@ const dateTime = (value: string, locale: string) =>
     dateStyle: "medium",
     timeStyle: "short",
   }).format(new Date(value));
-const eventCopy = (event: TastingEvent, ui: Ui) =>
-  event.id === "riesling-latitude-light"
-    ? { title: ui.eventOneTitle, summary: ui.eventOneSummary }
-    : event.id === "marlborough-beyond-citrus"
-      ? { title: ui.eventTwoTitle, summary: ui.eventTwoSummary }
-      : event.id === "pinot-place-table"
-        ? { title: ui.eventThreeTitle, summary: ui.eventThreeSummary }
-        : event.id === "private-cellar-circle"
-          ? { title: ui.eventPrivateTitle, summary: ui.eventPrivateSummary }
-          : { title: event.title, summary: event.summary };
-const profileCopy = (profile: PartnerProfile, ui: Ui) =>
-  profile.kind === "host"
+const eventCopy = (event: TastingEvent) => ({ title: event.title, summary: event.summary });
+const profileCopy = (profile: PartnerProfile, ui: Ui) => {
+  const fallback = profile.kind === "host"
     ? { tagline: ui.hostTagline, story: ui.hostStory }
     : profile.kind === "winery"
       ? { tagline: ui.wineryTagline, story: ui.wineryStory }
       : { tagline: ui.merchantTagline, story: ui.merchantStory };
+  return { tagline: profile.tagline.trim() || fallback.tagline, story: profile.story.trim() || fallback.story };
+};
+const nextEventStart = () => {
+  const value = new Date();
+  value.setDate(value.getDate() + 7);
+  value.setHours(19, 0, 0, 0);
+  const pad = (part: number) => String(part).padStart(2, "0");
+  return `${value.getFullYear()}-${pad(value.getMonth() + 1)}-${pad(value.getDate())}T${pad(value.getHours())}:${pad(value.getMinutes())}`;
+};
 const modalityLabel = (value: EventModality, ui: Ui) =>
   value === "online"
     ? ui.online
@@ -190,9 +192,9 @@ const sectionTypeLabel = (value: WineryPageSection["type"], ui: Ui) =>
 const sectionSeedCopy = (
   section: WineryPageSection,
   locale: "en" | "de" | "fr" | "es",
-) => {
+): { heading:string; body:string; imageAlt:string } => {
   const localized = section.translations?.[locale];
-  if (localized) return localized;
+  if (localized) return { ...localized, imageAlt: localized.imageAlt ?? section.imageAlt ?? "" };
   const seed: Record<
     typeof locale,
     Record<string, { heading: string; body: string }>
@@ -230,7 +232,7 @@ const sectionSeedCopy = (
       "section-visits": { heading: "Visitas", body: "Horarios, experiencias, accesibilidad y una vía de contacto directa." },
     },
   };
-  return seed[locale][section.id] ?? { heading: section.heading, body: section.body };
+  return { ...(seed[locale][section.id] ?? { heading: section.heading, body: section.body }), imageAlt: section.imageAlt ?? "" };
 };
 
 function BusinessIntro({
@@ -283,7 +285,7 @@ function InfrastructureNotice() {
 function EventCard({ event }: { event: TastingEvent }) {
   const { locale } = useLocale();
   const ui = useUiCopy();
-  const content = eventCopy(event, ui);
+  const content = eventCopy(event);
   const region = regions.find((item) => item.id === event.regionId);
   return (
     <Link to={`/events/${event.id}`} className="event-card">
@@ -340,6 +342,10 @@ function EventCard({ event }: { event: TastingEvent }) {
 
 export function EventsMarketplace() {
   const ui = useUiCopy();
+  const {locale}=useLocale();
+  const {user}=useAuth();
+  const createHref=user?'/studio/events':'/profile?returnTo=%2Fstudio%2Fevents';
+  const createLabel=user?ui.createEvent:{en:'Sign in to create a tasting',de:'Anmelden und Verkostung anlegen',fr:'Se connecter pour créer une dégustation',es:'Iniciar sesión para crear una cata'}[locale];
   const [format, setFormat] = useState<"all" | EventModality>("all");
   const [price, setPrice] = useState<"all" | "free" | "paid">("all");
   const [language, setLanguage] = useState("all");
@@ -351,6 +357,12 @@ export function EventsMarketplace() {
       (event) =>
         event.visibility === "public" && event.publishState === "published",
     );
+  const emptyPublished={
+    en:{title:'No public tastings yet',body:'When a host publishes a tasting, its date, place, flight and learning journey will appear here.'},
+    de:{title:'Noch keine öffentlichen Verkostungen',body:'Sobald ein Host eine Verkostung veröffentlicht, erscheinen hier Termin, Ort, Weinfolge und Lernreise.'},
+    fr:{title:'Aucune dégustation publique pour le moment',body:'Lorsqu’un hôte publiera une dégustation, sa date, son lieu, ses vins et son parcours pédagogique apparaîtront ici.'},
+    es:{title:'Todavía no hay catas públicas',body:'Cuando un anfitrión publique una cata, aquí aparecerán la fecha, el lugar, los vinos y el recorrido de aprendizaje.'},
+  }[locale]
   const filtered = events.filter(
     (event) =>
       (format === "all" || event.modality === format) &&
@@ -372,15 +384,15 @@ export function EventsMarketplace() {
         eyebrow={ui.marketplace}
         title={ui.eventsTitle}
         action={
-          <Link className="primary-button ink" to="/studio/events">
-            {ui.createEvent}
+          <Link className="primary-button ink" to={createHref}>
+            {createLabel}
             <ArrowRight />
           </Link>
         }
       >
         <p>{ui.eventsBody}</p>
       </BusinessIntro>
-      <section className="marketplace-filters" aria-label={ui.filter}>
+      {events.length>0&&<section className="marketplace-filters" aria-label={ui.filter}>
         <label>
           {ui.format}
           <select
@@ -447,22 +459,20 @@ export function EventsMarketplace() {
           <X />
           {ui.clear}
         </button>
-      </section>
-      <div className="event-results-heading">
+      </section>}
+      {events.length>0&&<div className="event-results-heading">
         <span>{String(filtered.length).padStart(2, "0")}</span>
         <h2>{ui.upcoming}</h2>
-      </div>
+      </div>}
       <section className="event-list">
         {filtered.length ? (
           filtered.map((event) => <EventCard event={event} key={event.id} />)
         ) : (
           <div className="business-empty">
             <CalendarDays />
-            <h2>{ui.noEvents}</h2>
-            <p>{ui.noEventsBody}</p>
-            <button className="secondary-button" onClick={reset}>
-              {ui.clear}
-            </button>
+            <h2>{events.length?ui.noEvents:emptyPublished.title}</h2>
+            <p>{events.length?ui.noEventsBody:emptyPublished.body}</p>
+            {events.length?<button className="secondary-button" onClick={reset}>{ui.clear}</button>:<Link className="secondary-button" to={createHref}>{createLabel}<ArrowRight/></Link>}
           </div>
         )}
       </section>
@@ -472,11 +482,28 @@ export function EventsMarketplace() {
 
 export function EventDetail() {
   const { id } = useParams();
+  const location = useLocation();
   const { locale } = useLocale();
   const ui = useUiCopy();
-  const event = repository.events
+  const {user}=useAuth();
+  const navigate=useNavigate();
+  const cachedEvent = repository.events
     .all(demoEvents)
     .find((item) => item.id === id);
+  const inviteCode = useMemo(() => new URLSearchParams(location.search).get('code')?.trim() ?? '', [location.search]);
+  const [invitedEvent,setInvitedEvent]=useState<TastingEvent|null>(null);
+  const [inviteLoading,setInviteLoading]=useState(Boolean(!cachedEvent&&inviteCode));
+  useEffect(()=>{
+    if(cachedEvent||!id||!inviteCode){setInviteLoading(false);return}
+    let active=true;setInviteLoading(true)
+    void fetch(`/api/events/invite?id=${encodeURIComponent(id)}&code=${encodeURIComponent(inviteCode)}`,{headers:{Accept:'application/json'}})
+      .then(async response=>response.ok?response.json() as Promise<{event:TastingEvent}>:Promise.reject())
+      .then(payload=>{if(active)setInvitedEvent(payload.event)})
+      .catch(()=>{})
+      .finally(()=>{if(active)setInviteLoading(false)})
+    return()=>{active=false}
+  },[cachedEvent,id,inviteCode])
+  const event=cachedEvent??invitedEvent;
   const [checkout, setCheckout] = useState(false);
   const [cellarWineIds, setCellarWineIds] = useState(
     () =>
@@ -486,6 +513,7 @@ export function EventDetail() {
           .flatMap((item) => (item.wineId ? [item.wineId] : [])),
       ),
   );
+  if (inviteLoading)return <div className="page business-empty" aria-busy="true"><span className="loading-orbit"/></div>;
   if (!event)
     return (
       <div className="page business-empty">
@@ -496,7 +524,7 @@ export function EventDetail() {
         </Link>
       </div>
     );
-  const content = eventCopy(event, ui);
+  const content = eventCopy(event);
   const host = repository.partnerProfiles.all(demoPartnerProfiles).find(
     (item) => item.id === event.hostProfileId,
   );
@@ -506,6 +534,7 @@ export function EventDetail() {
     event.featuredWineIds.includes(wine.id),
   );
   const addWineToCellar = (wineId: string) => {
+    if(!user){navigate(`/profile?returnTo=${encodeURIComponent(`/events/${event.id}${location.search}`)}`);return}
     const cellar = repository.cellar.all();
     if (!cellar.some((item) => item.wineId === wineId)) {
       cellar.push({
@@ -550,6 +579,7 @@ export function EventDetail() {
             <Ticket />
             {ui.reserveDemo}
           </button>
+          {event.inviteCode&&<Link className="secondary-button" to={`/tastings/${encodeURIComponent(event.inviteCode)}`}><Wine/>{ui.liveTasting}</Link>}
           <p>
             <ShieldCheck />
             {ui.paymentFuture}
@@ -791,6 +821,8 @@ export function PartnerProfilePage() {
         section.workspaceId === profile.workspaceId && section.visible,
     )
     .sort((a, b) => a.order - b.order);
+  const heroSection = sections.find((section) => section.type === "hero" && section.imageUrl);
+  const heroSectionCopy = heroSection ? sectionSeedCopy(heroSection, locale) : null;
   const offers = repository.offers
     .all(demoOffers)
     .filter((offer) => offer.workspaceId === profile.workspaceId);
@@ -822,7 +854,7 @@ export function PartnerProfilePage() {
             <small>{ui.profileDraftNotice}</small>
           )}
         </div>
-        <img src={vineyardHero} alt="" />
+        <img src={heroSection?.imageUrl ?? vineyardHero} alt={heroSectionCopy?.imageAlt ?? ""} />
       </section>
       <section className="partner-story">
         <div>
@@ -848,6 +880,9 @@ export function PartnerProfilePage() {
             const copy = sectionSeedCopy(section, locale);
             return (
               <article key={section.id}>
+                {section.imageUrl && section.type !== "hero" && (
+                  <figure className="partner-section-media"><img src={section.imageUrl} alt={copy.imageAlt} /></figure>
+                )}
                 <span>
                   {String(index + 1).padStart(2, "0")} ·{" "}
                   {sectionTypeLabel(section.type, ui)}
@@ -1038,7 +1073,7 @@ export function StudioHome() {
           <div className="onboarding-progress">
             <i
               style={{
-                width: `${(complete / workspace.checklist.length) * 100}%`,
+                width: `${workspace.checklist.length ? (complete / workspace.checklist.length) * 100 : 0}%`,
               }}
             />
           </div>
@@ -1193,13 +1228,16 @@ export function StudioEvents() {
   const [visibility, setVisibility] = useState<EventVisibility>(
     workspace.role === "member" ? "private" : "public",
   );
-  const [startsAt, setStartsAt] = useState("2026-11-14T18:00");
+  const [startsAt, setStartsAt] = useState(nextEventStart);
+  const [durationMinutes, setDurationMinutes] = useState("90");
   const [ticketType, setTicketType] = useState<"free" | "paid">("free");
   const [price, setPrice] = useState("0");
   const [eventLanguage, setEventLanguage] = useState<"en" | "de" | "fr" | "es">(locale);
   const [capacity, setCapacity] = useState("12");
   const [regionId, setRegionId] = useState("");
   const [venue, setVenue] = useState("");
+  const [secureJoinLink, setSecureJoinLink] = useState("");
+  const [cancellationTerms, setCancellationTerms] = useState("");
   const [journeyId, setJourneyId] = useState("");
   const [wineQuery, setWineQuery] = useState("");
   const [featuredWineIds, setFeaturedWineIds] = useState<string[]>([]);
@@ -1230,10 +1268,11 @@ export function StudioEvents() {
       visibility: memberEvent ? "private" : visibility,
       publishState: "draft",
       startsAt: new Date(startsAt).toISOString(),
-      durationMinutes: 90,
+      durationMinutes: Math.max(15, Math.min(720, Number(durationMinutes) || 90)),
       language: eventLanguage,
       regionId: regionId || undefined,
       venue: modality === "online" ? undefined : venue,
+      secureJoinLink: modality === "in-person" ? undefined : secureJoinLink || undefined,
       capacity: Math.max(1, Number(capacity) || 1),
       ticket: {
         type: memberEvent ? "free" : ticketType,
@@ -1244,7 +1283,7 @@ export function StudioEvents() {
         currency: "EUR",
         platformFeeBps: memberEvent ? 0 : demoFeeConfiguration.ticketFeeBps,
       },
-      cancellationTerms: "",
+      cancellationTerms,
       journeyId: journeyId || undefined,
       journey: journeys.find(item=>item.id===journeyId),
       featuredWineIds,
@@ -1355,6 +1394,10 @@ export function StudioEvents() {
             />
           </label>
           <label>
+            {ui.duration}
+            <input type="number" min="15" max="720" step="15" required value={durationMinutes} onChange={(event) => setDurationMinutes(event.target.value)} />
+          </label>
+          <label>
             {ui.language}
             <select
               value={eventLanguage}
@@ -1380,7 +1423,13 @@ export function StudioEvents() {
           {modality !== "online" && (
             <label>
               {ui.venue}
-              <input value={venue} onChange={(event) => setVenue(event.target.value)} />
+              <input required value={venue} onChange={(event) => setVenue(event.target.value)} />
+            </label>
+          )}
+          {modality !== "in-person" && (
+            <label>
+              {ui.joiningLinkSecure}
+              <input type="url" required value={secureJoinLink} onChange={(event) => setSecureJoinLink(event.target.value)} placeholder="https://" />
             </label>
           )}
           <label>
@@ -1422,14 +1471,18 @@ export function StudioEvents() {
             <label>
               {ui.ticketPrice}
               <input
-                type="number"
-                min="0"
-                step="1"
+              type="number"
+              min="0"
+              step="0.01"
                 value={price}
                 onChange={(event) => setPrice(event.target.value)}
               />
             </label>
           )}
+          <label className="studio-form-wide">
+            {ui.cancellation}
+            <textarea value={cancellationTerms} onChange={(event) => setCancellationTerms(event.target.value)} />
+          </label>
           <div className="studio-wine-picker studio-form-wide">
             <label>
               {ui.selectWine}
@@ -1493,7 +1546,7 @@ export function StudioEvents() {
       <section className="managed-list">
         {managed.length ? (
           managed.map((item) => {
-            const content = eventCopy(item, ui);
+            const content = eventCopy(item);
             return (
               <article key={item.id}>
                 <div>
@@ -1504,19 +1557,17 @@ export function StudioEvents() {
                 </div>
                 <h2>{content.title}</h2>
                 <p>
-                  {dateTime(item.startsAt, "en")} ·{" "}
+                  {dateTime(item.startsAt, locale)} ·{" "}
                   {item.ticket.type === "free"
                     ? ui.free
                     : money(
                         item.ticket.amountMinor,
                         item.ticket.currency,
-                        "en",
+                        locale,
                       )}
                 </p>
                 {item.visibility === "private" && (
-                  <small>
-                    {ui.code}: {item.inviteCode}
-                  </small>
+                  <small>{ui.code}: {item.inviteCode}</small>
                 )}
                 <footer>
                   <button
@@ -1532,6 +1583,7 @@ export function StudioEvents() {
                     {ui.previewJourney}
                     <ArrowRight />
                   </Link>
+                  {item.inviteCode&&<button type="button" onClick={()=>void navigator.clipboard?.writeText(`${window.location.origin}/events/${item.id}?code=${encodeURIComponent(item.inviteCode!)}`)}><Link2/>{ui.copyInvite}</button>}
                 </footer>
               </article>
             );
@@ -1561,12 +1613,20 @@ export function StudioSite() {
   const { all, workspace, setWorkspaceId } = useWorkspace("winery");
   const { locale } = useLocale();
   const ui = useUiCopy();
+  const mediaCopy = {
+    en:{title:'Section image',help:'Upload an original estate photograph. It stays private until this section and the partner profile are published.',choose:'Choose image',change:'Replace image',remove:'Remove image',alt:'Image description',preparing:'Preparing…',error:'The image could not be uploaded.'},
+    de:{title:'Bild der Sektion',help:'Lade ein eigenes Foto des Weinguts hoch. Es bleibt privat, bis diese Sektion und das Partnerprofil veröffentlicht sind.',choose:'Bild wählen',change:'Bild ersetzen',remove:'Bild entfernen',alt:'Bildbeschreibung',preparing:'Wird vorbereitet…',error:'Das Bild konnte nicht hochgeladen werden.'},
+    fr:{title:'Image de section',help:'Téléversez une photographie originale du domaine. Elle reste privée jusqu’à la publication de la section et du profil partenaire.',choose:'Choisir une image',change:'Remplacer l’image',remove:'Retirer l’image',alt:'Description de l’image',preparing:'Préparation…',error:'Impossible de téléverser l’image.'},
+    es:{title:'Imagen de la sección',help:'Sube una fotografía original de la bodega. Sigue privada hasta que se publiquen la sección y el perfil de socio.',choose:'Elegir imagen',change:'Sustituir imagen',remove:'Quitar imagen',alt:'Descripción de la imagen',preparing:'Preparando…',error:'No se pudo subir la imagen.'},
+  }[locale];
   const [sections, setSections] = useState(() =>
     repository.winerySections.all(demoWinerySections),
   );
   const [type, setType] = useState<WineryPageSection["type"]>("story");
   const [heading, setHeading] = useState("");
   const [body, setBody] = useState("");
+  const [mediaBusy,setMediaBusy]=useState("");
+  const [mediaError,setMediaError]=useState("");
   const managed = sections
     .filter((item) => item.workspaceId === workspace.id)
     .sort((a, b) => a.order - b.order);
@@ -1598,7 +1658,7 @@ export function StudioSite() {
     );
   const updateTranslation = (
     section: WineryPageSection,
-    change: Partial<{ heading: string; body: string }>,
+    change: Partial<{ heading: string; body: string; imageAlt?: string }>,
   ) => {
     const current = sectionSeedCopy(section, locale);
     update(section.id, {
@@ -1607,6 +1667,24 @@ export function StudioSite() {
         [locale]: { ...current, ...change },
       },
     });
+  };
+  const chooseSectionImage = async (section:WineryPageSection,file?:File) => {
+    if(!file)return
+    setMediaBusy(section.id);setMediaError("")
+    try{
+      const prepared=await prepareImage(file)
+      const uploaded=await uploadWorkspaceImage(prepared,workspace.id)
+      update(section.id,{imageUrl:uploaded.url,mediaAssetId:uploaded.assetId})
+      if(section.mediaAssetId)void deleteWorkspaceImage(section.mediaAssetId,workspace.id).catch(()=>{})
+    }catch{setMediaError(mediaCopy.error)}finally{setMediaBusy("")}
+  };
+  const removeSectionImage = (section:WineryPageSection) => {
+    update(section.id,{imageUrl:undefined,mediaAssetId:undefined,imageAlt:undefined})
+    if(section.mediaAssetId)void deleteWorkspaceImage(section.mediaAssetId,workspace.id).catch(()=>{})
+  };
+  const removeSection = (section:WineryPageSection) => {
+    persist(sections.filter((item)=>item.id!==section.id))
+    if(section.mediaAssetId)void deleteWorkspaceImage(section.mediaAssetId,workspace.id).catch(()=>{})
   };
   const move = (id: string, direction: -1 | 1) => {
     const local = [...managed];
@@ -1700,6 +1778,7 @@ export function StudioSite() {
             </button>
           </form>
           <section className="section-stack">
+            {mediaError&&<p className="form-error workspace-media-error">{mediaError}</p>}
             {managed.map((section, index) => {
               const copy = sectionSeedCopy(section, locale);
               return (
@@ -1714,6 +1793,14 @@ export function StudioSite() {
                     <small>
                       {sectionTypeLabel(section.type, ui)} · {locale.toUpperCase()}
                     </small>
+                    <div className="workspace-media-editor">
+                      <div className={section.imageUrl?"workspace-media-preview has-image":"workspace-media-preview"}>{section.imageUrl?<img src={section.imageUrl} alt={copy.imageAlt}/>:<ImagePlus/>}</div>
+                      <div className="workspace-media-fields">
+                        <strong>{mediaCopy.title}</strong><p>{mediaCopy.help}</p>
+                        <div><label className="secondary-button"><ImagePlus/>{mediaBusy===section.id?mediaCopy.preparing:section.imageUrl?mediaCopy.change:mediaCopy.choose}<input type="file" accept="image/*" onChange={(event)=>void chooseSectionImage(section,event.target.files?.[0])}/></label>{section.imageUrl&&<button type="button" className="text-button" onClick={()=>removeSectionImage(section)}>{mediaCopy.remove}</button>}</div>
+                        {section.imageUrl&&<label className="section-inline-field"><span>{mediaCopy.alt}</span><input value={copy.imageAlt} onChange={(event)=>updateTranslation(section,{imageAlt:event.target.value})}/></label>}
+                      </div>
+                    </div>
                     <label className="section-inline-field">
                       <span>{ui.heading}</span>
                       <input
@@ -1756,11 +1843,7 @@ export function StudioSite() {
                       {section.visible ? ui.hide : ui.show}
                     </button>
                     <button
-                      onClick={() =>
-                        persist(
-                          sections.filter((item) => item.id !== section.id),
-                        )
-                      }
+                      onClick={() => removeSection(section)}
                       aria-label={ui.deleteLabel}
                     >
                       <Trash2 />

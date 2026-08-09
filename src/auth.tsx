@@ -17,7 +17,7 @@ const AuthContext = createContext<AuthValue | null>(null)
 async function readAccount() {
   const response = await fetch('/api/auth/me', { headers: { Accept: 'application/json' }, credentials: 'same-origin' })
   if (!response.ok) return null
-  const payload = await response.json() as { user?: User | null }
+  const payload = await response.json().catch(() => ({})) as { user?: User | null }
   return payload.user ?? null
 }
 

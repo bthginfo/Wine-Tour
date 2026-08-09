@@ -1,7 +1,7 @@
 const MAX_EDGE = 1200
 const MAX_INPUT_BYTES = 12 * 1024 * 1024
 
-export async function prepareBottlePhoto(file: File): Promise<string> {
+export async function prepareImage(file: File): Promise<string> {
   if (!file.type.startsWith('image/')) throw new Error('Please choose an image file.')
   if (file.size > MAX_INPUT_BYTES) throw new Error('The original image is too large. Choose a photo under 12 MB.')
   const source = await createImageBitmap(file)
@@ -18,19 +18,36 @@ export async function prepareBottlePhoto(file: File): Promise<string> {
   return canvas.toDataURL('image/webp', .82)
 }
 
-export async function uploadBottlePhoto(preparedDataUrl: string): Promise<string> {
-  const image = await (await fetch(preparedDataUrl)).blob()
-  const response = await fetch('/api/media/upload', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'image/webp',
-      'X-Vine-Upload': 'bottle-photo-v1',
-    },
-    body: image,
-  })
+export const prepareBottlePhoto = prepareImage
 
-  if (!response.ok) throw new Error('Bottle photo upload failed.')
-  const result = await response.json() as { url?: string }
-  if (!result.url) throw new Error('Bottle photo upload returned no URL.')
-  return result.url
+async function uploadPreparedImage(preparedDataUrl:string,headers:Record<string,string>):Promise<{url:string;assetId:string}>{
+  const image = await (await fetch(preparedDataUrl)).blob()
+  const response = await fetch('/api/media/upload', { method:'POST', headers:{'Content-Type':'image/webp',...headers}, body:image, credentials:'same-origin' })
+  if(!response.ok)throw new Error('Image upload failed.')
+  const result=await response.json() as {url?:string;assetId?:string}
+  if(!result.url||!result.assetId)throw new Error('Image upload returned incomplete metadata.')
+  return {url:result.url,assetId:result.assetId}
+}
+
+export async function uploadBottlePhoto(preparedDataUrl: string): Promise<{url:string;assetId:string}> {
+  return uploadPreparedImage(preparedDataUrl,{'X-Vine-Upload':'bottle-photo-v1'})
+}
+
+export async function uploadWorkspaceImage(preparedDataUrl:string,workspaceId:string){
+  return uploadPreparedImage(preparedDataUrl,{'X-Vine-Upload':'workspace-media-v1','X-Vine-Workspace':workspaceId})
+}
+
+export async function deleteBottlePhoto(assetId:string){
+  const response=await fetch('/api/media/upload',{
+    method:'DELETE',
+    headers:{'Content-Type':'application/json','X-Vine-Upload':'bottle-photo-v1'},
+    credentials:'same-origin',
+    body:JSON.stringify({assetId}),
+  })
+  if(!response.ok)throw new Error('Bottle photo deletion failed.')
+}
+
+export async function deleteWorkspaceImage(assetId:string,workspaceId:string){
+  const response=await fetch('/api/media/upload',{method:'DELETE',headers:{'Content-Type':'application/json','X-Vine-Upload':'workspace-media-v1','X-Vine-Workspace':workspaceId},credentials:'same-origin',body:JSON.stringify({assetId})})
+  if(!response.ok)throw new Error('Workspace image deletion failed.')
 }

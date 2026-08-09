@@ -11,6 +11,7 @@ skills-lock.json
 
 docs/qa/
 *.auth-state.json
+.codex-remote-attachments/
 
 .DS_Store
 Thumbs.db

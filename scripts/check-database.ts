@@ -5,9 +5,9 @@ if (!connectionString) throw new Error('DATABASE_URL_UNPOOLED or DATABASE_URL is
 
 const expected = {
   regions:222,
-  grapes:107,
-  producers:203,
-  wines:409,
+  grapes:129,
+  producers:323,
+  wines:529,
   aromas:77,
   academy_lessons:11,
 } as const
@@ -25,9 +25,18 @@ try {
   if (!snapshot.rowCount) throw new Error('Current catalogue snapshot is missing.')
   if (snapshot.rows[0].counts.articles !== expected.academy_lessons) throw new Error(`Snapshot reports ${snapshot.rows[0].counts.articles} lessons; expected ${expected.academy_lessons}`)
   const mediaUploads = await pool.query("select enabled, configuration from feature_flags where key='media_uploads'")
-  if (!mediaUploads.rowCount || !mediaUploads.rows[0].enabled || mediaUploads.rows[0].configuration?.provider !== 'vercel-blob') {
-    throw new Error('Vercel Blob media uploads are not enabled in the production feature flags.')
+  if (!mediaUploads.rowCount || !mediaUploads.rows[0].enabled || mediaUploads.rows[0].configuration?.provider !== 'vercel-blob' || mediaUploads.rows[0].configuration?.access !== 'private') {
+    throw new Error('Private Vercel Blob media uploads are not enabled in the production feature flags.')
   }
+  const retiredShowcases = await pool.query(`
+    select
+      (select count(*)::int from tasting_events where id = any($1::text[])) as event_rows,
+      (select count(*)::int from workspaces where id = any($2::text[])) as workspace_rows,
+      (select count(*)::int from platform_states state, jsonb_array_elements(case when jsonb_typeof(state.value)='array' then state.value else '[]'::jsonb end) item
+        where state.key in ('partnerProfiles','events','winerySections','offers','placements','approvals')
+          and (item->>'workspaceId' = any($2::text[]) or (state.key='events' and item->>'id' = any($1::text[])))) as state_rows
+  `,[['riesling-latitude-light','marlborough-beyond-citrus','pinot-place-table','private-cellar-circle'],['workspace-member','workspace-host','workspace-winery','workspace-merchant','workspace-admin']])
+  if (Object.values(retiredShowcases.rows[0] as Record<string,number>).some(count=>count>0)) throw new Error('Retired showcase records remain in production state.')
   const backend = await pool.query(`
     select
       (select count(*)::int from users where disabled = false) as users,
@@ -38,7 +47,7 @@ try {
   const backendCounts = backend.rows[0] as {users:number;admins:number;platform_states:number;workspaces:number}
   if (backendCounts.admins < 1) throw new Error('No active administrator role is provisioned.')
   if (backendCounts.platform_states < 8) throw new Error(`Only ${backendCounts.platform_states} platform state records are present; expected at least 8.`)
-  console.log(JSON.stringify({ ok:true, counts, backend:backendCounts, snapshot:snapshot.rows[0], mediaUploads:mediaUploads.rows[0] }))
+  console.log(JSON.stringify({ ok:true, counts, backend:backendCounts, snapshot:snapshot.rows[0], mediaUploads:mediaUploads.rows[0], retiredShowcases:retiredShowcases.rows[0] }))
 } finally {
   await pool.end()
 }

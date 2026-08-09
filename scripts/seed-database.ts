@@ -219,7 +219,7 @@ try {
       set: { workspaceId: sql`excluded.workspace_id`, title: sql`excluded.title`, summary: sql`excluded.summary`, modality: sql`excluded.modality`, visibility: sql`excluded.visibility`, state: sql`excluded.state`, startsAt: sql`excluded.starts_at`, content: sql`excluded.content`, updatedAt: now },
     })
 
-    await tx.insert(platformStates).values([
+    const platformSeedRows = [
       { key:'partnerProfiles', value:demoPartnerProfiles },
       { key:'events', value:demoEvents },
       { key:'winerySections', value:demoWinerySections },
@@ -228,7 +228,26 @@ try {
       { key:'approvals', value:demoApprovals },
       { key:'feeConfiguration', value:demoFeeConfiguration },
       { key:'additions', value:[] },
-    ]).onConflictDoNothing()
+    ]
+    await tx.insert(platformStates).values(platformSeedRows).onConflictDoNothing()
+
+    // Remove only the retired showcase records from earlier releases. Real
+    // workspace-authored content is preserved, including private events.
+    const legacyWorkspaceSet = new Set(legacyDemoWorkspaceIds)
+    const legacyEventSet = new Set(legacyDemoEventIds)
+    for (const key of ['partnerProfiles','events','winerySections','offers','placements','approvals'] as const) {
+      const [stored] = await tx.select({ value:platformStates.value }).from(platformStates).where(sql`${platformStates.key} = ${key}`).limit(1)
+      if (!Array.isArray(stored?.value)) continue
+      const current = stored.value as Array<Record<string, unknown>>
+      const cleaned = current.filter(record => {
+        const workspaceId = String(record.workspaceId ?? '')
+        const id = String(record.id ?? '')
+        return !legacyWorkspaceSet.has(workspaceId) && !(key === 'events' && legacyEventSet.has(id))
+      })
+      if (cleaned.length !== current.length) {
+        await tx.update(platformStates).set({ value:cleaned, updatedAt:now }).where(sql`${platformStates.key} = ${key}`)
+      }
+    }
 
     const catalogCounts = { ...counts, articles:learningModules.length, legacyArticles:articles.length }
     const catalogPayload = { regions, grapes, producers, wines, aromas, lessons:learningModules, legacyArticles:articles }
@@ -251,9 +270,9 @@ try {
       target: featureFlags.key,
       set: { enabled: true, configuration: { fallback: 'bundled-catalog' }, updatedAt: now },
     })
-    await tx.insert(featureFlags).values({ key: 'media_uploads', enabled: true, configuration: { provider: 'vercel-blob', access: 'public', region: 'fra1', maxBytes: 2097152 }, updatedAt: now }).onConflictDoUpdate({
+    await tx.insert(featureFlags).values({ key: 'media_uploads', enabled: true, configuration: { provider: 'vercel-blob', access: 'private', region: 'fra1', maxBytes: 2097152 }, updatedAt: now }).onConflictDoUpdate({
       target: featureFlags.key,
-      set: { enabled: true, configuration: { provider: 'vercel-blob', access: 'public', region: 'fra1', maxBytes: 2097152 }, updatedAt: now },
+      set: { enabled: true, configuration: { provider: 'vercel-blob', access: 'private', region: 'fra1', maxBytes: 2097152 }, updatedAt: now },
     })
   })
 

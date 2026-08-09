@@ -79,6 +79,7 @@ export interface Wine {
   drinkWindow: string
   pairings: string[]
   sourceUrl: string
+  evidenceLevel: 'producer' | 'style-context'
   merchantOffers: { merchant: string; url: string; market: string }[]
 }
 
@@ -123,6 +124,7 @@ export interface CellarItem {
   location: string
   rating?: number
   imageDataUrl?: string
+  mediaAssetId?: string
   bottleSizeMl?: number
   purchaseDate?: string
   purchasePrice?: number
@@ -266,7 +268,10 @@ export interface WineryPageSection {
   type: 'hero' | 'story' | 'vineyards' | 'cellar' | 'visits' | 'team' | 'gallery' | 'wines' | 'contact'
   heading: string
   body: string
-  translations?: Partial<Record<'en' | 'de' | 'fr' | 'es', { heading: string; body: string }>>
+  translations?: Partial<Record<'en' | 'de' | 'fr' | 'es', { heading: string; body: string; imageAlt?: string }>>
+  imageUrl?: string
+  mediaAssetId?: string
+  imageAlt?: string
   visible: boolean
   order: number
 }

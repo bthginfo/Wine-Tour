@@ -1,4 +1,6 @@
 import {
+  lazy,
+  Suspense,
   useEffect,
   useMemo,
   useState,
@@ -22,7 +24,6 @@ import {
   Popup,
   useMapEvents,
 } from "react-leaflet";
-import { QRCodeSVG } from "qrcode.react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -36,16 +37,13 @@ import {
   Filter,
   Grape,
   GripVertical,
-  Heart,
   Library,
   Languages,
-  ImagePlus,
   Layers3,
   ListFilter,
   LockKeyhole,
   Map as MapIcon,
   Menu,
-  Minus,
   NotebookPen,
   Plus,
   RotateCcw,
@@ -71,12 +69,11 @@ import {
   wines,
 } from "./data/catalog";
 import { repository } from "./data/repository";
-import { prepareBottlePhoto } from "./lib/image";
 import { localeRegistry, useLocale, usePageCopy, type Locale } from "./i18n";
 import { aromaContent, articleContent, countryLabel, grapeContent, producerContent, regionContent, styleLabel, wineContent } from "./localizedContent";
 import { useUiCopy } from "./uiCopy";
 import { useAuth } from "./auth";
-import type { Aroma, CellarItem, TastingChapter, TastingChapterType, TastingJourney, TastingNote, WineStyle } from "./types";
+import type { Aroma, CellarItem, MembershipRole, TastingChapter, TastingChapterType, TastingJourney, WineStyle } from "./types";
 import vineyardHero from "./assets/vineyard-terraces.jpg";
 import tastingStill from "./assets/tasting-still-life.jpg";
 import terroirIllustration from "./assets/terroir-cross-section.jpg";
@@ -89,24 +86,126 @@ import mediterraneanVines from "./assets/region-mediterranean-vines.jpg";
 import andesVineyard from "./assets/region-andes-vineyard.jpg";
 import maritimeVineyard from "./assets/region-maritime-vineyard.jpg";
 import volcanicVineyard from "./assets/region-volcanic-vineyard.jpg";
+import riverSlateVineyard from "./assets/region-river-slate.jpg";
+import estuaryLimestoneVineyard from "./assets/region-estuary-limestone.jpg";
+import alpineLakeVineyard from "./assets/region-alpine-lake.jpg";
+import ancientBushVines from "./assets/region-ancient-bush-vines.jpg";
+import coastalFogVineyard from "./assets/region-coastal-fog.jpg";
+import volcanicAltitudeVineyard from "./assets/region-volcanic-altitude.jpg";
+import windsweptIslandVineyard from "./assets/region-windswept-island.jpg";
+import continentalPlateauVineyard from "./assets/region-continental-plateau.jpg";
+import bordeauxEstuaryVineyard from "./assets/region-bordeaux-estuary.jpg";
+import marlboroughWairauVineyard from "./assets/region-marlborough-wairau.jpg";
 import { AtlasCommercialPlacements, BusinessAdminPanel, EventDetail, EventsMarketplace, FeaturedBusinessHome, HostProfile, PartnerProfilePage, ProducerBusinessLayer, StudioEvents, StudioHome, StudioOffers, StudioPlacements, StudioProfile, StudioSite, WineMerchantOffers } from "./BusinessPlatform";
-import { CellarExperience } from "./CellarExperience";
 import { AcademyMasterclass, GrapeAmpelography, GrapeDeepDive, ProducerDecisionMap, RegionFieldGuide, WineEvolutionLesson } from "./LearningDepth";
 import { InlineLearningChapter, LearningHub, LearningLesson, learningUi } from "./LearningSystem";
 import { learningBlockById, learningModuleById, learningModules } from "./learningCurriculum";
-import { DatabaseStatus } from "./DatabaseStatus";
-import { EditorialStudio } from "./EditorialStudio";
-import { AccountRoleManager } from "./AccountRoleManager";
-import { ConnectedTastingRoom } from "./ConnectedTastingRoom";
 import { BlendConnections } from "./BlendConnections";
 
-function regionHeroFor(region:{country:string;climate:string;soil:string;lat:number}){
-  const signal=`${region.country} ${region.climate} ${region.soil}`.toLowerCase()
-  if(/volcan|basalt|lava|etna|santorini|canary|azores|madeira/.test(signal)) return volcanicVineyard
-  if(/argentina|mendoza|uco|salta|chile|ande|high-altitude|altitude/.test(signal)) return andesVineyard
-  if(/atlantic|maritime|ocean|coast|fog|mist|rias baixas|casablanca|marlborough/.test(signal)) return maritimeVineyard
-  if(/mediterranean|provence|sicil|sard|greece|lebanon|israel|cyprus|languedoc|priorat/.test(signal)||Math.abs(region.lat)<36) return mediterraneanVines
-  return vineyardHero
+const CellarExperience = lazy(() => import("./CellarExperience").then(module => ({ default:module.CellarExperience })))
+const ConnectedTastingRoom = lazy(() => import("./ConnectedTastingRoom").then(module => ({ default:module.ConnectedTastingRoom })))
+const DatabaseStatus = lazy(() => import("./DatabaseStatus").then(module => ({ default:module.DatabaseStatus })))
+const AuditTrail = lazy(() => import("./AuditTrail").then(module => ({ default:module.AuditTrail })))
+const EditorialStudio = lazy(() => import("./EditorialStudio").then(module => ({ default:module.EditorialStudio })))
+const AccountRoleManager = lazy(() => import("./AccountRoleManager").then(module => ({ default:module.AccountRoleManager })))
+
+function Deferred({children}:{children:ReactNode}){
+  return <Suspense fallback={<div className="app-bootstrap" aria-busy="true"><span /></div>}>{children}</Suspense>
+}
+
+type RegionHeroScene={src:string;position:string;tone:'deep'|'soft'|'cool'|'warm'}
+
+const regionHeroScenes={
+  terraces:{src:vineyardHero,position:'52% center',tone:'deep'},
+  mediterranean:{src:mediterraneanVines,position:'58% center',tone:'warm'},
+  andes:{src:andesVineyard,position:'58% center',tone:'cool'},
+  maritime:{src:maritimeVineyard,position:'58% center',tone:'cool'},
+  volcanicIsland:{src:volcanicVineyard,position:'54% center',tone:'deep'},
+  riverSlate:{src:riverSlateVineyard,position:'48% center',tone:'deep'},
+  estuaryLimestone:{src:estuaryLimestoneVineyard,position:'56% center',tone:'soft'},
+  alpineLake:{src:alpineLakeVineyard,position:'56% center',tone:'cool'},
+  ancientBush:{src:ancientBushVines,position:'48% center',tone:'warm'},
+  coastalFog:{src:coastalFogVineyard,position:'54% center',tone:'cool'},
+  volcanicAltitude:{src:volcanicAltitudeVineyard,position:'52% center',tone:'deep'},
+  windsweptIsland:{src:windsweptIslandVineyard,position:'55% center',tone:'deep'},
+  continentalPlateau:{src:continentalPlateauVineyard,position:'52% center',tone:'warm'},
+  bordeauxEstuary:{src:bordeauxEstuaryVineyard,position:'50% center',tone:'deep'},
+  marlboroughWairau:{src:marlboroughWairauVineyard,position:'52% center',tone:'deep'},
+} satisfies Record<string,RegionHeroScene>
+
+type RegionHeroKey=keyof typeof regionHeroScenes
+const benchmarkRegionHeroes:Record<string,RegionHeroKey>={
+  mosel:'riverSlate',nahe:'terraces',rheingau:'estuaryLimestone',bordeaux:'bordeauxEstuary',burgundy:'terraces',champagne:'continentalPlateau','chianti-classico':'mediterranean',
+  mendoza:'andes',salta:'volcanicAltitude',etna:'volcanicAltitude',santorini:'windsweptIsland',madeira:'volcanicIsland',priorat:'ancientBush',
+  marlborough:'marlboroughWairau','central-otago':'ancientBush','rias-baixas':'maritime',moscato:'continentalPlateau',
+}
+
+function stableRegionIndex(value:string,size:number){let hash=2166136261;for(const char of value){hash^=char.charCodeAt(0);hash=Math.imul(hash,16777619)}return Math.abs(hash)%size}
+
+function regionHeroFor(region:{id:string;country:string;climate:string;soil:string;lat:number;lng:number}):RegionHeroScene{
+  const direct=benchmarkRegionHeroes[region.id]
+  if(direct)return regionHeroScenes[direct]
+  const signal=`${region.id} ${region.country} ${region.climate} ${region.soil}`.toLowerCase()
+  let pool:RegionHeroKey[]
+  if(/island|isla|insel|canary|azores|madeira|santorini|pantelleria/.test(signal))pool=['windsweptIsland','volcanicIsland','maritime']
+  else if(/volcan|basalt|lava|etna|ash|tuff/.test(signal))pool=['volcanicAltitude','volcanicIsland','ancientBush']
+  else if(/argentina|mendoza|uco|salta|chile|ande|high.altitude|altitude|mountain/.test(signal))pool=['andes','volcanicAltitude','alpineLake']
+  else if(/atlantic|maritime|ocean|coast|fog|mist|rias|casablanca|marlborough|pacific/.test(signal))pool=['coastalFog','maritime','estuaryLimestone']
+  else if(/river|slate|schist|mosel|rhine|rhein|douro|danube|wachau|ahr|nahe/.test(signal))pool=['riverSlate','terraces','estuaryLimestone']
+  else if(/mediterranean|provence|sicil|sard|greece|lebanon|israel|cyprus|languedoc|priorat|limestone/.test(signal)||Math.abs(region.lat)<36)pool=['mediterranean','ancientBush','continentalPlateau']
+  else if(/continental|plateau|loess|clay|warm|dry|arid/.test(signal))pool=['continentalPlateau','ancientBush','terraces']
+  else pool=['terraces','estuaryLimestone','alpineLake','continentalPlateau']
+  const scene=regionHeroScenes[pool[stableRegionIndex(`${region.id}:${region.lat.toFixed(2)}:${region.lng.toFixed(2)}`,pool.length)]]
+  const positions=['46% center','52% center','58% center','64% center']
+  return {...scene,position:positions[stableRegionIndex(`${region.id}:crop`,positions.length)]}
+}
+
+type RegionOpening={summary:string;climateLead:string;diversity:string}
+type RegionOpeningSeed={summary:string;terrain:string}
+const benchmarkRegionOpenings:Record<string,Record<Locale,RegionOpeningSeed>>={
+  nahe:{
+    en:{summary:'The Nahe compresses an unusual range of rocks into a compact web of tributary valleys. Riesling can move from filigree to force within a few kilometres while retaining its cool, mineral line.',terrain:'Slate, volcanic rock, sandstone and loess change drainage and heat retention over short distances, so site is never a footnote here.'},
+    de:{summary:'Die Nahe bündelt eine ungewöhnliche Gesteinsvielfalt in einem kompakten Netz geschützter Seitentäler. Riesling wechselt auf wenigen Kilometern von filigran zu kraftvoll und behält dabei seine kühle, mineralische Linie.',terrain:'Schiefer, Vulkangestein, Sandstein und Löss verändern Drainage und Wärmespeicherung auf engem Raum; die Lage ist hier nie eine Nebensache.'},
+    fr:{summary:'La Nahe concentre une diversité géologique rare dans un réseau compact de vallées affluentes. En quelques kilomètres, le riesling passe de la dentelle à la puissance tout en gardant une trame fraîche et minérale.',terrain:'Schistes, roches volcaniques, grès et lœss modifient rapidement drainage et accumulation de chaleur : le lieu précis reste donc décisif.'},
+    es:{summary:'El Nahe concentra una diversidad geológica excepcional en una red compacta de valles tributarios. En pocos kilómetros, el riesling pasa de la delicadeza a la fuerza sin perder su línea fresca y mineral.',terrain:'Pizarra, roca volcánica, arenisca y loess cambian el drenaje y la retención térmica en distancias muy cortas; aquí el sitio nunca es un detalle menor.'},
+  },
+  mosel:{
+    en:{summary:'The Mosel turns exposure into a viticultural instrument. Tight river bends and steep Devonian-slate slopes help Riesling ripen slowly, preserve acidity and translate each parcel’s aspect with unusual clarity.',terrain:'Dark slate stores daytime warmth while the river reflects light into slopes too steep for mechanised farming, making aspect and labour central to style.'},
+    de:{summary:'Die Mosel macht Exposition zum weinbaulichen Instrument. Enge Flussschleifen und steile Devon-Schieferhänge lassen Riesling langsam reifen, Säure bewahren und die Ausrichtung jeder Parzelle ungewöhnlich klar zeigen.',terrain:'Dunkler Schiefer speichert Tageswärme, während der Fluss Licht in mechanisch kaum bewirtschaftbare Steillagen reflektiert; Exposition und Handarbeit prägen den Stil.'},
+    fr:{summary:'La Moselle fait de l’exposition un véritable outil viticole. Les méandres serrés et les pentes abruptes de schiste dévonien permettent au riesling de mûrir lentement, de garder son acidité et d’exprimer précisément chaque parcelle.',terrain:'Le schiste sombre emmagasine la chaleur du jour tandis que la rivière renvoie la lumière vers des coteaux trop raides pour la mécanisation; exposition et travail manuel façonnent le style.'},
+    es:{summary:'El Mosela convierte la exposición en una herramienta vitícola. Los meandros cerrados y las laderas pronunciadas de pizarra devónica permiten que el riesling madure despacio, conserve acidez y refleje cada parcela con gran nitidez.',terrain:'La pizarra oscura almacena el calor diurno y el río refleja luz hacia pendientes demasiado escarpadas para mecanizarse; orientación y trabajo manual definen el estilo.'},
+  },
+  bordeaux:{
+    en:{summary:'Bordeaux spreads around the Gironde estuary and the Garonne and Dordogne banks. Gravel on the Left Bank and clay-limestone on the Right Bank underpin distinct Cabernet- and Merlot-led traditions.',terrain:'Water moderates the Atlantic climate, while gravel drains quickly and clay-limestone holds moisture; those contrasts help explain the region’s long-standing blend architecture.'},
+    de:{summary:'Bordeaux breitet sich um die Gironde-Mündung sowie die Ufer von Garonne und Dordogne aus. Kies am linken und Ton-Kalk am rechten Ufer tragen unterschiedliche Cabernet- und Merlot-geprägte Traditionen.',terrain:'Das Wasser mildert das Atlantikklima, während Kies rasch drainiert und Ton-Kalk Feuchtigkeit hält; diese Gegensätze erklären einen Teil der gewachsenen Cuvée-Architektur.'},
+    fr:{summary:'Bordeaux se déploie autour de l’estuaire de la Gironde et des rives de la Garonne et de la Dordogne. Les graves de la rive gauche et l’argilo-calcaire de la rive droite fondent deux traditions dominées respectivement par le cabernet et le merlot.',terrain:'L’eau tempère le climat atlantique, les graves drainent vite et l’argilo-calcaire retient davantage l’humidité; ces contrastes éclairent l’architecture historique des assemblages.'},
+    es:{summary:'Burdeos se extiende alrededor del estuario de la Gironda y de las riberas del Garona y el Dordoña. Las gravas de la margen izquierda y la arcilla-caliza de la derecha sostienen tradiciones distintas, lideradas por cabernet y merlot.',terrain:'El agua modera el clima atlántico; la grava drena con rapidez y la arcilla-caliza conserva humedad. Estos contrastes ayudan a explicar la histórica arquitectura de los ensamblajes.'},
+  },
+  mendoza:{
+    en:{summary:'Mendoza’s vineyards climb through an arid Andean rain shadow. Meltwater irrigation, altitude and large day–night temperature shifts make elevation as decisive as latitude.',terrain:'Alluvial fans carry sand, silt, stones and limestone from the Andes; their changing depth and drainage give each altitude band a different water and heat balance.'},
+    de:{summary:'Mendozas Weinberge steigen im trockenen Regenschatten der Anden an. Schmelzwasserbewässerung, Höhe und große Tag-Nacht-Schwankungen machen die Höhenlage ebenso entscheidend wie den Breitengrad.',terrain:'Schwemmkegel tragen Sand, Schluff, Steine und Kalk aus den Anden; wechselnde Tiefe und Drainage geben jeder Höhenstufe einen eigenen Wasser- und Wärmehaushalt.'},
+    fr:{summary:'Les vignobles de Mendoza montent dans l’ombre pluviométrique aride des Andes. L’irrigation par les eaux de fonte, l’altitude et de fortes amplitudes jour-nuit rendent l’élévation aussi décisive que la latitude.',terrain:'Les cônes alluviaux déposent sable, limon, galets et calcaire venus des Andes; profondeur et drainage variables donnent à chaque étage d’altitude son propre équilibre hydrique et thermique.'},
+    es:{summary:'Los viñedos de Mendoza ascienden por la árida sombra de lluvia andina. El riego con agua de deshielo, la altitud y la gran amplitud térmica diaria hacen que la elevación sea tan decisiva como la latitud.',terrain:'Los abanicos aluviales arrastran arena, limo, piedras y caliza desde los Andes; sus cambios de profundidad y drenaje dan a cada cota un equilibrio distinto de agua y calor.'},
+  },
+  etna:{
+    en:{summary:'Etna’s vines climb an active volcano in separate contrade. Elevation, exposure and lava flows of different ages create sharp changes in ripening and texture over remarkably short distances.',terrain:'Black lava, ash and weathered volcanic sands drain rapidly and store warmth, while altitude and exposure temper that heat; individual flows can define the character of a parcel.'},
+    de:{summary:'Die Reben des Etna steigen in einzelnen Contrade an einem aktiven Vulkan hinauf. Höhe, Exposition und unterschiedlich alte Lavaströme verändern Reife und Textur auf erstaunlich kurzen Distanzen.',terrain:'Schwarze Lava, Asche und verwitterte Vulkansande drainieren rasch und speichern Wärme, die von Höhe und Exposition gebremst wird; einzelne Lavaströme können eine Parzelle prägen.'},
+    fr:{summary:'Sur l’Etna, les vignes gravissent un volcan actif à travers des contrade distinctes. Altitude, exposition et coulées de lave d’âges différents modifient nettement maturité et texture sur de très courtes distances.',terrain:'Lave noire, cendres et sables volcaniques altérés drainent vite et emmagasinent la chaleur, tempérée par l’altitude et l’exposition; une coulée précise peut signer une parcelle.'},
+    es:{summary:'En el Etna, las vides ascienden por un volcán activo dividido en contrade. La altitud, la exposición y las coladas de lava de distintas edades cambian madurez y textura en distancias sorprendentemente cortas.',terrain:'Lava negra, ceniza y arenas volcánicas meteorizadas drenan rápido y almacenan calor, moderado por la altitud y la orientación; una colada concreta puede definir una parcela.'},
+  },
+  marlborough:{
+    en:{summary:'Marlborough sits between mountains and the Pacific, with sunny, wind-dried valleys and cool nights. Wairau, Southern Valleys and Awatere differ in wind, soil and ripening tempo.',terrain:'Free-draining river gravels dominate parts of Wairau, heavier clays mark the Southern Valleys, and the cooler, windier Awatere slows ripening and sharpens herbal detail.'},
+    de:{summary:'Marlborough liegt zwischen Gebirgen und Pazifik, mit sonnigen, windgetrockneten Tälern und kühlen Nächten. Wairau, Southern Valleys und Awatere unterscheiden sich in Wind, Boden und Reifetempo.',terrain:'Frei drainierende Flussschotter prägen Teile des Wairau, schwerere Tone die Southern Valleys; im kühleren, windigeren Awatere reifen Trauben langsamer und zeigen oft mehr Kräuterwürze.'},
+    fr:{summary:'Marlborough s’étend entre les montagnes et le Pacifique, avec des vallées ensoleillées, séchées par le vent, et des nuits fraîches. Wairau, Southern Valleys et Awatere diffèrent par le vent, les sols et le rythme de maturation.',terrain:'Les graves fluviales drainantes dominent une partie de Wairau, les argiles plus lourdes marquent les Southern Valleys, tandis que l’Awatere, plus frais et venteux, ralentit la maturité et accentue les nuances végétales.'},
+    es:{summary:'Marlborough se sitúa entre montañas y el Pacífico, con valles soleados y secos por el viento, además de noches frescas. Wairau, Southern Valleys y Awatere difieren en viento, suelo y ritmo de maduración.',terrain:'Las gravas fluviales de drenaje libre dominan parte de Wairau, las arcillas más pesadas marcan Southern Valleys y el Awatere, más fresco y ventoso, ralentiza la maduración y acentúa los matices herbales.'},
+  },
+}
+
+function regionOpening(region:(typeof regions)[number],locale:Locale,content:ReturnType<typeof regionContent>):RegionOpening{
+  const seed=benchmarkRegionOpenings[region.id]?.[locale]
+  if(seed)return {summary:seed.summary,climateLead:`${content.climate.replace(/[.\s]+$/,'')}. ${seed.terrain}`,diversity:content.viticulture}
+  const ground={en:`The region’s ground—${content.soil.toLowerCase()}—influences water movement, heat storage and rooting depth.`,de:`Der Untergrund der Region – ${content.soil.toLowerCase()} – beeinflusst Wasserführung, Wärmespeicherung und Wurzeltiefe.`,fr:`Le sous-sol régional — ${content.soil.toLowerCase()} — influence la circulation de l’eau, le stockage de chaleur et la profondeur d’enracinement.`,es:`El subsuelo regional —${content.soil.toLowerCase()}— influye en el movimiento del agua, la retención térmica y la profundidad de las raíces.`}[locale]
+  return {summary:content.summary,climateLead:`${content.climate.replace(/[.\s]+$/,'')}. ${ground}`,diversity:content.viticulture}
 }
 
 const navItems = [
@@ -138,21 +237,21 @@ export default function App() {
         <Route path="/wines/:slug" element={<WinePage />} />
         <Route path="/aromas" element={<AromaPage />} />
         <Route path="/learn" element={<LearningHub />} />
-        <Route path="/learn/:slug" element={<LearningLesson />} />
+        <Route path="/learn/:slug" element={<LearningRoute />} />
         <Route path="/tastings" element={<TastingsPage />} />
-        <Route path="/tastings/build" element={<TastingBuilder />} />
-        <Route path="/tastings/:id" element={<ConnectedTastingRoom renderJourney={journey=><JourneyExperience journey={journey}/>} />} />
+        <Route path="/tastings/build" element={<AccountGuard><TastingBuilder /></AccountGuard>} />
+        <Route path="/tastings/:id" element={<AccountGuard><Deferred><ConnectedTastingRoom renderJourney={journey=><JourneyExperience journey={journey}/>} /></Deferred></AccountGuard>} />
         <Route path="/events" element={<EventsMarketplace />} />
         <Route path="/events/:id" element={<EventDetail />} />
         <Route path="/hosts/:id" element={<HostProfile />} />
         <Route path="/partners/:id" element={<PartnerProfilePage />} />
         <Route path="/studio" element={<StudioGuard><StudioHome /></StudioGuard>} />
         <Route path="/studio/events" element={<StudioGuard><StudioEvents /></StudioGuard>} />
-        <Route path="/studio/profile" element={<StudioGuard><StudioProfile /></StudioGuard>} />
-        <Route path="/studio/site" element={<StudioGuard><StudioSite /></StudioGuard>} />
-        <Route path="/studio/offers" element={<StudioGuard><StudioOffers /></StudioGuard>} />
-        <Route path="/studio/placements" element={<StudioGuard><StudioPlacements /></StudioGuard>} />
-        <Route path="/cellar" element={<CellarExperience />} />
+        <Route path="/studio/profile" element={<StudioGuard roles={['host','winery','merchant','admin']}><StudioProfile /></StudioGuard>} />
+        <Route path="/studio/site" element={<StudioGuard roles={['winery','merchant','admin']}><StudioSite /></StudioGuard>} />
+        <Route path="/studio/offers" element={<StudioGuard roles={['merchant','admin']}><StudioOffers /></StudioGuard>} />
+        <Route path="/studio/placements" element={<StudioGuard roles={['admin']}><StudioPlacements /></StudioGuard>} />
+        <Route path="/cellar" element={<AccountGuard><Deferred><CellarExperience /></Deferred></AccountGuard>} />
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="*" element={<NotFound />} />
@@ -162,11 +261,28 @@ export default function App() {
   );
 }
 
-function StudioGuard({children}:{children:ReactNode}){
+function LearningRoute(){
+  const {slug}=useParams()
+  return learningModuleById(slug??'')?<LearningLesson/>:<ArticlePage/>
+}
+
+function StudioGuard({children,roles}:{children:ReactNode;roles?:MembershipRole[]}){
   const {user,ready}=useAuth()
   const ui=useUiCopy()
+  const location=useLocation()
   if(!ready)return <div className="page guarded" aria-busy="true" role="status" aria-label={ui.studioNav}><span className="loading-orbit"/></div>
-  return user?children:<Navigate to="/profile" replace/>
+  const returnTo=encodeURIComponent(`${location.pathname}${location.search}`)
+  if(!user)return <Navigate to={`/profile?returnTo=${returnTo}`} replace state={{reason:'studio-auth'}}/>
+  if(roles&&!roles.some(role=>user.roles.includes(role)))return <div className="page guarded"><ShieldCheck/><h1>{ui.permissions}</h1><p>{ui.studioBody}</p><Link className="primary-button ink" to="/studio">{ui.viewStudio}</Link></div>
+  return children
+}
+
+function AccountGuard({children}:{children:ReactNode}){
+  const {user,ready}=useAuth()
+  const location=useLocation()
+  if(!ready)return <div className="page guarded" aria-busy="true"><span className="loading-orbit"/></div>
+  const returnTo=encodeURIComponent(`${location.pathname}${location.search}`)
+  return user?children:<Navigate to={`/profile?returnTo=${returnTo}`} replace state={{reason:'account-auth'}}/>
 }
 
 function AppShell({
@@ -396,14 +512,16 @@ function HomePage() {
           </Link>
         </div>
         <div className="region-row">
-          {featured.map((region, index) => (
+          {featured.map((region, index) => {
+            const hero=regionHeroFor(region)
+            return (
             <Link
               to={`/regions/${region.id}`}
               className="region-card"
               key={region.id}
             >
               <div className={`region-image crop-${index}`}>
-                <img src={regionHeroFor(region)} alt={ui.vineyardLandscapeAlt} />
+                <img src={hero.src} style={{objectPosition:hero.position}} alt={`${region.name} · ${countryLabel(region.country,locale)}`} />
                 <span>{String(index + 1).padStart(2, "0")}</span>
               </div>
               <div>
@@ -412,7 +530,7 @@ function HomePage() {
                 <p>{regionContent(region,locale).climate}</p>
               </div>
             </Link>
-          ))}
+          )})}
         </div>
       </section>
       <section className="split-feature">
@@ -445,7 +563,7 @@ function HomePage() {
             <span className="eyebrow">{copy.collection}</span>
             <h2>
               {cellar.length
-                ? `${cellar.reduce((sum, item) => sum + item.quantity, 0)} bottles, each with a story`
+                ? `${cellar.reduce((sum, item) => sum + item.quantity, 0)} ${copy.bottles} · ${copy.cellarStories}`
                 : copy.cellarStart}
             </h2>
           </div>
@@ -710,21 +828,24 @@ function RegionPage() {
   const [rating, setRating] = useRating(`region:${slug}`);
   if (!region) return <NotFound />;
   const relatedGrapes = grapes.filter((g) => region.grapeIds.includes(g.id));
-  const relatedProducers = producers.filter((p) => p.regionId === region.id);
-  const relatedWines = wines.filter((w) => w.regionId === region.id);
+  const relatedProducers = producers.filter((p) => p.regionIds.includes(region.id));
+  const relatedWines = wines.filter((w) => region.wineIds.includes(w.id));
   const content=regionContent(region,locale)
+  const hero=regionHeroFor(region)
+  const opening=regionOpening(region,locale,content)
   return (
     <article className="page detail-page">
       <BackLink to="/atlas" label={ui.worldAtlas} />
-      <section className="detail-hero">
+      <section className={`detail-hero tone-${hero.tone}`}>
         <img
-          src={regionHeroFor(region)}
+          src={hero.src}
+          style={{objectPosition:hero.position}}
           alt={`${region.name} · ${countryLabel(region.country,locale)}`}
         />
         <div className="detail-hero-copy">
           <span>{countryLabel(region.country,locale)}</span>
           <h1>{region.name}</h1>
-          <p>{content.summary}</p>
+          <p>{opening.summary}</p>
         </div>
         <div className="place-index">
           <span>{ui.placeIndex}</span>
@@ -748,13 +869,8 @@ function RegionPage() {
         <div>
           <span className="eyebrow">{ui.shapePlace}</span>
           <h2>{ui.climateMeets}</h2>
-          <p className="lead">
-            {content.climate}. Beneath the vines, {content.soil.toLowerCase()}{" "}
-            helps frame the region’s physical story.
-          </p>
-          <p>
-            {ui.regionDiversity}
-          </p>
+          <p className="lead">{opening.climateLead}</p>
+          <p>{opening.diversity}</p>
         </div>
         <dl className="facts">
           <div>
@@ -1109,6 +1225,8 @@ function WineCard({ wine }: { wine: (typeof wines)[number] }) {
 function WinePage() {
   const {locale}=useLocale()
   const ui=useUiCopy()
+  const {user}=useAuth()
+  const navigate=useNavigate()
   const { slug } = useParams();
   const wine = wines.find((w) => w.id === slug);
   if (!wine) return <NotFound />;
@@ -1122,7 +1240,14 @@ function WinePage() {
   );
   const [rating, setRating] = useRating(`wine:${slug}`);
   const content=wineContent(wine,producer,region,locale)
+  const evidenceCopy={
+    en:wine.evidenceLevel==='producer'?{title:'Producer-documented detail',body:'The linked primary source supports this wine record. Production details can be maintained as a sourced estate record.'}:{title:'Style context, transparently labelled',body:'The cited source confirms the bottle and origin; the process notes explain the wine style and do not claim an unpublished estate recipe.'},
+    de:wine.evidenceLevel==='producer'?{title:'Vom Erzeuger belegte Details',body:'Die verknüpfte Primärquelle stützt diesen Weineintrag. Produktionsdetails können als belegter Weingutseintrag gepflegt werden.'}:{title:'Transparent markierter Stilkontext',body:'Die zitierte Quelle belegt Flasche und Herkunft; die Prozesshinweise erklären den Weinstil und behaupten kein unveröffentlichtes Kellerrezept.'},
+    fr:wine.evidenceLevel==='producer'?{title:'Détail documenté par le domaine',body:'La source primaire liée étaye cette fiche. Les détails de production peuvent être maintenus comme données sourcées du domaine.'}:{title:'Contexte de style clairement signalé',body:'La source citée confirme la bouteille et l’origine ; les notes de procédé expliquent le style sans attribuer au domaine une recette non publiée.'},
+    es:wine.evidenceLevel==='producer'?{title:'Detalle documentado por la bodega',body:'La fuente primaria enlazada respalda esta ficha. Los datos de producción pueden mantenerse como información documentada de la bodega.'}:{title:'Contexto de estilo claramente indicado',body:'La fuente citada confirma botella y origen; las notas explican el estilo sin atribuir a la bodega una receta no publicada.'},
+  }[locale]
   function add() {
+    if(!user){navigate(`/profile?returnTo=${encodeURIComponent(`/wines/${wineId}`)}`);return}
     const items = repository.cellar.all();
     if (!items.some((i) => i.wineId === wineId)) {
       items.push({
@@ -1228,6 +1353,7 @@ function WinePage() {
         <div className="process-copy">
           <span className="eyebrow">{ui.fromFruitBottle}</span>
           <h2>{ui.howStyleBuilt}</h2>
+          <div className={`evidence-note ${wine.evidenceLevel}`}><ShieldCheck/><span><strong>{evidenceCopy.title}</strong><small>{evidenceCopy.body}</small></span></div>
           <ol>
             <li><span>01</span><div><h3>{ui.composition}</h3><p>{wine.composition}</p></div></li>
             <li><span>02</span><div><h3>{ui.vinification}</h3><p>{content.vinification}</p></div></li>
@@ -1691,13 +1817,16 @@ function optionsForChapter(type:TastingChapterType,locale:Locale='en') {
   if(type==='producer') return producers.map(item=>({id:item.id,label:item.name}))
   if(type==='grape') return grapes.map(item=>({id:item.id,label:item.name}))
   if(type==='aroma') return aromas.map(item=>{const content=aromaContent(item,locale);return {id:item.id,label:`${content.family} · ${content.name}`}})
-  if(type==='article') return [...learningModules.map(item=>({id:item.id,label:`${learningUi[locale].addWhole} · ${item.title[locale]}`})),...articles.map(item=>({id:item.id,label:articleContent(item,locale).title}))]
+  if(type==='article') return [
+    ...learningModules.map(item=>({id:item.id,label:`${learningUi[locale].addWhole} · ${item.title[locale]}`})),
+    ...articles.map(item=>({id:item.id,label:`${{en:'Reference guide',de:'Vertiefungsguide',fr:'Guide de référence',es:'Guía de referencia'}[locale]} · ${articleContent(item,locale).title}`})),
+  ]
   if(type==='learning-block') return learningModules.flatMap(module=>module.blocks.filter(block=>!['sources','glossary','entity-connections'].includes(block.kind)).map(block=>({id:block.id,label:`${module.title[locale]} · ${block.title[locale]}`})))
   return []
 }
 function referenceTitle(type:TastingChapterType,id:string|undefined,locale:Locale,ui:ReturnType<typeof useUiCopy>) {
   if(!id) return type==='pause'?ui.pauseConversation:ui.chapterHost
-  if(type==='article'){const module=learningModuleById(id);if(module)return module.title[locale]}
+  if(type==='article'){const module=learningModuleById(id);if(module)return module.title[locale];const guide=articles.find(item=>item.id===id);if(guide)return articleContent(guide,locale).title}
   return optionsForChapter(type,locale).find(item=>item.id===id)?.label.split(' · ')[0] ?? ui.untitledChapter
 }
 function defaultJourney(locale:Locale,ui:ReturnType<typeof useUiCopy>):TastingJourney {
@@ -1789,502 +1918,6 @@ export function JourneyExperience({journey}:{journey:TastingJourney}) {
   </div>
 }
 
-const tastingFlight=wines.slice(0,0)
-function TastingRoom() {
-  const {locale}=useLocale()
-  const ui=useUiCopy()
-  const cellarAction={en:{add:'Add to my cellar',added:'In my cellar'},de:{add:'In meinen Keller legen',added:'In meinem Keller'},fr:{add:'Ajouter à ma cave',added:'Dans ma cave'},es:{add:'Añadir a mi bodega',added:'En mi bodega'}}[locale]
-  const { id = "" } = useParams();
-  const journey=repository.journeys.all().find(item=>item.id===id)
-  if(journey) return <JourneyExperience journey={journey}/>
-  const [current, setCurrent] = useState(0);
-  const [step, setStep] = useState(0);
-  const [selectedAromas, setSelectedAromas] = useState<string[]>([]);
-  const [fields, setFields] = useState({
-    appearance: ui.defaultAppearance,
-    palate: "",
-    reflection: "",
-  });
-  const [saved, setSaved] = useState(false);
-  const [,setCellarVersion]=useState(0)
-  const wine = tastingFlight[current];
-  const inCellar=repository.cellar.all().some(item=>item.wineId===wine.id)
-  const shareUrl = `${window.location.origin}/tastings/${id}`;
-  function saveNote() {
-    const next: TastingNote = {
-      id: crypto.randomUUID(),
-      tastingId: id,
-      wineId: wine.id,
-      appearance: fields.appearance,
-      aromaIds: selectedAromas,
-      palate: fields.palate,
-      reflection: fields.reflection,
-      rating: 4,
-      visibility: "private",
-      createdAt: new Date().toISOString(),
-    };
-    repository.notes.save([...repository.notes.all(), next]);
-    const cellar=repository.cellar.all(),cellarItem=cellar.find(item=>item.wineId===wine.id)
-    if(cellarItem){
-      cellarItem.notes=[...(cellarItem.notes??[]),{id:next.id,appearance:next.appearance,aromaIds:next.aromaIds,palate:next.palate,finish:'',reflection:next.reflection,acidity:3,tannin:wine.style==='red'?3:1,body:3,rating:next.rating,createdAt:next.createdAt}]
-      cellarItem.rating=next.rating
-      repository.cellar.save(cellar)
-      setCellarVersion(value=>value+1)
-    }
-    setSaved(true);
-  }
-  function addCurrentWine(){
-    const cellar=repository.cellar.all(),existing=cellar.find(item=>item.wineId===wine.id)
-    if(existing){existing.quantity+=1;existing.state='tasted'}else{cellar.push({id:crypto.randomUUID(),wineId:wine.id,state:'tasted',quantity:1,location:ui.homeCellar,vintage:wine.vintage??undefined,bottleSizeMl:750,notes:[]})}
-    repository.cellar.save(cellar);setCellarVersion(value=>value+1)
-  }
-  return (
-    <div className="tasting-room">
-      <header className="room-header">
-        <Link to="/tastings">
-          <X />
-        </Link>
-        <div>
-          <small>
-            {ui.liveTasting} · {ui.wine} {current + 1} {ui.of} {tastingFlight.length}
-          </small>
-          <strong>{ui.defaultTastingTitle}</strong>
-        </div>
-        <button onClick={() => navigator.clipboard?.writeText(shareUrl)}>
-          <Share2 />
-        </button>
-      </header>
-      <div className="flight-progress">
-        {tastingFlight.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => {
-              setCurrent(i);
-              setSaved(false);
-            }}
-            className={i === current ? "active" : i < current ? "done" : ""}
-          >
-            <span>{i + 1}</span>
-          </button>
-        ))}
-      </div>
-      <main>
-        <section className="current-wine">
-          <div className={`room-bottle style-${wine.style}`} />
-          <div>
-            <span>{regions.find((r) => r.id === wine.regionId)?.name}</span>
-            <h1>{wine.name}</h1>
-            <p>
-              {producers.find((p) => p.id === wine.producerId)?.name} ·{" "}
-              {wine.vintage ?? "—"}
-            </p>
-            <div className="thread-cloud">
-              {grapes
-                .filter((g) => wine.grapeIds.includes(g.id))
-                .map((g) => (
-                  <ThreadLink to={`/grapes/${g.id}`} key={g.id} tone="moss">
-                    {g.name}
-                  </ThreadLink>
-                ))}
-            </div>
-            <button className={inCellar?'secondary-button cellar-added':'secondary-button'} onClick={addCurrentWine}>{inCellar?<Check/>:<Plus/>}{inCellar?cellarAction.added:cellarAction.add}</button>
-          </div>
-        </section>
-        <div className="note-steps">
-          {[ui.look, ui.smell, ui.taste, ui.reflect].map((name, i) => (
-            <button
-              onClick={() => setStep(i)}
-              className={step === i ? "active" : ""}
-              key={name}
-            >
-              <span>{i + 1}</span>
-              {name}
-            </button>
-          ))}
-        </div>
-        <section className="note-composer">
-          {step === 0 && (
-            <>
-              <span className="eyebrow">{ui.stepOne} · {ui.look}</span>
-              <h2>{ui.glassShow}</h2>
-              <textarea
-                value={fields.appearance}
-                onChange={(e) =>
-                  setFields({ ...fields, appearance: e.target.value })
-                }
-              />
-            </>
-          )}
-          {step === 1 && (
-            <>
-              <span className="eyebrow">{ui.stepTwo} · {ui.smell}</span>
-              <h2>{ui.closestReferences}</h2>
-              <p>{ui.noCorrectNumber}</p>
-              <div className="note-aromas">
-                {aromas
-                  .filter((a) => wine.aromaIds.includes(a.id))
-                  .map((a) => (
-                    <button
-                      className={selectedAromas.includes(a.id) ? "active" : ""}
-                      onClick={() =>
-                        setSelectedAromas((values) =>
-                          values.includes(a.id)
-                            ? values.filter((id) => id !== a.id)
-                            : [...values, a.id],
-                        )
-                      }
-                      key={a.id}
-                    >
-                      {selectedAromas.includes(a.id) && <Check />}
-                      {aromaContent(a,locale).name}
-                    </button>
-                  ))}
-              </div>
-            </>
-          )}
-          {step === 2 && (
-            <>
-              <span className="eyebrow">{ui.stepThree} · {ui.taste}</span>
-              <h2>{ui.wineBuilt}</h2>
-              <textarea
-                placeholder={ui.palatePlaceholder}
-                value={fields.palate}
-                onChange={(e) =>
-                  setFields({ ...fields, palate: e.target.value })
-                }
-              />
-            </>
-          )}
-          {step === 3 && (
-            <>
-              <span className="eyebrow">{ui.stepFour} · {ui.reflect}</span>
-              <h2>{ui.remember}</h2>
-              <textarea
-                placeholder={ui.reflectionPlaceholder}
-                value={fields.reflection}
-                onChange={(e) =>
-                  setFields({ ...fields, reflection: e.target.value })
-                }
-              />
-            </>
-          )}
-          <div className="composer-actions">
-            <small>
-              <LockKeyhole />
-              {ui.privateYou}
-            </small>
-            {step < 3 ? (
-              <button
-                className="primary-button"
-                onClick={() => setStep(step + 1)}
-              >
-                {ui.nextStep} <ArrowRight />
-              </button>
-            ) : (
-              <button className="primary-button" onClick={saveNote}>
-                {saved ? (
-                  <>
-                    <Check />
-                    {ui.noteSaved}
-                  </>
-                ) : (
-                  <>
-                    {ui.saveNote} <NotebookPen />
-                  </>
-                )}
-              </button>
-            )}
-          </div>
-        </section>
-      </main>
-      <aside className="room-share">
-        <QRCodeSVG
-          value={shareUrl}
-          size={110}
-          bgColor="#f4efe6"
-          fgColor="#241920"
-        />
-        <h3>{ui.bringTable}</h3>
-        <p>{ui.shareQr}</p>
-      </aside>
-    </div>
-  );
-}
-
-function CellarPage() {
-  const { t } = useLocale();
-  const ui=useUiCopy()
-  const copy = usePageCopy();
-  const [items, setItems] = useState<CellarItem[]>(() =>
-    repository.cellar.all(),
-  );
-  const [filter, setFilter] = useState<"all" | CellarItem["state"]>("all");
-  const [open, setOpen] = useState(false);
-  const filtered =
-    filter === "all" ? items : items.filter((i) => i.state === filter);
-  function persist(next: CellarItem[]) {
-    setItems(next);
-    repository.cellar.save(next);
-  }
-  return (
-    <div className="page cellar-page">
-      <PageIntro
-        eyebrow={copy.cellarEyebrow}
-        title={copy.cellarTitle}
-        action={
-          <button className="primary-button" onClick={() => setOpen(true)}>
-            <Plus />
-            {copy.addWine}
-          </button>
-        }
-      >
-        <p>{copy.cellarIntro}</p>
-      </PageIntro>
-      <div className="cellar-summary">
-        <div>
-          <strong>{items.reduce((sum, item) => sum + item.quantity, 0)}</strong>
-          <span>{copy.bottles}</span>
-        </div>
-        <div>
-          <strong>{items.filter((i) => i.state === "wishlist").length}</strong>
-          <span>{copy.wishList}</span>
-        </div>
-        <div>
-          <strong>{items.filter((i) => i.rating).length}</strong>
-          <span>{copy.personalRatings}</span>
-        </div>
-      </div>
-      <div className="filter-row">
-        <ListFilter />
-        <button
-          className={filter === "all" ? "active" : ""}
-          onClick={() => setFilter("all")}
-        >
-          {t("all")}
-        </button>
-        {(["owned", "wishlist", "tasted", "finished"] as const).map((state) => (
-          <button
-            className={filter === state ? "active" : ""}
-            onClick={() => setFilter(state)}
-            key={state}
-          >
-            {t(state)}
-          </button>
-        ))}
-      </div>
-      {filtered.length ? (
-        <div className="cellar-grid">
-          {filtered.map((item) => {
-            const wine = wines.find((w) => w.id === item.wineId);
-            return (
-              <article key={item.id}>
-                <div className={`cellar-bottle-media style-${wine?.style ?? "red"}`}>
-                  {item.imageDataUrl?<img src={item.imageDataUrl} alt={`${ui.bottle} · ${wine?.name||item.customName}`}/>:<div className="cellar-bottle"/>}
-                </div>
-                <div>
-                  <small>
-                    {(item.state==='wishlist'?ui.wishList:ui[item.state])} · {item.vintage || wine?.vintage || "—"}
-                  </small>
-                  <h3>{wine?.name || item.customName}</h3>
-                  <p>
-                    {wine
-                      ? producers.find((p) => p.id === wine.producerId)?.name
-                      : item.producer}
-                  </p>
-                  <div className="quantity-control">
-                    <button
-                      onClick={() =>
-                        persist(
-                          items.map((i) =>
-                            i.id === item.id
-                              ? { ...i, quantity: Math.max(0, i.quantity - 1) }
-                              : i,
-                          ),
-                        )
-                      }
-                    >
-                      <Minus />
-                    </button>
-                    <span>
-                      {item.quantity} {item.quantity === 1 ? ui.bottle : ui.bottles}
-                    </span>
-                    <button
-                      onClick={() =>
-                        persist(
-                          items.map((i) =>
-                            i.id === item.id
-                              ? { ...i, quantity: i.quantity + 1 }
-                              : i,
-                          ),
-                        )
-                      }
-                    >
-                      <Plus />
-                    </button>
-                  </div>
-                  <small>{item.location}</small>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-      ) : (
-        <div className="empty-state">
-          <Wine />
-          <h2>
-            {items.length
-              ? copy.noFilter
-              : copy.firstBottle}
-          </h2>
-          <p>
-            {items.length
-              ? copy.chooseFilter
-              : copy.emptyCellar}
-          </p>
-          <button className="primary-button ink" onClick={() => setOpen(true)}>
-            {copy.addWine}
-          </button>
-        </div>
-      )}
-      {open && (
-        <CellarForm
-          onClose={() => setOpen(false)}
-          onSave={(item) => {
-            persist([...items, item]);
-            setOpen(false);
-          }}
-        />
-      )}
-    </div>
-  );
-}
-function CellarForm({
-  onClose,
-  onSave,
-}: {
-  onClose: () => void;
-  onSave: (item: CellarItem) => void;
-}) {
-  const ui=useUiCopy()
-  const [catalogue, setCatalogue] = useState(true);
-  const [wineId, setWineId] = useState(wines[0].id);
-  const [custom, setCustom] = useState({ name: "", producer: "", region: "" });
-  const [state, setState] = useState<CellarItem["state"]>("owned");
-  const [imageDataUrl,setImageDataUrl]=useState<string>()
-  const [imageError,setImageError]=useState('')
-  const [preparingImage,setPreparingImage]=useState(false)
-  async function chooseImage(file?:File){
-    if(!file)return;setImageError('');setPreparingImage(true)
-    try{setImageDataUrl(await prepareBottlePhoto(file))}catch{setImageError(ui.photoError)}finally{setPreparingImage(false)}
-  }
-  function submit(e: FormEvent) {
-    e.preventDefault();
-    onSave({
-      id: crypto.randomUUID(),
-      ...(catalogue
-        ? { wineId }
-        : {
-            customName: custom.name,
-            producer: custom.producer,
-            region: custom.region,
-          }),
-      state,
-      quantity: 1,
-      location: ui.homeCellar,
-      imageDataUrl,
-    });
-  }
-  return (
-    <div
-      className="modal-backdrop"
-      onMouseDown={(e) => {
-        if (e.currentTarget === e.target) onClose();
-      }}
-    >
-      <form className="sheet" onSubmit={submit}>
-        <button type="button" className="sheet-close" onClick={onClose}>
-          <X />
-        </button>
-        <span className="eyebrow">{ui.personalCollection}</span>
-        <h2>{ui.addWine}</h2>
-        <div className="bottle-photo-field">
-          <div className={imageDataUrl?'photo-preview has-photo':'photo-preview'}>{imageDataUrl?<img src={imageDataUrl} alt={ui.bottlePreview}/>:<ImagePlus/>}</div>
-          <div><strong>{ui.bottlePhoto}</strong><p>{ui.photoBody}</p><label className="secondary-button"><ImagePlus size={17}/>{preparingImage?ui.preparingPhoto:imageDataUrl?ui.changePhoto:ui.choosePhoto}<input type="file" accept="image/*" capture="environment" onChange={event=>chooseImage(event.target.files?.[0])}/></label>{imageDataUrl&&<button type="button" className="text-button" onClick={()=>setImageDataUrl(undefined)}>{ui.removePhoto}</button>}{imageError&&<span className="form-error">{imageError}</span>}</div>
-        </div>
-        <div className="segmented">
-          <button
-            type="button"
-            className={catalogue ? "active" : ""}
-            onClick={() => setCatalogue(true)}
-          >
-            {ui.fromAtlas}
-          </button>
-          <button
-            type="button"
-            className={!catalogue ? "active" : ""}
-            onClick={() => setCatalogue(false)}
-          >
-            {ui.personalEntry}
-          </button>
-        </div>
-        {catalogue ? (
-          <label>
-            {ui.wine}
-            <select value={wineId} onChange={(e) => setWineId(e.target.value)}>
-              {wines.map((w) => (
-                <option key={w.id} value={w.id}>
-                  {w.name}{w.vintage ? ` · ${w.vintage}` : ""}
-                </option>
-              ))}
-            </select>
-          </label>
-        ) : (
-          <>
-            <label>
-              {ui.wineName}
-              <input
-                required
-                value={custom.name}
-                onChange={(e) => setCustom({ ...custom, name: e.target.value })}
-              />
-            </label>
-            <label>
-              {ui.producer}
-              <input
-                value={custom.producer}
-                onChange={(e) =>
-                  setCustom({ ...custom, producer: e.target.value })
-                }
-              />
-            </label>
-            <label>
-              {ui.region}
-              <input
-                value={custom.region}
-                onChange={(e) =>
-                  setCustom({ ...custom, region: e.target.value })
-                }
-              />
-            </label>
-          </>
-        )}
-        <label>
-          {ui.collection}
-          <select
-            value={state}
-            onChange={(e) => setState(e.target.value as CellarItem["state"])}
-          >
-            <option value="owned">{ui.owned}</option>
-            <option value="wishlist">{ui.wishList}</option>
-            <option value="tasted">{ui.tasted}</option>
-            <option value="finished">{ui.finished}</option>
-          </select>
-        </label>
-        <button className="primary-button">{ui.saveCellar}</button>
-      </form>
-    </div>
-  );
-}
 
 function AdminPage() {
   const { user } = useAuth();
@@ -2307,7 +1940,7 @@ function AdminPage() {
       <PageIntro eyebrow={copy.curatorWorkspace} title={copy.curatorWorkspace}>
         <p>{copy.curatorBody}</p>
       </PageIntro>
-      <DatabaseStatus />
+      <Deferred><DatabaseStatus /></Deferred>
       <section className="admin-counts">
         <div>
           <MapIcon />
@@ -2330,9 +1963,10 @@ function AdminPage() {
           <span>{t("wines")}</span>
         </div>
       </section>
-      <AccountRoleManager />
-      <EditorialStudio />
+      <Deferred><AccountRoleManager /></Deferred>
+      <Deferred><EditorialStudio /></Deferred>
       <BusinessAdminPanel />
+      <Deferred><AuditTrail /></Deferred>
     </div>
   );
 }
@@ -2342,7 +1976,18 @@ function ProfilePage() {
   const { locale, setLocale, t } = useLocale();
   const copy = usePageCopy();
   const ui = useUiCopy();
+  const location=useLocation();
+  const navigate=useNavigate();
   const [authOpen, setAuthOpen] = useState(false);
+  const returnTo=useMemo(()=>{const value=new URLSearchParams(location.search).get('returnTo');return value?.startsWith('/')&&!value.startsWith('//')&&value.length<500?value:null},[location.search]);
+  const authContext={
+    en:{title:'Sign in to create your tasting',body:'Your event workspace is ready next. After sign-in, we will return you directly to event creation.'},
+    de:{title:'Anmelden und Verkostung anlegen',body:'Als Nächstes wartet dein Veranstaltungsbereich. Nach der Anmeldung kehrst du direkt zur Event-Erstellung zurück.'},
+    fr:{title:'Connectez-vous pour créer votre dégustation',body:'Votre espace événementiel vous attend à l’étape suivante. Après connexion, vous reviendrez directement à la création.'},
+    es:{title:'Inicia sesión para crear tu cata',body:'Tu espacio de eventos es el siguiente paso. Después de iniciar sesión, volverás directamente a la creación.'},
+  }[locale];
+  useEffect(()=>{if(!user&&returnTo)setAuthOpen(true)},[user,returnTo]);
+  useEffect(()=>{if(user&&returnTo)navigate(returnTo,{replace:true})},[user,returnTo,navigate]);
   const roleNames={en:{member:'Private member',host:'Professional host',winery:'Winery',merchant:'Wine merchant',admin:'Administrator'},de:{member:'Privatperson',host:'Professioneller Host',winery:'Weingut',merchant:'Weinhändler',admin:'Administrator'},fr:{member:'Membre privé',host:'Hôte professionnel',winery:'Domaine',merchant:'Marchand de vin',admin:'Administrateur'},es:{member:'Persona privada',host:'Anfitrión profesional',winery:'Bodega',merchant:'Comerciante de vino',admin:'Administrador'}}[locale]
   return (
     <div className="page profile-page">
@@ -2356,6 +2001,7 @@ function ProfilePage() {
             : copy.profileGuestIntro}
         </p>
       </PageIntro>
+      {!user&&returnTo==='/studio/events'&&<section className="auth-return-context" role="status"><ShieldCheck/><div><h2>{authContext.title}</h2><p>{authContext.body}</p></div></section>}
       <section className="profile-card">
         <div className="profile-avatar">
           {user?.username.charAt(0).toUpperCase() || <CircleUserRound />}
@@ -2463,6 +2109,14 @@ function AuthSheet({ onClose }: { onClose: () => void }) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
+  const titleId = "vine-atlas-auth-title";
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && !busy) onClose();
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [busy, onClose]);
   const errors={en:{INVALID_CREDENTIALS:'Username or password is incorrect.',USERNAME_FORMAT:'Use 3–32 letters, numbers, dots, hyphens or underscores.',PASSWORD_LENGTH:'Use a password between 8 and 128 characters.',USERNAME_TAKEN:'This username is already taken.',ACCOUNT_DISABLED:'This account has been disabled by an administrator.',ACCOUNT_LOCKED:'Too many attempts. Try again in 15 minutes.',BACKEND_UNAVAILABLE:'The account service is temporarily unavailable.'},de:{INVALID_CREDENTIALS:'Benutzername oder Passwort ist falsch.',USERNAME_FORMAT:'Nutze 3–32 Buchstaben, Zahlen, Punkte, Bindestriche oder Unterstriche.',PASSWORD_LENGTH:'Nutze ein Passwort mit 8 bis 128 Zeichen.',USERNAME_TAKEN:'Dieser Benutzername ist bereits vergeben.',ACCOUNT_DISABLED:'Dieses Konto wurde administrativ deaktiviert.',ACCOUNT_LOCKED:'Zu viele Versuche. Probiere es in 15 Minuten erneut.',BACKEND_UNAVAILABLE:'Der Kontodienst ist vorübergehend nicht erreichbar.'},fr:{INVALID_CREDENTIALS:'Identifiant ou mot de passe incorrect.',USERNAME_FORMAT:'Utilisez 3 à 32 lettres, chiffres, points, tirets ou tirets bas.',PASSWORD_LENGTH:'Utilisez un mot de passe de 8 à 128 caractères.',USERNAME_TAKEN:'Cet identifiant est déjà utilisé.',ACCOUNT_DISABLED:'Ce compte a été désactivé par un administrateur.',ACCOUNT_LOCKED:'Trop de tentatives. Réessayez dans 15 minutes.',BACKEND_UNAVAILABLE:'Le service de compte est temporairement indisponible.'},es:{INVALID_CREDENTIALS:'El usuario o la contraseña no son correctos.',USERNAME_FORMAT:'Usa entre 3 y 32 letras, números, puntos, guiones o guiones bajos.',PASSWORD_LENGTH:'Usa una contraseña de entre 8 y 128 caracteres.',USERNAME_TAKEN:'Este nombre de usuario ya está en uso.',ACCOUNT_DISABLED:'Un administrador ha desactivado esta cuenta.',ACCOUNT_LOCKED:'Demasiados intentos. Vuelve a probar en 15 minutos.',BACKEND_UNAVAILABLE:'El servicio de cuentas no está disponible temporalmente.'}}[locale]
   async function submit(e: FormEvent) {
     e.preventDefault();
@@ -2476,20 +2130,38 @@ function AuthSheet({ onClose }: { onClose: () => void }) {
     else onClose();
   }
   return (
-    <div className="modal-backdrop">
-      <form className="sheet auth-sheet" onSubmit={submit}>
-        <button type="button" className="sheet-close" onClick={onClose}>
+    <div
+      className="modal-backdrop"
+      onMouseDown={(event) => {
+        if (event.target === event.currentTarget && !busy) onClose();
+      }}
+    >
+      <form
+        className="sheet auth-sheet"
+        onSubmit={submit}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        aria-busy={busy}
+      >
+        <button type="button" className="sheet-close" onClick={onClose} aria-label={t("close")} disabled={busy}>
           <X />
         </button>
         <span className="eyebrow">{copy.localAccount}</span>
-        <h2>{mode === "login" ? copy.welcomeBack : copy.createProfile}</h2>
+        <h2 id={titleId}>{mode === "login" ? copy.welcomeBack : copy.createProfile}</h2>
         <p>{copy.accountLocal}</p>
         <label>
           {t("username")}
           <input
             autoComplete="username"
+            autoCapitalize="none"
+            spellCheck={false}
+            minLength={3}
+            maxLength={32}
+            pattern="[A-Za-z0-9._-]{3,32}"
+            autoFocus
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => { setUsername(e.target.value); setError(""); }}
             required
           />
         </label>
@@ -2500,12 +2172,14 @@ function AuthSheet({ onClose }: { onClose: () => void }) {
             autoComplete={
               mode === "login" ? "current-password" : "new-password"
             }
+            minLength={8}
+            maxLength={128}
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => { setPassword(e.target.value); setError(""); }}
             required
           />
         </label>
-        {error && <p className="form-error">{error}</p>}
+        {error && <p className="form-error" role="alert" aria-live="assertive">{error}</p>}
         <button className="primary-button" disabled={busy}>
           {busy ? copy.checking : mode === "login" ? t("signIn") : t("register")}
         </button>
@@ -2604,7 +2278,7 @@ function GlobalSearch({ onClose }: { onClose: () => void }) {
           onChange={(e) => setQuery(e.target.value)}
           placeholder={ui.searchPlaceholder}
         />
-        <button onClick={onClose}>
+        <button type="button" aria-label={ui.close} onClick={onClose}>
           <X />
         </button>
       </header>
@@ -2646,8 +2320,12 @@ function GlobalSearch({ onClose }: { onClose: () => void }) {
 }
 
 function useRating(key: string) {
+  const {user}=useAuth()
+  const navigate=useNavigate()
+  const location=useLocation()
   const [value, setValue] = useState(() => repository.ratings.all()[key] || 0);
   const update = (next: number) => {
+    if(!user){navigate(`/profile?returnTo=${encodeURIComponent(`${location.pathname}${location.search}`)}`);return}
     const ratings = repository.ratings.all();
     ratings[key] = next;
     repository.ratings.save(ratings);
