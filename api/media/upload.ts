@@ -29,8 +29,10 @@ export async function POST(request: Request) {
   }
   const uploadMode=request.headers.get('x-vine-upload')
   const workspaceId=request.headers.get('x-vine-workspace')?.trim()??''
+  const wineId=request.headers.get('x-vine-entity-id')?.trim()??''
   const workspaceUpload=uploadMode==='workspace-media-v1'&&/^user-[0-9a-f-]{36}-(winery|merchant|host|admin)$/.test(workspaceId)
-  if (!['bottle-photo-v1','workspace-media-v1'].includes(uploadMode??'') || !isSameOrigin(request) || (uploadMode==='workspace-media-v1'&&!workspaceUpload)) {
+  const catalogueUpload=uploadMode==='catalog-wine-v1'&&user.roles.includes('admin')&&/^[a-z0-9][a-z0-9-]{1,119}$/.test(wineId)
+  if (!['bottle-photo-v1','workspace-media-v1','catalog-wine-v1'].includes(uploadMode??'') || !isSameOrigin(request) || (uploadMode==='workspace-media-v1'&&!workspaceUpload) || (uploadMode==='catalog-wine-v1'&&!catalogueUpload)) {
     return Response.json({ error: 'Upload request rejected.' }, { status: 403, headers: responseHeaders })
   }
   if(workspaceUpload&&!await canEditWorkspace(user.id,workspaceId))return Response.json({error:'FORBIDDEN'},{status:403,headers:responseHeaders})
@@ -56,23 +58,22 @@ export async function POST(request: Request) {
       return Response.json({ error: 'Image signature does not match WebP.' }, { status: 415, headers: responseHeaders })
     }
 
-    const blob = await put(workspaceUpload?`workspaces/${workspaceId}/${crypto.randomUUID()}.webp`:`cellar/bottles/${crypto.randomUUID()}.webp`, bytes, {
-      access: 'private',
-      addRandomSuffix: true,
-      contentType: 'image/webp',
-      cacheControlMaxAge: 31_536_000,
-    })
+    const blobOptions={addRandomSuffix:true,contentType:'image/webp' as const,cacheControlMaxAge:31_536_000}
+    const blob=catalogueUpload
+      ?await put(`catalogue/wines/${wineId}/${crypto.randomUUID()}.webp`,bytes,{...blobOptions,access:'public'})
+      :await put(workspaceUpload?`workspaces/${workspaceId}/${crypto.randomUUID()}.webp`:`cellar/bottles/${crypto.randomUUID()}.webp`,bytes,{...blobOptions,access: 'private'})
     const [asset] = await database.insert(mediaAssets).values({
       provider: 'vercel-blob',
-      access: 'private',
+      access: catalogueUpload?'public':'private',
       storageKey: blob.pathname,
       url: blob.url,
       mimeType: 'image/webp',
-      altText: 'Bottle photograph',
+      altText: catalogueUpload?`Bottle photograph for ${wineId}`:'Bottle photograph',
       ownerUserId: user.id,
       ownerWorkspaceId: workspaceUpload?workspaceId:null,
-      entityType: workspaceUpload?'workspace-section':'cellar-item',
-      metadata: { uploadedBy: user.username, source: workspaceUpload?'workspace-editor-upload':'cellar-bottle-upload' },
+      entityType: catalogueUpload?'wine':workspaceUpload?'workspace-section':'cellar-item',
+      entityId: catalogueUpload?wineId:null,
+      metadata: { uploadedBy: user.username, source: catalogueUpload?'catalogue-wine-upload':workspaceUpload?'workspace-editor-upload':'cellar-bottle-upload' },
     }).returning({ id: mediaAssets.id })
     return Response.json({ assetId: asset.id, url: `/api/media/upload?id=${asset.id}`, pathname: blob.pathname }, { headers: responseHeaders })
   } catch (error) {
@@ -109,7 +110,7 @@ export async function DELETE(request:Request){
   if(!user)return Response.json({error:'AUTH_REQUIRED'},{status:401,headers:responseHeaders})
   const uploadMode=request.headers.get('x-vine-upload')
   const workspaceId=request.headers.get('x-vine-workspace')?.trim()??''
-  if(!['bottle-photo-v1','workspace-media-v1'].includes(uploadMode??'')||!isSameOrigin(request))return Response.json({error:'Upload request rejected.'},{status:403,headers:responseHeaders})
+  if(!['bottle-photo-v1','workspace-media-v1','catalog-wine-v1'].includes(uploadMode??'')||!isSameOrigin(request))return Response.json({error:'Upload request rejected.'},{status:403,headers:responseHeaders})
   const limit=await consumeRateLimit(request,'media-delete',120,60*60_000,user.id)
   if(!limit.allowed)return rateLimitResponse(limit.resetAt)
   const body=await request.json().catch(()=>null) as {assetId?:string}|null
@@ -117,7 +118,7 @@ export async function DELETE(request:Request){
   if(!/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(assetId))return Response.json({error:'INVALID_ASSET'},{status:400,headers:responseHeaders})
   const [asset]=await database.select({id:mediaAssets.id,url:mediaAssets.url,storageKey:mediaAssets.storageKey,ownerUserId:mediaAssets.ownerUserId,ownerWorkspaceId:mediaAssets.ownerWorkspaceId}).from(mediaAssets).where(eq(mediaAssets.id,assetId)).limit(1)
   if(!asset)return Response.json({error:'ASSET_NOT_FOUND'},{status:404,headers:responseHeaders})
-  const allowed=uploadMode==='bottle-photo-v1'?asset.ownerUserId===user.id:Boolean(workspaceId&&asset.ownerWorkspaceId===workspaceId&&await canEditWorkspace(user.id,workspaceId))
+  const allowed=uploadMode==='bottle-photo-v1'?asset.ownerUserId===user.id:uploadMode==='catalog-wine-v1'?user.roles.includes('admin')&&asset.ownerUserId===user.id:Boolean(workspaceId&&asset.ownerWorkspaceId===workspaceId&&await canEditWorkspace(user.id,workspaceId))
   if(!allowed)return Response.json({error:'ASSET_NOT_FOUND'},{status:404,headers:responseHeaders})
   try{
     await del(asset.url??asset.storageKey)

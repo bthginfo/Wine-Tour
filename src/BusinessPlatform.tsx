@@ -42,6 +42,7 @@ import { repository } from "./data/repository";
 import { useLocale } from "./i18n";
 import { useAuth } from "./auth";
 import { useUiCopy } from "./uiCopy";
+import { regionName } from "./localizedContent";
 import type {
   ApprovalRecord,
   BusinessWorkspace,
@@ -321,7 +322,7 @@ function EventCard({ event }: { event: TastingEvent }) {
           {region && (
             <span>
               <Globe2 />
-              {region.name}
+              {regionName(region,locale)}
             </span>
           )}
         </div>
@@ -442,7 +443,7 @@ export function EventsMarketplace() {
               )
               .map((region) => (
                 <option key={region.id} value={region.id}>
-                  {region.name}
+                  {regionName(region,locale)}
                 </option>
               ))}
           </select>
@@ -660,7 +661,7 @@ export function EventDetail() {
               <div>
                 <strong>{ui.region}</strong>
                 <Link to={`/regions/${region.id}`}>
-                  {region.name}
+                  {regionName(region,locale)}
                   <ArrowRight />
                 </Link>
               </div>
@@ -1416,7 +1417,7 @@ export function StudioEvents() {
             <select value={regionId} onChange={(event) => setRegionId(event.target.value)}>
               <option value="">{ui.worldAtlas}</option>
               {regions.map((region) => (
-                <option key={region.id} value={region.id}>{region.name}</option>
+                <option key={region.id} value={region.id}>{regionName(region,locale)}</option>
               ))}
             </select>
           </label>

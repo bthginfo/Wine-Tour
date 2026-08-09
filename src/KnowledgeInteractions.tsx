@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Droplets, Mountain, SunMedium, ThermometerSun } from 'lucide-react'
 import type { Grape, Region } from './types'
 import type { Locale } from './i18n'
-import { grapeContent, regionContent } from './localizedContent'
+import { grapeContent, regionContent, regionName } from './localizedContent'
 import regionPlate from './assets/knowledge-region-seasons.jpg'
 import grapePlate from './assets/knowledge-grape-botany.jpg'
 import whiteGrapePlate from './assets/knowledge-grape-botany-white.jpg'
@@ -23,7 +23,7 @@ export function RegionTerroirStudio({region,locale}:{region:Region;locale:Locale
   const [altitude,setAltitude]=useState(1),[water,setWater]=useState(1),[exposure,setExposure]=useState(1)
   const effects=[altitude===2?c.fresh:altitude===0?c.ripe:content.growingSeason.split(/[.!?]/)[0].toLocaleLowerCase(locale),water===0?c.stress:water===2?c.dilute:c.steady,exposure===0?c.cool:exposure===2?c.warm:c.even]
   return <section className="knowledge-lab region-terroir-studio">
-    <figure><img src={regionPlate} alt={c.alt}/><figcaption><strong>{region.name}</strong><span>{content.climate}</span></figcaption></figure>
+    <figure><img src={regionPlate} alt={c.alt}/><figcaption><strong>{regionName(region,locale)}</strong><span>{content.climate}</span></figcaption></figure>
     <div className="knowledge-lab-panel"><span className="eyebrow">{c.eyebrow}</span><h2>{c.title}</h2><p>{c.body}</p>
       <div className="knowledge-controls">
         <div><Mountain/><Choice label={c.altitude} labels={[c.low,c.middle,c.high]} value={altitude} onChange={setAltitude}/></div>

@@ -64,6 +64,16 @@ No existing publisher illustration, branded bottle, label or proprietary diagram
 
 Verified leaf and cluster photographs are loaded at runtime from PlantGrape, the French catalogue maintained with IFV, INRAE and Institut Agro Montpellier material. The generated registry stores an exact cultivar-to-record match and separate leaf and cluster URLs. Source provenance remains in the internal data and attribution manifest rather than appearing as editorial metadata in the learning experience. These externally hosted photographs are not copied into the repository. Cultivars without a complete verified pair intentionally show an editorial sourcing state rather than a generic or generated botanical likeness.
 
+## Editorial bottle series
+
+The following JPEG assets were generated with the built-in OpenAI image-generation tool on 2026-08-09. They are original, unbranded product illustrations with deliberately blank paper labels; producer, cuvée and vintage are rendered as accessible live HTML. No commercial bottle, label, logo or packaging artwork was copied.
+
+- `bottles/bordeaux-editorial.jpg` — high-shouldered antique-green Bordeaux form with oxblood capsule.
+- `bottles/burgundy-editorial.jpg` — sloped-shoulder moss-green Burgundy form with black capsule.
+- `bottles/rhine-editorial.jpg` — slender amber-olive Rhine flute with antique-gold capsule.
+
+Each source prompt specified a single front-facing bottle on warm ivory, materially believable glass and paper, restrained editorial product lighting, a completely blank label, and no text, brand, logo, watermark or extra object. A verified admin-uploaded wine photograph supersedes these illustrations at runtime.
+
 ## Entity knowledge plates
 
 The following web-optimised JPEGs were generated with the built-in OpenAI image-generation tool on 2026-08-09. They are original, language-neutral field-atlas illustrations used inside three different interactive teaching models; no publisher artwork, label or diagram was copied.

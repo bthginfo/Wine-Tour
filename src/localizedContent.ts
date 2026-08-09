@@ -13,6 +13,22 @@ const countryNames: Record<Locale,Record<string,string>> = {
 
 export function countryLabel(country:string,locale:Locale){return countryNames[locale][country]??country}
 
+const regionNames:Record<Exclude<Locale,'en'>,Record<string,string>>={
+  de:{'Northern Rhône':'Nördliche Rhône','Southern Rhône':'Südliche Rhône',Corsica:'Korsika',Toscana:'Toskana',Sardegna:'Sardinien',Styria:'Steiermark',Vienna:'Wien',Geneva:'Genf','Three Lakes':'Drei-Seen-Land','North Canterbury':'Nord-Canterbury','Central Otago':'Zentral-Otago','Basque Country & Txakoli':'Baskenland & Txakoli','Aegean':'Ägäis',Cappadocia:'Kappadokien','Judean Hills':'Judäisches Bergland','Galilee & Golan Heights':'Galiläa & Golanhöhen'},
+  fr:{'Northern Rhône':'Rhône septentrionale','Southern Rhône':'Rhône méridionale',Corsica:'Corse',Toscana:'Toscane',Sardegna:'Sardaigne',Styria:'Styrie',Vienna:'Vienne',Geneva:'Genève','Three Lakes':'Trois-Lacs','North Canterbury':'Canterbury du Nord','Central Otago':'Otago central','Basque Country & Txakoli':'Pays basque & Txakoli','Aegean':'Égée',Cappadocia:'Cappadoce','Judean Hills':'Monts de Judée','Galilee & Golan Heights':'Galilée & plateau du Golan'},
+  es:{'Northern Rhône':'Ródano septentrional','Southern Rhône':'Ródano meridional',Corsica:'Córcega',Toscana:'Toscana',Sardegna:'Cerdeña',Styria:'Estiria',Vienna:'Viena',Geneva:'Ginebra','Three Lakes':'Tres Lagos','North Canterbury':'Canterbury Norte','Central Otago':'Otago Central','Basque Country & Txakoli':'País Vasco y Txakoli','Aegean':'Egeo',Cappadocia:'Capadocia','Judean Hills':'Montes de Judea','Galilee & Golan Heights':'Galilea y Altos del Golán'},
+}
+export function regionName(region:Region|string,locale:Locale){
+  const name=typeof region==='string'?region:region.name
+  if(locale==='en')return name
+  if(typeof region!=='string'){
+    const translation=catalogTranslation('region',region.id,locale)
+    const translated=translatedField(translation,'name')
+    if(translated)return translated
+  }
+  return regionNames[locale][name]??name
+}
+
 const originPhrases:Record<Exclude<Locale,'en'>,Record<string,string>>={
   de:{'Rhine valley':'Rheintal','Canary Islands':'Kanarische Inseln','Basque Country':'Baskenland','Carpathian basin':'Karpatenbecken','Atlantic Iberia':'Atlantische Iberische Halbinsel','Western Mediterranean':'Westlicher Mittelmeerraum','western Mediterranean':'westlicher Mittelmeerraum','Mediterranean':'Mittelmeerraum','Central Europe':'Mitteleuropa','Central Italy':'Mittelitalien','Southern Italy':'Süditalien','Northern Greece':'Nordgriechenland','Northern Spain':'Nordspanien','Southern France':'Südfrankreich','South-west France':'Südwestfrankreich','North-east Italy':'Nordostitalien','North-east Spain':'Nordostspanien','North-west Spain':'Nordwestspanien','eastern Mediterranean family':'Familie des östlichen Mittelmeerraums','ancient Greek ancestry':'altgriechischer Abstammung','Croatian Adriatic ancestry':'kroatische Adriaküste','now centred in':'heute vor allem im','especially':'besonders'},
   fr:{'Rhine valley':'Vallée du Rhin','Canary Islands':'Îles Canaries','Basque Country':'Pays basque','Carpathian basin':'Bassin des Carpates','Atlantic Iberia':'Péninsule Ibérique atlantique','Western Mediterranean':'Méditerranée occidentale','western Mediterranean':'Méditerranée occidentale','Mediterranean':'Méditerranée','Central Europe':'Europe centrale','Central Italy':'Italie centrale','Southern Italy':'Italie méridionale','Northern Greece':'Grèce septentrionale','Northern Spain':'Espagne septentrionale','Southern France':'Sud de la France','South-west France':'Sud-Ouest de la France','North-east Italy':'Nord-Est de l’Italie','North-east Spain':'Nord-Est de l’Espagne','North-west Spain':'Nord-Ouest de l’Espagne','eastern Mediterranean family':'famille de Méditerranée orientale','ancient Greek ancestry':'d’ascendance grecque antique','Croatian Adriatic ancestry':'littoral adriatique croate','now centred in':'désormais centré dans','especially':'notamment'},
@@ -50,6 +66,7 @@ function extractTerms(source:string,terms:readonly (readonly [string,string,stri
 
 export function regionContent(region:Region,locale:Locale){
   if(locale==='en') return {summary:region.summary,climate:region.climate,soil:region.soil,history:region.history,growingSeason:region.growingSeason,viticulture:region.viticulture,styles:region.wineStyles,pairings:region.pairings,keyFacts:region.keyFacts}
+  region={...region,name:regionName(region,locale)}
   const translation=catalogTranslation('region',region.id,locale)
   const climate=list(extractTerms(region.climate,climateTerms,locale),locale)||({de:'von Lage, Höhe, Wasser und Wind bestimmt',fr:'déterminé par la latitude, l’altitude, l’eau et les vents',es:'definido por latitud, altitud, agua y vientos'} as const)[locale]
   const soil=list(extractTerms(region.soil,soilTerms,locale),locale)||({de:'örtlich wechselnde verwitterte und sedimentäre Böden',fr:'des sols sédimentaires et altérés variables',es:'suelos sedimentarios y meteorizados variables'} as const)[locale]
@@ -77,6 +94,7 @@ export function grapeContent(grape:Grape,locale:Locale){
 
 export function producerContent(producer:Producer,region:Region,locale:Locale){
   if(locale==='en')return {summary:producer.summary,philosophy:producer.philosophy,vineyard:producer.vineyard,cellar:producer.cellar,speciality:producer.speciality}
+  region={...region,name:regionName(region,locale)}
   const translation=catalogTranslation('producer',producer.id,locale)
   const rc=regionContent(region,locale),country=countryLabel(region.country,locale)
   const content={
@@ -94,6 +112,7 @@ const styleLabels:Record<Locale,Record<WineStyle,string>>={
 export function styleLabel(style:WineStyle,locale:Locale){return styleLabels[locale][style]}
 export function wineContent(wine:Wine,producer:Producer,region:Region,locale:Locale){
   if(locale==='en')return {summary:wine.summary,serving:wine.serving,vinification:wine.vinification,maturation:wine.maturation,drinkWindow:wine.drinkWindow,pairings:wine.pairings}
+  region={...region,name:regionName(region,locale)}
   const translation=catalogTranslation('wine',wine.id,locale)
   const style=styleLabel(wine.style,locale),grapes=wine.composition
   const red=wine.style==='red'||wine.style==='rose',bubbles=wine.style==='sparkling',sweet=wine.style==='sweet',fortified=wine.style==='fortified'

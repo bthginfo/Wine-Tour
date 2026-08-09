@@ -1,23 +1,42 @@
+import { useEffect, useState } from 'react'
 import type { Producer, Wine } from './types'
+import bordeauxBottle from './assets/bottles/bordeaux-editorial.jpg'
+import burgundyBottle from './assets/bottles/burgundy-editorial.jpg'
+import rhineBottle from './assets/bottles/rhine-editorial.jpg'
 
-function stableVariant(value:string){
-  return [...value].reduce((total,letter)=>total+letter.charCodeAt(0),0)%3
+const mediaCache=new Map<string,string|null>()
+
+function bottleFamily(wine:Wine){
+  if(wine.style==='white'||wine.style==='sweet')return 'rhine'
+  if(wine.style==='rose'||wine.style==='sparkling')return 'burgundy'
+  return [...wine.id].reduce((total,letter)=>total+letter.charCodeAt(0),0)%2?'burgundy':'bordeaux'
 }
 
-export function WineBottleArt({wine,producer,compact=false}:{wine:Wine;producer?:Producer;compact?:boolean}){
-  const variant=stableVariant(wine.id)
-  const family=wine.style==='sparkling'?'sparkling':wine.style==='white'||wine.style==='rose'||wine.style==='sweet'?'sloped':'shouldered'
-  return <div className={`wine-bottle-art style-${wine.style} shape-${family} label-${variant} ${compact?'is-compact':''}`} aria-hidden="true">
-    <div className="bottle-cast-shadow"/>
-    <div className="bottle-vessel">
-      <span className="bottle-glass-shine"/>
-      <span className="bottle-capsule"/>
-      <span className="bottle-label-art">
-        <small>{producer?.name??'Vine Atlas'}</small>
-        <strong>{wine.name}</strong>
-        <em>{wine.vintage??'NV'}</em>
-      </span>
-      <span className="bottle-punt"/>
-    </div>
-  </div>
+function usePublishedWineImage(wineId:string,preferred?:string|null){
+  const [url,setUrl]=useState<string|null|undefined>(()=>preferred??mediaCache.get(wineId))
+  useEffect(()=>{
+    if(preferred){setUrl(preferred);return}
+    if(mediaCache.has(wineId)){setUrl(mediaCache.get(wineId)??null);return}
+    const controller=new AbortController()
+    fetch(`/api/media/wine?wineId=${encodeURIComponent(wineId)}`,{signal:controller.signal})
+      .then(response=>response.ok?response.json():{url:null})
+      .then((result:{url?:string|null})=>{const next=result.url??null;mediaCache.set(wineId,next);setUrl(next)})
+      .catch(()=>{if(!controller.signal.aborted)setUrl(null)})
+    return()=>controller.abort()
+  },[preferred,wineId])
+  return url
+}
+
+export function WineBottleArt({wine,producer,compact=false,imageUrl}:{wine:Wine;producer?:Producer;compact?:boolean;imageUrl?:string|null}){
+  const uploadedImage=usePublishedWineImage(wine.id,imageUrl)
+  const family=bottleFamily(wine)
+  const illustration={bordeaux:bordeauxBottle,burgundy:burgundyBottle,rhine:rhineBottle}[family]
+  return <figure className={`wine-bottle-art bottle-${family} ${compact?'is-compact':''} ${uploadedImage?'has-upload':''}`} aria-label={`${wine.name}${producer?` · ${producer.name}`:''}`}>
+    <img className="bottle-illustration" src={uploadedImage||illustration} alt="" />
+    {!uploadedImage&&<figcaption className="bottle-label-art">
+      <small>{producer?.name??'Vine Atlas'}</small>
+      <strong>{wine.name}</strong>
+      <em>{wine.vintage??'NV'}</em>
+    </figcaption>}
+  </figure>
 }

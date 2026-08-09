@@ -69,7 +69,7 @@ import {
 } from "./data/catalog";
 import { repository } from "./data/repository";
 import { localeRegistry, useLocale, usePageCopy, type Locale } from "./i18n";
-import { aromaContent, articleContent, countryLabel, grapeContent, producerContent, regionContent, styleLabel, wineContent } from "./localizedContent";
+import { aromaContent, articleContent, countryLabel, grapeContent, producerContent, regionContent, regionName, styleLabel, wineContent } from "./localizedContent";
 import { useUiCopy } from "./uiCopy";
 import { useAuth } from "./auth";
 import { CommunityRating } from "./CommunityRating";
@@ -505,12 +505,12 @@ function HomePage() {
               key={region.id}
             >
               <div className={`region-image crop-${index}`}>
-                <img src={hero.src} style={{objectPosition:hero.position}} alt={`${region.name} · ${countryLabel(region.country,locale)}`} />
+                <img src={hero.src} style={{objectPosition:hero.position}} alt={`${regionName(region,locale)} · ${countryLabel(region.country,locale)}`} />
                 <span>{String(index + 1).padStart(2, "0")}</span>
               </div>
               <div>
                 <small>{countryLabel(region.country,locale)}</small>
-                <h3>{region.name}</h3>
+                <h3>{regionName(region,locale)}</h3>
                 <p>{regionContent(region,locale).climate}</p>
               </div>
             </Link>
@@ -711,7 +711,7 @@ function AtlasPage() {
                   eventHandlers={{ click: () => setSelected(region) }}
                 >
                   <Popup>
-                    <strong>{region.name}</strong>
+                    <strong>{regionName(region,locale)}</strong>
                     <br />
                     {countryLabel(region.country,locale)}
                   </Popup>
@@ -732,7 +732,7 @@ function AtlasPage() {
                   eventHandlers={{click:()=>setSelected(region)}}
                 >
                   <Popup>
-                    <strong>{region.name} · {items.length} {ui.wineries}</strong><br/>
+                    <strong>{regionName(region,locale)} · {items.length} {ui.wineries}</strong><br/>
                     <small>{ui.regionalLocation}</small>
                     <div className="popup-links">{items.slice(0,8).map(producer=><Link key={producer.id} to={`/wineries/${producer.id}`}>{producer.name}</Link>)}</div>
                   </Popup>
@@ -742,7 +742,7 @@ function AtlasPage() {
         </div>
         <aside className="map-inspector">
           <span className="eyebrow">{copy.selectedPlace}</span>
-          <h2>{selected.name}</h2>
+          <h2>{regionName(selected,locale)}</h2>
           <p>{selectedContent.summary}</p>
           <dl>
             <div>
@@ -759,14 +759,14 @@ function AtlasPage() {
             </div>
           </dl>
           <ThreadLink to={`/regions/${selected.id}`}>
-            {copy.enterRegion}: {selected.name}
+            {copy.enterRegion}: {regionName(selected,locale)}
           </ThreadLink>
           <CompareButton active={compareIds.includes(selected.id)} disabled={compareIds.length>=2} onClick={()=>setCompareIds(ids=>ids.includes(selected.id)?ids.filter(id=>id!==selected.id):[...ids,selected.id].slice(-2))}/>
         </aside>
         <div className="mobile-map-sheet">
           <i />
           <span>{countryLabel(selected.country,locale)}</span>
-          <h2>{selected.name}</h2>
+          <h2>{regionName(selected,locale)}</h2>
           <p>{selectedContent.climate}</p>
           <ThreadLink to={`/regions/${selected.id}`}>
             {copy.enterRegion}
@@ -788,9 +788,9 @@ function AtlasPage() {
         </div>
         {resultCount===0?<div className="directory-empty"><Search/><h3>{ui.noPath}</h3><p>{ui.noPathHelp}</p></div>:<div className="atlas-directory">
           {layer==='regions'?pagedRegions.map(region=><Link to={`/regions/${region.id}`} key={region.id}>
-            <div className="directory-index">{String(regions.indexOf(region)+1).padStart(3,'0')}</div><div><small>{countryLabel(region.country,locale)}</small><h3>{region.name}</h3><p>{regionContent(region,locale).climate}</p></div><dl><span>{region.grapeIds.length} {ui.linkedVarieties}</span><span>{region.producerIds.length} {ui.linkedWineries}</span></dl><ChevronRight/>
+            <div className="directory-index">{String(regions.indexOf(region)+1).padStart(3,'0')}</div><div><small>{countryLabel(region.country,locale)}</small><h3>{regionName(region,locale)}</h3><p>{regionContent(region,locale).climate}</p></div><dl><span>{region.grapeIds.length} {ui.linkedVarieties}</span><span>{region.producerIds.length} {ui.linkedWineries}</span></dl><ChevronRight/>
           </Link>):pagedProducers.map(producer=>{const region=regions.find(item=>item.id===producer.regionId)!,pc=producerContent(producer,region,locale);return <Link to={`/wineries/${producer.id}`} key={producer.id}>
-            <div className="directory-monogram">{producer.name.charAt(0)}</div><div><small>{countryLabel(region.country,locale)} · {region.name}</small><h3>{producer.name}</h3><p>{pc.speciality}</p></div><dl><span>{producer.wineIds.length} {ui.linkedWines}</span><span>{producer.regionIds.length} {ui.producersLinked}</span></dl><ChevronRight/>
+            <div className="directory-monogram">{producer.name.charAt(0)}</div><div><small>{countryLabel(region.country,locale)} · {regionName(region,locale)}</small><h3>{producer.name}</h3><p>{pc.speciality}</p></div><dl><span>{producer.wineIds.length} {ui.linkedWines}</span><span>{producer.regionIds.length} {ui.producersLinked}</span></dl><ChevronRight/>
           </Link>})}
         </div>}
         {resultCount>pageSize&&<nav className="directory-pagination" aria-label={`${directoryCopy.page} ${currentPage} ${directoryCopy.of} ${pageCount}`}><button disabled={currentPage===1} onClick={()=>changeDirectoryPage(currentPage-1)}><ArrowLeft/>{directoryCopy.previous}</button><span><strong>{directoryCopy.page} {currentPage}</strong> {directoryCopy.of} {pageCount}<small>{pageStart+1}–{Math.min(pageStart+pageSize,resultCount)} / {resultCount}</small></span><button disabled={currentPage===pageCount} onClick={()=>changeDirectoryPage(currentPage+1)}>{directoryCopy.next}<ArrowRight/></button></nav>}
@@ -822,11 +822,11 @@ function RegionPage() {
         <img
           src={hero.src}
           style={{objectPosition:hero.position}}
-          alt={`${region.name} · ${countryLabel(region.country,locale)}`}
+          alt={`${regionName(region,locale)} · ${countryLabel(region.country,locale)}`}
         />
         <div className="detail-hero-copy">
           <span>{countryLabel(region.country,locale)}</span>
-          <h1>{region.name}</h1>
+          <h1>{regionName(region,locale)}</h1>
           <p>{opening.summary}</p>
         </div>
         <div className="place-index">
@@ -874,7 +874,7 @@ function RegionPage() {
       </section>
       <section className="terroir-story">
         <div className="story-visual">
-          <img src={terroirIllustration} alt={`Illustrated vineyard slope, roots and soil layers for understanding ${region.name}`} />
+          <img src={terroirIllustration} alt={regionName(region,locale)} />
           <span className="image-caption">{ui.readSkyRoot}</span>
         </div>
         <div className="story-copy">
@@ -1085,14 +1085,14 @@ function ProducerPage() {
   const content=producerContent(producer,region,locale)
   return (
     <article className="page detail-page">
-      <BackLink to={`/regions/${region.id}`} label={region.name} />
+      <BackLink to={`/regions/${region.id}`} label={regionName(region,locale)} />
       <section className="producer-hero">
         <div>
           <span className="eyebrow">{ui.producer} · {countryLabel(region.country,locale)}</span>
           <h1>{producer.name}</h1>
           <p>{content.summary}</p>
           <ThreadLink to={`/regions/${region.id}`} tone="moss">
-            {region.name}
+            {regionName(region,locale)}
           </ThreadLink>
         </div>
         <img
@@ -1111,7 +1111,7 @@ function ProducerPage() {
           <div>
             <dt>{ui.homeLabel}</dt>
             <dd>
-              {region.name}, {region.country}
+              {regionName(region,locale)}, {countryLabel(region.country,locale)}
             </dd>
           </div>
           <div className="community-fact"><dt>{ui.community}</dt><dd><CommunityRating entityType="producer" entityId={producer.id}/></dd></div>
@@ -1202,7 +1202,7 @@ function WinePage() {
     <article className="page detail-page wine-page">
       <BackLink to={`/wineries/${producer.id}`} label={producer.name} />
       <div className="entity-route">
-        <Link to={`/regions/${region.id}`}>{region.name}</Link>
+        <Link to={`/regions/${region.id}`}>{regionName(region,locale)}</Link>
         <i />
         <Link to={`/wineries/${producer.id}`}>{producer.name}</Link>
         <i />
@@ -1657,7 +1657,7 @@ function ArticlePage() {
         <p>{ui.lessonPractice}</p>
       </div>
       <AcademyMasterclass article={article} locale={locale}/>
-      <section className="lesson-connections"><span className="eyebrow">{ui.continueAtlas}</span><h2>{ui.seeIdea}</h2><div className="thread-cloud">{regions.filter(region=>article.relatedRegionIds.includes(region.id)).map(region=><ThreadLink key={region.id} to={`/regions/${region.id}`} tone="moss">{region.name}</ThreadLink>)}{grapes.filter(grape=>article.relatedGrapeIds.includes(grape.id)).map(grape=><ThreadLink key={grape.id} to={`/grapes/${grape.id}`}>{grape.name}</ThreadLink>)}</div></section>
+      <section className="lesson-connections"><span className="eyebrow">{ui.continueAtlas}</span><h2>{ui.seeIdea}</h2><div className="thread-cloud">{regions.filter(region=>article.relatedRegionIds.includes(region.id)).map(region=><ThreadLink key={region.id} to={`/regions/${region.id}`} tone="moss">{regionName(region,locale)}</ThreadLink>)}{grapes.filter(grape=>article.relatedGrapeIds.includes(grape.id)).map(grape=><ThreadLink key={grape.id} to={`/grapes/${grape.id}`}>{grape.name}</ThreadLink>)}</div></section>
       <div className="next-read">
         <span>{copy.continueLearning}</span>
         <Link

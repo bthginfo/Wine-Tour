@@ -37,6 +37,10 @@ export async function uploadWorkspaceImage(preparedDataUrl:string,workspaceId:st
   return uploadPreparedImage(preparedDataUrl,{'X-Vine-Upload':'workspace-media-v1','X-Vine-Workspace':workspaceId})
 }
 
+export async function uploadWineImage(preparedDataUrl:string,wineId:string){
+  return uploadPreparedImage(preparedDataUrl,{'X-Vine-Upload':'catalog-wine-v1','X-Vine-Entity-Id':wineId})
+}
+
 export async function deleteBottlePhoto(assetId:string){
   const response=await fetch('/api/media/upload',{
     method:'DELETE',
@@ -50,4 +54,9 @@ export async function deleteBottlePhoto(assetId:string){
 export async function deleteWorkspaceImage(assetId:string,workspaceId:string){
   const response=await fetch('/api/media/upload',{method:'DELETE',headers:{'Content-Type':'application/json','X-Vine-Upload':'workspace-media-v1','X-Vine-Workspace':workspaceId},credentials:'same-origin',body:JSON.stringify({assetId})})
   if(!response.ok)throw new Error('Workspace image deletion failed.')
+}
+
+export async function deleteWineImage(assetId:string){
+  const response=await fetch('/api/media/upload',{method:'DELETE',headers:{'Content-Type':'application/json','X-Vine-Upload':'catalog-wine-v1'},credentials:'same-origin',body:JSON.stringify({assetId})})
+  if(!response.ok)throw new Error('Wine image deletion failed.')
 }

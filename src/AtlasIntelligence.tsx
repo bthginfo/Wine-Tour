@@ -1,6 +1,6 @@
 import { Check, GitCompareArrows, Layers3, Plus, X } from 'lucide-react'
 import { grapes, producers } from './data/catalog'
-import { countryLabel, regionContent } from './localizedContent'
+import { countryLabel, regionContent, regionName } from './localizedContent'
 import { useLocale, type Locale } from './i18n'
 import type { Region } from './types'
 
@@ -29,7 +29,7 @@ export function AtlasLensControls({lens,onChange,regions}:{lens:AtlasLens;onChan
 
 export function RegionCompare({items,onRemove}:{items:Region[];onRemove:(id:string)=>void}){
   const {locale}=useLocale(),c=copy[locale]
-  return <section className="region-compare"><header><div><span className="eyebrow"><GitCompareArrows/>{c.comparison}</span><h2>{items.length?items.map(item=>item.name).join(' × '):c.comparison}</h2></div></header>{items.length===0?<p className="compare-empty">{c.empty}</p>:<div>{items.map(region=>{const content=regionContent(region,locale);return <article key={region.id}><button onClick={()=>onRemove(region.id)} aria-label={`${c.remove} ${region.name}`}><X/></button><small>{countryLabel(region.country,locale)}</small><h3>{region.name}</h3><dl><div><dt>{c.lat}</dt><dd>{Math.abs(region.lat).toFixed(1)}°{region.lat>=0?'N':'S'}</dd></div><div><dt>{c.grapes}</dt><dd>{grapes.filter(grape=>region.grapeIds.includes(grape.id)).slice(0,4).map(grape=>grape.name).join(' · ')}</dd></div><div><dt>{c.producers}</dt><dd>{producers.filter(producer=>producer.regionIds.includes(region.id)).length}</dd></div></dl><p><strong>{lensValue(region,'climate')}</strong>{content.climate}</p><p><strong>{lensValue(region,'soil')}</strong>{content.soil}</p></article>})}</div>}</section>
+  return <section className="region-compare"><header><div><span className="eyebrow"><GitCompareArrows/>{c.comparison}</span><h2>{items.length?items.map(item=>regionName(item,locale)).join(' × '):c.comparison}</h2></div></header>{items.length===0?<p className="compare-empty">{c.empty}</p>:<div>{items.map(region=>{const content=regionContent(region,locale),name=regionName(region,locale);return <article key={region.id}><button onClick={()=>onRemove(region.id)} aria-label={`${c.remove} ${name}`}><X/></button><small>{countryLabel(region.country,locale)}</small><h3>{name}</h3><dl><div><dt>{c.lat}</dt><dd>{Math.abs(region.lat).toFixed(1)}°{region.lat>=0?'N':'S'}</dd></div><div><dt>{c.grapes}</dt><dd>{grapes.filter(grape=>region.grapeIds.includes(grape.id)).slice(0,4).map(grape=>grape.name).join(' · ')}</dd></div><div><dt>{c.producers}</dt><dd>{producers.filter(producer=>producer.regionIds.includes(region.id)).length}</dd></div></dl><p><strong>{lensValue(region,'climate')}</strong>{content.climate}</p><p><strong>{lensValue(region,'soil')}</strong>{content.soil}</p></article>})}</div>}</section>
 }
 
 export function CompareButton({active,disabled,onClick}:{active:boolean;disabled:boolean;onClick:()=>void}){const {locale}=useLocale(),c=copy[locale];return <button className={`compare-place ${active?'active':''}`} disabled={disabled&&!active} aria-pressed={active} onClick={onClick}>{active?<Check/>:<Plus/>}{active?c.remove:c.compare}</button>}

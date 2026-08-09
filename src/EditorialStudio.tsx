@@ -5,6 +5,7 @@ import {
   ChevronRight,
   FileClock,
   Filter,
+  ImagePlus,
   Link2,
   MapPin,
   PencilLine,
@@ -25,6 +26,7 @@ import {
 import { repository } from "./data/repository";
 import { applyCatalogAdditions } from "./data/catalogExtensions";
 import { useLocale, type Locale } from "./i18n";
+import { deleteWineImage, prepareImage, uploadWineImage } from "./lib/image";
 
 type RecordType = "region" | "grape" | "producer" | "wine";
 type EditorialDraft = {
@@ -109,6 +111,12 @@ const copy = {
     maturation: "Maturation",
     service: "Service & pairing",
     window: "Drinking window",
+    bottleImage: "Bottle image",
+    bottleImageHelp: "Upload a clean front view. It replaces the illustrated bottle everywhere this wine appears.",
+    chooseBottleImage: "Choose image",
+    removeBottleImage: "Remove image",
+    imagePreparing: "Preparing image…",
+    imageError: "The image could not be uploaded.",
     access: "Access",
     date: "Date & time",
     storyline: "Learning storyline",
@@ -182,6 +190,12 @@ const copy = {
     maturation: "Ausbau",
     service: "Service & Pairing",
     window: "Trinkfenster",
+    bottleImage: "Flaschenbild",
+    bottleImageHelp: "Lade eine saubere Frontalansicht hoch. Sie ersetzt die illustrierte Flasche überall, wo dieser Wein erscheint.",
+    chooseBottleImage: "Bild wählen",
+    removeBottleImage: "Bild entfernen",
+    imagePreparing: "Bild wird vorbereitet…",
+    imageError: "Das Bild konnte nicht hochgeladen werden.",
     access: "Zugang",
     date: "Datum & Uhrzeit",
     storyline: "Lern-Storyline",
@@ -255,6 +269,12 @@ const copy = {
     maturation: "Élevage",
     service: "Service et accords",
     window: "Fenêtre de dégustation",
+    bottleImage: "Photo de la bouteille",
+    bottleImageHelp: "Téléversez une vue frontale nette. Elle remplace la bouteille illustrée partout où ce vin apparaît.",
+    chooseBottleImage: "Choisir une image",
+    removeBottleImage: "Retirer l’image",
+    imagePreparing: "Préparation de l’image…",
+    imageError: "L’image n’a pas pu être téléversée.",
     access: "Accès",
     date: "Date et heure",
     storyline: "Parcours pédagogique",
@@ -328,6 +348,12 @@ const copy = {
     maturation: "Crianza",
     service: "Servicio y maridaje",
     window: "Ventana de consumo",
+    bottleImage: "Imagen de la botella",
+    bottleImageHelp: "Sube una vista frontal limpia. Sustituirá la botella ilustrada en todas las apariciones de este vino.",
+    chooseBottleImage: "Elegir imagen",
+    removeBottleImage: "Eliminar imagen",
+    imagePreparing: "Preparando imagen…",
+    imageError: "No se pudo subir la imagen.",
     access: "Acceso",
     date: "Fecha y hora",
     storyline: "Itinerario de aprendizaje",
@@ -477,6 +503,8 @@ export function EditorialStudio() {
   const [filter, setFilter] = useState<RecordType | "all">("all");
   const [page, setPage] = useState(1);
   const [saved, setSaved] = useState(false);
+  const [wineMediaBusy,setWineMediaBusy]=useState(false);
+  const [wineMediaError,setWineMediaError]=useState("");
   const [draft, setDraft] = useState<EditorialDraft>(() => ({
     id: crypto.randomUUID(),
     recordType: "region",
@@ -681,6 +709,24 @@ export function EditorialStudio() {
       key,
       [...event.target.selectedOptions].map((option) => option.value),
     );
+  const chooseWineImage=async(file?:File)=>{
+    if(!file)return
+    const entityId=draft.baseId||draft.slug||slugify(draft.name)
+    if(!entityId){setWineMediaError(c.imageError);return}
+    setWineMediaBusy(true);setWineMediaError("")
+    try{
+      const prepared=await prepareImage(file)
+      const uploaded=await uploadWineImage(prepared,entityId)
+      const previous=fieldValue(draft.fields,"mediaAssetId")
+      setDraft(current=>({...current,fields:{...current.fields,imageUrl:uploaded.url,mediaAssetId:uploaded.assetId}}))
+      if(previous)void deleteWineImage(previous).catch(()=>{})
+    }catch{setWineMediaError(c.imageError)}finally{setWineMediaBusy(false)}
+  }
+  const removeWineImage=()=>{
+    const assetId=fieldValue(draft.fields,"mediaAssetId")
+    setDraft(current=>({...current,fields:{...current.fields,imageUrl:"",mediaAssetId:""}}))
+    if(assetId)void deleteWineImage(assetId).catch(()=>{})
+  }
   return (
     <section className="editorial-studio">
       <header className="editorial-studio-header">
@@ -1179,6 +1225,19 @@ export function EditorialStudio() {
                 )}
                 {draft.recordType === "wine" && (
                   <>
+                    <div className="editorial-wine-media wide">
+                      <div>
+                        <ImagePlus/>
+                        <span><strong>{c.bottleImage}</strong><small>{c.bottleImageHelp}</small></span>
+                      </div>
+                      {fieldValue(draft.fields,"imageUrl")&&<img src={fieldValue(draft.fields,"imageUrl")} alt=""/>}
+                      <label className="secondary-button">
+                        <input type="file" accept="image/*" onChange={event=>void chooseWineImage(event.target.files?.[0])}/>
+                        <ImagePlus/>{wineMediaBusy?c.imagePreparing:c.chooseBottleImage}
+                      </label>
+                      {fieldValue(draft.fields,"imageUrl")&&<button type="button" className="text-button" onClick={removeWineImage}><Trash2/>{c.removeBottleImage}</button>}
+                      {wineMediaError&&<p role="alert">{wineMediaError}</p>}
+                    </div>
                     <label>
                       {c.producerLink}
                       <select
