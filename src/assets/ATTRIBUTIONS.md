@@ -50,6 +50,16 @@ Map tiles are provided at runtime by OpenStreetMap and retain visible on-map att
 
 The 25 JPEGs in `learning-guides/` were generated with the built-in OpenAI image-generation tool on 2026-08-09 and cropped from two language-neutral contact sheets. The first sheet covers vineyard, cellar, wine-style and sensory mechanisms; the second covers tasting, service, aroma memory, labels, pairing, storage, geography and closures. The direction is original scientific editorial gouache and ink. No publisher artwork, label, logo or stock photograph was used. Localized titles, instructions and controls remain HTML rather than baked into the images.
 
+## Vine-to-glass process plates
+
+The following JPEG assets were generated specifically for the expanded vine-to-glass lesson on 2026-08-09. They form an original botanical field-journal and cellar-atlas series in ink, gouache and restrained watercolour. The compositions are language-neutral; accessible labels and explanations remain HTML.
+
+- `learning-vine-to-glass-process-v2.jpg` — seven linked scenes from vineyard fruit through sorting, extraction, fermentation, post-ferment work, maturation and the glass.
+- `learning-fermentation-transformation.jpg` — berry anatomy, fermenting must and young wine shown as one material transformation.
+- `learning-five-wine-pathways.jpg` — five parallel, unlabelled pathways for white, red, rosé, sparkling and skin-contact white wine.
+
+No existing publisher illustration, branded bottle, label or proprietary diagram was copied.
+
 ## Ampelographic photography
 
 Verified leaf and cluster photographs are loaded at runtime from PlantGrape, the French catalogue maintained with IFV, INRAE and Institut Agro Montpellier material. The generated registry stores an exact cultivar-to-record match, separate leaf and cluster URLs, and the public source page shown beside every image pair. These externally hosted photographs are not copied into the repository. Cultivars without a complete verified pair intentionally show an editorial sourcing state rather than a generic or generated botanical likeness.

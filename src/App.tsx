@@ -104,8 +104,8 @@ import { guideImage } from "./learningGuideMedia";
 import { ReferenceGuideExperience } from "./ReferenceGuideExperience";
 import { BlendConnections } from "./BlendConnections";
 import { AtlasLensControls, CompareButton, RegionCompare, atlasMarkerStyle, type AtlasLens } from "./AtlasIntelligence";
-import { KnowledgeQualityDashboard, KnowledgeStandard } from "./KnowledgeQuality";
 import { TastingHostConsole } from "./TastingHostConsole";
+import { VineToGlassExperience } from "./VineToGlassExperience";
 
 const CellarExperience = lazy(() => import("./CellarExperience").then(module => ({ default:module.CellarExperience })))
 const ConnectedTastingRoom = lazy(() => import("./ConnectedTastingRoom").then(module => ({ default:module.ConnectedTastingRoom })))
@@ -706,10 +706,10 @@ function AtlasPage() {
         <button className={linkedOnly?'active':''} aria-pressed={linkedOnly} onClick={()=>setLinkedOnly(value=>!value)}>{linkedOnly?<Check size={15}/>:<ListFilter size={15}/>} {ui.linkedOnly}</button>
         {(q||country!=='all'||grapeId!=='all'||linkedOnly)&&<button className="clear-filters" onClick={()=>{setQuery('');setCountry('all');setGrapeId('all');setLinkedOnly(false)}}><X size={15}/>{ui.clearFilters}</button>}
       </div>
+      <AtlasLensControls lens={lens} onChange={setLens} regions={filteredRegions}/>
       <section className="map-shell">
         <AtlasCommercialPlacements />
         <div className="atlas-map">
-          <AtlasLensControls lens={lens} onChange={setLens} regions={filteredRegions}/>
           <MapContainer
             center={[35, 5]}
             zoom={3}
@@ -922,7 +922,6 @@ function RegionPage() {
         </div>
       </section>
       <RegionFieldGuide region={region} locale={locale}/>
-      <KnowledgeStandard kind="region" entity={region}/>
       <section className="knowledge-panels">
         <article>
           <span className="eyebrow">{ui.stylesCompare}</span>
@@ -1061,7 +1060,6 @@ function GrapePage() {
       </section>
       <GrapeDeepDive grape={grape} locale={locale}/>
       <GrapeAmpelography grape={grape} locale={locale}/>
-      <KnowledgeStandard kind="grape" entity={grape}/>
       <BlendConnections grapeId={grape.id}/>
       <section className="knowledge-panels">
         <article><span className="eyebrow">{ui.styleRange}</span><h3>{ui.lookExpressions}</h3><ul>{content.styles.map(item=><li key={item}>{item}</li>)}</ul></article>
@@ -1186,7 +1184,6 @@ function ProducerPage() {
         <a href={producer.sourceUrl} target="_blank" rel="noreferrer" className="text-link">{ui.visitPrimary} <ArrowRight size={15}/></a>
       </section>
       <ProducerDecisionMap producer={producer} region={region} locale={locale}/>
-      <KnowledgeStandard kind="producer" entity={producer}/>
       <section className="related-section">
         <span className="eyebrow">{ui.fromCellar}</span>
         <h2>
@@ -1370,7 +1367,6 @@ function WinePage() {
         </div>
       </section>
       <WineEvolutionLesson wine={wine} locale={locale}/>
-      <KnowledgeStandard kind="wine" entity={wine}/>
       <section className="pairing-strip"><span className="eyebrow">{ui.atTable}</span><h2>{ui.pairEcho}</h2><div>{content.pairings.map(item=><span key={item}>{item}</span>)}</div></section>
       <section className="related-section">
         <span className="eyebrow">{ui.aromaProfile}</span>
@@ -1738,9 +1734,9 @@ function ArticlePage() {
         <h1>{article.title}</h1>
         <p>{article.summary}</p>
       </header>
-      <figure className="lesson-hero guide-lesson-hero"><img src={illustration} alt={`${ui.illustrationFor} ${article.title}`}/><figcaption>{ui.lessonCaption}</figcaption></figure>
+      <figure className="lesson-hero guide-lesson-hero"><img src={illustration} alt={`${ui.illustrationFor} ${article.title}`}/></figure>
       <section className="lesson-objectives"><span className="eyebrow">{ui.byEnd}</span><h2>{ui.threeExplain}</h2><ol>{article.objectives.map((objective,index)=><li key={objective}><span>0{index+1}</span>{objective}</li>)}</ol></section>
-      <ReferenceGuideExperience article={article} locale={locale}/>
+      {article.id==='vine-to-glass'?<VineToGlassExperience locale={locale}/>:<ReferenceGuideExperience article={article} locale={locale}/>}
       <div className="article-body">
         {article.body.map((p, i) => (
           <section key={p}><span>{String(i+1).padStart(2,'0')}</span><p>{p}</p></section>
@@ -1980,7 +1976,6 @@ function AdminPage() {
           <span>{t("wines")}</span>
         </div>
       </section>
-      <KnowledgeQualityDashboard />
       <Deferred><AccountRoleManager /></Deferred>
       <Deferred><EditorialStudio /></Deferred>
       <BusinessAdminPanel />

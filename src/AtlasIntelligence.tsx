@@ -4,28 +4,27 @@ import { countryLabel, regionContent } from './localizedContent'
 import { useLocale, type Locale } from './i18n'
 import type { Region } from './types'
 
-export type AtlasLens='classic'|'climate'|'soil'|'evidence'
+export type AtlasLens='classic'|'climate'|'soil'
 
 const copy={
-  en:{title:'Read the map',classic:'Wine families',climate:'Climate signal',soil:'Soil vocabulary',evidence:'Editorial depth',note:'Markers show representative regional coordinates, not legal boundaries. Climate and soil colours are derived from the cited editorial record.',compare:'Compare region',remove:'Remove',comparison:'Place comparison',empty:'Choose up to two regions to compare climate, ground and linked knowledge.',lat:'Latitude',grapes:'Key varieties',producers:'Linked producers'},
-  de:{title:'Karte lesen',classic:'Weinfamilien',climate:'Klimasignal',soil:'Bodenvokabular',evidence:'Inhaltstiefe',note:'Marker zeigen repräsentative Regionskoordinaten, keine Rechtsgrenzen. Klima- und Bodenfarben werden aus dem belegten redaktionellen Eintrag abgeleitet.',compare:'Region vergleichen',remove:'Entfernen',comparison:'Orte vergleichen',empty:'Wähle bis zu zwei Regionen, um Klima, Boden und Wissensverbindungen zu vergleichen.',lat:'Breitengrad',grapes:'Leitrebsorten',producers:'Verknüpfte Erzeuger'},
-  fr:{title:'Lire la carte',classic:'Familles de vin',climate:'Signal climatique',soil:'Vocabulaire des sols',evidence:'Profondeur éditoriale',note:'Les marqueurs indiquent des coordonnées régionales représentatives, pas des limites juridiques. Les couleurs découlent de la fiche éditoriale sourcée.',compare:'Comparer la région',remove:'Retirer',comparison:'Comparaison de lieux',empty:'Choisissez jusqu’à deux régions pour comparer climat, sols et connaissances liées.',lat:'Latitude',grapes:'Cépages clés',producers:'Producteurs liés'},
-  es:{title:'Leer el mapa',classic:'Familias de vino',climate:'Señal climática',soil:'Vocabulario de suelos',evidence:'Profundidad editorial',note:'Los marcadores muestran coordenadas regionales representativas, no límites legales. Los colores se derivan de la ficha editorial documentada.',compare:'Comparar región',remove:'Quitar',comparison:'Comparación de lugares',empty:'Elige hasta dos regiones para comparar clima, suelo y conocimiento conectado.',lat:'Latitud',grapes:'Variedades clave',producers:'Productores vinculados'},
+  en:{title:'Map layers',classic:'Wine families',climate:'Climate',soil:'Soils',compare:'Compare region',remove:'Remove',comparison:'Place comparison',empty:'Choose up to two regions to compare climate, ground and linked knowledge.',lat:'Latitude',grapes:'Key varieties',producers:'Linked producers'},
+  de:{title:'Kartenebenen',classic:'Weinfamilien',climate:'Klima',soil:'Böden',compare:'Region vergleichen',remove:'Entfernen',comparison:'Orte vergleichen',empty:'Wähle bis zu zwei Regionen, um Klima, Boden und Wissensverbindungen zu vergleichen.',lat:'Breitengrad',grapes:'Leitrebsorten',producers:'Verknüpfte Erzeuger'},
+  fr:{title:'Couches cartographiques',classic:'Familles de vin',climate:'Climat',soil:'Sols',compare:'Comparer la région',remove:'Retirer',comparison:'Comparaison de lieux',empty:'Choisissez jusqu’à deux régions pour comparer climat, sols et connaissances liées.',lat:'Latitude',grapes:'Cépages clés',producers:'Producteurs liés'},
+  es:{title:'Capas del mapa',classic:'Familias de vino',climate:'Clima',soil:'Suelos',compare:'Comparar región',remove:'Quitar',comparison:'Comparación de lugares',empty:'Elige hasta dos regiones para comparar clima, suelo y conocimiento conectado.',lat:'Latitud',grapes:'Variedades clave',producers:'Productores vinculados'},
 } satisfies Record<Locale,Record<string,string>>
 
 const classify=(text:string,groups:Array<[string,string[]]>,fallback:string)=>groups.find(([,terms])=>terms.some(term=>text.toLowerCase().includes(term)))?.[0]??fallback
 export function lensValue(region:Region,lens:AtlasLens){
   if(lens==='climate')return classify(region.climate,[['Maritime',['maritime','ocean','atlantic','coastal']],['Continental',['continental','diurnal','inland']],['Mediterranean',['mediterranean','warm dry','hot dry']],['Altitude',['altitude','alpine','mountain']],['Cool',['cool','cold']]],'Mixed')
   if(lens==='soil')return classify(region.soil,[['Limestone',['limestone','chalk','calcareous']],['Slate / schist',['slate','schist']],['Volcanic',['volcan','basalt']],['Granite',['granite']],['Gravel / sand',['gravel','sand']],['Clay / loam',['clay','loam']]],'Mixed')
-  if(lens==='evidence')return region.sources.length>=2?'Multi-source':region.sourceUrl?'Primary-linked':'Review'
   return region.grapeIds.some(id=>grapes.find(grape=>grape.id===id)?.color==='red')?'Red-led':'White-led'
 }
-const palette:Record<string,string>={'Maritime':'#477a82','Continental':'#9b663d','Mediterranean':'#b44e3f','Altitude':'#687b52','Cool':'#5071a3','Mixed':'#7b6c62','Limestone':'#c7b58b','Slate / schist':'#4f5861','Volcanic':'#6a3d35','Granite':'#9b7772','Gravel / sand':'#b28655','Clay / loam':'#86604b','Multi-source':'#315f4b','Primary-linked':'#9d732d','Review':'#a24d4d','Red-led':'#7f263f','White-led':'#9a8340'}
+const palette:Record<string,string>={'Maritime':'#477a82','Continental':'#9b663d','Mediterranean':'#b44e3f','Altitude':'#687b52','Cool':'#5071a3','Mixed':'#7b6c62','Limestone':'#c7b58b','Slate / schist':'#4f5861','Volcanic':'#6a3d35','Granite':'#9b7772','Gravel / sand':'#b28655','Clay / loam':'#86604b','Red-led':'#7f263f','White-led':'#9a8340'}
 export function atlasMarkerStyle(region:Region,lens:AtlasLens,selected:boolean){const value=lensValue(region,lens);return {color:selected?'#f7ead6':'#fff9ef',fillColor:selected?'#8f2d44':palette[value]??'#755934',fillOpacity:.94,weight:selected?3:2}}
 
 export function AtlasLensControls({lens,onChange,regions}:{lens:AtlasLens;onChange:(lens:AtlasLens)=>void;regions:Region[]}){
   const {locale}=useLocale(),c=copy[locale],values=[...new Set(regions.map(region=>lensValue(region,lens)))]
-  return <div className="atlas-intelligence"><div><span><Layers3/>{c.title}</span>{(['classic','climate','soil','evidence'] as AtlasLens[]).map(item=><button className={lens===item?'active':''} aria-pressed={lens===item} onClick={()=>onChange(item)} key={item}>{c[item]}</button>)}</div><div className="atlas-legend">{values.slice(0,8).map(value=><span key={value}><i style={{background:palette[value]}}/>{value}</span>)}</div><p>{c.note}</p></div>
+  return <div className="atlas-intelligence"><div><span><Layers3/>{c.title}</span>{(['classic','climate','soil'] as AtlasLens[]).map(item=><button className={lens===item?'active':''} aria-pressed={lens===item} onClick={()=>onChange(item)} key={item}>{c[item]}</button>)}</div><div className="atlas-legend">{values.slice(0,8).map(value=><span key={value}><i style={{background:palette[value]}}/>{value}</span>)}</div></div>
 }
 
 export function RegionCompare({items,onRemove}:{items:Region[];onRemove:(id:string)=>void}){

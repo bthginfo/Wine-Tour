@@ -23,7 +23,7 @@ try {
 
   const visibleSources = await Promise.all([
     'src/App.tsx', 'src/LearningDepth.tsx', 'src/LearningSystem.tsx', 'src/BusinessPlatform.tsx', 'src/uiCopy.ts',
-    'src/AdaptiveLearning.tsx', 'src/AtlasIntelligence.tsx', 'src/KnowledgeQuality.tsx', 'src/TastingHostConsole.tsx',
+    'src/AdaptiveLearning.tsx', 'src/AtlasIntelligence.tsx', 'src/TastingHostConsole.tsx',
   ].map(path => readFile(path, 'utf8')))
   const visibleText = visibleSources.join('\n').toLowerCase()
   const forbidden = [

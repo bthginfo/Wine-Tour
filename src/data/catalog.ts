@@ -1214,7 +1214,8 @@ export const articles: Article[] = [
   }
   const imageOverrides:Record<string,Article['image']>={'soil-water-roots':'soil','vintage-weather':'terroir','bottle-closures':'bottle','oxygen-and-age':'bottle','vine-year':'terroir'}
   const longBody=[...(body as string[]),lessonFocus[key],...(lessonBackbone[eyebrow as string]??lessonBackbone.Foundations),...lessonUniversal].filter(Boolean)
-  return {id:key,title:title as string,eyebrow:eyebrow as string,minutes:Math.max(minutes as number,12),summary:summary as string,body:longBody,...(articleMeta[key] ?? fallback),image:imageOverrides[key]??(articleMeta[key]?.image??fallback.image),sources:articleSourceMap[key]??[articleSources.oiv]}
+  const authoredMinutes=key==='vine-to-glass'?22:12
+  return {id:key,title:title as string,eyebrow:eyebrow as string,minutes:Math.max(minutes as number,authoredMinutes),summary:summary as string,body:longBody,...(articleMeta[key] ?? fallback),image:imageOverrides[key]??(articleMeta[key]?.image??fallback.image),sources:articleSourceMap[key]??[articleSources.oiv]}
 })
 
 export const counts = { regions:regions.length, grapes:grapes.length, producers:producers.length, wines:wines.length, aromas:aromas.length, articles:articles.length }
