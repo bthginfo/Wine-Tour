@@ -106,6 +106,7 @@ import { BlendConnections } from "./BlendConnections";
 import { AtlasLensControls, CompareButton, RegionCompare, atlasMarkerStyle, type AtlasLens } from "./AtlasIntelligence";
 import { TastingHostConsole } from "./TastingHostConsole";
 import { VineToGlassExperience } from "./VineToGlassExperience";
+import { GuideDepthBridge } from "./GuideDepthBridge";
 
 const CellarExperience = lazy(() => import("./CellarExperience").then(module => ({ default:module.CellarExperience })))
 const ConnectedTastingRoom = lazy(() => import("./ConnectedTastingRoom").then(module => ({ default:module.ConnectedTastingRoom })))
@@ -1737,6 +1738,7 @@ function ArticlePage() {
       <figure className="lesson-hero guide-lesson-hero"><img src={illustration} alt={`${ui.illustrationFor} ${article.title}`}/></figure>
       <section className="lesson-objectives"><span className="eyebrow">{ui.byEnd}</span><h2>{ui.threeExplain}</h2><ol>{article.objectives.map((objective,index)=><li key={objective}><span>0{index+1}</span>{objective}</li>)}</ol></section>
       {article.id==='vine-to-glass'?<VineToGlassExperience locale={locale}/>:<ReferenceGuideExperience article={article} locale={locale}/>}
+      {article.id!=='vine-to-glass'&&<GuideDepthBridge articleId={article.id} locale={locale}/>}
       <div className="article-body">
         {article.body.map((p, i) => (
           <section key={p}><span>{String(i+1).padStart(2,'0')}</span><p>{p}</p></section>

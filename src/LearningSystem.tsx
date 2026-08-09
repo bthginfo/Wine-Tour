@@ -95,12 +95,13 @@ function InteractiveVisual({block,locale}:{block:LearningBlock;locale:Locale}){
   return null
 }
 
-export function PortableLearningBlock({module,block,compact=false}:{module:LearningModule;block:LearningBlock;compact?:boolean}){
+export function PortableLearningBlock({module,block,compact=false,expanded=false}:{module:LearningModule;block:LearningBlock;compact?:boolean;expanded?:boolean}){
   const {locale}=useLocale(),c=ui[locale],[added,setAdded]=useState(false)
   return <section id={block.id} className={`portable-learning-block block-${block.kind} ${compact?'compact':''}`}>
-    <header><div><span className="eyebrow">{block.eyebrow[locale]} · {block.duration} {c.min}</span><h2>{block.title[locale]}</h2></div><span className="behavior-chip">{block.behavior==='host-reveal'?c.hostReveal:c.selfPaced}</span></header>
+    <header><div><span className="eyebrow">{block.eyebrow[locale]} · {block.duration} {c.min}</span><h2>{block.title[locale]}</h2></div></header>
     {block.media&&<figure className={`learning-plate focus-${block.media.focus??'center'}`}><img src={block.media.src} alt={block.media.alt[locale]} loading="lazy"/><span className="plate-index">{block.kind==='annotated-plate'?'01 · 02 · 03':block.kind==='map-lab'?`${c.country} → ${c.site}`:`${c.observe} → ${c.test}`}</span></figure>}
     {kindSteps.includes(block.kind)&&<InteractiveVisual block={block} locale={locale}/>} 
+    {expanded&&kindSteps.includes(block.kind)&&<div className="learning-prose expanded-learning-prose">{block.body[locale].map(paragraph=><p key={paragraph}>{paragraph}</p>)}</div>}
     {!kindSteps.includes(block.kind)&&block.kind!=='knowledge-check'&&block.kind!=='sources'&&<div className="learning-prose">{block.body[locale].map(paragraph=><p key={paragraph}>{paragraph}</p>)}</div>}
     {block.kind==='knowledge-check'&&<InteractiveVisual block={block} locale={locale}/>} 
     {block.kind==='glossary'&&<dl className="inline-glossary"><div><dt>{module.title[locale]}</dt><dd>{module.summary[locale]}</dd></div><div><dt>{c.confidence}</dt><dd>{block.body[locale][1]}</dd></div></dl>}

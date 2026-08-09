@@ -7,8 +7,14 @@ const server = await createServer({ server: { middlewareMode: true }, appType: '
 try {
   const catalog = await server.ssrLoadModule('/src/data/catalog.ts')
   const blends = await server.ssrLoadModule('/src/BlendConnections.tsx')
+  const guideDepth = await server.ssrLoadModule('/src/GuideDepthBridge.tsx')
   const errors = [...catalog.validateCatalog(), ...blends.validateClassicBlends()]
   if (blends.classicBlends.length < 9) errors.push('Fewer than 9 sourced classic blend profiles are public')
+  const depthCoverage = new Set(guideDepth.guideDepthCoverage)
+  for (const article of catalog.articles) {
+    if (article.minutes < 20) errors.push(`Reference guide ${article.id} fell below 20 displayed minutes`)
+    if (article.id !== 'vine-to-glass' && !depthCoverage.has(article.id)) errors.push(`Reference guide ${article.id} has no expanded masterclass bridge`)
+  }
   for (const [kind, minimum] of Object.entries(minimums)) {
     if ((catalog.counts[kind] ?? 0) < minimum) errors.push(`${kind} fell below release floor ${minimum}`)
   }
@@ -23,7 +29,7 @@ try {
 
   const visibleSources = await Promise.all([
     'src/App.tsx', 'src/LearningDepth.tsx', 'src/LearningSystem.tsx', 'src/BusinessPlatform.tsx', 'src/uiCopy.ts',
-    'src/AdaptiveLearning.tsx', 'src/AtlasIntelligence.tsx', 'src/TastingHostConsole.tsx',
+    'src/AdaptiveLearning.tsx', 'src/AtlasIntelligence.tsx', 'src/TastingHostConsole.tsx', 'src/GuideDepthBridge.tsx',
   ].map(path => readFile(path, 'utf8')))
   const visibleText = visibleSources.join('\n').toLowerCase()
   const forbidden = [
@@ -47,7 +53,7 @@ try {
     ['grape', catalog.grapes, 95, item => [item.summary,item.origin,item.ripening,item.climateFit,item.viticulture,item.winemaking,...item.styles,...item.pairings].join(' ')],
     ['producer', catalog.producers, 100, item => [item.summary,item.philosophy,item.vineyard,item.cellar,item.speciality].join(' ')],
     ['wine', catalog.wines, 65, item => [item.summary,item.composition,item.vinification,item.maturation,item.serving,item.drinkWindow,...item.pairings].join(' ')],
-    ['reference guide', catalog.articles, 450, item => [item.summary,...item.body,...item.objectives,item.example,item.exercise].join(' ')],
+    ['reference guide', catalog.articles, 550, item => [item.summary,...item.body,...item.objectives,item.example,item.exercise].join(' ')],
   ]
   for (const [label,items,floor,render] of contentFloors) {
     for (const item of items) if (words(render(item)) < floor) errors.push(`${label} ${item.id} fell below ${floor} authored words`)
