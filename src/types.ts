@@ -158,6 +158,9 @@ export interface TastingChapter {
   referenceId?: string
   title: string
   hostNote?: string
+  prompt?: string
+  reveal?: string
+  interaction?: 'observe' | 'predict' | 'vote' | 'discuss'
   duration: number
 }
 

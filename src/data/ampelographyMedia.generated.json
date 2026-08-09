@@ -40,6 +40,14 @@
     "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
   },
   {
+    "grapeId": "pinot-meunier",
+    "sourceName": "Meunier",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Meunier_F2.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Meunier_N__grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/166",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
     "grapeId": "gamay",
     "sourceName": "Gamay",
     "leafUrl": "https://www.plantgrape.fr/storage/img/Gamay_N__feuille_.jpg",
@@ -72,6 +80,14 @@
     "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
   },
   {
+    "grapeId": "cinsault",
+    "sourceName": "Cinsaut",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Cinsaut_feuille.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Cinsaut_F2.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/69",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
     "grapeId": "carignan",
     "sourceName": "Carignan",
     "leafUrl": "https://www.plantgrape.fr/storage/img/Carignan_N__feuille_.jpg",
@@ -85,6 +101,14 @@
     "leafUrl": "https://www.plantgrape.fr/storage/img/Tempranillo_feuille.jpg",
     "clusterUrl": "https://www.plantgrape.fr/storage/img/Tempranillo_N__grappe_.jpg",
     "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/269",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "sangiovese",
+    "sourceName": "Nielluccio",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Niellucio_N__feuille_.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Nielluccio_grappe.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/192",
     "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
   },
   {
@@ -117,6 +141,14 @@
     "leafUrl": "https://www.plantgrape.fr/storage/img/1316_Calabrese_N_FA_cr.jpg",
     "clusterUrl": "https://www.plantgrape.fr/storage/img/CalabreseN_GR_recad.jpg",
     "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/318",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "malbec",
+    "sourceName": "Cot",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/327-cot-taran-21-fa-crjpg-1783085382631.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Cot_N__grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/78",
     "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
   },
   {
@@ -224,11 +256,27 @@
     "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
   },
   {
+    "grapeId": "sauvignon-blanc",
+    "sourceName": "Sauvignon",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Sauvignon_B__feuille_.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Sauvignon_GR.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/251",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
     "grapeId": "riesling",
     "sourceName": "Riesling",
     "leafUrl": "https://www.plantgrape.fr/storage/img/Riesling_feuille.jpg",
     "clusterUrl": "https://www.plantgrape.fr/storage/img/Riesling_G2.jpg",
     "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/236",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "chenin-blanc",
+    "sourceName": "Chenin",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/293_Chenin_FA_cr.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Chenin_G2_CS_cr.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/68",
     "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
   },
   {
@@ -253,6 +301,14 @@
     "leafUrl": "https://www.plantgrape.fr/storage/img/Pinot_blanc_B__feuille_.jpg",
     "clusterUrl": "https://www.plantgrape.fr/storage/img/Pinot_blanc_B__grappe_.jpg",
     "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/216",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "silvaner",
+    "sourceName": "Sylvaner",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Sylvaner_B__feuille_.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Sylvaner_B__grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/266",
     "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
   },
   {
@@ -360,6 +416,14 @@
     "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
   },
   {
+    "grapeId": "palomino",
+    "sourceName": "Listan",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Listan_B__feuille_.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Listan_B__grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/138",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
     "grapeId": "rkatsiteli",
     "sourceName": "Rkatsiteli",
     "leafUrl": "https://www.plantgrape.fr/storage/img/Rkatsitelli_TL_P5200299.JPG",
@@ -381,6 +445,14 @@
     "leafUrl": "https://www.plantgrape.fr/storage/img/Verdelho_F10.jpg",
     "clusterUrl": "https://www.plantgrape.fr/storage/img/VerdelhoB_GR.jpg",
     "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/307",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "savagnin",
+    "sourceName": "Savagnin blanc",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/257_Savagnin_blanc_FA.JPG",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/257_Savagnin-blanc_GR_SP_2.JPG",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/253",
     "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
   },
   {

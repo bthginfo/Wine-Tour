@@ -16,8 +16,14 @@ try {
   const authoredIds = new Set((await server.ssrLoadModule('/src/learningCurriculum.ts')).learningModules.map(module => module.id))
   if (authoredIds.size < 10) errors.push('Fewer than 10 authored learning modules are public')
 
+  const ampelography = JSON.parse(await readFile('src/data/ampelographyMedia.generated.json', 'utf8'))
+  const verifiedGrapes = new Set(ampelography.map(item => item.grapeId))
+  if (verifiedGrapes.size < 65) errors.push(`Verified leaf-and-cluster photography fell below 65 varieties: ${verifiedGrapes.size}`)
+  if (ampelography.some(item => !item.sourceUrl?.startsWith('https://www.plantgrape.fr/'))) errors.push('Ampelography media includes an unapproved source')
+
   const visibleSources = await Promise.all([
     'src/App.tsx', 'src/LearningDepth.tsx', 'src/LearningSystem.tsx', 'src/BusinessPlatform.tsx', 'src/uiCopy.ts',
+    'src/AdaptiveLearning.tsx', 'src/AtlasIntelligence.tsx', 'src/KnowledgeQuality.tsx', 'src/TastingHostConsole.tsx',
   ].map(path => readFile(path, 'utf8')))
   const visibleText = visibleSources.join('\n').toLowerCase()
   const forbidden = [
@@ -57,7 +63,8 @@ try {
     `Catalog validation passed: ${catalog.counts.regions} regions, ${catalog.counts.grapes} grapes, ` +
     `${catalog.counts.producers} producers, ${catalog.counts.wines} wines, ${catalog.counts.aromas} aromas, ` +
     `${blends.classicBlends.length} classic blends, ${sourceDomains.size} source domains. ` +
-    `${regionCoverage}/${catalog.regions.length} regions currently have producer profiles.\n`,
+    `${regionCoverage}/${catalog.regions.length} regions currently have producer profiles; ` +
+    `${verifiedGrapes.size}/${catalog.grapes.length} varieties have verified leaf-and-cluster photography.\n`,
   )
   if (process.env.CATALOG_AUDIT_VERBOSE === '1') {
     const uncovered = catalog.regions.filter(region => !catalog.producers.some(producer => producer.regionIds.includes(region.id)))

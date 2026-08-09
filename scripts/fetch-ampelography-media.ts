@@ -13,6 +13,15 @@ type MediaRecord = {
 }
 
 const manualNames:Record<string,string[]> = {
+  'pinot-meunier':['Meunier'],
+  'cinsault':['Cinsaut'],
+  'sangiovese':['Nielluccio'],
+  'malbec':['Cot'],
+  'sauvignon-blanc':['Sauvignon'],
+  'chenin-blanc':['Chenin'],
+  'silvaner':['Sylvaner'],
+  'palomino':['Listan'],
+  'savagnin':['Savagnin blanc'],
   'syrah-shiraz':['Syrah'],
   'grenache-garnacha':['Grenache'],
   'mourvedre-monastrell':['Mourvèdre'],

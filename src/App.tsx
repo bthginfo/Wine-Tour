@@ -103,6 +103,9 @@ import { learningBlockById, learningModuleById, learningModules } from "./learni
 import { guideImage } from "./learningGuideMedia";
 import { ReferenceGuideExperience } from "./ReferenceGuideExperience";
 import { BlendConnections } from "./BlendConnections";
+import { AtlasLensControls, CompareButton, RegionCompare, atlasMarkerStyle, type AtlasLens } from "./AtlasIntelligence";
+import { KnowledgeQualityDashboard, KnowledgeStandard } from "./KnowledgeQuality";
+import { TastingHostConsole } from "./TastingHostConsole";
 
 const CellarExperience = lazy(() => import("./CellarExperience").then(module => ({ default:module.CellarExperience })))
 const ConnectedTastingRoom = lazy(() => import("./ConnectedTastingRoom").then(module => ({ default:module.ConnectedTastingRoom })))
@@ -639,6 +642,8 @@ function AtlasPage() {
   const [page,setPage]=useState(1)
   const [pageSize,setPageSize]=useState(12)
   const [zoom, setZoom] = useState(3);
+  const [lens,setLens]=useState<AtlasLens>('classic')
+  const [compareIds,setCompareIds]=useState<string[]>([])
   const countries=[...new Set(regions.map(region=>region.country))].sort()
   const q=query.trim().toLowerCase()
   const matchesRegion=(region:(typeof regions)[number])=>{
@@ -704,6 +709,7 @@ function AtlasPage() {
       <section className="map-shell">
         <AtlasCommercialPlacements />
         <div className="atlas-map">
+          <AtlasLensControls lens={lens} onChange={setLens} regions={filteredRegions}/>
           <MapContainer
             center={[35, 5]}
             zoom={3}
@@ -722,13 +728,7 @@ function AtlasPage() {
                   key={region.id}
                   center={[region.lat, region.lng]}
                   radius={selected.id === region.id ? 10 : 6}
-                  pathOptions={{
-                    color: selected.id === region.id ? "#5f172a" : "#f4efe6",
-                    fillColor:
-                      selected.id === region.id ? "#8f2d44" : "#755934",
-                    fillOpacity: 0.94,
-                    weight: 2,
-                  }}
+                  pathOptions={atlasMarkerStyle(region,lens,selected.id===region.id)}
                   eventHandlers={{ click: () => setSelected(region) }}
                 >
                   <Popup>
@@ -782,6 +782,7 @@ function AtlasPage() {
           <ThreadLink to={`/regions/${selected.id}`}>
             {copy.enterRegion}: {selected.name}
           </ThreadLink>
+          <CompareButton active={compareIds.includes(selected.id)} disabled={compareIds.length>=2} onClick={()=>setCompareIds(ids=>ids.includes(selected.id)?ids.filter(id=>id!==selected.id):[...ids,selected.id].slice(-2))}/>
         </aside>
         <div className="mobile-map-sheet">
           <i />
@@ -793,6 +794,7 @@ function AtlasPage() {
           </ThreadLink>
         </div>
       </section>
+      <RegionCompare items={compareIds.map(id=>regions.find(region=>region.id===id)).filter((item):item is (typeof regions)[number]=>Boolean(item))} onRemove={id=>setCompareIds(ids=>ids.filter(item=>item!==id))}/>
       <section className="atlas-index">
         <div className="section-heading">
           <div><span className="eyebrow">{ui.completeDirectory}</span><h2 aria-live="polite">{resultCount} {layer==='regions'?ui.wineRegions:ui.wineries}</h2></div>
@@ -920,6 +922,7 @@ function RegionPage() {
         </div>
       </section>
       <RegionFieldGuide region={region} locale={locale}/>
+      <KnowledgeStandard kind="region" entity={region}/>
       <section className="knowledge-panels">
         <article>
           <span className="eyebrow">{ui.stylesCompare}</span>
@@ -1058,6 +1061,7 @@ function GrapePage() {
       </section>
       <GrapeDeepDive grape={grape} locale={locale}/>
       <GrapeAmpelography grape={grape} locale={locale}/>
+      <KnowledgeStandard kind="grape" entity={grape}/>
       <BlendConnections grapeId={grape.id}/>
       <section className="knowledge-panels">
         <article><span className="eyebrow">{ui.styleRange}</span><h3>{ui.lookExpressions}</h3><ul>{content.styles.map(item=><li key={item}>{item}</li>)}</ul></article>
@@ -1182,6 +1186,7 @@ function ProducerPage() {
         <a href={producer.sourceUrl} target="_blank" rel="noreferrer" className="text-link">{ui.visitPrimary} <ArrowRight size={15}/></a>
       </section>
       <ProducerDecisionMap producer={producer} region={region} locale={locale}/>
+      <KnowledgeStandard kind="producer" entity={producer}/>
       <section className="related-section">
         <span className="eyebrow">{ui.fromCellar}</span>
         <h2>
@@ -1365,6 +1370,7 @@ function WinePage() {
         </div>
       </section>
       <WineEvolutionLesson wine={wine} locale={locale}/>
+      <KnowledgeStandard kind="wine" entity={wine}/>
       <section className="pairing-strip"><span className="eyebrow">{ui.atTable}</span><h2>{ui.pairEcho}</h2><div>{content.pairings.map(item=><span key={item}>{item}</span>)}</div></section>
       <section className="related-section">
         <span className="eyebrow">{ui.aromaProfile}</span>
@@ -1844,14 +1850,18 @@ function TastingBuilder() {
   const [type,setType]=useState<TastingChapterType>('wine')
   const [referenceId,setReferenceId]=useState(()=>optionsForChapter('wine')[0]?.id ?? '')
   const [note,setNote]=useState('')
+  const [prompt,setPrompt]=useState('')
+  const [reveal,setReveal]=useState('')
+  const [interaction,setInteraction]=useState<TastingChapter['interaction']>('observe')
   const [duration,setDuration]=useState(7)
   const [saved,setSaved]=useState(false)
   const options=optionsForChapter(type,locale)
   const chapterCountLabel=journey.chapters.length===1?{en:'chapter',de:'Kapitel',fr:'chapitre',es:'capítulo'}[locale]:ui.chapters
-  function chooseType(next:TastingChapterType){setType(next);setReferenceId(optionsForChapter(next,locale)[0]?.id ?? '');setNote('')}
+  const hostCopy={en:{mode:'Table interaction',observe:'Observe',predict:'Predict',vote:'Vote',discuss:'Discuss',prompt:'Question before the reveal',promptHint:'What should guests notice or decide?',reveal:'Evidence revealed by the host',revealHint:'The explanation or comparison you want to reveal later.'},de:{mode:'Interaktion am Tisch',observe:'Beobachten',predict:'Vermuten',vote:'Abstimmen',discuss:'Diskutieren',prompt:'Frage vor der Auflösung',promptHint:'Was sollen Gäste bemerken oder entscheiden?',reveal:'Evidenz für die Auflösung',revealHint:'Welche Erklärung oder welcher Vergleich wird später sichtbar?'},fr:{mode:'Interaction à table',observe:'Observer',predict:'Prédire',vote:'Voter',discuss:'Discuter',prompt:'Question avant la révélation',promptHint:'Que doivent remarquer ou décider les invités ?',reveal:'Indices révélés par l’hôte',revealHint:'Explication ou comparaison à révéler plus tard.'},es:{mode:'Interacción en la mesa',observe:'Observar',predict:'Predecir',vote:'Votar',discuss:'Conversar',prompt:'Pregunta antes de revelar',promptHint:'¿Qué deberían notar o decidir los invitados?',reveal:'Evidencia que revela el anfitrión',revealHint:'Explicación o comparación que aparecerá después.'}}[locale]
+  function chooseType(next:TastingChapterType){setType(next);setReferenceId(optionsForChapter(next,locale)[0]?.id ?? '');setNote('');setPrompt('');setReveal('');setInteraction('observe')}
   function addChapter(){
     const title=referenceTitle(type,referenceId,locale,ui)
-    setJourney(current=>({...current,chapters:[...current.chapters,{id:crypto.randomUUID(),type,referenceId:referenceId||undefined,title,hostNote:note||undefined,duration}],updatedAt:new Date().toISOString()}));setSaved(false)
+    setJourney(current=>({...current,chapters:[...current.chapters,{id:crypto.randomUUID(),type,referenceId:referenceId||undefined,title,hostNote:note||undefined,prompt:prompt||undefined,reveal:reveal||undefined,interaction,duration}],updatedAt:new Date().toISOString()}));setSaved(false)
   }
   function move(index:number,direction:-1|1){setJourney(current=>{const chapters=[...current.chapters],target=index+direction;if(target<0||target>=chapters.length)return current;[chapters[index],chapters[target]]=[chapters[target],chapters[index]];return {...current,chapters,updatedAt:new Date().toISOString()}});setSaved(false)}
   function save(){const all=repository.journeys.all();repository.journeys.save([...all.filter(item=>item.id!==journey.id),journey]);setSaved(true)}
@@ -1872,6 +1882,9 @@ function TastingBuilder() {
         <div className="chapter-type-grid">{chapterTypes.map(item=><button key={item.type} className={type===item.type?'active':''} onClick={()=>chooseType(item.type)}><span>{item.label}</span><small>{item.help}</small></button>)}</div>
         {options.length>0&&<label>{ui.atlasContent}<select value={referenceId} onChange={event=>setReferenceId(event.target.value)}>{options.map(item=><option value={item.id} key={item.id}>{item.label}</option>)}</select></label>}
         {(type==='host-note'||type==='pause')&&<label>{ui.yourWords}<textarea value={note} onChange={event=>setNote(event.target.value)} placeholder={ui.hostPlaceholder}/></label>}
+        <label>{hostCopy.mode}<select value={interaction} onChange={event=>setInteraction(event.target.value as TastingChapter['interaction'])}><option value="observe">{hostCopy.observe}</option><option value="predict">{hostCopy.predict}</option><option value="vote">{hostCopy.vote}</option><option value="discuss">{hostCopy.discuss}</option></select></label>
+        <label>{hostCopy.prompt}<textarea value={prompt} onChange={event=>setPrompt(event.target.value)} placeholder={hostCopy.promptHint}/></label>
+        <label>{hostCopy.reveal}<textarea value={reveal} onChange={event=>setReveal(event.target.value)} placeholder={hostCopy.revealHint}/></label>
         <label>{ui.timeTable}<div className="duration-input"><input type="range" min="2" max="25" value={duration} onChange={event=>setDuration(Number(event.target.value))}/><span>{duration} {ui.minuteShort}</span></div></label>
         <button className="primary-button" onClick={addChapter}><Plus/>{ui.addStoryline}</button>
       </section>
@@ -1879,7 +1892,7 @@ function TastingBuilder() {
         <div className="section-heading"><div><span className="eyebrow">{ui.storyline}</span><h2>{journey.chapters.length} {chapterCountLabel} · {journey.chapters.reduce((sum,item)=>sum+item.duration,0)} {ui.minuteShort}</h2></div></div>
         <div className="storyline-list">{journey.chapters.map((chapter,index)=><article key={chapter.id}>
           <GripVertical className="drag-hint"/><span className="chapter-number">{String(index+1).padStart(2,'0')}</span>
-          <div><small>{chapterTypes.find(item=>item.type===chapter.type)?.label} · {chapter.duration} {ui.minuteShort}</small><h3>{chapter.title}</h3>{chapter.hostNote&&<p>{chapter.hostNote}</p>}</div>
+          <div><small>{chapterTypes.find(item=>item.type===chapter.type)?.label} · {chapter.duration} {ui.minuteShort}</small><h3>{chapter.title}</h3>{chapter.prompt&&<p><strong>{hostCopy.prompt}:</strong> {chapter.prompt}</p>}{chapter.hostNote&&<p>{chapter.hostNote}</p>}</div>
           <div className="chapter-actions"><button onClick={()=>move(index,-1)} disabled={index===0} aria-label={ui.moveEarlier}><ChevronUp/></button><button onClick={()=>move(index,1)} disabled={index===journey.chapters.length-1} aria-label={ui.moveLater}><ChevronDown/></button><button onClick={()=>setJourney({...journey,chapters:journey.chapters.filter(item=>item.id!==chapter.id)})} aria-label={ui.removeChapter}><Trash2/></button></div>
         </article>)}</div>
         <div className="builder-footer"><div><strong>{journey.pace==='host'?ui.hostPaced:ui.selfPaced}</strong><span>{journey.access==='open'?ui.anyoneJoin:journey.access==='invite'?ui.inviteAccess:ui.privateDraft}</span></div><button className="secondary-button" onClick={()=>{save();navigate(`/tastings/${journey.id}`)}}>{ui.previewJourney} <ArrowRight/></button></div>
@@ -1907,6 +1920,7 @@ export function JourneyExperience({journey}:{journey:TastingJourney}) {
     <header><Link to="/tastings"><X/></Link><div><small>{journey.pace==='host'?ui.hostLearningJourney:ui.selfLearningJourney}</small><strong>{journey.title}</strong></div><span>{current+1} / {journey.chapters.length}</span></header>
     <aside>{journey.chapters.map((item,index)=><button key={item.id} className={index===current?'active':index<current?'done':''} onClick={()=>setCurrent(index)}><span>{index<current?<Check/>:String(index+1).padStart(2,'0')}</span><div><small>{chapterTypes.find(type=>type.type===item.type)?.label}</small><strong>{item.title}</strong></div><em>{item.duration}m</em></button>)}</aside>
     <main><span className="eyebrow">{ui.chapter} {String(current+1).padStart(2,'0')} · {chapterTypes.find(item=>item.type===chapter?.type)?.label}</span><h1>{chapter?.title}</h1><p className="lead">{body}</p>
+      {journey.pace==='host'&&chapter&&<TastingHostConsole journey={journey} chapter={chapter}/>}
       {wine&&<div className="journey-wine"><div className={`room-bottle style-${wine.style}`}/><div><span>{wine.composition}</span><p>{wine.serving}</p></div></div>}
       {region&&<div className="journey-facts"><article><span>{ui.climate}</span><p>{regionContent(region,locale).climate}</p></article><article><span>{ui.ground}</span><p>{regionContent(region,locale).soil}</p></article></div>}
       {producer&&<div className="journey-facts"><article><span>{ui.vineyard}</span><p>{producerContent(producer,regions.find(item=>item.id===producer.regionId)!,locale).vineyard}</p></article><article><span>{ui.cellarLabel}</span><p>{producerContent(producer,regions.find(item=>item.id===producer.regionId)!,locale).cellar}</p></article></div>}
@@ -1966,6 +1980,7 @@ function AdminPage() {
           <span>{t("wines")}</span>
         </div>
       </section>
+      <KnowledgeQualityDashboard />
       <Deferred><AccountRoleManager /></Deferred>
       <Deferred><EditorialStudio /></Deferred>
       <BusinessAdminPanel />
