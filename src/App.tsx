@@ -100,6 +100,8 @@ import { AtlasCommercialPlacements, BusinessAdminPanel, EventDetail, EventsMarke
 import { AcademyMasterclass, GrapeAmpelography, GrapeDeepDive, ProducerDecisionMap, RegionFieldGuide, WineEvolutionLesson } from "./LearningDepth";
 import { InlineLearningChapter, LearningHub, LearningLesson, learningUi } from "./LearningSystem";
 import { learningBlockById, learningModuleById, learningModules } from "./learningCurriculum";
+import { guideImage } from "./learningGuideMedia";
+import { ReferenceGuideExperience } from "./ReferenceGuideExperience";
 import { BlendConnections } from "./BlendConnections";
 
 const CellarExperience = lazy(() => import("./CellarExperience").then(module => ({ default:module.CellarExperience })))
@@ -1719,7 +1721,7 @@ function ArticlePage() {
   if (!sourceArticle) return <NotFound />;
   const article=articleContent(sourceArticle,locale)
   const nextArticle=articleContent(articles[(articles.indexOf(sourceArticle)+1)%articles.length],locale)
-  const illustration=article.image==='terroir'?terroirIllustration:article.image==='winemaking'?winemakingJourney:article.image==='aroma'?aromaReference:article.image==='soil'?soilAtlas:article.image==='bottle'?bottleForms:article.id==='vine-year'||article.id==='vintage-weather'?vineSeasonStudy:tastingStill
+  const illustration=guideImage(article.id)??(article.image==='terroir'?terroirIllustration:article.image==='winemaking'?winemakingJourney:article.image==='aroma'?aromaReference:article.image==='soil'?soilAtlas:article.image==='bottle'?bottleForms:article.id==='vine-year'||article.id==='vintage-weather'?vineSeasonStudy:tastingStill)
   return (
     <article className="page reading-page">
       <BackLink to="/learn" label={copy.learnEyebrow} />
@@ -1730,8 +1732,9 @@ function ArticlePage() {
         <h1>{article.title}</h1>
         <p>{article.summary}</p>
       </header>
-      <figure className="lesson-hero"><img src={illustration} alt={`${ui.illustrationFor} ${article.title}`}/><figcaption>{ui.lessonCaption}</figcaption></figure>
+      <figure className="lesson-hero guide-lesson-hero"><img src={illustration} alt={`${ui.illustrationFor} ${article.title}`}/><figcaption>{ui.lessonCaption}</figcaption></figure>
       <section className="lesson-objectives"><span className="eyebrow">{ui.byEnd}</span><h2>{ui.threeExplain}</h2><ol>{article.objectives.map((objective,index)=><li key={objective}><span>0{index+1}</span>{objective}</li>)}</ol></section>
+      <ReferenceGuideExperience article={article} locale={locale}/>
       <div className="article-body">
         {article.body.map((p, i) => (
           <section key={p}><span>{String(i+1).padStart(2,'0')}</span><p>{p}</p></section>

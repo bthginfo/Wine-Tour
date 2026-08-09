@@ -1,0 +1,474 @@
+[
+  {
+    "grapeId": "cabernet-sauvignon",
+    "sourceName": "Cabernet-Sauvignon",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Cabernet-Sauvignon_N__feuille_.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Cabernet-Sauvignon_N__grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/43",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "merlot",
+    "sourceName": "Merlot",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Merlot_N__feuille_.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Merlot_N__Grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/164",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "cabernet-franc",
+    "sourceName": "Cabernet franc",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Cabernet_franc_feuille.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Cabernet_franc_grappe.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/42",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "petit-verdot",
+    "sourceName": "Petit Verdot",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Petit_Verdot_N__feuille_.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Petit_Verdot_N__grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/213",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "pinot-noir",
+    "sourceName": "Pinot noir",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/193_Pinot-noir_FA-SP.JPG",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Pinot_noir_N__grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/218",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "gamay",
+    "sourceName": "Gamay",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Gamay_N__feuille_.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Gamay_G1bis.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/104",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "syrah-shiraz",
+    "sourceName": "Syrah",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Syrah_N__feuille_.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Syrah_N__grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/267",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "grenache-garnacha",
+    "sourceName": "Grenache",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Grenache_N__feuille_.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Grenache_N___grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/120",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "mourvedre-monastrell",
+    "sourceName": "Mourvèdre",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/mourvedre-n-feuille-jpg-1737381643290.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/mourvedre-n-grappe-jpg-1737381643466.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/177",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "carignan",
+    "sourceName": "Carignan",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Carignan_N__feuille_.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Carignan_grappe.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/53",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "tempranillo",
+    "sourceName": "Tempranillo",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Tempranillo_feuille.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Tempranillo_N__grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/269",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "nebbiolo",
+    "sourceName": "Nebbiolo",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/NebbioloN_FA.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Nebbiolo_G1bis.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/315",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "barbera",
+    "sourceName": "Barbera",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Barbera_F1bis_FA_CS.JPG",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Barbera_G1bis_GR_CS.JPG",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/337",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "montepulciano",
+    "sourceName": "Montepulciano",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/montepulciano-img-9149-crnvjpg-1718117899666.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/1284_Montpulciano_GP_cr.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/383",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "nero-d-avola",
+    "sourceName": "Calabrese",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/1316_Calabrese_N_FA_cr.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/CalabreseN_GR_recad.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/318",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "carmenere",
+    "sourceName": "Carmenère",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Carmenere_feuille.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/carmenere-n-grappe-jpg-1737380902425.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/55",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "tannat",
+    "sourceName": "Tannat",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Tannat_feuille.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Tannat_N__grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/268",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "pinotage",
+    "sourceName": "Pinotage",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Pinotage_F6bis_CS_recad.JPG",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Pinotage_G3bis_CS_recad.JPG",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/319",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "zinfandel-primitivo",
+    "sourceName": "Primitivo",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/1277_Primitivo_FA_CS_cr.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/PrimitivoN_GR.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/311",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "xinomavro",
+    "sourceName": "Xinomavro",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/xyno-mavro-fajpg-1718117748429.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Xynomavro_G1.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/347",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "agiorgitiko",
+    "sourceName": "Agiorgitiko",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/173-Agiorgitiko_AG-A1.JPG",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/176-Agiorgitiko_Nemea.JPG",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/342",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "saperavi",
+    "sourceName": "Saperavi",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Saperavi_F4_CS_recad.JPG",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Saperavi_G2_CS_recad.JPG",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/320",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "touriga-nacional",
+    "sourceName": "Touriga nacional",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Touriga_national_F4.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/1493_Touriga_nacional_GR_TL_1.JPG",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/316",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "poulsard",
+    "sourceName": "Poulsard",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/252_Poulsard_FA.JPG",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Poulsard_N__grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/226",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "trousseau",
+    "sourceName": "Trousseau",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/260-trousseau-noir-tl-fa1-crjpg-1783084861324.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Trousseau_N__grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/277",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "mondeuse",
+    "sourceName": "Mondeuse",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Mondeuse_N__feuille_.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Mondeuse_N__grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/172",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "tinta-barroca",
+    "sourceName": "Tinta Barroca",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/2823_TintaBarroca_FA_SP_cr.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/2823_TintaBarroca_GR_SP_cr.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/324",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "chardonnay",
+    "sourceName": "Chardonnay",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Chardonnay_B__feuille_.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Chardonnay_grappe.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/60",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "riesling",
+    "sourceName": "Riesling",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Riesling_feuille.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Riesling_G2.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/236",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "semillon",
+    "sourceName": "Semillon",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Semillon_feuille.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Semillon_B__grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/260",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "pinot-gris",
+    "sourceName": "Pinot gris",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Pinot_gris_G__feuille_.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Pinot_gris_G__grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/217",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "pinot-blanc",
+    "sourceName": "Pinot blanc",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Pinot_blanc_B__feuille_.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Pinot_blanc_B__grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/216",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "viognier",
+    "sourceName": "Viognier",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Viognier_B__feuille_.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Viognier_B__grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/288",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "marsanne",
+    "sourceName": "Marsanne",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Marsanne_B__feuille_.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Marsanne_G1bis.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/156",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "roussanne",
+    "sourceName": "Roussanne",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Roussanne_feuille.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Roussanne_B__grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/244",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "gewurztraminer",
+    "sourceName": "Gewurztraminer",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/258_Gewurztraminer_FA_CS_12.JPEG",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Gewurzt_G2bis.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/112",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "albarino-alvarinho",
+    "sourceName": "Alvarinho",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Alvarinho_F2_Sereno_modif_PlantGrap.JPG",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Alvarinho_GR_SP_2_cr.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/300",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "verdejo",
+    "sourceName": "Verdejo",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Verdejo-blanco_FA.JPG",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Verdejo_blanco_GR_SP_2.JPG",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/346",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "viura-macabeo",
+    "sourceName": "Macabeu",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Macabeu_B__feuille_.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Macabeu_B__grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/145",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "furmint",
+    "sourceName": "Furmint",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Furmint_feuille.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Furmint_G2.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/142",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "assyrtiko",
+    "sourceName": "Assyrtiko",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/assyrtico_FA.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/1798_Assyrtiko_GR_SP_2.JPG",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/343",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "carricante",
+    "sourceName": "Carricante",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/1313_Carricante_FA_cr.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/1313-carricante-2022-2-gr-minetjpg-1779453822469.JPG",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/381",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "vermentino",
+    "sourceName": "Vermentino",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/127_Vermentino_FA_cr.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Vermentino_G3.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/285",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "fiano",
+    "sourceName": "Fiano",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/1260_Fiano_FA_cr.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/1260_Fiano_GP_cr.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/382",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "glera",
+    "sourceName": "Glera",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/1285_Glera_FA_cr.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/glera-gr-cs-crjpg-1742556102922.JPG",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/389",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "rkatsiteli",
+    "sourceName": "Rkatsiteli",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Rkatsitelli_TL_P5200299.JPG",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/1735_Rkatsiteli_GR.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/418",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "torrontes",
+    "sourceName": "Torrontés riojano",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/2425_Torrontes_riojano_FA_SP_2.JPG",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/2425_Torrontes_riojano_GR.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/407",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "verdelho",
+    "sourceName": "Verdelho",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Verdelho_F10.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/VerdelhoB_GR.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/307",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "aligote",
+    "sourceName": "Aligoté",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Aligote_feuille.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/aligote-b-grappe-jpg-1737380666669.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/7",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "muscadelle",
+    "sourceName": "Muscadelle",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Muscadelle_B__feuille_.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Muscadelle_B__grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/181",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "parellada",
+    "sourceName": "Parellada",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Parellada_F4_Sereno_modif_PlantGrap.JPG",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/ParelladaB_GR_modif_PlantGrap.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/306",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "clairette",
+    "sourceName": "Clairette",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Clairette_B__feuille_.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Clairette_B__grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/70",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "grenache-blanc",
+    "sourceName": "Grenache blanc",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/37_Grenache-blanc_FA_SP_6.JPG",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Grenache_blanc_G2bis_CS_cr.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/118",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "melon-de-bourgogne",
+    "sourceName": "Melon",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Melon_B__feuille_.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Melon_B__grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/161",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "petit-manseng",
+    "sourceName": "Petit Manseng",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Petit_Manseng_B__feuille_.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Petit_Manseng_B__grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/211",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "gros-manseng",
+    "sourceName": "Gros Manseng",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Gros_Manseng_B__feuille_.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Gros_Manseng_B__grappe_.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/124",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "jacquere",
+    "sourceName": "Jacquère",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Jacquere_feuille.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Jacquere_grappe.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/128",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "chasselas",
+    "sourceName": "Chasselas",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/Chasselas_feuille.jpg",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Chasselas_grappe.jpg",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/62",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "grapeId": "moschofilero",
+    "sourceName": "Moschofilero",
+    "leafUrl": "https://www.plantgrape.fr/storage/img/moschofilero-fa-csjpg-1718117961473.JPG",
+    "clusterUrl": "https://www.plantgrape.fr/storage/img/Moschofilero_G1bis_CS.JPG",
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/344",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  }
+]

@@ -5,6 +5,7 @@ import type { Article, Grape, Producer, Region, Wine } from './types'
 import type { Locale } from './i18n'
 import { grapes, producers, regions } from './data/catalog'
 import { countryLabel, grapeContent, producerContent, regionContent, wineContent } from './localizedContent'
+import ampelographyMedia from './data/ampelographyMedia.generated.json'
 import soilAtlas from './assets/vineyard-soil-atlas.jpg'
 import bottleForms from './assets/wine-bottle-forms.jpg'
 
@@ -89,37 +90,13 @@ function ampelographyText(grape:Grape,locale:Locale){
   }[locale]
 }
 
-function AmpelographySchematic({grape,labels,locale}:{grape:Grape;labels:{leaf:string;cluster:string;berry:string};locale:Locale}){
-  const seed=[...grape.id].reduce((sum,char)=>sum+char.charCodeAt(0),0)
-  const paper=['#eee6d8','#ebe5da','#e7e5da','#eee3dc'][seed%4]
-  const berryRadius=10
-  const berryFill=grape.color==='red'?'#592d48':'#c8bd78'
-  const leafPath='M155 262 C88 248 53 198 72 150 C91 104 130 117 145 67 C176 96 188 112 217 72 C223 122 255 113 277 151 C292 193 256 234 198 260 L176 304 Z'
-  const berries=Array.from({length:18},(_,index)=>{
-    const row=Math.floor(index/5),column=index%5
-    const taper=row*4
-    return {x:380+column*(berryRadius*1.55)+taper,y:117+row*(berryRadius*1.65)+(column%2)*3}
-  })
-  return <svg className="ampelography-schematic" viewBox="0 0 620 350" role="img" aria-label={`${grape.name}: ${labels.leaf}, ${labels.cluster}, ${labels.berry}`}>
-    <defs><linearGradient id={`leaf-${grape.id}`} x1="0" y1="0" x2="1" y2="1"><stop stopColor="#718067"/><stop offset="1" stopColor="#b5b89a"/></linearGradient><radialGradient id={`berry-${grape.id}`} cx="35%" cy="30%"><stop stopColor={grape.color==='red'?'#a96b7a':'#eee4a3'}/><stop offset="1" stopColor={berryFill}/></radialGradient></defs>
-    <rect width="620" height="350" rx="28" fill={paper}/>
-    <path d="M310 42V308" stroke="#c8baa7" strokeDasharray="3 7"/>
-    <path d={leafPath} fill={`url(#leaf-${grape.id})`} stroke="#52634d" strokeWidth="3"/>
-    <path d="M176 294L174 145M174 150L116 196M176 152L226 188M174 204L119 228M177 207L231 226" fill="none" stroke="#edf0db" strokeWidth="3" opacity=".82"/>
-    <path d="M448 69C448 95 438 100 425 117M448 72C466 87 474 99 480 118" fill="none" stroke="#6a684b" strokeWidth="5" strokeLinecap="round"/>
-    {berries.map((point,index)=><circle key={index} cx={point.x} cy={point.y} r={berryRadius-(Math.floor(index/5)>.5?1:0)} fill={`url(#berry-${grape.id})`} stroke="#faf2df" strokeWidth="2"/>) }
-    <text x="44" y="44" className="schematic-kicker">01 · {labels.leaf.toUpperCase()}</text>
-    <text x="343" y="44" className="schematic-kicker">02 · {labels.cluster.toUpperCase()}</text>
-    <text x="44" y="326" className="schematic-name">{grape.name}</text>
-    <text x="546" y="326" textAnchor="end" className="schematic-meta">{{en:'OBSERVATION FRAME',de:'BEOBACHTUNGSRAHMEN',fr:'CADRE D’OBSERVATION',es:'MARCO DE OBSERVACIÓN'}[locale]}</text>
-  </svg>
-}
-
 export function GrapeAmpelography({grape,locale}:{grape:Grape;locale:Locale}){
   const copy={en:{eyebrow:'Ampelography field plate',title:'Read the vine before the label',leaf:'Mature leaf',cluster:'Cluster architecture',berry:'Berry & skin',growth:'Growth habit',risk:'Field risks',note:'Reliable identification compares the shoot tip, mature leaf, cluster and berry together. Season, rootstock and vine health can alter any single feature, so ampelographers confirm the pattern across several organs.'},de:{eyebrow:'Ampelografische Feldtafel',title:'Die Rebe vor dem Etikett lesen',leaf:'Ausgewachsenes Blatt',cluster:'Traubenarchitektur',berry:'Beere & Schale',growth:'Wuchsverhalten',risk:'Risiken im Feld',note:'Eine belastbare Bestimmung vergleicht Triebspitze, ausgewachsenes Blatt, Traube und Beere gemeinsam. Saison, Unterlage und Rebengesundheit können einzelne Merkmale verändern; Ampelografen bestätigen deshalb das Muster über mehrere Organe.'},fr:{eyebrow:'Planche ampélographique',title:'Lire la vigne avant l’étiquette',leaf:'Feuille adulte',cluster:'Architecture de grappe',berry:'Baie et pellicule',growth:'Port végétatif',risk:'Risques au vignoble',note:'Une identification fiable compare ensemble l’apex, la feuille adulte, la grappe et la baie. La saison, le porte-greffe et la santé de la vigne peuvent modifier un caractère isolé ; l’ampélographe confirme donc le faisceau d’indices sur plusieurs organes.'},es:{eyebrow:'Lámina ampelográfica',title:'Lee la vid antes de la etiqueta',leaf:'Hoja adulta',cluster:'Arquitectura del racimo',berry:'Baya y piel',growth:'Porte vegetativo',risk:'Riesgos de campo',note:'Una identificación fiable compara a la vez el ápice, la hoja adulta, el racimo y la baya. La temporada, el portainjerto y la salud de la vid pueden alterar un rasgo aislado; por eso la ampelografía confirma el patrón en varios órganos.'}}[locale]
   const profile=ampelographyText(grape,locale)
+  const media=ampelographyMedia.find(item=>item.grapeId===grape.id)
+  const mediaCopy={en:{leaf:'Mature leaf',cluster:'Cluster at maturity',source:'Open the photographic record',missing:'A verified photographic pair is still being sourced for this cultivar. The former generic drawing has been removed rather than implying a false identification.'},de:{leaf:'Ausgewachsenes Blatt',cluster:'Reife Traube',source:'Fotografischen Datensatz öffnen',missing:'Für diese Sorte wird noch ein verifiziertes Fotopaar beschafft. Die frühere generische Zeichnung wurde entfernt, damit keine falsche Bestimmung suggeriert wird.'},fr:{leaf:'Feuille adulte',cluster:'Grappe à maturité',source:'Ouvrir le dossier photographique',missing:'Une paire photographique vérifiée est encore recherchée pour ce cépage. L’ancien dessin générique a été retiré afin de ne pas suggérer une identification erronée.'},es:{leaf:'Hoja adulta',cluster:'Racimo maduro',source:'Abrir el registro fotográfico',missing:'Todavía se está localizando un par fotográfico verificado para esta variedad. Se retiró el dibujo genérico anterior para no sugerir una identificación falsa.'}}[locale]
   const items=[['leaf',copy.leaf],['cluster',copy.cluster],['berry',copy.berry],['growth',copy.growth],['risk',copy.risk]] as const
-  return <section className="ampelography-plate"><figure><AmpelographySchematic grape={grape} labels={{leaf:copy.leaf,cluster:copy.cluster,berry:copy.berry}} locale={locale}/><figcaption>{copy.note}</figcaption></figure><div><div className="depth-heading"><span className="eyebrow">{copy.eyebrow}</span><h2>{copy.title}</h2></div><dl>{items.map(([key,label])=><div key={key}><dt>{label}</dt><dd>{profile[key]}</dd></div>)}</dl></div></section>
+  return <section className="ampelography-plate"><figure>{media?<div className="ampelography-photo-pair"><figure><img src={media.leafUrl} alt={`${grape.name} · ${mediaCopy.leaf}`} loading="lazy" referrerPolicy="no-referrer"/><figcaption>01 · {mediaCopy.leaf}</figcaption></figure><figure><img src={media.clusterUrl} alt={`${grape.name} · ${mediaCopy.cluster}`} loading="lazy" referrerPolicy="no-referrer"/><figcaption>02 · {mediaCopy.cluster}</figcaption></figure></div>:<div className="ampelography-media-missing"><span>{grape.name}</span><p>{mediaCopy.missing}</p></div>}<figcaption>{copy.note}{media&&<> <a href={media.sourceUrl} target="_blank" rel="noreferrer">{mediaCopy.source} · {media.sourceLabel}</a></>}</figcaption></figure><div><div className="depth-heading"><span className="eyebrow">{copy.eyebrow}</span><h2>{copy.title}</h2></div><dl>{items.map(([key,label])=><div key={key}><dt>{label}</dt><dd>{profile[key]}</dd></div>)}</dl></div></section>
 }
 
 export function ProducerDecisionMap({producer,region,locale}:{producer:Producer;region:Region;locale:Locale}){
