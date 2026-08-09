@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { AlertCircle, Check, ChevronLeft, ChevronRight, Search, ShieldCheck, UserRoundCog } from 'lucide-react'
+import { AlertCircle, Building2, Check, ChevronLeft, ChevronRight, Clock3, Search, ShieldCheck, UserRoundCog, Users } from 'lucide-react'
 import { useAuth } from './auth'
 import { useLocale, type Locale } from './i18n'
 import type { MembershipRole } from './types'
@@ -17,6 +17,12 @@ type ManagedAccount = {
 }
 
 const roles:MembershipRole[]=['member','host','winery','merchant','admin']
+const roleMetaCopy:Record<Locale,{all:string;professional:string;accounts:string;workspaces:string;lastSeen:string;created:string;never:string;unsaved:string}>={
+  en:{all:'All roles',professional:'Professional access',accounts:'accounts',workspaces:'workspaces',lastSeen:'Last sign-in',created:'Joined',never:'Never',unsaved:'Unsaved changes'},
+  de:{all:'Alle Rollen',professional:'Professionelle Zugänge',accounts:'Konten',workspaces:'Workspaces',lastSeen:'Letzte Anmeldung',created:'Registriert',never:'Noch nie',unsaved:'Ungespeicherte Änderungen'},
+  fr:{all:'Tous les rôles',professional:'Accès professionnels',accounts:'comptes',workspaces:'espaces',lastSeen:'Dernière connexion',created:'Inscription',never:'Jamais',unsaved:'Modifications non enregistrées'},
+  es:{all:'Todos los roles',professional:'Accesos profesionales',accounts:'cuentas',workspaces:'espacios',lastSeen:'Último acceso',created:'Registro',never:'Nunca',unsaved:'Cambios sin guardar'}
+}
 const text:Record<Locale,{
   eyebrow:string;title:string;body:string;search:string;account:string;roles:string;status:string;active:string;disabled:string;
   save:string;saving:string;saved:string;empty:string;previous:string;next:string;page:string;loadError:string;saveError:string;
@@ -32,9 +38,11 @@ export function AccountRoleManager(){
   const {locale}=useLocale()
   const {user,refresh}=useAuth()
   const c=text[locale]
+  const meta=roleMetaCopy[locale]
   const [accounts,setAccounts]=useState<ManagedAccount[]>([])
   const [drafts,setDrafts]=useState<Record<string,{roles:MembershipRole[];disabled:boolean}>>({})
   const [query,setQuery]=useState('')
+  const [roleFilter,setRoleFilter]=useState<'all'|MembershipRole>('all')
   const [page,setPage]=useState(1)
   const [busy,setBusy]=useState('')
   const [notice,setNotice]=useState('')
@@ -50,10 +58,10 @@ export function AccountRoleManager(){
     return()=>{active=false}
   },[c.loadError])
 
-  const filtered=useMemo(()=>accounts.filter(account=>`${account.username} ${account.displayName??''} ${account.roles.join(' ')}`.toLowerCase().includes(query.trim().toLowerCase())),[accounts,query])
+  const filtered=useMemo(()=>accounts.filter(account=>(roleFilter==='all'||account.roles.includes(roleFilter))&&`${account.username} ${account.displayName??''} ${account.roles.join(' ')}`.toLowerCase().includes(query.trim().toLowerCase())),[accounts,query,roleFilter])
   const pages=Math.max(1,Math.ceil(filtered.length/pageSize))
   const visible=filtered.slice((page-1)*pageSize,page*pageSize)
-  useEffect(()=>setPage(1),[query])
+  useEffect(()=>setPage(1),[query,roleFilter])
 
   function toggleRole(accountId:string,role:MembershipRole){
     setNotice('');setError('')
@@ -86,10 +94,16 @@ export function AccountRoleManager(){
       <div><span className="eyebrow">{c.eyebrow}</span><h2>{c.title}</h2><p>{c.body}</p></div>
       <label className="role-search"><Search/><span className="sr-only">{c.search}</span><input value={query} onChange={event=>setQuery(event.target.value)} placeholder={c.search}/></label>
     </header>
+    <div className="role-manager-summary">
+      <div><Users/><strong>{accounts.length}</strong><span>{meta.accounts}</span></div>
+      <div><ShieldCheck/><strong>{accounts.filter(account=>account.roles.some(role=>role!=='member')).length}</strong><span>{meta.professional}</span></div>
+      <div><Building2/><strong>{new Set(accounts.flatMap(account=>account.workspaceIds)).size}</strong><span>{meta.workspaces}</span></div>
+      <nav aria-label={c.roles}><button className={roleFilter==='all'?'active':''} onClick={()=>setRoleFilter('all')}>{meta.all}</button>{roles.map(role=><button key={role} className={roleFilter===role?'active':''} onClick={()=>setRoleFilter(role)}>{c.roleNames[role]} <small>{accounts.filter(account=>account.roles.includes(role)).length}</small></button>)}</nav>
+    </div>
     {(notice||error)&&<div className={error?'role-notice error':'role-notice'}>{error?<AlertCircle/>:<Check/>}{error||notice}</div>}
     <div className="role-account-list">
-      {visible.map(account=>{const draft=drafts[account.id]??{roles:account.roles,disabled:account.disabled};return <article key={account.id}>
-        <div className="role-account-identity"><UserRoundCog/><div><small>{c.account}</small><h3>{account.displayName||account.username}</h3><span>@{account.username}</span></div></div>
+      {visible.map(account=>{const draft=drafts[account.id]??{roles:account.roles,disabled:account.disabled};const changed=draft.disabled!==account.disabled||draft.roles.slice().sort().join('|')!==account.roles.slice().sort().join('|');return <article key={account.id}>
+        <div className="role-account-identity"><UserRoundCog/><div><small>{c.account}</small><h3>{account.displayName||account.username}</h3><span>@{account.username}</span><div className="account-context"><span><Clock3/>{meta.lastSeen}: {account.lastLoginAt?new Intl.DateTimeFormat(locale,{dateStyle:'medium'}).format(new Date(account.lastLoginAt)):meta.never}</span><span><Building2/>{account.workspaceIds.length} {meta.workspaces}</span><span>{meta.created}: {new Intl.DateTimeFormat(locale,{dateStyle:'medium'}).format(new Date(account.createdAt))}</span></div></div>{changed&&<em>{meta.unsaved}</em>}</div>
         <fieldset><legend>{c.roles}</legend>{roles.map(role=><label key={role} className={draft.roles.includes(role)?'selected':''}>
           <input type="checkbox" checked={draft.roles.includes(role)} disabled={role==='member'||(account.id===user?.id&&role==='admin')} onChange={()=>toggleRole(account.id,role)}/>
           <span><strong>{c.roleNames[role]}</strong><small>{c.roleHelp[role]}</small></span>

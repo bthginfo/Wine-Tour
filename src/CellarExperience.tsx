@@ -1,8 +1,8 @@
 import { useMemo, useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
-import { Archive, Camera, Check, ChevronDown, ChevronUp, CircleDollarSign, Clock3, Grape, ImagePlus, MapPin, Minus, NotebookPen, Plus, Search, SlidersHorizontal, Sparkles, Trash2, Wine, X } from 'lucide-react'
-import { aromaContent, countryLabel } from './localizedContent'
-import { aromas, grapes, producers, regions, wines } from './data/catalog'
+import { Archive, ArrowRight, BookOpen, Camera, Check, ChevronDown, ChevronUp, Clock3, Compass, Grape, ImagePlus, MapPin, Minus, NotebookPen, Plus, Search, SlidersHorizontal, Sparkles, Trash2, Wine, WineOff, X } from 'lucide-react'
+import { aromaContent, articleContent, countryLabel } from './localizedContent'
+import { aromas, articles, grapes, producers, regions, wines } from './data/catalog'
 import { repository } from './data/repository'
 import { deleteBottlePhoto, prepareBottlePhoto, uploadBottlePhoto } from './lib/image'
 import { useLocale, type Locale } from './i18n'
@@ -30,6 +30,17 @@ const moreCopy:Record<Locale,string>={en:'more',de:'weitere',fr:'autres',es:'má
 
 const stateOrder: CellarState[]=['owned','wishlist','tasted','finished']
 
+const intelligenceCopy:Record<Locale,{
+  eyebrow:string;title:string;body:string;drinkNow:string;drinkNowBody:string;later:string;overdue:string;ready:string;uncertain:string;
+  collection:string;regions:string;varieties:string;learn:string;learnBody:string;open:string;opened:string;lastBottle:string;knowledge:string;
+  wine:string;place:string;grapes:string;guide:string;empty:string;history:string;historyBody:string
+}>={
+  en:{eyebrow:'Cellar intelligence',title:'What should the next bottle teach you?',body:'Drinking windows are estimates, not expiry dates. Use them with storage history, bottle condition and your own notes.',drinkNow:'Drinking compass',drinkNowBody:'Bottles whose recorded window includes this year, or has just passed.',later:'Hold',overdue:'Revisit',ready:'In window',uncertain:'No window',collection:'Collection breadth',regions:'regions',varieties:'varieties',learn:'Learn from your bottles',learnBody:'These guides connect directly to places and grapes already in your cellar.',open:'Open one bottle',opened:'Bottle opening recorded',lastBottle:'The last bottle moved to your tasting history.',knowledge:'Follow this bottle',wine:'Wine record',place:'Place',grapes:'Varieties',guide:'Related guide',empty:'Add a drinking window to a bottle to build your service queue.',history:'Bottle history',historyBody:'Every opening is retained, even after the final bottle leaves the rack.'},
+  de:{eyebrow:'Kellerkompass',title:'Was soll dir die nächste Flasche beibringen?',body:'Trinkfenster sind Schätzungen, keine Verfallsdaten. Verbinde sie mit Lagerung, Flaschenzustand und deinen eigenen Notizen.',drinkNow:'Trinkkompass',drinkNowBody:'Flaschen, deren erfasstes Trinkfenster dieses Jahr einschließt oder gerade überschritten wurde.',later:'Lagern',overdue:'Erneut prüfen',ready:'Im Trinkfenster',uncertain:'Ohne Trinkfenster',collection:'Breite der Sammlung',regions:'Regionen',varieties:'Rebsorten',learn:'Mit eigenen Flaschen lernen',learnBody:'Diese Guides führen direkt zu Orten und Rebsorten aus deinem Keller.',open:'Eine Flasche öffnen',opened:'Flaschenöffnung erfasst',lastBottle:'Die letzte Flasche wurde in deine Verkostungshistorie verschoben.',knowledge:'Diese Flasche erkunden',wine:'Weinprofil',place:'Herkunft',grapes:'Rebsorten',guide:'Passender Guide',empty:'Ergänze bei einer Flasche ein Trinkfenster, um deine Serviceliste aufzubauen.',history:'Flaschenhistorie',historyBody:'Jede Öffnung bleibt erhalten, auch wenn die letzte Flasche das Regal verlässt.'},
+  fr:{eyebrow:'Boussole de cave',title:'Que peut vous apprendre la prochaine bouteille ?',body:'Une fenêtre de dégustation reste une estimation. Croisez-la avec la conservation, l’état de la bouteille et vos propres notes.',drinkNow:'Boussole de dégustation',drinkNowBody:'Bouteilles dont la fenêtre inclut cette année ou vient de se terminer.',later:'Attendre',overdue:'Revoir',ready:'Dans la fenêtre',uncertain:'Sans fenêtre',collection:'Diversité de la cave',regions:'régions',varieties:'cépages',learn:'Apprendre avec vos bouteilles',learnBody:'Ces guides relient directement les lieux et cépages déjà présents dans votre cave.',open:'Ouvrir une bouteille',opened:'Ouverture enregistrée',lastBottle:'La dernière bouteille a rejoint votre historique de dégustation.',knowledge:'Explorer cette bouteille',wine:'Fiche du vin',place:'Origine',grapes:'Cépages',guide:'Guide associé',empty:'Ajoutez une fenêtre de dégustation pour constituer votre liste de service.',history:'Historique des bouteilles',historyBody:'Chaque ouverture reste conservée, même après la dernière bouteille.'},
+  es:{eyebrow:'Brújula de bodega',title:'¿Qué puede enseñarte la próxima botella?',body:'Las ventanas de consumo son estimaciones. Combínalas con la conservación, el estado de la botella y tus propias notas.',drinkNow:'Brújula de consumo',drinkNowBody:'Botellas cuya ventana incluye este año o acaba de terminar.',later:'Guardar',overdue:'Revisar',ready:'En su ventana',uncertain:'Sin ventana',collection:'Diversidad de la colección',regions:'regiones',varieties:'variedades',learn:'Aprender con tus botellas',learnBody:'Estas guías conectan directamente con lugares y variedades de tu bodega.',open:'Abrir una botella',opened:'Apertura registrada',lastBottle:'La última botella pasó a tu historial de cata.',knowledge:'Explorar esta botella',wine:'Ficha del vino',place:'Origen',grapes:'Variedades',guide:'Guía relacionada',empty:'Añade una ventana de consumo para crear tu lista de servicio.',history:'Historial de botellas',historyBody:'Cada apertura se conserva, incluso después de la última botella.'}
+}
+
 function BottlePortrait({item}:{item:CellarItem}){
   const wine=wines.find(entry=>entry.id===item.wineId)
   const vintage=item.vintage??wine?.vintage
@@ -50,6 +61,13 @@ export function CellarExperience(){
     return `${wine?.name??item.customName??''} ${producer?.name??item.producer??''} ${region?.name??item.region??''} ${item.vintage??wine?.vintage??''}`.toLowerCase().includes(query.toLowerCase())
   }),[items,filter,query])
   function updateItem(id:string,patch:Partial<CellarItem>){persist(items.map(item=>item.id===id?{...item,...patch}:item))}
+  function openBottle(item:CellarItem){
+    const openedAt=[...(item.openedAt??[]),new Date().toISOString()]
+    const last=item.quantity<=1
+    updateItem(item.id,{quantity:Math.max(0,item.quantity-1),state:last?'finished':item.state,lastOpenedAt:openedAt.at(-1),openedAt})
+    setToast(`${intelligenceCopy[locale].opened}${last?` · ${intelligenceCopy[locale].lastBottle}`:''}`)
+    window.setTimeout(()=>setToast(''),3600)
+  }
   function removeItem(id:string){if(deleting!==id){setDeleting(id);return}const item=items.find(candidate=>candidate.id===id);persist(items.filter(candidate=>candidate.id!==id));if(item?.mediaAssetId)void deleteBottlePhoto(item.mediaAssetId).catch(()=>{});setDeleting(undefined);setExpanded(undefined);setToast('')}
   return <main className="page cellar-experience">
     <header className="cellar-experience-hero">
@@ -61,6 +79,7 @@ export function CellarExperience(){
       <article><Sparkles/><strong>{items.filter(item=>item.state==='wishlist').length}</strong><span>{c.wishlist}</span></article>
       <article><NotebookPen/><strong>{items.filter(item=>item.notes?.length).length}</strong><span>{c.noted}</span></article>
     </section>
+    {items.length>0&&<CellarIntelligence items={items} locale={locale} onOpen={openBottle}/>}
     <div className="cellar-commandbar">
       <label className="search-field"><Search/><input value={query} onChange={event=>setQuery(event.target.value)} placeholder={c.search}/></label>
       <div><SlidersHorizontal/>{(['all',...stateOrder] as const).map(value=><button key={value} className={filter===value?'active':''} onClick={()=>setFilter(value)}>{value==='all'?c.all:value==='wishlist'?c.wishlist:c[value]}</button>)}</div>
@@ -75,18 +94,42 @@ export function CellarExperience(){
           <h2>{wine?.name??item.customName}</h2><p>{producer?.name??item.producer}</p>
           <div className="record-place"><MapPin/>{region?<Link to={`/regions/${region.id}`}>{region.name} · {countryLabel(region.country,locale)}</Link>:item.region}</div>
           {latest&&<div className="latest-note"><span>{c.latestNote}</span><strong>{'★'.repeat(latest.rating)}{'☆'.repeat(5-latest.rating)}</strong><p>{latest.reflection||latest.palate}</p></div>}
-          <div className="record-actions"><div><button aria-label="-" onClick={()=>updateItem(item.id,{quantity:Math.max(0,item.quantity-1)})}><Minus/></button><span>{item.quantity}</span><button aria-label="+" onClick={()=>updateItem(item.id,{quantity:item.quantity+1})}><Plus/></button></div>
+          <div className="record-actions"><div><button aria-label="-" disabled={item.quantity===0} onClick={()=>{const quantity=Math.max(0,item.quantity-1);updateItem(item.id,{quantity,...(quantity===0?{state:'finished' as const}:{})})}}><Minus/></button><span>{item.quantity}</span><button aria-label="+" onClick={()=>updateItem(item.id,{quantity:item.quantity+1,...(item.state==='finished'?{state:'owned' as const}:{})})}><Plus/></button></div>
             <button className="text-button" onClick={()=>setExpanded(expanded===item.id?undefined:item.id)}>{expanded===item.id?<><ChevronUp/>{c.closeDetails}</>:<><ChevronDown/>{c.details}</>}</button>
           </div>
         </div>
-        {expanded===item.id&&<BottleRecord item={item} c={c} locale={locale} onUpdate={patch=>updateItem(item.id,patch)} onRemove={()=>removeItem(item.id)} confirmRemove={deleting===item.id}/>} 
+        {expanded===item.id&&<BottleRecord item={item} c={c} locale={locale} onUpdate={patch=>updateItem(item.id,patch)} onOpen={()=>openBottle(item)} onRemove={()=>removeItem(item.id)} confirmRemove={deleting===item.id}/>}
       </article>})}</section>:<section className="cellar-empty"><Archive/><h2>{c.emptyTitle}</h2><p>{c.emptyBody}</p><button className="primary-button ink" onClick={()=>setAddOpen(true)}>{c.add}</button></section>}
     {addOpen&&<AddBottleSheet c={c} locale={locale} onClose={()=>setAddOpen(false)} onSave={item=>{persist([...items,item]);setAddOpen(false);setToast(c.addSuccess);window.setTimeout(()=>setToast(''),3600)}}/>}
   </main>
 }
 
-function BottleRecord({item,c,locale,onUpdate,onRemove,confirmRemove}:{item:CellarItem;c:typeof cellarCopy.en;locale:Locale;onUpdate:(patch:Partial<CellarItem>)=>void;onRemove:()=>void;confirmRemove:boolean}){
+function CellarIntelligence({items,locale,onOpen}:{items:CellarItem[];locale:Locale;onOpen:(item:CellarItem)=>void}){
+  const c=intelligenceCopy[locale],year=new Date().getFullYear()
+  const owned=items.filter(item=>item.state==='owned'&&item.quantity>0)
+  const queue=owned.filter(item=>item.drinkFrom||item.drinkUntil).sort((a,b)=>(a.drinkUntil??9999)-(b.drinkUntil??9999)).slice(0,3)
+  const linked=owned.map(item=>wines.find(wine=>wine.id===item.wineId)).filter((wine):wine is NonNullable<typeof wine>=>Boolean(wine))
+  const regionIds=new Set(linked.map(wine=>wine.regionId)),grapeIds=new Set(linked.flatMap(wine=>wine.grapeIds))
+  const guides=articles.filter(article=>article.relatedRegionIds.some(id=>regionIds.has(id))||article.relatedGrapeIds.some(id=>grapeIds.has(id))).slice(0,3)
+  const status=(item:CellarItem)=>item.drinkUntil&&item.drinkUntil<year?c.overdue:item.drinkFrom&&item.drinkFrom>year?c.later:c.ready
+  return <section className="cellar-intelligence">
+    <header><div><span className="eyebrow">{c.eyebrow}</span><h2>{c.title}</h2><p>{c.body}</p></div><Compass/></header>
+    <div className="cellar-intelligence-grid">
+      <article className="drinking-compass"><div className="intelligence-heading"><span>{c.drinkNow}</span><p>{c.drinkNowBody}</p></div>
+        {queue.length?<div className="drink-queue">{queue.map(item=>{const wine=wines.find(entry=>entry.id===item.wineId);return <div key={item.id}><div><span>{status(item)}</span><strong>{wine?.name??item.customName}</strong><small>{item.vintage??wine?.vintage??'NV'} · {item.drinkFrom??'—'}–{item.drinkUntil??'—'}</small></div><button type="button" onClick={()=>onOpen(item)}><WineOff/>{c.open}</button></div>})}</div>:<p className="intelligence-empty">{c.empty}</p>}
+      </article>
+      <article className="collection-breadth"><span>{c.collection}</span><div><strong>{regionIds.size}</strong><small>{c.regions}</small></div><div><strong>{grapeIds.size}</strong><small>{c.varieties}</small></div><p><Clock3/>{c.historyBody}</p></article>
+      <article className="cellar-learning"><div className="intelligence-heading"><span>{c.learn}</span><p>{c.learnBody}</p></div><div>{guides.map(guide=><Link key={guide.id} to={`/learn/${guide.id}`}><BookOpen/><span><strong>{articleContent(guide,locale).title}</strong><small>{guide.minutes} min</small></span><ArrowRight/></Link>)}</div></article>
+    </div>
+  </section>
+}
+
+function BottleRecord({item,c,locale,onUpdate,onOpen,onRemove,confirmRemove}:{item:CellarItem;c:typeof cellarCopy.en;locale:Locale;onUpdate:(patch:Partial<CellarItem>)=>void;onOpen:()=>void;onRemove:()=>void;confirmRemove:boolean}){
   const wine=wines.find(entry=>entry.id===item.wineId)
+  const producer=wine?producers.find(entry=>entry.id===wine.producerId):undefined
+  const region=wine?regions.find(entry=>entry.id===wine.regionId):undefined
+  const relatedGuide=wine?articles.find(article=>article.relatedRegionIds.includes(wine.regionId)||article.relatedGrapeIds.some(id=>wine.grapeIds.includes(id))):undefined
+  const intelligence=intelligenceCopy[locale]
   const [saved,setSaved]=useState(false); const [aromaIds,setAromaIds]=useState<string[]>([])
   const [note,setNote]=useState({appearance:c.clear,palate:'',finish:'',reflection:'',acidity:3,tannin:wine?.style==='red'?3:1,body:3,rating:4})
   const availableAromas=wine?aromas.filter(aroma=>wine.aromaIds.includes(aroma.id)):aromas.slice(0,20)
@@ -97,6 +140,13 @@ function BottleRecord({item,c,locale,onUpdate,onRemove,confirmRemove}:{item:Cell
       <div className="metadata-grid"><label>{c.vintage}<input name="vintage" type="number" min="1800" max="2100" defaultValue={item.vintage??wine?.vintage??''}/></label><label>{c.bottleSize}<select name="bottleSizeMl" defaultValue={item.bottleSizeMl??750}><option value="375">375 ml</option><option value="750">750 ml</option><option value="1500">1.5 l</option><option value="3000">3 l</option></select></label><label>{c.location}<input name="location" defaultValue={item.location}/></label><label>{c.purchaseDate}<input name="purchaseDate" type="date" defaultValue={item.purchaseDate}/></label><label>{c.purchasePrice}<input name="purchasePrice" type="number" min="0" step="0.01" defaultValue={item.purchasePrice}/></label><label>{c.currency}<select name="currency" defaultValue={item.currency??'EUR'}>{['EUR','USD','GBP','CHF'].map(value=><option key={value}>{value}</option>)}</select></label><label>{c.source}<input name="purchaseSource" defaultValue={item.purchaseSource}/></label><label>{c.drinkFrom}<input name="drinkFrom" type="number" min="1900" max="2200" defaultValue={item.drinkFrom}/></label><label>{c.drinkUntil}<input name="drinkUntil" type="number" min="1900" max="2200" defaultValue={item.drinkUntil}/></label><label className="wide">{c.occasion}<textarea name="occasion" defaultValue={item.occasion}/></label></div>
       <button className="secondary-button">{saved?<><Check/>{c.saved}</>:c.saveDetails}</button>
     </form>
+    {wine&&<section className="bottle-knowledge-trail"><div className="panel-heading"><div><span className="eyebrow">{intelligence.knowledge}</span><h3>{wine.name}</h3></div><BookOpen/></div><div>
+      <Link to={`/wines/${wine.id}`}><Wine/><span><small>{intelligence.wine}</small><strong>{wine.name}</strong></span><ArrowRight/></Link>
+      {region&&<Link to={`/regions/${region.id}`}><MapPin/><span><small>{intelligence.place}</small><strong>{region.name}</strong></span><ArrowRight/></Link>}
+      {wine.grapeIds.slice(0,2).map(id=>{const grape=grapes.find(entry=>entry.id===id);return grape?<Link to={`/grapes/${grape.id}`} key={id}><Grape/><span><small>{intelligence.grapes}</small><strong>{grape.name}</strong></span><ArrowRight/></Link>:null})}
+      {producer&&<Link to={`/wineries/${producer.id}`}><Archive/><span><small>{c.producer}</small><strong>{producer.name}</strong></span><ArrowRight/></Link>}
+      {relatedGuide&&<Link to={`/learn/${relatedGuide.id}`}><BookOpen/><span><small>{intelligence.guide}</small><strong>{articleContent(relatedGuide,locale).title}</strong></span><ArrowRight/></Link>}
+    </div></section>}
     <section className="cellar-note-studio"><div className="panel-heading"><div><span className="eyebrow">{c.notes}</span><h3>{c.addNote}</h3></div><NotebookPen/></div>
       <label>{c.appearance}<select value={note.appearance} onChange={event=>setNote({...note,appearance:event.target.value})}><option>{c.clear}</option><option>{c.pale}</option><option>{c.deep}</option></select></label>
       <div><span className="field-label">{c.aromas}</span><div className="cellar-aroma-chips">{availableAromas.map(aroma=><button type="button" key={aroma.id} className={aromaIds.includes(aroma.id)?'active':''} onClick={()=>setAromaIds(values=>values.includes(aroma.id)?values.filter(id=>id!==aroma.id):[...values,aroma.id])}>{aromaContent(aroma,locale).name}</button>)}</div></div>
@@ -106,6 +156,7 @@ function BottleRecord({item,c,locale,onUpdate,onRemove,confirmRemove}:{item:Cell
       <button type="button" className="primary-button" onClick={saveNote}><NotebookPen/>{c.saveNote}</button>
       <div className="note-history">{item.notes?.length?item.notes.slice().reverse().map(entry=><article key={entry.id}><header><time>{new Intl.DateTimeFormat(locale,{dateStyle:'medium'}).format(new Date(entry.createdAt))}</time><strong>{'★'.repeat(entry.rating)}{'☆'.repeat(5-entry.rating)}</strong></header><div>{entry.aromaIds.map(id=>{const aroma=aromas.find(value=>value.id===id);return aroma?<span key={id}>{aromaContent(aroma,locale).name}</span>:null})}</div><p>{entry.palate}</p><small>{entry.finish}</small><blockquote>{entry.reflection}</blockquote></article>):<p>{c.noNotes}</p>}</div>
     </section>
+    {item.quantity>0&&<button type="button" className="open-bottle-button" onClick={onOpen}><WineOff/><span><strong>{intelligence.open}</strong><small>{intelligence.historyBody}</small></span></button>}
     <button className={confirmRemove?'danger-button confirm':'danger-button'} onClick={onRemove}><Trash2/>{confirmRemove?c.confirmRemove:c.remove}</button>
   </div>
 }

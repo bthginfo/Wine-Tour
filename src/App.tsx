@@ -114,6 +114,7 @@ const DatabaseStatus = lazy(() => import("./DatabaseStatus").then(module => ({ d
 const AuditTrail = lazy(() => import("./AuditTrail").then(module => ({ default:module.AuditTrail })))
 const EditorialStudio = lazy(() => import("./EditorialStudio").then(module => ({ default:module.EditorialStudio })))
 const AccountRoleManager = lazy(() => import("./AccountRoleManager").then(module => ({ default:module.AccountRoleManager })))
+const AdminOperationsOverview = lazy(() => import("./AdminOperationsOverview").then(module => ({ default:module.AdminOperationsOverview })))
 
 function Deferred({children}:{children:ReactNode}){
   return <Suspense fallback={<div className="app-bootstrap" aria-busy="true"><span /></div>}>{children}</Suspense>
@@ -1956,6 +1957,7 @@ function AdminPage() {
         <p>{copy.curatorBody}</p>
       </PageIntro>
       <Deferred><DatabaseStatus /></Deferred>
+      <Deferred><AdminOperationsOverview /></Deferred>
       <section className="admin-counts">
         <div>
           <MapIcon />

@@ -133,6 +133,8 @@ export interface CellarItem {
   drinkFrom?: number
   drinkUntil?: number
   occasion?: string
+  openedAt?: string[]
+  lastOpenedAt?: string
   notes?: CellarTastingNote[]
 }
 

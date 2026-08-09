@@ -149,7 +149,7 @@ async function saveCellar(userId: string, value: unknown) {
         regionName: typeof item.region === 'string' ? item.region : null,
         vintage: typeof item.vintage === 'number' ? Math.round(item.vintage) : null,
         state: ['owned', 'wishlist', 'tasted', 'finished'].includes(String(item.state)) ? item.state as 'owned' | 'wishlist' | 'tasted' | 'finished' : 'owned',
-        quantity: Math.max(1, Math.min(999, Number(item.quantity) || 1)),
+        quantity: Math.max(0, Math.min(999, Number.isFinite(Number(item.quantity)) ? Math.round(Number(item.quantity)) : 1)),
         location: typeof item.location === 'string' ? item.location.slice(0, 200) : '',
         details: item,
         updatedAt: new Date(),
