@@ -52,7 +52,6 @@ import {
   Share2,
   ShieldCheck,
   Sparkles,
-  Star,
   Trash2,
   Users,
   Wine,
@@ -73,6 +72,9 @@ import { localeRegistry, useLocale, usePageCopy, type Locale } from "./i18n";
 import { aromaContent, articleContent, countryLabel, grapeContent, producerContent, regionContent, styleLabel, wineContent } from "./localizedContent";
 import { useUiCopy } from "./uiCopy";
 import { useAuth } from "./auth";
+import { CommunityRating } from "./CommunityRating";
+import { RegionTerroirStudio, GrapeExpressionLab } from "./KnowledgeInteractions";
+import { WineBottleArt } from "./WineBottleArt";
 import type { Aroma, CellarItem, MembershipRole, TastingChapter, TastingChapterType, TastingJourney, WineStyle } from "./types";
 import vineyardHero from "./assets/vineyard-terraces.jpg";
 import tastingStill from "./assets/tasting-still-life.jpg";
@@ -443,31 +445,6 @@ function BackLink({ to, label = "Back" }: { to: string; label?: string }) {
     </Link>
   );
 }
-function Stars({
-  value,
-  onChange,
-}: {
-  value: number;
-  onChange?: (value: number) => void;
-}) {
-  return (
-    <div className="stars" aria-label={`${value} out of 5 stars`}>
-      {[1, 2, 3, 4, 5].map((star) => (
-        <button
-          key={star}
-          type="button"
-          className={star <= value ? "filled" : ""}
-          disabled={!onChange}
-          onClick={() => onChange?.(star)}
-          aria-label={`${star} stars`}
-        >
-          <Star size={17} fill={star <= value ? "currentColor" : "none"} />
-        </button>
-      ))}
-    </div>
-  );
-}
-
 function HomePage() {
   const { t,locale } = useLocale();
   const ui=useUiCopy()
@@ -813,7 +790,7 @@ function AtlasPage() {
           {layer==='regions'?pagedRegions.map(region=><Link to={`/regions/${region.id}`} key={region.id}>
             <div className="directory-index">{String(regions.indexOf(region)+1).padStart(3,'0')}</div><div><small>{countryLabel(region.country,locale)}</small><h3>{region.name}</h3><p>{regionContent(region,locale).climate}</p></div><dl><span>{region.grapeIds.length} {ui.linkedVarieties}</span><span>{region.producerIds.length} {ui.linkedWineries}</span></dl><ChevronRight/>
           </Link>):pagedProducers.map(producer=>{const region=regions.find(item=>item.id===producer.regionId)!,pc=producerContent(producer,region,locale);return <Link to={`/wineries/${producer.id}`} key={producer.id}>
-            <div className="directory-monogram">{producer.name.charAt(0)}</div><div><small>{countryLabel(region.country,locale)} · {region.name}</small><h3>{producer.name}</h3><p>{pc.speciality}</p></div><dl><span>{producer.wineIds.length} {ui.linkedWines}</span><span>{producer.communityRating.toFixed(1)} {ui.communityShort}</span></dl><ChevronRight/>
+            <div className="directory-monogram">{producer.name.charAt(0)}</div><div><small>{countryLabel(region.country,locale)} · {region.name}</small><h3>{producer.name}</h3><p>{pc.speciality}</p></div><dl><span>{producer.wineIds.length} {ui.linkedWines}</span><span>{producer.regionIds.length} {ui.producersLinked}</span></dl><ChevronRight/>
           </Link>})}
         </div>}
         {resultCount>pageSize&&<nav className="directory-pagination" aria-label={`${directoryCopy.page} ${currentPage} ${directoryCopy.of} ${pageCount}`}><button disabled={currentPage===1} onClick={()=>changeDirectoryPage(currentPage-1)}><ArrowLeft/>{directoryCopy.previous}</button><span><strong>{directoryCopy.page} {currentPage}</strong> {directoryCopy.of} {pageCount}<small>{pageStart+1}–{Math.min(pageStart+pageSize,resultCount)} / {resultCount}</small></span><button disabled={currentPage===pageCount} onClick={()=>changeDirectoryPage(currentPage+1)}>{directoryCopy.next}<ArrowRight/></button></nav>}
@@ -831,7 +808,6 @@ function RegionPage() {
   const ui=useUiCopy()
   const { slug } = useParams();
   const region = regions.find((r) => r.id === slug);
-  const [rating, setRating] = useRating(`region:${slug}`);
   if (!region) return <NotFound />;
   const relatedGrapes = grapes.filter((g) => region.grapeIds.includes(g.id));
   const relatedProducers = producers.filter((p) => p.regionIds.includes(region.id));
@@ -893,19 +869,7 @@ function RegionPage() {
             <dt>{ui.producersLinked}</dt>
             <dd>{relatedProducers.length}</dd>
           </div>
-          <div>
-            <dt>{ui.community}</dt>
-            <dd>
-              <Stars value={4} />
-              <small>{ui.communitySnapshot} · 268</small>
-            </dd>
-          </div>
-          <div>
-            <dt>{ui.yourRating}</dt>
-            <dd>
-              <Stars value={rating} onChange={setRating} />
-            </dd>
-          </div>
+          <div className="community-fact"><dt>{ui.community}</dt><dd><CommunityRating entityType="region" entityId={region.id}/></dd></div>
         </dl>
       </section>
       <section className="terroir-story">
@@ -924,6 +888,7 @@ function RegionPage() {
         </div>
       </section>
       <RegionFieldGuide region={region} locale={locale}/>
+      <RegionTerroirStudio region={region} locale={locale}/>
       <section className="knowledge-panels">
         <article>
           <span className="eyebrow">{ui.stylesCompare}</span>
@@ -985,18 +950,6 @@ function RegionPage() {
           </div>
         </section>
       )}
-      <section className="source-note">
-        <ShieldCheck size={18} />
-        <p>
-          <strong>{ui.editorialProvenance}</strong>
-          <br />
-          {ui.provenanceBody}
-        </p>
-        <a href={region.sourceUrl} target="_blank" rel="noreferrer">
-          {ui.viewSource}
-        </a>
-        <div className="source-links">{region.sources.slice(1).map(source=><a key={source.url} href={source.url} target="_blank" rel="noreferrer">{source.label}</a>)}</div>
-      </section>
     </article>
   );
 }
@@ -1061,6 +1014,7 @@ function GrapePage() {
         </div>
       </section>
       <GrapeDeepDive grape={grape} locale={locale}/>
+      <GrapeExpressionLab grape={grape} locale={locale}/>
       <GrapeAmpelography grape={grape} locale={locale}/>
       <BlendConnections grapeId={grape.id}/>
       <section className="knowledge-panels">
@@ -1128,7 +1082,6 @@ function ProducerPage() {
   if (!producer) return <NotFound />;
   const region = regions.find((r) => r.id === producer.regionId)!;
   const producerWines = wines.filter((w) => w.producerId === producer.id);
-  const [rating, setRating] = useRating(`producer:${slug}`);
   const content=producerContent(producer,region,locale)
   return (
     <article className="page detail-page">
@@ -1161,19 +1114,7 @@ function ProducerPage() {
               {region.name}, {region.country}
             </dd>
           </div>
-          <div>
-            <dt>{ui.community}</dt>
-            <dd>
-              <Stars value={Math.round(producer.communityRating)} />
-              <small>{ui.communitySnapshot} · {producer.communityRating}</small>
-            </dd>
-          </div>
-          <div>
-            <dt>{ui.yourRating}</dt>
-            <dd>
-              <Stars value={rating} onChange={setRating} />
-            </dd>
-          </div>
+          <div className="community-fact"><dt>{ui.community}</dt><dd><CommunityRating entityType="producer" entityId={producer.id}/></dd></div>
         </dl>
       </section>
       <section className="producer-method">
@@ -1183,7 +1124,6 @@ function ProducerPage() {
           <article><span>02</span><h3>{ui.cellarLabel}</h3><p>{content.cellar}</p></article>
           <article><span>03</span><h3>{ui.signature}</h3><p>{content.speciality}</p></article>
         </div>
-        <a href={producer.sourceUrl} target="_blank" rel="noreferrer" className="text-link">{ui.visitPrimary} <ArrowRight size={15}/></a>
       </section>
       <ProducerDecisionMap producer={producer} region={region} locale={locale}/>
       <section className="related-section">
@@ -1213,9 +1153,7 @@ function WineCard({ wine }: { wine: (typeof wines)[number] }) {
   const producer = producers.find((p) => p.id === wine.producerId);
   return (
     <Link to={`/wines/${wine.id}`} className={`wine-card style-${wine.style}`}>
-      <div className="bottle-shape">
-        <i />
-      </div>
+      <WineBottleArt wine={wine} producer={producer} compact/>
       <small>
         {wine.vintage ?? "—"} · {styleLabel(wine.style,locale)}
       </small>
@@ -1244,14 +1182,7 @@ function WinePage() {
   const [added, setAdded] = useState(() =>
     repository.cellar.all().some((i) => i.wineId === wineId),
   );
-  const [rating, setRating] = useRating(`wine:${slug}`);
   const content=wineContent(wine,producer,region,locale)
-  const evidenceCopy={
-    en:wine.evidenceLevel==='producer'?{title:'Producer-documented detail',body:'The linked primary source supports this wine record. Production details can be maintained as a sourced estate record.'}:{title:'Style context, transparently labelled',body:'The cited source confirms the bottle and origin; the process notes explain the wine style and do not claim an unpublished estate recipe.'},
-    de:wine.evidenceLevel==='producer'?{title:'Vom Erzeuger belegte Details',body:'Die verknüpfte Primärquelle stützt diesen Weineintrag. Produktionsdetails können als belegter Weingutseintrag gepflegt werden.'}:{title:'Transparent markierter Stilkontext',body:'Die zitierte Quelle belegt Flasche und Herkunft; die Prozesshinweise erklären den Weinstil und behaupten kein unveröffentlichtes Kellerrezept.'},
-    fr:wine.evidenceLevel==='producer'?{title:'Détail documenté par le domaine',body:'La source primaire liée étaye cette fiche. Les détails de production peuvent être maintenus comme données sourcées du domaine.'}:{title:'Contexte de style clairement signalé',body:'La source citée confirme la bouteille et l’origine ; les notes de procédé expliquent le style sans attribuer au domaine une recette non publiée.'},
-    es:wine.evidenceLevel==='producer'?{title:'Detalle documentado por la bodega',body:'La fuente primaria enlazada respalda esta ficha. Los datos de producción pueden mantenerse como información documentada de la bodega.'}:{title:'Contexto de estilo claramente indicado',body:'La fuente citada confirma botella y origen; las notas explican el estilo sin atribuir a la bodega una receta no publicada.'},
-  }[locale]
   function add() {
     if(!user){navigate(`/profile?returnTo=${encodeURIComponent(`/wines/${wineId}`)}`);return}
     const items = repository.cellar.all();
@@ -1278,17 +1209,7 @@ function WinePage() {
         <span>{wine.name}</span>
       </div>
       <section className="wine-hero">
-        <div className={`feature-bottle style-${wine.style}`}>
-          <div>
-            <span>
-              VINE
-              <br />
-              ATLAS
-            </span>
-            <b>{wine.name}</b>
-            <small>{wine.vintage ?? "—"}</small>
-          </div>
-        </div>
+        <WineBottleArt wine={wine} producer={producer}/>
         <div>
           <span className="eyebrow">
             {styleLabel(wine.style,locale)} {ui.wineType} · {countryLabel(region.country,locale)}
@@ -1339,19 +1260,7 @@ function WinePage() {
             <dt>{ui.style}</dt>
             <dd>{styleLabel(wine.style,locale)}</dd>
           </div>
-          <div>
-            <dt>{ui.community}</dt>
-            <dd>
-              <Stars value={Math.round(wine.communityRating)} />
-              <small>{ui.communitySnapshot} · {wine.communityRating}</small>
-            </dd>
-          </div>
-          <div>
-            <dt>{ui.yourRating}</dt>
-            <dd>
-              <Stars value={rating} onChange={setRating} />
-            </dd>
-          </div>
+          <div className="community-fact"><dt>{ui.community}</dt><dd><CommunityRating entityType="wine" entityId={wine.id}/></dd></div>
         </dl>
       </section>
       <section className="wine-process">
@@ -1359,7 +1268,6 @@ function WinePage() {
         <div className="process-copy">
           <span className="eyebrow">{ui.fromFruitBottle}</span>
           <h2>{ui.howStyleBuilt}</h2>
-          <div className={`evidence-note ${wine.evidenceLevel}`}><ShieldCheck/><span><strong>{evidenceCopy.title}</strong><small>{evidenceCopy.body}</small></span></div>
           <ol>
             <li><span>01</span><div><h3>{ui.composition}</h3><p>{wine.composition}</p></div></li>
             <li><span>02</span><div><h3>{ui.vinification}</h3><p>{content.vinification}</p></div></li>
@@ -1749,7 +1657,6 @@ function ArticlePage() {
         <p>{ui.lessonPractice}</p>
       </div>
       <AcademyMasterclass article={article} locale={locale}/>
-      <section className="lesson-sources"><span className="eyebrow">{locale==='de'?'Fachliche Quellen':locale==='fr'?'Sources techniques':locale==='es'?'Fuentes técnicas':'Technical sources'}</span><h2>{locale==='de'?'Weiterlesen und überprüfen':locale==='fr'?'Approfondir et vérifier':locale==='es'?'Profundizar y verificar':'Read further and verify'}</h2><p>{locale==='de'?'Die Lektion wurde entlang dieser Primär- und Fachquellen aufgebaut. Öffne sie, wenn du Definitionen, Verfahren oder Grenzwerte im Original prüfen möchtest.':locale==='fr'?'La leçon s’appuie sur ces sources primaires et techniques. Consultez-les pour vérifier définitions, pratiques et limites dans le texte original.':locale==='es'?'La lección se apoya en estas fuentes primarias y técnicas. Ábrelas para comprobar definiciones, prácticas y límites en el texto original.':'This lesson is structured around these primary and technical sources. Open them to verify definitions, practices and limits in their original context.'}</p><div>{article.sources.map(source=><a href={source.url} target="_blank" rel="noreferrer" key={source.url}>{source.label}<ArrowRight/></a>)}</div></section>
       <section className="lesson-connections"><span className="eyebrow">{ui.continueAtlas}</span><h2>{ui.seeIdea}</h2><div className="thread-cloud">{regions.filter(region=>article.relatedRegionIds.includes(region.id)).map(region=><ThreadLink key={region.id} to={`/regions/${region.id}`} tone="moss">{region.name}</ThreadLink>)}{grapes.filter(grape=>article.relatedGrapeIds.includes(grape.id)).map(grape=><ThreadLink key={grape.id} to={`/grapes/${grape.id}`}>{grape.name}</ThreadLink>)}</div></section>
       <div className="next-read">
         <span>{copy.continueLearning}</span>
@@ -2336,20 +2243,6 @@ function GlobalSearch({ onClose }: { onClose: () => void }) {
   );
 }
 
-function useRating(key: string) {
-  const {user}=useAuth()
-  const navigate=useNavigate()
-  const location=useLocation()
-  const [value, setValue] = useState(() => repository.ratings.all()[key] || 0);
-  const update = (next: number) => {
-    if(!user){navigate(`/profile?returnTo=${encodeURIComponent(`${location.pathname}${location.search}`)}`);return}
-    const ratings = repository.ratings.all();
-    ratings[key] = next;
-    repository.ratings.save(ratings);
-    setValue(next);
-  };
-  return [value, update] as const;
-}
 function NotFound() {
   const ui=useUiCopy()
   return (

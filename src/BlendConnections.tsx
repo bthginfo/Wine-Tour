@@ -1,4 +1,4 @@
-import { ExternalLink, FlaskConical, Layers3 } from 'lucide-react'
+import { FlaskConical, Layers3 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { grapes, regions } from './data/catalog'
 import { useLocale, type Locale } from './i18n'
@@ -112,7 +112,6 @@ export function BlendConnections({grapeId}:{grapeId:string}){
       <p className="blend-composition">{blend.composition[locale]}</p>
       <div className="blend-links"><small>{c.palette}</small><div>{blend.grapeIds.map(id=>{const grape=grapes.find(item=>item.id===id);return grape?<Link className={id===grapeId?'current':''} key={id} to={`/grapes/${id}`}>{grape.name}</Link>:null})}</div></div>
       <div className="blend-links"><small>{c.places}</small><div>{blend.regionIds.map(id=>{const region=regions.find(item=>item.id===id);return region?<Link key={id} to={`/regions/${id}`}>{region.name}</Link>:null})}</div></div>
-      <a className="blend-source" href={blend.source.url} target="_blank" rel="noreferrer">{c.source} · {blend.source.label}<ExternalLink/></a>
     </article>)}</div>
   </section>
 }

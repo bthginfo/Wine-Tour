@@ -6,7 +6,7 @@ import {repository} from './data/repository'
 import {useLocale,type Locale} from './i18n'
 import {articleContent} from './localizedContent'
 import {guideImage} from './learningGuideMedia'
-import {curriculumSources,learningBlockById,learningModuleById,learningModules,schoolCopy,type LearningArchetype,type LearningBlock,type LearningBlockKind,type LearningLevel,type LearningModule,type LearningSchool} from './learningCurriculum'
+import {learningBlockById,learningModuleById,learningModules,schoolCopy,type LearningArchetype,type LearningBlock,type LearningBlockKind,type LearningLevel,type LearningModule,type LearningSchool} from './learningCurriculum'
 import type {TastingChapter,TastingJourney} from './types'
 import {AdaptiveLearningPlanner} from './AdaptiveLearning'
 
@@ -106,7 +106,7 @@ export function PortableLearningBlock({module,block,compact=false,expanded=false
     {block.kind==='knowledge-check'&&<InteractiveVisual block={block} locale={locale}/>} 
     {block.kind==='glossary'&&<dl className="inline-glossary"><div><dt>{module.title[locale]}</dt><dd>{module.summary[locale]}</dd></div><div><dt>{c.confidence}</dt><dd>{block.body[locale][1]}</dd></div></dl>}
     {block.kind==='entity-connections'&&<div className="block-entity-links">{(module.entityIds.length?module.entityIds:['riesling','mosel','chardonnay']).map(id=><Link to={entityLink(id)} key={id}>{entityName(id)}<ChevronRight/></Link>)}</div>}
-    {block.kind==='sources'&&<div className="block-sources">{block.body[locale].map(paragraph=><p key={paragraph}>{paragraph}</p>)}<p>{c.sourceNote}</p>{(block.sources??curriculumSources[module.school].map(item=>({...item,supports:{en:'',de:'',fr:'',es:''}}))).map(source=><a href={source.url} target="_blank" rel="noreferrer" key={source.url}><span><strong>{source.label}</strong><small>{source.supports[locale]}</small></span><ArrowRight/></a>)}</div>}
+    {block.kind==='sources'&&<div className="learning-prose">{block.body[locale].map(paragraph=><p key={paragraph}>{paragraph}</p>)}</div>}
     {!compact&&block.kind!=='sources'&&<button className={`add-learning-block ${added?'added':''}`} onClick={()=>{addLearningToJourney(module,locale,block);setAdded(true)}}>{added?<Check/>:<Layers3/>}{added?c.blockAdded:c.addBlock}</button>}
   </section>
 }

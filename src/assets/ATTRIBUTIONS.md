@@ -62,4 +62,14 @@ No existing publisher illustration, branded bottle, label or proprietary diagram
 
 ## Ampelographic photography
 
-Verified leaf and cluster photographs are loaded at runtime from PlantGrape, the French catalogue maintained with IFV, INRAE and Institut Agro Montpellier material. The generated registry stores an exact cultivar-to-record match, separate leaf and cluster URLs, and the public source page shown beside every image pair. These externally hosted photographs are not copied into the repository. Cultivars without a complete verified pair intentionally show an editorial sourcing state rather than a generic or generated botanical likeness.
+Verified leaf and cluster photographs are loaded at runtime from PlantGrape, the French catalogue maintained with IFV, INRAE and Institut Agro Montpellier material. The generated registry stores an exact cultivar-to-record match and separate leaf and cluster URLs. Source provenance remains in the internal data and attribution manifest rather than appearing as editorial metadata in the learning experience. These externally hosted photographs are not copied into the repository. Cultivars without a complete verified pair intentionally show an editorial sourcing state rather than a generic or generated botanical likeness.
+
+## Entity knowledge plates
+
+The following web-optimised JPEGs were generated with the built-in OpenAI image-generation tool on 2026-08-09. They are original, language-neutral field-atlas illustrations used inside three different interactive teaching models; no publisher artwork, label or diagram was copied.
+
+- `knowledge-region-seasons.jpg` — a four-season vineyard panorama with roots, water movement and layered ground for the regional terroir studio.
+- `knowledge-grape-botany.jpg` — a botanical study of leaf faces, shoot, tendrils, bunch architecture and berry sections for the grape expression laboratory.
+- `knowledge-grape-botany-white.jpg` — a pale-skinned botanical companion plate, derived from the original study so white and red varieties never receive a contradictory berry-colour illustration.
+- `knowledge-wine-opening.jpg` — four bottle-and-glass observations from opening through air, table and later evolution for the wine timeline.
+- `knowledge-wine-opening-white.jpg` — a pale-wine companion sequence with citrus, flower, orchard-fruit, beeswax and nut cues so the illustration remains consistent with white, sweet and sparkling wine pages.
