@@ -75,6 +75,7 @@ import { useAuth } from "./auth";
 import { CommunityRating } from "./CommunityRating";
 import { RegionTerroirStudio, GrapeExpressionLab } from "./KnowledgeInteractions";
 import { WineBottleArt } from "./WineBottleArt";
+import { SearchableSelect } from "./SearchableSelect";
 import type { Aroma, CellarItem, MembershipRole, TastingChapter, TastingChapterType, TastingJourney, WineStyle } from "./types";
 import vineyardHero from "./assets/vineyard-terraces.jpg";
 import tastingStill from "./assets/tasting-still-life.jpg";
@@ -613,7 +614,7 @@ function AtlasPage() {
     regions.find((r) => r.id === "mosel") ?? regions[0],
   );
   const [query, setQuery] = useState("");
-  const [layer, setLayer] = useState<"regions" | "producers">("regions");
+  const [layer, setLayer] = useState<"regions" | "producers" | "grapes">("regions");
   const [country,setCountry]=useState('all')
   const [grapeId,setGrapeId]=useState('all')
   const [linkedOnly,setLinkedOnly]=useState(false)
@@ -636,13 +637,27 @@ function AtlasPage() {
     const grapeNames=grapes.filter(grape=>region.grapeIds.includes(grape.id)).map(grape=>grape.name).join(' ')
     return (!q||`${producer.name} ${region.name} ${region.country} ${grapeNames}`.toLowerCase().includes(q))&&(country==='all'||region.country===country)&&(grapeId==='all'||region.grapeIds.includes(grapeId))&&(!linkedOnly||producer.wineIds.length>0)
   }).sort((a,b)=>{const ar=regions.find(item=>item.id===a.regionId)!,br=regions.find(item=>item.id===b.regionId)!;return sort==='country'?`${ar.country}${a.name}`.localeCompare(`${br.country}${b.name}`):sort==='links'?b.wineIds.length-a.wineIds.length:a.name.localeCompare(b.name)})
+  const filteredGrapes=grapes.filter(grape=>{
+    const linkedRegions=regions.filter(region=>grape.regionIds.includes(region.id))
+    const linkedAromas=aromas.filter(aroma=>grape.aromaIds.includes(aroma.id))
+    const linkedWines=wines.filter(wine=>wine.grapeIds.includes(grape.id))
+    const haystack=[grape.name,...grape.aliases,grape.origin,...linkedRegions.map(region=>region.name),...linkedAromas.map(aroma=>aroma.name)].join(' ').toLowerCase()
+    return (!q||haystack.includes(q))&&(country==='all'||linkedRegions.some(region=>region.country===country))&&(!linkedOnly||(linkedRegions.length+linkedWines.length)>0)
+  }).sort((a,b)=>sort==='country'?`${a.origin}${a.name}`.localeCompare(`${b.origin}${b.name}`):sort==='links'?(b.regionIds.length+wines.filter(wine=>wine.grapeIds.includes(b.id)).length)-(a.regionIds.length+wines.filter(wine=>wine.grapeIds.includes(a.id)).length):a.name.localeCompare(b.name))
   const producerGroups=filteredRegions.map(region=>({region,items:filteredProducers.filter(producer=>producer.regionId===region.id)})).filter(group=>group.items.length)
-  const resultCount=layer==='regions'?filteredRegions.length:filteredProducers.length
+  const resultCount=layer==='regions'?filteredRegions.length:layer==='producers'?filteredProducers.length:filteredGrapes.length
   const pageCount=Math.max(1,Math.ceil(resultCount/pageSize))
   const currentPage=Math.min(page,pageCount)
   const pageStart=(currentPage-1)*pageSize
   const pagedRegions=filteredRegions.slice(pageStart,pageStart+pageSize)
   const pagedProducers=filteredProducers.slice(pageStart,pageStart+pageSize)
+  const pagedGrapes=filteredGrapes.slice(pageStart,pageStart+pageSize)
+  const atlasModeCopy={
+    en:{grapes:'Grape varieties',searchGrapes:'Search variety, alias, origin, aroma or region',linkedRegions:'regions',linkedWines:'wines',origin:'Origin',directory:'Variety directory'},
+    de:{grapes:'Rebsorten',searchGrapes:'Rebsorte, Synonym, Herkunft, Aroma oder Region suchen',linkedRegions:'Regionen',linkedWines:'Weine',origin:'Herkunft',directory:'Rebsortenverzeichnis'},
+    fr:{grapes:'Cépages',searchGrapes:'Rechercher cépage, synonyme, origine, arôme ou région',linkedRegions:'régions',linkedWines:'vins',origin:'Origine',directory:'Annuaire des cépages'},
+    es:{grapes:'Variedades',searchGrapes:'Buscar variedad, sinónimo, origen, aroma o región',linkedRegions:'regiones',linkedWines:'vinos',origin:'Origen',directory:'Directorio de variedades'},
+  }[locale]
   const directoryCopy={en:{page:'Page',of:'of',perPage:'per page',previous:'Previous',next:'Next',refine:'Refine this directory'},de:{page:'Seite',of:'von',perPage:'pro Seite',previous:'Zurück',next:'Weiter',refine:'Dieses Verzeichnis filtern'},fr:{page:'Page',of:'sur',perPage:'par page',previous:'Précédent',next:'Suivant',refine:'Affiner cet annuaire'},es:{page:'Página',of:'de',perPage:'por página',previous:'Anterior',next:'Siguiente',refine:'Filtrar este directorio'}}[locale]
   const changeDirectoryPage=(next:number)=>{setPage(Math.min(pageCount,Math.max(1,next)));window.setTimeout(()=>document.querySelector('.atlas-index')?.scrollIntoView({behavior:'smooth',block:'start'}),0)}
   useEffect(()=>setPage(1),[query,country,grapeId,linkedOnly,sort,layer,pageSize])
@@ -658,7 +673,7 @@ function AtlasPage() {
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder={ui.searchAll}
+            placeholder={layer==='grapes'?atlasModeCopy.searchGrapes:ui.searchAll}
           />
         </label>
         <div className="segmented">
@@ -673,18 +688,26 @@ function AtlasPage() {
             className={layer === "producers" ? "active" : ""}
             onClick={() => setLayer("producers")}
           >
-            <Grape size={16} />
+            <Wine size={16} />
             {t("producers")}
+          </button>
+          <button
+            className={layer === "grapes" ? "active" : ""}
+            onClick={() => { setLayer("grapes"); setGrapeId("all"); }}
+          >
+            <Grape size={16} />
+            {atlasModeCopy.grapes}
           </button>
         </div>
       </div>
       <div className="atlas-filters">
         <label><span>{ui.country}</span><select value={country} onChange={event=>setCountry(event.target.value)}><option value="all">{ui.allCountries}</option>{countries.map(item=><option value={item} key={item}>{countryLabel(item,locale)}</option>)}</select></label>
-        <label><span>{ui.variety}</span><select value={grapeId} onChange={event=>setGrapeId(event.target.value)}><option value="all">{ui.allVarieties}</option>{grapes.slice().sort((a,b)=>a.name.localeCompare(b.name)).map(grape=><option value={grape.id} key={grape.id}>{grape.name}</option>)}</select></label>
+        {layer!=='grapes'&&<label><span>{ui.variety}</span><select value={grapeId} onChange={event=>setGrapeId(event.target.value)}><option value="all">{ui.allVarieties}</option>{grapes.slice().sort((a,b)=>a.name.localeCompare(b.name)).map(grape=><option value={grape.id} key={grape.id}>{grape.name}</option>)}</select></label>}
         <label><span>{ui.sort}</span><select value={sort} onChange={event=>setSort(event.target.value as typeof sort)}><option value="name">{ui.sortName}</option><option value="country">{ui.sortCountry}</option><option value="links">{ui.sortLinks}</option></select></label>
         <button className={linkedOnly?'active':''} aria-pressed={linkedOnly} onClick={()=>setLinkedOnly(value=>!value)}>{linkedOnly?<Check size={15}/>:<ListFilter size={15}/>} {ui.linkedOnly}</button>
         {(q||country!=='all'||grapeId!=='all'||linkedOnly)&&<button className="clear-filters" onClick={()=>{setQuery('');setCountry('all');setGrapeId('all');setLinkedOnly(false)}}><X size={15}/>{ui.clearFilters}</button>}
       </div>
+      {layer!=='grapes'&&<>
       <AtlasLensControls lens={lens} onChange={setLens} regions={filteredRegions}/>
       <section className="map-shell">
         <AtlasCommercialPlacements />
@@ -774,23 +797,26 @@ function AtlasPage() {
         </div>
       </section>
       <RegionCompare items={compareIds.map(id=>regions.find(region=>region.id===id)).filter((item):item is (typeof regions)[number]=>Boolean(item))} onRemove={id=>setCompareIds(ids=>ids.filter(item=>item!==id))}/>
+      </>}
       <section className="atlas-index">
         <div className="section-heading">
-          <div><span className="eyebrow">{ui.completeDirectory}</span><h2 aria-live="polite">{resultCount} {layer==='regions'?ui.wineRegions:ui.wineries}</h2></div>
-          <span>Map · {zoom} · {ui.mapShowing}</span>
+          <div><span className="eyebrow">{layer==='grapes'?atlasModeCopy.directory:ui.completeDirectory}</span><h2 aria-live="polite">{resultCount} {layer==='regions'?ui.wineRegions:layer==='producers'?ui.wineries:atlasModeCopy.grapes}</h2></div>
+          <span>{layer==='grapes'?`${directoryCopy.page} ${currentPage} ${directoryCopy.of} ${pageCount}`:`Map · ${zoom} · ${ui.mapShowing}`}</span>
         </div>
         <div className="atlas-directory-tools" aria-label={directoryCopy.refine}>
-          <label className="search-field"><Search size={17}/><input value={query} onChange={event=>setQuery(event.target.value)} placeholder={ui.searchAll}/></label>
+          <label className="search-field"><Search size={17}/><input value={query} onChange={event=>setQuery(event.target.value)} placeholder={layer==='grapes'?atlasModeCopy.searchGrapes:ui.searchAll}/></label>
           <label><span>{ui.country}</span><select value={country} onChange={event=>setCountry(event.target.value)}><option value="all">{ui.allCountries}</option>{countries.map(item=><option value={item} key={item}>{countryLabel(item,locale)}</option>)}</select></label>
-          <label><span>{ui.variety}</span><select value={grapeId} onChange={event=>setGrapeId(event.target.value)}><option value="all">{ui.allVarieties}</option>{grapes.slice().sort((a,b)=>a.name.localeCompare(b.name)).map(grape=><option value={grape.id} key={grape.id}>{grape.name}</option>)}</select></label>
+          {layer!=='grapes'&&<label><span>{ui.variety}</span><select value={grapeId} onChange={event=>setGrapeId(event.target.value)}><option value="all">{ui.allVarieties}</option>{grapes.slice().sort((a,b)=>a.name.localeCompare(b.name)).map(grape=><option value={grape.id} key={grape.id}>{grape.name}</option>)}</select></label>}
           <label><span>{ui.sort}</span><select value={sort} onChange={event=>setSort(event.target.value as typeof sort)}><option value="name">{ui.sortName}</option><option value="country">{ui.sortCountry}</option><option value="links">{ui.sortLinks}</option></select></label>
           <label><span>{directoryCopy.perPage}</span><select value={pageSize} onChange={event=>setPageSize(Number(event.target.value))}><option value="8">8</option><option value="12">12</option><option value="24">24</option></select></label>
         </div>
         {resultCount===0?<div className="directory-empty"><Search/><h3>{ui.noPath}</h3><p>{ui.noPathHelp}</p></div>:<div className="atlas-directory">
           {layer==='regions'?pagedRegions.map(region=><Link to={`/regions/${region.id}`} key={region.id}>
             <div className="directory-index">{String(regions.indexOf(region)+1).padStart(3,'0')}</div><div><small>{countryLabel(region.country,locale)}</small><h3>{regionName(region,locale)}</h3><p>{regionContent(region,locale).climate}</p></div><dl><span>{region.grapeIds.length} {ui.linkedVarieties}</span><span>{region.producerIds.length} {ui.linkedWineries}</span></dl><ChevronRight/>
-          </Link>):pagedProducers.map(producer=>{const region=regions.find(item=>item.id===producer.regionId)!,pc=producerContent(producer,region,locale);return <Link to={`/wineries/${producer.id}`} key={producer.id}>
+          </Link>):layer==='producers'?pagedProducers.map(producer=>{const region=regions.find(item=>item.id===producer.regionId)!,pc=producerContent(producer,region,locale);return <Link to={`/wineries/${producer.id}`} key={producer.id}>
             <div className="directory-monogram">{producer.name.charAt(0)}</div><div><small>{countryLabel(region.country,locale)} · {regionName(region,locale)}</small><h3>{producer.name}</h3><p>{pc.speciality}</p></div><dl><span>{producer.wineIds.length} {ui.linkedWines}</span><span>{producer.regionIds.length} {ui.producersLinked}</span></dl><ChevronRight/>
+          </Link>}):pagedGrapes.map(grape=>{const content=grapeContent(grape,locale),linkedWineCount=wines.filter(wine=>wine.grapeIds.includes(grape.id)).length;return <Link to={`/grapes/${grape.id}`} key={grape.id} className="grape-directory-row">
+            <div className={`directory-grape-mark ${grape.color}`}><Grape/></div><div><small>{atlasModeCopy.origin} · {content.origin}</small><h3>{grape.name}</h3><p>{content.summary}</p>{grape.aliases.length>0&&<small className="directory-aliases">{grape.aliases.slice(0,3).join(' · ')}</small>}</div><dl><span>{grape.regionIds.length} {atlasModeCopy.linkedRegions}</span><span>{linkedWineCount} {atlasModeCopy.linkedWines}</span></dl><ChevronRight/>
           </Link>})}
         </div>}
         {resultCount>pageSize&&<nav className="directory-pagination" aria-label={`${directoryCopy.page} ${currentPage} ${directoryCopy.of} ${pageCount}`}><button disabled={currentPage===1} onClick={()=>changeDirectoryPage(currentPage-1)}><ArrowLeft/>{directoryCopy.previous}</button><span><strong>{directoryCopy.page} {currentPage}</strong> {directoryCopy.of} {pageCount}<small>{pageStart+1}–{Math.min(pageStart+pageSize,resultCount)} / {resultCount}</small></span><button disabled={currentPage===pageCount} onClick={()=>changeDirectoryPage(currentPage+1)}>{directoryCopy.next}<ArrowRight/></button></nav>}
@@ -1764,6 +1790,7 @@ function TastingBuilder() {
   const options=optionsForChapter(type,locale)
   const chapterCountLabel=journey.chapters.length===1?{en:'chapter',de:'Kapitel',fr:'chapitre',es:'capítulo'}[locale]:ui.chapters
   const hostCopy={en:{mode:'Table interaction',observe:'Observe',predict:'Predict',vote:'Vote',discuss:'Discuss',prompt:'Question before the reveal',promptHint:'What should guests notice or decide?',reveal:'Evidence revealed by the host',revealHint:'The explanation or comparison you want to reveal later.'},de:{mode:'Interaktion am Tisch',observe:'Beobachten',predict:'Vermuten',vote:'Abstimmen',discuss:'Diskutieren',prompt:'Frage vor der Auflösung',promptHint:'Was sollen Gäste bemerken oder entscheiden?',reveal:'Evidenz für die Auflösung',revealHint:'Welche Erklärung oder welcher Vergleich wird später sichtbar?'},fr:{mode:'Interaction à table',observe:'Observer',predict:'Prédire',vote:'Voter',discuss:'Discuter',prompt:'Question avant la révélation',promptHint:'Que doivent remarquer ou décider les invités ?',reveal:'Indices révélés par l’hôte',revealHint:'Explication ou comparaison à révéler plus tard.'},es:{mode:'Interacción en la mesa',observe:'Observar',predict:'Predecir',vote:'Votar',discuss:'Conversar',prompt:'Pregunta antes de revelar',promptHint:'¿Qué deberían notar o decidir los invitados?',reveal:'Evidencia que revela el anfitrión',revealHint:'Explicación o comparación que aparecerá después.'}}[locale]
+  const contentSearchCopy={en:{search:'Search this content library',empty:'No matching content'},de:{search:'In dieser Inhaltsbibliothek suchen',empty:'Kein passender Inhalt'},fr:{search:'Rechercher dans cette bibliothèque',empty:'Aucun contenu correspondant'},es:{search:'Buscar en esta biblioteca',empty:'No hay contenido coincidente'}}[locale]
   function chooseType(next:TastingChapterType){setType(next);setReferenceId(optionsForChapter(next,locale)[0]?.id ?? '');setNote('');setPrompt('');setReveal('');setInteraction('observe')}
   function addChapter(){
     const title=referenceTitle(type,referenceId,locale,ui)
@@ -1786,7 +1813,7 @@ function TastingBuilder() {
       <section className="chapter-palette">
         <span className="eyebrow">{ui.addChapter}</span><h2>{ui.whatNext}</h2>
         <div className="chapter-type-grid">{chapterTypes.map(item=><button key={item.type} className={type===item.type?'active':''} onClick={()=>chooseType(item.type)}><span>{item.label}</span><small>{item.help}</small></button>)}</div>
-        {options.length>0&&<label>{ui.atlasContent}<select value={referenceId} onChange={event=>setReferenceId(event.target.value)}>{options.map(item=><option value={item.id} key={item.id}>{item.label}</option>)}</select></label>}
+        {options.length>0&&<SearchableSelect label={ui.atlasContent} value={referenceId} onChange={setReferenceId} options={options.map(item=>({value:item.id,label:item.label}))} searchPlaceholder={contentSearchCopy.search} emptyText={contentSearchCopy.empty}/>}
         {(type==='host-note'||type==='pause')&&<label>{ui.yourWords}<textarea value={note} onChange={event=>setNote(event.target.value)} placeholder={ui.hostPlaceholder}/></label>}
         <label>{hostCopy.mode}<select value={interaction} onChange={event=>setInteraction(event.target.value as TastingChapter['interaction'])}><option value="observe">{hostCopy.observe}</option><option value="predict">{hostCopy.predict}</option><option value="vote">{hostCopy.vote}</option><option value="discuss">{hostCopy.discuss}</option></select></label>
         <label>{hostCopy.prompt}<textarea value={prompt} onChange={event=>setPrompt(event.target.value)} placeholder={hostCopy.promptHint}/></label>

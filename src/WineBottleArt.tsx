@@ -12,6 +12,11 @@ function bottleFamily(wine:Wine){
   return [...wine.id].reduce((total,letter)=>total+letter.charCodeAt(0),0)%2?'burgundy':'bordeaux'
 }
 
+function producerMark(name:string){
+  const words=name.replace(/[.'&’]/g,' ').split(/\s+/).filter(word=>word.length>1&&!['de','du','des','la','le','the','and'].includes(word.toLowerCase()))
+  return (words.slice(0,3).map(word=>word[0]).join('')||'VA').toUpperCase()
+}
+
 function usePublishedWineImage(wineId:string,preferred?:string|null){
   const [url,setUrl]=useState<string|null|undefined>(()=>preferred??mediaCache.get(wineId))
   useEffect(()=>{
@@ -31,11 +36,12 @@ export function WineBottleArt({wine,producer,compact=false,imageUrl}:{wine:Wine;
   const uploadedImage=usePublishedWineImage(wine.id,imageUrl)
   const family=bottleFamily(wine)
   const illustration={bordeaux:bordeauxBottle,burgundy:burgundyBottle,rhine:rhineBottle}[family]
-  return <figure className={`wine-bottle-art bottle-${family} ${compact?'is-compact':''} ${uploadedImage?'has-upload':''}`} aria-label={`${wine.name}${producer?` · ${producer.name}`:''}`}>
+  const labelLength=wine.name.length>34?'label-very-long':wine.name.length>22?'label-long':'label-regular'
+  return <figure className={`wine-bottle-art bottle-${family} ${labelLength} ${compact?'is-compact':''} ${uploadedImage?'has-upload':''}`} aria-label={`${wine.name}${producer?` · ${producer.name}`:''}`}>
     <img className="bottle-illustration" src={uploadedImage||illustration} alt="" />
     {!uploadedImage&&<figcaption className="bottle-label-art">
-      <small>{producer?.name??'Vine Atlas'}</small>
-      <strong>{wine.name}</strong>
+      <small>{compact?producerMark(producer?.name??'Vine Atlas'):producer?.name??'Vine Atlas'}</small>
+      {!compact&&<strong>{wine.name}</strong>}
       <em>{wine.vintage??'NV'}</em>
     </figcaption>}
   </figure>

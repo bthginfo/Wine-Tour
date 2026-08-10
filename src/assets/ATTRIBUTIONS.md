@@ -2,6 +2,8 @@
 
 The image assets were created specifically for Vine Atlas with OpenAI image generation and contain no third-party photography:
 
+- `region-portrait-mosel.jpg`, `region-portrait-bordeaux.jpg`, `region-portrait-mendoza.jpg`, `region-portrait-marlborough.jpg` — original language-neutral scientific-editorial terrain portraits generated 2026-08-10 from each region's documented river, topography, climate and soil structure. They contain no copied poster, third-party map, logo, legal-boundary claim or Wine Folly artwork.
+
 - `vineyard-terraces.png` — original generated image, created 2026-08-08. Generic terraced vineyard landscape; not presented as a specific estate or appellation.
 - `tasting-still-life.png` — original generated image, created 2026-08-08. Generic cellar tasting still life; the bottle is deliberately unlabelled.
 - `terroir-cross-section.png` — original generated educational cutaway, created 2026-08-08. It depicts generic slope, root, water and soil relationships rather than a named site.

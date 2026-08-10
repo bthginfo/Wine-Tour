@@ -1,4 +1,4 @@
-import { useMemo, useState, type ChangeEvent, type FormEvent } from "react";
+import { useMemo, useState, type FormEvent } from "react";
 import {
   Check,
   ChevronLeft,
@@ -27,6 +27,7 @@ import { repository } from "./data/repository";
 import { applyCatalogAdditions } from "./data/catalogExtensions";
 import { useLocale, type Locale } from "./i18n";
 import { deleteWineImage, prepareImage, uploadWineImage } from "./lib/image";
+import { SearchableMultiSelect, SearchableSelect } from "./SearchableSelect";
 
 type RecordType = "region" | "grape" | "producer" | "wine";
 type EditorialDraft = {
@@ -128,7 +129,7 @@ const copy = {
     preview: "Editorial preview",
     delete: "Delete draft",
     empty: "No drafts yet.",
-    selectMany: "Use Ctrl/Cmd to select several relationships.",
+    selectMany: "Search, select and remove relationships without leaving the record.",
     local: "Shared editorial queue",
   },
   de: {
@@ -207,7 +208,7 @@ const copy = {
     preview: "Redaktionelle Vorschau",
     delete: "Entwurf löschen",
     empty: "Noch keine Entwürfe.",
-    selectMany: "Mit Strg/Cmd mehrere Beziehungen wählen.",
+    selectMany: "Beziehungen suchen, auswählen und direkt wieder entfernen.",
     local: "Gemeinsame Redaktionswarteschlange",
   },
   fr: {
@@ -286,7 +287,7 @@ const copy = {
     preview: "Aperçu éditorial",
     delete: "Supprimer",
     empty: "Aucun brouillon.",
-    selectMany: "Ctrl/Cmd pour sélectionner plusieurs relations.",
+    selectMany: "Recherchez, sélectionnez et retirez les relations directement.",
     local: "File éditoriale partagée",
   },
   es: {
@@ -365,7 +366,7 @@ const copy = {
     preview: "Vista editorial",
     delete: "Eliminar borrador",
     empty: "Todavía no hay borradores.",
-    selectMany: "Usa Ctrl/Cmd para seleccionar varias relaciones.",
+    selectMany: "Busca, selecciona y elimina relaciones directamente.",
     local: "Cola editorial compartida",
   },
 } as const;
@@ -495,6 +496,7 @@ export function EditorialStudio() {
   const { locale } = useLocale();
   const c = { ...copy[locale], ...backendCopy[locale] };
   const optionCopy = editorOptions[locale];
+  const selectionCopy={en:{search:'Search relationships',empty:'No matching record',selected:'selected'},de:{search:'Beziehungen durchsuchen',empty:'Kein passender Datensatz',selected:'ausgewählt'},fr:{search:'Rechercher les relations',empty:'Aucune fiche correspondante',selected:'sélectionnés'},es:{search:'Buscar relaciones',empty:'No hay registros coincidentes',selected:'seleccionados'}}[locale]
   const [drafts, setDrafts] = useState<EditorialDraft[]>(
     loadEditorialDrafts,
   );
@@ -704,11 +706,6 @@ export function EditorialStudio() {
     setDraft(next);
     setSaved(true);
   };
-  const selectMany = (key: string, event: ChangeEvent<HTMLSelectElement>) =>
-    updateField(
-      key,
-      [...event.target.selectedOptions].map((option) => option.value),
-    );
   const chooseWineImage=async(file?:File)=>{
     if(!file)return
     const entityId=draft.baseId||draft.slug||slugify(draft.name)
@@ -1017,22 +1014,7 @@ export function EditorialStudio() {
                         }
                       />
                     </label>
-                    <label>
-                      {c.parentRegion}
-                      <select
-                        value={fieldValue(draft.fields, "parentRegionId")}
-                        onChange={(event) =>
-                          updateField("parentRegionId", event.target.value)
-                        }
-                      >
-                        <option value="">—</option>
-                        {regions.map((item) => (
-                          <option value={item.id} key={item.id}>
-                            {item.name}
-                          </option>
-                        ))}
-                      </select>
-                    </label>
+                    <SearchableSelect label={c.parentRegion} value={fieldValue(draft.fields,"parentRegionId")} onChange={value=>updateField("parentRegionId",value)} options={regions.map(item=>({value:item.id,label:item.name,keywords:item.country}))} searchPlaceholder={selectionCopy.search} emptyText={selectionCopy.empty}/>
                     <label>
                       {c.latitude}
                       <input
@@ -1138,36 +1120,21 @@ export function EditorialStudio() {
                       label={c.aromaLinks}
                       help={c.selectMany}
                       value={arrayValue(draft.fields, "aromaIds")}
-                      onChange={(event) => selectMany("aromaIds", event)}
+                      onChange={(values) => updateField("aromaIds", values)}
                       options={aromas}
                     />
                     <Multi
                       label={c.regionLinks}
                       help={c.selectMany}
                       value={arrayValue(draft.fields, "regionIds")}
-                      onChange={(event) => selectMany("regionIds", event)}
+                      onChange={(values) => updateField("regionIds", values)}
                       options={regions}
                     />
                   </>
                 )}
                 {draft.recordType === "producer" && (
                   <>
-                    <label>
-                      {c.region}
-                      <select
-                        value={fieldValue(draft.fields, "regionId")}
-                        onChange={(event) =>
-                          updateField("regionId", event.target.value)
-                        }
-                      >
-                        <option value="">—</option>
-                        {regions.map((item) => (
-                          <option value={item.id} key={item.id}>
-                            {item.name}
-                          </option>
-                        ))}
-                      </select>
-                    </label>
+                    <SearchableSelect label={c.region} value={fieldValue(draft.fields,"regionId")} onChange={value=>updateField("regionId",value)} options={regions.map(item=>({value:item.id,label:item.name,keywords:item.country}))} searchPlaceholder={selectionCopy.search} emptyText={selectionCopy.empty}/>
                     <label>
                       {c.website}
                       <input
@@ -1218,7 +1185,7 @@ export function EditorialStudio() {
                       label={c.grapeLinks}
                       help={c.selectMany}
                       value={arrayValue(draft.fields, "grapeIds")}
-                      onChange={(event) => selectMany("grapeIds", event)}
+                      onChange={(values) => updateField("grapeIds", values)}
                       options={grapes}
                     />
                   </>
@@ -1238,38 +1205,8 @@ export function EditorialStudio() {
                       {fieldValue(draft.fields,"imageUrl")&&<button type="button" className="text-button" onClick={removeWineImage}><Trash2/>{c.removeBottleImage}</button>}
                       {wineMediaError&&<p role="alert">{wineMediaError}</p>}
                     </div>
-                    <label>
-                      {c.producerLink}
-                      <select
-                        value={fieldValue(draft.fields, "producerId")}
-                        onChange={(event) =>
-                          updateField("producerId", event.target.value)
-                        }
-                      >
-                        <option value="">—</option>
-                        {producers.map((item) => (
-                          <option value={item.id} key={item.id}>
-                            {item.name}
-                          </option>
-                        ))}
-                      </select>
-                    </label>
-                    <label>
-                      {c.region}
-                      <select
-                        value={fieldValue(draft.fields, "regionId")}
-                        onChange={(event) =>
-                          updateField("regionId", event.target.value)
-                        }
-                      >
-                        <option value="">—</option>
-                        {regions.map((item) => (
-                          <option value={item.id} key={item.id}>
-                            {item.name}
-                          </option>
-                        ))}
-                      </select>
-                    </label>
+                    <SearchableSelect label={c.producerLink} value={fieldValue(draft.fields,"producerId")} onChange={value=>updateField("producerId",value)} options={producers.map(item=>({value:item.id,label:item.name,keywords:regions.find(region=>region.id===item.regionId)?.name}))} searchPlaceholder={selectionCopy.search} emptyText={selectionCopy.empty}/>
+                    <SearchableSelect label={c.region} value={fieldValue(draft.fields,"regionId")} onChange={value=>updateField("regionId",value)} options={regions.map(item=>({value:item.id,label:item.name,keywords:item.country}))} searchPlaceholder={selectionCopy.search} emptyText={selectionCopy.empty}/>
                     <label>
                       {c.style}
                       <select
@@ -1308,14 +1245,14 @@ export function EditorialStudio() {
                       label={c.grapeLinks}
                       help={c.selectMany}
                       value={arrayValue(draft.fields, "grapeIds")}
-                      onChange={(event) => selectMany("grapeIds", event)}
+                      onChange={(values) => updateField("grapeIds", values)}
                       options={grapes}
                     />
                     <Multi
                       label={c.aromaLinks}
                       help={c.selectMany}
                       value={arrayValue(draft.fields, "aromaIds")}
-                      onChange={(event) => selectMany("aromaIds", event)}
+                      onChange={(values) => updateField("aromaIds", values)}
                       options={aromas}
                     />
                     <label className="wide">
@@ -1438,20 +1375,12 @@ function Multi({
   label: string;
   help: string;
   value: string[];
-  onChange: (event: ChangeEvent<HTMLSelectElement>) => void;
+  onChange: (value: string[]) => void;
   options: { id: string; name: string }[];
 }) {
-  return (
-    <label className="wide">
-      {label}
-      <select multiple value={value} onChange={onChange}>
-        {options.map((item) => (
-          <option value={item.id} key={item.id}>
-            {item.name}
-          </option>
-        ))}
-      </select>
-      <small>{help}</small>
-    </label>
-  );
+  const {locale}=useLocale()
+  const search={en:'Search and select',de:'Suchen und auswählen',fr:'Rechercher et sélectionner',es:'Buscar y seleccionar'}[locale]
+  const empty={en:'No matching record',de:'Kein passender Datensatz',fr:'Aucune fiche correspondante',es:'No hay registros coincidentes'}[locale]
+  const selected={en:'selected',de:'ausgewählt',fr:'sélectionnés',es:'seleccionados'}[locale]
+  return <SearchableMultiSelect className="wide" label={label} help={help} value={value} onChange={onChange} options={options.map(item=>({value:item.id,label:item.name}))} searchPlaceholder={search} emptyText={empty} selectedText={selected}/>;
 }

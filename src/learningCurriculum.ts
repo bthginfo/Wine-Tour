@@ -234,11 +234,41 @@ function bodyFor(profile:EditorialProfile,index:number,kind:LearningBlockKind):L
     return [locale,[notes[(index*2)%notes.length],notes[(index*2+1)%notes.length],notes[(index*2+2)%notes.length],...deepening(profile,index,kind,locale)]]
   })) as Localized<string[]>
 }
+function authoredBlockTitle(profile:EditorialProfile,kind:LearningBlockKind):Localized<string>{
+  const suffix={en:{table:'At the table',check:'Check the mechanism',terms:'Working vocabulary',links:'Connected examples',sources:'Evidence and limits'},de:{table:'Am Tisch',check:'Den Mechanismus prüfen',terms:'Arbeitsvokabular',links:'Verbundene Beispiele',sources:'Evidenz und Grenzen'},fr:{table:'À table',check:'Vérifier le mécanisme',terms:'Vocabulaire pratique',links:'Exemples reliés',sources:'Indices et limites'},es:{table:'En la mesa',check:'Comprobar el mecanismo',terms:'Vocabulario práctico',links:'Ejemplos conectados',sources:'Evidencia y límites'}} as const
+  return Object.fromEntries(locales.map(locale=>{
+    const stages=profile.stages[locale],first=stages[0],last=stages.at(-1)??first,copy=suffix[locale]
+    const title=kind==='process-timeline'?`${first} → ${last}`
+      :['comparison-lab','sensory-lab','simulator'].includes(kind)?profile.control.label[locale]
+      :kind==='annotated-plate'?`${profile.title[locale]}: ${first}`
+      :kind==='map-lab'?`${profile.title[locale]}: ${stages[Math.min(2,stages.length-1)]}`
+      :kind==='decision-case'?`${first}: ${stages[1]??last}`
+      :kind==='tasting-prompt'?`${profile.title[locale]} · ${copy.table}`
+      :kind==='knowledge-check'?`${profile.title[locale]} · ${copy.check}`
+      :kind==='glossary'?`${profile.title[locale]} · ${copy.terms}`
+      :kind==='entity-connections'?copy.links
+      :kind==='sources'?copy.sources
+      :profile.question[locale]
+    return [locale,title]
+  })) as Localized<string>
+}
+function knowledgeOptions(profile:EditorialProfile):Localized<string[]>{
+  return Object.fromEntries(locales.map(locale=>{
+    const variable=profile.control.label[locale],low=profile.control.low[locale],high=profile.control.high[locale]
+    const options={
+      en:[`Assume ${variable.toLowerCase()} guarantees the same aroma in every wine.`,`Compare “${low}” with “${high}” while keeping sample, glass, time and order constant.`,`Name the region first, then treat every observation as confirmation.`],
+      de:[`Annehmen, dass ${variable.toLowerCase()} in jedem Wein dasselbe Aroma garantiert.`,`„${low}“ mit „${high}“ vergleichen und Probe, Glas, Zeit sowie Reihenfolge konstant halten.`,`Zuerst die Region nennen und danach jede Beobachtung als Bestätigung werten.`],
+      fr:[`Supposer que ${variable.toLowerCase()} garantit le même arôme dans chaque vin.`,`Comparer « ${low} » et « ${high} » en gardant échantillon, verre, durée et ordre constants.`,`Nommer d’abord la région puis prendre chaque observation comme confirmation.`],
+      es:[`Suponer que ${variable.toLowerCase()} garantiza el mismo aroma en todos los vinos.`,`Comparar «${low}» con «${high}» manteniendo muestra, copa, tiempo y orden constantes.`,`Nombrar primero la región y tratar cada observación como confirmación.`],
+    }[locale]
+    return [locale,options]
+  })) as Localized<string[]>
+}
 function makeBlock(profile:EditorialProfile,index:number,kind:LearningBlockKind):LearningBlock{
   const labels=blockLabels[kind]
-  const options=kind==='knowledge-check'?Object.fromEntries(locales.map(locale=>[locale,[profile.notes[locale][5],profile.notes[locale][1],profile.notes[locale][6]]])) as Localized<string[]>:undefined
+  const options=kind==='knowledge-check'?knowledgeOptions(profile):undefined
   const states=Object.fromEntries(locales.map(locale=>[locale,[profile.notes[locale][4],profile.notes[locale][0],profile.notes[locale][2]]])) as Localized<string[]>
-  return {id:`${profile.id}--${kind}-${index}`,kind,title:labels.title,eyebrow:labels.eyebrow,body:bodyFor(profile,index,kind),duration:kind==='sources'?3:kind==='knowledge-check'?4:6,behavior:kind==='decision-case'?'host-reveal':kind==='sources'?'self-paced':'host-or-self',linkedEntityIds:profile.entities,
+  return {id:`${profile.id}--${kind}-${index}`,kind,title:authoredBlockTitle(profile,kind),eyebrow:labels.eyebrow,body:bodyFor(profile,index,kind),duration:kind==='sources'?3:kind==='knowledge-check'?4:6,behavior:kind==='decision-case'?'host-reveal':kind==='sources'?'self-paced':'host-or-self',linkedEntityIds:profile.entities,
     media:mediaKinds.includes(kind)?{src:profile.media[index%2],alt:l(`Evidence illustration for ${profile.title.en}`,`Evidenzillustration zu ${profile.title.de}`,`Illustration d’indices pour ${profile.title.fr}`,`Ilustración de evidencias para ${profile.title.es}`),focus:profile.archetype}:undefined,
     options,answer:kind==='knowledge-check'?1:undefined,stages:profile.stages,control:{...profile.control,states},sources:kind==='sources'?profile.sources:undefined}
 }
