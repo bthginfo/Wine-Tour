@@ -2,6 +2,10 @@
 
 The image assets were created specifically for Vine Atlas with OpenAI image generation and contain no third-party photography:
 
+- `learning-glassware-anatomy.jpg` — original glassware function plate generated 2026-08-10. Five accurate glass silhouettes, a headspace comparison and restrained aroma-flow paths; no text, logos, brands or copied proprietary diagram.
+- `learning-closure-anatomy.jpg` — original closure cutaway plate generated 2026-08-10. Natural cork, technical cork, screw cap, sparkling cork and glass stopper in technically plausible bottle-neck sections; no text, logos, brands or copied proprietary diagram.
+- `learning-bottle-engineering.jpg` — original bottle-form and engineering plate generated 2026-08-10. Bordeaux, Burgundy, Rhine and Champagne forms plus a functional cutaway, sediment, pressure and format studies; no text, logos, brands or copied proprietary diagram.
+
 - `region-portrait-mosel.jpg`, `region-portrait-bordeaux.jpg`, `region-portrait-mendoza.jpg`, `region-portrait-marlborough.jpg` — original language-neutral scientific-editorial terrain portraits generated 2026-08-10 from each region's documented river, topography, climate and soil structure. They contain no copied poster, third-party map, logo, legal-boundary claim or Wine Folly artwork.
 
 - `vineyard-terraces.png` — original generated image, created 2026-08-08. Generic terraced vineyard landscape; not presented as a specific estate or appellation.

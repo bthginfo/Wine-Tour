@@ -109,8 +109,10 @@ import { ReferenceGuideExperience } from "./ReferenceGuideExperience";
 import { BlendConnections } from "./BlendConnections";
 import { AtlasLensControls, CompareButton, RegionCompare, atlasMarkerStyle, type AtlasLens } from "./AtlasIntelligence";
 import { TastingHostConsole } from "./TastingHostConsole";
+import { TastingParticipantTools } from "./TastingParticipantTools";
 import { VineToGlassExperience } from "./VineToGlassExperience";
 import { GuideDepthBridge } from "./GuideDepthBridge";
+import { ServiceKnowledgeLab } from "./ServiceKnowledgeLab";
 
 const CellarExperience = lazy(() => import("./CellarExperience").then(module => ({ default:module.CellarExperience })))
 const ConnectedTastingRoom = lazy(() => import("./ConnectedTastingRoom").then(module => ({ default:module.ConnectedTastingRoom })))
@@ -217,6 +219,7 @@ const benchmarkRegionOpenings:Record<string,Record<Locale,RegionOpeningSeed>>={
 function regionOpening(region:(typeof regions)[number],locale:Locale,content:ReturnType<typeof regionContent>):RegionOpening{
   const seed=benchmarkRegionOpenings[region.id]?.[locale]
   if(seed)return {summary:seed.summary,climateLead:`${content.climate.replace(/[.\s]+$/,'')}. ${seed.terrain}`,diversity:content.viticulture}
+  if(!region.hasRegionalTerroirEvidence)return {summary:content.summary,climateLead:content.climate,diversity:content.history}
   const ground={en:`The region’s ground—${content.soil.toLowerCase()}—influences water movement, heat storage and rooting depth.`,de:`Der Untergrund der Region – ${content.soil.toLowerCase()} – beeinflusst Wasserführung, Wärmespeicherung und Wurzeltiefe.`,fr:`Le sous-sol régional — ${content.soil.toLowerCase()} — influence la circulation de l’eau, le stockage de chaleur et la profondeur d’enracinement.`,es:`El subsuelo regional —${content.soil.toLowerCase()}— influye en el movimiento del agua, la retención térmica y la profundidad de las raíces.`}[locale]
   return {summary:content.summary,climateLead:`${content.climate.replace(/[.\s]+$/,'')}. ${ground}`,diversity:content.viticulture}
 }
@@ -844,6 +847,18 @@ function RegionPage() {
   const content=regionContent(region,locale)
   const hero=regionHeroFor(region)
   const opening=regionOpening(region,locale,content)
+  const evidenceCopy={
+    en:{styles:'Wine families',stylesBody:'Varieties and styles of this region in direct comparison',bottles:'Bottles for a regional comparison',bottlesBody:'Wines from producers working with this origin',noBottles:'Explore the region through its grape varieties'},
+    de:{styles:'Weinfamilien',stylesBody:'Rebsorten und Stile der Region im direkten Vergleich',bottles:'Flaschen für einen Regionsvergleich',bottlesBody:'Weine von Erzeugern, die mit dieser Herkunft arbeiten',noBottles:'Die Region über ihre Rebsorten erkunden'},
+    fr:{styles:'Familles de vins',stylesBody:'Cépages et styles de la région à comparer',bottles:'Bouteilles pour comparer la région',bottlesBody:'Vins de producteurs travaillant avec cette origine',noBottles:'Explorer la région à travers ses cépages'},
+    es:{styles:'Familias de vino',stylesBody:'Variedades y estilos de la región para comparar',bottles:'Botellas para comparar la región',bottlesBody:'Vinos de productores que trabajan con este origen',noBottles:'Explora la región a través de sus variedades'},
+  }[locale]
+  const styleRecords=Object.entries(relatedWines.reduce<Record<string,typeof relatedWines>>((groups,wine)=>{(groups[wine.style]??=[]).push(wine);return groups},{})).map(([style,items])=>{
+    const names=[...new Set(items.flatMap(item=>item.grapeIds).map(id=>grapes.find(grape=>grape.id===id)?.name).filter(Boolean))].slice(0,3)
+    return `${style.charAt(0).toUpperCase()+style.slice(1)} · ${names.join(', ')} · ${items.length} ${items.length===1?ui.wine:ui.linkedWines}`
+  })
+  const grapeRecords=relatedGrapes.slice(0,4).map(grape=>`${grape.name} · ${grape.color==='red'?{en:'red wine grape',de:'rote Rebsorte',fr:'cépage noir',es:'variedad tinta'}[locale]:{en:'white wine grape',de:'weiße Rebsorte',fr:'cépage blanc',es:'variedad blanca'}[locale]}`)
+  const bottleRecords=relatedWines.slice(0,4).map(wine=>`${wine.name} · ${producers.find(producer=>producer.id===wine.producerId)?.name??''}`)
   return (
     <article className="page detail-page">
       <BackLink to="/atlas" label={ui.worldAtlas} />
@@ -891,8 +906,8 @@ function RegionPage() {
             </dd>
           </div>
           <div>
-            <dt>{ui.typicalGround}</dt>
-            <dd>{content.soil}</dd>
+            <dt>{region.hasRegionalTerroirEvidence?ui.typicalGround:ui.grape}</dt>
+            <dd>{region.hasRegionalTerroirEvidence?content.soil:relatedGrapes.slice(0,4).map(grape=>grape.name).join(' · ')}</dd>
           </div>
           <div>
             <dt>{ui.producersLinked}</dt>
@@ -917,12 +932,12 @@ function RegionPage() {
         </div>
       </section>
       <RegionFieldGuide region={region} locale={locale}/>
-      <RegionTerroirStudio region={region} locale={locale}/>
+      {region.hasRegionalTerroirEvidence&&<RegionTerroirStudio region={region} locale={locale}/>}
       <section className="knowledge-panels">
         <article>
-          <span className="eyebrow">{ui.stylesCompare}</span>
-          <h3>{ui.regionBecome}</h3>
-          <ul>{content.styles.map((style) => <li key={style}>{style}</li>)}</ul>
+          <span className="eyebrow">{evidenceCopy.styles}</span>
+          <h3>{evidenceCopy.stylesBody}</h3>
+          <ul>{(styleRecords.length?styleRecords:grapeRecords).map((style) => <li key={style}>{style}</li>)}</ul>
         </article>
         <article>
           <span className="eyebrow">{ui.localGeography}</span>
@@ -930,9 +945,9 @@ function RegionPage() {
           <ul>{(region.subregions.length ? region.subregions.map(zone=>geographicName(zone,locale)) : content.keyFacts).map((zone) => <li key={zone}>{zone}</li>)}</ul>
         </article>
         <article>
-          <span className="eyebrow">{ui.atTable}</span>
-          <h3>{ui.pairPlace}</h3>
-          <ul>{content.pairings.map((pairing) => <li key={pairing}>{pairing}</li>)}</ul>
+          <span className="eyebrow">{evidenceCopy.bottles}</span>
+          <h3>{evidenceCopy.bottlesBody}</h3>
+          <ul>{(bottleRecords.length?bottleRecords:[evidenceCopy.noBottles]).map((item) => <li key={item}>{item}</li>)}</ul>
         </article>
       </section>
       <section className="related-section">
@@ -998,6 +1013,13 @@ function GrapePage() {
     .filter((w) => w.grapeIds.includes(grape.id))
     .slice(0, 4);
   const content=grapeContent(grape,locale)
+  const grapeEvidenceCopy={
+    en:{expressions:'Documented expressions',expressionBody:'Styles found among the linked bottles',compare:'Bottles to compare',compareBody:'Follow the variety through real producers and places',empty:'No sourced bottle is linked yet'},
+    de:{expressions:'Dokumentierte Ausprägungen',expressionBody:'Stile aus den verknüpften Flaschen',compare:'Flaschen zum Vergleichen',compareBody:'Die Rebsorte durch reale Erzeuger und Orte verfolgen',empty:'Noch ist keine belegte Flasche verknüpft'},
+    fr:{expressions:'Expressions documentées',expressionBody:'Styles relevés dans les bouteilles liées',compare:'Bouteilles à comparer',compareBody:'Suivre le cépage à travers producteurs et lieux réels',empty:'Aucune bouteille sourcée n’est encore liée'},
+    es:{expressions:'Expresiones documentadas',expressionBody:'Estilos presentes en las botellas vinculadas',compare:'Botellas para comparar',compareBody:'Seguir la variedad por productores y lugares reales',empty:'Aún no hay una botella documentada vinculada'},
+  }[locale]
+  const expressionRecords=[...new Set(relatedWines.map(wine=>`${styleLabel(wine.style,locale)} · ${regionName(regions.find(region=>region.id===wine.regionId)!,locale)}`))]
   return (
     <article className="page detail-page grape-page">
       <BackLink to="/atlas" label="Atlas" />
@@ -1047,8 +1069,8 @@ function GrapePage() {
       <GrapeAmpelography grape={grape} locale={locale}/>
       <BlendConnections grapeId={grape.id}/>
       <section className="knowledge-panels">
-        <article><span className="eyebrow">{ui.styleRange}</span><h3>{ui.lookExpressions}</h3><ul>{content.styles.map(item=><li key={item}>{item}</li>)}</ul></article>
-        <article><span className="eyebrow">{ui.atTable}</span><h3>{ui.pairStructure}</h3><ul>{content.pairings.map(item=><li key={item}>{item}</li>)}</ul></article>
+        <article><span className="eyebrow">{grapeEvidenceCopy.expressions}</span><h3>{grapeEvidenceCopy.expressionBody}</h3><ul>{(expressionRecords.length?expressionRecords:[grapeEvidenceCopy.empty]).map(item=><li key={item}>{item}</li>)}</ul></article>
+        <article><span className="eyebrow">{grapeEvidenceCopy.compare}</span><h3>{grapeEvidenceCopy.compareBody}</h3><ul>{(relatedWines.length?relatedWines.map(wine=>`${wine.name} · ${producers.find(producer=>producer.id===wine.producerId)?.name??''}`):[{name:grapeEvidenceCopy.empty}]).map(item=><li key={typeof item==='string'?item:item.name}>{typeof item==='string'?item:item.name}</li>)}</ul></article>
       </section>
       <section className="related-section">
         <span className="eyebrow">{ui.aromaConstellation}</span>
@@ -1676,7 +1698,8 @@ function ArticlePage() {
       <figure className="lesson-hero guide-lesson-hero"><img src={illustration} alt={`${ui.illustrationFor} ${article.title}`}/></figure>
       <section className="lesson-objectives"><span className="eyebrow">{ui.byEnd}</span><h2>{ui.threeExplain}</h2><ol>{article.objectives.map((objective,index)=><li key={objective}><span>0{index+1}</span>{objective}</li>)}</ol></section>
       {article.id==='vine-to-glass'?<VineToGlassExperience locale={locale}/>:<ReferenceGuideExperience article={article} locale={locale}/>}
-      {article.id!=='vine-to-glass'&&<GuideDepthBridge articleId={article.id} locale={locale}/>}
+      <ServiceKnowledgeLab articleId={article.id} locale={locale}/>
+      {article.id!=='vine-to-glass'&&!['glassware-anatomy','bottle-closures','bottle-anatomy'].includes(article.id)&&<GuideDepthBridge articleId={article.id} locale={locale}/>}
       <div className="article-body">
         {article.body.map((p, i) => (
           <section key={p}><span>{String(i+1).padStart(2,'0')}</span><p>{p}</p></section>
@@ -1840,8 +1863,13 @@ function TastingBuilder() {
 export function JourneyExperience({journey}:{journey:TastingJourney}) {
   const {locale}=useLocale()
   const ui=useUiCopy()
+  const {user}=useAuth()
   const chapterTypes=chapterTypesFor(ui,locale)
   const [current,setCurrent]=useState(0);const chapter=journey.chapters[current]
+  const progressKey=`vine-atlas-journey-progress:${journey.id}`
+  const [completed,setCompleted]=useState<string[]>(()=>{try{return JSON.parse(localStorage.getItem(progressKey)??'[]')}catch{return []}})
+  const isHost=Boolean(user?.roles.some(role=>role==='host'||role==='admin'))
+  function toggleComplete(id:string){setCompleted(values=>{const next=values.includes(id)?values.filter(item=>item!==id):[...values,id];localStorage.setItem(progressKey,JSON.stringify(next));return next})}
   const wine=chapter?.type==='wine'?wines.find(item=>item.id===chapter.referenceId):undefined
   const region=chapter?.type==='region'?regions.find(item=>item.id===chapter.referenceId):undefined
   const producer=chapter?.type==='producer'?producers.find(item=>item.id===chapter.referenceId):undefined
@@ -1854,9 +1882,9 @@ export function JourneyExperience({journey}:{journey:TastingJourney}) {
   const body=wine?wineContent(wine,producers.find(item=>item.id===wine.producerId)!,regions.find(item=>item.id===wine.regionId)!,locale).summary:region?regionContent(region,locale).summary:producer?producerContent(producer,regions.find(item=>item.id===producer.regionId)!,locale).summary:grape?grapeContent(grape,locale).summary:aroma?aromaContent(aroma,locale).reference:article?articleContent(article,locale).summary:lessonModule?lessonModule.question[locale]:learning?learning.module.question[locale]:chapter?.hostNote??ui.quietMoment
   return <div className="journey-room">
     <header><Link to="/tastings"><X/></Link><div><small>{journey.pace==='host'?ui.hostLearningJourney:ui.selfLearningJourney}</small><strong>{journey.title}</strong></div><span>{current+1} / {journey.chapters.length}</span></header>
-    <aside>{journey.chapters.map((item,index)=><button key={item.id} className={index===current?'active':index<current?'done':''} onClick={()=>setCurrent(index)}><span>{index<current?<Check/>:String(index+1).padStart(2,'0')}</span><div><small>{chapterTypes.find(type=>type.type===item.type)?.label}</small><strong>{item.title}</strong></div><em>{item.duration}m</em></button>)}</aside>
+    <aside>{journey.chapters.map((item,index)=><button key={item.id} className={index===current?'active':completed.includes(item.id)?'done':''} onClick={()=>setCurrent(index)}><span>{completed.includes(item.id)?<Check/>:String(index+1).padStart(2,'0')}</span><div><small>{chapterTypes.find(type=>type.type===item.type)?.label}</small><strong>{item.title}</strong></div><em>{item.duration}m</em></button>)}</aside>
     <main><span className="eyebrow">{ui.chapter} {String(current+1).padStart(2,'0')} · {chapterTypes.find(item=>item.type===chapter?.type)?.label}</span><h1>{chapter?.title}</h1><p className="lead">{body}</p>
-      {journey.pace==='host'&&chapter&&<TastingHostConsole journey={journey} chapter={chapter}/>}
+      {journey.pace==='host'&&chapter&&isHost&&<TastingHostConsole journey={journey} chapter={chapter}/>}
       {wine&&<div className="journey-wine"><div className={`room-bottle style-${wine.style}`}/><div><span>{wine.composition}</span><p>{wine.serving}</p></div></div>}
       {region&&<div className="journey-facts"><article><span>{ui.climate}</span><p>{regionContent(region,locale).climate}</p></article><article><span>{ui.ground}</span><p>{regionContent(region,locale).soil}</p></article></div>}
       {producer&&<div className="journey-facts"><article><span>{ui.vineyard}</span><p>{producerContent(producer,regions.find(item=>item.id===producer.regionId)!,locale).vineyard}</p></article><article><span>{ui.cellarLabel}</span><p>{producerContent(producer,regions.find(item=>item.id===producer.regionId)!,locale).cellar}</p></article></div>}
@@ -1866,7 +1894,8 @@ export function JourneyExperience({journey}:{journey:TastingJourney}) {
       {lessonModule&&<InlineLearningChapter referenceId={lessonModule.id}/>}
       {learning&&<InlineLearningChapter referenceId={learning.block.id}/>}
       {link&&<Link to={link} className="text-link">{ui.openComplete} <ArrowRight size={15}/></Link>}
-      <div className="journey-navigation"><button className="secondary-button" disabled={current===0} onClick={()=>setCurrent(current-1)}><ArrowLeft/>{ui.previous}</button><div><small>{ui.upNext}</small><strong>{journey.chapters[current+1]?.title??ui.journeyComplete}</strong></div><button className="primary-button" disabled={current===journey.chapters.length-1} onClick={()=>setCurrent(current+1)}>{ui.nextChapter}<ArrowRight/></button></div>
+      {chapter&&!isHost&&<TastingParticipantTools journey={journey} chapter={chapter} wine={wine} locale={locale} complete={completed.includes(chapter.id)} onComplete={()=>toggleComplete(chapter.id)}/>}
+      <div className="journey-navigation"><button className="secondary-button" disabled={current===0} onClick={()=>setCurrent(current-1)}><ArrowLeft/>{ui.previous}</button><div><small>{ui.upNext}</small><strong>{journey.chapters[current+1]?.title??ui.journeyComplete}</strong></div><button className="primary-button" disabled={current===journey.chapters.length-1} onClick={()=>{if(chapter&&!completed.includes(chapter.id))toggleComplete(chapter.id);setCurrent(current+1)}}>{ui.nextChapter}<ArrowRight/></button></div>
     </main>
   </div>
 }

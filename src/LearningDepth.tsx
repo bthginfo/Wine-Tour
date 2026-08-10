@@ -4,9 +4,10 @@ import { ArrowRight, Compass, Droplets, FlaskConical, Grape as GrapeIcon, Layers
 import { Link } from 'react-router-dom'
 import type { Article, Grape, Producer, Region, Wine } from './types'
 import type { Locale } from './i18n'
-import { grapes, producers, regions } from './data/catalog'
+import { evidencedRegionProfileIds, grapes, producers, regions } from './data/catalog'
 import { countryLabel, geographicName, grapeContent, producerContent, regionContent, regionName, wineContent } from './localizedContent'
 import ampelographyMedia from './data/ampelographyMedia.generated.json'
+import grapeEvidence from './data/grapeEvidence.generated.json'
 import soilAtlas from './assets/vineyard-soil-atlas.jpg'
 import wineOpeningPlate from './assets/knowledge-wine-opening.jpg'
 import whiteWineOpeningPlate from './assets/knowledge-wine-opening-white.jpg'
@@ -36,6 +37,12 @@ function regionGeographyCopy(region:Region,locale:Locale){
   const content=regionContent(region,locale),country=countryLabel(region.country,locale),name=regionName(region,locale)
   const latitude=`${Math.abs(region.lat).toFixed(1)}° ${region.lat>=0?'N':'S'}`
   const zones=region.subregions.slice(0,3).map(zone=>geographicName(zone,locale)).join(', ')
+  if(!region.hasRegionalTerroirEvidence)return {
+    eyebrow:{en:'Place in context',de:'Ort im Zusammenhang',fr:'Le lieu en contexte',es:'El lugar en contexto'}[locale],
+    title:`${name} · ${country}`,
+    body:content.summary,
+    caption:`${latitude} · ${Math.abs(region.lng).toFixed(1)}° ${region.lng>=0?'E':'W'}`,
+  }
   const localized={
     en:{eyebrow:'Place in context',title:`${name} in ${country}`,body:`${content.climate.replace(/[.\s]+$/,'')}. At ${latitude}, the length and tempo of the growing season help set the balance between ripeness and retained acidity.${zones?` Named zones such as ${zones} reveal how exposure and ground change within the region.`:''}`,caption:`${name}: ${content.soil}`},
     de:{eyebrow:'Ort im Zusammenhang',title:`${name} in ${country}`,body:`${content.climate.replace(/[.\s]+$/,'')}. Auf ${latitude} bestimmen Länge und Verlauf der Vegetationsperiode wesentlich das Verhältnis von Reife und erhaltener Säure.${zones?` Benannte Zonen wie ${zones} zeigen, wie sich Exposition und Untergrund innerhalb der Region verändern.`:''}`,caption:`${name}: ${content.soil}`},
@@ -47,11 +54,10 @@ function regionGeographyCopy(region:Region,locale:Locale){
 
 export function RegionFieldGuide({region,locale}:{region:Region;locale:Locale}){
   const c=depthCopy[locale],content=regionContent(region,locale),geography=regionGeographyCopy(region,locale),matches=Object.values(soilLibrary).filter(entry=>entry.pattern.test(`${region.soil} ${content.soil}`)).slice(0,3)
-  const guides=matches.length?matches:[soilLibrary.gravel]
   return <section className="region-field-guide">
     <RegionPortrait region={region} locale={locale}/>
     <div className="locator-card"><div className="depth-heading"><span className="eyebrow">{geography.eyebrow}</span><h2>{geography.title}</h2><p>{geography.body}</p></div><div className="mini-region-map" aria-label={`${regionName(region,locale)} · ${countryLabel(region.country,locale)}`}><MapContainer key={region.id} center={[region.lat,region.lng]} zoom={mapZoom(region.country)} scrollWheelZoom={false} dragging={false} doubleClickZoom={false} zoomControl={false}><TileLayer attribution='&copy; OpenStreetMap contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/><CircleMarker center={[region.lat,region.lng]} radius={9} pathOptions={{color:'#f7efe3',fillColor:'#7d2638',fillOpacity:1,weight:3}}/></MapContainer><span><Compass/>{geography.caption}</span></div></div>
-    <div className="soil-atlas-card"><img src={soilAtlas} alt=""/><div className="depth-heading"><span className="eyebrow">{c.soilEyebrow}</span><h2>{c.soilTitle}</h2><p>{c.soilBody}</p></div><div className="soil-guide-grid">{guides.map(guide=><article key={guide.title.en}><Layers3/><h3>{guide.title[locale]}</h3><dl><div><dt>{c.water}</dt><dd>{guide.water[locale]}</dd></div><div><dt>{c.root}</dt><dd>{guide.root[locale]}</dd></div></dl></article>)}</div></div>
+    {evidencedRegionProfileIds.has(region.id)&&matches.length>0&&<div className="soil-atlas-card"><img src={soilAtlas} alt=""/><div className="depth-heading"><span className="eyebrow">{c.soilEyebrow}</span><h2>{c.soilTitle}</h2><p>{c.soilBody}</p></div><div className="soil-guide-grid">{matches.map(guide=><article key={guide.title.en}><Layers3/><h3>{guide.title[locale]}</h3><dl><div><dt>{c.water}</dt><dd>{guide.water[locale]}</dd></div><div><dt>{c.root}</dt><dd>{guide.root[locale]}</dd></div></dl></article>)}</div></div>}
   </section>
 }
 
@@ -78,6 +84,8 @@ const ampelographyProfiles:Record<string,{leaf:string;cluster:string;berry:strin
 }
 
 function ampelographyText(grape:Grape,locale:Locale){
+  const sourced=grapeEvidence.find(item=>item.grapeId===grape.id)
+  if(sourced)return sourced[locale]
   const exact=ampelographyProfiles[grape.id]
   const fallback={
     leaf:`A mature ${grape.name} leaf should be read through blade shape, lobe depth, petiolar sinus, teeth, surface blistering and the density of hairs beneath. Compare several healthy mid-shoot leaves; one leaf is never enough for identification.`,
@@ -100,9 +108,10 @@ export function GrapeAmpelography({grape,locale}:{grape:Grape;locale:Locale}){
   const copy={en:{eyebrow:'Ampelography field plate',title:'Read the vine before the label',leaf:'Mature leaf',cluster:'Cluster architecture',berry:'Berry & skin',growth:'Growth habit',risk:'Field risks',note:'Reliable identification compares the shoot tip, mature leaf, cluster and berry together. Season, rootstock and vine health can alter any single feature, so ampelographers confirm the pattern across several organs.'},de:{eyebrow:'Ampelografische Feldtafel',title:'Die Rebe vor dem Etikett lesen',leaf:'Ausgewachsenes Blatt',cluster:'Traubenarchitektur',berry:'Beere & Schale',growth:'Wuchsverhalten',risk:'Risiken im Feld',note:'Eine belastbare Bestimmung vergleicht Triebspitze, ausgewachsenes Blatt, Traube und Beere gemeinsam. Saison, Unterlage und Rebengesundheit können einzelne Merkmale verändern; Ampelografen bestätigen deshalb das Muster über mehrere Organe.'},fr:{eyebrow:'Planche ampélographique',title:'Lire la vigne avant l’étiquette',leaf:'Feuille adulte',cluster:'Architecture de grappe',berry:'Baie et pellicule',growth:'Port végétatif',risk:'Risques au vignoble',note:'Une identification fiable compare ensemble l’apex, la feuille adulte, la grappe et la baie. La saison, le porte-greffe et la santé de la vigne peuvent modifier un caractère isolé ; l’ampélographe confirme donc le faisceau d’indices sur plusieurs organes.'},es:{eyebrow:'Lámina ampelográfica',title:'Lee la vid antes de la etiqueta',leaf:'Hoja adulta',cluster:'Arquitectura del racimo',berry:'Baya y piel',growth:'Porte vegetativo',risk:'Riesgos de campo',note:'Una identificación fiable compara a la vez el ápice, la hoja adulta, el racimo y la baya. La temporada, el portainjerto y la salud de la vid pueden alterar un rasgo aislado; por eso la ampelografía confirma el patrón en varios órganos.'}}[locale]
   const profile=ampelographyText(grape,locale)
   const media=ampelographyMedia.find(item=>item.grapeId===grape.id)
+  if(!media)return null
   const mediaCopy={en:{leaf:'Mature leaf',cluster:'Cluster at maturity',comparison:'Leaf · shoot · cluster · berry'},de:{leaf:'Ausgewachsenes Blatt',cluster:'Reife Traube',comparison:'Blatt · Trieb · Traube · Beere'},fr:{leaf:'Feuille adulte',cluster:'Grappe à maturité',comparison:'Feuille · rameau · grappe · baie'},es:{leaf:'Hoja adulta',cluster:'Racimo maduro',comparison:'Hoja · brote · racimo · baya'}}[locale]
   const items=[['leaf',copy.leaf],['cluster',copy.cluster],['berry',copy.berry],['growth',copy.growth],['risk',copy.risk]] as const
-  return <section className="ampelography-plate"><figure>{media?<div className="ampelography-photo-pair"><figure><img src={media.leafUrl} alt={`${grape.name} · ${mediaCopy.leaf}`} loading="lazy" referrerPolicy="no-referrer"/><figcaption>01 · {mediaCopy.leaf}</figcaption></figure><figure><img src={media.clusterUrl} alt={`${grape.name} · ${mediaCopy.cluster}`} loading="lazy" referrerPolicy="no-referrer"/><figcaption>02 · {mediaCopy.cluster}</figcaption></figure></div>:<div className="ampelography-illustrated-reference"><img src={grape.color==='red'?redGrapeBotanyPlate:whiteGrapeBotanyPlate} alt=""/><span>{mediaCopy.comparison}</span></div>}<figcaption>{copy.note}</figcaption></figure><div><div className="depth-heading"><span className="eyebrow">{copy.eyebrow}</span><h2>{copy.title}</h2></div><dl>{items.map(([key,label])=><div key={key}><dt>{label}</dt><dd>{profile[key]}</dd></div>)}</dl></div></section>
+  return <section className="ampelography-plate"><figure><div className="ampelography-photo-pair"><figure><img src={media.leafUrl} alt={`${grape.name} · ${mediaCopy.leaf}`} loading="lazy" referrerPolicy="no-referrer"/><figcaption>01 · {mediaCopy.leaf}</figcaption></figure><figure><img src={media.clusterUrl} alt={`${grape.name} · ${mediaCopy.cluster}`} loading="lazy" referrerPolicy="no-referrer"/><figcaption>02 · {mediaCopy.cluster}</figcaption></figure></div><figcaption>{copy.note}</figcaption></figure><div><div className="depth-heading"><span className="eyebrow">{copy.eyebrow}</span><h2>{copy.title}</h2></div><dl>{items.map(([key,label])=><div key={key}><dt>{label}</dt><dd>{profile[key]}</dd></div>)}</dl></div></section>
 }
 
 export function ProducerDecisionMap({producer,region,locale}:{producer:Producer;region:Region;locale:Locale}){

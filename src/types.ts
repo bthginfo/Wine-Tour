@@ -22,6 +22,7 @@ export interface Region {
   keyFacts: string[]
   sources: { label: string; url: string }[]
   featured?: boolean
+  hasRegionalTerroirEvidence: boolean
 }
 
 export interface Grape {

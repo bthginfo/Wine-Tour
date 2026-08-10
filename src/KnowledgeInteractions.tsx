@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import { Droplets, Mountain, SunMedium, ThermometerSun } from 'lucide-react'
+import { Droplets, Mountain, SunMedium, Wine } from 'lucide-react'
 import type { Grape, Region } from './types'
 import type { Locale } from './i18n'
-import { grapeContent, regionContent, regionName } from './localizedContent'
+import { grapeContent, regionContent, regionName, styleLabel, wineContent } from './localizedContent'
+import { producers, regions, wines } from './data/catalog'
 import regionPlate from './assets/knowledge-region-seasons.jpg'
 import grapePlate from './assets/knowledge-grape-botany.jpg'
 import whiteGrapePlate from './assets/knowledge-grape-botany-white.jpg'
@@ -43,14 +44,18 @@ const grapeCopy={
 } as const
 
 export function GrapeExpressionLab({grape,locale}:{grape:Grape;locale:Locale}){
-  const c=grapeCopy[locale],content=grapeContent(grape,locale),[mode,setMode]=useState(1)
-  const shift=mode-1
-  const scale=(value:number,delta:number)=>Math.max(1,Math.min(5,value+delta))
-  const values={acid:scale(grape.acidity,-shift),body:scale(grape.body,shift),tannin:scale(grape.tannin,shift>0&&grape.color==='red'?1:0)}
-  const aromatic=mode===0?content.styles[0]:mode===1?content.styles[Math.min(1,content.styles.length-1)]:content.styles.at(-1)
+  const examples=wines.filter(wine=>wine.grapeIds.includes(grape.id)).slice(0,4)
+  const [mode,setMode]=useState(0)
+  if(examples.length<2)return null
+  const wine=examples[Math.min(mode,examples.length-1)],region=regions.find(item=>item.id===wine.regionId)!,producer=producers.find(item=>item.id===wine.producerId)!,content=wineContent(wine,producer,region,locale)
+  const c={
+    en:{eyebrow:'Bottle comparison',title:`Keep ${grape.name}. Change origin and producer.`,body:'Each tab opens a real catalogue wine. Compare what is documented before drawing a conclusion about the variety.',origin:'Origin',producer:'Producer',style:'Style',composition:'Composition'},
+    de:{eyebrow:'Flaschenvergleich',title:`${grape.name} bleibt. Herkunft und Erzeuger wechseln.`,body:'Jeder Reiter öffnet einen realen Katalogwein. Vergleiche zuerst die dokumentierten Unterschiede, bevor du auf die Rebsorte schließt.',origin:'Herkunft',producer:'Erzeuger',style:'Stil',composition:'Cuvée'},
+    fr:{eyebrow:'Comparaison de bouteilles',title:`Gardez ${grape.name}. Changez d’origine et de domaine.`,body:'Chaque onglet ouvre un vin réel du catalogue. Comparez les différences documentées avant de conclure sur le cépage.',origin:'Origine',producer:'Domaine',style:'Style',composition:'Assemblage'},
+    es:{eyebrow:'Comparación de botellas',title:`Mantén ${grape.name}. Cambia origen y productor.`,body:'Cada pestaña abre un vino real del catálogo. Compara primero las diferencias documentadas antes de concluir sobre la variedad.',origin:'Origen',producer:'Productor',style:'Estilo',composition:'Composición'},
+  }[locale]
   return <section className="knowledge-lab grape-expression-lab"><div className="knowledge-lab-panel"><span className="eyebrow">{c.eyebrow}</span><h2>{c.title}</h2><p>{c.body}</p>
-    <div className="expression-tabs" role="group" aria-label={c.title}>{[c.cool,c.classic,c.warm].map((label,index)=><button type="button" key={label} onClick={()=>setMode(index)} aria-pressed={mode===index}><ThermometerSun/>{label}</button>)}</div>
-    <dl className="expression-meter"><div><dt>{c.acid}</dt><dd><i style={{width:`${values.acid*20}%`}}/></dd></div><div><dt>{c.bodyLabel}</dt><dd><i style={{width:`${values.body*20}%`}}/></dd></div><div><dt>{c.tannin}</dt><dd><i style={{width:`${values.tannin*20}%`}}/></dd></div></dl>
-    <div className="expression-notes" aria-live="polite"><article><small>{c.aroma}</small><strong>{aromatic}</strong></article><article><small>{c.vine}</small><p>{content.viticulture}</p></article><article><small>{c.cellar}</small><p>{content.winemaking}</p></article></div>
-  </div><figure><img src={grape.color==='white'?whiteGrapePlate:grapePlate} alt={c.alt}/><figcaption>{grape.name}</figcaption></figure></section>
+    <div className="expression-tabs" role="tablist" aria-label={c.title}>{examples.map((item,index)=><button type="button" role="tab" key={item.id} onClick={()=>setMode(index)} aria-selected={mode===index}><Wine/>{item.name}</button>)}</div>
+    <div className="expression-notes" aria-live="polite"><article><small>{c.origin}</small><strong>{regionName(region,locale)}</strong><p>{region.hasRegionalTerroirEvidence?regionContent(region,locale).climate:regionContent(region,locale).summary}</p></article><article><small>{c.producer}</small><strong>{producer.name}</strong><p>{content.summary}</p></article><article><small>{c.style}</small><strong>{styleLabel(wine.style,locale)}</strong><p><b>{c.composition}</b> · {wine.composition}</p></article></div>
+  </div><figure><img src={grape.color==='white'?whiteGrapePlate:grapePlate} alt={c.title}/><figcaption>{grape.name}</figcaption></figure></section>
 }

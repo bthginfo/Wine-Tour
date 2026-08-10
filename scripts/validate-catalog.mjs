@@ -11,9 +11,10 @@ try {
   const errors = [...catalog.validateCatalog(), ...blends.validateClassicBlends()]
   if (blends.classicBlends.length < 9) errors.push('Fewer than 9 sourced classic blend profiles are public')
   const depthCoverage = new Set(guideDepth.guideDepthCoverage)
+  const standaloneInteractiveGuides = new Set(['glassware-anatomy','bottle-closures','bottle-anatomy'])
   for (const article of catalog.articles) {
     if (article.minutes < 20) errors.push(`Reference guide ${article.id} fell below 20 displayed minutes`)
-    if (article.id !== 'vine-to-glass' && !depthCoverage.has(article.id)) errors.push(`Reference guide ${article.id} has no expanded masterclass bridge`)
+    if (article.id !== 'vine-to-glass' && !depthCoverage.has(article.id) && !standaloneInteractiveGuides.has(article.id)) errors.push(`Reference guide ${article.id} has no expanded masterclass bridge`)
   }
   for (const [kind, minimum] of Object.entries(minimums)) {
     if ((catalog.counts[kind] ?? 0) < minimum) errors.push(`${kind} fell below release floor ${minimum}`)
@@ -26,6 +27,23 @@ try {
   const verifiedGrapes = new Set(ampelography.map(item => item.grapeId))
   if (verifiedGrapes.size < 65) errors.push(`Verified leaf-and-cluster photography fell below 65 varieties: ${verifiedGrapes.size}`)
   if (ampelography.some(item => !item.sourceUrl?.startsWith('https://www.plantgrape.fr/'))) errors.push('Ampelography media includes an unapproved source')
+  const grapeEvidence = JSON.parse(await readFile('src/data/grapeEvidence.generated.json', 'utf8'))
+  const evidenceIds = new Set(grapeEvidence.map(item => item.grapeId))
+  const evidenceFields = ['leaf','cluster','berry','growth','risk']
+  for (const grapeId of verifiedGrapes) if (!evidenceIds.has(grapeId)) errors.push(`Verified grape ${grapeId} has no sourced evidence profile`)
+  for (const profile of grapeEvidence) {
+    if (!verifiedGrapes.has(profile.grapeId)) errors.push(`Grape evidence ${profile.grapeId} has no verified botanical media`)
+    if (!profile.sourceUrl?.startsWith('https://www.plantgrape.fr/')) errors.push(`Grape evidence ${profile.grapeId} uses an unapproved source`)
+    for (const locale of ['en','de','fr','es']) for (const field of evidenceFields) if (!profile[locale]?.[field]?.trim()) errors.push(`Grape evidence ${profile.grapeId} is missing ${locale}.${field}`)
+  }
+  const regionProfileValues = new Set()
+  for (const regionId of catalog.evidencedRegionProfileIds) {
+    const region=catalog.regions.find(item=>item.id===regionId)
+    if(!region){errors.push(`Evidenced region ${regionId} is missing`);continue}
+    const signature=`${region.climate}|${region.soil}`
+    if(regionProfileValues.has(signature))errors.push(`Evidenced region ${regionId} duplicates another terroir record`)
+    regionProfileValues.add(signature)
+  }
   const genericRegionSignals = /Locally varied sedimentary|Growing conditions shaped by latitude/i
   for (const region of catalog.regions) {
     if (genericRegionSignals.test(`${region.climate} ${region.soil}`)) errors.push(`Region ${region.id} still uses a generic world terroir fallback`)
@@ -84,7 +102,8 @@ try {
     `${catalog.counts.producers} producers, ${catalog.counts.wines} wines, ${catalog.counts.aromas} aromas, ` +
     `${blends.classicBlends.length} classic blends, ${sourceDomains.size} source domains. ` +
     `${regionCoverage}/${catalog.regions.length} regions currently have producer profiles; ` +
-    `${verifiedGrapes.size}/${catalog.grapes.length} varieties have verified leaf-and-cluster photography.\n`,
+    `${verifiedGrapes.size}/${catalog.grapes.length} varieties have verified leaf-and-cluster photography and sourced morphology; ` +
+    `${catalog.evidencedRegionProfileIds.size}/${catalog.regions.length} regions have region-level terroir evidence.\n`,
   )
   if (process.env.CATALOG_AUDIT_VERBOSE === '1') {
     const uncovered = catalog.regions.filter(region => !catalog.producers.some(producer => producer.regionIds.includes(region.id)))

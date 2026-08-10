@@ -1,4 +1,3 @@
-import { CircleMarker, MapContainer, TileLayer } from "react-leaflet";
 import type { Locale } from "./i18n";
 import type { Region } from "./types";
 import { countryLabel, regionContent, regionName } from "./localizedContent";
@@ -28,10 +27,10 @@ const flagshipPortraits: Record<string, string> = {
 };
 
 const portraitCopy = {
-  en: { eyebrow: "Terroir portrait", climate: "Growing season", ground: "Ground structure", coordinates: "Location", alt: "Illustrated vineyard landscape around" },
-  de: { eyebrow: "Terroir-Porträt", climate: "Vegetationsperiode", ground: "Untergrund", coordinates: "Lage", alt: "Illustrierte Weinbergslandschaft rund um" },
-  fr: { eyebrow: "Portrait du terroir", climate: "Cycle végétatif", ground: "Structure du sol", coordinates: "Situation", alt: "Paysage viticole illustré autour de" },
-  es: { eyebrow: "Retrato del terruño", climate: "Ciclo vegetativo", ground: "Estructura del suelo", coordinates: "Ubicación", alt: "Paisaje vitícola ilustrado alrededor de" },
+  en: { eyebrow: "Terroir portrait", climate: "Growing season", ground: "Ground structure", varieties:"Linked varieties",producers:"Documented producers", coordinates: "Location", alt: "Illustrated vineyard landscape around" },
+  de: { eyebrow: "Terroir-Porträt", climate: "Vegetationsperiode", ground: "Untergrund", varieties:"Verknüpfte Rebsorten",producers:"Dokumentierte Weingüter", coordinates: "Lage", alt: "Illustrierte Weinbergslandschaft rund um" },
+  fr: { eyebrow: "Portrait du terroir", climate: "Cycle végétatif", ground: "Structure du sol", varieties:"Cépages reliés",producers:"Domaines documentés", coordinates: "Situation", alt: "Paysage viticole illustré autour de" },
+  es: { eyebrow: "Retrato del terruño", climate: "Ciclo vegetativo", ground: "Estructura del suelo", varieties:"Variedades vinculadas",producers:"Bodegas documentadas", coordinates: "Ubicación", alt: "Paisaje vitícola ilustrado alrededor de" },
 } as const;
 
 function landscapeFor(region: Region) {
@@ -50,11 +49,6 @@ function landscapeFor(region: Region) {
   return plateauLandscape;
 }
 
-function portraitZoom(region: Region) {
-  if (["United States", "Canada", "Argentina", "Chile", "Australia", "China", "South Africa", "India"].includes(region.country)) return 6;
-  return 7;
-}
-
 export function RegionPortrait({ region, locale }: { region: Region; locale: Locale }) {
   const c = portraitCopy[locale];
   const content = regionContent(region, locale);
@@ -66,29 +60,12 @@ export function RegionPortrait({ region, locale }: { region: Region; locale: Loc
         <div className="region-portrait-landscape">
           <img src={landscape} alt={`${c.alt} ${name}`} />
           <div className="region-portrait-title"><span>{countryLabel(region.country, locale)}</span><strong>{name}</strong></div>
-        </div>
-        <div className="region-portrait-map" aria-label={`${name}, ${countryLabel(region.country, locale)}`}>
-          <MapContainer
-            key={`${region.id}-portrait`}
-            center={[region.lat, region.lng]}
-            zoom={portraitZoom(region)}
-            scrollWheelZoom={false}
-            dragging={false}
-            doubleClickZoom={false}
-            touchZoom={false}
-            keyboard={false}
-            zoomControl={false}
-          >
-            <TileLayer attribution="&copy; OpenStreetMap contributors" url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            <CircleMarker center={[region.lat, region.lng]} radius={10} pathOptions={{ color: "#fff6e8", fillColor: "#8d2443", fillOpacity: 1, weight: 4 }} />
-          </MapContainer>
           <div className="region-coordinate"><span>{c.coordinates}</span><strong>{Math.abs(region.lat).toFixed(2)}° {region.lat >= 0 ? "N" : "S"} · {Math.abs(region.lng).toFixed(2)}° {region.lng >= 0 ? "E" : "W"}</strong></div>
         </div>
       </div>
       <figcaption>
         <span className="eyebrow">{c.eyebrow}</span>
-        <div><strong>{c.climate}</strong><p>{content.climate}</p></div>
-        <div><strong>{c.ground}</strong><p>{content.soil}</p></div>
+        {region.hasRegionalTerroirEvidence?<><div><strong>{c.climate}</strong><p>{content.climate}</p></div><div><strong>{c.ground}</strong><p>{content.soil}</p></div></>:<><div><strong>{c.varieties}</strong><p>{region.grapeIds.length}</p></div><div><strong>{c.producers}</strong><p>{region.producerIds.length}</p></div></>}
       </figcaption>
     </figure>
   );

@@ -49,32 +49,35 @@
   .searchable-select-popover{position:fixed;z-index:1500;inset:auto .75rem calc(5.8rem + env(safe-area-inset-bottom,0px)) .75rem;width:auto;max-height:min(31rem,66dvh);padding:.75rem}.searchable-select-options{max-height:min(24rem,48dvh)}
 }
 
-/* Every terroir portrait combines a place-specific landscape plate with the
-   region's actual atlas coordinate. There is no synthetic placeholder map. */
+/* Every terroir portrait combines an evidence-selected landscape plate with
+   the region's actual atlas coordinate. The full locator map appears once in
+   the following context section. */
 .region-portrait-visual{
-  display:grid;
-  grid-template-rows:minmax(280px,1.15fr) minmax(190px,.7fr);
+  position:relative;
   min-height:560px;
   background:#d9d0c1;
 }
-.region-portrait-landscape,.region-portrait-map{position:relative;min-width:0;overflow:hidden}
+.region-portrait-landscape{position:absolute;inset:0;overflow:hidden}
 .region-portrait-landscape>img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(.9) contrast(1.03)}
 .region-portrait-landscape::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(25,17,22,.08),transparent 55%,rgba(25,17,22,.2));pointer-events:none}
-.region-portrait-map .leaflet-container{width:100%;height:100%;min-height:190px;background:#dce1d5}
-.region-portrait-map .leaflet-control-attribution{font-size:8px;background:rgba(255,253,247,.78)}
-.region-portrait-map .region-coordinate{z-index:700}
+.region-portrait-landscape .region-coordinate{z-index:2}
 
 @media(max-width:860px){
-  .region-portrait-visual{min-height:500px;grid-template-rows:minmax(300px,1fr) 200px}
+  .region-portrait-visual{min-height:500px}
 }
 
 @media(max-width:520px){
-  .region-portrait-visual{min-height:470px;grid-template-rows:minmax(285px,1fr) 185px}
+  .region-portrait-visual{min-height:470px}
   .region-portrait-title{left:16px;right:16px;top:16px}
   .region-portrait-title strong{font-size:clamp(30px,10vw,42px)}
   .region-coordinate{left:12px;right:12px;bottom:12px;padding:10px 12px;gap:8px}
   .region-coordinate strong{font-size:.68rem}
 }
+
+.soil-selection-note{display:block;margin-top:16px;color:#d4b56f;font-size:9px;line-height:1.55}
+
+.participant-table-tools{margin:38px 0;padding:28px;background:#f5eee3;border:1px solid rgba(36,25,32,.14);border-radius:5px 24px 24px 24px;box-shadow:0 20px 55px rgba(36,25,32,.08)}.participant-table-tools>header{display:flex;justify-content:space-between;gap:24px;align-items:end;padding-bottom:20px;border-bottom:1px solid var(--line)}.participant-table-tools>header .eyebrow,.participant-table-tools>header small{display:flex;align-items:center;gap:7px}.participant-table-tools>header svg{width:16px;color:var(--wine)}.participant-table-tools h2{margin:8px 0 0;font-size:clamp(36px,4vw,52px)}.participant-table-tools>header small{color:var(--muted);font-size:9px}.participant-prompt{display:grid;grid-template-columns:1fr .72fr;gap:22px;padding:24px 0}.participant-prompt label,.participant-reflection{display:grid;gap:8px}.participant-prompt label>span,.participant-reflection>span,.participant-structure>h3{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}.participant-prompt textarea,.participant-reflection textarea{min-height:105px;padding:13px;border:1px solid var(--line);border-radius:11px;background:white;resize:vertical}.participant-prompt fieldset{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:0;border:0}.participant-prompt legend{width:100%;margin-bottom:8px;font-size:9px;font-weight:700;text-transform:uppercase}.participant-prompt fieldset button{display:grid;place-items:center;gap:6px;min-height:92px;padding:8px;border:1px solid var(--line);border-radius:4px 13px 13px 13px;background:transparent}.participant-prompt fieldset button.active{background:var(--ink);color:white}.participant-prompt fieldset b{font-family:var(--serif);font-size:23px}.participant-prompt>.secondary-button{grid-column:1/-1;justify-self:end}.participant-wine-note{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:26px 0;border-top:1px solid var(--line)}.participant-wine-note h3{font-size:28px}.participant-aromas{display:flex;flex-wrap:wrap;gap:6px}.participant-aromas button{display:flex;align-items:center;gap:6px;padding:9px 11px;border:1px solid var(--line);border-radius:99px;background:transparent;font-size:10px}.participant-aromas button.active{background:#dbe1d6;border-color:#607056}.participant-aromas svg{width:13px}.participant-structure{display:grid;gap:11px}.participant-structure>label:not(.participant-reflection){display:grid;grid-template-columns:70px 1fr 20px;gap:10px;align-items:center;font-size:10px}.participant-structure input{accent-color:var(--wine)}.participant-reflection{margin-top:6px}.participant-complete{width:100%;display:flex;align-items:center;justify-content:center;gap:9px;min-height:48px;border:1px solid var(--line);border-radius:12px;background:transparent;font-weight:700}.participant-complete>span,.participant-complete>svg{width:20px;height:20px;border:1px solid var(--line);border-radius:50%;padding:3px}.participant-complete.done{background:#52624c;color:white;border-color:#52624c}
+@media(max-width:720px){.participant-table-tools{padding:22px 16px}.participant-table-tools>header{display:grid}.participant-prompt,.participant-wine-note{grid-template-columns:1fr}.participant-prompt fieldset{display:flex;overflow-x:auto}.participant-prompt fieldset button{min-width:100px}.participant-prompt>.secondary-button{justify-self:stretch}.participant-table-tools{margin-bottom:22px}}
 
 @media(max-width:520px){
   .page{padding-inline:15px}
