@@ -85,3 +85,7 @@ The following web-optimised JPEGs were generated with the built-in OpenAI image-
 - `knowledge-grape-botany-white.jpg` — a pale-skinned botanical companion plate, derived from the original study so white and red varieties never receive a contradictory berry-colour illustration.
 - `knowledge-wine-opening.jpg` — four bottle-and-glass observations from opening through air, table and later evolution for the wine timeline.
 - `knowledge-wine-opening-white.jpg` — a pale-wine companion sequence with citrus, flower, orchard-fruit, beeswax and nut cues so the illustration remains consistent with white, sweet and sparkling wine pages.
+
+## Nemea terroir portrait
+
+`region-portrait-nemea.jpg` was generated with the built-in OpenAI image-generation tool on 2026-08-10. It is an original, unlabelled field-guide landscape showing a high Mediterranean basin, limestone hills, vineyards, olive trees and dark Agiorgitiko-like bunches. The prompt explicitly excluded publisher styles, logos, typography, fantasy geography and copied artwork. The plate is paired with live OpenStreetMap cartography centred on the catalogue coordinate; all non-flagship regions likewise use real cartography rather than synthetic placeholder maps.

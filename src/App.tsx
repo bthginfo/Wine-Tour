@@ -69,7 +69,7 @@ import {
 } from "./data/catalog";
 import { repository } from "./data/repository";
 import { localeRegistry, useLocale, usePageCopy, type Locale } from "./i18n";
-import { aromaContent, articleContent, countryLabel, grapeContent, producerContent, regionContent, regionName, styleLabel, wineContent } from "./localizedContent";
+import { aromaContent, articleContent, countryLabel, geographicName, grapeContent, producerContent, regionContent, regionName, styleLabel, wineContent } from "./localizedContent";
 import { useUiCopy } from "./uiCopy";
 import { useAuth } from "./auth";
 import { CommunityRating } from "./CommunityRating";
@@ -99,6 +99,7 @@ import windsweptIslandVineyard from "./assets/region-windswept-island.jpg";
 import continentalPlateauVineyard from "./assets/region-continental-plateau.jpg";
 import bordeauxEstuaryVineyard from "./assets/region-bordeaux-estuary.jpg";
 import marlboroughWairauVineyard from "./assets/region-marlborough-wairau.jpg";
+import nemeaPortrait from "./assets/region-portrait-nemea.jpg";
 import { AtlasCommercialPlacements, BusinessAdminPanel, EventDetail, EventsMarketplace, FeaturedBusinessHome, HostProfile, PartnerProfilePage, ProducerBusinessLayer, StudioEvents, StudioHome, StudioOffers, StudioPlacements, StudioProfile, StudioSite, WineMerchantOffers } from "./BusinessPlatform";
 import { AcademyMasterclass, GrapeAmpelography, GrapeDeepDive, ProducerDecisionMap, RegionFieldGuide, WineEvolutionLesson } from "./LearningDepth";
 import { InlineLearningChapter, LearningHub, LearningLesson, learningUi } from "./LearningSystem";
@@ -141,6 +142,7 @@ const regionHeroScenes={
   continentalPlateau:{src:continentalPlateauVineyard,position:'52% center',tone:'warm'},
   bordeauxEstuary:{src:bordeauxEstuaryVineyard,position:'50% center',tone:'deep'},
   marlboroughWairau:{src:marlboroughWairauVineyard,position:'52% center',tone:'deep'},
+  nemeaBasin:{src:nemeaPortrait,position:'50% 58%',tone:'warm'},
 } satisfies Record<string,RegionHeroScene>
 
 type RegionHeroKey=keyof typeof regionHeroScenes
@@ -148,6 +150,7 @@ const benchmarkRegionHeroes:Record<string,RegionHeroKey>={
   mosel:'riverSlate',nahe:'terraces',rheingau:'estuaryLimestone',bordeaux:'bordeauxEstuary',burgundy:'terraces',champagne:'continentalPlateau','chianti-classico':'mediterranean',
   mendoza:'andes',salta:'volcanicAltitude',etna:'volcanicAltitude',santorini:'windsweptIsland',madeira:'volcanicIsland',priorat:'ancientBush',
   marlborough:'marlboroughWairau','central-otago':'ancientBush','rias-baixas':'maritime',moscato:'continentalPlateau',
+  nemea:'nemeaBasin',
 }
 
 function stableRegionIndex(value:string,size:number){let hash=2166136261;for(const char of value){hash^=char.charCodeAt(0);hash=Math.imul(hash,16777619)}return Math.abs(hash)%size}
@@ -924,7 +927,7 @@ function RegionPage() {
         <article>
           <span className="eyebrow">{ui.localGeography}</span>
           <h3>{region.subregions.length ? ui.namedZones : ui.readLandscape}</h3>
-          <ul>{(region.subregions.length ? region.subregions : content.keyFacts).map((zone) => <li key={zone}>{zone}</li>)}</ul>
+          <ul>{(region.subregions.length ? region.subregions.map(zone=>geographicName(zone,locale)) : content.keyFacts).map((zone) => <li key={zone}>{zone}</li>)}</ul>
         </article>
         <article>
           <span className="eyebrow">{ui.atTable}</span>
@@ -957,7 +960,7 @@ function RegionPage() {
                 <span>0{index + 1}</span>
                 <div>
                   <h3>{producer.name}</h3>
-                  <p>{producer.summary}</p>
+                  <p>{producerContent(producer,region,locale).summary}</p>
                 </div>
                 <ArrowRight />
               </Link>

@@ -26,6 +26,20 @@ try {
   const verifiedGrapes = new Set(ampelography.map(item => item.grapeId))
   if (verifiedGrapes.size < 65) errors.push(`Verified leaf-and-cluster photography fell below 65 varieties: ${verifiedGrapes.size}`)
   if (ampelography.some(item => !item.sourceUrl?.startsWith('https://www.plantgrape.fr/'))) errors.push('Ampelography media includes an unapproved source')
+  const genericRegionSignals = /Locally varied sedimentary|Growing conditions shaped by latitude/i
+  for (const region of catalog.regions) {
+    if (genericRegionSignals.test(`${region.climate} ${region.soil}`)) errors.push(`Region ${region.id} still uses a generic world terroir fallback`)
+    if (!region.sources?.length || !region.sources.every(source => source.url?.startsWith('https://'))) errors.push(`Region ${region.id} has no internal source trail`)
+  }
+  for (const grape of catalog.grapes) {
+    if (!grape.origin || grape.origin.startsWith('A historic variety')) errors.push(`Grape ${grape.id} has no specific origin record`)
+    if (![grape.acidity,grape.tannin,grape.body].every(value => Number.isFinite(value) && value >= 1 && value <= 5)) errors.push(`Grape ${grape.id} has an invalid structure model`)
+  }
+  const catalogSource=await readFile('src/data/catalog.ts','utf8')
+  const regionGrapeBlock=catalogSource.slice(catalogSource.indexOf('const regionGrapes'),catalogSource.indexOf('function idsForGrapes'))
+  for(const region of catalog.regions){
+    if(!regionGrapeBlock.includes(`${region.id}:`)&&!regionGrapeBlock.includes(`'${region.id}':`))errors.push(`Region ${region.id} still inherits a country-wide grape list`)
+  }
 
   const visibleSources = await Promise.all([
     'src/App.tsx', 'src/LearningDepth.tsx', 'src/LearningSystem.tsx', 'src/BusinessPlatform.tsx', 'src/uiCopy.ts',

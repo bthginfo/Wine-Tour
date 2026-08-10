@@ -49,6 +49,33 @@
   .searchable-select-popover{position:fixed;z-index:1500;inset:auto .75rem calc(5.8rem + env(safe-area-inset-bottom,0px)) .75rem;width:auto;max-height:min(31rem,66dvh);padding:.75rem}.searchable-select-options{max-height:min(24rem,48dvh)}
 }
 
+/* Every terroir portrait combines a place-specific landscape plate with the
+   region's actual atlas coordinate. There is no synthetic placeholder map. */
+.region-portrait-visual{
+  display:grid;
+  grid-template-rows:minmax(280px,1.15fr) minmax(190px,.7fr);
+  min-height:560px;
+  background:#d9d0c1;
+}
+.region-portrait-landscape,.region-portrait-map{position:relative;min-width:0;overflow:hidden}
+.region-portrait-landscape>img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(.9) contrast(1.03)}
+.region-portrait-landscape::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(25,17,22,.08),transparent 55%,rgba(25,17,22,.2));pointer-events:none}
+.region-portrait-map .leaflet-container{width:100%;height:100%;min-height:190px;background:#dce1d5}
+.region-portrait-map .leaflet-control-attribution{font-size:8px;background:rgba(255,253,247,.78)}
+.region-portrait-map .region-coordinate{z-index:700}
+
+@media(max-width:860px){
+  .region-portrait-visual{min-height:500px;grid-template-rows:minmax(300px,1fr) 200px}
+}
+
+@media(max-width:520px){
+  .region-portrait-visual{min-height:470px;grid-template-rows:minmax(285px,1fr) 185px}
+  .region-portrait-title{left:16px;right:16px;top:16px}
+  .region-portrait-title strong{font-size:clamp(30px,10vw,42px)}
+  .region-coordinate{left:12px;right:12px;bottom:12px;padding:10px 12px;gap:8px}
+  .region-coordinate strong{font-size:.68rem}
+}
+
 @media(max-width:520px){
   .page{padding-inline:15px}
   .hero-copy h1{font-size:clamp(48px,16vw,60px)}
