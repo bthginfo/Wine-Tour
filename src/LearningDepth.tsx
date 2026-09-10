@@ -31,6 +31,32 @@ const soilLibrary={
   gravel:{pattern:/gravel|sand|alluvial|kies|sand|gravier|sable|grava|arena/i,title:{en:'Gravel, sand & alluvium',de:'Kies, Sand & Schwemmland',fr:'Graviers, sable & alluvions',es:'Grava, arena y aluvión'},water:{en:'Coarse material drains rapidly; fine layers and water table set reserves.',de:'Grobes Material drainiert rasch; Feinlagen und Grundwasser setzen Reserven.',fr:'Les éléments grossiers drainent vite ; fines et nappe fixent la réserve.',es:'El material grueso drena rápido; finos y nivel freático fijan la reserva.'},root:{en:'Roots travel through interstices and follow buried finer horizons.',de:'Wurzeln wachsen durch Zwischenräume und folgen feineren Horizonten.',fr:'Les racines traversent les interstices et suivent les horizons fins.',es:'Las raíces pasan por intersticios y siguen horizontes más finos.'}},
 } as const
 
+type SoilGuide={title:Record<Locale,string>;water:Record<Locale,string>;root:Record<Locale,string>}
+const sandstoneGuide:SoilGuide={
+  title:{en:'Sandstone',de:'Sandstein',fr:'Grès',es:'Arenisca'},
+  water:{en:'Cement and fracture pattern decide whether sandstone sheds water or keeps reserves.',de:'Bindemittel und Klüfte entscheiden, ob Sandstein Wasser ableitet oder speichert.',fr:'Le ciment et les fractures décident si le grès draine ou garde une réserve.',es:'El cemento y las fracturas deciden si la arenisca drena o conserva reservas.'},
+  root:{en:'Roots follow bedding planes and weathered seams rather than the rock name alone.',de:'Wurzeln folgen Schichtflächen und verwitterten Nähten, nicht nur dem Gesteinsnamen.',fr:'Les racines suivent les plans de stratification et les joints altérés.',es:'Las raíces siguen planos de estratificación y juntas meteorizadas.'},
+}
+const sandGuide:SoilGuide={
+  title:{en:'Sand',de:'Sand',fr:'Sable',es:'Arena'},
+  water:{en:'Loose sand drains quickly; depth and finer layers determine the reserve.',de:'Lockerer Sand drainiert rasch; Tiefe und Feinlagen bestimmen die Reserve.',fr:'Le sable meuble draine vite ; profondeur et couches fines fixent la réserve.',es:'La arena suelta drena rápido; profundidad y capas finas fijan la reserva.'},
+  root:{en:'Roots use pore spaces and any finer or wetter layer below.',de:'Wurzeln nutzen Porenräume und darunterliegende feinere oder feuchtere Lagen.',fr:'Les racines utilisent les pores et les couches plus fines ou humides en profondeur.',es:'Las raíces aprovechan poros y capas más finas o húmedas.'},
+}
+
+/** Soil cards are keyed only from the canonical English region.soil field. */
+function canonicalSoilGuides(soil:string):SoilGuide[]{
+  const guides:SoilGuide[]=[]
+  if(/\b(limestone|chalk|calcareous|marl)\b/i.test(soil))guides.push(soilLibrary.limestone)
+  if(/\b(slate|schist)\b/i.test(soil))guides.push(soilLibrary.slate)
+  if(/\b(clay|loam|loess)\b/i.test(soil))guides.push(soilLibrary.clay)
+  if(/\b(granite|granitic)\b/i.test(soil))guides.push(soilLibrary.granite)
+  if(/\b(volcanic|basalt|lava)\b/i.test(soil))guides.push(soilLibrary.volcanic)
+  if(/\bsandstone\b/i.test(soil))guides.push(sandstoneGuide)
+  if(/\b(gravel|alluvial)\b/i.test(soil))guides.push(soilLibrary.gravel)
+  if(/(?<!\w)sand(?!stone)\b/i.test(soil))guides.push(sandGuide)
+  return guides
+}
+
 function mapZoom(country:string){return ['United States','Canada','Argentina','Chile','Australia','China','South Africa','India'].includes(country)?3:['France','Italy','Spain','Germany','Portugal','New Zealand','Japan'].includes(country)?5:4}
 
 function regionGeographyCopy(region:Region,locale:Locale){
@@ -53,7 +79,7 @@ function regionGeographyCopy(region:Region,locale:Locale){
 }
 
 export function RegionFieldGuide({region,locale}:{region:Region;locale:Locale}){
-  const c=depthCopy[locale],content=regionContent(region,locale),geography=regionGeographyCopy(region,locale),matches=Object.values(soilLibrary).filter(entry=>entry.pattern.test(`${region.soil} ${content.soil}`)).slice(0,3)
+  const c=depthCopy[locale],content=regionContent(region,locale),geography=regionGeographyCopy(region,locale),matches=canonicalSoilGuides(region.soil)
   return <section className="region-field-guide">
     <RegionPortrait region={region} locale={locale}/>
     <div className="locator-card"><div className="depth-heading"><span className="eyebrow">{geography.eyebrow}</span><h2>{geography.title}</h2><p>{geography.body}</p></div><div className="mini-region-map" aria-label={`${regionName(region,locale)} · ${countryLabel(region.country,locale)}`}><MapContainer key={region.id} center={[region.lat,region.lng]} zoom={mapZoom(region.country)} scrollWheelZoom={false} dragging={false} doubleClickZoom={false} zoomControl={false}><TileLayer attribution='&copy; OpenStreetMap contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/><CircleMarker center={[region.lat,region.lng]} radius={9} pathOptions={{color:'#f7efe3',fillColor:'#7d2638',fillOpacity:1,weight:3}}/></MapContainer><span><Compass/>{geography.caption}</span></div></div>
@@ -63,8 +89,9 @@ export function RegionFieldGuide({region,locale}:{region:Region;locale:Locale}){
 
 export function GrapeDeepDive({grape,locale}:{grape:Grape;locale:Locale}){
   const c=depthCopy[locale],content=grapeContent(grape,locale)
+  const evidenceFields=grapeEvidence.find(item=>item.grapeId===grape.id)?.[locale]
   const structureLabels={en:['Acidity','Tannin','Body'],de:['Säure','Tannin','Körper'],fr:['Acidité','Tanins','Corps'],es:['Acidez','Tanino','Cuerpo']}[locale]
-  const climate={en:{cool:`Longer hang time can preserve ${grape.acidity>=4?'a firm acid line':'delicacy'} while delaying sugar; site exposure and crop load decide whether flavour catches up.`,warm:`Faster sugar accumulation can broaden fruit and body. Shade, water balance and picking date protect definition.`,watch:`Canopy light, berry health, yield, seed and skin maturity, and the gap between sugar and flavour.`,make:content.winemaking},de:{cool:`Längere Reife kann ${grape.acidity>=4?'eine feste Säurelinie':'Feinheit'} erhalten und Zucker bremsen; Exposition und Ertrag entscheiden, ob das Aroma nachzieht.`,warm:'Schnellere Zuckerreife kann Frucht und Körper verbreitern. Schatten, Wasserbalance und Lesezeit schützen die Kontur.',watch:'Licht in der Laubwand, Beerengesundheit, Ertrag, Kern- und Schalenreife sowie der Abstand zwischen Zucker und Aroma.',make:content.winemaking},fr:{cool:`Une maturation plus longue peut garder ${grape.acidity>=4?'une acidité ferme':'la finesse'} et ralentir le sucre ; exposition et charge décident si l’arôme suit.`,warm:'Le sucre plus rapide élargit fruit et corps. Ombre, eau et date de récolte gardent la précision.',watch:'Lumière du feuillage, santé des baies, rendement, maturité des pépins et des peaux, écart entre sucre et arôme.',make:content.winemaking},es:{cool:`Una maduración más larga puede conservar ${grape.acidity>=4?'una acidez firme':'delicadeza'} y frenar el azúcar; exposición y carga deciden si alcanza el aroma.`,warm:'La acumulación rápida de azúcar amplía fruta y cuerpo. Sombra, agua y vendimia conservan definición.',watch:'Luz en la vegetación, sanidad, rendimiento, madurez de semillas y pieles, distancia entre azúcar y aroma.',make:content.winemaking}}[locale]
+  const climate={en:{cool:`Longer hang time can preserve ${grape.acidity>=4?'a firm acid line':'delicacy'} while delaying sugar; site exposure and crop load decide whether flavour catches up.`,warm:`Faster sugar accumulation can broaden fruit and body. Shade, water balance and picking date protect definition.`,watch:evidenceFields?`${evidenceFields.growth} ${evidenceFields.risk}`:'Canopy light, berry health, yield, seed and skin maturity, and the gap between sugar and flavour.',make:content.winemaking},de:{cool:`Längere Reife kann ${grape.acidity>=4?'eine feste Säurelinie':'Feinheit'} erhalten und Zucker bremsen; Exposition und Ertrag entscheiden, ob das Aroma nachzieht.`,warm:'Schnellere Zuckerreife kann Frucht und Körper verbreitern. Schatten, Wasserbalance und Lesezeit schützen die Kontur.',watch:evidenceFields?`${evidenceFields.growth} ${evidenceFields.risk}`:'Licht in der Laubwand, Beerengesundheit, Ertrag, Kern- und Schalenreife sowie der Abstand zwischen Zucker und Aroma.',make:content.winemaking},fr:{cool:`Une maturation plus longue peut garder ${grape.acidity>=4?'une acidité ferme':'la finesse'} et ralentir le sucre ; exposition et charge décident si l’arôme suit.`,warm:'Le sucre plus rapide élargit fruit et corps. Ombre, eau et date de récolte gardent la précision.',watch:evidenceFields?`${evidenceFields.growth} ${evidenceFields.risk}`:'Lumière du feuillage, santé des baies, rendement, maturité des pépins et des peaux, écart entre sucre et arôme.',make:content.winemaking},es:{cool:`Una maduración más larga puede conservar ${grape.acidity>=4?'una acidez firme':'delicadeza'} y frenar el azúcar; exposición y carga deciden si alcanza el aroma.`,warm:'La acumulación rápida de azúcar amplía fruta y cuerpo. Sombra, agua y vendimia conservan definición.',watch:evidenceFields?`${evidenceFields.growth} ${evidenceFields.risk}`:'Luz en la vegetación, sanidad, rendimiento, madurez de semillas y pieles, distancia entre azúcar y aroma.',make:content.winemaking}}[locale]
   return <section className="grape-deep-dive"><div className="depth-heading"><span className="eyebrow">{c.grapeEyebrow}</span><h2>{c.grapeTitle}</h2></div><div className="climate-comparison"><article><ThermometerSun/><span>{c.cool}</span><p>{climate.cool}</p></article><article><SunMedium/><span>{c.warm}</span><p>{climate.warm}</p></article><article><GrapeIcon/><span>{c.grower}</span><p>{climate.watch}</p></article><article><FlaskConical/><span>{c.maker}</span><p>{climate.make}</p></article></div><div className="structure-compass"><span>{c.structure}</span>{([[structureLabels[0],grape.acidity],[structureLabels[1],grape.tannin],[structureLabels[2],grape.body]] as const).map(([label,value])=><div key={label}><small>{label}</small><i><b style={{width:`${value*20}%`}}/></i><strong>{value}/5</strong></div>)}</div></section>
 }
 

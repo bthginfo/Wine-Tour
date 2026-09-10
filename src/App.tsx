@@ -101,7 +101,7 @@ import bordeauxEstuaryVineyard from "./assets/region-bordeaux-estuary.jpg";
 import marlboroughWairauVineyard from "./assets/region-marlborough-wairau.jpg";
 import nemeaPortrait from "./assets/region-portrait-nemea.jpg";
 import { AtlasCommercialPlacements, BusinessAdminPanel, EventDetail, EventsMarketplace, FeaturedBusinessHome, HostProfile, PartnerProfilePage, ProducerBusinessLayer, StudioEvents, StudioHome, StudioOffers, StudioPlacements, StudioProfile, StudioSite, WineMerchantOffers } from "./BusinessPlatform";
-import { AcademyMasterclass, GrapeAmpelography, GrapeDeepDive, ProducerDecisionMap, RegionFieldGuide, WineEvolutionLesson } from "./LearningDepth";
+import { GrapeAmpelography, GrapeDeepDive, ProducerDecisionMap, RegionFieldGuide, WineEvolutionLesson } from "./LearningDepth";
 import { InlineLearningChapter, LearningHub, LearningLesson, learningUi } from "./LearningSystem";
 import { learningBlockById, learningModuleById, learningModules } from "./learningCurriculum";
 import { guideImage } from "./learningGuideMedia";
@@ -111,7 +111,6 @@ import { AtlasLensControls, CompareButton, RegionCompare, atlasMarkerStyle, type
 import { TastingHostConsole } from "./TastingHostConsole";
 import { TastingParticipantTools } from "./TastingParticipantTools";
 import { VineToGlassExperience } from "./VineToGlassExperience";
-import { GuideDepthBridge } from "./GuideDepthBridge";
 import { ServiceKnowledgeLab } from "./ServiceKnowledgeLab";
 
 const CellarExperience = lazy(() => import("./CellarExperience").then(module => ({ default:module.CellarExperience })))
@@ -253,6 +252,7 @@ export default function App() {
         <Route path="/wines/:slug" element={<WinePage />} />
         <Route path="/aromas" element={<AromaPage />} />
         <Route path="/learn" element={<LearningHub />} />
+        <Route path="/learn/guides/:slug" element={<ArticlePage />} />
         <Route path="/learn/:slug" element={<LearningRoute />} />
         <Route path="/tastings" element={<TastingsPage />} />
         <Route path="/tastings/build" element={<AccountGuard><TastingBuilder /></AccountGuard>} />
@@ -543,7 +543,7 @@ function HomePage() {
             <i />
             <span>04</span>
           </div>
-          <Link to={`/learn/${articles[1].id}`} className="primary-button ink">
+          <Link to={`/learn/guides/${articles[1].id}`} className="primary-button ink">
             {copy.readGuide}
           </Link>
         </div>
@@ -1585,7 +1585,7 @@ function AromaPage() {
           </div>
         </aside>
       </section>
-      <section className="aroma-reference-panel"><img src={aromaReference} alt={ui.aromaReferenceAlt}/><div><span className="eyebrow">{ui.calibrate}</span><h2>{ui.smellBeforeName}</h2><p>{ui.smellBody}</p><Link to="/learn/aroma-language" className="primary-button ink">{ui.openSensory}</Link></div></section>
+      <section className="aroma-reference-panel"><img src={aromaReference} alt={ui.aromaReferenceAlt}/><div><span className="eyebrow">{ui.calibrate}</span><h2>{ui.smellBeforeName}</h2><p>{ui.smellBody}</p><Link to="/learn/guides/aroma-language" className="primary-button ink">{ui.openSensory}</Link></div></section>
       <section className="source-note">
         <BookOpen />
         <p>
@@ -1642,24 +1642,24 @@ function LearnPage() {
           </span>
           <h2>{localizedArticles[0].title}</h2>
           <p>{localizedArticles[0].summary}</p>
-          <Link to={`/learn/${localizedArticles[0].id}`} className="primary-button ink">
+          <Link to={`/learn/guides/${localizedArticles[0].id}`} className="primary-button ink">
             {copy.readStory}
           </Link>
         </div>
       </section>
       <section className="learning-tracks">
         <div className="section-heading"><div><span className="eyebrow">{ui.structuredPaths}</span><h2>{ui.chooseQuestion}</h2></div><span>{articles.length} {ui.illustratedLessons}</span></div>
-        <div>{tracks.map((track,index)=><article key={track.name}><span>0{index+1}</span><h3>{track.name}</h3><p>{track.description}</p><div>{track.ids.map(id=>{const lesson=localizedArticles.find(item=>item.id===id);return lesson?<Link key={id} to={`/learn/${id}`}>{lesson.title}<ChevronRight size={14}/></Link>:null})}</div></article>)}</div>
+        <div>{tracks.map((track,index)=><article key={track.name}><span>0{index+1}</span><h3>{track.name}</h3><p>{track.description}</p><div>{track.ids.map(id=>{const lesson=localizedArticles.find(item=>item.id===id);return lesson?<Link key={id} to={`/learn/guides/${id}`}>{lesson.title}<ChevronRight size={14}/></Link>:null})}</div></article>)}</div>
       </section>
       <section className="academy-visuals">
-        <Link to="/learn/terroir-layers"><img src={terroirIllustration} alt={ui.terroirAlt}/><span><small>{ui.interactiveFoundation}</small><strong>{ui.readTerroir}</strong></span></Link>
-        <Link to="/learn/aroma-language"><img src={aromaReference} alt={ui.aromaGlassAlt}/><span><small>{ui.sensoryPractice}</small><strong>{ui.buildMemory}</strong></span></Link>
-        <Link to="/learn/vine-year"><img src={vineSeasonStudy} alt=""/><span><small>{ui.structuredPaths}</small><strong>{localizedArticles.find(article=>article.id==='vine-year')?.title}</strong></span></Link>
-        <Link to="/learn/soil-water-roots"><img src={soilAtlas} alt=""/><span><small>{ui.interactiveFoundation}</small><strong>{localizedArticles.find(article=>article.id==='soil-water-roots')?.title}</strong></span></Link>
+        <Link to="/learn/guides/terroir-layers"><img src={terroirIllustration} alt={ui.terroirAlt}/><span><small>{ui.interactiveFoundation}</small><strong>{ui.readTerroir}</strong></span></Link>
+        <Link to="/learn/guides/aroma-language"><img src={aromaReference} alt={ui.aromaGlassAlt}/><span><small>{ui.sensoryPractice}</small><strong>{ui.buildMemory}</strong></span></Link>
+        <Link to="/learn/guides/vine-year"><img src={vineSeasonStudy} alt=""/><span><small>{ui.structuredPaths}</small><strong>{localizedArticles.find(article=>article.id==='vine-year')?.title}</strong></span></Link>
+        <Link to="/learn/guides/soil-water-roots"><img src={soilAtlas} alt=""/><span><small>{ui.interactiveFoundation}</small><strong>{localizedArticles.find(article=>article.id==='soil-water-roots')?.title}</strong></span></Link>
       </section>
       <div className="article-index">
         {localizedArticles.slice(1).map((article, index) => (
-          <Link to={`/learn/${article.id}`} key={article.id}>
+          <Link to={`/learn/guides/${article.id}`} key={article.id}>
             <span>{String(index + 2).padStart(2, "0")}</span>
             <div>
               <small>
@@ -1697,9 +1697,6 @@ function ArticlePage() {
       </header>
       <figure className="lesson-hero guide-lesson-hero"><img src={illustration} alt={`${ui.illustrationFor} ${article.title}`}/></figure>
       <section className="lesson-objectives"><span className="eyebrow">{ui.byEnd}</span><h2>{ui.threeExplain}</h2><ol>{article.objectives.map((objective,index)=><li key={objective}><span>0{index+1}</span>{objective}</li>)}</ol></section>
-      {article.id==='vine-to-glass'?<VineToGlassExperience locale={locale}/>:<ReferenceGuideExperience article={article} locale={locale}/>}
-      <ServiceKnowledgeLab articleId={article.id} locale={locale}/>
-      {article.id!=='vine-to-glass'&&!['glassware-anatomy','bottle-closures','bottle-anatomy'].includes(article.id)&&<GuideDepthBridge articleId={article.id} locale={locale}/>}
       <div className="article-body">
         {article.body.map((p, i) => (
           <section key={p}><span>{String(i+1).padStart(2,'0')}</span><p>{p}</p></section>
@@ -1708,12 +1705,13 @@ function ArticlePage() {
         <h2>{copy.takeTable}</h2>
         <p>{ui.lessonPractice}</p>
       </div>
-      <AcademyMasterclass article={article} locale={locale}/>
+      {article.id==='vine-to-glass'&&<VineToGlassExperience locale={locale}/>}<ReferenceGuideExperience key={article.id} article={article} locale={locale}/>
+      <ServiceKnowledgeLab articleId={article.id} locale={locale}/>
       <section className="lesson-connections"><span className="eyebrow">{ui.continueAtlas}</span><h2>{ui.seeIdea}</h2><div className="thread-cloud">{regions.filter(region=>article.relatedRegionIds.includes(region.id)).map(region=><ThreadLink key={region.id} to={`/regions/${region.id}`} tone="moss">{regionName(region,locale)}</ThreadLink>)}{grapes.filter(grape=>article.relatedGrapeIds.includes(grape.id)).map(grape=><ThreadLink key={grape.id} to={`/grapes/${grape.id}`}>{grape.name}</ThreadLink>)}</div></section>
       <div className="next-read">
         <span>{copy.continueLearning}</span>
         <Link
-          to={`/learn/${nextArticle.id}`}
+          to={`/learn/guides/${nextArticle.id}`}
         >
           {nextArticle.title}
           <ArrowRight />
@@ -1786,14 +1784,14 @@ function optionsForChapter(type:TastingChapterType,locale:Locale='en') {
   if(type==='aroma') return aromas.map(item=>{const content=aromaContent(item,locale);return {id:item.id,label:`${content.family} · ${content.name}`}})
   if(type==='article') return [
     ...learningModules.map(item=>({id:item.id,label:`${learningUi[locale].addWhole} · ${item.title[locale]}`})),
-    ...articles.map(item=>({id:item.id,label:`${{en:'Reference guide',de:'Vertiefungsguide',fr:'Guide de référence',es:'Guía de referencia'}[locale]} · ${articleContent(item,locale).title}`})),
+    ...articles.map(item=>({id:`guide:${item.id}`,label:`${{en:'Reference guide',de:'Vertiefungsguide',fr:'Guide de référence',es:'Guía de referencia'}[locale]} · ${articleContent(item,locale).title}`})),
   ]
   if(type==='learning-block') return learningModules.flatMap(module=>module.blocks.filter(block=>!['sources','glossary','entity-connections'].includes(block.kind)).map(block=>({id:block.id,label:`${module.title[locale]} · ${block.title[locale]}`})))
   return []
 }
 function referenceTitle(type:TastingChapterType,id:string|undefined,locale:Locale,ui:ReturnType<typeof useUiCopy>) {
   if(!id) return type==='pause'?ui.pauseConversation:ui.chapterHost
-  if(type==='article'){const module=learningModuleById(id);if(module)return module.title[locale];const guide=articles.find(item=>item.id===id);if(guide)return articleContent(guide,locale).title}
+  if(type==='article'){const guideId=id.startsWith('guide:')?id.slice('guide:'.length):undefined;const module=guideId?undefined:learningModuleById(id);if(module)return module.title[locale];const guide=articles.find(item=>item.id===(guideId??id));if(guide)return articleContent(guide,locale).title}
   return optionsForChapter(type,locale).find(item=>item.id===id)?.label.split(' · ')[0] ?? ui.untitledChapter
 }
 function defaultJourney(locale:Locale,ui:ReturnType<typeof useUiCopy>):TastingJourney {
@@ -1875,10 +1873,11 @@ export function JourneyExperience({journey}:{journey:TastingJourney}) {
   const producer=chapter?.type==='producer'?producers.find(item=>item.id===chapter.referenceId):undefined
   const grape=chapter?.type==='grape'?grapes.find(item=>item.id===chapter.referenceId):undefined
   const aroma=chapter?.type==='aroma'?aromas.find(item=>item.id===chapter.referenceId):undefined
-  const article=chapter?.type==='article'?articles.find(item=>item.id===chapter.referenceId):undefined
-  const lessonModule=chapter?.type==='article'?learningModuleById(chapter.referenceId??''):undefined
+  const guideId=chapter?.type==='article'&&chapter.referenceId?.startsWith('guide:')?chapter.referenceId.slice('guide:'.length):undefined
+  const lessonModule=chapter?.type==='article'&&!guideId?learningModuleById(chapter.referenceId??''):undefined
+  const article=chapter?.type==='article'?(guideId?articles.find(item=>item.id===guideId):lessonModule?undefined:articles.find(item=>item.id===chapter.referenceId)):undefined
   const learning=chapter?.type==='learning-block'?learningBlockById(chapter.referenceId??''):undefined
-  const link=wine?`/wines/${wine.id}`:region?`/regions/${region.id}`:producer?`/wineries/${producer.id}`:grape?`/grapes/${grape.id}`:aroma?`/aromas?selected=${aroma.id}`:article?`/learn/${article.id}`:lessonModule?`/learn/${lessonModule.id}`:learning?`/learn/${learning.module.id}`:null
+  const link=wine?`/wines/${wine.id}`:region?`/regions/${region.id}`:producer?`/wineries/${producer.id}`:grape?`/grapes/${grape.id}`:aroma?`/aromas?selected=${aroma.id}`:article?`/learn/guides/${article.id}`:lessonModule?`/learn/${lessonModule.id}`:learning?`/learn/${learning.module.id}`:null
   const body=wine?wineContent(wine,producers.find(item=>item.id===wine.producerId)!,regions.find(item=>item.id===wine.regionId)!,locale).summary:region?regionContent(region,locale).summary:producer?producerContent(producer,regions.find(item=>item.id===producer.regionId)!,locale).summary:grape?grapeContent(grape,locale).summary:aroma?aromaContent(aroma,locale).reference:article?articleContent(article,locale).summary:lessonModule?lessonModule.question[locale]:learning?learning.module.question[locale]:chapter?.hostNote??ui.quietMoment
   return <div className="journey-room">
     <header><Link to="/tastings"><X/></Link><div><small>{journey.pace==='host'?ui.hostLearningJourney:ui.selfLearningJourney}</small><strong>{journey.title}</strong></div><span>{current+1} / {journey.chapters.length}</span></header>
@@ -2247,7 +2246,7 @@ function GlobalSearch({ onClose }: { onClose: () => void }) {
           type: ui.fieldNote,
           name: articleContent(x,locale).title,
           meta: `${x.minutes} ${ui.minRead}`,
-          to: `/learn/${x.id}`,
+           to: `/learn/guides/${x.id}`,
         })),
     ];
   }, [query,locale,ui]);

@@ -119,7 +119,7 @@ function CellarIntelligence({items,locale,onOpen}:{items:CellarItem[];locale:Loc
         {queue.length?<div className="drink-queue">{queue.map(item=>{const wine=wines.find(entry=>entry.id===item.wineId);return <div key={item.id}><div><span>{status(item)}</span><strong>{wine?.name??item.customName}</strong><small>{item.vintage??wine?.vintage??'NV'} · {item.drinkFrom??'—'}–{item.drinkUntil??'—'}</small></div><button type="button" onClick={()=>onOpen(item)}><WineOff/>{c.open}</button></div>})}</div>:<p className="intelligence-empty">{c.empty}</p>}
       </article>
       <article className="collection-breadth"><span>{c.collection}</span><div><strong>{regionIds.size}</strong><small>{c.regions}</small></div><div><strong>{grapeIds.size}</strong><small>{c.varieties}</small></div><p><Clock3/>{c.historyBody}</p></article>
-      <article className="cellar-learning"><div className="intelligence-heading"><span>{c.learn}</span><p>{c.learnBody}</p></div><div>{guides.map(guide=><Link key={guide.id} to={`/learn/${guide.id}`}><BookOpen/><span><strong>{articleContent(guide,locale).title}</strong><small>{guide.minutes} min</small></span><ArrowRight/></Link>)}</div></article>
+    <article className="cellar-learning"><div className="intelligence-heading"><span>{c.learn}</span><p>{c.learnBody}</p></div><div>{guides.map(guide=><Link key={guide.id} to={`/learn/guides/${guide.id}`}><BookOpen/><span><strong>{articleContent(guide,locale).title}</strong><small>{guide.minutes} min</small></span><ArrowRight/></Link>)}</div></article>
     </div>
   </section>
 }
@@ -145,7 +145,7 @@ function BottleRecord({item,c,locale,onUpdate,onOpen,onRemove,confirmRemove}:{it
       {region&&<Link to={`/regions/${region.id}`}><MapPin/><span><small>{intelligence.place}</small><strong>{regionName(region,locale)}</strong></span><ArrowRight/></Link>}
       {wine.grapeIds.slice(0,2).map(id=>{const grape=grapes.find(entry=>entry.id===id);return grape?<Link to={`/grapes/${grape.id}`} key={id}><Grape/><span><small>{intelligence.grapes}</small><strong>{grape.name}</strong></span><ArrowRight/></Link>:null})}
       {producer&&<Link to={`/wineries/${producer.id}`}><Archive/><span><small>{c.producer}</small><strong>{producer.name}</strong></span><ArrowRight/></Link>}
-      {relatedGuide&&<Link to={`/learn/${relatedGuide.id}`}><BookOpen/><span><small>{intelligence.guide}</small><strong>{articleContent(relatedGuide,locale).title}</strong></span><ArrowRight/></Link>}
+      {relatedGuide&&<Link to={`/learn/guides/${relatedGuide.id}`}><BookOpen/><span><small>{intelligence.guide}</small><strong>{articleContent(relatedGuide,locale).title}</strong></span><ArrowRight/></Link>}
     </div></section>}
     <section className="cellar-note-studio"><div className="panel-heading"><div><span className="eyebrow">{c.notes}</span><h3>{c.addNote}</h3></div><NotebookPen/></div>
       <label>{c.appearance}<select value={note.appearance} onChange={event=>setNote({...note,appearance:event.target.value})}><option>{c.clear}</option><option>{c.pale}</option><option>{c.deep}</option></select></label>

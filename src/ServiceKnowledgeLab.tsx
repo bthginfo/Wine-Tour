@@ -1,5 +1,5 @@
-import { useMemo, useState } from 'react'
-import { CircleGauge, Droplets, Focus, GlassWater, ShieldCheck, Thermometer, Wine } from 'lucide-react'
+import { useState } from 'react'
+import { CircleGauge, Droplets, Focus, GlassWater, ShieldCheck, Wine } from 'lucide-react'
 import type { Locale } from './i18n'
 
 type LabId='glassware-anatomy'|'bottle-closures'|'bottle-anatomy'
@@ -11,7 +11,49 @@ const copy={
   es:{lab:'Laboratorio práctico',compare:'Cambia un objeto. Mantén el mismo vino.',pour:'Volumen medido',headspace:'Espacio aromático',focus:'Concentración en el borde',temperature:'Estabilidad térmica',why:'Qué cambia',watch:'Qué observar',use:'Uso habitual',notScore:'Comparación funcional, no clasificación de calidad.',glass:{universal:['Tulipa universal','Espacio equilibrado y borde estrecho: el punto de partida más útil.','Definición aromática, giro y temperatura durante diez minutos.'],burgundy:['Cáliz amplio','Más superficie y espacio pueden abrir el aroma y también dispersarlo antes.','Amplitud aromática y calor del alcohol con igual volumen.'],sparkling:['Tulipa espumosa','El cáliz estrecho muestra la burbuja con más espacio que una flauta.','Espuma, burbuja, aroma y calentamiento.'],fortified:['Tulipa pequeña','Cámara y porción menores sirven a vinos más fuertes o dulces.','Alcohol, dulzor, intensidad y porción.']},closure:{natural:['Corcho natural','Corteza celular comprimida; cada pieza puede variar.','Sellado, nivel, extracción y variación de botella.','Vinos tranquilos con intención de desarrollo.'],technical:['Corcho técnico','Componentes de corcho diseñados para mayor regularidad.','Especificación, sellado y evolución.','Vinos tranquilos que buscan gesto de corcho y consistencia.'],screw:['Rosca','Carcasa de aluminio y junta forman el sello; importa la junta.','Junta, rosca, reducción, nivel y guarda.','Muchos estilos y objetivos de crianza.'],sparkling:['Tapón de espumoso','Cierre a presión comprimido y sujeto por bozal.','Temperatura, bozal, movimiento y apertura segura.','Vinos embotellados bajo presión.'],glass:['Cierre de vidrio','Vidrio rígido con un anillo de sellado separado.','Anillo, cuello intacto y cierre limpio.','Vinos tranquilos con cuello compatible.']},bottle:{bordeaux:['Hombros bordeleses','Los hombros marcados ayudan a retener sedimento durante un vertido controlado.','Poner de pie la botella y vigilar la línea de sedimento.'],burgundy:['Pendiente borgoñona','Los hombros inclinados reflejan historia de uso, no una categoría.','Servir despacio sin esperar que la forma atrape sedimento.'],rhine:['Flauta renana','Forma alta vinculada históricamente al Rin y rutas vecinas.','Estabilidad, altura de guarda y nivel, no dulzor supuesto.'],sparkling:['Botella de presión','Paredes fuertes, cierre y base resisten la presión interna.','Enfriar, revisar daños y controlar el cierre.']}},
 } as const
 
-const glassMetrics={universal:[70,75,70],burgundy:[90,52,55],sparkling:[58,82,76],fortified:[42,86,82]} as const
+type GlassShape='universal'|'burgundy'|'sparkling'|'fortified'
+type GlassQuality={size:string;headspace:string;pour:readonly [string,string,string]}
+
+const pourLevels:Record<Locale,readonly [string,string,string]>={
+  en:['Small pour','Standard pour','Generous pour'],
+  de:['Kleine Portion','Standardportion','Große Portion'],
+  fr:['Petit service','Service standard','Service généreux'],
+  es:['Servicio pequeño','Servicio estándar','Servicio generoso'],
+}
+
+const qualityLabels:Record<Locale,{size:string;headspace:string;pour:string}>={
+  en:{size:'Bowl size',headspace:'Headspace',pour:'Pour relationship'},
+  de:{size:'Kelchgröße',headspace:'Kopfraum',pour:'Verhältnis zur Portion'},
+  fr:{size:'Taille du calice',headspace:'Espace au-dessus du vin',pour:'Effet du service'},
+  es:{size:'Tamaño del cáliz',headspace:'Espacio sobre el vino',pour:'Efecto del servicio'},
+}
+
+const glassQualities:Record<Locale,Record<GlassShape,GlassQuality>>={
+  en:{
+    universal:{size:'Middle-width bowl in this set',headspace:'Balanced at a standard pour',pour:['A small pour leaves the bowl open','A standard pour is the baseline','A generous pour brings the wine closer to the rim']},
+    burgundy:{size:'Widest bowl in this set',headspace:'Most open space at a small pour',pour:['A small pour leaves the most room above the wine','A standard pour keeps a broad aromatic surface','A generous pour reduces the open space']},
+    sparkling:{size:'Narrow tulip bowl',headspace:'More open space than a flute',pour:['A small pour leaves room for mousse and aroma','A standard pour keeps the bead visible','A generous pour leaves less room above the wine']},
+    fortified:{size:'Smallest bowl in this set',headspace:'Less open space by design',pour:['A small pour keeps alcohol and sweetness measured','A standard pour balances aroma and intensity','A generous pour brings alcohol and sweetness forward']},
+  },
+  de:{
+    universal:{size:'Mittlere Kelchbreite in diesem Set',headspace:'Ausgewogener Kopfraum bei Standardportion',pour:['Eine kleine Portion lässt den Kelch offen','Die Standardportion dient als Vergleich','Eine große Portion bringt den Wein näher an den Rand']},
+    burgundy:{size:'Breitester Kelch in diesem Set',headspace:'Bei kleiner Portion am meisten freier Raum',pour:['Eine kleine Portion lässt den meisten Raum über dem Wein','Die Standardportion bewahrt eine breite Aromafläche','Eine große Portion verkleinert den freien Raum']},
+    sparkling:{size:'Schmaler Tulpenkelch',headspace:'Mehr freier Raum als in einer Flöte',pour:['Eine kleine Portion lässt Raum für Mousse und Duft','Die Standardportion hält die Perlage sichtbar','Eine große Portion lässt weniger Raum über dem Wein']},
+    fortified:{size:'Kleinster Kelch in diesem Set',headspace:'Absichtlich weniger freier Raum',pour:['Eine kleine Portion hält Alkohol und Süße im Maß','Die Standardportion balanciert Duft und Intensität','Eine große Portion bringt Alkohol und Süße nach vorn']},
+  },
+  fr:{
+    universal:{size:'Calice de largeur intermédiaire ici',headspace:'Espace équilibré avec un service standard',pour:['Un petit service laisse le calice ouvert','Le service standard sert de repère','Un service généreux rapproche le vin du bord']},
+    burgundy:{size:'Calice le plus large ici',headspace:'Espace maximal avec un petit service',pour:['Un petit service laisse le plus d’espace au-dessus du vin','Le service standard garde une large surface aromatique','Un service généreux réduit l’espace libre']},
+    sparkling:{size:'Calice tulipe étroit',headspace:'Plus d’espace qu’une flûte',pour:['Un petit service laisse place à la mousse et aux arômes','Le service standard garde la bulle visible','Un service généreux laisse moins d’espace au-dessus du vin']},
+    fortified:{size:'Plus petit calice ici',headspace:'Espace volontairement réduit',pour:['Un petit service mesure alcool et douceur','Le service standard équilibre arôme et intensité','Un service généreux accentue alcool et douceur']},
+  },
+  es:{
+    universal:{size:'Cáliz de anchura intermedia del conjunto',headspace:'Espacio equilibrado con servicio estándar',pour:['Un servicio pequeño deja el cáliz abierto','El servicio estándar sirve de referencia','Un servicio generoso acerca el vino al borde']},
+    burgundy:{size:'Cáliz más ancho del conjunto',headspace:'Más espacio libre con servicio pequeño',pour:['Un servicio pequeño deja más espacio sobre el vino','El servicio estándar mantiene una superficie aromática amplia','Un servicio generoso reduce el espacio libre']},
+    sparkling:{size:'Cáliz tulipa estrecho',headspace:'Más espacio que una flauta',pour:['Un servicio pequeño deja sitio para espuma y aroma','El servicio estándar mantiene visible la burbuja','Un servicio generoso deja menos espacio sobre el vino']},
+    fortified:{size:'Cáliz más pequeño del conjunto',headspace:'Menos espacio libre por diseño',pour:['Un servicio pequeño mantiene medidos alcohol y dulzor','El servicio estándar equilibra aroma e intensidad','Un servicio generoso lleva alcohol y dulzor al frente']},
+  },
+}
 const labTitles={
   en:{glass:'Change glass shape and pour volume',closure:'Compare the seal around the wine',bottle:'Read bottle form through function'},
   de:{glass:'Glasform und Füllmenge vergleichen',closure:'Den Verschluss rund um den Wein vergleichen',bottle:'Flaschenform über ihre Funktion lesen'},
@@ -30,11 +72,10 @@ export function ServiceKnowledgeLab({articleId,locale}:{articleId:string;locale:
 
 function GlassLab({locale}:{locale:Locale}){
   const c={...copy[locale],compare:labTitles[locale].glass},keys=Object.keys(c.glass) as Array<keyof typeof c.glass>
-  const [shape,setShape]=useState<keyof typeof c.glass>('universal'),[pour,setPour]=useState(90)
-  const item=c.glass[shape],base=glassMetrics[shape]
-  const metrics=useMemo(()=>[Math.max(20,base[0]-(pour-90)*.28),Math.max(25,base[1]-(pour-90)*.12),Math.max(25,base[2]-(pour-90)*.18)],[base,pour])
-  const metricRows=[{label:c.headspace,Icon:Droplets},{label:c.focus,Icon:Focus},{label:c.temperature,Icon:Thermometer}]
-  return <section className="service-object-lab glassware-lab"><header><span className="eyebrow"><GlassWater/>{c.lab}</span><h2>{c.compare}</h2><p>{c.notScore}</p></header><div className="object-lab-layout"><nav>{keys.map(key=><button className={shape===key?'active':''} aria-pressed={shape===key} onClick={()=>setShape(key)} key={key}><span className={`glass-icon glass-${key}`}/><strong>{c.glass[key][0]}</strong></button>)}</nav><article><span className="eyebrow">{c.pour}</span><div className="pour-control"><input aria-label={c.pour} type="range" min="60" max="120" step="30" value={pour} onChange={event=>setPour(Number(event.target.value))}/><strong>{pour} ml</strong></div><h3>{item[0]}</h3><p>{item[1]}</p><div className="object-metrics">{metricRows.map(({label,Icon},index)=><div key={label}><span><Icon/>{label}</span><i><b style={{width:`${metrics[index]}%`}}/></i></div>)}</div><aside><strong>{c.watch}</strong><p>{item[2]}</p></aside></article></div></section>
+  const [shape,setShape]=useState<GlassShape>('universal'),[pour,setPour]=useState(1)
+  const item=c.glass[shape],quality=glassQualities[locale][shape],labels=qualityLabels[locale]
+  const metricRows=[{label:labels.size,value:quality.size,Icon:GlassWater},{label:labels.headspace,value:quality.headspace,Icon:Droplets},{label:labels.pour,value:quality.pour[pour],Icon:Focus}]
+  return <section className="service-object-lab glassware-lab"><header><span className="eyebrow"><GlassWater/>{c.lab}</span><h2>{c.compare}</h2><p>{c.notScore}</p></header><div className="object-lab-layout"><nav>{keys.map(key=><button className={shape===key?'active':''} aria-pressed={shape===key} onClick={()=>setShape(key as GlassShape)} key={key}><span className={`glass-icon glass-${key}`}/><strong>{c.glass[key][0]}</strong></button>)}</nav><article><span className="eyebrow">{c.pour}</span><div className="pour-control" role="group" aria-label={c.pour}><div className="knowledge-choice pour-options"><div>{pourLevels[locale].map((label,index)=><button type="button" key={label} aria-pressed={pour===index} onClick={()=>setPour(index)}>{label}</button>)}</div></div><strong>{pourLevels[locale][pour]}</strong></div><h3>{item[0]}</h3><p>{item[1]}</p><div className="object-metrics">{metricRows.map(({label,value,Icon})=><div key={label}><span><Icon/>{label}</span><strong>{value}</strong></div>)}</div><aside><strong>{c.watch}</strong><p>{item[2]}</p></aside></article></div></section>
 }
 
 function ObjectLab({articleId,locale,keys}:{articleId:LabId;locale:Locale;keys:string[]}){
