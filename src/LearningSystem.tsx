@@ -36,12 +36,7 @@ function readState():LearningState{
 }
 function writeState(value:LearningState){repository.learning.save(value)}
 function normalizeSearch(value:string,locale:Locale){return value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase(locale)}
-function naturalMediaAlt(value:string){
-  // Curriculum media are shared across cards and lessons. Keep the alt text
-  // descriptive without exposing an internal editorial label such as
-  // “Evidence illustration”.
-  return value.replace(/^(?:Evidence illustration for|Evidenzillustration zu|Illustration d[’']indices pour|Ilustraci[oó]n de evidencias para)\s*/i,'').trim()
-}
+function naturalMediaAlt(value:string){return value.trim()}
 
 const archetypeIcon:Record<LearningArchetype,typeof Compass>={journey:Play,anatomy:Target,sensory:Sparkles,map:Compass,comparison:SlidersHorizontal,simulator:FlaskConical,diagnostic:Search,pairing:Wine,guided:Grape,'producer-case':Layers3}
 const kindSteps:LearningBlockKind[]=['annotated-plate','process-timeline','comparison-lab','map-lab','sensory-lab','simulator','decision-case']
@@ -144,6 +139,7 @@ export function PortableLearningBlock({module,block,compact=false,expanded=false
   return <section id={block.id} className={`portable-learning-block block-${block.kind} ${compact?'compact':''}`}>
     <header><div><span className="eyebrow">{block.eyebrow[locale]} · {block.duration} {c.min}</span><h2>{block.title[locale]}</h2></div></header>
     {block.media&&<figure className={`learning-plate focus-${block.media.focus??'center'}`}><img src={block.media.src} alt={naturalMediaAlt(block.media.alt[locale])} loading="lazy"/><span className="plate-index">{block.kind==='annotated-plate'?'01 · 02 · 03':block.kind==='map-lab'?`${c.country} → ${c.site}`:`${c.observe} → ${c.test}`}</span></figure>}
+    {block.reading&&<div className="learning-prose authored-reading">{block.reading[locale].map(paragraph=><p key={paragraph}>{paragraph}</p>)}</div>}
     {kindSteps.includes(block.kind)&&<InteractiveVisual block={block} locale={locale}/>} 
     {expanded&&kindSteps.includes(block.kind)&&<div className="learning-prose expanded-learning-prose">{block.body[locale].map(paragraph=><p key={paragraph}>{paragraph}</p>)}</div>}
     {!kindSteps.includes(block.kind)&&block.kind!=='knowledge-check'&&block.kind!=='sources'&&<div className="learning-prose">{block.body[locale].map(paragraph=><p key={paragraph}>{paragraph}</p>)}</div>}

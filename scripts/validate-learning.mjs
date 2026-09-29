@@ -5,6 +5,9 @@ const server=await createServer({server:{middlewareMode:true},appType:'custom',l
 try{
   const curriculum=await server.ssrLoadModule('/src/learningCurriculum.ts')
   const audit=curriculum.learningValidation()
+  const cellarDepth=await server.ssrLoadModule('/src/data/lesson-depth-cellar.ts')
+  const vineDepth=await server.ssrLoadModule('/src/data/lesson-depth-vine.ts')
+  const sensoryDepth=await server.ssrLoadModule('/src/data/lesson-depth-sensory.ts')
   const catalog=await server.ssrLoadModule('/src/data/catalog.ts')
   const guideExperience=await server.ssrLoadModule('/src/ReferenceGuideExperience.tsx')
   const practice=await server.ssrLoadModule('/src/data/learningCases.ts')
@@ -12,9 +15,28 @@ try{
   const guideIds=catalog.articles.map(article=>article.id)
   const practiceIds=Object.keys(practice.learningCases)
   const locales=['en','de','fr','es']
+  const issues=[...audit.issues]
+  const depthByModule={...vineDepth.vineLessonDepth,...cellarDepth.cellarLessonDepth,...sensoryDepth.sensoryLessonDepth}
+  const readingWords=value=>(value.match(/[\p{L}\p{N}]+(?:[-’'][\p{L}\p{N}]+)*/gu)??[]).length
+  const curriculumIds=new Set(curriculum.learningModules.map(module=>module.id))
+  for(const module of curriculum.learningModules){
+    const depth=depthByModule[module.id]
+    if(!depth)issues.push(`Lesson depth ${module.id} is missing`)
+    for(const locale of locales){
+      const paragraphs=depth?.[locale]??[]
+      if(paragraphs.length!==8)issues.push(`Lesson depth ${module.id} ${locale} has ${paragraphs.length} readings; expected 8`)
+      const authored=module.blocks.flatMap(block=>block.reading?.[locale]??[])
+      const unique=[...new Set(authored.map(paragraph=>paragraph.trim()).filter(Boolean))]
+      if(authored.length!==8)issues.push(`Lesson reading ${module.id} ${locale} has ${authored.length} paragraphs; expected 8`)
+      if(unique.length!==authored.length)issues.push(`Lesson reading ${module.id} ${locale} repeats authored paragraphs`)
+      const count=readingWords(unique.join(' '))
+      if(count<800)issues.push(`Lesson reading ${module.id} ${locale} has ${count} words; minimum 800`)
+      if(depth&&JSON.stringify(paragraphs)!==JSON.stringify(authored))issues.push(`Lesson reading ${module.id} ${locale} is not fully wired to module blocks`)
+    }
+  }
+  for(const id of Object.keys(depthByModule))if(!curriculumIds.has(id))issues.push(`Lesson depth ${id} has no curriculum module`)
   const standaloneLabIds=['glassware-anatomy','bottle-closures','bottle-anatomy']
   const interactiveGuideIds=new Set([...guideExperience.referenceGuideLabIds,...standaloneLabIds])
-  const issues=[...audit.issues]
   for(const id of guideIds){
     const guide=catalog.articles.find(article=>article.id===id)
     if(!interactiveGuideIds.has(id))issues.push(`Reference guide ${id} has no interactive lab`)
