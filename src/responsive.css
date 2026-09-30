@@ -154,3 +154,6 @@
 .grape-expression-lab .grape-expression-plate figcaption{padding:12px 4px 0;font-size:14px;line-height:1.5}
 .wine-evolution-lesson.is-interactive>figure img.wine-bottle-forms{display:block;width:100%;height:auto;object-fit:contain}
 .detail-hero-copy .region-hero-caption{display:inline-block;max-width:min(100%,40ch);margin-top:16px;padding:9px 12px;border-left:2px solid #e3bc76;border-radius:0 8px 8px 0;background:rgba(31,20,27,.68);color:#fff7eb;font-size:14px;line-height:1.45;letter-spacing:0;text-transform:none}
+
+/* The aroma detail panel is pale paper, so its labels need a dark accent. */
+.aroma-detail .eyebrow{color:var(--wine)!important}

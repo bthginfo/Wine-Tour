@@ -1033,7 +1033,7 @@ function GrapePage() {
         <div className="thread-cloud">
           {relatedRegions.map((r) => (
               <ThreadLink key={r.id} to={`/regions/${r.id}`} tone="moss">
-                {r.name}
+                {regionName(r,locale)}
               </ThreadLink>
             ))}
         </div>
@@ -1385,7 +1385,7 @@ function AromaPage() {
       <PageIntro eyebrow={copy.aromaEyebrow} title={copy.aromaTitle}>
         <p>{copy.aromaIntro}</p>
       </PageIntro>
-      <div className="lens-tabs" aria-label={ui.wineStyleLens}>
+      <div className="lens-tabs" role="group" aria-label={ui.wineStyleLens}>
         {(
           [
             "white",
@@ -1408,10 +1408,10 @@ function AromaPage() {
           </button>
         ))}
       </div>
-      <div className="aroma-tier-tabs" aria-label={ui.aromaOriginLayer}>
-        {(["primary","secondary","tertiary"] as const).map((item)=><button key={item} disabled={!aromas.some(a=>a.tier===item&&a.styles.includes(style))} className={tier===item?'active':''} onClick={()=>selectTier(item)}><span>{item==='primary'?'01':item==='secondary'?'02':'03'}</span><strong>{ui[item]}</strong><small>{item==='primary'?ui.primaryHelp:item==='secondary'?ui.secondaryHelp:ui.tertiaryHelp}</small></button>)}
+      <div className="aroma-tier-tabs" role="group" aria-label={ui.aromaOriginLayer}>
+        {(["primary","secondary","tertiary"] as const).map((item)=><button type="button" key={item} aria-pressed={tier===item} disabled={!aromas.some(a=>a.tier===item&&a.styles.includes(style))} className={tier===item?'active':''} onClick={()=>selectTier(item)}><span>{item==='primary'?'01':item==='secondary'?'02':'03'}</span><strong>{ui[item]}</strong><small>{item==='primary'?ui.primaryHelp:item==='secondary'?ui.secondaryHelp:ui.tertiaryHelp}</small></button>)}
       </div>
-      <div className="aroma-guidebar"><div className="aroma-breadcrumb"><span>{lensCopy.family}</span><button onClick={()=>setFamily(selected.family)}>{selectedContent.family}</button><ChevronRight/><span>{lensCopy.subfamily}</span><button>{selectedContent.subfamily}</button><ChevronRight/><span>{lensCopy.aroma}</span><strong>{selectedContent.name}</strong></div><p><Compass size={16}/>{lensCopy.help}</p><button className="aroma-reset" onClick={resetLens}><RotateCcw size={15}/>{lensCopy.reset}</button></div>
+      <div className="aroma-guidebar"><nav className="aroma-breadcrumb" aria-label={ui.aromaLens}><span className="aroma-breadcrumb-step"><span>{lensCopy.family}</span><strong>{selectedContent.family}</strong></span><ChevronRight aria-hidden="true"/><span className="aroma-breadcrumb-step"><span>{lensCopy.subfamily}</span><strong>{selectedContent.subfamily}</strong></span><ChevronRight aria-hidden="true"/><span className="aroma-breadcrumb-step"><span>{lensCopy.aroma}</span><strong aria-current="step">{selectedContent.name}</strong></span></nav><p><Compass size={16}/>{lensCopy.help}</p><button type="button" className="aroma-reset" onClick={resetLens}><RotateCcw size={15}/>{lensCopy.reset}</button></div>
       <section className="wheel-layout">
         <div className="wheel-wrap">
           <svg
