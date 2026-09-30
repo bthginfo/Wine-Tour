@@ -2,6 +2,8 @@ import type { Aroma, Article, Grape, Producer, Region, Wine, WineStyle } from '.
 import type { Locale } from './i18n'
 import {catalogTranslation} from './data/catalogExtensions'
 import grapeEvidence from './data/grapeEvidence.generated.json'
+import { guideDepth, guideDepthReadingMinutes } from './data/guide-depth'
+import { learningCases, learningCaseExperiments } from './data/learningCases'
 
 const translatedField=(translation:ReturnType<typeof catalogTranslation>,key:string)=>typeof translation?.fields[key]==='string'?translation.fields[key] as string:''
 
@@ -312,15 +314,7 @@ function translatedLongform(title:string,category:string,locale:Exclude<Locale,'
 export function articleContent(article:Article,locale:Locale){
   if(locale==='en')return article
   const translated=serviceLessonTitles[locale][article.id]??lessonTitles[locale][article.id]??[article.title,article.summary]
-  const generic={
-    de:{body:[`Beginne beim Mechanismus hinter „${translated[0]}“: Rohmaterial, Zeit, Temperatur und Sauerstoff erklären mehr als eine starre Regel.`, 'Vergleiche zwei Gläser mit nur einer veränderten Variable. Benenne zuerst Struktur und Intensität, danach Aromen und Qualität.', 'Übertrage die Beobachtung auf eine Region, Rebsorte oder einen Wein im Atlas und prüfe, wo die Erklärung an Grenzen stößt.'],objectives:['Den Mechanismus statt einer Regel erklären','Sensorische Folgen im Glas erkennen','Die Idee durch Vergleich wiederholbar machen'],example:'Vergleiche zwei Weine, die diese Entscheidung isolieren, während Rebsorte oder Herkunft möglichst gleich bleiben.',exercise:'Notiere zunächst nur Wahrnehmungen und formuliere erst danach eine Schlussfolgerung.'},
-    fr:{body:[`Commencez par le mécanisme derrière « ${translated[0]} » : matière, temps, température et oxygène expliquent mieux qu’une règle fixe.`, 'Comparez deux verres en ne changeant qu’une variable. Nommez d’abord structure et intensité, puis arômes et qualité.', 'Reliez l’observation à une région, un cépage ou un vin de l’atlas et cherchez les limites de l’explication.'],objectives:['Expliquer le mécanisme plutôt qu’une règle','Reconnaître les conséquences dans le verre','Rendre l’idée répétable par comparaison'],example:'Comparez deux vins qui isolent cette décision en gardant cépage ou origine aussi constants que possible.',exercise:'Notez d’abord les perceptions ; écrivez la conclusion seulement ensuite.'},
-    es:{body:[`Empieza por el mecanismo detrás de «${translated[0]}»: materia, tiempo, temperatura y oxígeno explican mejor que una regla fija.`, 'Compara dos copas cambiando una sola variable. Nombra primero estructura e intensidad, después aromas y calidad.', 'Conecta la observación con una región, variedad o vino del atlas y busca dónde termina la explicación.'],objectives:['Explicar el mecanismo y no una regla','Reconocer las consecuencias en la copa','Hacer la idea repetible mediante comparación'],example:'Compara dos vinos que aíslen esta decisión manteniendo variedad u origen lo más constantes posible.',exercise:'Anota primero percepciones y escribe la conclusión solo después.'},
-  }[locale]
-  const withoutAtlasMeta=(value:string)=>value
-    .replace(/\bim Atlas\b/gi,'in der Region')
-    .replace(/\bdans l[’']atlas\b/gi,'dans la région')
-    .replace(/\ben el atlas\b/gi,'en la región')
-    .replace(/\bde l[’']atlas\b/gi,'de la région')
-  return {...article,title:translated[0],summary:translated[1],eyebrow:lessonCategory[locale][article.eyebrow]??article.eyebrow,...generic,body:[...generic.body,...translatedLongform(translated[0],article.eyebrow,locale)].map(withoutAtlasMeta)}
+  const authoredBody=guideDepth[article.id]?.[locale]
+  const practice=learningCases[article.id],experiment=learningCaseExperiments[article.id]
+  return {...article,title:translated[0],summary:translated[1],eyebrow:lessonCategory[locale][article.eyebrow]??article.eyebrow,minutes:guideDepthReadingMinutes(article.id,locale),body:authoredBody??article.body,example:practice?.question[locale]??article.example,exercise:experiment?.[locale]??article.exercise}
 }

@@ -8,12 +8,14 @@ try {
   const catalog = await server.ssrLoadModule('/src/data/catalog.ts')
   const blends = await server.ssrLoadModule('/src/BlendConnections.tsx')
   const guideDepth = await server.ssrLoadModule('/src/GuideDepthBridge.tsx')
+  const authoredGuides = await server.ssrLoadModule('/src/data/guide-depth.ts')
   const errors = [...catalog.validateCatalog(), ...blends.validateClassicBlends()]
   if (blends.classicBlends.length < 9) errors.push('Fewer than 9 sourced classic blend profiles are public')
   const depthCoverage = new Set(guideDepth.guideDepthCoverage)
   const standaloneInteractiveGuides = new Set(['glassware-anatomy','bottle-closures','bottle-anatomy'])
   for (const article of catalog.articles) {
-    if (article.minutes < 20) errors.push(`Reference guide ${article.id} fell below 20 displayed minutes`)
+    const authoredMinutes = authoredGuides.guideDepthReadingMinutes(article.id, 'en')
+    if (!Number.isFinite(article.minutes) || article.minutes < 1 || article.minutes !== authoredMinutes) errors.push(`Reference guide ${article.id} has inconsistent authored reading time (${article.minutes}; expected ${authoredMinutes})`)
     if (article.id !== 'vine-to-glass' && !depthCoverage.has(article.id) && !standaloneInteractiveGuides.has(article.id)) errors.push(`Reference guide ${article.id} has no expanded masterclass bridge`)
   }
   for (const [kind, minimum] of Object.entries(minimums)) {

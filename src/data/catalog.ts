@@ -1,5 +1,6 @@
 import type { Aroma, Article, Grape, Producer, Region, Wine, WineStyle } from '../types'
 import { regionCoordinates } from './regionCoordinates'
+import { guideDepth, guideDepthReadingMinutes, guideDepthWordCount, guideDepthIds, validateGuideDepth } from './guide-depth'
 
 export const slugify = (value: string) => value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
 
@@ -1236,23 +1237,19 @@ export const articles: Article[] = [
   ['oxygen-and-age','Oxygen from cellar to bottle','Cellar',8,'Trace when oxygen helps fermentation and maturation, and when it accelerates decline.',['Oxygen can support yeast early in fermentation and participates in reactions during maturation. Vessel size, material, ullage and handling change the rate and timing of exposure.','After bottling, dissolved oxygen and closure transmission influence how quickly aromas and colour evolve. More oxygen is not simply more complexity; the appropriate level depends on composition and intended life.','In the glass, air can reveal aroma and soften perception, but it cannot reverse oxidation or rebuild fruit that has faded.']],
 ].map(([id,title,eyebrow,minutes,summary,body],index)=>{
   const key=id as string
-  const fallback: Pick<Article,'objectives'|'example'|'exercise'|'relatedRegionIds'|'relatedGrapeIds'|'image'>={
-    objectives:['Understand the mechanism rather than memorising a rule','Connect the idea to aroma, structure and style','Use comparison to make the concept repeatable'],
-    example:'Compare two wines that isolate this decision while keeping variety or region as constant as possible.',
-    exercise:'Return to one glass and record the evidence you can perceive before writing a conclusion.',
-    relatedRegionIds:index%2?['mosel','marlborough']:['champagne','mendoza'], relatedGrapeIds:index%2?['riesling','sauvignon-blanc']:['chardonnay','pinot-noir'],
-    image:index%3===0?'terroir':index%3===1?'winemaking':'tasting',
-  }
+  const metadata=articleMeta[key]!
   const imageOverrides:Record<string,Article['image']>={'soil-water-roots':'soil','vintage-weather':'terroir','bottle-closures':'bottle','oxygen-and-age':'bottle','vine-year':'terroir'}
-  const longBody=[...(body as string[]),lessonFocus[key],...(lessonBackbone[eyebrow as string]??lessonBackbone.Foundations),...lessonUniversal].filter(Boolean)
-  const authoredMinutes=22
-  return {id:key,title:title as string,eyebrow:eyebrow as string,minutes:Math.max(minutes as number,authoredMinutes),summary:summary as string,body:longBody,...(articleMeta[key] ?? fallback),image:imageOverrides[key]??(articleMeta[key]?.image??fallback.image),sources:articleSourceMap[key]??[articleSources.oiv]}
+  const authoredBody=guideDepth[key]?.en ?? (body as string[])
+  return {id:key,title:title as string,eyebrow:eyebrow as string,minutes:guideDepthReadingMinutes(key,'en'),summary:summary as string,body:authoredBody,...metadata,image:imageOverrides[key]??metadata.image,sources:articleSourceMap[key]??[articleSources.oiv]}
 })
 
 export const counts = { regions:regions.length, grapes:grapes.length, producers:producers.length, wines:wines.length, aromas:aromas.length, articles:articles.length }
 
 export function validateCatalog() {
   const errors:string[]=[]; const ids={regions:new Set(regions.map(x=>x.id)),grapes:new Set(grapes.map(x=>x.id)),producers:new Set(producers.map(x=>x.id)),wines:new Set(wines.map(x=>x.id)),aromas:new Set(aromas.map(x=>x.id))}
+  const guideValidation=validateGuideDepth(articles.map(article=>article.id))
+  errors.push(...guideValidation.issues)
+  for(const id of guideDepthIds)if(!articles.some(article=>article.id===id))errors.push(`Guide depth has no article: ${id}`)
   const validSource=(value:string)=>{try{const url=new URL(value);return url.protocol==='https:'}catch{return false}}
   const duplicateIds=(label:string,values:string[])=>{const seen=new Set<string>();values.forEach(id=>{if(seen.has(id))errors.push(`Duplicate ${label} id: ${id}`);seen.add(id)})}
   duplicateIds('region',regions.map(item=>item.id));duplicateIds('grape',grapes.map(item=>item.id));duplicateIds('producer',producers.map(item=>item.id));duplicateIds('wine',wines.map(item=>item.id));duplicateIds('aroma',aromas.map(item=>item.id));duplicateIds('article',articles.map(item=>item.id))
@@ -1282,7 +1279,7 @@ export function validateCatalog() {
   const canonicalExclusions:Record<string,string[]>={medoc:['riesling','pinot-noir','chardonnay'],pauillac:['riesling','pinot-noir','chardonnay'],pomerol:['riesling','pinot-noir','chardonnay'],'cote-de-beaune':['riesling','cabernet-sauvignon','merlot','cabernet-franc']}
   Object.entries(canonicalExclusions).forEach(([regionId,excluded])=>{const region=regions.find(item=>item.id===regionId);excluded.filter(grapeId=>region?.grapeIds.includes(grapeId)).forEach(grapeId=>errors.push(`Implausible canonical grape link: ${regionId} · ${grapeId}`))})
   aromas.forEach(aroma=>{if(aroma.grapeIds.some(id=>!ids.grapes.has(id)))errors.push(`Broken aroma relationship: ${aroma.name}`)})
-  articles.forEach(article=>{if(article.relatedRegionIds.some(id=>!ids.regions.has(id))||article.relatedGrapeIds.some(id=>!ids.grapes.has(id)))errors.push(`Broken article relationship: ${article.title}`);if(article.sources.length===0||article.sources.some(source=>!validSource(source.url)))errors.push(`Invalid article source: ${article.title}`);if(article.body.join(' ').split(/\s+/).length<450)errors.push(`Article below long-form minimum: ${article.title}`)})
+  articles.forEach(article=>{if(article.relatedRegionIds.some(id=>!ids.regions.has(id))||article.relatedGrapeIds.some(id=>!ids.grapes.has(id)))errors.push(`Broken article relationship: ${article.title}`);if(article.sources.length===0||article.sources.some(source=>!validSource(source.url)))errors.push(`Invalid article source: ${article.title}`);if(guideDepthWordCount(article.id,'en')<800)errors.push(`Article below authored guide minimum: ${article.title}`)})
   if(regions.length<200||grapes.length<90||producers.length<200||wines.length<300)errors.push('Catalogue minimums are not met')
   return errors
 }

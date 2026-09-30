@@ -67,6 +67,7 @@ import {
   slugify,
   wines,
 } from "./data/catalog";
+import { guideReadingSections } from "./data/guideReadingHeadings";
 import { repository } from "./data/repository";
 import { localeRegistry, useLocale, usePageCopy, type Locale } from "./i18n";
 import { aromaContent, articleContent, countryLabel, geographicName, grapeContent, producerContent, regionContent, regionName, styleLabel, wineContent } from "./localizedContent";
@@ -1698,9 +1699,12 @@ function ArticlePage() {
       <figure className="lesson-hero guide-lesson-hero"><img src={illustration} alt={`${ui.illustrationFor} ${article.title}`}/></figure>
       <section className="lesson-objectives"><span className="eyebrow">{ui.byEnd}</span><h2>{ui.threeExplain}</h2><ol>{article.objectives.map((objective,index)=><li key={objective}><span>0{index+1}</span>{objective}</li>)}</ol></section>
       <div className="article-body">
-        {article.body.map((p, i) => (
-          <section key={p}><span>{String(i+1).padStart(2,'0')}</span><p>{p}</p></section>
-        ))}
+        <section className="article-reading" aria-label={article.title}>
+          {guideReadingSections(article.id,locale,article.body).map((readingSection,index)=><section className="article-reading-section" key={`${article.id}-section-${index}`} aria-labelledby={`${article.id}-section-heading-${index}`}>
+            {readingSection.heading&&<h2 id={`${article.id}-section-heading-${index}`}>{readingSection.heading}</h2>}
+            {readingSection.paragraphs.map((p,paragraphIndex)=><p key={`${article.id}-paragraph-${index}-${paragraphIndex}`}>{p}</p>)}
+          </section>)}
+        </section>
         <div className="lesson-lab"><div><span className="eyebrow">{ui.inTheGlass}</span><h3>{ui.concreteComparison}</h3><p>{article.example}</p></div><div><span className="eyebrow">{ui.tryYourself}</span><h3>{ui.fiveMinuteExercise}</h3><p>{article.exercise}</p></div></div>
         <h2>{copy.takeTable}</h2>
         <p>{ui.lessonPractice}</p>

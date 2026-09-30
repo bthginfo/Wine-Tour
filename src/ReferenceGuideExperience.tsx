@@ -1,13 +1,14 @@
 import {useState} from 'react'
 import {Check,Layers3,NotebookPen,RotateCcw} from 'lucide-react'
 import {repository} from './data/repository'
-import {learningCases,type LearningCase} from './data/learningCases'
+import {learningCases,learningCaseExperiments,type LearningCase} from './data/learningCases'
 import type {Locale} from './i18n'
 import type {Article,TastingJourney} from './types'
 import './study-practice.css'
 
 export const referenceGuideLabIds=[
   'vine-to-glass','taste-with-intention','sparkling-methods','red-white-rose','sweet-wine','fortified-wine','service','aroma-language','vine-year','terroir-layers','fermentation','maturation-vessels','lees-and-malolactic','labels-and-origin','food-pairing','wine-faults','climate-and-altitude','cellaring','sparkling-service','soil-water-roots','vintage-weather','sensory-calibration','appellation-maps','bottle-closures','oxygen-and-age',
+  'glassware-anatomy','bottle-anatomy',
 ]
 
 const studyCopy={
@@ -19,6 +20,7 @@ const studyCopy={
 
 const completedKey='vine-atlas.guide-progress'
 const noteKey=(articleId:string)=>`vine-atlas.guide-note:${articleId}`
+const experimentCopy={en:'Try it in the glass',de:'Im Glas ausprobieren',fr:'À vérifier dans le verre',es:'Pruébalo en la copa'} as const
 function safeRead<T>(key:string,fallback:T):T{
   if(typeof window==='undefined')return fallback
   try{const value=window.localStorage.getItem(key);return value?JSON.parse(value) as T:fallback}catch{return fallback}
@@ -93,6 +95,7 @@ export function ReferenceGuideExperience({article,locale}:{article:Article;local
           </div>
           <div className="study-practice-actions"><button type="submit" className="primary-button" disabled={selected===null}>{c.check}</button>{submitted&&selected!==practice.answer&&<button type="button" className="text-action" onClick={retry}><RotateCcw size={15}/>{c.retry}</button>}</div>
           {submitted&&selected!==null&&<div className={`study-practice-rationale ${selected===practice.answer?'is-correct':'is-wrong'}`} role="status" aria-live="polite"><strong>{selected===practice.answer?c.correct:c.wrong}</strong><span>{c.rationale}</span><p>{practice.explanation[locale]}</p></div>}
+          {submitted&&learningCaseExperiments[article.id]&&<aside className="study-practice-experiment"><span>{experimentCopy[locale]}</span><p>{learningCaseExperiments[article.id][locale]}</p></aside>}
         </fieldset>
       </form>
       <aside className="study-practice-notes" aria-label={c.notes}><div><NotebookPen size={19}/><div><span className="eyebrow">{c.notes}</span><p>{c.placeholder}</p></div></div><textarea value={note} onChange={event=>{setNote(event.target.value);setNoteStatus('idle')}} onBlur={saveNote} placeholder={c.placeholder} aria-label={c.notes}/>{noteStatus==='saved'&&<small className="study-practice-storage" role="status">{c.noteSaved}</small>}{noteStatus==='failed'&&<small className="study-practice-storage is-error" role="alert">{c.noteFailed}</small>}<div className="study-practice-note-actions"><button type="button" className="secondary-button" onClick={openPicker}><Layers3 size={16}/>{tastingNotice==='added'?c.added:c.add}</button><button type="button" className={`primary-button ${completed?'done':''}`} onClick={finish} disabled={completed||!submitted||selected!==practice.answer} aria-describedby={!completed?`study-practice-hint-${article.id}`:undefined}><Check size={16}/>{completed?c.completed:c.complete}</button></div>{!completed&&<small className="study-practice-hint" id={`study-practice-hint-${article.id}`}>{c.completeHint}</small>}{tastingNotice==='failed'&&<small className="study-practice-storage is-error" role="alert">{c.saveFailed}</small>}{tastingNotice==='already'&&<small className="study-practice-storage" role="status">{c.already}</small>}</aside>

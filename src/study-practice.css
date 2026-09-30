@@ -24,6 +24,9 @@
 .study-practice-rationale>strong{font-size:14px}
 .study-practice-rationale>span{margin-top:8px;color:var(--wine);font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase}
 .study-practice-rationale p{margin:8px 0 0;font-size:14px;line-height:1.65}
+.study-practice-experiment{margin-top:14px;padding:16px 18px;border:1px solid #b8a797;border-radius:4px 14px 14px 14px;background:#f8f1e8;color:var(--ink)}
+.study-practice-experiment>span{display:block;color:var(--wine);font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase}
+.study-practice-experiment p{margin:8px 0 0;font-size:14px;line-height:1.65}
 .study-practice-notes{display:flex;flex-direction:column;align-items:stretch}
 .study-practice-notes>div:first-child{display:flex;gap:11px;align-items:flex-start}
 .study-practice-notes>div:first-child>svg{flex:none;color:var(--wine)}
