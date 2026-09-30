@@ -69,6 +69,7 @@ import {
 } from "./data/catalog";
 import { guideReadingSections } from "./data/guideReadingHeadings";
 import "./generated-knowledge.css";
+import "./region-photo-credit.css";
 import { repository } from "./data/repository";
 import { localeRegistry, useLocale, usePageCopy, type Locale } from "./i18n";
 import { aromaContent, articleContent, countryLabel, geographicName, grapeContent, producerContent, producerName, regionContent, regionName, styleLabel, wineContent, wineName } from "./localizedContent";
@@ -88,6 +89,7 @@ import soilAtlas from "./assets/vineyard-soil-atlas.jpg";
 import bottleForms from "./assets/wine-bottle-forms.jpg";
 import vineSeasonStudy from "./assets/vine-season-study.jpg";
 import { regionMediaFor } from "./regionMedia";
+import { RegionPhotoCredit } from "./RegionPhotoCredit";
 import { AtlasCommercialPlacements, BusinessAdminPanel, EventDetail, EventsMarketplace, FeaturedBusinessHome, HostProfile, PartnerProfilePage, ProducerBusinessLayer, StudioEvents, StudioHome, StudioOffers, StudioPlacements, StudioProfile, StudioSite, WineMerchantOffers } from "./BusinessPlatform";
 import { GrapeAmpelography, GrapeDeepDive, ProducerDecisionMap, RegionFieldGuide, WineEvolutionLesson } from "./LearningDepth";
 import { InlineLearningChapter, LearningHub, LearningLesson, learningUi } from "./LearningSystem";
@@ -446,21 +448,20 @@ function HomePage() {
           {featured.map((region, index) => {
             const hero=regionMediaFor(region.id).hero
             return (
-            <Link
-              to={`/regions/${region.id}`}
-              className="region-card"
-              key={region.id}
-            >
-              <div className={`region-image crop-${index}`}>
-                {hero&&<img src={hero.src} style={{objectPosition:hero.position}} alt="" />}
-                <span>{String(index + 1).padStart(2, "0")}</span>
-              </div>
-              <div>
-                <small>{countryLabel(region.country,locale)}</small>
-                <h3>{regionName(region,locale)}</h3>
-                <p>{regionContent(region,locale).climate}</p>
-              </div>
-            </Link>
+            <div className="region-card" key={region.id}>
+              <Link to={`/regions/${region.id}`} className="region-card-link">
+                <div className={`region-image crop-${index}`}>
+                  {hero&&<img src={hero.src} style={{objectPosition:hero.position}} alt="" />}
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                </div>
+                <div>
+                  <small>{countryLabel(region.country,locale)}</small>
+                  <h3>{regionName(region,locale)}</h3>
+                  <p>{regionContent(region,locale).climate}</p>
+                </div>
+              </Link>
+              {hero?.attribution&&<RegionPhotoCredit attribution={hero.attribution} locale={locale} className="region-card-credit" />}
+            </div>
           )})}
         </div>
       </section>
@@ -809,6 +810,7 @@ function RegionPage() {
           <h1>{regionName(region,locale)}</h1>
           <p>{opening.summary}</p>
           {hero&&!hero.decorativeFallback&&<small className="region-hero-caption">{hero.caption[locale]}</small>}
+          {hero?.attribution&&<RegionPhotoCredit attribution={hero.attribution} locale={locale} className="region-hero-attribution" />}
         </div>
         <div className="place-index">
           <span>{ui.placeIndex}</span>

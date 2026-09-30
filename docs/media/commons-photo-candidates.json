@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "researchedOn": "2026-09-30",
-  "sourcePolicy": "Wikimedia Commons file pages only; candidates have explicit CC licenses. No files downloaded. Recheck each live file page before publication and preserve attribution, license link, change notice, and ShareAlike terms where applicable.",
-  "reviewStatus": "candidate_not_finally_selected",
+  "sourcePolicy": "Wikimedia Commons file pages only. Every integrated photo was checked against its live Commons file page and visible preview; preserve attribution, license link, change notice, and ShareAlike terms where applicable.",
+  "reviewStatus": "verified_selected_and_integrated",
   "candidates": [
     {
       "regionId": "franken",
@@ -17,7 +17,10 @@
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
       "commercialCompatible": true,
       "visualEvidence": "Commons file caption and page categories identify vineyards by Hallburg/Volkach in Lower Franconia; page also marks it a Featured Picture.",
-      "creditAndReuse": "Credit Reinhold Möller; link the license and note changes. Adaptations must use the same or a compatible license."
+      "creditAndReuse": "Credit Reinhold Möller; link the license and note that the web JPEG was optimized and the layout may crop it. Adaptations must use the same or a compatible license.",
+      "integratedAsset": "src/assets/licensed-regions/franken-hallburg.jpg",
+      "integratedFrom": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Volkach_Hallburg_Weinberg_200734.jpg/1280px-Volkach_Hallburg_Weinberg_200734.jpg",
+      "visualCheck": "Page preview shows vineyard rows on both sides of a path beside a single tree; the Commons description and coordinates place the scene by Hallburg Castle in Lower Franconia."
     },
     {
       "regionId": "pfalz",
@@ -32,23 +35,27 @@
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
       "commercialCompatible": true,
       "visualEvidence": "Commons caption names Kallstadt/Pfalz; the file page includes camera coordinates in Kallstadt.",
-      "creditAndReuse": "Credit Kmtextor; link the license and note changes. Adaptations must use the same or a compatible license."
+      "creditAndReuse": "Credit Kmtextor; link the license and note that the web JPEG was optimized and the layout may crop it. Adaptations must use the same or a compatible license.",
+      "integratedAsset": "src/assets/licensed-regions/pfalz-kallstadt.jpg",
+      "integratedFrom": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Vineyard_Kallstadt.jpg/1280px-Vineyard_Kallstadt.jpg",
+      "visualCheck": "Page preview clearly shows vine rows at Kallstadt; the Commons file caption and geotag identify Kallstadt in the Palatinate."
     },
     {
       "regionId": "patagonia",
       "region": "Río Negro, Patagonia, Argentina",
-      "assetTitle": "Bodega Chacra — Río Negro, Patagonia, Argentina, 2004.jpg",
-      "caption": "Bodega Chacra winery in the Río Negro region of Patagonia.",
-      "photographerCredit": "Heusxh777",
-      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Bodega_Chacra_%E2%80%94_R%C3%ADo_Negro,_Patagonia,_Argentina,_2004.jpg",
-      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Bodega_Chacra_%E2%80%94_R%C3%ADo_Negro%2C_Patagonia%2C_Argentina%2C_2004.jpg",
-      "dimensions": { "width": 4289, "height": 2669 },
+      "assetTitle": "Виноградник в Патагонии.png",
+      "caption": "Vineyard in Patagonia, Argentina.",
+      "photographerCredit": "Денис Руденко",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:%D0%92%D0%B8%D0%BD%D0%BE%D0%B3%D1%80%D0%B0%D0%B4%D0%BD%D0%B8%D0%BA_%D0%B2_%D0%9F%D0%B0%D1%82%D0%B0%D0%B3%D0%BE%D0%BD%D0%B8%D0%B8.png",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7d/%D0%92%D0%B8%D0%BD%D0%BE%D0%B3%D1%80%D0%B0%D0%B4%D0%BD%D0%B8%D0%BA_%D0%B2_%D0%9F%D0%B0%D1%82%D0%B0%D0%B3%D0%BE%D0%BD%D0%B8%D0%B8.png",
+      "dimensions": { "width": 1403, "height": 871 },
       "license": "CC BY-SA 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
       "commercialCompatible": true,
-      "visualEvidence": "The Commons title and caption name the specific Bodega Chacra winery and Río Negro/Patagonia. The file summary also says 'Portrait B&W'; inspect the preview before final selection.",
-      "creditAndReuse": "Credit Heusxh777; link the license and note changes. Adaptations must use the same or a compatible license.",
-      "previewCheckRequired": true
+      "visualEvidence": "Commons description explicitly says 'Vineyard in Patagonia, Argentina'; the page preview shows rows of vines below mountains, and the page categorizes it under Landscapes of Patagonia and Vineyards in Argentina.",
+      "creditAndReuse": "Credit Денис Руденко; link the license and note that the PNG was re-encoded as an optimized JPEG and the layout may crop it. Adaptations must use the same or a compatible license.",
+      "integratedAsset": "src/assets/licensed-regions/patagonia-vineyard.jpg",
+      "integratedFrom": "https://upload.wikimedia.org/wikipedia/commons/7/7d/%D0%92%D0%B8%D0%BD%D0%BE%D0%B3%D1%80%D0%B0%D0%B4%D0%BD%D0%B8%D0%BA_%D0%B2_%D0%9F%D0%B0%D1%82%D0%B0%D0%B3%D0%BE%D0%BD%D0%B8%D0%B8.png"
     },
     {
       "regionId": "central-otago",
@@ -59,26 +66,40 @@
       "commonsFilePage": "https://commons.wikimedia.org/wiki/File:016_Central_Otago_wine_region_-_vineyard_in_Gibbston_Valley_in_South_Island,_New_Zealand.jpg",
       "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/99/016_Central_Otago_wine_region_-_vineyard_in_Gibbston_Valley_in_South_Island%2C_New_Zealand.jpg",
       "dimensions": { "width": 2160, "height": 1440 },
-      "license": "CC BY 3.0",
+      "license": "CC BY 3.0 Unported",
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
       "commercialCompatible": true,
       "visualEvidence": "Commons file description and category identify the vineyard as Gibbston Valley/Central Otago.",
-      "creditAndReuse": "Credit Marek Ślusarczyk; link the license and note changes."
+      "creditAndReuse": "Credit Marek Ślusarczyk; link the license and note that the web JPEG was optimized and the layout may crop it.",
+      "integratedAsset": "src/assets/licensed-regions/central-otago-gibbston.jpg",
+      "integratedFrom": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/016_Central_Otago_wine_region_-_vineyard_in_Gibbston_Valley_in_South_Island,_New_Zealand.jpg/1280px-016_Central_Otago_wine_region_-_vineyard_in_Gibbston_Valley_in_South_Island,_New_Zealand.jpg",
+      "visualCheck": "Page preview visibly shows cultivated vine rows on the Gibbston Valley slope; the Commons description names Central Otago and Gibbston Valley."
     },
     {
       "regionId": "swartland",
       "region": "Swartland, Western Cape, South Africa",
       "assetTitle": "Swartland Wine Route - West Coast, South Africa (3919461620).jpg",
-      "caption": "Image associated with the Swartland Wine Route on South Africa's West Coast.",
+      "caption": "Vineyard visit on the Swartland Wine Route, Western Cape.",
       "photographerCredit": "South African Tourism",
       "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Swartland_Wine_Route_-_West_Coast,_South_Africa_(3919461620).jpg",
       "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/14/Swartland_Wine_Route_-_West_Coast%2C_South_Africa_%283919461620%29.jpg",
       "dimensions": { "width": 3504, "height": 2336 },
-      "license": "CC BY 2.0",
+      "license": "CC BY 2.0 Generic",
       "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
       "commercialCompatible": true,
       "visualEvidence": "Commons title and description explicitly identify the Swartland Wine Route; the Commons page says FlickrReview confirmed CC BY 2.0.",
-      "creditAndReuse": "Credit South African Tourism; link the license and note changes."
+      "creditAndReuse": "Credit South African Tourism; link the license and note that the web JPEG was optimized and the layout may crop it.",
+      "integratedAsset": "src/assets/licensed-regions/swartland-wine-route.jpg",
+      "integratedFrom": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Swartland_Wine_Route_-_West_Coast,_South_Africa_%283919461620%29.jpg/1280px-Swartland_Wine_Route_-_West_Coast,_South_Africa_%283919461620%29.jpg",
+      "visualCheck": "Page preview shows visitors among vine rows in the Swartland Wine Route; the Commons description associates the image with the route and identifies the Western Cape."
+    }
+  ],
+  "rejectedCandidates": [
+    {
+      "regionId": "patagonia",
+      "assetTitle": "Bodega Chacra — Río Negro, Patagonia, Argentina, 2004.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Bodega_Chacra_%E2%80%94_R%C3%ADo_Negro,_Patagonia,_Argentina,_2004.jpg",
+      "reason": "Rejected after preview inspection: black-and-white image of a winery building, grass and a bare tree; no visible vineyard rows. The file page metadata says 'Portrait B&W'."
     }
   ]
 }

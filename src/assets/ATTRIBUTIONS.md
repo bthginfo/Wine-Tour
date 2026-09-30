@@ -1,6 +1,6 @@
 # Image attributions
 
-The image assets were created specifically for Vine Atlas with OpenAI image generation and contain no third-party photography:
+Most image assets were created specifically for Vine Atlas with OpenAI image generation. The third-party region photographs listed below retain their source attribution and license terms:
 
 - `learning-glassware-anatomy.jpg` — original glassware function plate generated 2026-08-10. Five accurate glass silhouettes, a headspace comparison and restrained aroma-flow paths; no text, logos, brands or copied proprietary diagram.
 - `learning-closure-anatomy.jpg` — original closure cutaway plate generated 2026-08-10. Natural cork, technical cork, screw cap, sparkling cork and glass stopper in technically plausible bottle-neck sections; no text, logos, brands or copied proprietary diagram.
@@ -93,3 +93,13 @@ The following web-optimised JPEGs were generated with the built-in OpenAI image-
 ## Nemea terroir portrait
 
 `region-portrait-nemea.jpg` was generated with the built-in OpenAI image-generation tool on 2026-08-10. It is an original, unlabelled field-guide landscape showing a high Mediterranean basin, limestone hills, vineyards, olive trees and dark Agiorgitiko-like bunches. The prompt explicitly excluded publisher styles, logos, typography, fantasy geography and copied artwork. The plate is paired with live OpenStreetMap cartography centred on the catalogue coordinate; all non-flagship regions likewise use real cartography rather than synthetic placeholder maps.
+
+## Licensed region photographs
+
+These five locally stored photographs were verified against their Wikimedia Commons file pages and previews on 2026-09-30. Each local JPEG is an optimized derivative; display layouts may crop the image. The original creator, source page and license are linked in the UI wherever the photograph appears. ShareAlike terms apply to the CC BY-SA derivatives.
+
+- `licensed-regions/franken-hallburg.jpg` — “Volkach Hallburg Weinberg 200734.jpg,” Reinhold Möller (Ermell), [source file page](https://commons.wikimedia.org/wiki/File:Volkach_Hallburg_Weinberg_200734.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Derived from the 1280-pixel Commons thumbnail and re-encoded as optimized JPEG; source aspect ratio retained.
+- `licensed-regions/pfalz-kallstadt.jpg` — “Vineyard Kallstadt.jpg,” Kmtextor, [source file page](https://commons.wikimedia.org/wiki/File:Vineyard_Kallstadt.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Derived from the 1280-pixel Commons thumbnail and re-encoded as optimized JPEG; source aspect ratio retained.
+- `licensed-regions/patagonia-vineyard.jpg` — “Виноградник в Патагонии.png,” Денис Руденко, [source file page](https://commons.wikimedia.org/wiki/File:%D0%92%D0%B8%D0%BD%D0%BE%D0%B3%D1%80%D0%B0%D0%B4%D0%BD%D0%B8%D0%BA_%D0%B2_%D0%9F%D0%B0%D1%82%D0%B0%D0%B3%D0%BE%D0%BD%D0%B8%D0%B8.png), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). PNG converted to optimized JPEG at the original 1403 × 871 dimensions; aspect ratio retained.
+- `licensed-regions/central-otago-gibbston.jpg` — “016 Central Otago wine region - vineyard in Gibbston Valley in South Island, New Zealand.jpg,” Marek Ślusarczyk (Tupungato), [source file page](https://commons.wikimedia.org/wiki/File:016_Central_Otago_wine_region_-_vineyard_in_Gibbston_Valley_in_South_Island,_New_Zealand.jpg), [CC BY 3.0 Unported](https://creativecommons.org/licenses/by/3.0/). Derived from the 1280-pixel Commons thumbnail and re-encoded as optimized JPEG; source aspect ratio retained.
+- `licensed-regions/swartland-wine-route.jpg` — “Swartland Wine Route - West Coast, South Africa (3919461620).jpg,” South African Tourism, [source file page](https://commons.wikimedia.org/wiki/File:Swartland_Wine_Route_-_West_Coast,_South_Africa_(3919461620).jpg), [CC BY 2.0 Generic](https://creativecommons.org/licenses/by/2.0/). Derived from the 1280-pixel Commons thumbnail and re-encoded as optimized JPEG; source aspect ratio retained.

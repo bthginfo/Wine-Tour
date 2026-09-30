@@ -16,6 +16,11 @@ import windsweptIsland from './assets/region-windswept-island.jpg'
 import continentalPlateau from './assets/region-continental-plateau.jpg'
 import bordeauxEstuary from './assets/region-bordeaux-estuary.jpg'
 import marlboroughWairau from './assets/region-marlborough-wairau.jpg'
+import frankenHallburg from './assets/licensed-regions/franken-hallburg.jpg'
+import pfalzKallstadt from './assets/licensed-regions/pfalz-kallstadt.jpg'
+import patagoniaVineyard from './assets/licensed-regions/patagonia-vineyard.jpg'
+import centralOtagoGibbston from './assets/licensed-regions/central-otago-gibbston.jpg'
+import swartlandWineRoute from './assets/licensed-regions/swartland-wine-route.jpg'
 import moselPortrait from './assets/region-portrait-mosel.jpg'
 import bordeauxPortrait from './assets/region-portrait-bordeaux.jpg'
 import mendozaPortrait from './assets/region-portrait-mendoza.jpg'
@@ -23,7 +28,8 @@ import marlboroughPortrait from './assets/region-portrait-marlborough.jpg'
 import nemeaPortrait from './assets/region-portrait-nemea.jpg'
 
 type LocalizedCopy=Record<Locale,string>
-type RegionScene={src:string;position:string;tone:'deep'|'soft'|'cool'|'warm';caption:LocalizedCopy}
+export type PhotoAttribution={author:string;filePage:string;license:string;licenseUrl:string;changes:LocalizedCopy}
+type RegionScene={src:string;position:string;tone:'deep'|'soft'|'cool'|'warm';caption:LocalizedCopy;attribution?:PhotoAttribution}
 type RegionHero=RegionScene&{decorativeFallback:boolean}
 type Portrait={src:string;alt:LocalizedCopy;caption:LocalizedCopy}
 
@@ -53,6 +59,23 @@ const sceneByRegion:Record<string,SceneKey>={
   mosel:'riverSlate',nahe:'terraces',rheingau:'terraces',bordeaux:'bordeauxEstuary',bourgogne:'terraces',champagne:'continentalPlateau','chianti-classico':'mediterranean',
   mendoza:'andes','jujuy-catamarca':'andes',etna:'volcanicAltitude',santorini:'windsweptIsland',madeira:'volcanicIsland','priorat-montsant':'ancientBush',
   marlborough:'marlboroughWairau','central-otago':'ancientBush','rias-baixas':'maritime',
+}
+
+const webImageChanges:LocalizedCopy={
+  en:'Optimized web JPEG; the layout may crop it.',
+  de:'Fürs Web optimiertes JPEG; die Ansicht kann es zuschneiden.',
+  fr:'JPEG optimisé pour le web ; le cadrage peut être recoupé à l’affichage.',
+  es:'JPEG optimizado para web; la vista puede recortarlo.',
+}
+
+// Explicitly reviewed Commons photographs. Specific generated region images
+// still win below, and all existing scene/fallback assignments remain intact.
+const verifiedRegionPhotos:Record<string,RegionScene>={
+  franken:{src:frankenHallburg,position:'50% center',tone:'warm',caption:{en:'Vineyards beside Hallburg Castle in Lower Franconia',de:'Weinberge bei Schloss Hallburg in Unterfranken',fr:'Vignobles près du château de Hallburg, en Basse-Franconie',es:'Viñedos junto al castillo de Hallburg, en Baja Franconia'},attribution:{author:'Reinhold Möller',filePage:'https://commons.wikimedia.org/wiki/File:Volkach_Hallburg_Weinberg_200734.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  pfalz:{src:pfalzKallstadt,position:'50% center',tone:'warm',caption:{en:'Vineyard in Kallstadt, Palatinate',de:'Weinberg in Kallstadt in der Pfalz',fr:'Vignoble à Kallstadt, dans le Palatinat',es:'Viñedo en Kallstadt, Palatinado'},attribution:{author:'Kmtextor',filePage:'https://commons.wikimedia.org/wiki/File:Vineyard_Kallstadt.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  patagonia:{src:patagoniaVineyard,position:'50% center',tone:'cool',caption:{en:'Vineyard landscape in Patagonia, Argentina',de:'Weinberglandschaft in Patagonien, Argentinien',fr:'Paysage viticole de Patagonie, en Argentine',es:'Paisaje de viñedos en la Patagonia argentina'},attribution:{author:'Денис Руденко',filePage:'https://commons.wikimedia.org/wiki/File:%D0%92%D0%B8%D0%BD%D0%BE%D0%B3%D1%80%D0%B0%D0%B4%D0%BD%D0%B8%D0%BA_%D0%B2_%D0%9F%D0%B0%D1%82%D0%B0%D0%B3%D0%BE%D0%BD%D0%B8%D0%B8.png',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  'central-otago':{src:centralOtagoGibbston,position:'50% center',tone:'cool',caption:{en:'Vineyard in Gibbston Valley, Central Otago',de:'Weinberg im Gibbston Valley in Central Otago',fr:'Vignoble de la vallée de Gibbston, à Central Otago',es:'Viñedo del valle de Gibbston, en Central Otago'},attribution:{author:'Marek Ślusarczyk',filePage:'https://commons.wikimedia.org/wiki/File:016_Central_Otago_wine_region_-_vineyard_in_Gibbston_Valley_in_South_Island,_New_Zealand.jpg',license:'CC BY 3.0 Unported',licenseUrl:'https://creativecommons.org/licenses/by/3.0/',changes:webImageChanges}},
+  swartland:{src:swartlandWineRoute,position:'50% center',tone:'warm',caption:{en:'A vineyard visit on the Swartland Wine Route',de:'Besuch eines Weinbergs an der Swartland Wine Route',fr:'Visite d’un vignoble sur la Swartland Wine Route',es:'Visita a un viñedo de la ruta vinícola de Swartland'},attribution:{author:'South African Tourism',filePage:'https://commons.wikimedia.org/wiki/File:Swartland_Wine_Route_-_West_Coast,_South_Africa_(3919461620).jpg',license:'CC BY 2.0 Generic',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
 }
 
 const portraits:Record<string,Portrait>={
@@ -105,14 +128,15 @@ export function regionMediaFor(regionId:string){
   const fallback=fallbackRankByRegion.get(regionId)??{theme:'universal' as const,rank:0}
   const pool=fallbackScenesByTheme[fallback.theme]
   const generated=generatedRegionImage(regionId)
+  const photo=verifiedRegionPhotos[regionId]
   const heroScene=generated?{
     src:generated.src,
     position:'50% center',
     tone:'warm' as const,
     caption:generated.caption??scenes.terraces.caption,
-  }:key?scenes[key]:(pool[fallback.rank%pool.length]??scenes.terraces)
+  }:photo?photo:key?scenes[key]:(pool[fallback.rank%pool.length]??scenes.terraces)
   return {
-    hero:{...heroScene,decorativeFallback:!key&&!generated} as RegionHero,
+    hero:{...heroScene,decorativeFallback:!key&&!generated&&!photo} as RegionHero,
     portrait:portraits[regionId],
   }
 }
