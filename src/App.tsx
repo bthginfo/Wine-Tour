@@ -70,7 +70,7 @@ import {
 import { guideReadingSections } from "./data/guideReadingHeadings";
 import { repository } from "./data/repository";
 import { localeRegistry, useLocale, usePageCopy, type Locale } from "./i18n";
-import { aromaContent, articleContent, countryLabel, geographicName, grapeContent, producerContent, regionContent, regionName, styleLabel, wineContent } from "./localizedContent";
+import { aromaContent, articleContent, countryLabel, geographicName, grapeContent, producerContent, producerName, regionContent, regionName, styleLabel, wineContent, wineName } from "./localizedContent";
 import { useUiCopy } from "./uiCopy";
 import { useAuth } from "./auth";
 import { CommunityRating } from "./CommunityRating";
@@ -1135,13 +1135,14 @@ function ProducerPage() {
   const region = regions.find((r) => r.id === producer.regionId)!;
   const producerWines = wines.filter((w) => w.producerId === producer.id);
   const content=producerContent(producer,region,locale)
+  const localizedProducerName=producerName(producer,locale)
   return (
     <article className="page detail-page">
       <BackLink to={`/regions/${region.id}`} label={regionName(region,locale)} />
       <section className="producer-hero">
         <div>
           <span className="eyebrow">{ui.producer} · {countryLabel(region.country,locale)}</span>
-          <h1>{producer.name}</h1>
+          <h1>{localizedProducerName}</h1>
           <p>{content.summary}</p>
           <ThreadLink to={`/regions/${region.id}`} tone="moss">
             {regionName(region,locale)}
@@ -1231,10 +1232,16 @@ function WinePage() {
   const region = regions.find((r) => r.id === wine.regionId)!;
   const wineGrapes = grapes.filter((g) => wine.grapeIds.includes(g.id));
   const wineAromas = aromas.filter((a) => wine.aromaIds.includes(a.id));
+  const localizedWineName=wineName(wine,locale)
+  const localizedProducerName=producerName(producer,locale)
+  const shareCopy={en:{copied:'Link copied',failed:'Could not share this link'},de:{copied:'Link kopiert',failed:'Link konnte nicht geteilt werden'},fr:{copied:'Lien copié',failed:'Impossible de partager le lien'},es:{copied:'Enlace copiado',failed:'No se pudo compartir el enlace'}}[locale]
+  const [shareNotice,setShareNotice]=useState('')
   const [added, setAdded] = useState(() =>
     repository.cellar.all().some((i) => i.wineId === wineId),
   );
   const content=wineContent(wine,producer,region,locale)
+  const processContent=[content.composition,content.vinification,content.maturation,content.drinkWindow].some(value=>value.trim().length>0)
+  const pairings=content.pairings.filter(item=>item.trim().length>0)
   function add() {
     if(!user){navigate(`/profile?returnTo=${encodeURIComponent(`/wines/${wineId}`)}`);return}
     const items = repository.cellar.all();
@@ -1250,15 +1257,24 @@ function WinePage() {
     }
     setAdded(true);
   }
+  async function shareWine(){
+    const data={title:localizedWineName,text:content.summary,url:window.location.href}
+    try{
+      if(typeof navigator.share==='function') await navigator.share(data)
+      else if(navigator.clipboard) await navigator.clipboard.writeText(window.location.href)
+      else throw new Error('share unavailable')
+      setShareNotice(shareCopy.copied)
+    }catch{setShareNotice(shareCopy.failed)}
+  }
   return (
     <article className="page detail-page wine-page">
-      <BackLink to={`/wineries/${producer.id}`} label={producer.name} />
+      <BackLink to={`/wineries/${producer.id}`} label={localizedProducerName} />
       <div className="entity-route">
         <Link to={`/regions/${region.id}`}>{regionName(region,locale)}</Link>
         <i />
-        <Link to={`/wineries/${producer.id}`}>{producer.name}</Link>
+        <Link to={`/wineries/${producer.id}`}>{localizedProducerName}</Link>
         <i />
-        <span>{wine.name}</span>
+        <span>{localizedWineName}</span>
       </div>
       <section className="wine-hero">
         <WineBottleArt wine={wine} producer={producer}/>
@@ -1266,8 +1282,8 @@ function WinePage() {
           <span className="eyebrow">
             {styleLabel(wine.style,locale)} {ui.wineType} · {countryLabel(region.country,locale)}
           </span>
-          <h1>{wine.name}</h1>
-          <p className="producer-name">{producer.name}</p>
+          <h1>{localizedWineName}</h1>
+          <p className="producer-name">{localizedProducerName}</p>
           <p className="lead">{content.summary}</p>
           <div className="wine-actions">
             <button className="primary-button" onClick={add}>
@@ -1283,10 +1299,11 @@ function WinePage() {
                 </>
               )}
             </button>
-            <button className="secondary-button">
+            <button className="secondary-button" onClick={shareWine}>
               <Share2 size={17} />
               {ui.share}
             </button>
+            {shareNotice&&<span className="share-notice" role="status">{shareNotice}</span>}
           </div>
         </div>
       </section>
@@ -1315,39 +1332,34 @@ function WinePage() {
           <div className="community-fact"><dt>{ui.community}</dt><dd><CommunityRating entityType="wine" entityId={wine.id}/></dd></div>
         </dl>
       </section>
-      <section className="wine-process">
-        <div className="process-image"><img src={winemakingJourney} alt={ui.winemakingAlt}/><span>{wine.composition}</span></div>
+      {processContent&&<section className="wine-process">
+        <div className="process-image"><img src={winemakingJourney} alt={ui.winemakingAlt}/>{content.composition&&<span>{content.composition}</span>}</div>
         <div className="process-copy">
           <span className="eyebrow">{ui.fromFruitBottle}</span>
           <h2>{ui.howStyleBuilt}</h2>
           <ol>
-            <li><span>01</span><div><h3>{ui.composition}</h3><p>{wine.composition}</p></div></li>
-            <li><span>02</span><div><h3>{ui.vinification}</h3><p>{content.vinification}</p></div></li>
-            <li><span>03</span><div><h3>{ui.maturation}</h3><p>{content.maturation}</p></div></li>
-            <li><span>04</span><div><h3>{ui.whenOpen}</h3><p>{content.drinkWindow}</p></div></li>
+            {content.composition&&<li><span>01</span><div><h3>{ui.composition}</h3><p>{content.composition}</p></div></li>}
+            {content.vinification&&<li><span>02</span><div><h3>{ui.vinification}</h3><p>{content.vinification}</p></div></li>}
+            {content.maturation&&<li><span>03</span><div><h3>{ui.maturation}</h3><p>{content.maturation}</p></div></li>}
+            {content.drinkWindow&&<li><span>04</span><div><h3>{ui.whenOpen}</h3><p>{content.drinkWindow}</p></div></li>}
           </ol>
         </div>
-      </section>
+      </section>}
       <WineEvolutionLesson wine={wine} locale={locale}/>
-      <section className="pairing-strip"><span className="eyebrow">{ui.atTable}</span><h2>{ui.pairEcho}</h2><div>{content.pairings.map(item=><span key={item}>{item}</span>)}</div></section>
+      {pairings.length>0&&<section className="pairing-strip"><span className="eyebrow">{ui.atTable}</span><h2>{ui.pairEcho}</h2><div>{pairings.map(item=><span key={item}>{item}</span>)}</div></section>}
       <section className="related-section">
         <span className="eyebrow">{ui.aromaProfile}</span>
         <h2>{ui.promptsStyle}</h2>
         <div className="aroma-profile">
-          {wineAromas.map((a, index) => (
+          {wineAromas.map((a) => (
             <Link to={`/aromas?selected=${a.id}`} key={a.id}>
               <div>
                 <span>{aromaContent(a,locale).family}</span>
                 <strong>{aromaContent(a,locale).name}</strong>
               </div>
-              <i style={{ width: `${55 + (index % 3) * 18}%` }} />
+              <span className="aroma-prompt-mark" aria-hidden="true" />
               <small>
-                {index % 3 === 0
-                  ? ui.subtle
-                  : index % 3 === 1
-                    ? ui.present
-                    : ui.pronounced}{" "}
-                · {aromaContent(a,locale).origin.split(".")[0]}
+                {aromaContent(a,locale).origin.split(".")[0]}
               </small>
             </Link>
           ))}

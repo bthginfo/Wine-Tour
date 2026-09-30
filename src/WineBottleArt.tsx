@@ -42,7 +42,7 @@ export function WineBottleArt({wine,producer,compact=false,imageUrl}:{wine:Wine;
     {!uploadedImage&&<figcaption className="bottle-label-art">
       <small>{compact?producerMark(producer?.name??'Vine Atlas'):producer?.name??'Vine Atlas'}</small>
       {!compact&&<strong>{wine.name}</strong>}
-      <em>{wine.vintage??'NV'}</em>
+      <em>{wine.vintage??'—'}</em>
     </figcaption>}
   </figure>
 }

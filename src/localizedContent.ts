@@ -1,11 +1,32 @@
 import type { Aroma, Article, Grape, Producer, Region, Wine, WineStyle } from './types'
 import type { Locale } from './i18n'
 import {catalogTranslation} from './data/catalogExtensions'
+import {authoredCatalogTranslation} from './data/authoredCatalogTypes'
 import grapeEvidence from './data/grapeEvidence.generated.json'
 import { guideDepth, guideDepthReadingMinutes } from './data/guide-depth'
 import { learningCases, learningCaseExperiments } from './data/learningCases'
 
-const translatedField=(translation:ReturnType<typeof catalogTranslation>,key:string)=>typeof translation?.fields[key]==='string'?translation.fields[key] as string:''
+const translationFor=(recordType:string,id:string,locale:Locale)=>{
+  const admin=catalogTranslation(recordType,id,locale)
+  const authored=authoredCatalogTranslation(recordType,id,locale)
+  if(!admin)return authored
+  if(!authored)return admin
+  return {summary:admin.summary?.trim()?admin.summary:authored.summary,description:admin.description?.trim()?admin.description:authored.description,fields:{...authored.fields,...admin.fields}}
+}
+type ResolvedTranslation={summary:string;description:string;fields:Record<string,unknown>}
+const translatedField=(translation:ResolvedTranslation|undefined,key:string)=>typeof translation?.fields[key]==='string'?translation.fields[key] as string:''
+const applyTranslation=<T extends Record<string,unknown>>(content:T,translation:ResolvedTranslation|undefined):T=>{
+  if(!translation)return content
+  const next={...content}
+  const mutable=next as Record<string,unknown>
+  if(typeof translation.summary==='string'&&typeof mutable.summary==='string'&&Object.prototype.hasOwnProperty.call(translation,'summary'))mutable.summary=translation.summary
+  if(typeof translation.description==='string'&&'history' in next&&!Object.prototype.hasOwnProperty.call(translation.fields,'history')&&Object.prototype.hasOwnProperty.call(translation,'description')&&translation.description.trim())(next as Record<string,unknown>).history=translation.description
+  const aliases:Record<string,string>={viticulture:'vineyard',service:'serving',window:'drinkWindow'}
+  for(const [rawKey,value] of Object.entries(translation.fields)){const key=aliases[rawKey]??rawKey;if(typeof value==='string'&&key in next)mutable[key]=value
+  else if(Array.isArray(value)&&value.every(item=>typeof item==='string')&&key in next)mutable[key]=value.filter(item=>item.trim())
+  }
+  return next
+}
 
 const countryNames: Record<Locale,Record<string,string>> = {
   en:{},
@@ -47,11 +68,26 @@ export function regionName(region:Region|string,locale:Locale){
   const name=typeof region==='string'?region:region.name
   if(locale==='en')return name
   if(typeof region!=='string'){
-    const translation=catalogTranslation('region',region.id,locale)
+    const translation=translationFor('region',region.id,locale)
     const translated=translatedField(translation,'name')
     if(translated)return translated
   }
   return regionNames[locale][name]??geographicName(name,locale)
+}
+
+export function grapeName(grape:Pick<Grape,'id'|'name'>,locale:Locale){
+  if(locale==='en')return grape.name
+  return translatedField(translationFor('grape',grape.id,locale),'name')||grape.name
+}
+
+export function producerName(producer:Pick<Producer,'id'|'name'>,locale:Locale){
+  if(locale==='en')return producer.name
+  return translatedField(translationFor('producer',producer.id,locale),'name')||producer.name
+}
+
+export function wineName(wine:Pick<Wine,'id'|'name'>,locale:Locale){
+  if(locale==='en')return wine.name
+  return translatedField(translationFor('wine',wine.id,locale),'name')||wine.name
 }
 
 const originPhrases:Record<Exclude<Locale,'en'>,Record<string,string>>={
@@ -124,16 +160,17 @@ function cleanTextRecord<T extends Record<string,unknown>>(value:T):T{
 
 export function regionContent(region:Region,locale:Locale){
   const name=regionName(region,locale),country=countryLabel(region.country,locale),north=region.lat>=0
+  const regionTranslation=translationFor('region',region.id,locale)
   const latitude=`${Math.abs(region.lat).toFixed(1)}° ${north?'N':'S'}`
   if(!region.hasRegionalTerroirEvidence){
     const zones=region.subregions.slice(0,3).map(zone=>geographicName(zone,locale))
     const zoneText=zones.length?list(zones,locale):''
-    return cleanTextRecord({
+    return applyTranslation(cleanTextRecord({
       en:{summary:`${name} is a wine region in ${country}, centred at ${latitude}. Its connected record contains ${region.grapeIds.length} varieties, ${region.producerIds.length} producers and ${region.wineIds.length} wines.${zoneText?` Named places include ${zoneText}.`:''}`,climate:`${name} lies at ${latitude}; elevation, slope, exposure and water influence vary within the named origin.`,soil:`Ground conditions vary between sites in ${name}; a country-wide soil list is not used as a regional claim.`,history:`The regional record is organised through ${region.subregions.length||'its'} named places, ${region.grapeIds.length} linked varieties and ${region.producerIds.length} documented producers.`,growingSeason:`In the ${north?'Northern':'Southern'} Hemisphere, the timing of budbreak, flowering, véraison and harvest must be compared through local records and individual vintages.`,viticulture:`Growers in ${name} match variety, rootstock, canopy, crop load and harvest date to their individual sites.`,styles:[],pairings:[],keyFacts:[latitude,`${region.grapeIds.length} linked reference varieties`,`${region.producerIds.length} documented producers`]},
       de:{summary:`${name} ist eine Weinregion in ${country} mit einem Atlaszentrum auf ${latitude}. Verknüpft sind ${region.grapeIds.length} Rebsorten, ${region.producerIds.length} Weingüter und ${region.wineIds.length} Weine.${zoneText?` Zu den benannten Orten gehören ${zoneText}.`:''}`,climate:`${name} liegt auf ${latitude}; Höhe, Hang, Exposition und Wasserhaushalt unterscheiden sich innerhalb der benannten Herkunft.`,soil:`Die Standortböden innerhalb von ${name} variieren; eine pauschale Länderliste wird nicht als Regionsaussage ausgegeben.`,history:`Die Region wird über ${region.subregions.length||'ihre'} benannten Orte, ${region.grapeIds.length} verknüpfte Rebsorten und ${region.producerIds.length} dokumentierte Weingüter erschlossen.`,growingSeason:`Auf der ${north?'Nord':'Süd'}halbkugel müssen Austrieb, Blüte, Véraison und Lese anhand lokaler Aufzeichnungen und einzelner Jahrgänge verglichen werden.`,viticulture:`In ${name} stimmen Winzer Rebsorte, Unterlage, Laubwand, Ertrag und Lesezeit auf den jeweiligen Standort ab.`,styles:[],pairings:[],keyFacts:[latitude,`${region.grapeIds.length} verknüpfte Leitrebsorten`,`${region.producerIds.length} dokumentierte Weingüter`]},
       fr:{summary:`${name} est une région viticole de ${country}, centrée à ${latitude} dans l’atlas. Elle relie ${region.grapeIds.length} cépages, ${region.producerIds.length} domaines et ${region.wineIds.length} vins.${zoneText?` Les lieux nommés comprennent ${zoneText}.`:''}`,climate:`${name} se situe à ${latitude} ; altitude, pente, exposition et eau varient à l’intérieur de l’origine nommée.`,soil:`Les sols changent entre les sites de ${name} ; une liste nationale n’est pas présentée comme fait régional.`,history:`La région se lit à travers ${region.subregions.length||'ses'} lieux nommés, ${region.grapeIds.length} cépages reliés et ${region.producerIds.length} domaines documentés.`,growingSeason:`Dans l’hémisphère ${north?'nord':'sud'}, débourrement, floraison, véraison et vendange doivent être comparés à partir de relevés locaux et de millésimes précis.`,viticulture:`À ${name}, cépage, porte-greffe, feuillage, charge et vendange sont ajustés à chaque site.`,styles:[],pairings:[],keyFacts:[latitude,`${region.grapeIds.length} cépages repères liés`,`${region.producerIds.length} domaines documentés`]},
       es:{summary:`${name} es una región vitícola de ${country}, centrada en ${latitude} dentro del atlas. Vincula ${region.grapeIds.length} variedades, ${region.producerIds.length} bodegas y ${region.wineIds.length} vinos.${zoneText?` Los lugares nombrados incluyen ${zoneText}.`:''}`,climate:`${name} se sitúa a ${latitude}; altitud, pendiente, exposición y agua cambian dentro del origen nombrado.`,soil:`Los suelos varían entre los emplazamientos de ${name}; una lista nacional no se presenta como hecho regional.`,history:`La región se lee mediante ${region.subregions.length||'sus'} lugares nombrados, ${region.grapeIds.length} variedades enlazadas y ${region.producerIds.length} bodegas documentadas.`,growingSeason:`En el hemisferio ${north?'norte':'sur'}, brotación, floración, envero y vendimia deben compararse con registros locales y añadas concretas.`,viticulture:`En ${name}, variedad, portainjerto, vegetación, carga y vendimia se ajustan a cada sitio.`,styles:[],pairings:[],keyFacts:[latitude,`${region.grapeIds.length} variedades de referencia`,`${region.producerIds.length} bodegas documentadas`]},
-    }[locale])
+    }[locale]),regionTranslation)
   }
   const climate=list(extractTerms(region.climate,climateTerms,locale),locale)||({en:'site-specific conditions',de:'standortspezifische Bedingungen',fr:'des conditions propres au site',es:'condiciones propias del lugar'} as const)[locale]
   const soils=list(extractTerms(region.soil,soilTerms,locale),locale)||({en:'changing local soil layers',de:'wechselnde lokale Bodenschichten',fr:'des couches de sol locales variables',es:'capas de suelo locales variables'} as const)[locale]
@@ -147,10 +184,11 @@ export function regionContent(region:Region,locale:Locale){
     fr:{summary:`${name}, en ${country}, se lit à travers ${climate} à ${latitude}. ${mechanism}${zoneText?` Des lieux nommés comme ${zoneText} montrent comment ce cadre change d’un site à l’autre.`:''}`,climate:`Le signal régional est ${climate}. ${mechanism}`,soil:`Les principaux repères sont ${soils}. ${ground}`,history:`L’identité de ${name} repose sur ${region.subregions.length||'ses'} lieux nommés, ${region.grapeIds.length} cépages liés et les choix de ${region.producerIds.length} domaines documentés. Ces liens permettent de comparer pratique héritée et décisions actuelles de parcelle et de cave.`,growingSeason:`Dans l’hémisphère ${north?'nord':'sud'}, débourrement, floraison, véraison et vendange se succèdent sous ${climate}. Il faut demander non si l’année fut seulement chaude ou fraîche, mais quelle phase a changé et avec quel effet sur l’état du fruit, l’acidité et la date de récolte.`,viticulture:`À ${name}, cépage, porte-greffe, feuillage, charge et vendange sont ajustés à ${soils}. ${mechanism} ${ground}`,styles:['Vins secs à origine lisible','Fraîcheur et texture comparées par site','Styles traditionnels de la région'],pairings:['Légumes de saison','Volaille rôtie','Fromages régionaux'],keyFacts:[latitude,`${region.grapeIds.length} cépages repères liés`,`${region.producerIds.length} domaines documentés`]},
     es:{summary:`${name}, en ${country}, se entiende mediante ${climate} a ${latitude}. ${mechanism}${zoneText?` Lugares como ${zoneText} muestran cómo cambia ese marco entre emplazamientos.`:''}`,climate:`La señal regional es ${climate}. ${mechanism}`,soil:`Los principales referentes son ${soils}. ${ground}`,history:`La identidad de ${name} se sostiene en ${region.subregions.length||'sus'} lugares nombrados, ${region.grapeIds.length} variedades enlazadas y las decisiones de ${region.producerIds.length} bodegas documentadas. Esos vínculos permiten comparar práctica heredada y decisiones actuales de parcela y bodega.`,growingSeason:`En el hemisferio ${north?'norte':'sur'}, brotación, floración, envero y vendimia transcurren bajo ${climate}. La pregunta útil no es solo si el año fue cálido o fresco, sino qué fase cambió y cómo afectó a la uva, la acidez y la fecha de cosecha.`,viticulture:`En ${name}, variedad, portainjerto, vegetación, carga y vendimia se ajustan a ${soils}. ${mechanism} ${ground}`,styles:['Vinos secos de origen legible','Frescura y textura comparadas por lugar','Estilos tradicionales de la región'],pairings:['Verduras de temporada','Aves asadas','Quesos regionales'],keyFacts:[latitude,`${region.grapeIds.length} variedades de referencia enlazadas`,`${region.producerIds.length} bodegas documentadas`]},
   }[locale]
-  return copy
+  return applyTranslation(copy,regionTranslation)
 }
 
 export function grapeContent(grape:Grape,locale:Locale){
+  const grapeTranslation=translationFor('grape',grape.id,locale)
   const atlasEvidence=grapeEvidence.find(item=>item.grapeId===grape.id)
   const evidenceFields=atlasEvidence?.[locale]
   const band=/early/i.test(grape.ripening)?'early':/late/i.test(grape.ripening)?'late':'middle'
@@ -205,11 +243,12 @@ export function grapeContent(grape:Grape,locale:Locale){
     fr:{summary:`${grape.name} est un cépage ${colour}, à acidité ${levels[structureLevel(grape.acidity)]}, tanins ${frTanninLevels[structureLevel(grape.tannin)]} et corps ${levels[structureLevel(grape.body)]}. Le site et la cave peuvent déplacer l’expression.${evidenceSummary?` ${evidenceSummary}`:''}`,origin:grapeOriginLabel(grape.origin,locale),ripening:bands[band],climateFit:grape.acidity>=4?'Des nuits fraîches et une saison assez longue peuvent préserver l’acidité pendant la maturation aromatique ; sur site chaud, ombre et vendange deviennent plus importantes.':'Une chaleur modérée peut mener la maturité ; sur site chaud, eau et ombre du feuillage protègent définition aromatique et texture.',viticulture:evidenceVineyard||'Lisez ensemble feuillage, charge, état du fruit et dégustation des baies ; les relevés du site valent mieux qu’une règle unique.',winemaking:translatedWinemaking,styles:translatedStyles,pairings:translatedPairings},
     es:{summary:`${grape.name} es una variedad ${colour}, con acidez ${levels[structureLevel(grape.acidity)]}, tanino ${esTanninLevels[structureLevel(grape.tannin)]} y cuerpo ${levels[structureLevel(grape.body)]}. El lugar y la bodega pueden mover la expresión.${evidenceSummary?` ${evidenceSummary}`:''}`,origin:grapeOriginLabel(grape.origin,locale),ripening:bands[band],climateFit:grape.acidity>=4?'Noches frescas y una estación suficientemente larga pueden conservar la acidez durante la maduración aromática; en lugares cálidos, sombra y vendimia cobran importancia.':'El calor moderado puede completar la madurez; en lugares cálidos, el agua y la sombra de la vegetación protegen definición aromática y textura.',viticulture:evidenceVineyard||'Lee juntas la vegetación, la carga, el estado de la fruta y la cata de bayas; los registros del lugar valen más que una regla única.',winemaking:translatedWinemaking,styles:translatedStyles,pairings:translatedPairings},
   }[locale]
-  return translatedGrapeText
+  return applyTranslation(translatedGrapeText,grapeTranslation)
 }
 
 export function producerContent(producer:Producer,region:Region,locale:Locale){
   if(locale==='en')return {summary:producer.summary,philosophy:producer.philosophy,vineyard:producer.vineyard,cellar:producer.cellar,speciality:producer.speciality}
+  const producerTranslation=translationFor('producer',producer.id,locale)
   region={...region,name:regionName(region,locale)}
   const rc=regionContent(region,locale),country=countryLabel(region.country,locale)
   const content={
@@ -217,7 +256,7 @@ export function producerContent(producer:Producer,region:Region,locale:Locale){
     fr:{summary:`${producer.name} travaille à ${region.name}, ${country}. Ce profil relie le domaine au climat, aux sols, aux cépages et aux styles régionaux.`,philosophy:`${producer.name} se lit à travers des choix : conduite des parcelles, vendange, extraction et contenants déterminent la manière dont ${region.name} entre dans le vin.`,vineyard:`Le travail répond à ${rc.climate.toLowerCase()} et à ${rc.soil.toLowerCase()}. Feuillage, rendement, sols et sélection parcellaire façonnent la récolte.`,cellar:'Fermentation et élevage sont des outils de style. Température, peaux, lies, oxygène et contenant laissent chacun une trace sensorielle.',speciality:`Une lecture régionale de ${region.name} et de ${region.grapeIds.length} cépages repères liés.`},
     es:{summary:`${producer.name} trabaja en ${region.name}, ${country}. El perfil conecta la bodega con clima, suelos, variedades y estilos regionales.`,philosophy:`${producer.name} se entiende mediante decisiones: cultivo de parcelas, vendimia, extracción y recipientes determinan cómo aparece ${region.name} en el vino.`,vineyard:`El trabajo responde a ${rc.climate.toLowerCase()} y a ${rc.soil.toLowerCase()}. Vegetación, rendimiento, suelo y selección de parcelas forman la cosecha.`,cellar:'Fermentación y crianza son herramientas de estilo. Temperatura, pieles, lías, oxígeno y recipiente dejan huellas sensoriales.',speciality:`Una lectura regional de ${region.name} y ${region.grapeIds.length} variedades de referencia enlazadas.`},
   }[locale]
-  return content
+  return applyTranslation(content,producerTranslation)
 }
 
 const styleLabels:Record<Locale,Record<WineStyle,string>>={
@@ -226,7 +265,8 @@ const styleLabels:Record<Locale,Record<WineStyle,string>>={
 }
 export function styleLabel(style:WineStyle,locale:Locale){return styleLabels[locale][style]}
 export function wineContent(wine:Wine,producer:Producer,region:Region,locale:Locale){
-  if(locale==='en')return {summary:wine.summary,serving:wine.serving,vinification:wine.vinification,maturation:wine.maturation,drinkWindow:wine.drinkWindow,pairings:wine.pairings}
+  if(locale==='en')return {summary:wine.summary,serving:wine.serving,composition:wine.composition,vinification:wine.vinification,maturation:wine.maturation,drinkWindow:wine.drinkWindow,pairings:wine.pairings}
+  const wineTranslation=translationFor('wine',wine.id,locale)
   region={...region,name:regionName(region,locale)}
   const style=styleLabel(wine.style,locale),grapes=wine.composition
   const red=wine.style==='red'||wine.style==='rose',bubbles=wine.style==='sparkling',sweet=wine.style==='sweet',fortified=wine.style==='fortified'
@@ -235,7 +275,7 @@ export function wineContent(wine:Wine,producer:Producer,region:Region,locale:Loc
     fr:{summary:`${wine.name} est un vin ${style} de ${producer.name}, à ${region.name}, composé de ${grapes}.`,serving:red?'Servir entre 14 et 18 °C et observer comment l’air ouvre la structure.':'Commencer entre 8 et 12 °C puis laisser le vin se réchauffer dans le verre.',vinification:bubbles?'Les bulles viennent d’une seconde fermentation ou du gaz conservé ; lies et pression modèlent la texture.':fortified?'L’alcool de raisin modifie fermentation et degré ; son ajout décide du sucre naturel restant.':sweet?'Le sucre est porté par l’acidité et peut venir de vendange tardive, botrytis, passerillage, gel ou fermentation arrêtée.':red?'Peaux et extraction construisent couleur, tanins et texture ; température et travail du chapeau règlent l’équilibre.':'Le jus est séparé tôt des peaux ; température, bourbes et lies façonnent arôme et texture.',maturation:'Cuve, béton, amphore, bois et bouteille gèrent différemment oxygène et texture. Le contenant est un outil de style, pas une hiérarchie.',drinkWindow:'La période de dégustation dépend du millésime, de la structure et du stockage. Fruit de jeunesse et évolution sont deux expériences légitimes.',pairings:red?['Viande rôtie ou braisée','Champignons','Fromage affiné']:sweet?['Fromage bleu','Dessert fruité peu sucré','Pâté salé']:['Poisson ou coquillages','Fromage frais','Légumes aux herbes']},
     es:{summary:`${wine.name} es un vino ${style} de ${producer.name}, de ${region.name}, elaborado con ${grapes}.`,serving:red?'Servir entre 14 y 18 °C y observar cómo el aire abre la estructura.':'Empezar entre 8 y 12 °C y dejar que el vino se temple en la copa.',vinification:bubbles?'Las burbujas proceden de una segunda fermentación o del gas conservado; lías y presión modelan la textura.':fortified?'El alcohol vínico cambia fermentación y grado; el momento decide cuánto azúcar natural queda.':sweet?'El dulzor se equilibra con acidez y puede venir de cosecha tardía, botrytis, secado, hielo o fermentación detenida.':red?'Pieles y extracción construyen color, tanino y textura; temperatura y trabajo del sombrero ajustan el equilibrio.':'El mosto se separa pronto de las pieles; temperatura, sólidos y lías forman aroma y textura.',maturation:'Acero, hormigón, ánfora, madera y botella gestionan oxígeno y textura de modo distinto. El recipiente es una herramienta, no una jerarquía.',drinkWindow:'La ventana depende de añada, estructura y conservación. Fruta joven y evolución en botella son experiencias distintas y válidas.',pairings:red?['Carne asada o guisada','Setas','Queso curado']:sweet?['Queso azul','Postre de fruta poco dulce','Paté salado']:['Pescado o marisco','Queso fresco','Verduras con hierbas']},
   }[locale]
-  return content
+  return applyTranslation({...content,composition:wine.composition},wineTranslation)
 }
 
 const aromaNames:Record<string,[string,string,string]> = {
