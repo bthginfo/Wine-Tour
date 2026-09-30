@@ -7,6 +7,9 @@ const root = fileURLToPath(new URL('..', import.meta.url))
 const read = (path) => readFile(join(root, path), 'utf8')
 const mediaDir = join(root, 'src/assets/generated-knowledge')
 const assetNames = new Set(await readdir(mediaDir))
+const licensedRegionDir = join(root, 'src/assets/licensed-regions')
+const licensedRegionNames = new Set(await readdir(licensedRegionDir))
+const regionMediaSource = await read('src/regionMedia.ts')
 const ampelography = JSON.parse(await read('src/data/ampelographyMedia.generated.json'))
 const plantGrapeIds = new Set(ampelography.map((record) => record.grapeId))
 
@@ -21,6 +24,22 @@ const regionAssets = {
   'rioja-alta': 'region-rioja-alta-v1.jpg',
   stellenbosch: 'region-stellenbosch-v1.jpg',
 }
+// Derive the photo coverage from the runtime's explicitly reviewed registry so
+// the generated report cannot quietly drift from the visible region mapping.
+const licensedAssetByImport = new Map(
+  [...regionMediaSource.matchAll(/import\s+(\w+)\s+from\s+'\.\/assets\/licensed-regions\/([^']+)'/g)]
+    .map((match) => [match[1], match[2]]),
+)
+const licensedRegionBlock = regionMediaSource.match(/const verifiedRegionPhotos:Record<string,RegionScene>=\{([\s\S]*?)\n\}/)?.[1] ?? ''
+const licensedRegionPhotos = Object.fromEntries(
+  [...licensedRegionBlock.matchAll(/^\s*(?:'([^']+)'|(\w+)):\{src:(\w+)/gm)]
+    .map((match) => {
+      const id = match[1] ?? match[2]
+      const filename = licensedAssetByImport.get(match[3])
+      return filename ? [id, filename] : null
+    })
+    .filter(Boolean),
+)
 const grapeAssets = {
   riesling: 'grape-riesling-aroma-v1.jpg',
   'cabernet-sauvignon': 'grape-cabernet-sauvignon-aroma-v1.jpg',
@@ -59,14 +78,17 @@ const records = {
   regions: regions.map((region) => {
     const filename = regionAssets[region.id]
     const generated = filename && generatedFile(filename)
+    const licensedFilename = licensedRegionPhotos[region.id]
+    const licensed = licensedFilename && licensedRegionNames.has(licensedFilename)
     const legacy = regionSceneIds.has(region.id)
     return {
       id: region.id,
       name: region.name,
       country: region.country,
-      status: generated ? 'generated-region-image' : filename ? 'generation-in-progress' : legacy ? 'curated-region-scene' : 'shared-decorative-fallback',
+      status: generated ? 'generated-region-image' : filename ? 'generation-in-progress' : licensed ? 'licensed-region-photograph' : legacy ? 'curated-region-scene' : 'shared-decorative-fallback',
       ...(filename ? { filename: generated ? filename : undefined } : {}),
-      ...(!filename && !legacy ? { promptTemplate: 'region', promptContext: { name: region.name, country: region.country } } : {}),
+      ...(licensed ? { licensedPhotograph: { filename: licensedFilename } } : {}),
+      ...(!filename && !licensed && !legacy ? { promptTemplate: 'region', promptContext: { name: region.name, country: region.country } } : {}),
     }
   }),
   grapes: grapes.map((grape) => {
@@ -133,6 +155,12 @@ const generatedAssets = [
   ...Object.entries(lessonAssets).map(([id, filename]) => ({ kind: 'lesson', id, filename, present: generatedFile(filename) })),
   ...Object.entries(guideAssets).map(([id, filename]) => ({ kind: 'guide', id, filename, present: generatedFile(filename), existingGuideImageRetained: true })),
 ]
+const licensedAssets = Object.entries(licensedRegionPhotos).map(([id, filename]) => ({
+  kind: 'region-photograph',
+  id,
+  filename,
+  present: licensedRegionNames.has(filename),
+}))
 
 const manifest = {
   schemaVersion: 1,
@@ -142,10 +170,12 @@ const manifest = {
   summary: Object.fromEntries(Object.entries(records).map(([kind, items]) => [kind, {
     total: items.length,
     generated: items.filter((item) => item.status.startsWith('generated-')).length,
+    licensedPhotographs: items.filter((item) => item.status === 'licensed-region-photograph').length,
     pending: items.filter((item) => item.status.startsWith('pending-') || item.status.startsWith('missing-') || item.status === 'shared-decorative-fallback' || item.status === 'missing-dedicated-lesson-image').length,
   }])),
   promptTemplates,
   generatedAssets,
+  licensedAssets,
   records,
 }
 
