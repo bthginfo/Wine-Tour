@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-30T14:26:26.185Z",
+  "generatedAt": "2026-09-30T15:40:02.109Z",
   "sourceOfTruth": "src/data/catalog.ts and the authored learning curriculum",
   "promptPolicy": "Prompt templates are stored once and expanded with promptContext per record; generation records and exact source prompts are in GENERATION-PROVENANCE.md, not the runtime bundle.",
   "summary": {
     "regions": {
       "total": 222,
       "generated": 5,
-      "licensedPhotographs": 153,
-      "pending": 61
+      "licensedPhotographs": 214,
+      "pending": 0
     },
     "grapes": {
       "total": 134,
@@ -1038,6 +1038,372 @@
       "id": "vaud-lavaux",
       "filename": "vaud-lavaux-vineyards.jpg",
       "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "sardegna",
+      "filename": "sardegna-spiaggia-grande.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "corsica",
+      "filename": "corsica-aghione-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "rogue-valley",
+      "filename": "rogue-valley-landscape.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "cote-chalonnaise",
+      "filename": "cote-chalonnaise-givry-vines.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "maconnais",
+      "filename": "maconnais-roche-solutre-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "madiran",
+      "filename": "madiran-castelnau-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "jurancon",
+      "filename": "jurancon-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "cote-des-bar",
+      "filename": "cote-des-bar-spoy-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "aconcagua",
+      "filename": "aconcagua-los-andes-valley.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "veneto",
+      "filename": "veneto-sandro-bruno-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "hemel-en-aarde",
+      "filename": "hemel-en-aarde-babylon-tower.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "annapolis-valley",
+      "filename": "annapolis-luckett-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "geneva",
+      "filename": "geneva-russin-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "ticino",
+      "filename": "ticino-bellinzona-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "three-lakes",
+      "filename": "three-lakes-twann-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "campanha-gaucha",
+      "filename": "campanha-alegrete-landscape.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "kent",
+      "filename": "kent-eccles-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "kras-istria",
+      "filename": "kras-nanos-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "vipava",
+      "filename": "vipava-valley-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "racha-lechkhumi",
+      "filename": "racha-caucasus-landscape.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "kartli",
+      "filename": "kartli-mtkvari-valley.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "ningxia",
+      "filename": "ningxia-helan-baisikou.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "thrace",
+      "filename": "thrace-tekirdag-kartaltepe.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "shandong",
+      "filename": "shandong-yantai-shorefront.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "cappadocia",
+      "filename": "cappadocia-rose-valley-panorama.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "commandaria-troodos",
+      "filename": "troodos-red-observatory.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "aegean",
+      "filename": "aegean-sirince-village.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "posavje",
+      "filename": "posavje-bizeljsko-landscape.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "imereti",
+      "filename": "imereti-kutaisi-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "mantinia",
+      "filename": "mantinia-mantineia-plateau.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "naoussa",
+      "filename": "naoussa-vermiomountain.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "rivera",
+      "filename": "rivera-lunarejo-landscape.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "maldonado",
+      "filename": "maldonado-las-flores-coast.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "gisborne",
+      "filename": "gisborne-poverty-bay.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "nelson",
+      "filename": "nelson-richmond-view.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "umpqua-valley",
+      "filename": "umpqua-roseburg-river.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "itata",
+      "filename": "itata-nipas-river.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "nandi-hills",
+      "filename": "nandi-hills-sunrise.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "somlo",
+      "filename": "somlo-hill-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "crete",
+      "filename": "crete-lake-kournas.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "batroun",
+      "filename": "batroun-bejdarfel-olive-orchards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "judean-hills",
+      "filename": "judean-hills-mata-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "podravje",
+      "filename": "podravje-hrastje-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "dalmatia-peljesac",
+      "filename": "dalmatia-peljesac-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "slavonia-kutjevo",
+      "filename": "slavonia-kutjevo-abbey.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "monticello",
+      "filename": "monticello-northeast-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "styria",
+      "filename": "styria-st-stefan-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "aragatsotn",
+      "filename": "aragatsotn-mount-aragats.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "jerez",
+      "filename": "jerez-solana-chica-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "marsala",
+      "filename": "marsala-salt-pans-sunset.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "dao",
+      "filename": "dao-viseu-wine-center.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "vienna",
+      "filename": "vienna-wildgrubgasse-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "burgenland",
+      "filename": "burgenland-moerbisch-neusiedlersee.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "toro",
+      "filename": "toro-duero-lookout.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "galilee-golan-heights",
+      "filename": "galilee-hula-golan-panorama.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "rioja-oriental",
+      "filename": "rioja-oriental-aldeanueva-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "bairrada",
+      "filename": "bairrada-curia-hotel-grounds.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "kremstal",
+      "filename": "kremstal-senftenberg-imbach-view.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "plesivica",
+      "filename": "plesivica-misty-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "lisboa-tejo",
+      "filename": "lisboa-tejo-santarem-view.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "vittoria",
+      "filename": "vittoria-teatro-comunale-colonna.jpg",
+      "present": true
     }
   ],
   "records": {
@@ -1142,22 +1508,18 @@
         "id": "cote-chalonnaise",
         "name": "Côte Chalonnaise",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Côte Chalonnaise",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "cote-chalonnaise-givry-vines.jpg"
         }
       },
       {
         "id": "maconnais",
         "name": "Mâconnais",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Mâconnais",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "maconnais-roche-solutre-vineyards.jpg"
         }
       },
       {
@@ -1198,11 +1560,9 @@
         "id": "cote-des-bar",
         "name": "Côte des Bar",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Côte des Bar",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "cote-des-bar-spoy-vineyard.jpg"
         }
       },
       {
@@ -1335,22 +1695,18 @@
         "id": "madiran",
         "name": "Madiran",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Madiran",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "madiran-castelnau-vineyards.jpg"
         }
       },
       {
         "id": "jurancon",
         "name": "Jurançon",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Jurançon",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "jurancon-vineyards.jpg"
         }
       },
       {
@@ -1366,11 +1722,9 @@
         "id": "corsica",
         "name": "Corsica",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Corsica",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "corsica-aghione-vineyards.jpg"
         }
       },
       {
@@ -1458,11 +1812,9 @@
         "id": "veneto",
         "name": "Veneto",
         "country": "Italy",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Veneto",
-          "country": "Italy"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "veneto-sandro-bruno-vineyards.jpg"
         }
       },
       {
@@ -1595,33 +1947,27 @@
         "id": "vittoria",
         "name": "Vittoria",
         "country": "Italy",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Vittoria",
-          "country": "Italy"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "vittoria-teatro-comunale-colonna.jpg"
         }
       },
       {
         "id": "marsala",
         "name": "Marsala",
         "country": "Italy",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Marsala",
-          "country": "Italy"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "marsala-salt-pans-sunset.jpg"
         }
       },
       {
         "id": "sardegna",
         "name": "Sardegna",
         "country": "Italy",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Sardegna",
-          "country": "Italy"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "sardegna-spiaggia-grande.jpg"
         }
       },
       {
@@ -1653,11 +1999,9 @@
         "id": "rioja-oriental",
         "name": "Rioja Oriental",
         "country": "Spain",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Rioja Oriental",
-          "country": "Spain"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "rioja-oriental-aldeanueva-vineyards.jpg"
         }
       },
       {
@@ -1700,11 +2044,9 @@
         "id": "jerez",
         "name": "Jerez",
         "country": "Spain",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Jerez",
-          "country": "Spain"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "jerez-solana-chica-vineyards.jpg"
         }
       },
       {
@@ -1729,11 +2071,9 @@
         "id": "toro",
         "name": "Toro",
         "country": "Spain",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Toro",
-          "country": "Spain"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "toro-duero-lookout.jpg"
         }
       },
       {
@@ -1785,22 +2125,18 @@
         "id": "dao",
         "name": "Dão",
         "country": "Portugal",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Dão",
-          "country": "Portugal"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "dao-viseu-wine-center.jpg"
         }
       },
       {
         "id": "bairrada",
         "name": "Bairrada",
         "country": "Portugal",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Bairrada",
-          "country": "Portugal"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "bairrada-curia-hotel-grounds.jpg"
         }
       },
       {
@@ -1831,11 +2167,9 @@
         "id": "lisboa-tejo",
         "name": "Lisboa & Tejo",
         "country": "Portugal",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Lisboa & Tejo",
-          "country": "Portugal"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "lisboa-tejo-santarem-view.jpg"
         }
       },
       {
@@ -1977,11 +2311,9 @@
         "id": "kremstal",
         "name": "Kremstal",
         "country": "Austria",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Kremstal",
-          "country": "Austria"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "kremstal-senftenberg-imbach-view.jpg"
         }
       },
       {
@@ -2006,33 +2338,27 @@
         "id": "vienna",
         "name": "Vienna",
         "country": "Austria",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Vienna",
-          "country": "Austria"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "vienna-wildgrubgasse-vineyard.jpg"
         }
       },
       {
         "id": "burgenland",
         "name": "Burgenland",
         "country": "Austria",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Burgenland",
-          "country": "Austria"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "burgenland-moerbisch-neusiedlersee.jpg"
         }
       },
       {
         "id": "styria",
         "name": "Styria",
         "country": "Austria",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Styria",
-          "country": "Austria"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "styria-st-stefan-vineyard.jpg"
         }
       },
       {
@@ -2066,33 +2392,27 @@
         "id": "geneva",
         "name": "Geneva",
         "country": "Switzerland",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Geneva",
-          "country": "Switzerland"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "geneva-russin-vineyard.jpg"
         }
       },
       {
         "id": "ticino",
         "name": "Ticino",
         "country": "Switzerland",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Ticino",
-          "country": "Switzerland"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "ticino-bellinzona-vineyards.jpg"
         }
       },
       {
         "id": "three-lakes",
         "name": "Three Lakes",
         "country": "Switzerland",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Three Lakes",
-          "country": "Switzerland"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "three-lakes-twann-vineyards.jpg"
         }
       },
       {
@@ -2126,11 +2446,9 @@
         "id": "somlo",
         "name": "Somló",
         "country": "Hungary",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Somló",
-          "country": "Hungary"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "somlo-hill-vineyards.jpg"
         }
       },
       {
@@ -2155,33 +2473,27 @@
         "id": "naoussa",
         "name": "Naoussa",
         "country": "Greece",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Naoussa",
-          "country": "Greece"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "naoussa-vermiomountain.jpg"
         }
       },
       {
         "id": "mantinia",
         "name": "Mantinia",
         "country": "Greece",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Mantinia",
-          "country": "Greece"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "mantinia-mantineia-plateau.jpg"
         }
       },
       {
         "id": "crete",
         "name": "Crete",
         "country": "Greece",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Crete",
-          "country": "Greece"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "crete-lake-kournas.jpg"
         }
       },
       {
@@ -2197,33 +2509,27 @@
         "id": "kartli",
         "name": "Kartli",
         "country": "Georgia",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Kartli",
-          "country": "Georgia"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "kartli-mtkvari-valley.jpg"
         }
       },
       {
         "id": "imereti",
         "name": "Imereti",
         "country": "Georgia",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Imereti",
-          "country": "Georgia"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "imereti-kutaisi-vineyard.jpg"
         }
       },
       {
         "id": "racha-lechkhumi",
         "name": "Racha-Lechkhumi",
         "country": "Georgia",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Racha-Lechkhumi",
-          "country": "Georgia"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "racha-caucasus-landscape.jpg"
         }
       },
       {
@@ -2239,44 +2545,36 @@
         "id": "vipava",
         "name": "Vipava",
         "country": "Slovenia",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Vipava",
-          "country": "Slovenia"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "vipava-valley-vineyards.jpg"
         }
       },
       {
         "id": "kras-istria",
         "name": "Kras & Istria",
         "country": "Slovenia",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Kras & Istria",
-          "country": "Slovenia"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "kras-nanos-vineyards.jpg"
         }
       },
       {
         "id": "podravje",
         "name": "Podravje",
         "country": "Slovenia",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Podravje",
-          "country": "Slovenia"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "podravje-hrastje-vineyard.jpg"
         }
       },
       {
         "id": "posavje",
         "name": "Posavje",
         "country": "Slovenia",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Posavje",
-          "country": "Slovenia"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "posavje-bizeljsko-landscape.jpg"
         }
       },
       {
@@ -2292,33 +2590,27 @@
         "id": "dalmatia-peljesac",
         "name": "Dalmatia & Pelješac",
         "country": "Croatia",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Dalmatia & Pelješac",
-          "country": "Croatia"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "dalmatia-peljesac-vineyard.jpg"
         }
       },
       {
         "id": "slavonia-kutjevo",
         "name": "Slavonia & Kutjevo",
         "country": "Croatia",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Slavonia & Kutjevo",
-          "country": "Croatia"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "slavonia-kutjevo-abbey.jpg"
         }
       },
       {
         "id": "plesivica",
         "name": "Plešivica",
         "country": "Croatia",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Plešivica",
-          "country": "Croatia"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "plesivica-misty-vineyards.jpg"
         }
       },
       {
@@ -2334,11 +2626,9 @@
         "id": "kent",
         "name": "Kent",
         "country": "England",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Kent",
-          "country": "England"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "kent-eccles-vineyard.jpg"
         }
       },
       {
@@ -2415,22 +2705,18 @@
         "id": "umpqua-valley",
         "name": "Umpqua Valley",
         "country": "United States",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Umpqua Valley",
-          "country": "United States"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "umpqua-roseburg-river.jpg"
         }
       },
       {
         "id": "rogue-valley",
         "name": "Rogue Valley",
         "country": "United States",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Rogue Valley",
-          "country": "United States"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "rogue-valley-landscape.jpg"
         }
       },
       {
@@ -2482,11 +2768,9 @@
         "id": "monticello",
         "name": "Monticello",
         "country": "United States",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Monticello",
-          "country": "United States"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "monticello-northeast-vineyard.jpg"
         }
       },
       {
@@ -2529,11 +2813,9 @@
         "id": "annapolis-valley",
         "name": "Annapolis Valley",
         "country": "Canada",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Annapolis Valley",
-          "country": "Canada"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "annapolis-luckett-vineyards.jpg"
         }
       },
       {
@@ -2636,11 +2918,9 @@
         "id": "aconcagua",
         "name": "Aconcagua",
         "country": "Chile",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Aconcagua",
-          "country": "Chile"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "aconcagua-los-andes-valley.jpg"
         }
       },
       {
@@ -2656,11 +2936,9 @@
         "id": "itata",
         "name": "Itata",
         "country": "Chile",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Itata",
-          "country": "Chile"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "itata-nipas-river.jpg"
         }
       },
       {
@@ -2685,22 +2963,18 @@
         "id": "maldonado",
         "name": "Maldonado",
         "country": "Uruguay",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Maldonado",
-          "country": "Uruguay"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "maldonado-las-flores-coast.jpg"
         }
       },
       {
         "id": "rivera",
         "name": "Rivera",
         "country": "Uruguay",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Rivera",
-          "country": "Uruguay"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "rivera-lunarejo-landscape.jpg"
         }
       },
       {
@@ -2716,11 +2990,9 @@
         "id": "campanha-gaucha",
         "name": "Campanha Gaúcha",
         "country": "Brazil",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Campanha Gaúcha",
-          "country": "Brazil"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "campanha-alegrete-landscape.jpg"
         }
       },
       {
@@ -2768,11 +3040,9 @@
         "id": "hemel-en-aarde",
         "name": "Hemel-en-Aarde",
         "country": "South Africa",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Hemel-en-Aarde",
-          "country": "South Africa"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "hemel-en-aarde-babylon-tower.jpg"
         }
       },
       {
@@ -2941,22 +3211,18 @@
         "id": "gisborne",
         "name": "Gisborne",
         "country": "New Zealand",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Gisborne",
-          "country": "New Zealand"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "gisborne-poverty-bay.jpg"
         }
       },
       {
         "id": "nelson",
         "name": "Nelson",
         "country": "New Zealand",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Nelson",
-          "country": "New Zealand"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "nelson-richmond-view.jpg"
         }
       },
       {
@@ -2972,33 +3238,27 @@
         "id": "batroun",
         "name": "Batroun",
         "country": "Lebanon",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Batroun",
-          "country": "Lebanon"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "batroun-bejdarfel-olive-orchards.jpg"
         }
       },
       {
         "id": "judean-hills",
         "name": "Judean Hills",
         "country": "Israel",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Judean Hills",
-          "country": "Israel"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "judean-hills-mata-vineyard.jpg"
         }
       },
       {
         "id": "galilee-golan-heights",
         "name": "Galilee & Golan Heights",
         "country": "Israel",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Galilee & Golan Heights",
-          "country": "Israel"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "galilee-hula-golan-panorama.jpg"
         }
       },
       {
@@ -3014,33 +3274,27 @@
         "id": "aragatsotn",
         "name": "Aragatsotn",
         "country": "Armenia",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Aragatsotn",
-          "country": "Armenia"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "aragatsotn-mount-aragats.jpg"
         }
       },
       {
         "id": "ningxia",
         "name": "Ningxia",
         "country": "China",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Ningxia",
-          "country": "China"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "ningxia-helan-baisikou.jpg"
         }
       },
       {
         "id": "shandong",
         "name": "Shandong",
         "country": "China",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Shandong",
-          "country": "China"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "shandong-yantai-shorefront.jpg"
         }
       },
       {
@@ -3083,44 +3337,36 @@
         "id": "thrace",
         "name": "Thrace",
         "country": "Turkey",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Thrace",
-          "country": "Turkey"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "thrace-tekirdag-kartaltepe.jpg"
         }
       },
       {
         "id": "aegean",
         "name": "Aegean",
         "country": "Turkey",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Aegean",
-          "country": "Turkey"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "aegean-sirince-village.jpg"
         }
       },
       {
         "id": "cappadocia",
         "name": "Cappadocia",
         "country": "Turkey",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Cappadocia",
-          "country": "Turkey"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "cappadocia-rose-valley-panorama.jpg"
         }
       },
       {
         "id": "commandaria-troodos",
         "name": "Commandaria & Troodos",
         "country": "Cyprus",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Commandaria & Troodos",
-          "country": "Cyprus"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "troodos-red-observatory.jpg"
         }
       },
       {
@@ -3136,11 +3382,9 @@
         "id": "nandi-hills",
         "name": "Nandi Hills",
         "country": "India",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Nandi Hills",
-          "country": "India"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "nandi-hills-sunrise.jpg"
         }
       }
     ],

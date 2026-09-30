@@ -169,6 +169,67 @@ import hessischeBergstrasseVineyard from './assets/licensed-regions/hessische-be
 import valaisVineyard from './assets/licensed-regions/valais-chamoson-vineyard.jpg'
 import graubundenVineyard from './assets/licensed-regions/graubunden-maienfeld-vineyard.jpg'
 import vaudLavauxVineyard from './assets/licensed-regions/vaud-lavaux-vineyards.jpg'
+import sardegnaSpiaggiaGrande from './assets/licensed-regions/sardegna-spiaggia-grande.jpg'
+import corsicaAghioneVineyards from './assets/licensed-regions/corsica-aghione-vineyards.jpg'
+import rogueValleyLandscape from './assets/licensed-regions/rogue-valley-landscape.jpg'
+import madiranCastelnauVineyards from './assets/licensed-regions/madiran-castelnau-vineyards.jpg'
+import coteChalonnaiseGivry from './assets/licensed-regions/cote-chalonnaise-givry-vines.jpg'
+import maconnaisRocheSolutre from './assets/licensed-regions/maconnais-roche-solutre-vineyards.jpg'
+import juranconVineyards from './assets/licensed-regions/jurancon-vineyards.jpg'
+import coteDesBarSpoyVineyard from './assets/licensed-regions/cote-des-bar-spoy-vineyard.jpg'
+import aconcaguaLosAndesValley from './assets/licensed-regions/aconcagua-los-andes-valley.jpg'
+import venetoSandroBrunoVineyards from './assets/licensed-regions/veneto-sandro-bruno-vineyards.jpg'
+import hemelEnAardeBabylonTower from './assets/licensed-regions/hemel-en-aarde-babylon-tower.jpg'
+import annapolisLuckettVineyards from './assets/licensed-regions/annapolis-luckett-vineyards.jpg'
+import genevaRussinVineyard from './assets/licensed-regions/geneva-russin-vineyard.jpg'
+import ticinoBellinzonaVineyards from './assets/licensed-regions/ticino-bellinzona-vineyards.jpg'
+import threeLakesTwannVineyards from './assets/licensed-regions/three-lakes-twann-vineyards.jpg'
+import campanhaAlegreteLandscape from './assets/licensed-regions/campanha-alegrete-landscape.jpg'
+import kentEcclesVineyard from './assets/licensed-regions/kent-eccles-vineyard.jpg'
+import krasNanosVineyards from './assets/licensed-regions/kras-nanos-vineyards.jpg'
+import vipavaValleyVineyards from './assets/licensed-regions/vipava-valley-vineyards.jpg'
+import rachaCaucasusLandscape from './assets/licensed-regions/racha-caucasus-landscape.jpg'
+import kartliMtkvariValley from './assets/licensed-regions/kartli-mtkvari-valley.jpg'
+import ningxiaHelanBaisikou from './assets/licensed-regions/ningxia-helan-baisikou.jpg'
+import thraceTekirdagPark from './assets/licensed-regions/thrace-tekirdag-kartaltepe.jpg'
+import shandongYantaiShorefront from './assets/licensed-regions/shandong-yantai-shorefront.jpg'
+import cappadociaRoseValley from './assets/licensed-regions/cappadocia-rose-valley-panorama.jpg'
+import troodosRedObservatory from './assets/licensed-regions/troodos-red-observatory.jpg'
+import aegeanSirinceVillage from './assets/licensed-regions/aegean-sirince-village.jpg'
+import posavjeBizeljskoLandscape from './assets/licensed-regions/posavje-bizeljsko-landscape.jpg'
+import imeretiKutaisiVineyard from './assets/licensed-regions/imereti-kutaisi-vineyard.jpg'
+import mantiniaMantineiaPlateau from './assets/licensed-regions/mantinia-mantineia-plateau.jpg'
+import naoussaVermioMountain from './assets/licensed-regions/naoussa-vermiomountain.jpg'
+import riveraLunarejoLandscape from './assets/licensed-regions/rivera-lunarejo-landscape.jpg'
+import maldonadoLasFloresCoast from './assets/licensed-regions/maldonado-las-flores-coast.jpg'
+import gisbornePovertyBay from './assets/licensed-regions/gisborne-poverty-bay.jpg'
+import nelsonRichmondView from './assets/licensed-regions/nelson-richmond-view.jpg'
+import umpquaRoseburgRiver from './assets/licensed-regions/umpqua-roseburg-river.jpg'
+import itataNipasRiver from './assets/licensed-regions/itata-nipas-river.jpg'
+import nandiHillsSunrise from './assets/licensed-regions/nandi-hills-sunrise.jpg'
+import somloHillVineyards from './assets/licensed-regions/somlo-hill-vineyards.jpg'
+import creteLakeKournas from './assets/licensed-regions/crete-lake-kournas.jpg'
+import batrounBejdarfelOliveOrchards from './assets/licensed-regions/batroun-bejdarfel-olive-orchards.jpg'
+import judeanHillsMataVineyard from './assets/licensed-regions/judean-hills-mata-vineyard.jpg'
+import podravjeHrastjeVineyard from './assets/licensed-regions/podravje-hrastje-vineyard.jpg'
+import dalmatiaPeljesacVineyard from './assets/licensed-regions/dalmatia-peljesac-vineyard.jpg'
+import slavoniaKutjevoAbbey from './assets/licensed-regions/slavonia-kutjevo-abbey.jpg'
+import monticelloNortheastVineyard from './assets/licensed-regions/monticello-northeast-vineyard.jpg'
+import styriaStStefanVineyard from './assets/licensed-regions/styria-st-stefan-vineyard.jpg'
+import aragatsotnMountAragats from './assets/licensed-regions/aragatsotn-mount-aragats.jpg'
+import jerezSolanaChicaVineyards from './assets/licensed-regions/jerez-solana-chica-vineyards.jpg'
+import marsalaSaltPansSunset from './assets/licensed-regions/marsala-salt-pans-sunset.jpg'
+import daoViseuWineCenter from './assets/licensed-regions/dao-viseu-wine-center.jpg'
+import viennaWildgrubgasseVineyard from './assets/licensed-regions/vienna-wildgrubgasse-vineyard.jpg'
+import burgenlandMoerbisch from './assets/licensed-regions/burgenland-moerbisch-neusiedlersee.jpg'
+import toroDueroLookout from './assets/licensed-regions/toro-duero-lookout.jpg'
+import galileeHulaGolanPanorama from './assets/licensed-regions/galilee-hula-golan-panorama.jpg'
+import riojaOrientalAldeanueva from './assets/licensed-regions/rioja-oriental-aldeanueva-vineyards.jpg'
+import bairradaCuriaHotel from './assets/licensed-regions/bairrada-curia-hotel-grounds.jpg'
+import kremstalSenftenberg from './assets/licensed-regions/kremstal-senftenberg-imbach-view.jpg'
+import plesivicaVineyards from './assets/licensed-regions/plesivica-misty-vineyards.jpg'
+import lisboaTejoSantarem from './assets/licensed-regions/lisboa-tejo-santarem-view.jpg'
+import vittoriaTeatroComunale from './assets/licensed-regions/vittoria-teatro-comunale-colonna.jpg'
 import moselPortrait from './assets/region-portrait-mosel.jpg'
 import bordeauxPortrait from './assets/region-portrait-bordeaux.jpg'
 import mendozaPortrait from './assets/region-portrait-mendoza.jpg'
@@ -176,7 +237,7 @@ import marlboroughPortrait from './assets/region-portrait-marlborough.jpg'
 import nemeaPortrait from './assets/region-portrait-nemea.jpg'
 
 type LocalizedCopy=Record<Locale,string>
-export type PhotoAttribution={author:string;filePage:string;license:string;licenseUrl:string;changes:LocalizedCopy}
+export type PhotoAttribution={author:string;authorUrl?:string;filePage:string;license:string;licenseUrl:string;changes:LocalizedCopy}
 type RegionScene={src:string;position:string;tone:'deep'|'soft'|'cool'|'warm';caption:LocalizedCopy;attribution?:PhotoAttribution}
 type RegionHero=RegionScene&{decorativeFallback:boolean}
 type Portrait={src:string;alt:LocalizedCopy;caption:LocalizedCopy}
@@ -668,6 +729,189 @@ const verifiedRegionPhotos:Record<string,RegionScene>={
   'vaud-lavaux':{src:vaudLavauxVineyard,
     position:'50% 70%',tone:'cool',caption:{en:'Lavaux vineyard terraces on Lake Geneva with the Swiss Alps beyond',de:'Weinterrassen von Lavaux am Genfersee vor den Schweizer Alpen',fr:'Terrasses viticoles de Lavaux au bord du Léman, avec les Alpes suisses en arrière-plan',es:'Terrazas de viñedo de Lavaux junto al lago Lemán, con los Alpes suizos al fondo'},
     attribution:{author:'Antp1479',filePage:'https://commons.wikimedia.org/wiki/File:Lavaux_vineyards_and_Swiss_Alps.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  sardegna:{src:sardegnaSpiaggiaGrande,
+    position:'50% 68%',tone:'warm',caption:{en:'Carignano del Sulcis vines growing in sandy soil on Sant’Antioco, Sardinia',de:'Carignano-del-Sulcis-Reben auf sandigem Boden bei Sant’Antioco auf Sardinien',fr:'Vignes de Carignano del Sulcis sur un sol sableux à Sant’Antioco, en Sardaigne',es:'Viñas de Carignano del Sulcis en suelo arenoso en Sant’Antioco, Cerdeña'},
+    attribution:{author:'La Casa di Sophia',filePage:'https://commons.wikimedia.org/wiki/File:Spiaggia_Grande_vineyard_on_a_sandy_soil.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  corsica:{src:corsicaAghioneVineyards,
+    position:'50% 58%',tone:'warm',caption:{en:'Vineyard rows at Aghione, Corsica',de:'Weinbergzeilen bei Aghione auf Korsika',fr:'Rangs de vigne à Aghione, en Corse',es:'Hileras de viñas en Aghione, Córcega'},
+    attribution:{author:'Mike Prince',filePage:'https://commons.wikimedia.org/wiki/File:Aghione_vignobles.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  'rogue-valley':{src:rogueValleyLandscape,
+    position:'50% 63%',tone:'cool',caption:{en:'Rogue River Valley near Central Point, with Table Rocks and the western Cascades',de:'Rogue River Valley bei Central Point mit Table Rocks und den westlichen Kaskaden',fr:'Vallée de la Rogue près de Central Point, avec les Table Rocks et les Cascades occidentales',es:'Valle del río Rogue cerca de Central Point, con Table Rocks y las Cascadas occidentales'},
+    attribution:{author:'Little Mountain 5',filePage:'https://commons.wikimedia.org/wiki/File:Rogue_Valley.jpg',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  'cote-chalonnaise':{src:coteChalonnaiseGivry,
+    position:'50% 62%',tone:'warm',caption:{en:'Vineyards at Givry in Burgundy’s Côte Chalonnaise',de:'Weinberge bei Givry an der Côte Chalonnaise im Burgund',fr:'Vignobles de Givry, sur la Côte chalonnaise en Bourgogne',es:'Viñedos de Givry, en la Côte Chalonnaise de Borgoña'},
+    attribution:{author:'Claude Duroy',filePage:'https://commons.wikimedia.org/wiki/File:Givry_%28S_et_L%29_Vignes.jpg',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  maconnais:{src:maconnaisRocheSolutre,
+    position:'50% 58%',tone:'warm',caption:{en:'Vineyards below the Rock of Solutré at Solutré-Pouilly, Mâconnais',de:'Weinberge unterhalb des Felsens von Solutré bei Solutré-Pouilly im Mâconnais',fr:'Vignobles au pied de la roche de Solutré, à Solutré-Pouilly dans le Mâconnais',es:'Viñedos al pie de la roca de Solutré, en Solutré-Pouilly, Mâconnais'},
+    attribution:{author:'Yelkrokoyade',filePage:'https://commons.wikimedia.org/wiki/File:Roche_Solutr%C3%A9_et_vignoble.JPG',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  madiran:{src:madiranCastelnauVineyards,
+    position:'50% 63%',tone:'warm',caption:{en:'Vineyard in the Madiran AOC near Castelnau-Rivière-Basse',de:'Weinberg in der Appellation Madiran bei Castelnau-Rivière-Basse',fr:'Vignoble de l’AOC Madiran près de Castelnau-Rivière-Basse',es:'Viñedo de la AOC Madiran cerca de Castelnau-Rivière-Basse'},
+    attribution:{author:'Marianne Casamance',filePage:'https://commons.wikimedia.org/wiki/File:Castelnau-Rivi%C3%A8re-Basse_Vignes_de_l%27AOC_madiran.JPG',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  jurancon:{src:juranconVineyards,
+    position:'50% 62%',tone:'warm',caption:{en:'Vineyards in Jurançon, in southwest France',de:'Weinberge im Jurançon im Südwesten Frankreichs',fr:'Vignobles du Jurançon, dans le sud-ouest de la France',es:'Viñedos de Jurançon, en el suroeste de Francia'},
+    attribution:{author:'Lapastoure Didier',filePage:'https://commons.wikimedia.org/wiki/File:Vineyards_in_Jurancon_in_southwest_France.jpg',license:'CC BY-SA 2.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/',changes:webImageChanges}},
+  'cote-des-bar':{src:coteDesBarSpoyVineyard,
+    position:'50% 62%',tone:'warm',caption:{en:'Vineyard at Spoy in the Côte des Bar, Champagne',de:'Weinberg in Spoy an der Côte des Bar in der Champagne',fr:'Vignoble de Spoy, dans la Côte des Bar en Champagne',es:'Viñedo de Spoy, en la Côte des Bar de Champaña'},
+    attribution:{author:'Pmau',filePage:'https://commons.wikimedia.org/wiki/File:Spoy_-_img_45824.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  aconcagua:{src:aconcaguaLosAndesValley,
+    position:'50% 61%',tone:'cool',caption:{en:'Río Aconcagua valley and Los Andes beneath Cerro Mercachas',de:'Tal des Río Aconcagua und Los Andes am Fuß des Cerro Mercachas',fr:'Vallée du Río Aconcagua et Los Andes au pied du Cerro Mercachas',es:'Valle del río Aconcagua y Los Andes bajo el Cerro Mercachas'},
+    attribution:{author:'WeHaKa',filePage:'https://commons.wikimedia.org/wiki/File:Los_Andes_y_Cerro_Mercachas.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  veneto:{src:venetoSandroBrunoVineyards,
+    position:'50% 69%',tone:'warm',caption:{en:'Vineyards in the Italian wine region of Veneto',de:'Weinberge in der italienischen Weinregion Venetien',fr:'Vignobles de la région viticole italienne de Vénétie',es:'Viñedos de la región vinícola italiana del Véneto'},
+    attribution:{author:'Fabio Ingrosso',filePage:'https://commons.wikimedia.org/wiki/File:Sandro_De_Bruno,_vigneti_in_Veneto3.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  'hemel-en-aarde':{src:hemelEnAardeBabylonTower,
+    position:'50% 64%',tone:'cool',caption:{en:'Hemel-en-Aarde Valley near Hermanus, with Babylon Tower in the background',de:'Hemel-en-Aarde-Tal bei Hermanus mit dem Babylon Tower im Hintergrund',fr:'Vallée de Hemel-en-Aarde près de Hermanus, avec la tour Babylon à l’arrière-plan',es:'Valle de Hemel-en-Aarde cerca de Hermanus, con Babylon Tower al fondo'},
+    attribution:{author:'Amada44',filePage:'https://commons.wikimedia.org/wiki/File:Hemel-en-aarde_Valley_-Babylon_Tower.jpg',license:'Public domain',licenseUrl:'https://commons.wikimedia.org/wiki/Template:PD-self',changes:webImageChanges}},
+  'annapolis-valley':{src:annapolisLuckettVineyards,
+    position:'50% 70%',tone:'cool',caption:{en:'Luckett Vineyards in Gaspereau Valley, Nova Scotia',de:'Weinberge von Luckett Vineyards im Gaspereau-Tal, Nova Scotia',fr:'Vignoble Luckett dans la vallée de Gaspereau, en Nouvelle-Écosse',es:'Viñedos de Luckett en el valle de Gaspereau, Nueva Escocia'},
+    attribution:{author:'gLangille',filePage:'https://commons.wikimedia.org/wiki/File:Luckett_Vineyards_Gaspereau_Valley_Nova_Scotia_Canada.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0',changes:webImageChanges}},
+  geneva:{src:genevaRussinVineyard,
+    position:'50% 45%',tone:'cool',caption:{en:'Vineyard at Russin railway station in Geneva',de:'Weinberg am Bahnhof Russin in Genf',fr:'Vignoble à la gare de Russin, à Genève',es:'Viñedo junto a la estación de Russin, en Ginebra'},
+    attribution:{author:'Guilhem Vellut',filePage:'https://commons.wikimedia.org/wiki/File:Vineyard_%40_Gare_de_Russin_%40_Geneva_(50403169353).jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  ticino:{src:ticinoBellinzonaVineyards,
+    position:'50% 58%',tone:'cool',caption:{en:'Vineyards on the slopes below Castelgrande in Bellinzona, Ticino',de:'Weinberge unterhalb von Castelgrande in Bellinzona, Tessin',fr:'Vignobles sous Castelgrande à Bellinzone, au Tessin',es:'Viñedos bajo Castelgrande, en Bellinzona, Tesino'},
+    attribution:{author:'Domenico Convertini',filePage:'https://commons.wikimedia.org/wiki/File:Vineyards_in_Bellinzona.jpg',license:'CC BY-SA 2.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/',changes:webImageChanges}},
+  'three-lakes':{src:threeLakesTwannVineyards,
+    position:'50% 62%',tone:'warm',caption:{en:'Autumn vineyards at Twann beside Lake Biel',de:'Herbstliche Weinberge bei Twann am Bielersee',fr:'Vignobles d’automne à Twann, au bord du lac de Bienne',es:'Viñedos otoñales en Twann, junto al lago de Bienne'},
+    attribution:{author:'Ligong Wang',filePage:'https://commons.wikimedia.org/wiki/File:Vineyards_in_Twann.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  'campanha-gaucha':{src:campanhaAlegreteLandscape,
+    position:'50% 55%',tone:'warm',caption:{en:'Countryside near Alegrete in the Campanha Gaúcha',de:'Landschaft bei Alegrete in der Campanha Gaúcha',fr:'Paysage près d’Alegrete dans la Campanha Gaúcha',es:'Paisaje cerca de Alegrete, en la Campanha Gaúcha'},
+    attribution:{author:'Kiko Lopes',filePage:'https://commons.wikimedia.org/wiki/File:Campanha_Ga%C3%BAcha_._Alegrete_(4921445782).jpg',license:'CC BY-SA 2.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/',changes:webImageChanges}},
+  kent:{src:kentEcclesVineyard,
+    position:'50% 58%',tone:'warm',caption:{en:'Vineyard between Eccles and Kit’s Coty in Kent',de:'Weinberg zwischen Eccles und Kit’s Coty in Kent',fr:'Vignoble entre Eccles et Kit’s Coty, dans le Kent',es:'Viñedo entre Eccles y Kit’s Coty, en Kent'},
+    attribution:{author:'Simon Burchell',filePage:'https://commons.wikimedia.org/wiki/File:Vineyard_between_Eccles_and_Kit%27s_Coty_01.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  'kras-istria':{src:krasNanosVineyards,
+    position:'50% 62%',tone:'cool',caption:{en:'Autumn vineyards in Slovenia’s Kras region, with Mount Nanos beyond',de:'Herbstliche Weinberge im slowenischen Karst mit dem Berg Nanos im Hintergrund',fr:'Vignobles d’automne dans le Kras slovène, avec le mont Nanos au loin',es:'Viñedos otoñales del Karst esloveno, con el monte Nanos al fondo'},
+    attribution:{author:'Ziga',filePage:'https://commons.wikimedia.org/wiki/File:Kras-Nanos-jesen.JPG',license:'Public domain',licenseUrl:'https://commons.wikimedia.org/wiki/Template:PD-self',changes:webImageChanges}},
+  vipava:{src:vipavaValleyVineyards,
+    position:'50% 62%',tone:'warm',caption:{en:'Autumn vineyard landscape in Slovenia’s Vipava Valley',de:'Herbstliche Weinberglandschaft im slowenischen Vipava-Tal',fr:'Paysage de vignobles d’automne dans la vallée slovène de Vipava',es:'Paisaje de viñedos otoñales en el valle esloveno de Vipava'},
+    attribution:{author:'yoyo61',filePage:'https://commons.wikimedia.org/wiki/File:Autumn-1758133.jpg',license:'CC0',licenseUrl:'https://creativecommons.org/publicdomain/zero/1.0/',changes:webImageChanges}},
+  'racha-lechkhumi':{src:rachaCaucasusLandscape,
+    position:'50% 50%',tone:'cool',caption:{en:'Mountain landscape over Racha and Lechkhumi, Georgia',de:'Gebirgslandschaft über Racha und Lechchumi in Georgien',fr:'Paysage montagneux de Racha et Lechkhumi, en Géorgie',es:'Paisaje montañoso de Racha y Lechkhumi, Georgia'},
+    attribution:{author:'Jelger Groeneveld',filePage:'https://commons.wikimedia.org/wiki/File:View_over_Racha_at_Nikortsminda.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  kartli:{src:kartliMtkvariValley,
+    position:'50% 58%',tone:'warm',caption:{en:'Mtkvari valley and the Trialeti Range near Gori, Shida Kartli',de:'Mtkvari-Tal und Trialeti-Gebirge bei Gori in Schida Kartli',fr:'Vallée du Mtkvari et massif de Trialeti près de Gori, en Chida Kartli',es:'Valle del Mtkvari y cordillera de Trialeti cerca de Gori, en Shida Kartli'},
+    attribution:{author:'Yuri Samoylov',filePage:'https://commons.wikimedia.org/wiki/File:2022-09-27_View_of_Mtkvari_valley_and_Trialeti_Range.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  ningxia:{src:ningxiaHelanBaisikou,
+    position:'50% 55%',tone:'cool',caption:{en:'Helan Mountains viewed from Baisikou near Yinchuan, Ningxia',de:'Helan-Gebirge vom Baisikou nahe Yinchuan in Ningxia',fr:'Monts Helan vus depuis Baisikou, près de Yinchuan au Ningxia',es:'Montañas Helan desde Baisikou, cerca de Yinchuan, Ningxia'},
+    attribution:{author:'BabelStone',filePage:'https://commons.wikimedia.org/wiki/File:Helan_Montains_at_Baisikou_A.jpg',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  thrace:{src:thraceTekirdagPark,
+    position:'50% 60%',tone:'cool',caption:{en:'Coastal hills near Tekirdağ in Turkish Thrace',de:'Küstenhügel bei Tekirdağ in der türkischen Region Thrakien',fr:'Collines côtières près de Tekirdağ, en Thrace turque',es:'Colinas costeras cerca de Tekirdağ, en la Tracia turca'},
+    attribution:{author:'Gamerlad88',filePage:'https://commons.wikimedia.org/wiki/File:Tekirda%C4%9F_Kartaltepe_Natural_Park.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  shandong:{src:shandongYantaiShorefront,
+    position:'50% 56%',tone:'cool',caption:{en:'Yantai shorefront on the coast of Shandong, China',de:'Uferpromenade von Yantai an der Küste von Shandong, China',fr:'Front de mer de Yantai, sur la côte du Shandong en Chine',es:'Paseo marítimo de Yantai, en la costa de Shandong, China'},
+    attribution:{author:'S. T. Fullerton',filePage:'https://commons.wikimedia.org/wiki/File:Yantai_Coastal_View.jpg',license:'Copyrighted free use',licenseUrl:'https://commons.wikimedia.org/wiki/Template:Copyrighted_free_use',changes:webImageChanges}},
+  cappadocia:{src:cappadociaRoseValley,
+    position:'50% 50%',tone:'warm',caption:{en:'Aktepe Hill above Rose Valley near Göreme, Cappadocia',de:'Aktepe-Hügel im Rosental nahe Göreme in Kappadokien',fr:'Colline d’Aktepe dans la vallée des Roses, près de Göreme en Cappadoce',es:'Colina Aktepe en el Valle Rosa, cerca de Göreme, Capadocia'},
+    attribution:{author:'Bjørn Christian Tørrissen',filePage:'https://commons.wikimedia.org/wiki/File:Cappadocia_Aktepe_Panorama.JPG',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  'commandaria-troodos':{src:troodosRedObservatory,
+    position:'50% 52%',tone:'cool',caption:{en:'Troodos Mountains from the Red Observation Platform, Cyprus',de:'Troodos-Gebirge von der Roten Aussichtsplattform auf Zypern',fr:'Monts Troodos depuis la plateforme d’observation rouge, à Chypre',es:'Montes Troodos desde el mirador Rojo, en Chipre'},
+    attribution:{author:'Diego Delso (delso.photo)',authorUrl:'https://www.delso.photo/',filePage:'https://commons.wikimedia.org/wiki/File:Vista_de_los_montes_de_Troodos_desde_el_observatorio_Rojo,_Chipre,_2021-12-13,_DD_01.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  aegean:{src:aegeanSirinceVillage,
+    position:'50% 61%',tone:'warm',caption:{en:'The village of Şirince in İzmir Province, Turkey’s Aegean Region',de:'Das Dorf Şirince in der türkischen Ägäisregion, Provinz İzmir',fr:'Le village de Şirince, dans la province d’İzmir en région égéenne de Turquie',es:'El pueblo de Şirince, en la provincia de İzmir, región del Egeo turco'},
+    attribution:{author:'Helen Owl',filePage:'https://commons.wikimedia.org/wiki/File:%C5%9Eirince,_visible_city.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  posavje:{src:posavjeBizeljskoLandscape,
+    position:'50% 64%',tone:'cool',caption:{en:'View over Bizeljsko from the Vitus Way in Slovenia’s Posavje wine region',de:'Blick vom Vitusweg über Bizeljsko in der slowenischen Weinregion Posavje',fr:'Vue sur Bizeljsko depuis le chemin de Vitus, dans la région viticole slovène de Posavje',es:'Vista de Bizeljsko desde la ruta de Vitus, en la región vinícola eslovena de Posavje'},
+    attribution:{author:'Janezdrilc',filePage:'https://commons.wikimedia.org/wiki/File:Bizeljsko_iz_Vidove_poti.jpg',license:'CC0',licenseUrl:'https://creativecommons.org/publicdomain/zero/1.0/deed.en',changes:webImageChanges}},
+  imereti:{src:imeretiKutaisiVineyard,
+    position:'50% 58%',tone:'warm',caption:{en:'A vineyard east of Kutaisi in Imereti, photographed in 1964',de:'Ein Weinberg östlich von Kutaissi in Imeretien, 1964 fotografiert',fr:'Vignoble à l’est de Koutaïssi, en Iméréthie, photographié en 1964',es:'Viñedo al este de Kutaisi, en Imereti, fotografiado en 1964'},
+    attribution:{author:'Jacques Dupakiers',filePage:'https://commons.wikimedia.org/wiki/File:25_-_Vineyard_east_of_Kutaisi.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  mantinia:{src:mantiniaMantineiaPlateau,
+    position:'50% 64%',tone:'cool',caption:{en:'Agricultural landscape on the Mantineia plateau near Milea, Arcadia, Greece',de:'Landwirtschaftliche Landschaft auf der Hochebene von Mantineia bei Milea, Arkadien',fr:'Paysage agricole sur le plateau de Mantinée, près de Milea, en Arcadie',es:'Paisaje agrícola en la meseta de Mantinea, cerca de Milea, Arcadia'},
+    attribution:{author:'ulrichstill',filePage:'https://commons.wikimedia.org/wiki/File:Mantinea_Arcadia_Peloponnese_Greece.jpg',license:'CC BY-SA 3.0 DE',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/de/deed.en',changes:webImageChanges}},
+  naoussa:{src:naoussaVermioMountain,
+    position:'50% 55%',tone:'cool',caption:{en:'Mount Vermio viewed from Kopanos in the Naoussa area of Greece',de:'Blick von Kopanos im Gebiet Naoussa auf den Vermio in Griechenland',fr:'Mont Vermio vu depuis Kopanos, dans la région de Naoussa en Grèce',es:'Monte Vermio visto desde Kopanos, en la zona de Naoussa, Grecia'},
+    attribution:{author:'Македонец',filePage:'https://commons.wikimedia.org/wiki/File:%D0%9A%D0%B0%D1%80%D0%B0%D0%BA%D0%B0%D0%BC%D0%B5%D0%BD_%D0%9F%D0%BB%D0%B0%D0%BD%D0%B8%D0%BD%D0%B0_(%D0%9D%D0%B5%D0%B3%D1%83%D1%88%D0%BA%D0%BE).jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  rivera:{src:riveraLunarejoLandscape,
+    position:'50% 62%',tone:'cool',caption:{en:'Landscape of Valle del Lunarejo in Rivera, Uruguay',de:'Landschaft im Lunarejo-Tal in Rivera, Uruguay',fr:'Paysage de la vallée du Lunarejo, à Rivera, en Uruguay',es:'Paisaje del valle del Lunarejo, en Rivera, Uruguay'},
+    attribution:{author:'Analía Mosqueira',filePage:'https://commons.wikimedia.org/wiki/File:Verde_por_naturaleza_en_Valle_del_Lunarejo,_Rivera.JPG',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  maldonado:{src:maldonadoLasFloresCoast,
+    position:'50% 60%',tone:'cool',caption:{en:'Coastal landscape near Las Flores, Maldonado, Uruguay',de:'Küstenlandschaft bei Las Flores, Maldonado, Uruguay',fr:'Paysage côtier près de Las Flores, dans le département de Maldonado, Uruguay',es:'Paisaje costero cerca de Las Flores, Maldonado, Uruguay'},
+    attribution:{author:'Arturettenberger',filePage:'https://commons.wikimedia.org/wiki/File:Las_Flores_Landscape_Maldonado_Uruguay.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  gisborne:{src:gisbornePovertyBay,
+    position:'50% 50%',tone:'cool',caption:{en:'Poverty Bay from the Kaiti Hill lookout in Gisborne, New Zealand',de:'Poverty Bay vom Aussichtspunkt auf Kaiti Hill in Gisborne, Neuseeland',fr:'Poverty Bay depuis le belvédère de Kaiti Hill à Gisborne, Nouvelle-Zélande',es:'Bahía Poverty desde el mirador de Kaiti Hill, en Gisborne, Nueva Zelanda'},
+    attribution:{author:'Pseudopanax',filePage:'https://commons.wikimedia.org/wiki/File:View_over_Poverty_Bay_from_Kaiti_Hill_lookout.jpg',license:'Public domain',licenseUrl:'https://commons.wikimedia.org/wiki/Template:PD-self',changes:webImageChanges}},
+  nelson:{src:nelsonRichmondView,
+    position:'50% 58%',tone:'cool',caption:{en:'Richmond and Nelson viewed from the southeast, New Zealand',de:'Richmond und Nelson aus südöstlicher Richtung, Neuseeland',fr:'Richmond et Nelson vus du sud-est, en Nouvelle-Zélande',es:'Richmond y Nelson vistos desde el sureste, Nueva Zelanda'},
+    attribution:{author:'Ingolfson',filePage:'https://commons.wikimedia.org/wiki/File:Richmond_And_Nelson_From_Southeast.jpg',license:'Public domain',licenseUrl:'https://commons.wikimedia.org/wiki/Template:PD-self',changes:webImageChanges}},
+  'umpqua-valley':{src:umpquaRoseburgRiver,
+    position:'50% 55%',tone:'cool',caption:{en:'South Umpqua River at Roseburg in Oregon’s Umpqua Valley',de:'South Umpqua River bei Roseburg im Umpqua Valley, Oregon',fr:'Rivière South Umpqua à Roseburg, dans la vallée de l’Umpqua en Oregon',es:'Río South Umpqua en Roseburg, en el valle de Umpqua, Oregón'},
+    attribution:{author:'Gary Halvorson, Oregon State Archives',filePage:'https://commons.wikimedia.org/wiki/File:South_Umpqua_River,_Roseburg_-_DPLA_-_cbed6372e39ece0b85f523f634c8922a.jpg',license:'CC BY 4.0',licenseUrl:'https://creativecommons.org/licenses/by/4.0/',changes:webImageChanges}},
+  itata:{src:itataNipasRiver,
+    position:'50% 58%',tone:'warm',caption:{en:'Ñipas and the Itata River in Chile’s Itata Province',de:'Ñipas und der Río Itata in Chiles Provinz Itata',fr:'Ñipas et la rivière Itata dans la province chilienne d’Itata',es:'Ñipas y el río Itata en la provincia chilena de Itata'},
+    attribution:{author:'Farisori',filePage:'https://commons.wikimedia.org/wiki/File:Nipas_y_rio_Itata.jpg',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  'nandi-hills':{src:nandiHillsSunrise,
+    position:'50% 58%',tone:'warm',caption:{en:'Sunrise above the clouds at Nandi Hills near Bengaluru, India',de:'Sonnenaufgang über den Wolken bei Nandi Hills nahe Bengaluru, Indien',fr:'Lever de soleil au-dessus des nuages à Nandi Hills, près de Bengaluru',es:'Amanecer sobre las nubes en Nandi Hills, cerca de Bengaluru, India'},
+    attribution:{author:'Sidhant Soni',filePage:'https://commons.wikimedia.org/wiki/File:Nandi_Hills,_Bengaluru.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  somlo:{src:somloHillVineyards,
+    position:'50% 62%',tone:'warm',caption:{en:'Somló Hill above the vineyards in Hungary',de:'Der Somló-Hügel über den Weinbergen in Ungarn',fr:'La colline de Somló au-dessus des vignobles en Hongrie',es:'La colina de Somló sobre los viñedos de Hungría'},
+    attribution:{author:'fabiolah',filePage:'https://commons.wikimedia.org/wiki/File:Soml%C3%B3_hill_-_panoramio.jpg',license:'CC BY 3.0',licenseUrl:'https://creativecommons.org/licenses/by/3.0/',changes:webImageChanges}},
+  crete:{src:creteLakeKournas,
+    position:'50% 55%',tone:'cool',caption:{en:'Lake Kournas and its mountain shore on Crete, Greece',de:'Der Kournas-See und sein Bergufer auf Kreta, Griechenland',fr:'Le lac de Kournás et son relief montagneux en Crète, Grèce',es:'El lago Kournás y su orilla montañosa en Creta, Grecia'},
+    attribution:{author:'Tanya Dedyukhina',filePage:'https://commons.wikimedia.org/wiki/File:Lake_Kournas_-_panoramio.jpg',license:'CC BY 3.0',licenseUrl:'https://creativecommons.org/licenses/by/3.0/',changes:webImageChanges}},
+  batroun:{src:batrounBejdarfelOliveOrchards,
+    position:'50% 62%',tone:'warm',caption:{en:'Olive orchards above Bijdarfel–Batroun in northern Lebanon',de:'Olivenhaine oberhalb von Bijdarfel–Batroun im Norden des Libanon',fr:'Oliveraies au-dessus de Bijdarfel–Batroun, dans le nord du Liban',es:'Olivares sobre Bijdarfel–Batroun, en el norte del Líbano'},
+    attribution:{author:'Serge Melki',filePage:'https://commons.wikimedia.org/wiki/File:Bijdarfel_-_Batroun_(2309089114).jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  'judean-hills':{src:judeanHillsMataVineyard,
+    position:'50% 60%',tone:'cool',caption:{en:'Early-spring vineyard near Moshav Mata in the Judean Mountains, Israel',de:'Weinberg im zeitigen Frühjahr bei Moshav Mata im Judäischen Gebirge, Israel',fr:'Vignoble au début du printemps près du moshav Mata, dans les monts de Judée, en Israël',es:'Viñedo a comienzos de primavera cerca del moshav Mata, en los montes de Judea, Israel'},
+    attribution:{author:'Davidbena',filePage:'https://commons.wikimedia.org/wiki/File:Vineyard_in_the_Judean_Mountains.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  podravje:{src:podravjeHrastjeVineyard,
+    position:'50% 58%',tone:'cool',caption:{en:'Vineyard at Hrastje near Maribor in Slovenia’s Podravje wine region',de:'Weinberg bei Hrastje nahe Maribor in der slowenischen Weinregion Podravje',fr:'Vignoble à Hrastje, près de Maribor, dans la région viticole slovène de Podravje',es:'Viñedo en Hrastje, cerca de Maribor, en la región vinícola eslovena de Podravje'},
+    attribution:{author:'breki74',filePage:'https://commons.wikimedia.org/wiki/File:Vinograd_pri_Hrastju_(3).jpg',license:'CC BY-SA 2.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/',changes:webImageChanges}},
+  'dalmatia-peljesac':{src:dalmatiaPeljesacVineyard,
+    position:'50% 66%',tone:'warm',caption:{en:'Vineyard on the Pelješac peninsula, Croatia',de:'Weinberg auf der Halbinsel Pelješac in Kroatien',fr:'Vignoble sur la péninsule de Pelješac, en Croatie',es:'Viñedo en la península de Pelješac, Croacia'},
+    attribution:{author:'Quahadi Añtó',filePage:'https://commons.wikimedia.org/wiki/File:Vinograd_,_Peli%C5%A1ac03498.JPG',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  'slavonia-kutjevo':{src:slavoniaKutjevoAbbey,
+    position:'50% 52%',tone:'warm',caption:{en:'Kutjevo Abbey in Croatia’s Slavonia region',de:'Die Abtei Kutjevo in der kroatischen Region Slawonien',fr:'L’abbaye de Kutjevo, dans la région croate de Slavonie',es:'La abadía de Kutjevo, en la región croata de Eslavonia'},
+    attribution:{author:'Dalibor Ribičić',filePage:'https://commons.wikimedia.org/wiki/File:Kutjevo_01.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  monticello:{src:monticelloNortheastVineyard,
+    position:'50% 70%',tone:'warm',caption:{en:'The Northeast Vineyard and Garden Pavilion at Monticello, Virginia',de:'Der Northeast Vineyard und der Gartenpavillon von Monticello in Virginia',fr:'Le Northeast Vineyard et le pavillon du jardin de Monticello, en Virginie',es:'El viñedo noreste y el pabellón del jardín de Monticello, Virginia'},
+    attribution:{author:'Tony (Paterson, NJ)',filePage:'https://commons.wikimedia.org/wiki/File:Montecello_vineyard.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  styria:{src:styriaStStefanVineyard,
+    position:'50% 60%',tone:'cool',caption:{en:'A hillside vineyard in St. Stefan ob Stainz, Styria, Austria',de:'Ein Weinberg am Hang in St. Stefan ob Stainz, Steiermark, Österreich',fr:'Un vignoble à flanc de coteau à St. Stefan ob Stainz, en Styrie',es:'Viñedo en una ladera de St. Stefan ob Stainz, Estiria, Austria'},
+    attribution:{author:'Eligiusz Jakimowicz',filePage:'https://commons.wikimedia.org/wiki/File:Grape_growing_in_Styria4.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  aragatsotn:{src:aragatsotnMountAragats,
+    position:'50% 56%',tone:'cool',caption:{en:'Mount Aragats in Aragatsotn, Armenia',de:'Der Berg Aragats in Aragatsotn, Armenien',fr:'Le mont Aragats, dans la province d’Aragatsotn en Arménie',es:'El monte Aragats en Aragatsotn, Armenia'},
+    attribution:{author:'Alexander Mkhitaryan B',filePage:'https://commons.wikimedia.org/wiki/File:Aragats_mountain,_Aragatsotn,_Armenia.jpg',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  jerez:{src:jerezSolanaChicaVineyards,
+    position:'50% 58%',tone:'warm',caption:{en:'Vineyards at Viña Solana Chica in Jerez de la Frontera, Spain',de:'Weinberge der Viña Solana Chica in Jerez de la Frontera, Spanien',fr:'Vignobles de la Viña Solana Chica à Jerez de la Frontera, en Espagne',es:'Viñedos de Viña Solana Chica en Jerez de la Frontera, España'},
+    attribution:{author:'El Pantera',filePage:'https://commons.wikimedia.org/wiki/File:Puesta_de_sol_Vi%C3%B1edos_en_Jerez_de_la_Frontera_-_P1240095.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  marsala:{src:marsalaSaltPansSunset,
+    position:'50% 54%',tone:'warm',caption:{en:'Marsala salt pans at sunset, Sicily',de:'Die Salinen von Marsala bei Sonnenuntergang auf Sizilien',fr:'Les salines de Marsala au coucher du soleil, en Sicile',es:'Las salinas de Marsala al atardecer, en Sicilia'},
+    attribution:{author:'29C',filePage:'https://commons.wikimedia.org/wiki/File:Tramonto_Saline_di_Marsala.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  dao:{src:daoViseuWineCenter,
+    position:'50% 50%',tone:'warm',caption:{en:'Solar do Vinho do Dão, the region’s wine-route welcome center in Viseu',de:'Solar do Vinho do Dão, das Besucherzentrum der Weinroute in Viseu',fr:'Solar do Vinho do Dão, centre d’accueil de la route des vins à Viseu',es:'Solar do Vinho do Dão, centro de bienvenida de la ruta del vino en Viseu'},
+    attribution:{author:'Vitor Oliveira',filePage:'https://commons.wikimedia.org/wiki/File:Solar_do_Vinho_do_D%C3%A3o_-_Viseu_-_Portugal_(53308981815).jpg',license:'CC BY-SA 2.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/',changes:webImageChanges}},
+  vienna:{src:viennaWildgrubgasseVineyard,
+    position:'50% 61%',tone:'cool',caption:{en:'Vineyard along Wildgrubgasse in Vienna, Austria',de:'Weinberg an der Wildgrubgasse in Wien, Österreich',fr:'Vignoble le long de la Wildgrubgasse à Vienne, en Autriche',es:'Viñedo junto a Wildgrubgasse en Viena, Austria'},
+    attribution:{author:'GT1976',filePage:'https://commons.wikimedia.org/wiki/File:2019-09-19_%28113%29_Wiener_Stadtwanderweg_1_-_Vineyard_at_Wildgrubgasse,_Vienna,_Austria.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  burgenland:{src:burgenlandMoerbisch,
+    position:'50% 60%',tone:'cool',caption:{en:'Mörbisch am See and Lake Neusiedl in Burgenland, Austria',de:'Mörbisch am See und der Neusiedler See im österreichischen Burgenland',fr:'Mörbisch am See et le lac de Neusiedl dans le Burgenland autrichien',es:'Mörbisch am See y el lago Neusiedl en Burgenland, Austria'},
+    attribution:{author:'Wolfgang Glock',filePage:'https://commons.wikimedia.org/wiki/File:Moerbisch_von_Westen.jpg',license:'CC BY 3.0',licenseUrl:'https://creativecommons.org/licenses/by/3.0/',changes:webImageChanges}},
+  toro:{src:toroDueroLookout,
+    position:'50% 55%',tone:'warm',caption:{en:'The Duero River and Toro Bridge from the Espolón viewpoint, Spain',de:'Der Duero und die Brücke von Toro, gesehen vom Aussichtspunkt Espolón in Spanien',fr:'Le Douro et le pont de Toro vus depuis le belvédère de l’Espolón, en Espagne',es:'El Duero y el puente de Toro vistos desde el mirador del Espolón, España'},
+    attribution:{author:'Zyllan Fotografía',filePage:'https://commons.wikimedia.org/wiki/File:El_Duero_desde_el_mirador_de_Toro.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  'galilee-golan-heights':{src:galileeHulaGolanPanorama,
+    position:'50% 55%',tone:'cool',caption:{en:'Galilee Panhandle, Hula Valley, Golan Heights and Mount Hermon from the Naftali Mountains',de:'Galiläischer Finger, Hula-Tal, Golanhöhen und Berg Hermon von den Naftali-Bergen aus',fr:'Le doigt de Galilée, la vallée de la Houla, le plateau du Golan et le mont Hermon vus des monts de Nephtali',es:'La franja de Galilea, el valle de Hula, los Altos del Golán y el monte Hermón desde los montes Naftali'},
+    attribution:{author:'בר',filePage:'https://commons.wikimedia.org/wiki/File:The_view_of_the_Galilee_Panhandle_from_Naftali_Mountains_to_the_Hula_Valley,_the_Golan_Heights_and_the_Hermon_Range.jpg',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  'rioja-oriental':{src:riojaOrientalAldeanueva,
+    position:'50% 58%',tone:'warm',caption:{en:'Vineyards at Aldeanueva de Ebro in Rioja Oriental, Spain',de:'Weinberge bei Aldeanueva de Ebro in der Rioja Oriental, Spanien',fr:'Vignobles à Aldeanueva de Ebro, dans la Rioja Oriental, en Espagne',es:'Viñedos en Aldeanueva de Ebro, en la Rioja Oriental, España'},
+    attribution:{author:'Zarateman',filePage:'https://commons.wikimedia.org/wiki/File:Aldeanueva_de_Ebro_-_vi%C3%B1edos_2.jpg',license:'CC0 1.0',licenseUrl:'https://creativecommons.org/publicdomain/zero/1.0/deed.en',changes:webImageChanges}},
+  bairrada:{src:bairradaCuriaHotel,
+    position:'50% 58%',tone:'warm',caption:{en:'Hotel Termas da Curia and its grounds in Portugal’s Bairrada region',de:'Hotel Termas da Curia und seine Parkanlage in der portugiesischen Weinregion Bairrada',fr:'L’hôtel Termas da Curia et son parc dans la région portugaise de Bairrada',es:'Hotel Termas da Curia y sus jardines en la región portuguesa de Bairrada'},
+    attribution:{author:'Vitor Oliveira',filePage:'https://commons.wikimedia.org/wiki/File:Hotel_Termas_da_Curia_-_Portugal_%F0%9F%87%B5%F0%9F%87%B9_(54783947285).jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  kremstal:{src:kremstalSenftenberg,
+    position:'50% 54%',tone:'cool',caption:{en:'View from Senftenberg Castle toward Imbach in the Kremstal, Austria',de:'Blick von der Burgruine Senftenberg auf Imbach im Kremstal, Österreich',fr:'Vue de Senftenberg vers Imbach, dans le Kremstal autrichien',es:'Vista desde el castillo de Senftenberg hacia Imbach, en el Kremstal austríaco'},
+    attribution:{author:'Isiwal',filePage:'https://commons.wikimedia.org/wiki/File:Senftenberg_Blick_von_der_Burgruine_nach_Imbach-3556.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  plesivica:{src:plesivicaVineyards,
+    position:'50% 62%',tone:'warm',caption:{en:'Vineyards in the Plešivica winegrowing area, Croatia',de:'Weinberge im Weinbaugebiet Plešivica in Kroatien',fr:'Vignobles de la région viticole de Plešivica, en Croatie',es:'Viñedos de la región vitícola de Plešivica, Croacia'},
+    attribution:{author:'Zrilezrno',filePage:'https://commons.wikimedia.org/wiki/File:Ple%C5%A1ivica,_vinogorje.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  'lisboa-tejo':{src:lisboaTejoSantarem,
+    position:'50% 55%',tone:'cool',caption:{en:'The Tagus (Tejo) River seen from Santarém, Portugal',de:'Der Tejo bei Santarém in Portugal',fr:'Le Tage (Tejo) vu depuis Santarém, au Portugal',es:'El río Tajo (Tejo) visto desde Santarém, Portugal'},
+    attribution:{author:'Fulviusbsas',filePage:'https://commons.wikimedia.org/wiki/File:SantaremTejo.jpg',license:'Public domain',licenseUrl:'https://commons.wikimedia.org/wiki/Template:PD-self',changes:webImageChanges}},
+  vittoria:{src:vittoriaTeatroComunale,
+    position:'50% 58%',tone:'warm',caption:{en:'Teatro Comunale Vittoria Colonna and Piazza del Popolo in Vittoria, Sicily',de:'Teatro Comunale Vittoria Colonna und Piazza del Popolo in Vittoria auf Sizilien',fr:'Le Teatro Comunale Vittoria Colonna et la Piazza del Popolo à Vittoria, en Sicile',es:'El Teatro Comunale Vittoria Colonna y la Piazza del Popolo de Vittoria, Sicilia'},
+    attribution:{author:'AntonioMancaniello',filePage:'https://commons.wikimedia.org/wiki/File:Vittoria_-_Teatro_comunale_Vittoria_Colonna.JPG',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
 }
 
 const portraits:Record<string,Portrait>={
