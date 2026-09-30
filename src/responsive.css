@@ -90,3 +90,67 @@
   .cellar-metrics{grid-template-columns:1fr 1fr}.cellar-record{grid-template-columns:78px minmax(0,1fr)}
   .wine-bottle-art{--bottle-w:min(210px,72vw)}.wine-bottle-art.is-compact{--bottle-w:62px}
 }
+
+/* Preserve the complete scientific plates; captions sit below the image, not over evidence. */
+.knowledge-lab>figure{align-self:center;min-width:0;min-height:0;height:auto;overflow:visible}
+.knowledge-lab>figure>img{display:block;width:100%;height:auto;object-fit:contain}
+.knowledge-lab>figure>figcaption{position:static;left:auto;right:auto;bottom:auto;margin:0;border-radius:0;backdrop-filter:none}
+.object-lab-layout>[role=group]{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;align-content:start}
+.object-lab-layout>[role=group] button{min-width:0;min-height:142px;display:grid;place-items:center;gap:9px;padding:14px;border:1px solid rgba(255,255,255,.15);border-radius:5px 18px 18px 18px;background:rgba(255,255,255,.04);color:#e4d9d5}
+.object-lab-layout>[role=group] button:hover,.object-lab-layout>[role=group] button:focus-visible,.object-lab-layout>[role=group] button[aria-pressed=true]{background:#f4ecdf;color:#2b1d24;border-color:#f4ecdf}
+.object-lab-layout>[role=group] button:focus-visible{outline:2px solid #f1d38f;outline-offset:3px}
+.object-lab-layout>[role=group] strong{font-size:10px}
+.grape-expression-lab .expression-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grape-expression-lab .expression-tabs button{min-width:0;min-height:44px;overflow-wrap:anywhere}
+.grape-expression-lab .expression-tabs button[aria-pressed=true]{color:#fff;background:var(--ink);border-color:var(--ink)}
+.wine-evolution-lesson .evolution-tabs button[aria-pressed=true],.wine-evolution-lesson .evolution-tabs button.active{background:var(--ink);color:#fff}
+.wine-evolution-lesson .evolution-tabs button[aria-pressed=true] span,.wine-evolution-lesson .evolution-tabs button.active span{color:#d8b875}
+.wine-evolution-lesson .evolution-tabs button:focus-visible,.grape-expression-lab .expression-tabs button:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+.adaptive-learning button:focus-visible,.adaptive-learning input:focus-visible{outline:2px solid #f1d38f;outline-offset:3px}
+.adaptive-controls fieldset button{min-height:44px}
+@media(max-width:820px){.object-lab-layout>[role=group]{display:flex;overflow-x:auto;padding:0 0 5px;scroll-snap-type:x proximity}.object-lab-layout>[role=group] button{flex:0 0 128px;scroll-snap-align:start}.grape-expression-lab .expression-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:390px){.grape-expression-lab .expression-tabs button{padding:8px 6px;font-size:9px}}
+.process-controller [role=group] button[aria-pressed=true],.hotspot-list button[aria-pressed=true]{box-shadow:inset 0 0 0 2px currentColor}
+.process-controller [role=group] button:focus-visible,.hotspot-list button:focus-visible,.map-scope-options button:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+.map-scale-lab .map-scope-options{min-width:0}
+.map-scale-lab .map-scope-options button[aria-pressed=true]{background:#eadfce;color:var(--wine);font-weight:700}
+.map-scale-lab .map-scope-options button[aria-pressed=true] i{background:var(--wine);box-shadow:0 0 0 4px rgba(116,35,58,.13)}
+.learning-locator span.active{background:rgba(255,255,255,.11);box-shadow:inset 0 0 0 1px #e3bc76}
+.germany-learning-map{display:block}
+.germany-learning-map[data-step="0"] .country-shape{fill:#dfcca2;stroke:#7d2638;stroke-width:3}
+.germany-learning-map[data-step="1"] .river-line,.germany-learning-map[data-step="1"] .mosel-line{stroke:#7d2638;stroke-width:8}
+.germany-learning-map .map-scope-highlight{position:absolute;left:14px;top:14px;max-width:calc(100% - 28px);padding:6px 9px;border-radius:8px;background:#2b2026;color:#fff7eb;font-size:11px;font-weight:700;line-height:1.3}
+.germany-learning-map[data-step="0"] .map-scope-highlight,.germany-learning-map[data-step="1"] .map-scope-highlight{background:#7d2638}
+.knowledge-check>div button:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+
+/* Keep mobile mechanism choices readable without changing the desktop orbital plate. */
+@media(max-width:820px){
+  .poster-canvas{display:block;min-height:0;padding:0 18px 18px;background:none}
+  .poster-orbit,.poster-core{display:none}
+  .poster-stages{position:static;inset:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;padding:0}
+  .poster-stages button{position:static;width:auto;min-width:0;min-height:68px;padding:12px;display:grid;grid-template-columns:20px minmax(0,1fr);align-items:start;gap:8px;font-size:14px;line-height:1.4;overflow-wrap:normal;word-break:normal;hyphens:none;transform:none}
+  .poster-stages button:nth-child(n){top:auto;right:auto;bottom:auto;left:auto}
+  .poster-stages button:nth-child(odd):last-child{grid-column:1/-1}
+  .poster-stages button svg{width:18px;height:18px;flex:none}
+  .poster-stages button span{min-width:0;overflow-wrap:normal;word-break:normal;hyphens:none}
+  .poster-stages button:focus-visible{outline:2px solid #f1d38f;outline-offset:3px}
+  .learning-poster>aside{margin:0 18px 22px;padding:22px}
+  .learning-poster>aside strong{font-size:clamp(22px,6vw,30px);line-height:1.2}
+  .learning-poster>aside p{font-size:15px;line-height:1.65}
+}
+
+@media(max-width:820px){
+  .grape-expression-lab .expression-tabs button{min-height:48px;padding:10px 8px;font-size:14px;line-height:1.35;overflow-wrap:normal;word-break:normal;hyphens:none}
+  .grape-expression-lab .expression-tabs button svg{flex:none;width:16px;height:16px}
+  .ampelography-plate figcaption{padding:14px 16px;font-size:14px;line-height:1.55}
+  .ampelography-plate dt{font-size:13px}
+  .ampelography-plate dd{font-size:14px;line-height:1.65}
+}
+
+.grape-expression-lab.is-text-only{grid-template-columns:minmax(0,1fr)}
+.grape-expression-lab .grape-expression-plate{align-self:center;min-width:0;min-height:0;height:auto;overflow:visible}
+.grape-expression-lab .grape-expression-photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:8px}
+.grape-expression-lab .grape-expression-photos img{display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:contain}
+.grape-expression-lab .grape-expression-plate figcaption{padding:12px 4px 0;font-size:14px;line-height:1.5}
+.wine-evolution-lesson.is-interactive>figure img.wine-bottle-forms{display:block;width:100%;height:auto;object-fit:contain}
+.detail-hero-copy .region-hero-caption{display:inline-block;max-width:min(100%,40ch);margin-top:16px;padding:9px 12px;border-left:2px solid #e3bc76;border-radius:0 8px 8px 0;background:rgba(31,20,27,.68);color:#fff7eb;font-size:14px;line-height:1.45;letter-spacing:0;text-transform:none}

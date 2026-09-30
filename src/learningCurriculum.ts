@@ -4,6 +4,9 @@ import vesselsPlate from './assets/learning-vessels-methods.jpg'
 import sensoryPlate from './assets/learning-sensory-pairing.jpg'
 import faultPlate from './assets/learning-fault-diagnostics.jpg'
 import pairingPlate from './assets/learning-pairing-balance.jpg'
+import redWhiteRosePlate from './assets/learning-guides/red-white-rose.jpg'
+import tastingNotePlate from './assets/learning-guides/taste-with-intention.jpg'
+import fermentationPlate from './assets/learning-guides/fermentation.jpg'
 import type { Locale } from './i18n'
 import { cellarLessonDepth } from './data/lesson-depth-cellar'
 import { vineLessonDepth } from './data/lesson-depth-vine'
@@ -216,6 +219,37 @@ const patterns:Record<LearningArchetype,LearningBlockKind[]>={
 }
 
 const mediaKinds:LearningBlockKind[]=['annotated-plate','process-timeline','map-lab','sensory-lab','simulator','comparison-lab','decision-case']
+type LessonMedia={src:string;alt:Localized<string>}
+const lessonMediaByBlock:Record<string,Partial<Record<LearningBlockKind,LessonMedia>>>={
+  'wine-as-system':{
+    'process-timeline':{src:vesselsPlate,alt:l('Illustration of cellar vessels and winemaking stages','Illustration von Kellergefäßen und Schritten der Weinbereitung','Illustration des contenants et des étapes de vinification','Ilustración de recipientes y etapas de elaboración')},
+    'annotated-plate':{src:vinePlate,alt:l('Illustration of grape and vine material entering the cellar','Illustration von Traube und Rebenmaterial im Kellerprozess','Illustration de la baie et de la vigne entrant en cave','Ilustración de la uva y la vid antes de entrar en bodega')},
+  },
+  'structure-not-flavour':{
+    'sensory-lab':{src:perceptionPlate,alt:l('Illustrated sensory reference for observing wine structure','Illustrierte Sinnesreferenz zur Beobachtung von Weinstruktur','Repère sensoriel illustré pour observer la structure du vin','Referencia sensorial ilustrada para observar la estructura del vino')},
+  },
+  'red-white-rose':{
+    'comparison-lab':{src:redWhiteRosePlate,alt:l('Illustration comparing red, white and rosé winemaking routes','Illustration der Herstellungswege für Rot-, Weiß- und Roséwein','Illustration des voies d’élaboration des vins rouges, blancs et rosés','Ilustración de los procesos de elaboración de tintos, blancos y rosados')},
+  },
+  'vine-anatomy':{
+    'annotated-plate':{src:vinePlate,alt:l('Illustration of grapevine growth and ripening','Illustration von Rebenwachstum und Reife','Illustration de la croissance et de la maturité de la vigne','Ilustración del crecimiento y la maduración de la vid')},
+  },
+  'ripeness-harvest':{
+    simulator:{src:vinePlate,alt:l('Illustration of grape ripeness and harvest cues','Illustration von Traubenreife und Lesezeichen','Illustration de la maturité des raisins et des repères de vendange','Ilustración de madurez de la uva e indicios de vendimia')},
+  },
+  'wine-faults':{
+    'decision-case':{src:faultPlate,alt:l('Illustrated references for diagnosing wine faults','Illustrierte Hinweise zur Diagnose von Weinfehlern','Repères illustrés pour diagnostiquer les défauts du vin','Referencias ilustradas para diagnosticar defectos del vino')},
+  },
+  'pairing-balance':{
+    'comparison-lab':{src:pairingPlate,alt:l('Illustration of wine and food balance factors','Illustration der Balancefaktoren von Wein und Speise','Illustration des facteurs d’équilibre entre mets et vin','Ilustración de los factores de equilibrio entre comida y vino')},
+  },
+  'build-a-tasting-note':{
+    'sensory-lab':{src:tastingNotePlate,alt:l('Illustrated prompts for a structured tasting note','Illustrierte Anregungen für eine strukturierte Verkostungsnotiz','Repères illustrés pour une note de dégustation structurée','Referencias ilustradas para una nota de cata estructurada')},
+  },
+  fermentation:{
+    simulator:{src:fermentationPlate,alt:l('Illustration of fermentation monitoring and vessel conditions','Illustration zur Gärkontrolle und zu Gefäßbedingungen','Illustration du suivi de fermentation et des conditions de cuve','Ilustración del seguimiento de fermentación y las condiciones del recipiente')},
+  },
+}
 const interactiveKinds:LearningBlockKind[]=['annotated-plate','process-timeline','comparison-lab','map-lab','sensory-lab','simulator','decision-case','knowledge-check']
 const locales:Locale[]=['en','de','fr','es']
 const lessonDepthByModule={...vineLessonDepth,...cellarLessonDepth,...sensoryLessonDepth}
@@ -451,8 +485,9 @@ function makeBlock(profile:EditorialProfile,index:number,kind:LearningBlockKind)
   const stageBody=seed.outcomes??generatedBody
   const body=kind==='process-timeline'||kind==='decision-case'?stageBody:kind==='annotated-plate'?Object.fromEntries(locales.map(locale=>[locale,stageBody[locale].slice(0,3)])) as Localized<string[]>:kind==='map-lab'?Object.fromEntries(locales.map(locale=>[locale,stageBody[locale].slice(0,4)])) as Localized<string[]>:generatedBody
   const interaction=interactiveKinds.includes(kind)?{prompt:kind==='knowledge-check'?seed.prompt:seed.prompts?.[kind as InteractionKind]??seed.prompt,feedback:seed.feedback,labels:Object.fromEntries(locales.map(locale=>[locale,profile.stages[locale].slice(0,kind==='decision-case'?5:3)])) as Localized<string[]>}:undefined
+  const media=mediaKinds.includes(kind)?lessonMediaByBlock[profile.id]?.[kind]:undefined
   return {id:`${profile.id}--${kind}-${index}`,kind,title:authoredBlockTitle(profile,kind),eyebrow:labels.eyebrow,body,reading,duration:kind==='sources'?3:kind==='knowledge-check'?4:6,behavior:kind==='decision-case'?'host-reveal':kind==='sources'?'self-paced':'host-or-self',linkedEntityIds:profile.entities,
-    media:mediaKinds.includes(kind)?{src:profile.media[index%2],alt:l(profile.title.en,profile.title.de,profile.title.fr,profile.title.es),focus:profile.archetype}:undefined,
+    media:media?{...media,focus:profile.archetype}:undefined,
     options,interaction,answer:kind==='knowledge-check'?1:undefined,stages:profile.stages,control:{...profile.control,states:seed.states??lists([])},sources:kind==='sources'?profile.sources:undefined}
 }
 function makeModule(profile:EditorialProfile):LearningModule{
@@ -473,7 +508,8 @@ export function learningValidation(){
   const issues:string[]=[],ids=new Set<string>(),blockIds=new Set<string>()
   for(const module of learningModules){
     if(ids.has(module.id))issues.push(`duplicate module ${module.id}`);ids.add(module.id)
-    if(new Set(module.blocks.flatMap(block=>block.media?.src?[block.media.src]:[])).size<2)issues.push(`${module.id} needs two distinct visuals`)
+    const visuals=module.blocks.flatMap(block=>block.media?.src?[block.media.src]:[])
+    if(new Set(visuals).size!==visuals.length)issues.push(`${module.id} repeats a visual`)
     const depth=lessonDepthByModule[module.id]
     if(!depth)issues.push(`missing lesson depth ${module.id}`)
     for(const locale of locales){

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Atom, Droplets, Grape, MapPin, Microscope, Scale, Sprout, Wine } from "lucide-react";
 import type { Locale } from "./i18n";
 import type { LearningModule } from "./learningCurriculum";
@@ -15,14 +15,16 @@ const icons = [Sprout, Droplets, Grape, Microscope, Wine];
 export function LearningPoster({ module, locale }: { module: LearningModule; locale: Locale }) {
   const [active, setActive] = useState(0);
   const c = posterCopy[locale];
-  const stages = module.blocks.find((block) => block.stages)?.stages?.[locale]?.slice(0, 5)
-    ?? module.outcomes[locale];
-  const evidence = useMemo(() => {
-    const paragraphs = module.blocks
-      .filter((block) => !["sources", "entity-connections", "glossary"].includes(block.kind))
-      .flatMap((block) => block.body[locale]);
-    return stages.map((_, index) => paragraphs[index % paragraphs.length]);
-  }, [locale, module, stages]);
+  const stageBlock = module.blocks.find((block) => {
+    const labels = block.stages?.[locale];
+    return (block.kind === "decision-case" || block.kind === "process-timeline")
+      && Boolean(labels?.length)
+      && labels?.length === block.body[locale].length;
+  });
+  const stages = stageBlock?.stages?.[locale]?.slice(0, 5) ?? module.outcomes[locale];
+  const evidence = stages.map((_, index) =>
+    stageBlock?.body[locale][index] ?? module.outcomes[locale][index] ?? "",
+  );
   const control = module.blocks.find((block) => block.control)?.control;
 
   return (

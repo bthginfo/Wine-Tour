@@ -86,21 +86,7 @@ import winemakingJourney from "./assets/winemaking-journey.jpg";
 import soilAtlas from "./assets/vineyard-soil-atlas.jpg";
 import bottleForms from "./assets/wine-bottle-forms.jpg";
 import vineSeasonStudy from "./assets/vine-season-study.jpg";
-import mediterraneanVines from "./assets/region-mediterranean-vines.jpg";
-import andesVineyard from "./assets/region-andes-vineyard.jpg";
-import maritimeVineyard from "./assets/region-maritime-vineyard.jpg";
-import volcanicVineyard from "./assets/region-volcanic-vineyard.jpg";
-import riverSlateVineyard from "./assets/region-river-slate.jpg";
-import estuaryLimestoneVineyard from "./assets/region-estuary-limestone.jpg";
-import alpineLakeVineyard from "./assets/region-alpine-lake.jpg";
-import ancientBushVines from "./assets/region-ancient-bush-vines.jpg";
-import coastalFogVineyard from "./assets/region-coastal-fog.jpg";
-import volcanicAltitudeVineyard from "./assets/region-volcanic-altitude.jpg";
-import windsweptIslandVineyard from "./assets/region-windswept-island.jpg";
-import continentalPlateauVineyard from "./assets/region-continental-plateau.jpg";
-import bordeauxEstuaryVineyard from "./assets/region-bordeaux-estuary.jpg";
-import marlboroughWairauVineyard from "./assets/region-marlborough-wairau.jpg";
-import nemeaPortrait from "./assets/region-portrait-nemea.jpg";
+import { regionMediaFor } from "./regionMedia";
 import { AtlasCommercialPlacements, BusinessAdminPanel, EventDetail, EventsMarketplace, FeaturedBusinessHome, HostProfile, PartnerProfilePage, ProducerBusinessLayer, StudioEvents, StudioHome, StudioOffers, StudioPlacements, StudioProfile, StudioSite, WineMerchantOffers } from "./BusinessPlatform";
 import { GrapeAmpelography, GrapeDeepDive, ProducerDecisionMap, RegionFieldGuide, WineEvolutionLesson } from "./LearningDepth";
 import { InlineLearningChapter, LearningHub, LearningLesson, learningUi } from "./LearningSystem";
@@ -124,55 +110,6 @@ const AdminOperationsOverview = lazy(() => import("./AdminOperationsOverview").t
 
 function Deferred({children}:{children:ReactNode}){
   return <Suspense fallback={<div className="app-bootstrap" aria-busy="true"><span /></div>}>{children}</Suspense>
-}
-
-type RegionHeroScene={src:string;position:string;tone:'deep'|'soft'|'cool'|'warm'}
-
-const regionHeroScenes={
-  terraces:{src:vineyardHero,position:'52% center',tone:'deep'},
-  mediterranean:{src:mediterraneanVines,position:'58% center',tone:'warm'},
-  andes:{src:andesVineyard,position:'58% center',tone:'cool'},
-  maritime:{src:maritimeVineyard,position:'58% center',tone:'cool'},
-  volcanicIsland:{src:volcanicVineyard,position:'54% center',tone:'deep'},
-  riverSlate:{src:riverSlateVineyard,position:'48% center',tone:'deep'},
-  estuaryLimestone:{src:estuaryLimestoneVineyard,position:'56% center',tone:'soft'},
-  alpineLake:{src:alpineLakeVineyard,position:'56% center',tone:'cool'},
-  ancientBush:{src:ancientBushVines,position:'48% center',tone:'warm'},
-  coastalFog:{src:coastalFogVineyard,position:'54% center',tone:'cool'},
-  volcanicAltitude:{src:volcanicAltitudeVineyard,position:'52% center',tone:'deep'},
-  windsweptIsland:{src:windsweptIslandVineyard,position:'55% center',tone:'deep'},
-  continentalPlateau:{src:continentalPlateauVineyard,position:'52% center',tone:'warm'},
-  bordeauxEstuary:{src:bordeauxEstuaryVineyard,position:'50% center',tone:'deep'},
-  marlboroughWairau:{src:marlboroughWairauVineyard,position:'52% center',tone:'deep'},
-  nemeaBasin:{src:nemeaPortrait,position:'50% 58%',tone:'warm'},
-} satisfies Record<string,RegionHeroScene>
-
-type RegionHeroKey=keyof typeof regionHeroScenes
-const benchmarkRegionHeroes:Record<string,RegionHeroKey>={
-  mosel:'riverSlate',nahe:'terraces',rheingau:'estuaryLimestone',bordeaux:'bordeauxEstuary',burgundy:'terraces',champagne:'continentalPlateau','chianti-classico':'mediterranean',
-  mendoza:'andes',salta:'volcanicAltitude',etna:'volcanicAltitude',santorini:'windsweptIsland',madeira:'volcanicIsland',priorat:'ancientBush',
-  marlborough:'marlboroughWairau','central-otago':'ancientBush','rias-baixas':'maritime',moscato:'continentalPlateau',
-  nemea:'nemeaBasin',
-}
-
-function stableRegionIndex(value:string,size:number){let hash=2166136261;for(const char of value){hash^=char.charCodeAt(0);hash=Math.imul(hash,16777619)}return Math.abs(hash)%size}
-
-function regionHeroFor(region:{id:string;country:string;climate:string;soil:string;lat:number;lng:number}):RegionHeroScene{
-  const direct=benchmarkRegionHeroes[region.id]
-  if(direct)return regionHeroScenes[direct]
-  const signal=`${region.id} ${region.country} ${region.climate} ${region.soil}`.toLowerCase()
-  let pool:RegionHeroKey[]
-  if(/island|isla|insel|canary|azores|madeira|santorini|pantelleria/.test(signal))pool=['windsweptIsland','volcanicIsland','maritime']
-  else if(/volcan|basalt|lava|etna|ash|tuff/.test(signal))pool=['volcanicAltitude','volcanicIsland','ancientBush']
-  else if(/argentina|mendoza|uco|salta|chile|ande|high.altitude|altitude|mountain/.test(signal))pool=['andes','volcanicAltitude','alpineLake']
-  else if(/atlantic|maritime|ocean|coast|fog|mist|rias|casablanca|marlborough|pacific/.test(signal))pool=['coastalFog','maritime','estuaryLimestone']
-  else if(/river|slate|schist|mosel|rhine|rhein|douro|danube|wachau|ahr|nahe/.test(signal))pool=['riverSlate','terraces','estuaryLimestone']
-  else if(/mediterranean|provence|sicil|sard|greece|lebanon|israel|cyprus|languedoc|priorat|limestone/.test(signal)||Math.abs(region.lat)<36)pool=['mediterranean','ancientBush','continentalPlateau']
-  else if(/continental|plateau|loess|clay|warm|dry|arid/.test(signal))pool=['continentalPlateau','ancientBush','terraces']
-  else pool=['terraces','estuaryLimestone','alpineLake','continentalPlateau']
-  const scene=regionHeroScenes[pool[stableRegionIndex(`${region.id}:${region.lat.toFixed(2)}:${region.lng.toFixed(2)}`,pool.length)]]
-  const positions=['46% center','52% center','58% center','64% center']
-  return {...scene,position:positions[stableRegionIndex(`${region.id}:crop`,positions.length)]}
 }
 
 type RegionOpening={summary:string;climateLead:string;diversity:string}
@@ -505,7 +442,7 @@ function HomePage() {
         </div>
         <div className="region-row">
           {featured.map((region, index) => {
-            const hero=regionHeroFor(region)
+            const hero=regionMediaFor(region.id).hero
             return (
             <Link
               to={`/regions/${region.id}`}
@@ -513,7 +450,7 @@ function HomePage() {
               key={region.id}
             >
               <div className={`region-image crop-${index}`}>
-                <img src={hero.src} style={{objectPosition:hero.position}} alt={`${regionName(region,locale)} · ${countryLabel(region.country,locale)}`} />
+                {hero&&<img src={hero.src} style={{objectPosition:hero.position}} alt="" />}
                 <span>{String(index + 1).padStart(2, "0")}</span>
               </div>
               <div>
@@ -846,7 +783,7 @@ function RegionPage() {
   const relatedProducers = producers.filter((p) => p.regionIds.includes(region.id));
   const relatedWines = wines.filter((w) => region.wineIds.includes(w.id));
   const content=regionContent(region,locale)
-  const hero=regionHeroFor(region)
+  const hero=regionMediaFor(region.id).hero
   const opening=regionOpening(region,locale,content)
   const evidenceCopy={
     en:{styles:'Wine families',stylesBody:'Varieties and styles of this region in direct comparison',bottles:'Bottles for a regional comparison',bottlesBody:'Wines from producers working with this origin',noBottles:'Explore the region through its grape varieties'},
@@ -863,16 +800,13 @@ function RegionPage() {
   return (
     <article className="page detail-page">
       <BackLink to="/atlas" label={ui.worldAtlas} />
-      <section className={`detail-hero tone-${hero.tone}`}>
-        <img
-          src={hero.src}
-          style={{objectPosition:hero.position}}
-          alt={`${regionName(region,locale)} · ${countryLabel(region.country,locale)}`}
-        />
+      <section className={`detail-hero tone-${hero?.tone??'deep'}`}>
+        {hero&&<img src={hero.src} style={{objectPosition:hero.position}} alt="" />}
         <div className="detail-hero-copy">
           <span>{countryLabel(region.country,locale)}</span>
           <h1>{regionName(region,locale)}</h1>
           <p>{opening.summary}</p>
+          {hero&&!hero.decorativeFallback&&<small className="region-hero-caption">{hero.caption[locale]}</small>}
         </div>
         <div className="place-index">
           <span>{ui.placeIndex}</span>
@@ -919,8 +853,8 @@ function RegionPage() {
       </section>
       <section className="terroir-story">
         <div className="story-visual">
-          <img src={terroirIllustration} alt={regionName(region,locale)} />
-          <span className="image-caption">{ui.readSkyRoot}</span>
+          <img src={terroirIllustration} alt={ui.terroirAlt} />
+          <span className="image-caption">{ui.terroirAlt}</span>
         </div>
         <div className="story-copy">
           <span className="eyebrow">{ui.historySeason}</span>
@@ -1333,7 +1267,7 @@ function WinePage() {
         </dl>
       </section>
       {processContent&&<section className="wine-process">
-        <div className="process-image"><img src={winemakingJourney} alt={ui.winemakingAlt}/>{content.composition&&<span>{content.composition}</span>}</div>
+        <div className="process-image"><img src={winemakingJourney} alt={ui.winemakingAlt}/><span>{ui.fromFruitBottle}</span></div>
         <div className="process-copy">
           <span className="eyebrow">{ui.fromFruitBottle}</span>
           <h2>{ui.howStyleBuilt}</h2>
@@ -1697,7 +1631,7 @@ function ArticlePage() {
   if (!sourceArticle) return <NotFound />;
   const article=articleContent(sourceArticle,locale)
   const nextArticle=articleContent(articles[(articles.indexOf(sourceArticle)+1)%articles.length],locale)
-  const illustration=guideImage(article.id)??(article.image==='terroir'?terroirIllustration:article.image==='winemaking'?winemakingJourney:article.image==='aroma'?aromaReference:article.image==='soil'?soilAtlas:article.image==='bottle'?bottleForms:article.id==='vine-year'||article.id==='vintage-weather'?vineSeasonStudy:tastingStill)
+  const illustration=guideImage(article.id)??(article.image==='terroir'?terroirIllustration:article.image==='winemaking'?winemakingJourney:article.image==='aroma'?aromaReference:article.image==='soil'?soilAtlas:article.image==='bottle'?bottleForms:article.id==='vine-year'||article.id==='vintage-weather'?vineSeasonStudy:null)
   return (
     <article className="page reading-page">
       <BackLink to="/learn" label={copy.learnEyebrow} />
@@ -1708,7 +1642,7 @@ function ArticlePage() {
         <h1>{article.title}</h1>
         <p>{article.summary}</p>
       </header>
-      <figure className="lesson-hero guide-lesson-hero"><img src={illustration} alt={`${ui.illustrationFor} ${article.title}`}/></figure>
+      {illustration&&<figure className="lesson-hero guide-lesson-hero"><img src={illustration} alt={ui.illustrationFor+' '+article.title}/></figure>}
       <section className="lesson-objectives"><span className="eyebrow">{ui.byEnd}</span><h2>{ui.threeExplain}</h2><ol>{article.objectives.map((objective,index)=><li key={objective}><span>0{index+1}</span>{objective}</li>)}</ol></section>
       <div className="article-body">
         <section className="article-reading" aria-label={article.title}>
