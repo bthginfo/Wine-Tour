@@ -8,6 +8,7 @@ import redWhiteRosePlate from './assets/learning-guides/red-white-rose.jpg'
 import tastingNotePlate from './assets/learning-guides/taste-with-intention.jpg'
 import fermentationPlate from './assets/learning-guides/fermentation.jpg'
 import type { Locale } from './i18n'
+import { generatedLessonImage } from './generatedKnowledgeMedia'
 import { cellarLessonDepth } from './data/lesson-depth-cellar'
 import { vineLessonDepth } from './data/lesson-depth-vine'
 import { sensoryLessonDepth } from './data/lesson-depth-sensory'
@@ -250,6 +251,11 @@ const lessonMediaByBlock:Record<string,Partial<Record<LearningBlockKind,LessonMe
     simulator:{src:fermentationPlate,alt:l('Illustration of fermentation monitoring and vessel conditions','Illustration zur Gärkontrolle und zu Gefäßbedingungen','Illustration du suivi de fermentation et des conditions de cuve','Ilustración del seguimiento de fermentación y las condiciones del recipiente')},
   },
 }
+const generatedLessonBlockById:Record<string,LearningBlockKind>={
+  'vine-anatomy':'annotated-plate',
+  'germany-origin':'annotated-plate',
+  fermentation:'simulator',
+}
 const interactiveKinds:LearningBlockKind[]=['annotated-plate','process-timeline','comparison-lab','map-lab','sensory-lab','simulator','decision-case','knowledge-check']
 const locales:Locale[]=['en','de','fr','es']
 const lessonDepthByModule={...vineLessonDepth,...cellarLessonDepth,...sensoryLessonDepth}
@@ -485,7 +491,9 @@ function makeBlock(profile:EditorialProfile,index:number,kind:LearningBlockKind)
   const stageBody=seed.outcomes??generatedBody
   const body=kind==='process-timeline'||kind==='decision-case'?stageBody:kind==='annotated-plate'?Object.fromEntries(locales.map(locale=>[locale,stageBody[locale].slice(0,3)])) as Localized<string[]>:kind==='map-lab'?Object.fromEntries(locales.map(locale=>[locale,stageBody[locale].slice(0,4)])) as Localized<string[]>:generatedBody
   const interaction=interactiveKinds.includes(kind)?{prompt:kind==='knowledge-check'?seed.prompt:seed.prompts?.[kind as InteractionKind]??seed.prompt,feedback:seed.feedback,labels:Object.fromEntries(locales.map(locale=>[locale,profile.stages[locale].slice(0,kind==='decision-case'?5:3)])) as Localized<string[]>}:undefined
-  const media=mediaKinds.includes(kind)?lessonMediaByBlock[profile.id]?.[kind]:undefined
+  const generated=generatedLessonBlockById[profile.id]===kind?generatedLessonImage(profile.id):undefined
+  const generatedMedia=generated?{src:generated.src,alt:Object.fromEntries(locales.map(locale=>[locale,generated.alt?.[locale]??profile.title[locale]])) as Localized<string>}:undefined
+  const media=mediaKinds.includes(kind)?generatedMedia??lessonMediaByBlock[profile.id]?.[kind]:undefined
   return {id:`${profile.id}--${kind}-${index}`,kind,title:authoredBlockTitle(profile,kind),eyebrow:labels.eyebrow,body,reading,duration:kind==='sources'?3:kind==='knowledge-check'?4:6,behavior:kind==='decision-case'?'host-reveal':kind==='sources'?'self-paced':'host-or-self',linkedEntityIds:profile.entities,
     media:media?{...media,focus:profile.archetype}:undefined,
     options,interaction,answer:kind==='knowledge-check'?1:undefined,stages:profile.stages,control:{...profile.control,states:seed.states??lists([])},sources:kind==='sources'?profile.sources:undefined}

@@ -68,6 +68,7 @@ import {
   wines,
 } from "./data/catalog";
 import { guideReadingSections } from "./data/guideReadingHeadings";
+import "./generated-knowledge.css";
 import { repository } from "./data/repository";
 import { localeRegistry, useLocale, usePageCopy, type Locale } from "./i18n";
 import { aromaContent, articleContent, countryLabel, geographicName, grapeContent, producerContent, producerName, regionContent, regionName, styleLabel, wineContent, wineName } from "./localizedContent";
@@ -91,7 +92,8 @@ import { AtlasCommercialPlacements, BusinessAdminPanel, EventDetail, EventsMarke
 import { GrapeAmpelography, GrapeDeepDive, ProducerDecisionMap, RegionFieldGuide, WineEvolutionLesson } from "./LearningDepth";
 import { InlineLearningChapter, LearningHub, LearningLesson, learningUi } from "./LearningSystem";
 import { learningBlockById, learningModuleById, learningModules } from "./learningCurriculum";
-import { guideImage } from "./learningGuideMedia";
+import { generatedGuideIllustration, guideImage } from "./learningGuideMedia";
+import { generatedGrapeAromaImage } from "./generatedKnowledgeMedia";
 import { ReferenceGuideExperience } from "./ReferenceGuideExperience";
 import { BlendConnections } from "./BlendConnections";
 import { AtlasLensControls, CompareButton, RegionCompare, atlasMarkerStyle, type AtlasLens } from "./AtlasIntelligence";
@@ -948,6 +950,7 @@ function GrapePage() {
     .filter((w) => w.grapeIds.includes(grape.id))
     .slice(0, 4);
   const content=grapeContent(grape,locale)
+  const aromaIllustration=generatedGrapeAromaImage(grape.id)
   const grapeEvidenceCopy={
     en:{expressions:'Documented expressions',expressionBody:'Styles found among the linked bottles',compare:'Bottles to compare',compareBody:'Follow the variety through real producers and places',empty:'No sourced bottle is linked yet'},
     de:{expressions:'Dokumentierte Ausprägungen',expressionBody:'Stile aus den verknüpften Flaschen',compare:'Flaschen zum Vergleichen',compareBody:'Die Rebsorte durch reale Erzeuger und Orte verfolgen',empty:'Noch ist keine belegte Flasche verknüpft'},
@@ -1011,6 +1014,7 @@ function GrapePage() {
         <span className="eyebrow">{ui.aromaConstellation}</span>
         <h2>{ui.commonReferences}</h2>
         <p>{ui.aromaPrompts}</p>
+        {aromaIllustration&&<figure className="grape-aroma-illustration"><img src={aromaIllustration.src} alt={aromaIllustration.alt?.[locale]??grape.name}/><figcaption>{aromaIllustration.caption?.[locale]??ui.commonReferences}</figcaption></figure>}
         <div className="aroma-tiles">
           {grapeAromas.map((a) => (
             <Link to={`/aromas?selected=${a.id}`} key={a.id}>
@@ -1632,6 +1636,7 @@ function ArticlePage() {
   const article=articleContent(sourceArticle,locale)
   const nextArticle=articleContent(articles[(articles.indexOf(sourceArticle)+1)%articles.length],locale)
   const illustration=guideImage(article.id)??(article.image==='terroir'?terroirIllustration:article.image==='winemaking'?winemakingJourney:article.image==='aroma'?aromaReference:article.image==='soil'?soilAtlas:article.image==='bottle'?bottleForms:article.id==='vine-year'||article.id==='vintage-weather'?vineSeasonStudy:null)
+  const supplementalIllustration=generatedGuideIllustration(article.id)
   return (
     <article className="page reading-page">
       <BackLink to="/learn" label={copy.learnEyebrow} />
@@ -1643,6 +1648,7 @@ function ArticlePage() {
         <p>{article.summary}</p>
       </header>
       {illustration&&<figure className="lesson-hero guide-lesson-hero"><img src={illustration} alt={ui.illustrationFor+' '+article.title}/></figure>}
+      {supplementalIllustration&&<figure className="generated-guide-insert"><img src={supplementalIllustration.src} alt={supplementalIllustration.alt?.[locale]??article.title}/><figcaption>{supplementalIllustration.caption?.[locale]??article.title}</figcaption></figure>}
       <section className="lesson-objectives"><span className="eyebrow">{ui.byEnd}</span><h2>{ui.threeExplain}</h2><ol>{article.objectives.map((objective,index)=><li key={objective}><span>0{index+1}</span>{objective}</li>)}</ol></section>
       <div className="article-body">
         <section className="article-reading" aria-label={article.title}>

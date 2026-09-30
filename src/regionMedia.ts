@@ -1,5 +1,6 @@
 import type { Locale } from './i18n'
 import { regions } from './data/catalog'
+import { generatedRegionImage } from './generatedKnowledgeMedia'
 import vineyardHero from './assets/vineyard-terraces.jpg'
 import mediterranean from './assets/region-mediterranean-vines.jpg'
 import andes from './assets/region-andes-vineyard.jpg'
@@ -103,9 +104,15 @@ export function regionMediaFor(regionId:string){
   const key=sceneByRegion[regionId]
   const fallback=fallbackRankByRegion.get(regionId)??{theme:'universal' as const,rank:0}
   const pool=fallbackScenesByTheme[fallback.theme]
-  const heroScene=key?scenes[key]:(pool[fallback.rank%pool.length]??scenes.terraces)
+  const generated=generatedRegionImage(regionId)
+  const heroScene=generated?{
+    src:generated.src,
+    position:'50% center',
+    tone:'warm' as const,
+    caption:generated.caption??scenes.terraces.caption,
+  }:key?scenes[key]:(pool[fallback.rank%pool.length]??scenes.terraces)
   return {
-    hero:{...heroScene,decorativeFallback:!key} as RegionHero,
+    hero:{...heroScene,decorativeFallback:!key&&!generated} as RegionHero,
     portrait:portraits[regionId],
   }
 }
