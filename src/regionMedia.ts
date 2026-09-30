@@ -61,6 +61,46 @@ import coteDeBeauneMontrevenaux from './assets/licensed-regions/cote-de-beaune-m
 import rheinhessenHillesheim from './assets/licensed-regions/rheinhessen-hillesheim.jpg'
 import yamanashiKatsunuma from './assets/licensed-regions/yamanashi-katsunuma.jpg'
 import barbarescoHills from './assets/licensed-regions/barbaresco-vineyard-hills.jpg'
+import ahrVineyards from './assets/licensed-regions/ahr-vineyard-valley.jpg'
+import badenSasbach from './assets/licensed-regions/baden-sasbach-vineyard.jpg'
+import rheingauPanorama from './assets/licensed-regions/rheingau-johannisberg-panorama.jpg'
+import mittelrheinBacharach from './assets/licensed-regions/mittelrhein-bacharach-stahleck.jpg'
+import lujanChakana from './assets/licensed-regions/lujan-de-cuyo-chakana.jpg'
+import mendozaMaipuCycling from './assets/licensed-regions/mendoza-maipu-cycling-vineyards.jpg'
+import maipuFrayLuisBeltran from './assets/licensed-regions/maipu-fray-luis-beltran.jpg'
+import riojaAlavesaElvillar from './assets/licensed-regions/rioja-alavesa-elvillar.jpg'
+import wurttembergUhlbach from './assets/licensed-regions/wurttemberg-stuttgart-uhlbach.jpg'
+import sachsenRadebeul from './assets/licensed-regions/sachsen-radebeul-vineyards.jpg'
+import northernRhoneCoteRotie from './assets/licensed-regions/northern-rhone-cote-rotie.jpg'
+import southernRhoneChateauneuf from './assets/licensed-regions/southern-rhone-chateauneuf.jpg'
+import centreLoireSancerre from './assets/licensed-regions/centre-loire-sancerre.jpg'
+import touraineRochecorbon from './assets/licensed-regions/touraine-rochecorbon.jpg'
+import beaujolaisVineyards from './assets/licensed-regions/beaujolais-vineyards.jpg'
+import riojaGrowingSeason from './assets/licensed-regions/rioja-growing-season.jpg'
+import riberaDueroVinaSastre from './assets/licensed-regions/ribera-del-duero-vina-sastre.jpg'
+import vinhoVerdeMinho from './assets/licensed-regions/vinho-verde-minho-vineyards.jpg'
+import robertsonVineyardLineage from './assets/licensed-regions/robertson-vineyard-lineage.jpg'
+import hunterValleyVineyard from './assets/licensed-regions/hunter-valley-vineyard.jpg'
+import clareValleyStanleyFlat from './assets/licensed-regions/clare-valley-stanley-flat.jpg'
+import yarraValleyRochford from './assets/licensed-regions/yarra-valley-rochford.jpg'
+import edenValleyLookout from './assets/licensed-regions/eden-valley-lookout.jpg'
+import languedocPicVissou from './assets/licensed-regions/languedoc-pic-vissou.jpg'
+import medocHautMedoc from './assets/licensed-regions/medoc-haut-medoc.jpg'
+import pauillacVineyard from './assets/licensed-regions/pauillac-vineyard.jpg'
+import saintEmilionVineyards from './assets/licensed-regions/saint-emilion-vineyards.jpg'
+import juraArboisVineyards from './assets/licensed-regions/jura-arbois-vineyards.jpg'
+import niagaraPeninsulaVineyard from './assets/licensed-regions/niagara-peninsula-vineyard.jpg'
+import jumillaFincaCq from './assets/licensed-regions/jumilla-finca-cq-vineyards.jpg'
+import valpolicellaTerraces from './assets/licensed-regions/valpolicella-terraced-vineyards.jpg'
+import montalcinoVineyard from './assets/licensed-regions/montalcino-vineyard-panorama.jpg'
+import alentejoEstremoz from './assets/licensed-regions/alentejo-estremoz-vineyard.jpg'
+import saaleUnstrutRossbach from './assets/licensed-regions/saale-unstrut-rossbach.jpg'
+import muscadetPaysNantais from './assets/licensed-regions/muscadet-pays-nantais.jpg'
+import setubalArrabida from './assets/licensed-regions/setubal-arrabida-vineyards.jpg'
+import navarraCintruenigo from './assets/licensed-regions/navarra-cintruenigo-vineyards.jpg'
+import savoieApremontGranier from './assets/licensed-regions/savoie-apremont-granier.jpg'
+import sussexBolney from './assets/licensed-regions/sussex-bolney-vineyard.jpg'
+import kakhetiZegaani from './assets/licensed-regions/kakheti-zegaani-vineyards.jpg'
 import moselPortrait from './assets/region-portrait-mosel.jpg'
 import bordeauxPortrait from './assets/region-portrait-bordeaux.jpg'
 import mendozaPortrait from './assets/region-portrait-mendoza.jpg'
@@ -236,6 +276,126 @@ const verifiedRegionPhotos:Record<string,RegionScene>={
   barbaresco:{src:barbarescoHills,
     position:'50% 72%',tone:'warm',caption:{en:'Vineyard hills around Barbaresco, Cuneo, Piedmont, in late autumn',de:'Weinberghänge um Barbaresco in Cuneo im Piemont, im Spätherbst',fr:'Coteaux viticoles autour de Barbaresco, à Cuneo dans le Piémont, à la fin de l’automne',es:'Colinas de viñedos alrededor de Barbaresco, Cuneo, Piamonte, a finales de otoño'},
     attribution:{author:'Giorgio Galeotti',filePage:'https://commons.wikimedia.org/wiki/File:Vineyards_-_Barbaresco,_Cuneo,_Italy_-_November_2,_2021.jpg',license:'CC BY 4.0',licenseUrl:'https://creativecommons.org/licenses/by/4.0/',changes:webImageChanges}},
+  ahr:{src:ahrVineyards,
+    position:'50% center',tone:'warm',caption:{en:'Vineyard rows overlooking the Ahr Valley',de:'Weinrebenreihen mit Blick über das Ahrtal',fr:'Rangs de vignes dominant la vallée de l’Ahr',es:'Hileras de viñas con vistas al valle del Ahr'},
+    attribution:{author:'1998alexkane',filePage:'https://commons.wikimedia.org/wiki/File:Vineyard_in_the_Ahr_Valley,_Germany.jpg',license:'CC0 1.0',licenseUrl:'https://creativecommons.org/publicdomain/zero/1.0/',changes:webImageChanges}},
+  baden:{src:badenSasbach,
+    position:'50% center',tone:'warm',caption:{en:'Flowering vineyard near Sasbach, Baden-Württemberg',de:'Blühender Weinberg bei Sasbach in Baden-Württemberg',fr:'Vignoble en fleur près de Sasbach, dans le Bade-Wurtemberg',es:'Viñedo en flor cerca de Sasbach, Baden-Wurtemberg'},
+    attribution:{author:'H. Zell',filePage:'https://commons.wikimedia.org/wiki/File:Vineyard_-_Sasbach_02.jpg',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  rheingau:{src:rheingauPanorama,
+    position:'50% center',tone:'cool',caption:{en:'Vineyard slopes and villages across the eastern Rheingau, viewed from near Schloss Johannisberg',de:'Weinberge und Dörfer im östlichen Rheingau, nahe Schloss Johannisberg gesehen',fr:'Coteaux viticoles et villages du Rheingau oriental, vus près du château Johannisberg',es:'Laderas de viñedos y pueblos del Rheingau oriental, vistas desde cerca de Schloss Johannisberg'},
+    attribution:{author:'DXR',filePage:'https://commons.wikimedia.org/wiki/File:Panoramic_view_of_eastern_Rheingau_from_Schloss_Johannisberg_20150415_1.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  mittelrhein:{src:mittelrheinBacharach,
+    position:'50% center',tone:'cool',caption:{en:'Rhine valley near Bacharach, with vineyards and Stahleck Castle',de:'Rheintal bei Bacharach mit Weinbergen und Burg Stahleck',fr:'Vallée du Rhin près de Bacharach, avec des vignobles et le château de Stahleck',es:'Valle del Rin cerca de Bacharach, con viñedos y el castillo Stahleck'},
+    attribution:{author:'Johannes Robalotoff',filePage:'https://commons.wikimedia.org/wiki/File:Mittelrhein-Burg-Stahleck-JR-E-1700-2017-05-27.jpg',license:'CC BY-SA 3.0 DE',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/de/',changes:webImageChanges}},
+  'lujan-de-cuyo':{src:lujanChakana,
+    position:'50% 82%',tone:'cool',caption:{en:'Chakana vineyard in Agrelo, Luján de Cuyo, with the Andes beyond',de:'Chakana-Weinberg in Agrelo, Luján de Cuyo, mit den Anden im Hintergrund',fr:'Vignoble de Chakana à Agrelo, dans le Luján de Cuyo, avec les Andes en arrière-plan',es:'Viñedo de Chakana en Agrelo, Luján de Cuyo, con los Andes al fondo'},
+    attribution:{author:'Juan Pelizzatti',filePage:'https://commons.wikimedia.org/wiki/File:Bodega_chakana_hacia_la_monta%C3%B1a.jpg',license:'CC BY 3.0',licenseUrl:'https://creativecommons.org/licenses/by/3.0/',changes:webImageChanges}},
+  mendoza:{src:mendozaMaipuCycling,
+    position:'50% center',tone:'cool',caption:{en:'Cycling among vineyards in Maipú, Mendoza, with the Andes in the background',de:'Mit dem Fahrrad zwischen Weinbergen in Maipú, Mendoza, mit den Anden im Hintergrund',fr:'À vélo parmi les vignobles de Maipú, à Mendoza, avec les Andes en arrière-plan',es:'En bicicleta entre viñedos de Maipú, Mendoza, con los Andes al fondo'},
+    attribution:{author:'MendozaGuide',filePage:'https://commons.wikimedia.org/wiki/File:Ciclismo_entre_vi%C3%B1edos_de_Maip%C3%BA,_Mendoza,_Argentina.png',license:'CC0 1.0',licenseUrl:'https://creativecommons.org/publicdomain/zero/1.0/',changes:webImageChanges}},
+  maipu:{src:maipuFrayLuisBeltran,
+    position:'50% 74%',tone:'warm',caption:{en:'Vineyard near Fray Luis Beltrán, Maipú, Mendoza',de:'Weinberg bei Fray Luis Beltrán in Maipú, Mendoza',fr:'Vignoble près de Fray Luis Beltrán, à Maipú, Mendoza',es:'Viñedo cerca de Fray Luis Beltrán, en Maipú, Mendoza'},
+    attribution:{author:'Djzonda',filePage:'https://commons.wikimedia.org/wiki/File:Vi%C3%B1edos_de_Fray_Luis_Beltr%C3%A1n.JPG',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  'rioja-alavesa':{src:riojaAlavesaElvillar,
+    position:'50% center',tone:'warm',caption:{en:'Autumn vines near Elvillar, Rioja Alavesa, Basque Country',de:'Herbstliche Reben bei Elvillar in der Rioja Alavesa im Baskenland',fr:'Vignes d’automne près d’Elvillar, dans la Rioja Alavesa au Pays basque',es:'Viñas otoñales cerca de Elvillar, en Rioja Alavesa, País Vasco'},
+    attribution:{author:'Basotxerri',filePage:'https://commons.wikimedia.org/wiki/File:Elvillar_-_Vi%C3%B1edo_01.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  wurttemberg:{src:wurttembergUhlbach,
+    position:'50% center',tone:'warm',caption:{en:'Vineyard slopes near Stuttgart-Uhlbach, viewed toward the Württemberg Mausoleum',de:'Weinberghänge bei Stuttgart-Uhlbach mit Blick zum Württemberg-Mausoleum',fr:'Coteaux viticoles près de Stuttgart-Uhlbach, en direction du mausolée de Württemberg',es:'Laderas de viñedos cerca de Stuttgart-Uhlbach, hacia el mausoleo de Württemberg'},
+    attribution:{author:'Jochen Teufel',filePage:'https://commons.wikimedia.org/wiki/File:Blick_von_Uhlbach_auf_W%C3%BCrttemberg_(2009).jpg',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  sachsen:{src:sachsenRadebeul,
+    position:'50% center',tone:'cool',caption:{en:'Terraced vineyards at Radebeul-Oberlößnitz beneath the Bismarck Tower and Spitzhaus',de:'Terrassenweinberge in Radebeul-Oberlößnitz unterhalb von Bismarckturm und Spitzhaus',fr:'Vignobles en terrasses de Radebeul-Oberlößnitz, sous la tour Bismarck et le Spitzhaus',es:'Viñedos en terrazas de Radebeul-Oberlößnitz, bajo la torre Bismarck y el Spitzhaus'},
+    attribution:{author:'Jörg Blobelt',filePage:'https://commons.wikimedia.org/wiki/File:20081023410DR_Radebeul-Oberl%C3%B6%C3%9Fnitz_Bismarckturm_%2B_Spitzhaus.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  'northern-rhone':{src:northernRhoneCoteRotie,
+    position:'50% center',tone:'cool',caption:{en:'Terraced vineyard slopes in Côte-Rôtie, northern Rhône',de:'Terrassierte Weinberghänge in Côte-Rôtie im nördlichen Rhône',fr:'Coteaux viticoles en terrasses à Côte-Rôtie, dans le Rhône septentrional',es:'Laderas de viñedos en terrazas en Côte-Rôtie, Ródano norte'},
+    attribution:{author:'Karen',filePage:'https://commons.wikimedia.org/wiki/File:Terrasse_de_C%C3%B4te_R%C3%B4tie_en_hiver.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  'southern-rhone':{src:southernRhoneChateauneuf,
+    position:'50% center',tone:'warm',caption:{en:'A stone-strewn vineyard in Châteauneuf-du-Pape, southern Rhône',de:'Steiniger Weinberg in Châteauneuf-du-Pape im südlichen Rhône',fr:'Vignoble caillouteux à Châteauneuf-du-Pape, dans le Rhône méridional',es:'Viñedo pedregoso en Châteauneuf-du-Pape, Ródano sur'},
+    attribution:{author:'Jarrod Doll',filePage:'https://commons.wikimedia.org/wiki/File:139_Ch%C3%A2teauneuf-du-Pape_vineyard.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  'centre-loire':{src:centreLoireSancerre,
+    position:'50% center',tone:'cool',caption:{en:'Vineyard rows looking toward Sancerre in the Loire Valley',de:'Weinbergzeilen mit Blick auf Sancerre im Loiretal',fr:'Rangs de vignes en direction de Sancerre, dans la vallée de la Loire',es:'Hileras de viñedos con vistas a Sancerre, en el valle del Loira'},
+    attribution:{author:'Noelle Lagrange',filePage:'https://commons.wikimedia.org/wiki/File:Sancerre_vue_des_vignes_de_Didier_Prieur.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  touraine:{src:touraineRochecorbon,
+    position:'50% center',tone:'warm',caption:{en:'Vineyards east of Rochecorbon in Touraine',de:'Weinberge östlich von Rochecorbon in der Touraine',fr:'Vignobles à l’est de Rochecorbon, en Touraine',es:'Viñedos al este de Rochecorbon, en Touraine'},
+    attribution:{author:'Benjamin Smith',filePage:'https://commons.wikimedia.org/wiki/File:Rochecorbon_-_Vignoble_-_01.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  beaujolais:{src:beaujolaisVineyards,
+    position:'50% center',tone:'cool',caption:{en:'Vineyard slopes in the Beaujolais wine region',de:'Weinberghänge im Weinbaugebiet Beaujolais',fr:'Coteaux viticoles dans le vignoble du Beaujolais',es:'Laderas de viñedos en la región vinícola de Beaujolais'},
+    attribution:{author:'karaian',filePage:'https://commons.wikimedia.org/wiki/File:Beaujolais_wine_region.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  rioja:{src:riojaGrowingSeason,
+    position:'50% center',tone:'warm',caption:{en:'Vineyard rows at the start of a new growing season in Rioja',de:'Weinbergzeilen zu Beginn einer neuen Vegetationsperiode in Rioja',fr:'Rangs de vignes au début d’une nouvelle saison de croissance en Rioja',es:'Hileras de viñas al comienzo de una nueva temporada de crecimiento en Rioja'},
+    attribution:{author:'Art Anderson',filePage:'https://commons.wikimedia.org/wiki/File:New_Growing_Season_in_Rioja_Vineyard_-_panoramio.jpg',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  'ribera-del-duero':{src:riberaDueroVinaSastre,
+    position:'50% center',tone:'warm',caption:{en:'Vineyards at Bodega Viña Sastre in La Horra, Ribera del Duero',de:'Weinberge der Bodega Viña Sastre in La Horra, Ribera del Duero',fr:'Vignobles de la Bodega Viña Sastre à La Horra, dans la Ribera del Duero',es:'Viñedos de Bodega Viña Sastre en La Horra, Ribera del Duero'},
+    attribution:{author:'Pravdaverita',filePage:'https://commons.wikimedia.org/wiki/File:Vi%C3%B1edos_Bodega_Vi%C3%B1a_Sastre_-_Hermanos_Sastre_Ribera_del_Duero.JPG',license:'CC BY 3.0',licenseUrl:'https://creativecommons.org/licenses/by/3.0/',changes:webImageChanges}},
+  'vinho-verde':{src:vinhoVerdeMinho,
+    position:'50% center',tone:'cool',caption:{en:'Vineyards in Minho, in Portugal’s Vinho Verde region',de:'Weinberge im Minho, in Portugals Vinho-Verde-Region',fr:'Vignobles du Minho, dans la région portugaise du Vinho Verde',es:'Viñedos en Minho, en la región portuguesa del Vinho Verde'},
+    attribution:{author:'alexandra vale',filePage:'https://commons.wikimedia.org/wiki/File:Minho_Vinho_Verde_Vineyards.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  robertson:{src:robertsonVineyardLineage,
+    position:'50% center',tone:'cool',caption:{en:'Vineyard rows and mountain scenery in Robertson, South Africa',de:'Weinbergzeilen und Berglandschaft in Robertson, Südafrika',fr:'Rangs de vignes et montagnes à Robertson, en Afrique du Sud',es:'Hileras de viñedos y montañas en Robertson, Sudáfrica'},
+    attribution:{author:'Azwi',filePage:'https://commons.wikimedia.org/wiki/File:Vineyard_lineage_-_panoramio.jpg',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  'hunter-valley':{src:hunterValleyVineyard,
+    position:'50% center',tone:'warm',caption:{en:'Vineyards in the Hunter Valley, New South Wales, beneath a wooded ridge',de:'Weinberge im Hunter Valley in New South Wales unterhalb eines bewaldeten Höhenzugs',fr:'Vignobles de la Hunter Valley, en Nouvelle-Galles du Sud, sous une crête boisée',es:'Viñedos del Hunter Valley, en Nueva Gales del Sur, bajo una cresta boscosa'},
+    attribution:{author:'F Delventhal',filePage:'https://commons.wikimedia.org/wiki/File:Australia_2003_Hunter_Valley_Vineyard.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  'clare-valley':{src:clareValleyStanleyFlat,
+    position:'50% center',tone:'warm',caption:{en:'Vines at Stanley Flat in South Australia’s Clare Valley',de:'Reben in Stanley Flat im Clare Valley in Südaustralien',fr:'Vignes à Stanley Flat, dans la Clare Valley en Australie-Méridionale',es:'Viñas en Stanley Flat, en Clare Valley, Australia Meridional'},
+    attribution:{author:'Marionlad',filePage:'https://commons.wikimedia.org/wiki/File:Grapevines,_Stanley_Flat.JPG',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  'yarra-valley':{src:yarraValleyRochford,
+    position:'50% center',tone:'cool',caption:{en:'Vineyard rows at Rochford Wines in Victoria’s Yarra Valley',de:'Weinbergzeilen bei Rochford Wines im Yarra Valley in Victoria',fr:'Rangs de vignes du domaine Rochford Wines, dans la Yarra Valley du Victoria',es:'Hileras de viñedos en Rochford Wines, en Yarra Valley, Victoria'},
+    attribution:{author:'MusikAnimal',filePage:'https://commons.wikimedia.org/wiki/File:Rochford_Wines_vineyard_in_Yarra_Valley_Australia.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  'eden-valley':{src:edenValleyLookout,
+    position:'50% center',tone:'cool',caption:{en:'Winter vineyards in the Eden Valley, South Australia, seen from a lookout',de:'Winterliche Weinberge im Eden Valley in Südaustralien, von einem Aussichtspunkt aus gesehen',fr:'Vignobles d’hiver dans l’Eden Valley, en Australie-Méridionale, vus depuis un belvédère',es:'Viñedos invernales en Eden Valley, Australia Meridional, vistos desde un mirador'},
+    attribution:{author:'Jonathanischoice',filePage:'https://commons.wikimedia.org/wiki/File:Eden_Valley,_South_Australia.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  'languedoc-roussillon':{src:languedocPicVissou,
+    position:'50% center',tone:'warm',caption:{en:'Autumn vines beneath Pic de Vissou in Cabrières, Hérault',de:'Herbstliche Reben unterhalb des Pic de Vissou bei Cabrières im Hérault',fr:'Vignes d’automne au pied du pic de Vissou, à Cabrières dans l’Hérault',es:'Viñas otoñales bajo el Pic de Vissou, en Cabrières, Hérault'},
+    attribution:{author:'Christian Ferrer',filePage:'https://commons.wikimedia.org/wiki/File:Vignes_pr%C3%A8s_du_Pic_de_Vissou_-_October_2020.jpg',license:'CC BY 4.0',licenseUrl:'https://creativecommons.org/licenses/by/4.0/',changes:webImageChanges}},
+  medoc:{src:medocHautMedoc,
+    position:'50% center',tone:'cool',caption:{en:'Vineyards near Bégédan in the Haut-Médoc, Bordeaux',de:'Weinberge bei Bégédan im Haut-Médoc, Bordeaux',fr:'Vignobles près de Bégédan dans le Haut-Médoc, à Bordeaux',es:'Viñedos cerca de Bégédan, en el Haut-Médoc de Burdeos'},
+    attribution:{author:'Jonas Roux',filePage:'https://commons.wikimedia.org/wiki/File:Vineyard_in_the_Haut-Medoc.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  pauillac:{src:pauillacVineyard,
+    position:'50% center',tone:'cool',caption:{en:'Pauillac vineyard viewed from the RD 205, with Saint-Martin church in the distance',de:'Weinberg bei Pauillac an der RD 205 mit der Kirche Saint-Martin in der Ferne',fr:'Vignoble de Pauillac vu depuis la RD 205, avec l’église Saint-Martin au loin',es:'Viñedo de Pauillac visto desde la RD 205, con la iglesia de Saint-Martin al fondo'},
+    attribution:{author:'Anthony Baratier',filePage:'https://commons.wikimedia.org/wiki/File:Vignoble_de_Pauillac.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  'saint-emilion':{src:saintEmilionVineyards,
+    position:'50% center',tone:'warm',caption:{en:'Rows of vines on the Saint-Émilion vineyard slopes',de:'Rebzeilen an den Weinberghängen von Saint-Émilion',fr:'Rangs de vignes sur les coteaux de Saint-Émilion',es:'Hileras de vides en las laderas vinícolas de Saint-Émilion'},
+    attribution:{author:'Lauchantoiseau',filePage:'https://commons.wikimedia.org/wiki/File:Vignoble_Saint-Emilion.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  jura:{src:juraArboisVineyards,
+    position:'50% center',tone:'cool',caption:{en:'Vineyards at Arbois, in France’s Jura wine region',de:'Weinberge bei Arbois in der französischen Weinregion Jura',fr:'Vignobles d’Arbois, dans la région viticole française du Jura',es:'Viñedos de Arbois, en la región vinícola francesa del Jura'},
+    attribution:{author:'Espirat',filePage:'https://commons.wikimedia.org/wiki/File:Le_vignoble_d%27Arbois.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  'niagara-peninsula':{src:niagaraPeninsulaVineyard,
+    position:'50% center',tone:'cool',caption:{en:'Vineyard rows on Ontario’s Niagara Escarpment',de:'Weinbergzeilen an der Niagara Escarpment in Ontario',fr:'Rangs de vignes sur l’escarpement du Niagara, en Ontario',es:'Hileras de viñedos en la escarpa del Niágara, Ontario'},
+    attribution:{author:'Michael Pardo (from Niagara, Canada)',filePage:'https://commons.wikimedia.org/wiki/File:Morning_in_the_Vineyard_(20393868278).jpg',license:'CC0 1.0',licenseUrl:'https://creativecommons.org/publicdomain/zero/1.0/',changes:webImageChanges}},
+  'jumilla-yecla':{src:jumillaFincaCq,
+    position:'50% center',tone:'warm',caption:{en:'Aerial view of Finca CQ’s Monastrell vineyard plots in Jumilla, Murcia',de:'Luftaufnahme der Monastrell-Weinberge der Finca CQ in Jumilla, Murcia',fr:'Vue aérienne des parcelles de Monastrell de la Finca CQ à Jumilla, Murcie',es:'Vista aérea de las parcelas de Monastrell de Finca CQ, en Jumilla, Murcia'},
+    attribution:{author:'Malegaetan',filePage:'https://commons.wikimedia.org/wiki/File:Vi%C3%B1edos_de_Finca_CQ_(Casa_Quemada)_en_Jumilla,_Murcia,_Espa%C3%B1a.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  valpolicella:{src:valpolicellaTerraces,
+    position:'50% center',tone:'cool',caption:{en:'Terraced vineyards in the Valpolicella wine region, Veneto',de:'Terrassenweinberge im Weinbaugebiet Valpolicella in Venetien',fr:'Vignobles en terrasses dans la région viticole de Valpolicella, en Vénétie',es:'Viñedos en terrazas en la región vinícola de Valpolicella, Véneto'},
+    attribution:{author:'Aaron Epstein',filePage:'https://commons.wikimedia.org/wiki/File:Terraced_vineyards_in_Valpolicella.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  montalcino:{src:montalcinoVineyard,
+    position:'50% center',tone:'warm',caption:{en:'Vineyard near Montalcino, Tuscany',de:'Weinberg bei Montalcino in der Toskana',fr:'Vignoble près de Montalcino, en Toscane',es:'Viñedo cerca de Montalcino, en la Toscana'},
+    attribution:{author:'trolvag',filePage:'https://commons.wikimedia.org/wiki/File:Montalcino_vineyard_-_panoramio.jpg',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  alentejo:{src:alentejoEstremoz,
+    position:'50% center',tone:'warm',caption:{en:'Vineyard rows near Estremoz in Portugal’s Alentejo wine region',de:'Weinbergzeilen bei Estremoz in Portugals Weinregion Alentejo',fr:'Rangs de vignes près d’Estremoz, dans la région viticole portugaise de l’Alentejo',es:'Hileras de viñedos cerca de Estremoz, en la región vinícola portuguesa del Alentejo'},
+    attribution:{author:'Jules Verne Times Two',filePage:'https://commons.wikimedia.org/wiki/File:Vineyard,_Estremoz,_Portugal_(PPL1-Corrected)_julesvernex2.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  'saale-unstrut':{src:saaleUnstrutRossbach,
+    position:'50% center',tone:'cool',caption:{en:'Terraced vineyards at Roßbach near Naumburg, Saale-Unstrut',de:'Terrassenweinberge in Roßbach bei Naumburg an Saale und Unstrut',fr:'Vignobles en terrasses à Roßbach, près de Naumburg, dans la région Saale-Unstrut',es:'Viñedos en terrazas en Roßbach, cerca de Naumburg, en Saale-Unstrut'},
+    attribution:{author:'Dguendel',filePage:'https://commons.wikimedia.org/wiki/File:Ro%C3%9Fbach_(Naumburg),_Weinberge-2.jpg',license:'CC BY 3.0',licenseUrl:'https://creativecommons.org/licenses/by/3.0/',changes:webImageChanges}},
+  muscadet:{src:muscadetPaysNantais,
+    position:'50% center',tone:'cool',caption:{en:'Melon de Bourgogne vines in the Muscadet Pays Nantais, Loire Valley',de:'Melon-de-Bourgogne-Reben im Muscadet Pays Nantais im Loiretal',fr:'Vignes de Melon de Bourgogne dans le Muscadet Pays Nantais, vallée de la Loire',es:'Vides de Melon de Bourgogne en Muscadet Pays Nantais, valle del Loira'},
+    attribution:{author:'Jameson Fink',filePage:'https://commons.wikimedia.org/wiki/File:Muscadet_vineyard.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  setubal:{src:setubalArrabida,
+    position:'50% center',tone:'cool',caption:{en:'Vineyards beneath the Serra da Arrábida in Portugal',de:'Weinberge am Fuß der Serra da Arrábida in Portugal',fr:'Vignobles au pied de la Serra da Arrábida, au Portugal',es:'Viñedos al pie de la Serra da Arrábida, en Portugal'},
+    attribution:{author:'Arseniop',filePage:'https://commons.wikimedia.org/wiki/File:Arrabida_footslope_vineyards.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  navarra:{src:navarraCintruenigo,
+    position:'50% center',tone:'warm',caption:{en:'Autumn vineyards near Cintruénigo in Navarre',de:'Herbstliche Weinberge bei Cintruénigo in Navarra',fr:'Vignobles d’automne près de Cintruénigo, en Navarre',es:'Viñedos de otoño cerca de Cintruénigo, en Navarra'},
+    attribution:{author:'Feranza',filePage:'https://commons.wikimedia.org/wiki/File:Vi%C3%B1edos_de_Navarra.JPG',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  savoie:{src:savoieApremontGranier,
+    position:'50% center',tone:'cool',caption:{en:'Vineyards at Apremont beneath Mount Granier, Savoie',de:'Weinberge bei Apremont unterhalb des Mont Granier in Savoyen',fr:'Vignobles d’Apremont au pied du mont Granier, en Savoie',es:'Viñedos de Apremont al pie del monte Granier, en Saboya'},
+    attribution:{author:'Dabigben73',filePage:'https://commons.wikimedia.org/wiki/File:Apremont_Granier_vignes.JPG',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  sussex:{src:sussexBolney,
+    position:'50% center',tone:'cool',caption:{en:'Young vines at Bolney Vineyard in West Sussex, England',de:'Junge Reben bei Bolney Vineyard in West Sussex, England',fr:'Jeunes vignes au domaine de Bolney, dans le West Sussex en Angleterre',es:'Vides jóvenes en Bolney Vineyard, West Sussex, Inglaterra'},
+    attribution:{author:'Paul Gillett',filePage:'https://commons.wikimedia.org/wiki/File:Bolney_Vineyard_-_geograph.org.uk_-_3663326.jpg',license:'CC BY-SA 2.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/',changes:webImageChanges}},
+  kakheti:{src:kakhetiZegaani,
+    position:'50% center',tone:'warm',caption:{en:'Vineyards at Chateau Zegaani in Akhasheni, Gurjaani, Kakheti, Georgia',de:'Weinberge des Chateau Zegaani in Akhasheni, Gurjaani, Kachetien, Georgien',fr:'Vignobles du Chateau Zegaani à Akhasheni, Gurjaani, en Kakhétie, Géorgie',es:'Viñedos de Chateau Zegaani en Akhasheni, Gurjaani, Kajetia, Georgia'},
+    attribution:{author:'Chateau Zegaani',filePage:'https://commons.wikimedia.org/wiki/File:Chateau_Zegaani_Vineyards.jpg',license:'CC BY-SA 2.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/',changes:webImageChanges}},
 }
 
 const portraits:Record<string,Portrait>={

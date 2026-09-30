@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-30T12:03:59.547Z",
+  "generatedAt": "2026-09-30T12:47:28.372Z",
   "sourceOfTruth": "src/data/catalog.ts and the authored learning curriculum",
   "promptPolicy": "Prompt templates are stored once and expanded with promptContext per record; generation records and exact source prompts are in GENERATION-PROVENANCE.md, not the runtime bundle.",
   "summary": {
     "regions": {
       "total": 222,
       "generated": 5,
-      "licensedPhotographs": 45,
-      "pending": 167
+      "licensedPhotographs": 85,
+      "pending": 129
     },
     "grapes": {
       "total": 134,
@@ -390,6 +390,246 @@
       "id": "barbaresco",
       "filename": "barbaresco-vineyard-hills.jpg",
       "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "ahr",
+      "filename": "ahr-vineyard-valley.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "baden",
+      "filename": "baden-sasbach-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "rheingau",
+      "filename": "rheingau-johannisberg-panorama.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "mittelrhein",
+      "filename": "mittelrhein-bacharach-stahleck.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "lujan-de-cuyo",
+      "filename": "lujan-de-cuyo-chakana.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "mendoza",
+      "filename": "mendoza-maipu-cycling-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "maipu",
+      "filename": "maipu-fray-luis-beltran.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "rioja-alavesa",
+      "filename": "rioja-alavesa-elvillar.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "wurttemberg",
+      "filename": "wurttemberg-stuttgart-uhlbach.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "sachsen",
+      "filename": "sachsen-radebeul-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "northern-rhone",
+      "filename": "northern-rhone-cote-rotie.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "southern-rhone",
+      "filename": "southern-rhone-chateauneuf.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "centre-loire",
+      "filename": "centre-loire-sancerre.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "touraine",
+      "filename": "touraine-rochecorbon.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "beaujolais",
+      "filename": "beaujolais-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "rioja",
+      "filename": "rioja-growing-season.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "ribera-del-duero",
+      "filename": "ribera-del-duero-vina-sastre.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "vinho-verde",
+      "filename": "vinho-verde-minho-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "robertson",
+      "filename": "robertson-vineyard-lineage.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "hunter-valley",
+      "filename": "hunter-valley-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "clare-valley",
+      "filename": "clare-valley-stanley-flat.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "yarra-valley",
+      "filename": "yarra-valley-rochford.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "eden-valley",
+      "filename": "eden-valley-lookout.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "languedoc-roussillon",
+      "filename": "languedoc-pic-vissou.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "medoc",
+      "filename": "medoc-haut-medoc.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "pauillac",
+      "filename": "pauillac-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "saint-emilion",
+      "filename": "saint-emilion-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "jura",
+      "filename": "jura-arbois-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "niagara-peninsula",
+      "filename": "niagara-peninsula-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "jumilla-yecla",
+      "filename": "jumilla-finca-cq-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "valpolicella",
+      "filename": "valpolicella-terraced-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "montalcino",
+      "filename": "montalcino-vineyard-panorama.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "alentejo",
+      "filename": "alentejo-estremoz-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "saale-unstrut",
+      "filename": "saale-unstrut-rossbach.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "muscadet",
+      "filename": "muscadet-pays-nantais.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "setubal",
+      "filename": "setubal-arrabida-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "navarra",
+      "filename": "navarra-cintruenigo-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "savoie",
+      "filename": "savoie-apremont-granier.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "sussex",
+      "filename": "sussex-bolney-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "kakheti",
+      "filename": "kakheti-zegaani-vineyards.jpg",
+      "present": true
     }
   ],
   "records": {
@@ -404,11 +644,9 @@
         "id": "medoc",
         "name": "Médoc",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Médoc",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "medoc-haut-medoc.jpg"
         }
       },
       {
@@ -426,11 +664,9 @@
         "id": "pauillac",
         "name": "Pauillac",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Pauillac",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "pauillac-vineyard.jpg"
         }
       },
       {
@@ -448,11 +684,9 @@
         "id": "saint-emilion",
         "name": "Saint-Émilion",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Saint-Émilion",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "saint-emilion-vineyards.jpg"
         }
       },
       {
@@ -583,33 +817,27 @@
         "id": "northern-rhone",
         "name": "Northern Rhône",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Northern Rhône",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "northern-rhone-cote-rotie.jpg"
         }
       },
       {
         "id": "southern-rhone",
         "name": "Southern Rhône",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Southern Rhône",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "southern-rhone-chateauneuf.jpg"
         }
       },
       {
         "id": "muscadet",
         "name": "Muscadet",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Muscadet",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "muscadet-pays-nantais.jpg"
         }
       },
       {
@@ -627,11 +855,9 @@
         "id": "touraine",
         "name": "Touraine",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Touraine",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "touraine-rochecorbon.jpg"
         }
       },
       {
@@ -649,11 +875,9 @@
         "id": "centre-loire",
         "name": "Centre-Loire",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Centre-Loire",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "centre-loire-sancerre.jpg"
         }
       },
       {
@@ -680,44 +904,36 @@
         "id": "languedoc-roussillon",
         "name": "Languedoc-Roussillon",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Languedoc-Roussillon",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "languedoc-pic-vissou.jpg"
         }
       },
       {
         "id": "beaujolais",
         "name": "Beaujolais",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Beaujolais",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "beaujolais-vineyards.jpg"
         }
       },
       {
         "id": "jura",
         "name": "Jura",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Jura",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "jura-arbois-vineyards.jpg"
         }
       },
       {
         "id": "savoie",
         "name": "Savoie",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Savoie",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "savoie-apremont-granier.jpg"
         }
       },
       {
@@ -839,11 +1055,9 @@
         "id": "montalcino",
         "name": "Montalcino",
         "country": "Italy",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Montalcino",
-          "country": "Italy"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "montalcino-vineyard-panorama.jpg"
         }
       },
       {
@@ -883,11 +1097,9 @@
         "id": "valpolicella",
         "name": "Valpolicella",
         "country": "Italy",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Valpolicella",
-          "country": "Italy"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "valpolicella-terraced-vineyards.jpg"
         }
       },
       {
@@ -1068,11 +1280,9 @@
         "id": "rioja",
         "name": "Rioja",
         "country": "Spain",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Rioja",
-          "country": "Spain"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "rioja-growing-season.jpg"
         }
       },
       {
@@ -1086,11 +1296,9 @@
         "id": "rioja-alavesa",
         "name": "Rioja Alavesa",
         "country": "Spain",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Rioja Alavesa",
-          "country": "Spain"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "rioja-alavesa-elvillar.jpg"
         }
       },
       {
@@ -1108,11 +1316,9 @@
         "id": "ribera-del-duero",
         "name": "Ribera del Duero",
         "country": "Spain",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Ribera del Duero",
-          "country": "Spain"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "ribera-del-duero-vina-sastre.jpg"
         }
       },
       {
@@ -1190,22 +1396,18 @@
         "id": "jumilla-yecla",
         "name": "Jumilla & Yecla",
         "country": "Spain",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Jumilla & Yecla",
-          "country": "Spain"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "jumilla-finca-cq-vineyards.jpg"
         }
       },
       {
         "id": "navarra",
         "name": "Navarra",
         "country": "Spain",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Navarra",
-          "country": "Spain"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "navarra-cintruenigo-vineyards.jpg"
         }
       },
       {
@@ -1232,11 +1434,9 @@
         "id": "vinho-verde",
         "name": "Vinho Verde",
         "country": "Portugal",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Vinho Verde",
-          "country": "Portugal"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "vinho-verde-minho-vineyards.jpg"
         }
       },
       {
@@ -1265,11 +1465,9 @@
         "id": "alentejo",
         "name": "Alentejo",
         "country": "Portugal",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Alentejo",
-          "country": "Portugal"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "alentejo-estremoz-vineyard.jpg"
         }
       },
       {
@@ -1282,11 +1480,9 @@
         "id": "setubal",
         "name": "Setúbal",
         "country": "Portugal",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Setúbal",
-          "country": "Portugal"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "setubal-arrabida-vineyards.jpg"
         }
       },
       {
@@ -1304,22 +1500,18 @@
         "id": "ahr",
         "name": "Ahr",
         "country": "Germany",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Ahr",
-          "country": "Germany"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "ahr-vineyard-valley.jpg"
         }
       },
       {
         "id": "baden",
         "name": "Baden",
         "country": "Germany",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Baden",
-          "country": "Germany"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "baden-sasbach-vineyard.jpg"
         }
       },
       {
@@ -1346,11 +1538,9 @@
         "id": "mittelrhein",
         "name": "Mittelrhein",
         "country": "Germany",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Mittelrhein",
-          "country": "Germany"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "mittelrhein-bacharach-stahleck.jpg"
         }
       },
       {
@@ -1384,7 +1574,10 @@
         "id": "rheingau",
         "name": "Rheingau",
         "country": "Germany",
-        "status": "curated-region-scene"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "rheingau-johannisberg-panorama.jpg"
+        }
       },
       {
         "id": "rheinhessen",
@@ -1399,33 +1592,27 @@
         "id": "saale-unstrut",
         "name": "Saale-Unstrut",
         "country": "Germany",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Saale-Unstrut",
-          "country": "Germany"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "saale-unstrut-rossbach.jpg"
         }
       },
       {
         "id": "sachsen",
         "name": "Sachsen",
         "country": "Germany",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Sachsen",
-          "country": "Germany"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "sachsen-radebeul-vineyards.jpg"
         }
       },
       {
         "id": "wurttemberg",
         "name": "Württemberg",
         "country": "Germany",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Württemberg",
-          "country": "Germany"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "wurttemberg-stuttgart-uhlbach.jpg"
         }
       },
       {
@@ -1679,11 +1866,9 @@
         "id": "kakheti",
         "name": "Kakheti",
         "country": "Georgia",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Kakheti",
-          "country": "Georgia"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "kakheti-zegaani-vineyards.jpg"
         }
       },
       {
@@ -1818,11 +2003,9 @@
         "id": "sussex",
         "name": "Sussex",
         "country": "England",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Sussex",
-          "country": "England"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "sussex-bolney-vineyard.jpg"
         }
       },
       {
@@ -2026,11 +2209,9 @@
         "id": "niagara-peninsula",
         "name": "Niagara Peninsula",
         "country": "Canada",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Niagara Peninsula",
-          "country": "Canada"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "niagara-peninsula-vineyard.jpg"
         }
       },
       {
@@ -2059,7 +2240,10 @@
         "id": "mendoza",
         "name": "Mendoza",
         "country": "Argentina",
-        "status": "curated-region-scene"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "mendoza-maipu-cycling-vineyards.jpg"
+        }
       },
       {
         "id": "uco-valley",
@@ -2074,22 +2258,18 @@
         "id": "lujan-de-cuyo",
         "name": "Luján de Cuyo",
         "country": "Argentina",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Luján de Cuyo",
-          "country": "Argentina"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "lujan-de-cuyo-chakana.jpg"
         }
       },
       {
         "id": "maipu",
         "name": "Maipú",
         "country": "Argentina",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Maipú",
-          "country": "Argentina"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "maipu-fray-luis-beltran.jpg"
         }
       },
       {
@@ -2311,11 +2491,9 @@
         "id": "robertson",
         "name": "Robertson",
         "country": "South Africa",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Robertson",
-          "country": "South Africa"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "robertson-vineyard-lineage.jpg"
         }
       },
       {
@@ -2331,22 +2509,18 @@
         "id": "eden-valley",
         "name": "Eden Valley",
         "country": "Australia",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Eden Valley",
-          "country": "Australia"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "eden-valley-lookout.jpg"
         }
       },
       {
         "id": "clare-valley",
         "name": "Clare Valley",
         "country": "Australia",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Clare Valley",
-          "country": "Australia"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "clare-valley-stanley-flat.jpg"
         }
       },
       {
@@ -2382,11 +2556,9 @@
         "id": "yarra-valley",
         "name": "Yarra Valley",
         "country": "Australia",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Yarra Valley",
-          "country": "Australia"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "yarra-valley-rochford.jpg"
         }
       },
       {
@@ -2404,11 +2576,9 @@
         "id": "hunter-valley",
         "name": "Hunter Valley",
         "country": "Australia",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Hunter Valley",
-          "country": "Australia"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "hunter-valley-vineyard.jpg"
         }
       },
       {

@@ -1,0 +1,368 @@
+{
+  "schemaVersion": 1,
+  "researchedOn": "2026-09-30",
+  "reviewStatus": "40_candidates_verified_for_integration",
+  "sourcePolicy": "Wikimedia Commons file pages only. Each candidate has a reusable explicit license and author credit, region-specific evidence on the file page (title, description, or categories), and a visually inspected preview. Keep author, source-page, license, and adaptation/change notices with every use; ShareAlike applies where specified.",
+  "candidates": [
+    {
+      "regionId": "ahr", "region": "Ahr, Germany", "fileTitle": "Vineyard in the Ahr Valley, Germany.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Vineyard_in_the_Ahr_Valley,_Germany.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/78/Vineyard_in_the_Ahr_Valley%2C_Germany.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Vineyard_in_the_Ahr_Valley%2C_Germany.jpg/1280px-Vineyard_in_the_Ahr_Valley%2C_Germany.jpg",
+      "dimensions": { "width": 6000, "height": 4000 }, "author": "1998alexkane", "license": "CC0 1.0", "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "caption": { "en": "Vineyard rows in the Ahr Valley, Germany." },
+      "visualEvidence": "Commons description identifies the Ahr Valley; preview shows vine rows, valley and village."
+    },
+    {
+      "regionId": "baden", "region": "Baden, Germany", "fileTitle": "Vineyard - Sasbach 02.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Vineyard_-_Sasbach_02.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/94/Vineyard_-_Sasbach_02.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Vineyard_-_Sasbach_02.jpg/1280px-Vineyard_-_Sasbach_02.jpg",
+      "dimensions": { "width": 5958, "height": 3328 }, "author": "H. Zell", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "caption": { "en": "Vineyard near Sasbach in Baden-Württemberg." },
+      "visualEvidence": "Commons description names Sasbach, Baden-Württemberg; preview shows vineyard rows."
+    },
+    {
+      "regionId": "rheingau", "region": "Rheingau, Germany", "fileTitle": "Panoramic view of eastern Rheingau from Schloss Johannisberg 20150415 1.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Panoramic_view_of_eastern_Rheingau_from_Schloss_Johannisberg_20150415_1.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Panoramic_view_of_eastern_Rheingau_from_Schloss_Johannisberg_20150415_1.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Panoramic_view_of_eastern_Rheingau_from_Schloss_Johannisberg_20150415_1.jpg/1280px-Panoramic_view_of_eastern_Rheingau_from_Schloss_Johannisberg_20150415_1.jpg",
+      "dimensions": { "width": 22809, "height": 4489 }, "author": "DXR", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "caption": { "en": "Vineyard slopes and villages across the eastern Rheingau, viewed from Schloss Johannisberg." },
+      "visualEvidence": "Description and categories identify the eastern Rheingau; panorama shows vineyards, river and villages."
+    },
+    {
+      "regionId": "mittelrhein", "region": "Mittelrhein, Germany", "fileTitle": "Mittelrhein-Burg-Stahleck-JR-E-1700-2017-05-27.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Mittelrhein-Burg-Stahleck-JR-E-1700-2017-05-27.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Mittelrhein-Burg-Stahleck-JR-E-1700-2017-05-27.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Mittelrhein-Burg-Stahleck-JR-E-1700-2017-05-27.jpg/1280px-Mittelrhein-Burg-Stahleck-JR-E-1700-2017-05-27.jpg",
+      "dimensions": { "width": 4555, "height": 2997 }, "author": "Johannes Robalotoff", "license": "CC BY-SA 3.0 DE", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+      "caption": { "en": "Rhine valley near Bacharach, with vineyards and Stahleck Castle." },
+      "visualEvidence": "Description places the viewpoint in vineyards near Bacharach on the Rhine; preview shows castle, river and steep valley."
+    },
+    {
+      "regionId": "lujan-de-cuyo", "region": "Luján de Cuyo, Argentina", "fileTitle": "Bodega chakana hacia la montaña.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Bodega_chakana_hacia_la_monta%C3%B1a.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Bodega_chakana_hacia_la_monta%C3%B1a.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Bodega_chakana_hacia_la_monta%C3%B1a.jpg/1280px-Bodega_chakana_hacia_la_monta%C3%B1a.jpg",
+      "dimensions": { "width": 3504, "height": 4108 }, "author": "Juan Pelizzatti", "license": "CC BY 3.0", "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "caption": { "en": "Chakana vineyard in Agrelo, Luján de Cuyo, with the Andes beyond." },
+      "visualEvidence": "Description identifies Bodega Chakana's vineyard at Agrelo, Luján de Cuyo; preview shows vineyard rows below the Andes. Portrait crop needed."
+    },
+    {
+      "regionId": "mendoza", "region": "Mendoza, Argentina", "fileTitle": "Ciclismo entre viñedos de Maipú, Mendoza, Argentina.png",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Ciclismo_entre_vi%C3%B1edos_de_Maip%C3%BA,_Mendoza,_Argentina.png",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/32/Ciclismo_entre_vi%C3%B1edos_de_Maip%C3%BA%2C_Mendoza%2C_Argentina.png",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Ciclismo_entre_vi%C3%B1edos_de_Maip%C3%BA%2C_Mendoza%2C_Argentina.png/1280px-Ciclismo_entre_vi%C3%B1edos_de_Maip%C3%BA%2C_Mendoza%2C_Argentina.png",
+      "dimensions": { "width": 1774, "height": 887 }, "author": "MendozaGuide", "license": "CC0 1.0", "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "caption": { "en": "Cycling among vineyards in Maipú, Mendoza, with the Andes in the background." },
+      "visualEvidence": "Title identifies Maipú, Mendoza; preview shows a cyclist, vines and Andes."
+    },
+    {
+      "regionId": "maipu", "region": "Maipú, Mendoza, Argentina", "fileTitle": "Viñedos de Fray Luis Beltrán.JPG",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Vi%C3%B1edos_de_Fray_Luis_Beltr%C3%A1n.JPG",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/50/Vi%C3%B1edos_de_Fray_Luis_Beltr%C3%A1n.JPG",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Vi%C3%B1edos_de_Fray_Luis_Beltr%C3%A1n.JPG/1280px-Vi%C3%B1edos_de_Fray_Luis_Beltr%C3%A1n.JPG",
+      "dimensions": { "width": 4000, "height": 3000 }, "author": "Djzonda", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "caption": { "en": "Torrontés vineyard near Fray Luis Beltrán, Maipú, Mendoza." },
+      "visualEvidence": "Description names the vineyard and Fray Luis Beltrán district in Maipú; preview shows a track between vine rows."
+    },
+    {
+      "regionId": "rioja-alavesa", "region": "Rioja Alavesa, Spain", "fileTitle": "Elvillar - Viñedo 01.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Elvillar_-_Vi%C3%B1edo_01.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/13/Elvillar_-_Vi%C3%B1edo_01.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Elvillar_-_Vi%C3%B1edo_01.jpg/1280px-Elvillar_-_Vi%C3%B1edo_01.jpg",
+      "dimensions": { "width": 4592, "height": 3448 }, "author": "Basotxerri", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "caption": { "en": "Autumn vines near Elvillar, Rioja Alavesa, Basque Country." },
+      "visualEvidence": "Description explicitly places vineyard near Elvillar in Rioja Alavesa; preview shows autumn rows and distant hills."
+    },
+    {
+      "regionId": "wurttemberg", "region": "Württemberg, Germany", "fileTitle": "Blick von Uhlbach auf Württemberg (2009).jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Blick_von_Uhlbach_auf_W%C3%BCrttemberg_(2009).jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Blick_von_Uhlbach_auf_W%C3%BCrttemberg_%282009%29.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Blick_von_Uhlbach_auf_W%C3%BCrttemberg_%282009%29.jpg/1280px-Blick_von_Uhlbach_auf_W%C3%BCrttemberg_%282009%29.jpg",
+      "dimensions": { "width": 3696, "height": 2045 }, "author": "Jochen Teufel", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "caption": { "en": "Vineyard hillside near Stuttgart-Uhlbach, looking toward Württemberg." },
+      "visualEvidence": "Description and categories identify Uhlbach and Stuttgart vineyards; preview shows hillside rows and the mausoleum."
+    },
+    {
+      "regionId": "sachsen", "region": "Saxony, Germany", "fileTitle": "20081023410DR Radebeul-Oberlößnitz Bismarckturm + Spitzhaus.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:20081023410DR_Radebeul-Oberl%C3%B6%C3%9Fnitz_Bismarckturm_%2B_Spitzhaus.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/05/20081023410DR_Radebeul-Oberl%C3%B6%C3%9Fnitz_Bismarckturm_%2B_Spitzhaus.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/20081023410DR_Radebeul-Oberl%C3%B6%C3%9Fnitz_Bismarckturm_%2B_Spitzhaus.jpg/1280px-20081023410DR_Radebeul-Oberl%C3%B6%C3%9Fnitz_Bismarckturm_%2B_Spitzhaus.jpg",
+      "dimensions": { "width": 2560, "height": 1800 }, "author": "Jörg Blobelt", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "caption": { "en": "Terraced vineyards at Radebeul-Oberlößnitz, Saxony." },
+      "visualEvidence": "Description identifies a view into vineyards at Radebeul-Oberlößnitz; preview shows terraces and local landmarks."
+    },
+    {
+      "regionId": "northern-rhone", "region": "Northern Rhône, France", "fileTitle": "Terrasse de Côte Rôtie en hiver.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Terrasse_de_C%C3%B4te_R%C3%B4tie_en_hiver.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Terrasse_de_C%C3%B4te_R%C3%B4tie_en_hiver.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Terrasse_de_C%C3%B4te_R%C3%B4tie_en_hiver.jpg/1280px-Terrasse_de_C%C3%B4te_R%C3%B4tie_en_hiver.jpg",
+      "dimensions": { "width": 3072, "height": 2304 }, "author": "Karen", "license": "CC BY 2.0", "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "caption": { "en": "Côte-Rôtie vineyard terraces in winter." },
+      "visualEvidence": "Description identifies Côte-Rôtie in the northern Rhône; preview shows steep terraced rows and stone walls."
+    },
+    {
+      "regionId": "southern-rhone", "region": "Southern Rhône, France", "fileTitle": "139 Châteauneuf-du-Pape vineyard.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:139_Ch%C3%A2teauneuf-du-Pape_vineyard.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/139_Ch%C3%A2teauneuf-du-Pape_vineyard.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/139_Ch%C3%A2teauneuf-du-Pape_vineyard.jpg/1280px-139_Ch%C3%A2teauneuf-du-Pape_vineyard.jpg",
+      "dimensions": { "width": 2592, "height": 1728 }, "author": "Jarrod Doll", "license": "CC BY 2.0", "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "caption": { "en": "Vine trunks and galets at Châteauneuf-du-Pape, southern Rhône." },
+      "visualEvidence": "Description and categories identify Châteauneuf-du-Pape AOC; preview shows vine trunks among rounded stones."
+    },
+    {
+      "regionId": "centre-loire", "region": "Centre-Loire, France", "fileTitle": "Sancerre vue des vignes de Didier Prieur.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Sancerre_vue_des_vignes_de_Didier_Prieur.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Sancerre_vue_des_vignes_de_Didier_Prieur.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Sancerre_vue_des_vignes_de_Didier_Prieur.jpg/1280px-Sancerre_vue_des_vignes_de_Didier_Prieur.jpg",
+      "dimensions": { "width": 3648, "height": 2736 }, "author": "Noelle Lagrange", "license": "CC BY 2.0", "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "caption": { "en": "Vines rising toward Sancerre in France’s Centre-Loire." },
+      "visualEvidence": "Description and categories identify Sancerre in the Loire wine region; preview shows rows leading toward the town."
+    },
+    {
+      "regionId": "touraine", "region": "Touraine, France", "fileTitle": "Rochecorbon - Vignoble - 01.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Rochecorbon_-_Vignoble_-_01.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/37/Rochecorbon_-_Vignoble_-_01.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Rochecorbon_-_Vignoble_-_01.jpg/1280px-Rochecorbon_-_Vignoble_-_01.jpg",
+      "dimensions": { "width": 6507, "height": 4342 }, "author": "Benjamin Smith", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "caption": { "en": "Vineyards east of Rochecorbon in Touraine, Indre-et-Loire." },
+      "visualEvidence": "Description places the vineyards east of Rochecorbon, Indre-et-Loire; preview shows rows, village and landscape."
+    },
+    {
+      "regionId": "beaujolais", "region": "Beaujolais, France", "fileTitle": "Beaujolais wine region.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Beaujolais_wine_region.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Beaujolais_wine_region.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Beaujolais_wine_region.jpg/1280px-Beaujolais_wine_region.jpg",
+      "dimensions": { "width": 3008, "height": 2000 }, "author": "karaian", "license": "CC BY 2.0", "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "caption": { "en": "Cultivated vineyard slopes in the Beaujolais wine region." },
+      "visualEvidence": "Title and categories identify the Beaujolais wine region; preview shows cultivated slopes under a dramatic sky."
+    },
+    {
+      "regionId": "rioja", "region": "Rioja, Spain", "fileTitle": "New Growing Season in Rioja Vineyard - panoramio.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:New_Growing_Season_in_Rioja_Vineyard_-_panoramio.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/New_Growing_Season_in_Rioja_Vineyard_-_panoramio.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/New_Growing_Season_in_Rioja_Vineyard_-_panoramio.jpg/1280px-New_Growing_Season_in_Rioja_Vineyard_-_panoramio.jpg",
+      "dimensions": { "width": 1581, "height": 811 }, "author": "Art Anderson", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "caption": { "en": "Rows of a Rioja vineyard at the start of the growing season." },
+      "visualEvidence": "Title/description identify Rioja; preview shows long rows across a broad plain."
+    },
+    {
+      "regionId": "ribera-del-duero", "region": "Ribera del Duero, Spain", "fileTitle": "Viñedos Bodega Viña Sastre - Hermanos Sastre Ribera del Duero.JPG",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Vi%C3%B1edos_Bodega_Vi%C3%B1a_Sastre_-_Hermanos_Sastre_Ribera_del_Duero.JPG",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Vi%C3%B1edos_Bodega_Vi%C3%B1a_Sastre_-_Hermanos_Sastre_Ribera_del_Duero.JPG",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Vi%C3%B1edos_Bodega_Vi%C3%B1a_Sastre_-_Hermanos_Sastre_Ribera_del_Duero.JPG/1280px-Vi%C3%B1edos_Bodega_Vi%C3%B1a_Sastre_-_Hermanos_Sastre_Ribera_del_Duero.JPG",
+      "dimensions": { "width": 3840, "height": 2160 }, "author": "Pravdaverita", "license": "CC BY 3.0", "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "caption": { "en": "Estate vineyards at Bodega Viña Sastre, La Horra, Ribera del Duero." },
+      "visualEvidence": "Description identifies the estate vineyards and La Horra, Ribera del Duero; preview shows winery and rows."
+    },
+    {
+      "regionId": "vinho-verde", "region": "Vinho Verde, Portugal", "fileTitle": "Minho Vinho Verde Vineyards.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Minho_Vinho_Verde_Vineyards.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Minho_Vinho_Verde_Vineyards.jpg",
+      "directThumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Minho_Vinho_Verde_Vineyards.jpg",
+      "dimensions": { "width": 1024, "height": 681 }, "author": "alexandra vale", "license": "CC BY 2.0", "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "caption": { "en": "Vineyards in Minho’s Vinho Verde wine region." },
+      "visualEvidence": "Description and category identify Vinho Verde in Minho; preview shows trained vines and hillside settlement."
+    },
+    {
+      "regionId": "robertson", "region": "Robertson, South Africa", "fileTitle": "Vineyard lineage - panoramio.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Vineyard_lineage_-_panoramio.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/71/Vineyard_lineage_-_panoramio.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Vineyard_lineage_-_panoramio.jpg/1280px-Vineyard_lineage_-_panoramio.jpg",
+      "dimensions": { "width": 4717, "height": 1917 }, "author": "Azwi", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "caption": { "en": "Vineyard rows in Robertson, South Africa, beneath a mountain range." },
+      "visualEvidence": "Commons categories identify Robertson and South African vineyards; preview shows vine rows and mountains."
+    },
+    {
+      "regionId": "hunter-valley", "region": "Hunter Valley, Australia", "fileTitle": "Australia 2003 Hunter Valley Vineyard.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Australia_2003_Hunter_Valley_Vineyard.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Australia_2003_Hunter_Valley_Vineyard.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Australia_2003_Hunter_Valley_Vineyard.jpg/1280px-Australia_2003_Hunter_Valley_Vineyard.jpg",
+      "dimensions": { "width": 1595, "height": 933 }, "author": "F Delventhal", "license": "CC BY 2.0", "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "caption": { "en": "Vineyards in the Hunter Valley, New South Wales." },
+      "visualEvidence": "Description explicitly says Hunter Valley wine region in New South Wales; preview shows rows beneath a wooded ridge."
+    },
+    {
+      "regionId": "clare-valley", "region": "Clare Valley, Australia", "fileTitle": "Grapevines, Stanley Flat.JPG",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Grapevines,_Stanley_Flat.JPG",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Grapevines%2C_Stanley_Flat.JPG",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Grapevines%2C_Stanley_Flat.JPG/1280px-Grapevines%2C_Stanley_Flat.JPG",
+      "dimensions": { "width": 3264, "height": 2448 }, "author": "Marionlad", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "caption": { "en": "Vines at Stanley Flat in South Australia's Clare Valley." },
+      "visualEvidence": "Description explicitly names Stanley Flat and Clare Valley; preview shows vine rows against dry rolling countryside."
+    },
+    {
+      "regionId": "yarra-valley", "region": "Yarra Valley, Australia", "fileTitle": "Rochford Wines vineyard in Yarra Valley Australia.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Rochford_Wines_vineyard_in_Yarra_Valley_Australia.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/92/Rochford_Wines_vineyard_in_Yarra_Valley_Australia.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Rochford_Wines_vineyard_in_Yarra_Valley_Australia.jpg/1280px-Rochford_Wines_vineyard_in_Yarra_Valley_Australia.jpg",
+      "dimensions": { "width": 3200, "height": 2368 }, "author": "MusikAnimal", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "caption": { "en": "Rochford Wines vineyard in Victoria's Yarra Valley." },
+      "visualEvidence": "Description names the Yarra Valley; preview shows vines leading toward surrounding hills."
+    },
+    {
+      "regionId": "eden-valley", "region": "Eden Valley, Australia", "fileTitle": "Eden Valley, South Australia.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Eden_Valley,_South_Australia.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Eden_Valley%2C_South_Australia.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Eden_Valley%2C_South_Australia.jpg/1280px-Eden_Valley%2C_South_Australia.jpg",
+      "dimensions": { "width": 5184, "height": 3456 }, "author": "Jonathanischoice", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "caption": { "en": "Winter vineyards in the Eden Valley, South Australia, seen from a lookout." },
+      "visualEvidence": "Description explicitly says winter vineyards in Eden Valley; preview shows broad cultivated valley."
+    },
+    {
+      "regionId": "languedoc-roussillon", "region": "Languedoc-Roussillon, France", "fileTitle": "Vignes près du Pic de Vissou - October 2020.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Vignes_pr%C3%A8s_du_Pic_de_Vissou_-_October_2020.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Vignes_pr%C3%A8s_du_Pic_de_Vissou_-_October_2020.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Vignes_pr%C3%A8s_du_Pic_de_Vissou_-_October_2020.jpg/1280px-Vignes_pr%C3%A8s_du_Pic_de_Vissou_-_October_2020.jpg",
+      "dimensions": { "width": 7360, "height": 4600 }, "author": "Christian Ferrer", "license": "CC BY 4.0", "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "caption": { "en": "Autumn vines beneath Pic de Vissou in Cabrières, Hérault." },
+      "visualEvidence": "Description says AOC Languedoc-Cabrières and names Cabrières, Hérault; preview shows vineyard rows across a hillside."
+    },
+    {
+      "regionId": "medoc", "region": "Médoc, France", "fileTitle": "Vineyard in the Haut-Medoc.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Vineyard_in_the_Haut-Medoc.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/Vineyard_in_the_Haut-Medoc.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Vineyard_in_the_Haut-Medoc.jpg/1280px-Vineyard_in_the_Haut-Medoc.jpg",
+      "dimensions": { "width": 1632, "height": 1088 }, "author": "Jonas Roux", "license": "CC BY 2.0", "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "caption": { "en": "Bégédan vineyards in the Haut-Médoc, Bordeaux." },
+      "visualEvidence": "Description explicitly places vineyards in the Haut-Médoc; preview shows rows and a small church on the horizon."
+    },
+    {
+      "regionId": "pauillac", "region": "Pauillac, France", "fileTitle": "Vignoble de Pauillac.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Vignoble_de_Pauillac.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/14/Vignoble_de_Pauillac.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Vignoble_de_Pauillac.jpg/1280px-Vignoble_de_Pauillac.jpg",
+      "dimensions": { "width": 4875, "height": 3249 }, "author": "Anthony Baratier", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "caption": { "en": "Pauillac vineyard viewed from RD 205, with Saint-Martin church in the distance." },
+      "visualEvidence": "French description names the Pauillac vineyard and RD 205; preview shows planted rows and church."
+    },
+    {
+      "regionId": "saint-emilion", "region": "Saint-Émilion, France", "fileTitle": "Vignoble Saint-Emilion.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Vignoble_Saint-Emilion.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/21/Vignoble_Saint-Emilion.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Vignoble_Saint-Emilion.jpg/1280px-Vignoble_Saint-Emilion.jpg",
+      "dimensions": { "width": 5184, "height": 3456 }, "author": "Lauchantoiseau", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "caption": { "en": "Rows of vines on the Saint-Émilion vineyard slopes." },
+      "visualEvidence": "Description explicitly identifies the Saint-Émilion vineyard landscape; preview shows rows across rolling terrain."
+    },
+    {
+      "regionId": "jura", "region": "Jura, France", "fileTitle": "Le vignoble d'Arbois.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Le_vignoble_d%27Arbois.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Le_vignoble_d%27Arbois.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Le_vignoble_d%27Arbois.jpg/1280px-Le_vignoble_d%27Arbois.jpg",
+      "dimensions": { "width": 3916, "height": 2584 }, "author": "Espirat", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "caption": { "en": "Vineyards at Arbois in France's Jura wine region." },
+      "visualEvidence": "Description names Arbois and Jura; preview shows vineyard rows, hills and village."
+    },
+    {
+      "regionId": "niagara-peninsula", "region": "Niagara Peninsula, Canada", "fileTitle": "Morning in the Vineyard (20393868278).jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Morning_in_the_Vineyard_(20393868278).jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/Morning_in_the_Vineyard_%2820393868278%29.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Morning_in_the_Vineyard_%2820393868278%29.jpg/1280px-Morning_in_the_Vineyard_%2820393868278%29.jpg",
+      "dimensions": { "width": 1632, "height": 1080 }, "author": "Michael Pardo from Niagara, Canada", "license": "CC0 1.0", "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "caption": { "en": "Vines on the rolling slopes of the Niagara Escarpment in Ontario." },
+      "visualEvidence": "Description discusses Niagara-area vineyards on the Escarpment and Commons category is Niagara Peninsula; preview shows a vineyard row at woodland edge."
+    },
+    {
+      "regionId": "jumilla-yecla", "region": "Jumilla and Yecla, Spain", "fileTitle": "Viñedos de Finca CQ (Casa Quemada) en Jumilla, Murcia, España.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Vi%C3%B1edos_de_Finca_CQ_(Casa_Quemada)_en_Jumilla,_Murcia,_Espa%C3%B1a.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/04/Vi%C3%B1edos_de_Finca_CQ_%28Casa_Quemada%29_en_Jumilla%2C_Murcia%2C_Espa%C3%B1a.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Vi%C3%B1edos_de_Finca_CQ_%28Casa_Quemada%29_en_Jumilla%2C_Murcia%2C_Espa%C3%B1a.jpg/1280px-Vi%C3%B1edos_de_Finca_CQ_%28Casa_Quemada%29_en_Jumilla%2C_Murcia%2C_Espa%C3%B1a.jpg",
+      "dimensions": { "width": 5713, "height": 3189 }, "author": "Malegaetan", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "caption": { "en": "Aerial view of Finca CQ's Monastrell vineyard plots in Jumilla, Murcia." },
+      "visualEvidence": "Description places Finca CQ at Jumilla, Murcia; preview shows broad vineyard plots and hills."
+    },
+    {
+      "regionId": "valpolicella", "region": "Valpolicella, Italy", "fileTitle": "Terraced vineyards in Valpolicella.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Terraced_vineyards_in_Valpolicella.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Terraced_vineyards_in_Valpolicella.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Terraced_vineyards_in_Valpolicella.jpg/1280px-Terraced_vineyards_in_Valpolicella.jpg",
+      "dimensions": { "width": 3872, "height": 2592 }, "author": "Aaron Epstein", "license": "CC BY 2.0", "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "caption": { "en": "Terraced vineyards in Valpolicella, Veneto." },
+      "visualEvidence": "Description explicitly identifies the Valpolicella wine region; preview shows hillside vineyard terraces."
+    },
+    {
+      "regionId": "montalcino", "region": "Montalcino, Italy", "fileTitle": "Montalcino vineyard - panoramio.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Montalcino_vineyard_-_panoramio.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/30/Montalcino_vineyard_-_panoramio.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Montalcino_vineyard_-_panoramio.jpg/1280px-Montalcino_vineyard_-_panoramio.jpg",
+      "dimensions": { "width": 4134, "height": 2756 }, "author": "trolvag", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "caption": { "en": "Vineyard near Montalcino, Tuscany." },
+      "visualEvidence": "Description, tags and geolocation identify Montalcino/Tuscany; preview shows vine rows opening onto Tuscan hills."
+    },
+    {
+      "regionId": "alentejo", "region": "Alentejo, Portugal", "fileTitle": "Vineyard, Estremoz, Portugal (PPL1-Corrected) julesvernex2.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Vineyard,_Estremoz,_Portugal_(PPL1-Corrected)_julesvernex2.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Vineyard%2C_Estremoz%2C_Portugal_%28PPL1-Corrected%29_julesvernex2.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Vineyard%2C_Estremoz%2C_Portugal_%28PPL1-Corrected%29_julesvernex2.jpg/1280px-Vineyard%2C_Estremoz%2C_Portugal_%28PPL1-Corrected%29_julesvernex2.jpg",
+      "dimensions": { "width": 4376, "height": 3205 }, "author": "Jules Verne Times Two", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "caption": { "en": "Vineyard rows near Estremoz in Portugal's Alentejo wine region." },
+      "visualEvidence": "Description and Vinhos do Alentejo category identify the region; preview shows sunlit vineyard rows."
+    },
+    {
+      "regionId": "saale-unstrut", "region": "Saale-Unstrut, Germany", "fileTitle": "Roßbach (Naumburg), Weinberge-2.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Ro%C3%9Fbach_(Naumburg),_Weinberge-2.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Ro%C3%9Fbach_%28Naumburg%29%2C_Weinberge-2.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Ro%C3%9Fbach_%28Naumburg%29%2C_Weinberge-2.jpg/1280px-Ro%C3%9Fbach_%28Naumburg%29%2C_Weinberge-2.jpg",
+      "dimensions": { "width": 5184, "height": 3456 }, "author": "Dguendel", "license": "CC BY 3.0", "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "caption": { "en": "Terraced vineyards at Roßbach near Naumburg, Saale-Unstrut." },
+      "visualEvidence": "Description names Roßbach/Naumburg and Commons categorizes it under Vineyards of Saale-Unstrut; preview shows terraces."
+    },
+    {
+      "regionId": "muscadet", "region": "Muscadet, France", "fileTitle": "Muscadet vineyard.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Muscadet_vineyard.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Muscadet_vineyard.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Muscadet_vineyard.jpg/1280px-Muscadet_vineyard.jpg",
+      "dimensions": { "width": 4000, "height": 3000 }, "author": "Jameson Fink", "license": "CC BY 2.0", "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "caption": { "en": "Melon de Bourgogne vines in the Muscadet Pays Nantais region of the Loire Valley." },
+      "visualEvidence": "Description explicitly names Muscadet Pays Nantes; preview shows vine rows on a gentle slope."
+    },
+    {
+      "regionId": "setubal", "region": "Setúbal, Portugal", "fileTitle": "Arrabida footslope vineyards.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Arrabida_footslope_vineyards.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Arrabida_footslope_vineyards.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Arrabida_footslope_vineyards.jpg/1280px-Arrabida_footslope_vineyards.jpg",
+      "dimensions": { "width": 3968, "height": 1984 }, "author": "Arseniop", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "caption": { "en": "Vineyards beneath the Serra da Arrábida in Portugal." },
+      "visualEvidence": "Description says vineyards at the foot of Serra da Arrábida and coordinates place it in Setúbal; preview shows rows and mountains."
+    },
+    {
+      "regionId": "navarra", "region": "Navarra, Spain", "fileTitle": "Viñedos de Navarra.JPG",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Vi%C3%B1edos_de_Navarra.JPG",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Vi%C3%B1edos_de_Navarra.JPG",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Vi%C3%B1edos_de_Navarra.JPG/1280px-Vi%C3%B1edos_de_Navarra.JPG",
+      "dimensions": { "width": 3664, "height": 2442 }, "author": "Feranza", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "caption": { "en": "Autumn vineyards near Cintruénigo in Navarre." },
+      "visualEvidence": "Description names Navarra vineyards near Cintruénigo; preview shows autumn vine rows across the plain."
+    },
+    {
+      "regionId": "savoie", "region": "Savoie, France", "fileTitle": "Apremont Granier vignes.JPG",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Apremont_Granier_vignes.JPG",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Apremont_Granier_vignes.JPG",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Apremont_Granier_vignes.JPG/1280px-Apremont_Granier_vignes.JPG",
+      "dimensions": { "width": 3648, "height": 2736 }, "author": "Dabigben73", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "caption": { "en": "Vineyards at Apremont beneath Mount Granier, Savoie." },
+      "visualEvidence": "Description names Apremont and Savoie; preview shows vines below Mount Granier."
+    },
+    {
+      "regionId": "sussex", "region": "Sussex, England", "fileTitle": "Bolney Vineyard - geograph.org.uk - 3663326.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Bolney_Vineyard_-_geograph.org.uk_-_3663326.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/22/Bolney_Vineyard_-_geograph.org.uk_-_3663326.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Bolney_Vineyard_-_geograph.org.uk_-_3663326.jpg/1280px-Bolney_Vineyard_-_geograph.org.uk_-_3663326.jpg",
+      "dimensions": { "width": 1600, "height": 1200 }, "author": "Paul Gillett", "license": "CC BY-SA 2.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "caption": { "en": "Young vines at Bolney Vineyard in West Sussex, England." },
+      "visualEvidence": "Commons page places Bolney in West Sussex and identifies a vineyard; preview shows young rows and woodland."
+    },
+    {
+      "regionId": "kakheti", "region": "Kakheti, Georgia", "fileTitle": "Chateau Zegaani Vineyards.jpg",
+      "commonsFilePage": "https://commons.wikimedia.org/wiki/File:Chateau_Zegaani_Vineyards.jpg",
+      "directImageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Chateau_Zegaani_Vineyards.jpg",
+      "directThumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Chateau_Zegaani_Vineyards.jpg/1280px-Chateau_Zegaani_Vineyards.jpg",
+      "dimensions": { "width": 5760, "height": 3534 }, "author": "Chateau Zegaani", "license": "CC BY-SA 2.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "caption": { "en": "Vineyards at Chateau Zegaani in Akhasheni, Gurjaani, Kakheti, Georgia." },
+      "visualEvidence": "Description explicitly names Akhasheni, Gurjaani and Kakheti; preview shows broad vine rows across a valley."
+    }
+  ]
+}
