@@ -1,4 +1,5 @@
-import { useMemo, useState, type FormEvent } from 'react'
+import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react'
+import { createPortal } from 'react-dom'
 import { Link } from 'react-router-dom'
 import { Archive, ArrowRight, BookOpen, Camera, Check, ChevronDown, ChevronUp, Clock3, Compass, Grape, ImagePlus, MapPin, Minus, NotebookPen, Plus, Search, SlidersHorizontal, Sparkles, Trash2, Wine, WineOff, X } from 'lucide-react'
 import { aromaContent, articleContent, countryLabel, regionName } from './localizedContent'
@@ -6,6 +7,7 @@ import { aromas, articles, grapes, producers, regions, wines } from './data/cata
 import { repository } from './data/repository'
 import { deleteBottlePhoto, prepareBottlePhoto, uploadBottlePhoto } from './lib/image'
 import { useLocale, type Locale } from './i18n'
+import { useUiCopy } from './uiCopy'
 import type { CellarItem, CellarTastingNote } from './types'
 import bottleForms from './assets/wine-bottle-forms.jpg'
 
@@ -50,7 +52,7 @@ function BottlePortrait({item}:{item:CellarItem}){
 }
 
 export function CellarExperience(){
-  const {locale}=useLocale(); const c=cellarCopy[locale]
+  const {locale}=useLocale(); const c=cellarCopy[locale]; const ui=useUiCopy()
   const [items,setItems]=useState<CellarItem[]>(()=>repository.cellar.all())
   const [filter,setFilter]=useState<'all'|CellarState>('all'); const [query,setQuery]=useState('')
   const [expanded,setExpanded]=useState<string>(); const [deleting,setDeleting]=useState<string>(); const [addOpen,setAddOpen]=useState(false); const [toast,setToast]=useState('')
@@ -100,7 +102,7 @@ export function CellarExperience(){
         </div>
         {expanded===item.id&&<BottleRecord item={item} c={c} locale={locale} onUpdate={patch=>updateItem(item.id,patch)} onOpen={()=>openBottle(item)} onRemove={()=>removeItem(item.id)} confirmRemove={deleting===item.id}/>}
       </article>})}</section>:<section className="cellar-empty"><Archive/><h2>{c.emptyTitle}</h2><p>{c.emptyBody}</p><button className="primary-button ink" onClick={()=>setAddOpen(true)}>{c.add}</button></section>}
-    {addOpen&&<AddBottleSheet c={c} locale={locale} onClose={()=>setAddOpen(false)} onSave={item=>{persist([...items,item]);setAddOpen(false);setToast(c.addSuccess);window.setTimeout(()=>setToast(''),3600)}}/>}
+    {addOpen&&<AddBottleSheet c={c} locale={locale} closeLabel={ui.close} onClose={()=>setAddOpen(false)} onSave={item=>{persist([...items,item]);setAddOpen(false);setToast(c.addSuccess);window.setTimeout(()=>setToast(''),3600)}}/>}
   </main>
 }
 
@@ -161,19 +163,43 @@ function BottleRecord({item,c,locale,onUpdate,onOpen,onRemove,confirmRemove}:{it
   </div>
 }
 
-function AddBottleSheet({c,locale,onClose,onSave}:{c:typeof cellarCopy.en;locale:Locale;onClose:()=>void;onSave:(item:CellarItem)=>void}){
+function AddBottleSheet({c,locale,closeLabel,onClose,onSave}:{c:typeof cellarCopy.en;locale:Locale;closeLabel:string;onClose:()=>void;onSave:(item:CellarItem)=>void}){
   const [catalogue,setCatalogue]=useState(true);const [wineId,setWineId]=useState(wines[0].id);const [catalogQuery,setCatalogQuery]=useState('');const [state,setState]=useState<CellarState>('owned');const [imageDataUrl,setImageDataUrl]=useState<string>();const [mediaAssetId,setMediaAssetId]=useState<string>();const [preparing,setPreparing]=useState(false);const [error,setError]=useState('')
+  const dialogRef=useRef<HTMLFormElement>(null);const closeRef=useRef<()=>void>(()=>{})
   const matchingWines=useMemo(()=>{const query=catalogQuery.trim().toLocaleLowerCase();if(!query)return wines;return wines.filter(wine=>{const producer=producers.find(item=>item.id===wine.producerId),region=regions.find(item=>item.id===wine.regionId),varieties=wine.grapeIds.map(id=>grapes.find(item=>item.id===id)?.name).filter(Boolean).join(' ');return `${wine.name} ${producer?.name??''} ${region?.name??''} ${varieties} ${wine.vintage??''}`.toLocaleLowerCase().includes(query)})},[catalogQuery])
   const selectedWine=wines.find(wine=>wine.id===wineId)
   async function chooseImage(file?:File){if(!file)return;setPreparing(true);setError('');try{const prepared=await prepareBottlePhoto(file);setImageDataUrl(prepared);const uploaded=await uploadBottlePhoto(prepared);if(mediaAssetId)void deleteBottlePhoto(mediaAssetId).catch(()=>{});setImageDataUrl(uploaded.url);setMediaAssetId(uploaded.assetId)}catch{setImageDataUrl(undefined);setMediaAssetId(undefined);setError(c.photoError)}finally{setPreparing(false)}}
   function removePreparedPhoto(){if(mediaAssetId)void deleteBottlePhoto(mediaAssetId).catch(()=>{});setImageDataUrl(undefined);setMediaAssetId(undefined)}
   function close(){if(mediaAssetId)void deleteBottlePhoto(mediaAssetId).catch(()=>{});onClose()}
+  closeRef.current=close
+  useEffect(()=>{
+    const opener=document.activeElement instanceof HTMLElement?document.activeElement:null
+    const dialog=dialogRef.current
+    const focusable=()=>Array.from(dialog?.querySelectorAll<HTMLElement>('a[href],button:not(:disabled),input:not(:disabled):not([type="file"]),select:not(:disabled),textarea:not(:disabled),[tabindex]:not([tabindex="-1"])')??[])
+    const initialTarget=dialog?.querySelector<HTMLElement>('.cellar-wine-picker input')??focusable()[0]
+    initialTarget?.focus()
+    const previousOverflow=document.body.style.overflow
+    const appRoot=document.getElementById('root'),previousInert=appRoot?.inert??false
+    document.body.style.overflow='hidden'
+    if(appRoot)appRoot.inert=true
+    function handleKeyDown(event:KeyboardEvent){
+      if(event.key==='Escape'){event.preventDefault();closeRef.current();return}
+      if(event.key!=='Tab')return
+      const targets=focusable(),first=targets[0],last=targets.at(-1)
+      if(!first||!last){event.preventDefault();dialog?.focus();return}
+      if(!dialog?.contains(document.activeElement)){event.preventDefault();(event.shiftKey?last:first).focus()}
+      else if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}
+      else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}
+    }
+    document.addEventListener('keydown',handleKeyDown)
+    return()=>{document.removeEventListener('keydown',handleKeyDown);document.body.style.overflow=previousOverflow;if(appRoot)appRoot.inert=previousInert;opener?.focus()}
+  },[])
   function submit(event:FormEvent<HTMLFormElement>){event.preventDefault();const data=new FormData(event.currentTarget);onSave({id:crypto.randomUUID(),...(catalogue?{wineId}:{customName:String(data.get('customName')||''),producer:String(data.get('producer')||''),region:String(data.get('region')||'')}),state,quantity:Number(data.get('quantity'))||1,location:String(data.get('location')||c.homeCellar),vintage:Number(data.get('vintage'))||undefined,bottleSizeMl:Number(data.get('bottleSizeMl'))||750,purchaseDate:String(data.get('purchaseDate')||''),purchasePrice:Number(data.get('purchasePrice'))||undefined,currency:String(data.get('currency')||'EUR') as CellarItem['currency'],purchaseSource:String(data.get('purchaseSource')||''),drinkFrom:Number(data.get('drinkFrom'))||undefined,drinkUntil:Number(data.get('drinkUntil'))||undefined,occasion:String(data.get('occasion')||''),imageDataUrl,mediaAssetId,notes:[]})}
-  return <div className="modal-backdrop" onMouseDown={event=>{if(event.currentTarget===event.target)close()}}><form className="sheet cellar-add-sheet" onSubmit={submit}><button type="button" className="sheet-close" onClick={close}><X/></button><span className="eyebrow">{c.eyebrow}</span><h2>{c.add}</h2>
+  return createPortal(<div className="modal-backdrop" onMouseDown={event=>{if(event.currentTarget===event.target)close()}}><form ref={dialogRef} className="sheet cellar-add-sheet" role="dialog" aria-modal="true" aria-labelledby="cellar-add-title" tabIndex={-1} onSubmit={submit}><button type="button" className="sheet-close" onClick={close} aria-label={closeLabel}><X aria-hidden="true"/></button><span className="eyebrow">{c.eyebrow}</span><h2 id="cellar-add-title">{c.add}</h2>
     <div className="bottle-photo-field"><div className={imageDataUrl?'photo-preview has-photo':'photo-preview'}>{imageDataUrl?<img src={imageDataUrl} alt=""/>:<Camera/>}</div><div><strong>{c.photo}</strong><p>{c.photoBody}</p><label className="secondary-button"><ImagePlus/>{preparing?c.preparing:imageDataUrl?c.changePhoto:c.choosePhoto}<input type="file" accept="image/*" capture="environment" onChange={event=>chooseImage(event.target.files?.[0])}/></label>{imageDataUrl&&<button type="button" className="text-button" onClick={removePreparedPhoto}>{c.removePhoto}</button>}{error&&<span className="form-error">{error}</span>}</div></div>
     <div className="segmented"><button type="button" className={catalogue?'active':''} onClick={()=>setCatalogue(true)}>{c.fromAtlas}</button><button type="button" className={!catalogue?'active':''} onClick={()=>setCatalogue(false)}>{c.ownEntry}</button></div>
-    {catalogue?<section className="cellar-wine-picker"><label className="search-field"><Search/><input value={catalogQuery} onChange={event=>setCatalogQuery(event.target.value)} placeholder={c.search}/></label><div className="wine-picker-summary"><span>{matchingWines.length} / {wines.length}</span>{selectedWine&&<strong>{selectedWine.name}</strong>}</div><div className="wine-picker-list" role="listbox" aria-label={c.wine}>{matchingWines.slice(0,40).map(wine=>{const producer=producers.find(item=>item.id===wine.producerId),region=regions.find(item=>item.id===wine.regionId);return <button type="button" role="option" aria-selected={wine.id===wineId} className={wine.id===wineId?'active':''} onClick={()=>setWineId(wine.id)} value={wine.id} key={wine.id}><span><strong>{wine.name}</strong><small>{producer?.name}{region?` · ${regionName(region,locale)}`:''}</small></span>{wine.vintage&&<em>{wine.vintage}</em>}{wine.id===wineId&&<Check/>}</button>})}</div>{matchingWines.length>40&&<p className="wine-picker-help">{matchingWines.length-40} {c.more??moreCopy[locale]} · {c.search}</p>}</section>:<div className="metadata-grid"><label>{c.wineName}<input required name="customName"/></label><label>{c.producer}<input name="producer"/></label><label>{c.region}<input name="region"/></label></div>}
+    {catalogue?<section className="cellar-wine-picker"><label className="search-field"><Search aria-hidden="true"/><input aria-label={c.search} value={catalogQuery} onChange={event=>setCatalogQuery(event.target.value)} placeholder={c.search}/></label><div className="wine-picker-summary"><span>{matchingWines.length} / {wines.length}</span>{selectedWine&&<strong>{selectedWine.name}</strong>}</div><div className="wine-picker-list" role="listbox" aria-label={c.wine}>{matchingWines.slice(0,40).map(wine=>{const producer=producers.find(item=>item.id===wine.producerId),region=regions.find(item=>item.id===wine.regionId);return <button type="button" role="option" aria-selected={wine.id===wineId} className={wine.id===wineId?'active':''} onClick={()=>setWineId(wine.id)} value={wine.id} key={wine.id}><span><strong>{wine.name}</strong><small>{producer?.name}{region?` · ${regionName(region,locale)}`:''}</small></span>{wine.vintage&&<em>{wine.vintage}</em>}{wine.id===wineId&&<Check/>}</button>})}</div>{matchingWines.length>40&&<p className="wine-picker-help">{matchingWines.length-40} {c.more??moreCopy[locale]} · {c.search}</p>}</section>:<div className="metadata-grid"><label>{c.wineName}<input required name="customName"/></label><label>{c.producer}<input name="producer"/></label><label>{c.region}<input name="region"/></label></div>}
     <div className="metadata-grid"><label>{c.collection}<select value={state} onChange={event=>setState(event.target.value as CellarState)}><option value="owned">{c.owned}</option><option value="wishlist">{c.wishlist}</option><option value="tasted">{c.tasted}</option><option value="finished">{c.finished}</option></select></label><label>{c.quantity}<input name="quantity" type="number" min="1" defaultValue="1"/></label><label>{c.vintage}<input name="vintage" type="number" min="1800" max="2100"/></label><label>{c.bottleSize}<select name="bottleSizeMl" defaultValue="750"><option value="375">375 ml</option><option value="750">750 ml</option><option value="1500">1.5 l</option><option value="3000">3 l</option></select></label><label>{c.location}<input name="location" defaultValue={c.homeCellar}/></label><label>{c.purchaseDate}<input name="purchaseDate" type="date"/></label><label>{c.purchasePrice}<input name="purchasePrice" type="number" step="0.01" min="0"/></label><label>{c.currency}<select name="currency"><option>EUR</option><option>USD</option><option>GBP</option><option>CHF</option></select></label><label>{c.source}<input name="purchaseSource"/></label><label>{c.drinkFrom}<input name="drinkFrom" type="number"/></label><label>{c.drinkUntil}<input name="drinkUntil" type="number"/></label><label className="wide">{c.occasion}<textarea name="occasion"/></label></div>
     <button className="primary-button"><Wine/>{c.saveBottle}</button>
-  </form></div>
+  </form></div>,document.body)
 }

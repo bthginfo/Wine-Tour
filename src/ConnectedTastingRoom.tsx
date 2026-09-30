@@ -53,11 +53,15 @@ export function ConnectedTastingRoom({renderJourney}:{renderJourney:(journey:Tas
 
   const inCellar=repository.cellar.all().some(item=>item.wineId===wine.id)
   function saveNote(){
-    const next:TastingNote={id:crypto.randomUUID(),tastingId:event!.id,wineId:wine!.id,appearance:fields.appearance,aromaIds:selectedAromas,palate:fields.palate,reflection:fields.reflection,rating:4,visibility:'private',createdAt:new Date().toISOString()}
-    repository.notes.save([...repository.notes.all(),next])
+    if(saved)return
+    const notes=repository.notes.all(),existing=notes.find(note=>note.tastingId===event!.id&&note.wineId===wine!.id)
+    const next:TastingNote={id:existing?.id??crypto.randomUUID(),tastingId:event!.id,wineId:wine!.id,appearance:fields.appearance,aromaIds:selectedAromas,palate:fields.palate,reflection:fields.reflection,rating:4,visibility:'private',createdAt:existing?.createdAt??new Date().toISOString()}
+    repository.notes.save(existing?notes.map(note=>note.id===existing.id?next:note):[...notes,next])
     const cellar=repository.cellar.all(),cellarItem=cellar.find(item=>item.wineId===wine!.id)
     if(cellarItem){
-      cellarItem.notes=[...(cellarItem.notes??[]),{id:next.id,appearance:next.appearance,aromaIds:next.aromaIds,palate:next.palate,finish:'',reflection:next.reflection,acidity:3,tannin:wine!.style==='red'?3:1,body:3,rating:next.rating,createdAt:next.createdAt}]
+      const cellarNote={id:next.id,appearance:next.appearance,aromaIds:next.aromaIds,palate:next.palate,finish:'',reflection:next.reflection,acidity:3,tannin:wine!.style==='red'?3:1,body:3,rating:next.rating,createdAt:next.createdAt}
+      const cellarNotes=cellarItem.notes??[]
+      cellarItem.notes=cellarNotes.some(note=>note.id===next.id)?cellarNotes.map(note=>note.id===next.id?cellarNote:note):[...cellarNotes,cellarNote]
       cellarItem.rating=next.rating
       repository.cellar.save(cellar)
       setCellarVersion(value=>value+1)
@@ -66,7 +70,8 @@ export function ConnectedTastingRoom({renderJourney}:{renderJourney:(journey:Tas
   }
   function addCurrentWine(){
     const cellar=repository.cellar.all(),existing=cellar.find(item=>item.wineId===wine!.id)
-    if(existing){existing.quantity+=1;existing.state='tasted'}else{cellar.push({id:crypto.randomUUID(),wineId:wine!.id,state:'tasted',quantity:1,location:ui.homeCellar,vintage:wine!.vintage??undefined,bottleSizeMl:750,notes:[]})}
+    if(existing)return
+    cellar.push({id:crypto.randomUUID(),wineId:wine!.id,state:'tasted',quantity:1,location:ui.homeCellar,vintage:wine!.vintage??undefined,bottleSizeMl:750,notes:[]})
     repository.cellar.save(cellar);setCellarVersion(value=>value+1)
   }
   function chooseWine(index:number){setCurrent(index);setStep(0);setSaved(false);setSelectedAromas([]);setFields({appearance:ui.defaultAppearance,palate:'',reflection:''})}
@@ -78,10 +83,10 @@ export function ConnectedTastingRoom({renderJourney}:{renderJourney:(journey:Tas
       <section className="current-wine"><div className={`room-bottle style-${wine.style}`}/><div><span>{regions.find(region=>region.id===wine.regionId)?.name}</span><h1>{wine.name}</h1><p>{producers.find(producer=>producer.id===wine.producerId)?.name} · {wine.vintage??'—'}</p><div className="thread-cloud">{grapes.filter(grape=>wine.grapeIds.includes(grape.id)).map(grape=><Link className="thread-link moss" to={`/grapes/${grape.id}`} key={grape.id}>{grape.name}</Link>)}</div><button className={inCellar?'secondary-button cellar-added':'secondary-button'} onClick={addCurrentWine}>{inCellar?<Check/>:<Plus/>}{inCellar?roomCopy.added:roomCopy.add}</button></div></section>
       <div className="note-steps">{[ui.look,ui.smell,ui.taste,ui.reflect].map((name,index)=><button onClick={()=>setStep(index)} className={step===index?'active':''} key={name}><span>{index+1}</span>{name}</button>)}</div>
       <section className="note-composer">
-        {step===0&&<><span className="eyebrow">{ui.stepOne} · {ui.look}</span><h2>{ui.glassShow}</h2><textarea value={fields.appearance} onChange={e=>setFields({...fields,appearance:e.target.value})}/></>}
-        {step===1&&<><span className="eyebrow">{ui.stepTwo} · {ui.smell}</span><h2>{ui.closestReferences}</h2><p>{ui.noCorrectNumber}</p><div className="note-aromas">{aromas.filter(aroma=>wine.aromaIds.includes(aroma.id)).map(aroma=><button className={selectedAromas.includes(aroma.id)?'active':''} onClick={()=>setSelectedAromas(values=>values.includes(aroma.id)?values.filter(id=>id!==aroma.id):[...values,aroma.id])} key={aroma.id}>{selectedAromas.includes(aroma.id)&&<Check/>}{aromaContent(aroma,locale).name}</button>)}</div></>}
-        {step===2&&<><span className="eyebrow">{ui.stepThree} · {ui.taste}</span><h2>{ui.wineBuilt}</h2><textarea placeholder={ui.palatePlaceholder} value={fields.palate} onChange={e=>setFields({...fields,palate:e.target.value})}/></>}
-        {step===3&&<><span className="eyebrow">{ui.stepFour} · {ui.reflect}</span><h2>{ui.remember}</h2><textarea placeholder={ui.reflectionPlaceholder} value={fields.reflection} onChange={e=>setFields({...fields,reflection:e.target.value})}/></>}
+        {step===0&&<><span className="eyebrow">{ui.stepOne} · {ui.look}</span><h2>{ui.glassShow}</h2><textarea value={fields.appearance} onChange={e=>{setFields({...fields,appearance:e.target.value});setSaved(false)}}/></>}
+        {step===1&&<><span className="eyebrow">{ui.stepTwo} · {ui.smell}</span><h2>{ui.closestReferences}</h2><p>{ui.noCorrectNumber}</p><div className="note-aromas">{aromas.filter(aroma=>wine.aromaIds.includes(aroma.id)).map(aroma=><button className={selectedAromas.includes(aroma.id)?'active':''} onClick={()=>{setSelectedAromas(values=>values.includes(aroma.id)?values.filter(id=>id!==aroma.id):[...values,aroma.id]);setSaved(false)}} key={aroma.id}>{selectedAromas.includes(aroma.id)&&<Check/>}{aromaContent(aroma,locale).name}</button>)}</div></>}
+        {step===2&&<><span className="eyebrow">{ui.stepThree} · {ui.taste}</span><h2>{ui.wineBuilt}</h2><textarea placeholder={ui.palatePlaceholder} value={fields.palate} onChange={e=>{setFields({...fields,palate:e.target.value});setSaved(false)}}/></>}
+        {step===3&&<><span className="eyebrow">{ui.stepFour} · {ui.reflect}</span><h2>{ui.remember}</h2><textarea placeholder={ui.reflectionPlaceholder} value={fields.reflection} onChange={e=>{setFields({...fields,reflection:e.target.value});setSaved(false)}}/></>}
         <div className="composer-actions"><small><LockKeyhole/>{ui.privateYou}</small>{step<3?<button className="primary-button" onClick={()=>setStep(step+1)}>{ui.nextStep}<ArrowRight/></button>:<button className="primary-button" onClick={saveNote}>{saved?<><Check/>{ui.noteSaved}</>:<>{ui.saveNote}<NotebookPen/></>}</button>}</div>
       </section>
     </main>
