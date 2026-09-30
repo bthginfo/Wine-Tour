@@ -101,6 +101,74 @@ import navarraCintruenigo from './assets/licensed-regions/navarra-cintruenigo-vi
 import savoieApremontGranier from './assets/licensed-regions/savoie-apremont-granier.jpg'
 import sussexBolney from './assets/licensed-regions/sussex-bolney-vineyard.jpg'
 import kakhetiZegaani from './assets/licensed-regions/kakheti-zegaani-vineyards.jpg'
+import pomerolGazinVineyard from './assets/licensed-regions/pomerol-gazin-vineyard.jpg'
+import montagneReimsNorthSlope from './assets/licensed-regions/montagne-reims-north-slope.jpg'
+import valleeMarneCourcelles from './assets/licensed-regions/vallee-marne-courcelles.jpg'
+import yquemSauternesVineyards from './assets/licensed-regions/graves-sauternes-yquem-vineyards.jpg'
+import coteNuitsVosneRomanee from './assets/licensed-regions/cote-de-nuits-vosne-romanee.jpg'
+import coteBeauneVineyard from './assets/licensed-regions/cote-de-beaune-vineyard.jpg'
+import margauxChateauVineyard from './assets/licensed-regions/margaux-chateau-vineyard.jpg'
+import cahorsLotVineyards from './assets/licensed-regions/cahors-lot-vineyards.jpg'
+import coteDesBlancsVineyards from './assets/licensed-regions/cote-des-blancs-vineyards.jpg'
+import saumurVineyardAerial from './assets/licensed-regions/anjou-saumur-vineyards.jpg'
+import bergeracVignoble from './assets/licensed-regions/bergerac-vignoble.jpg'
+import piemonteVineyards from './assets/licensed-regions/piemonte-vineyards.jpg'
+import pasoRoblesVineyard from './assets/licensed-regions/paso-robles-vineyard.jpg'
+import wairauValleyVineyards from './assets/licensed-regions/wairau-valley-vineyards.jpg'
+import awatereValleyAutumn from './assets/licensed-regions/awatere-valley-autumn.jpg'
+import northCanterburyWaipara from './assets/licensed-regions/north-canterbury-waipara-valley.jpg'
+import calchaquiCafayateVineyard from './assets/licensed-regions/calchaqui-cafayate-vineyard.jpg'
+import sanJuanPedernalVineyards from './assets/licensed-regions/san-juan-pedernal-vineyards.jpg'
+import maipoHarasDePirque from './assets/licensed-regions/maipo-haras-de-pirque.jpg'
+import toscanaVinesCypress from './assets/licensed-regions/toscana-grape-vines-cypress.jpg'
+import wallaWallaCayuse from './assets/licensed-regions/walla-walla-cayuse-vineyards.jpg'
+import lodiBechtholdCinsaut from './assets/licensed-regions/lodi-bechthold-cinsaut.jpg'
+import sierraFoothillsElDorado from './assets/licensed-regions/sierra-foothills-el-dorado-vineyard.jpg'
+import astiMonferratoVineyard from './assets/licensed-regions/asti-monferrato-vineyard.jpg'
+import santaBarbaraCountyVineyards from './assets/licensed-regions/santa-barbara-county-vineyards.jpg'
+import yakimaSagelandsVineyard from './assets/licensed-regions/yakima-sagelands-vineyard.jpg'
+import montepulcianoVineyard from './assets/licensed-regions/montepulciano-vineyard.jpg'
+import soavePanorama from './assets/licensed-regions/soave-panorama.jpg'
+import coneglianoValdobbiadeneVineyard from './assets/licensed-regions/conegliano-valdobbiadene-santo-stefano.jpg'
+import bolgheriDocVineyard from './assets/licensed-regions/bolgheri-doc-vineyard.jpg'
+import franciacortaMontina from './assets/licensed-regions/franciacorta-montina-provezze.jpg'
+import trentinoAltoAdigeValdadige from './assets/licensed-regions/trentino-alto-adige-valdadige.jpg'
+import collioCormons from './assets/licensed-regions/collio-cormons-vineyards.jpg'
+import colliOrientaliRoccaBernarda from './assets/licensed-regions/colli-orientali-rocca-bernarda.jpg'
+import texasHillCountryJohnsonCity from './assets/licensed-regions/texas-hill-country-johnson-city.jpg'
+import redMountainKiona from './assets/licensed-regions/red-mountain-kiona-vineyard.jpg'
+import columbiaValleyAncientLakes from './assets/licensed-regions/columbia-valley-ancient-lakes.jpg'
+import oakvilleOpusOne from './assets/licensed-regions/oakville-opus-one-vineyard.jpg'
+import valtellinaAlpineVineyards from './assets/licensed-regions/valtellina-alpine-vineyards.jpg'
+import emiliaRomagnaFattoriaParadiso from './assets/licensed-regions/emilia-romagna-fattoria-paradiso.jpg'
+import marcheCupramontana from './assets/licensed-regions/marche-cupramontana-verdicchio.jpg'
+import abruzzoControguerra from './assets/licensed-regions/abruzzo-controguerra-vineyard.jpg'
+import campaniaCavalierPepe from './assets/licensed-regions/campania-cavalier-pepe-vineyard.jpg'
+import pugliaCastellaneta from './assets/licensed-regions/puglia-castellaneta-vineyard.jpg'
+import ruedaMartinsancho from './assets/licensed-regions/rueda-martinsancho.jpg'
+import bierzoVineyards from './assets/licensed-regions/bierzo-vineyards-el-bierzo.jpg'
+import txakoliGetaria from './assets/licensed-regions/txakoli-getaria-vineyards.jpg'
+import mclarenValeVineyard from './assets/licensed-regions/mclaren-vale-vines-hills.jpg'
+import morningtonPeninsulaVineyard from './assets/licensed-regions/mornington-peninsula-vineyard.jpg'
+import princeEdwardCountyVineyard from './assets/licensed-regions/prince-edward-county-vineyard.jpg'
+import casablancaBodegasRe from './assets/licensed-regions/casablanca-bodegas-re.jpg'
+import valeDosVinhedosVineyard from './assets/licensed-regions/vale-dos-vinhedos-plantacoes.jpg'
+import leydaSanAntonioVineyard from './assets/licensed-regions/leyda-vina-en-leyda.jpg'
+import hokkaidoFuranoVineyard from './assets/licensed-regions/hokkaido-furano-vineyard.jpg'
+import vayotsDzorRindVineyard from './assets/licensed-regions/vayots-dzor-rind-vineyard.jpg'
+import naganoAzuminoWinery from './assets/licensed-regions/nagano-azumino-winery.jpg'
+import kamptalHeiligenstein from './assets/licensed-regions/kamptal-heiligenstein.jpg'
+import wagramKirchbergTerrace from './assets/licensed-regions/wagram-kirchberg-terrace.jpg'
+import weinviertelVineyards from './assets/licensed-regions/weinviertel-gross-schweinbarth.jpg'
+import villanyVineyards from './assets/licensed-regions/villany-grape-plantations.jpg'
+import egerVineyard from './assets/licensed-regions/eger-vineyard.jpg'
+import nemeaVineyardsOlives from './assets/licensed-regions/nemea-vineyards-olives.jpg'
+import vouvrayVineyard from './assets/licensed-regions/vouvray-after-budbreak.jpg'
+import provenceVineyard from './assets/licensed-regions/aix-en-provence-vineyard.jpg'
+import hessischeBergstrasseVineyard from './assets/licensed-regions/hessische-bergstrasse-heppenheim.jpg'
+import valaisVineyard from './assets/licensed-regions/valais-chamoson-vineyard.jpg'
+import graubundenVineyard from './assets/licensed-regions/graubunden-maienfeld-vineyard.jpg'
+import vaudLavauxVineyard from './assets/licensed-regions/vaud-lavaux-vineyards.jpg'
 import moselPortrait from './assets/region-portrait-mosel.jpg'
 import bordeauxPortrait from './assets/region-portrait-bordeaux.jpg'
 import mendozaPortrait from './assets/region-portrait-mendoza.jpg'
@@ -396,6 +464,210 @@ const verifiedRegionPhotos:Record<string,RegionScene>={
   kakheti:{src:kakhetiZegaani,
     position:'50% center',tone:'warm',caption:{en:'Vineyards at Chateau Zegaani in Akhasheni, Gurjaani, Kakheti, Georgia',de:'Weinberge des Chateau Zegaani in Akhasheni, Gurjaani, Kachetien, Georgien',fr:'Vignobles du Chateau Zegaani à Akhasheni, Gurjaani, en Kakhétie, Géorgie',es:'Viñedos de Chateau Zegaani en Akhasheni, Gurjaani, Kajetia, Georgia'},
     attribution:{author:'Chateau Zegaani',filePage:'https://commons.wikimedia.org/wiki/File:Chateau_Zegaani_Vineyards.jpg',license:'CC BY-SA 2.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/',changes:webImageChanges}},
+  pomerol:{src:pomerolGazinVineyard,
+    position:'50% center',tone:'warm',caption:{en:'Vineyards at Château Gazin in Pomerol, Bordeaux’s Right Bank',de:'Weinberge des Château Gazin in Pomerol am rechten Ufer von Bordeaux',fr:'Vignobles du Château Gazin à Pomerol, sur la rive droite de Bordeaux',es:'Viñedos de Château Gazin en Pomerol, en la orilla derecha de Burdeos'},
+    attribution:{author:'Antoine Bertier',filePage:'https://commons.wikimedia.org/wiki/File:Ch%C3%A2teau_Gazin_vineyard_in_Pomerol.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  'montagne-de-reims':{src:montagneReimsNorthSlope,
+    position:'50% center',tone:'cool',caption:{en:'Vineyards on the northern flank of Montagne de Reims, near Chamery',de:'Weinberge am Nordhang der Montagne de Reims bei Chamery',fr:'Vignobles sur le versant nord de la montagne de Reims, près de Chamery',es:'Viñedos en la ladera norte de la Montagne de Reims, cerca de Chamery'},
+    attribution:{author:'Pline',filePage:'https://commons.wikimedia.org/wiki/File:Sur_le_flanc_nord_de_la_montagne_de_Reims_DSC_0235.JPG',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  'vallee-de-la-marne':{src:valleeMarneCourcelles,
+    position:'50% center',tone:'cool',caption:{en:'Champagne vineyards in the Marne Valley near Trélou-sur-Marne',de:'Champagner-Weinberge im Marne-Tal bei Trélou-sur-Marne',fr:'Vignobles de Champagne dans la vallée de la Marne, près de Trélou-sur-Marne',es:'Viñedos de Champagne en el valle del Marne, cerca de Trélou-sur-Marne'},
+    attribution:{author:'Pline',filePage:'https://commons.wikimedia.org/wiki/File:Vall%C3%A9e_de_la_Marne_vers_Courcelles_DSC_0121.JPG',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  'graves-sauternes':{src:yquemSauternesVineyards,
+    position:'50% center',tone:'warm',caption:{en:'Vineyards of Château d’Yquem in Sauternes, Bordeaux',de:'Weinberge des Château d’Yquem in Sauternes, Bordeaux',fr:'Vignobles du Château d’Yquem à Sauternes, dans le Bordelais',es:'Viñedos de Château d’Yquem en Sauternes, Burdeos'},
+    attribution:{author:'Megan Mallen',filePage:'https://commons.wikimedia.org/wiki/File:Vineyards_of_Ch%C3%A2teau_d%E2%80%99Yquem,_Sauternes.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  'cote-de-nuits':{src:coteNuitsVosneRomanee,
+    position:'50% center',tone:'warm',caption:{en:'Vineyards around Vosne-Romanée in the Côte de Nuits',de:'Weinberge bei Vosne-Romanée an der Côte de Nuits',fr:'Vignobles autour de Vosne-Romanée, dans la Côte de Nuits',es:'Viñedos alrededor de Vosne-Romanée, en la Côte de Nuits'},
+    attribution:{author:'Pierre André',filePage:'https://commons.wikimedia.org/wiki/File:Vosne-Roman%C3%A9e,_Domaine_de_la_Roman%C3%A9e-Conti_(1).JPG',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  'cote-de-beaune':{src:coteBeauneVineyard,
+    position:'50% center',tone:'warm',caption:{en:'Vineyard in the Côte de Beaune, Burgundy',de:'Weinberg an der Côte de Beaune im Burgund',fr:'Vignoble dans la Côte de Beaune, en Bourgogne',es:'Viñedo en la Côte de Beaune, Borgoña'},
+    attribution:{author:'Megan Mallen',filePage:'https://commons.wikimedia.org/wiki/File:Vineyard_in_C%C3%B4te_de_Beaune,_Burgundy.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  margaux:{src:margauxChateauVineyard,
+    position:'50% center',tone:'warm',caption:{en:'Vineyards of Château Margaux beside the Church of Saint Michael',de:'Weinberge von Château Margaux neben der Kirche Saint-Michel',fr:'Vignobles du Château Margaux près de l’église Saint-Michel',es:'Viñedos de Château Margaux junto a la iglesia de San Miguel'},
+    attribution:{author:'David Perez',filePage:'https://commons.wikimedia.org/wiki/File:Chateau_Margaux_02_iglesia_by-dpc.jpg',license:'CC BY 3.0',licenseUrl:'https://creativecommons.org/licenses/by/3.0/',changes:webImageChanges}},
+  cahors:{src:cahorsLotVineyards,
+    position:'50% center',tone:'warm',caption:{en:'Vineyard hills along the Lot between Albas and Luzech, in Cahors',de:'Weinberghänge am Lot zwischen Albas und Luzech bei Cahors',fr:'Coteaux viticoles le long du Lot entre Albas et Luzech, à Cahors',es:'Laderas de viñedos junto al Lot entre Albas y Luzech, en Cahors'},
+    attribution:{author:'Lapastoure Didier',filePage:'https://commons.wikimedia.org/wiki/File:Cahors_2011_08_005.jpg',license:'CC BY-SA 2.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/',changes:webImageChanges}},
+  'cote-des-blancs':{src:coteDesBlancsVineyards,
+    position:'50% center',tone:'cool',caption:{en:'Vineyards of the Côte des Blancs in Champagne',de:'Weinberge der Côte des Blancs in der Champagne',fr:'Vignobles de la Côte des Blancs en Champagne',es:'Viñedos de la Côte des Blancs en Champaña'},
+    attribution:{author:'BerndtF',filePage:'https://commons.wikimedia.org/wiki/File:Cote_des_Blancs.jpg',license:'Public domain',licenseUrl:'https://commons.wikimedia.org/wiki/Commons:Public_domain',changes:webImageChanges}},
+  'anjou-saumur':{src:saumurVineyardAerial,
+    position:'50% center',tone:'warm',caption:{en:'Aerial view of vineyard blocks in the Saumur wine region, Loire Valley',de:'Luftaufnahme von Weinbergparzellen im Weinbaugebiet Saumur im Loiretal',fr:'Vue aérienne de parcelles viticoles dans la région de Saumur, vallée de la Loire',es:'Vista aérea de parcelas de viñedo en la región vinícola de Saumur, valle del Loira'},
+    attribution:{author:'Céline',filePage:'https://commons.wikimedia.org/wiki/File:Vineyards_in_Saumur.jpg',license:'CC BY-SA 2.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/',changes:webImageChanges}},
+  bergerac:{src:bergeracVignoble,
+    position:'50% center',tone:'warm',caption:{en:'Vineyard landscape south of Bergerac, Dordogne, with the town in the distance',de:'Weinberglandschaft südlich von Bergerac in der Dordogne mit der Stadt in der Ferne',fr:'Paysage viticole au sud de Bergerac, en Dordogne, avec la ville au loin',es:'Paisaje de viñedos al sur de Bergerac, Dordoña, con la ciudad al fondo'},
+    attribution:{author:'Père Igor',filePage:'https://commons.wikimedia.org/wiki/File:Bergeracois_vignoble.JPG',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  piemonte:{src:piemonteVineyards,
+    position:'50% center',tone:'warm',caption:{en:'Vine rows across the hills of Piemonte, Italy',de:'Rebzeilen an den Hügeln des Piemont in Italien',fr:'Rangs de vignes sur les collines du Piémont, en Italie',es:'Hileras de viñas en las colinas del Piamonte, Italia'},
+    attribution:{author:'Megan Mallen',filePage:'https://commons.wikimedia.org/wiki/File:Vineyards_in_Piemonte,_Italy.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  'paso-robles':{src:pasoRoblesVineyard,
+    position:'50% center',tone:'warm',caption:{en:'Vineyard in the Paso Robles AVA, California',de:'Weinberg im Paso Robles AVA in Kalifornien',fr:'Vignoble dans l’AVA de Paso Robles, en Californie',es:'Viñedo en la AVA de Paso Robles, California'},
+    attribution:{author:'Pasowine',filePage:'https://commons.wikimedia.org/wiki/File:Paso_Vineyard.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  'wairau-valley':{src:wairauValleyVineyards,
+    position:'50% center',tone:'cool',caption:{en:'Wairau Valley vines from Raupara Road, toward Southern Valleys and the Wither Hills',de:'Weinberge im Wairau Valley von der Raupara Road aus, in Richtung Southern Valleys und Wither Hills',fr:'Vignobles de la vallée de Wairau vus de Raupara Road, vers Southern Valleys et Wither Hills',es:'Viñedos del valle de Wairau desde Raupara Road, hacia Southern Valleys y Wither Hills'},
+    attribution:{author:'Jonathan Harker',filePage:'https://commons.wikimedia.org/wiki/File:Wairau_Valley_vineyards_in_Marlborough,_New_Zealand.jpg',license:'CC BY 4.0',licenseUrl:'https://creativecommons.org/licenses/by/4.0/',changes:webImageChanges}},
+  'awatere-valley':{src:awatereValleyAutumn,
+    position:'50% center',tone:'warm',caption:{en:'Awatere Valley vineyards in autumn, beneath Marlborough’s mountain backdrop',de:'Herbstliche Weinberge im Awatere Valley vor der Bergkulisse von Marlborough',fr:'Vignobles d’automne dans la vallée d’Awatere, devant les montagnes de Marlborough',es:'Viñedos otoñales del valle de Awatere, bajo las montañas de Marlborough'},
+    attribution:{author:'Phillip Capper',filePage:'https://commons.wikimedia.org/wiki/File:Autumn_in_the_Awatere_Valley.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  'north-canterbury':{src:northCanterburyWaipara,
+    position:'50% center',tone:'cool',caption:{en:'Black Estate vineyards overlooking Waipara Valley in North Canterbury, New Zealand',de:'Weinberge von Black Estate mit Blick ins Waipara Valley in North Canterbury, Neuseeland',fr:'Vignobles de Black Estate surplombant la vallée de Waipara, dans le North Canterbury néo-zélandais',es:'Viñedos de Black Estate con vistas al valle de Waipara, en North Canterbury, Nueva Zelanda'},
+    attribution:{author:'Jocelyn Kinghorn',filePage:'https://commons.wikimedia.org/wiki/File:Waipara_Valley_from_Black_Estate_JK01.jpg',license:'CC BY-SA 2.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/',changes:webImageChanges}},
+  'calchaqui-valleys':{src:calchaquiCafayateVineyard,
+    position:'50% center',tone:'cool',caption:{en:'Vineyard near Cafayate, Salta, with the Calchaquí mountain backdrop',de:'Weinberg bei Cafayate in Salta vor der Kulisse der Calchaquí-Berge',fr:'Vignoble près de Cafayate, à Salta, avec les montagnes des Calchaquí en arrière-plan',es:'Viñedo cerca de Cafayate, Salta, con las montañas calchaquíes al fondo'},
+    attribution:{author:'Tokyo Tanenhaus',filePage:'https://commons.wikimedia.org/wiki/File:Vi%C3%B1edoCafayate.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  'san-juan-pedernal':{src:sanJuanPedernalVineyards,
+    position:'50% center',tone:'cool',caption:{en:'Pedernal Valley vineyards in Sarmiento Department, San Juan, Argentina',de:'Weinberge im Pedernal-Tal im Departamento Sarmiento, San Juan, Argentinien',fr:'Vignobles de la vallée de Pedernal, département de Sarmiento, San Juan, Argentine',es:'Viñedos del valle de Pedernal, departamento de Sarmiento, San Juan, Argentina'},
+    attribution:{author:'Enrique Guardia',filePage:'https://commons.wikimedia.org/wiki/File:Vi%C3%B1edos_en_el_Valle_de_Pedernal,_San_Juan,_Argentina.JPG',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  maipo:{src:maipoHarasDePirque,
+    position:'50% center',tone:'cool',caption:{en:'Viña Haras de Pirque in Pirque, Chile, with vineyard rows and the Andes behind',de:'Viña Haras de Pirque in Pirque, Chile, mit Weinbergzeilen und den Anden im Hintergrund',fr:'Viña Haras de Pirque à Pirque, au Chili, avec des rangs de vignes et les Andes en arrière-plan',es:'Viña Haras de Pirque en Pirque, Chile, con hileras de viñedos y los Andes al fondo'},
+    attribution:{author:'Aeveraal',filePage:'https://commons.wikimedia.org/wiki/File:20240906_Vi%C3%B1a_Haras_de_Pirque_02.jpg',license:'CC BY 4.0',licenseUrl:'https://creativecommons.org/licenses/by/4.0/',changes:webImageChanges}},
+  toscana:{src:toscanaVinesCypress,
+    position:'50% center',tone:'warm',caption:{en:'Grape vines and cypress trees in Tuscany',de:'Weinreben und Zypressen in der Toskana',fr:'Vignes et cyprès en Toscane',es:'Vides y cipreses en Toscana'},
+    attribution:{author:'Ian McKellar',filePage:'https://commons.wikimedia.org/wiki/File:Grape_vines_and_cypress_trees_in_Tuscany.jpg',license:'CC BY-SA 2.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/',changes:webImageChanges}},
+  'walla-walla-valley':{src:wallaWallaCayuse,
+    position:'50% 72%',tone:'cool',caption:{en:'Cayuse Vineyards in Milton-Freewater, Oregon, within the Walla Walla AVA',de:'Weinberge von Cayuse in Milton-Freewater, Oregon, innerhalb der Walla-Walla-AVA',fr:'Vignobles de Cayuse à Milton-Freewater, dans l’Oregon, au sein de l’AVA de Walla Walla',es:'Viñedos de Cayuse en Milton-Freewater, Oregón, dentro de la AVA de Walla Walla'},
+    attribution:{author:'Agne27',filePage:'https://commons.wikimedia.org/wiki/File:Cayuse_vineyards_Walla_Walla.jpg',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  lodi:{src:lodiBechtholdCinsaut,
+    position:'50% center',tone:'warm',caption:{en:'Old-vine Cinsaut at Bechthold Vineyard in Lodi, California',de:'Alte Cinsaut-Reben im Bechthold Vineyard bei Lodi, Kalifornien',fr:'Vieux ceps de Cinsaut au vignoble Bechthold, à Lodi en Californie',es:'Cepas antiguas de Cinsaut en Bechthold Vineyard, en Lodi, California'},
+    attribution:{author:'Randy Caparoso',filePage:'https://commons.wikimedia.org/wiki/File:Bechthold_Vineyard_-_Cinsaut_-_planted_1886.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  'sierra-foothills':{src:sierraFoothillsElDorado,
+    position:'50% center',tone:'cool',caption:{en:'Vineyard on the Sierra Foothills in El Dorado County, California',de:'Weinberg in den Sierra Foothills im El Dorado County, Kalifornien',fr:'Vignoble dans les contreforts de la Sierra, dans le comté d’El Dorado en Californie',es:'Viñedo en las estribaciones de Sierra, en el condado de El Dorado, California'},
+    attribution:{author:'Kurt Minard',filePage:'https://commons.wikimedia.org/wiki/File:Sierra_Foothills_Vinyards_-_panoramio.jpg',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  'asti-monferrato':{src:astiMonferratoVineyard,
+    position:'50% 70%',tone:'cool',caption:{en:'Winter vineyards in the Asti wine region of Piedmont',de:'Winterliche Weinberge in der Weinregion Asti im Piemont',fr:'Vignobles d’hiver dans la région viticole d’Asti, au Piémont',es:'Viñedos invernales en la región vinícola de Asti, en Piamonte'},
+    attribution:{author:'Henri Bergius',filePage:'https://commons.wikimedia.org/wiki/File:Villages_and_wineyards_in_Asti.jpg',license:'CC BY-SA 2.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/',changes:webImageChanges}},
+  'santa-barbara-county':{src:santaBarbaraCountyVineyards,
+    position:'50% 66%',tone:'cool',caption:{en:'Vineyards on hillsides in Santa Barbara County, California',de:'Weinberge an den Hängen im Santa Barbara County, Kalifornien',fr:'Vignobles sur les coteaux du comté de Santa Barbara, en Californie',es:'Viñedos en las laderas del condado de Santa Barbara, California'},
+    attribution:{author:'burlap/',filePage:'https://commons.wikimedia.org/wiki/File:Vignobles_sur_coteaux_%C3%A0_Santa_Barbara.jpg',license:'CC BY-SA 2.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/',changes:webImageChanges}},
+  'yakima-valley':{src:yakimaSagelandsVineyard,
+    position:'50% center',tone:'warm',caption:{en:'Vineyards near Wapato in Washington’s Yakima Valley AVA',de:'Weinberge bei Wapato in der Yakima-Valley-AVA im Bundesstaat Washington',fr:'Vignobles près de Wapato dans l’AVA de Yakima Valley, dans l’État de Washington',es:'Viñedos cerca de Wapato en la AVA de Yakima Valley, Washington'},
+    attribution:{author:'Bernt Rostad',filePage:'https://commons.wikimedia.org/wiki/File:View_from_Sagelands_Vineyard.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  montepulciano:{src:montepulcianoVineyard,
+    position:'50% center',tone:'warm',caption:{en:'Vineyard in Montepulciano, Tuscany',de:'Weinberg in Montepulciano in der Toskana',fr:'Vignoble à Montepulciano, en Toscane',es:'Viñedo en Montepulciano, Toscana'},
+    attribution:{author:'Drew Cuddy',filePage:'https://commons.wikimedia.org/wiki/File:Vineyard_in_Montepulciano.jpg',license:'CC BY-SA 2.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/',changes:webImageChanges}},
+  soave:{src:soavePanorama,
+    position:'50% 72%',tone:'cool',caption:{en:'Soave and its vineyard hills, viewed from near Colognola ai Colli',de:'Soave und seine Weinberghänge, von der Gegend bei Colognola ai Colli aus gesehen',fr:'Soave et ses coteaux viticoles, vus des environs de Colognola ai Colli',es:'Soave y sus laderas de viñedos, vistos desde cerca de Colognola ai Colli'},
+    attribution:{author:'MZ14',filePage:'https://commons.wikimedia.org/wiki/File:Soave_panorama.jpg',license:'Public domain dedication',licenseUrl:'https://commons.wikimedia.org/wiki/Commons:Public_domain',changes:webImageChanges}},
+  'conegliano-valdobbiadene':{src:coneglianoValdobbiadeneVineyard,
+    position:'50% center',tone:'warm',caption:{en:'Prosecco vineyard hills near Santo Stefano in Valdobbiadene',de:'Prosecco-Weinberghänge bei Santo Stefano in Valdobbiadene',fr:'Coteaux de vignes de Prosecco près de Santo Stefano, à Valdobbiadene',es:'Laderas de viñedos de Prosecco cerca de Santo Stefano, en Valdobbiadene'},
+    attribution:{author:'Civvì',filePage:'https://commons.wikimedia.org/wiki/File:Vista_da_Santo_Stefano_Valdobbiadene.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  bolgheri:{src:bolgheriDocVineyard,
+    position:'50% center',tone:'warm',caption:{en:'Vine rows in the Bolgheri DOC wine region, Tuscany',de:'Weinreben in der DOC-Weinregion Bolgheri in der Toskana',fr:'Rangs de vigne dans l’appellation Bolgheri DOC, en Toscane',es:'Hileras de vides en la DOC Bolgheri, en Toscana'},
+    attribution:{author:'David Lienhard',filePage:'https://commons.wikimedia.org/wiki/File:Bolgheri_Doc_(263877897).jpeg',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  franciacorta:{src:franciacortaMontina,
+    position:'50% center',tone:'warm',caption:{en:'Vineyard at La Montina in Provezze, Franciacorta',de:'Weinberg von La Montina in Provezze in der Franciacorta',fr:'Vignoble de La Montina à Provezze, en Franciacorta',es:'Viñedo de La Montina en Provezze, Franciacorta'},
+    attribution:{author:'Consorzio Franciacorta',filePage:'https://commons.wikimedia.org/wiki/File:Vigneto_montina_provezze.jpg',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  'trentino-alto-adige':{src:trentinoAltoAdigeValdadige,
+    position:'50% center',tone:'cool',caption:{en:'Vineyards in Valdadige, Trentino-Alto Adige/Südtirol',de:'Weinberge im Valdadige in Trentino-Südtirol',fr:'Vignobles du Valdadige, dans le Trentin-Haut-Adige',es:'Viñedos de Valdadige, en Trentino-Alto Adigio'},
+    attribution:{author:'Puntin1969',filePage:'https://commons.wikimedia.org/wiki/File:Vineyards_in_Valdadige.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  collio:{src:collioCormons,
+    position:'50% 72%',tone:'cool',caption:{en:'Vineyards near Cormons in the Collio wine region, Friuli-Venezia Giulia',de:'Weinberge bei Cormons im Weinbaugebiet Collio in Friaul-Julisch Venetien',fr:'Vignobles près de Cormons, dans la région viticole du Collio, au Frioul-Vénétie julienne',es:'Viñedos cerca de Cormons, en la región vitícola de Collio, Friuli-Venecia Julia'},
+    attribution:{author:'gian luca bucci',filePage:'https://commons.wikimedia.org/wiki/File:Vigneti_a_Cormons_(GO)_-_panoramio.jpg',license:'CC BY 3.0',licenseUrl:'https://creativecommons.org/licenses/by/3.0/',changes:webImageChanges}},
+  'colli-orientali':{src:colliOrientaliRoccaBernarda,
+    position:'50% center',tone:'warm',caption:{en:'Vineyards at Rocca Bernarda in the Colli Orientali del Friuli',de:'Weinberge bei Rocca Bernarda in den Colli Orientali del Friuli',fr:'Vignobles de Rocca Bernarda, dans les Colli Orientali del Friuli',es:'Viñedos de Rocca Bernarda, en los Colli Orientali del Friuli'},
+    attribution:{author:'discosour',filePage:'https://commons.wikimedia.org/wiki/File:Friuli_019_Cantine_Aperte_-_Rocca_Bernarda.jpg',license:'CC BY-SA 2.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/',changes:webImageChanges}},
+  'texas-hill-country':{src:texasHillCountryJohnsonCity,
+    position:'50% 72%',tone:'warm',caption:{en:'Vineyards in Johnson City, within the Texas Hill Country AVA',de:'Weinberge in Johnson City innerhalb der Texas-Hill-Country-AVA',fr:'Vignobles à Johnson City, dans l’AVA Texas Hill Country',es:'Viñedos en Johnson City, dentro de la AVA Texas Hill Country'},
+    attribution:{author:'Jon Lebkowsky',filePage:'https://commons.wikimedia.org/wiki/File:Texas_Hills_vineyard.jpg',license:'CC BY-SA 2.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/',changes:webImageChanges}},
+  'red-mountain':{src:redMountainKiona,
+    position:'50% center',tone:'warm',caption:{en:'Kiona Vineyard beneath Rattlesnake Mountain in Washington’s Red Mountain AVA',de:'Kiona Vineyard unterhalb des Rattlesnake Mountain in der Red-Mountain-AVA, Washington',fr:'Vignoble Kiona au pied du mont Rattlesnake, dans l’AVA Red Mountain de l’État de Washington',es:'Viñedo Kiona bajo Rattlesnake Mountain, en la AVA Red Mountain del estado de Washington'},
+    attribution:{author:'Williamborg',filePage:'https://commons.wikimedia.org/wiki/File:Red_Mountain_toward_Rattlesnake_Mountain.JPG',license:'Public domain (PD-self)',licenseUrl:'https://commons.wikimedia.org/wiki/Template:PD-self',changes:webImageChanges}},
+  'columbia-valley':{src:columbiaValleyAncientLakes,
+    position:'50% 68%',tone:'cool',caption:{en:'Basalt cliffs at Ancient Lakes in Washington’s Columbia Valley AVA',de:'Basaltklippen bei Ancient Lakes in der Columbia-Valley-AVA im Bundesstaat Washington',fr:'Falaises basaltiques d’Ancient Lakes dans l’AVA Columbia Valley, État de Washington',es:'Acantilados basálticos de Ancient Lakes, en la AVA Columbia Valley de Washington'},
+    attribution:{author:'ECTran71',filePage:'https://commons.wikimedia.org/wiki/File:Ancient_Lakes_pond,_WA,_USA.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  oakville:{src:oakvilleOpusOne,
+    position:'50% 65%',tone:'cool',caption:{en:'Vineyards at Opus One Winery in Oakville, California',de:'Weinberge des Weinguts Opus One in Oakville, Kalifornien',fr:'Vignobles du domaine Opus One à Oakville, en Californie',es:'Viñedos de Opus One Winery en Oakville, California'},
+    attribution:{author:'daita saru',filePage:'https://commons.wikimedia.org/wiki/File:Opus_One_Winery_(17086460611).jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  valtellina:{src:valtellinaAlpineVineyards,
+    position:'50% 68%',tone:'cool',caption:{en:'Vineyards in Valtellina, Lombardy, with the Alps beyond',de:'Weinberge im Veltlin in der Lombardei vor den Alpen',fr:'Vignobles de la Valteline, en Lombardie, avec les Alpes en arrière-plan',es:'Viñedos de Valtellina, Lombardía, con los Alpes al fondo'},
+    attribution:{author:'Franco Folini',filePage:'https://commons.wikimedia.org/wiki/File:Valtellina,_Italy_vineyard.jpg',license:'CC BY-SA 2.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/',changes:webImageChanges}},
+  'emilia-romagna':{src:emiliaRomagnaFattoriaParadiso,
+    position:'68% 55%',tone:'warm',caption:{en:'Vineyard rows at Fattoria Paradiso in Bertinoro, Emilia-Romagna',de:'Weinreben der Fattoria Paradiso in Bertinoro, Emilia-Romagna',fr:'Rangs de vigne à la Fattoria Paradiso, à Bertinoro, en Émilie-Romagne',es:'Hileras de viñas en Fattoria Paradiso, Bertinoro, Emilia-Romaña'},
+    attribution:{author:'Topural [1]',filePage:'https://commons.wikimedia.org/wiki/File:%22_09_-_ITALY_-_Vineyard_and_signs_Emilia_Romagna_wine_-_Mollino.jpg',license:'CC BY-SA 2.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/',changes:webImageChanges}},
+  marche:{src:marcheCupramontana,
+    position:'50% center',tone:'cool',caption:{en:'Verdicchio vines in Cupramontana, Marche',de:'Verdicchio-Reben in Cupramontana in den Marken',fr:'Vignes de verdicchio à Cupramontana, dans les Marches',es:'Viñas de Verdicchio en Cupramontana, Las Marcas'},
+    attribution:{author:'Davide',filePage:'https://commons.wikimedia.org/wiki/File:Verdicchio_vines_in_Cupramontana.jpg',license:'CC BY-SA 2.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/',changes:webImageChanges}},
+  abruzzo:{src:abruzzoControguerra,
+    position:'50% 65%',tone:'warm',caption:{en:'Vineyard in Controguerra, in Abruzzo’s Controguerra DOC',de:'Weinberg in Controguerra in den Abruzzen, im DOC-Gebiet Controguerra',fr:'Vignoble à Controguerra, dans l’appellation Controguerra DOC des Abruzzes',es:'Viñedo en Controguerra, en la DOC Controguerra de Abruzos'},
+    attribution:{author:'pizzodisevo,on/off',filePage:'https://commons.wikimedia.org/wiki/File:Controguerra_vineyards.jpg',license:'CC BY-SA 2.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/',changes:webImageChanges}},
+  campania:{src:campaniaCavalierPepe,
+    position:'50% 58%',tone:'warm',caption:{en:'Vine rows at Tenuta Cavalier Pepe in Campania',de:'Weinreben auf Tenuta Cavalier Pepe in Kampanien',fr:'Rangs de vigne au domaine Tenuta Cavalier Pepe, en Campanie',es:'Hileras de viñas en Tenuta Cavalier Pepe, Campania'},
+    attribution:{author:'Fabio Ingrosso',filePage:'https://commons.wikimedia.org/wiki/File:Tenuta_Cavalier_Pepe_Campania_vineyard.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  puglia:{src:pugliaCastellaneta,
+    position:'50% 82%',tone:'warm',caption:{en:'Vineyard near Castellaneta in Puglia',de:'Weinberg bei Castellaneta in Apulien',fr:'Vignoble près de Castellaneta, dans les Pouilles',es:'Viñedo cerca de Castellaneta, en Apulia'},
+    attribution:{author:'drdcuddy',filePage:'https://commons.wikimedia.org/wiki/File:Vineyard_in_Puglia_Perrini.jpg',license:'CC BY-SA 2.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/',changes:webImageChanges}},
+  rueda:{src:ruedaMartinsancho,
+    position:'50% 70%',tone:'warm',caption:{en:'Martinsancho vineyard in La Seca, DO Rueda',de:'Weinberg Martinsancho in La Seca, DO Rueda',fr:'Vignoble de Martinsancho à La Seca, dans l’appellation Rueda',es:'Viñedo Martinsancho en La Seca, DO Rueda'},
+    attribution:{author:'Carlosmartinmm34',filePage:'https://commons.wikimedia.org/wiki/File:Martinsancho_Vineyard.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  bierzo:{src:bierzoVineyards,
+    position:'50% 78%',tone:'warm',caption:{en:'Vineyards in El Bierzo, León',de:'Weinberge im Bierzo in der Provinz León',fr:'Vignobles du Bierzo, dans la province de León',es:'Viñedos de El Bierzo, León'},
+    attribution:{author:'Random username 083794703875938',filePage:'https://commons.wikimedia.org/wiki/File:Vi%C3%B1as_en_la_comarca_del_Bierzo,_Le%C3%B3n_Imgn01.jpg',license:'CC0 1.0',licenseUrl:'https://creativecommons.org/publicdomain/zero/1.0/deed.en',changes:webImageChanges}},
+  'basque-country-txakoli':{src:txakoliGetaria,
+    position:'50% 70%',tone:'cool',caption:{en:'Txakoli vineyards near Getaria, Gipuzkoa',de:'Txakoli-Weinberge bei Getaria in Gipuzkoa',fr:'Vignobles de txakoli près de Getaria, dans le Gipuzkoa',es:'Viñedos de txakoli cerca de Getaria, Gipuzkoa'},
+    attribution:{author:'Jean Michel Etchecolonea',filePage:'https://commons.wikimedia.org/wiki/File:Getaria_Vignobles_Txakoli1.jpg',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  'mclaren-vale':{src:mclarenValeVineyard,
+    position:'50% 82%',tone:'warm',caption:{en:'Vine rows among the hills of McLaren Vale, South Australia',de:'Weinreben zwischen den Hügeln von McLaren Vale in Südaustralien',fr:'Rangs de vigne dans les collines de McLaren Vale, en Australie-Méridionale',es:'Hileras de viñas entre las colinas de McLaren Vale, Australia Meridional'},
+    attribution:{author:'Wikipedian',filePage:'https://commons.wikimedia.org/wiki/File:Vines_and_Hills_-_panoramio.jpg',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  'mornington-peninsula':{src:morningtonPeninsulaVineyard,
+    position:'50% center',tone:'cool',caption:{en:'Vineyard rows on Victoria’s Mornington Peninsula',de:'Weinbergreihen auf der Mornington Peninsula in Victoria',fr:'Rangs de vigne sur la péninsule de Mornington, dans l’État de Victoria',es:'Hileras de viñedos en la península de Mornington, Victoria'},
+    attribution:{author:'faVori rouge',filePage:'https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg',license:'CC BY-SA 2.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/',changes:webImageChanges}},
+  'prince-edward-county':{src:princeEdwardCountyVineyard,
+    position:'50% 72%',tone:'warm',caption:{en:'Vines in Prince Edward County, Ontario',de:'Weinreben in Prince Edward County, Ontario',fr:'Vignes dans le comté de Prince Edward, en Ontario',es:'Viñas en Prince Edward County, Ontario'},
+    attribution:{author:'Gary J. Wood',filePage:'https://commons.wikimedia.org/wiki/File:Vineyard,_Prince_Edward_County_(4048278348).jpg',license:'CC BY-SA 2.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/',changes:webImageChanges}},
+  casablanca:{src:casablancaBodegasRe,
+    position:'65% 55%',tone:'warm',caption:{en:'Vineyard at Bodegas RE in Chile’s Casablanca Valley',de:'Weinberg bei Bodegas RE im chilenischen Casablanca-Tal',fr:'Vignoble de Bodegas RE dans la vallée de Casablanca, au Chili',es:'Viñedo de Bodegas RE en el valle de Casablanca, Chile'},
+    attribution:{author:'Winniepix (Sue Winston)',filePage:'https://commons.wikimedia.org/wiki/File:Waling_through_the_vineyard_at_Bodegas_RE,_Casablanca_Valley,_Chile_(27137278149).jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  'vale-dos-vinhedos':{src:valeDosVinhedosVineyard,
+    position:'50% center',tone:'cool',caption:{en:'Vine rows in Vale dos Vinhedos, Rio Grande do Sul, Brazil',de:'Weinreben im Vale dos Vinhedos in Rio Grande do Sul, Brasilien',fr:'Rangs de vigne dans la Vale dos Vinhedos, au Rio Grande do Sul, au Brésil',es:'Hileras de viñas en Vale dos Vinhedos, Rio Grande do Sul, Brasil'},
+    attribution:{author:'STELLA SEGATTI',filePage:'https://commons.wikimedia.org/wiki/File:PLANTA%C3%87%C3%95ES_DE_UVA_-_VALE_DOS_VINHEDOS_-_RS.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  'leyda-san-antonio':{src:leydaSanAntonioVineyard,
+    position:'50% center',tone:'warm',caption:{en:'Vineyards in Leyda, Chile, in autumn',de:'Weinberge im chilenischen Leyda im Herbst',fr:'Vignobles de Leyda, au Chili, en automne',es:'Viñedos en Leyda, Chile, en otoño'},
+    attribution:{author:'Rosario Nieto Chadwick',filePage:'https://commons.wikimedia.org/wiki/File:Vi%C3%B1a_En_Leyda_(72246895).jpeg',license:'CC BY 3.0',licenseUrl:'https://creativecommons.org/licenses/by/3.0/',changes:webImageChanges}},
+  hokkaido:{src:hokkaidoFuranoVineyard,
+    position:'50% 70%',tone:'cool',caption:{en:'Wine-grape vineyard in Furano, Hokkaido, Japan',de:'Weinberg in Furano auf Hokkaido, Japan',fr:'Vignoble à Furano, sur l’île de Hokkaido au Japon',es:'Viñedo en Furano, Hokkaido, Japón'},
+    attribution:{author:'MaedaAkihiko',filePage:'https://commons.wikimedia.org/wiki/File:Furano_Vineyard.jpg',license:'CC0 1.0',licenseUrl:'https://creativecommons.org/publicdomain/zero/1.0/deed.en',changes:webImageChanges}},
+  'vayots-dzor':{src:vayotsDzorRindVineyard,
+    position:'50% 72%',tone:'cool',caption:{en:'Vineyard landscape near Rind, Vayots Dzor, Armenia',de:'Weinberglandschaft bei Rind in der armenischen Provinz Wajoz Dsor',fr:'Paysage viticole près de Rind, dans le Vayots Dzor en Arménie',es:'Paisaje de viñedos cerca de Rind, en Vayots Dzor, Armenia'},
+    attribution:{author:'Ավետիսյան91',filePage:'https://commons.wikimedia.org/wiki/File:Natural_landscape_and_vineyard_in_Rind_village_01.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  nagano:{src:naganoAzuminoWinery,
+    position:'50% 72%',tone:'cool',caption:{en:'Vines and winery buildings at Azumino Winery, Nagano, Japan',de:'Reben und Weingutsgebäude der Azumino Winery in Nagano, Japan',fr:'Vignes et bâtiments du domaine Azumino Winery, à Nagano au Japon',es:'Viñas y edificios de Azumino Winery, en Nagano, Japón'},
+    attribution:{author:'Qurren',filePage:'https://commons.wikimedia.org/wiki/File:Azumino_Winery.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  kamptal:{src:kamptalHeiligenstein,
+    position:'50% 72%',tone:'warm',caption:{en:'Heiligenstein vineyard slopes and the Kamptalwarte near Zöbing',de:'Weinberghänge am Heiligenstein und die Kamptalwarte bei Zöbing',fr:'Coteaux viticoles du Heiligenstein et Kamptalwarte près de Zöbing',es:'Laderas de viñedos de Heiligenstein y Kamptalwarte, cerca de Zöbing'},
+    attribution:{author:'Juemumue',filePage:'https://commons.wikimedia.org/wiki/File:Heiligenstein_mit_Kamptalwarte.JPG',license:'CC0 1.0',licenseUrl:'https://creativecommons.org/publicdomain/zero/1.0/deed.en',changes:webImageChanges}},
+  wagram:{src:wagramKirchbergTerrace,
+    position:'50% 70%',tone:'warm',caption:{en:'Autumn vineyard terrace near Kirchberg am Wagram',de:'Herbstliche Weinbergterrasse bei Kirchberg am Wagram',fr:'Terrasse viticole d’automne près de Kirchberg am Wagram',es:'Terraza de viñedos en otoño cerca de Kirchberg am Wagram'},
+    attribution:{author:'NothingToSeeHere',filePage:'https://commons.wikimedia.org/wiki/File:Vineyards_on_Wagram_terrace_-_near_Kirchberg_am_Wagram_-_Oktober_2015_-_(2).JPG',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  weinviertel:{src:weinviertelVineyards,
+    position:'50% 72%',tone:'warm',caption:{en:'Vineyard landscape near Groß-Schweinbarth in the Weinviertel',de:'Weinberglandschaft bei Groß-Schweinbarth im Weinviertel',fr:'Paysage viticole près de Groß-Schweinbarth dans le Weinviertel',es:'Paisaje de viñedos cerca de Groß-Schweinbarth, en el Weinviertel'},
+    attribution:{author:'Manuela Gößnitzer',filePage:'https://commons.wikimedia.org/wiki/File:Gro%C3%9F-Schweinbart_Landschaft.JPG',license:'CC0 1.0',licenseUrl:'https://creativecommons.org/publicdomain/zero/1.0/deed.en',changes:webImageChanges}},
+  villany:{src:villanyVineyards,
+    position:'50% 72%',tone:'warm',caption:{en:'Grape plantations near Villány, with Szársomlyó Mountain beyond',de:'Weinberge bei Villány mit dem Berg Szársomlyó im Hintergrund',fr:'Plantations de vigne près de Villány, avec le mont Szársomlyó en arrière-plan',es:'Viñedos cerca de Villány, con el monte Szársomlyó al fondo'},
+    attribution:{author:'Cserlajos',filePage:'https://commons.wikimedia.org/wiki/File:Villany,_wine.jpg',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/',changes:webImageChanges}},
+  eger:{src:egerVineyard,
+    position:'50% 72%',tone:'warm',caption:{en:'Vineyard in Hungary’s Eger wine region',de:'Weinberg im ungarischen Weinbaugebiet Eger',fr:'Vignoble dans la région viticole hongroise d’Eger',es:'Viñedo en la región vinícola de Eger, Hungría'},
+    attribution:{author:'Elin',filePage:'https://commons.wikimedia.org/wiki/File:Eger_Vineyard.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  nemea:{src:nemeaVineyardsOlives,
+    position:'50% 70%',tone:'warm',caption:{en:'Vineyards and olive groves in the Nemea area of Corinthia',de:'Weinberge und Olivenhaine in der Gegend von Nemea in Korinthia',fr:'Vignobles et oliveraies dans la région de Némée, en Corinthie',es:'Viñedos y olivares en la zona de Nemea, Corintia'},
+    attribution:{author:'ulrichstill',filePage:'https://commons.wikimedia.org/wiki/File:Nemea_Wine-Olives_Corinthia_Peloponnese.jpg',license:'CC BY-SA 3.0 DE',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/de/deed.en',changes:webImageChanges}},
+  vouvray:{src:vouvrayVineyard,
+    position:'50% 72%',tone:'warm',caption:{en:'Vineyard in Vouvray, Loire Valley, after budbreak',de:'Weinberg in Vouvray an der Loire nach dem Austrieb',fr:'Vignoble de Vouvray, dans la vallée de la Loire, après le débourrement',es:'Viñedo en Vouvray, Valle del Loira, tras la brotación'},
+    attribution:{author:'Peter Dutton',filePage:'https://commons.wikimedia.org/wiki/File:Vouvray_Vineyard_after_budbreak.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/',changes:webImageChanges}},
+  provence:{src:provenceVineyard,
+    position:'50% 70%',tone:'warm',caption:{en:'Vineyard in the Coteaux d’Aix wine region, Provence',de:'Weinberg in der Weinregion Coteaux d’Aix in der Provence',fr:'Vignoble dans la région viticole des Coteaux d’Aix, en Provence',es:'Viñedo en la región vinícola de Coteaux d’Aix, Provenza'},
+    attribution:{author:'Teddy Sipaseuth',filePage:'https://commons.wikimedia.org/wiki/File:Aix-en-Provence_vineyard.jpg',license:'CC BY-SA 2.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/',changes:webImageChanges}},
+  'hessische-bergstra-e':{src:hessischeBergstrasseVineyard,
+    position:'50% 72%',tone:'warm',caption:{en:'Spring vineyard at Heppenheim in the Hessische Bergstraße',de:'Frühlingsweinberg in Heppenheim an der Hessischen Bergstraße',fr:'Vignoble au printemps à Heppenheim, sur la Bergstraße de Hesse',es:'Viñedo primaveral en Heppenheim, en la Bergstraße de Hesse'},
+    attribution:{author:'Jürgen Hamann',filePage:'https://commons.wikimedia.org/wiki/File:Geo-Naturpark_Bergstra%C3%9Fe-Odenwald_Fr%C3%BChling_im_Weinberg_Heppenheim_01.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  valais:{src:valaisVineyard,
+    position:'50% 70%',tone:'cool',caption:{en:'Vineyard slopes and Haut de Cry above Chamoson in Valais',de:'Weinberge und der Haut de Cry oberhalb von Chamoson im Wallis',fr:'Vignobles et Haut de Cry au-dessus de Chamoson, en Valais',es:'Viñedos y Haut de Cry sobre Chamoson, en Valais'},
+    attribution:{author:'Christian David',filePage:'https://commons.wikimedia.org/wiki/File:Vignoble_et_Haut_de_Cry,_Chamoson,_Valais.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  graubunden:{src:graubundenVineyard,
+    position:'50% 72%',tone:'cool',caption:{en:'Vineyard near Maienfeld in Graubünden’s Bündner Herrschaft',de:'Weinberg bei Maienfeld in der Bündner Herrschaft in Graubünden',fr:'Vignoble près de Maienfeld, dans la Bündner Herrschaft des Grisons',es:'Viñedo cerca de Maienfeld, en la Bündner Herrschaft de los Grisones'},
+    attribution:{author:'JoachimKohler-HB',filePage:'https://commons.wikimedia.org/wiki/File:Wein_und_Berge_-_Rebst%C3%B6cke_in_der_B%C3%BCndner_Herrschaft_bei_Maienfeld_GR_(2021).jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
+  'vaud-lavaux':{src:vaudLavauxVineyard,
+    position:'50% 70%',tone:'cool',caption:{en:'Lavaux vineyard terraces on Lake Geneva with the Swiss Alps beyond',de:'Weinterrassen von Lavaux am Genfersee vor den Schweizer Alpen',fr:'Terrasses viticoles de Lavaux au bord du Léman, avec les Alpes suisses en arrière-plan',es:'Terrazas de viñedo de Lavaux junto al lago Lemán, con los Alpes suizos al fondo'},
+    attribution:{author:'Antp1479',filePage:'https://commons.wikimedia.org/wiki/File:Lavaux_vineyards_and_Swiss_Alps.jpg',license:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/',changes:webImageChanges}},
 }
 
 const portraits:Record<string,Portrait>={

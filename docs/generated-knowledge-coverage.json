@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-30T12:47:28.372Z",
+  "generatedAt": "2026-09-30T14:26:26.185Z",
   "sourceOfTruth": "src/data/catalog.ts and the authored learning curriculum",
   "promptPolicy": "Prompt templates are stored once and expanded with promptContext per record; generation records and exact source prompts are in GENERATION-PROVENANCE.md, not the runtime bundle.",
   "summary": {
     "regions": {
       "total": 222,
       "generated": 5,
-      "licensedPhotographs": 85,
-      "pending": 129
+      "licensedPhotographs": 153,
+      "pending": 61
     },
     "grapes": {
       "total": 134,
@@ -630,6 +630,414 @@
       "id": "kakheti",
       "filename": "kakheti-zegaani-vineyards.jpg",
       "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "pomerol",
+      "filename": "pomerol-gazin-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "montagne-de-reims",
+      "filename": "montagne-reims-north-slope.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "vallee-de-la-marne",
+      "filename": "vallee-marne-courcelles.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "graves-sauternes",
+      "filename": "graves-sauternes-yquem-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "cote-de-nuits",
+      "filename": "cote-de-nuits-vosne-romanee.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "cote-de-beaune",
+      "filename": "cote-de-beaune-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "margaux",
+      "filename": "margaux-chateau-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "cahors",
+      "filename": "cahors-lot-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "cote-des-blancs",
+      "filename": "cote-des-blancs-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "anjou-saumur",
+      "filename": "anjou-saumur-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "bergerac",
+      "filename": "bergerac-vignoble.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "piemonte",
+      "filename": "piemonte-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "paso-robles",
+      "filename": "paso-robles-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "wairau-valley",
+      "filename": "wairau-valley-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "awatere-valley",
+      "filename": "awatere-valley-autumn.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "north-canterbury",
+      "filename": "north-canterbury-waipara-valley.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "calchaqui-valleys",
+      "filename": "calchaqui-cafayate-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "san-juan-pedernal",
+      "filename": "san-juan-pedernal-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "maipo",
+      "filename": "maipo-haras-de-pirque.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "toscana",
+      "filename": "toscana-grape-vines-cypress.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "walla-walla-valley",
+      "filename": "walla-walla-cayuse-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "lodi",
+      "filename": "lodi-bechthold-cinsaut.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "sierra-foothills",
+      "filename": "sierra-foothills-el-dorado-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "asti-monferrato",
+      "filename": "asti-monferrato-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "santa-barbara-county",
+      "filename": "santa-barbara-county-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "yakima-valley",
+      "filename": "yakima-sagelands-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "montepulciano",
+      "filename": "montepulciano-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "soave",
+      "filename": "soave-panorama.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "conegliano-valdobbiadene",
+      "filename": "conegliano-valdobbiadene-santo-stefano.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "bolgheri",
+      "filename": "bolgheri-doc-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "franciacorta",
+      "filename": "franciacorta-montina-provezze.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "trentino-alto-adige",
+      "filename": "trentino-alto-adige-valdadige.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "collio",
+      "filename": "collio-cormons-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "colli-orientali",
+      "filename": "colli-orientali-rocca-bernarda.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "texas-hill-country",
+      "filename": "texas-hill-country-johnson-city.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "red-mountain",
+      "filename": "red-mountain-kiona-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "columbia-valley",
+      "filename": "columbia-valley-ancient-lakes.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "oakville",
+      "filename": "oakville-opus-one-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "valtellina",
+      "filename": "valtellina-alpine-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "emilia-romagna",
+      "filename": "emilia-romagna-fattoria-paradiso.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "marche",
+      "filename": "marche-cupramontana-verdicchio.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "abruzzo",
+      "filename": "abruzzo-controguerra-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "campania",
+      "filename": "campania-cavalier-pepe-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "puglia",
+      "filename": "puglia-castellaneta-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "rueda",
+      "filename": "rueda-martinsancho.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "bierzo",
+      "filename": "bierzo-vineyards-el-bierzo.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "basque-country-txakoli",
+      "filename": "txakoli-getaria-vineyards.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "mclaren-vale",
+      "filename": "mclaren-vale-vines-hills.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "mornington-peninsula",
+      "filename": "mornington-peninsula-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "prince-edward-county",
+      "filename": "prince-edward-county-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "casablanca",
+      "filename": "casablanca-bodegas-re.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "vale-dos-vinhedos",
+      "filename": "vale-dos-vinhedos-plantacoes.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "leyda-san-antonio",
+      "filename": "leyda-vina-en-leyda.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "hokkaido",
+      "filename": "hokkaido-furano-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "vayots-dzor",
+      "filename": "vayots-dzor-rind-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "nagano",
+      "filename": "nagano-azumino-winery.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "kamptal",
+      "filename": "kamptal-heiligenstein.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "wagram",
+      "filename": "wagram-kirchberg-terrace.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "weinviertel",
+      "filename": "weinviertel-gross-schweinbarth.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "villany",
+      "filename": "villany-grape-plantations.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "eger",
+      "filename": "eger-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "nemea",
+      "filename": "nemea-vineyards-olives.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "vouvray",
+      "filename": "vouvray-after-budbreak.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "provence",
+      "filename": "aix-en-provence-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "hessische-bergstra-e",
+      "filename": "hessische-bergstrasse-heppenheim.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "valais",
+      "filename": "valais-chamoson-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "graubunden",
+      "filename": "graubunden-maienfeld-vineyard.jpg",
+      "present": true
+    },
+    {
+      "kind": "region-photograph",
+      "id": "vaud-lavaux",
+      "filename": "vaud-lavaux-vineyards.jpg",
+      "present": true
     }
   ],
   "records": {
@@ -653,11 +1061,9 @@
         "id": "margaux",
         "name": "Margaux",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Margaux",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "margaux-chateau-vineyard.jpg"
         }
       },
       {
@@ -673,11 +1079,9 @@
         "id": "graves-sauternes",
         "name": "Graves & Sauternes",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Graves & Sauternes",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "graves-sauternes-yquem-vineyards.jpg"
         }
       },
       {
@@ -693,11 +1097,9 @@
         "id": "pomerol",
         "name": "Pomerol",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Pomerol",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "pomerol-gazin-vineyard.jpg"
         }
       },
       {
@@ -722,22 +1124,18 @@
         "id": "cote-de-nuits",
         "name": "Côte de Nuits",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Côte de Nuits",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "cote-de-nuits-vosne-romanee.jpg"
         }
       },
       {
         "id": "cote-de-beaune",
         "name": "Côte de Beaune",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Côte de Beaune",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "cote-de-beaune-vineyard.jpg"
         }
       },
       {
@@ -773,33 +1171,27 @@
         "id": "montagne-de-reims",
         "name": "Montagne de Reims",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Montagne de Reims",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "montagne-reims-north-slope.jpg"
         }
       },
       {
         "id": "vallee-de-la-marne",
         "name": "Vallée de la Marne",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Vallée de la Marne",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "vallee-marne-courcelles.jpg"
         }
       },
       {
         "id": "cote-des-blancs",
         "name": "Côte des Blancs",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Côte des Blancs",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "cote-des-blancs-vineyards.jpg"
         }
       },
       {
@@ -844,11 +1236,9 @@
         "id": "anjou-saumur",
         "name": "Anjou-Saumur",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Anjou-Saumur",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "anjou-saumur-vineyards.jpg"
         }
       },
       {
@@ -864,11 +1254,9 @@
         "id": "vouvray",
         "name": "Vouvray",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Vouvray",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "vouvray-after-budbreak.jpg"
         }
       },
       {
@@ -893,11 +1281,9 @@
         "id": "provence",
         "name": "Provence",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Provence",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "aix-en-provence-vineyard.jpg"
         }
       },
       {
@@ -940,11 +1326,9 @@
         "id": "cahors",
         "name": "Cahors",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Cahors",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "cahors-lot-vineyards.jpg"
         }
       },
       {
@@ -973,11 +1357,9 @@
         "id": "bergerac",
         "name": "Bergerac",
         "country": "France",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Bergerac",
-          "country": "France"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "bergerac-vignoble.jpg"
         }
       },
       {
@@ -995,11 +1377,9 @@
         "id": "piemonte",
         "name": "Piemonte",
         "country": "Italy",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Piemonte",
-          "country": "Italy"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "piemonte-vineyards.jpg"
         }
       },
       {
@@ -1024,22 +1404,18 @@
         "id": "asti-monferrato",
         "name": "Asti & Monferrato",
         "country": "Italy",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Asti & Monferrato",
-          "country": "Italy"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "asti-monferrato-vineyard.jpg"
         }
       },
       {
         "id": "toscana",
         "name": "Toscana",
         "country": "Italy",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Toscana",
-          "country": "Italy"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "toscana-grape-vines-cypress.jpg"
         }
       },
       {
@@ -1064,22 +1440,18 @@
         "id": "montepulciano",
         "name": "Montepulciano",
         "country": "Italy",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Montepulciano",
-          "country": "Italy"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "montepulciano-vineyard.jpg"
         }
       },
       {
         "id": "bolgheri",
         "name": "Bolgheri",
         "country": "Italy",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Bolgheri",
-          "country": "Italy"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "bolgheri-doc-vineyard.jpg"
         }
       },
       {
@@ -1106,132 +1478,108 @@
         "id": "soave",
         "name": "Soave",
         "country": "Italy",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Soave",
-          "country": "Italy"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "soave-panorama.jpg"
         }
       },
       {
         "id": "conegliano-valdobbiadene",
         "name": "Conegliano-Valdobbiadene",
         "country": "Italy",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Conegliano-Valdobbiadene",
-          "country": "Italy"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "conegliano-valdobbiadene-santo-stefano.jpg"
         }
       },
       {
         "id": "collio",
         "name": "Collio",
         "country": "Italy",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Collio",
-          "country": "Italy"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "collio-cormons-vineyards.jpg"
         }
       },
       {
         "id": "colli-orientali",
         "name": "Colli Orientali",
         "country": "Italy",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Colli Orientali",
-          "country": "Italy"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "colli-orientali-rocca-bernarda.jpg"
         }
       },
       {
         "id": "trentino-alto-adige",
         "name": "Trentino-Alto Adige",
         "country": "Italy",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Trentino-Alto Adige",
-          "country": "Italy"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "trentino-alto-adige-valdadige.jpg"
         }
       },
       {
         "id": "franciacorta",
         "name": "Franciacorta",
         "country": "Italy",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Franciacorta",
-          "country": "Italy"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "franciacorta-montina-provezze.jpg"
         }
       },
       {
         "id": "valtellina",
         "name": "Valtellina",
         "country": "Italy",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Valtellina",
-          "country": "Italy"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "valtellina-alpine-vineyards.jpg"
         }
       },
       {
         "id": "emilia-romagna",
         "name": "Emilia-Romagna",
         "country": "Italy",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Emilia-Romagna",
-          "country": "Italy"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "emilia-romagna-fattoria-paradiso.jpg"
         }
       },
       {
         "id": "marche",
         "name": "Marche",
         "country": "Italy",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Marche",
-          "country": "Italy"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "marche-cupramontana-verdicchio.jpg"
         }
       },
       {
         "id": "abruzzo",
         "name": "Abruzzo",
         "country": "Italy",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Abruzzo",
-          "country": "Italy"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "abruzzo-controguerra-vineyard.jpg"
         }
       },
       {
         "id": "campania",
         "name": "Campania",
         "country": "Italy",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Campania",
-          "country": "Italy"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "campania-cavalier-pepe-vineyard.jpg"
         }
       },
       {
         "id": "puglia",
         "name": "Puglia",
         "country": "Italy",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Puglia",
-          "country": "Italy"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "puglia-castellaneta-vineyard.jpg"
         }
       },
       {
@@ -1343,11 +1691,9 @@
         "id": "rueda",
         "name": "Rueda",
         "country": "Spain",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Rueda",
-          "country": "Spain"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "rueda-martinsancho.jpg"
         }
       },
       {
@@ -1374,11 +1720,9 @@
         "id": "bierzo",
         "name": "Bierzo",
         "country": "Spain",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Bierzo",
-          "country": "Spain"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "bierzo-vineyards-el-bierzo.jpg"
         }
       },
       {
@@ -1414,11 +1758,9 @@
         "id": "basque-country-txakoli",
         "name": "Basque Country & Txakoli",
         "country": "Spain",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Basque Country & Txakoli",
-          "country": "Spain"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "txakoli-getaria-vineyards.jpg"
         }
       },
       {
@@ -1527,11 +1869,9 @@
         "id": "hessische-bergstra-e",
         "name": "Hessische Bergstraße",
         "country": "Germany",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Hessische Bergstraße",
-          "country": "Germany"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "hessische-bergstrasse-heppenheim.jpg"
         }
       },
       {
@@ -1628,11 +1968,9 @@
         "id": "kamptal",
         "name": "Kamptal",
         "country": "Austria",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Kamptal",
-          "country": "Austria"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "kamptal-heiligenstein.jpg"
         }
       },
       {
@@ -1650,22 +1988,18 @@
         "id": "weinviertel",
         "name": "Weinviertel",
         "country": "Austria",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Weinviertel",
-          "country": "Austria"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "weinviertel-gross-schweinbarth.jpg"
         }
       },
       {
         "id": "wagram",
         "name": "Wagram",
         "country": "Austria",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Wagram",
-          "country": "Austria"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "wagram-kirchberg-terrace.jpg"
         }
       },
       {
@@ -1705,33 +2039,27 @@
         "id": "valais",
         "name": "Valais",
         "country": "Switzerland",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Valais",
-          "country": "Switzerland"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "valais-chamoson-vineyard.jpg"
         }
       },
       {
         "id": "vaud-lavaux",
         "name": "Vaud & Lavaux",
         "country": "Switzerland",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Vaud & Lavaux",
-          "country": "Switzerland"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "vaud-lavaux-vineyards.jpg"
         }
       },
       {
         "id": "graubunden",
         "name": "Graubünden",
         "country": "Switzerland",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Graubünden",
-          "country": "Switzerland"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "graubunden-maienfeld-vineyard.jpg"
         }
       },
       {
@@ -1780,22 +2108,18 @@
         "id": "eger",
         "name": "Eger",
         "country": "Hungary",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Eger",
-          "country": "Hungary"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "eger-vineyard.jpg"
         }
       },
       {
         "id": "villany",
         "name": "Villány",
         "country": "Hungary",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Villány",
-          "country": "Hungary"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "villany-grape-plantations.jpg"
         }
       },
       {
@@ -1822,11 +2146,9 @@
         "id": "nemea",
         "name": "Nemea",
         "country": "Greece",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Nemea",
-          "country": "Greece"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "nemea-vineyards-olives.jpg"
         }
       },
       {
@@ -2030,11 +2352,9 @@
         "id": "oakville",
         "name": "Oakville",
         "country": "United States",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Oakville",
-          "country": "United States"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "oakville-opus-one-vineyard.jpg"
         }
       },
       {
@@ -2050,44 +2370,36 @@
         "id": "paso-robles",
         "name": "Paso Robles",
         "country": "United States",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Paso Robles",
-          "country": "United States"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "paso-robles-vineyard.jpg"
         }
       },
       {
         "id": "santa-barbara-county",
         "name": "Santa Barbara County",
         "country": "United States",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Santa Barbara County",
-          "country": "United States"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "santa-barbara-county-vineyards.jpg"
         }
       },
       {
         "id": "lodi",
         "name": "Lodi",
         "country": "United States",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Lodi",
-          "country": "United States"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "lodi-bechthold-cinsaut.jpg"
         }
       },
       {
         "id": "sierra-foothills",
         "name": "Sierra Foothills",
         "country": "United States",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Sierra Foothills",
-          "country": "United States"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "sierra-foothills-el-dorado-vineyard.jpg"
         }
       },
       {
@@ -2125,44 +2437,36 @@
         "id": "columbia-valley",
         "name": "Columbia Valley",
         "country": "United States",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Columbia Valley",
-          "country": "United States"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "columbia-valley-ancient-lakes.jpg"
         }
       },
       {
         "id": "yakima-valley",
         "name": "Yakima Valley",
         "country": "United States",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Yakima Valley",
-          "country": "United States"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "yakima-sagelands-vineyard.jpg"
         }
       },
       {
         "id": "red-mountain",
         "name": "Red Mountain",
         "country": "United States",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Red Mountain",
-          "country": "United States"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "red-mountain-kiona-vineyard.jpg"
         }
       },
       {
         "id": "walla-walla-valley",
         "name": "Walla Walla Valley",
         "country": "United States",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Walla Walla Valley",
-          "country": "United States"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "walla-walla-cayuse-vineyards.jpg"
         }
       },
       {
@@ -2189,11 +2493,9 @@
         "id": "texas-hill-country",
         "name": "Texas Hill Country",
         "country": "United States",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Texas Hill Country",
-          "country": "United States"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "texas-hill-country-johnson-city.jpg"
         }
       },
       {
@@ -2218,11 +2520,9 @@
         "id": "prince-edward-county",
         "name": "Prince Edward County",
         "country": "Canada",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Prince Edward County",
-          "country": "Canada"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "prince-edward-county-vineyard.jpg"
         }
       },
       {
@@ -2276,22 +2576,18 @@
         "id": "calchaqui-valleys",
         "name": "Calchaquí Valleys",
         "country": "Argentina",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Calchaquí Valleys",
-          "country": "Argentina"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "calchaqui-cafayate-vineyard.jpg"
         }
       },
       {
         "id": "san-juan-pedernal",
         "name": "San Juan & Pedernal",
         "country": "Argentina",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "San Juan & Pedernal",
-          "country": "Argentina"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "san-juan-pedernal-vineyards.jpg"
         }
       },
       {
@@ -2313,11 +2609,9 @@
         "id": "maipo",
         "name": "Maipo",
         "country": "Chile",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Maipo",
-          "country": "Chile"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "maipo-haras-de-pirque.jpg"
         }
       },
       {
@@ -2333,11 +2627,9 @@
         "id": "casablanca",
         "name": "Casablanca",
         "country": "Chile",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Casablanca",
-          "country": "Chile"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "casablanca-bodegas-re.jpg"
         }
       },
       {
@@ -2375,11 +2667,9 @@
         "id": "leyda-san-antonio",
         "name": "Leyda & San Antonio",
         "country": "Chile",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Leyda & San Antonio",
-          "country": "Chile"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "leyda-vina-en-leyda.jpg"
         }
       },
       {
@@ -2417,11 +2707,9 @@
         "id": "vale-dos-vinhedos",
         "name": "Vale dos Vinhedos",
         "country": "Brazil",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Vale dos Vinhedos",
-          "country": "Brazil"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "vale-dos-vinhedos-plantacoes.jpg"
         }
       },
       {
@@ -2527,11 +2815,9 @@
         "id": "mclaren-vale",
         "name": "McLaren Vale",
         "country": "Australia",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "McLaren Vale",
-          "country": "Australia"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "mclaren-vale-vines-hills.jpg"
         }
       },
       {
@@ -2565,11 +2851,9 @@
         "id": "mornington-peninsula",
         "name": "Mornington Peninsula",
         "country": "Australia",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Mornington Peninsula",
-          "country": "Australia"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "mornington-peninsula-vineyard.jpg"
         }
       },
       {
@@ -2603,22 +2887,18 @@
         "id": "wairau-valley",
         "name": "Wairau Valley",
         "country": "New Zealand",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Wairau Valley",
-          "country": "New Zealand"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "wairau-valley-vineyards.jpg"
         }
       },
       {
         "id": "awatere-valley",
         "name": "Awatere Valley",
         "country": "New Zealand",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Awatere Valley",
-          "country": "New Zealand"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "awatere-valley-autumn.jpg"
         }
       },
       {
@@ -2643,11 +2923,9 @@
         "id": "north-canterbury",
         "name": "North Canterbury",
         "country": "New Zealand",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "North Canterbury",
-          "country": "New Zealand"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "north-canterbury-waipara-valley.jpg"
         }
       },
       {
@@ -2727,11 +3005,9 @@
         "id": "vayots-dzor",
         "name": "Vayots Dzor",
         "country": "Armenia",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Vayots Dzor",
-          "country": "Armenia"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "vayots-dzor-rind-vineyard.jpg"
         }
       },
       {
@@ -2780,22 +3056,18 @@
         "id": "nagano",
         "name": "Nagano",
         "country": "Japan",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Nagano",
-          "country": "Japan"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "nagano-azumino-winery.jpg"
         }
       },
       {
         "id": "hokkaido",
         "name": "Hokkaido",
         "country": "Japan",
-        "status": "shared-decorative-fallback",
-        "promptTemplate": "region",
-        "promptContext": {
-          "name": "Hokkaido",
-          "country": "Japan"
+        "status": "licensed-region-photograph",
+        "licensedPhotograph": {
+          "filename": "hokkaido-furano-vineyard.jpg"
         }
       },
       {
