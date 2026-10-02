@@ -1,0 +1,112 @@
+.interaction-audit-instruction,
+.interaction-privacy-note,
+.host-console-local-note {
+  color: #594c45;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.interaction-audit-instruction {
+  margin: 9px 0 0;
+  padding-left: 12px;
+  border-left: 2px solid #9b7b4f;
+}
+
+.interaction-privacy-note {
+  margin: 10px 0 14px;
+  max-width: 68ch;
+}
+
+.interaction-feedback {
+  margin: 10px 0 0;
+  color: #405c42;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.interaction-feedback.is-error {
+  color: #8c334d;
+}
+
+.host-console-local-note {
+  margin: 8px 0;
+}
+
+.study-practice-local-note {
+  display: block;
+  margin: 12px 0 0;
+  color: #d8cdca;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.learning-lesson :is(button, input, textarea, a):focus-visible {
+  outline: 3px solid #9b7b4f;
+  outline-offset: 3px;
+}
+
+.learning-dial .comparison-options {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grape-deep-dive .climate-comparison {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.grape-deep-dive .structure-compass {
+  display: block;
+}
+
+.grape-deep-dive .structure-compass h3 {
+  margin: 0 0 8px;
+  font: inherit;
+  font-weight: 700;
+}
+
+.grape-deep-dive .structure-compass p {
+  max-width: 76ch;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.participant-table-tools :is(button, input, textarea):focus-visible,
+.tasting-host-console :is(button, input, textarea):focus-visible,
+.tasting-room :is(button, input, textarea):focus-visible,
+.service-object-lab :is(button, input, textarea):focus-visible,
+.knowledge-lab :is(button, input, textarea):focus-visible,
+.adaptive-learning :is(button, input, textarea, a):focus-visible,
+.study-practice :is(button, input, textarea):focus-visible {
+  outline: 3px solid #9b7b4f;
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .participant-table-tools button,
+  .tasting-host-console button,
+  .tasting-room button {
+    min-height: 44px;
+  }
+
+  .tasting-host-console > nav,
+  .tasting-room .flight-progress,
+  .tasting-room .note-steps {
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+
+  .host-timer {
+    flex-wrap: wrap;
+  }
+
+  .learning-dial .comparison-options {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interaction-audit-instruction,
+  .interaction-feedback {
+    scroll-behavior: auto;
+  }
+}

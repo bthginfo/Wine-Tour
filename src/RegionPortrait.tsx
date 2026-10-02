@@ -4,16 +4,18 @@ import { countryLabel, regionContent, regionName } from './localizedContent'
 import { regionMediaFor } from './regionMedia'
 
 const portraitCopy={
-  en:{eyebrow:'Terroir portrait',climate:'Growing season',ground:'Ground structure',varieties:'Linked varieties',producers:'Documented producers',coordinates:'Catalogue centre',visual:'Illustration subject'},
-  de:{eyebrow:'Terroir-Porträt',climate:'Vegetationsperiode',ground:'Untergrund',varieties:'Verknüpfte Rebsorten',producers:'Dokumentierte Weingüter',coordinates:'Katalogmittelpunkt',visual:'Motiv der Illustration'},
-  fr:{eyebrow:'Portrait du terroir',climate:'Cycle végétatif',ground:'Structure du sol',varieties:'Cépages reliés',producers:'Domaines documentés',coordinates:'Centre du catalogue',visual:'Sujet de l’illustration'},
-  es:{eyebrow:'Retrato del terruño',climate:'Ciclo vegetativo',ground:'Estructura del suelo',varieties:'Variedades vinculadas',producers:'Bodegas documentadas',coordinates:'Centro del catálogo',visual:'Tema de la ilustración'},
+  en:{eyebrow:'Regional profile',climate:'Climate',ground:'Soils',varieties:'Linked grape varieties',producers:'Listed producers',coordinates:'Location'},
+  de:{eyebrow:'Region im Überblick',climate:'Klima',ground:'Böden',varieties:'Verknüpfte Rebsorten',producers:'Aufgeführte Erzeuger',coordinates:'Lage'},
+  fr:{eyebrow:'Profil régional',climate:'Climat',ground:'Sols',varieties:'Cépages associés',producers:'Producteurs répertoriés',coordinates:'Localisation'},
+  es:{eyebrow:'Perfil regional',climate:'Clima',ground:'Suelos',varieties:'Variedades vinculadas',producers:'Bodegas incluidas',coordinates:'Ubicación'},
 } as const
 
 export function RegionPortrait({region,locale}:{region:Region;locale:Locale}){
   const media=regionMediaFor(region.id).portrait
   if(!media)return null
   const c=portraitCopy[locale],content=regionContent(region,locale),name=regionName(region,locale)
+  const regionalFacts=[{label:c.climate,text:content.climate},{label:c.ground,text:content.soil}].filter(item=>item.text.trim())
+  const facts=regionalFacts.length?regionalFacts:[{label:c.varieties,text:String(region.grapeIds.length)},{label:c.producers,text:String(region.producerIds.length)}]
   return <figure className="region-cartographic-portrait">
     <div className="region-portrait-visual">
       <div className="region-portrait-landscape">
@@ -24,8 +26,8 @@ export function RegionPortrait({region,locale}:{region:Region;locale:Locale}){
     </div>
     <figcaption>
       <span className="eyebrow">{c.eyebrow}</span>
-      <div><strong>{c.visual}</strong><p>{media.caption[locale]}</p></div>
-      {region.hasRegionalTerroirEvidence?<><div><strong>{c.climate}</strong><p>{content.climate}</p></div><div><strong>{c.ground}</strong><p>{content.soil}</p></div></>:<><div><strong>{c.varieties}</strong><p>{region.grapeIds.length}</p></div><div><strong>{c.producers}</strong><p>{region.producerIds.length}</p></div></>}
+      <div><p>{media.caption[locale]}</p></div>
+      {facts.map(item=><div key={item.label}><strong>{item.label}</strong><p>{item.text}</p></div>)}
     </figcaption>
   </figure>
 }

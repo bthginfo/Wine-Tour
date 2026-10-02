@@ -383,6 +383,8 @@ const countrySources: Record<string,{label:string;url:string}> = {
 }
 const regionSources:Record<string,{label:string;url:string}>={
   franschhoek:{label:'Wines of South Africa · Franschhoek terroir',url:'https://www.winesofsa.co.uk/news-features/terroir-talk-franschhoek/'},
+  mosel:{label:'Wines of Germany · Mosel growing area',url:'https://www.winesofgermany.com/our-regions/growing-area/72/mosel'},
+  nemea:{label:'Wines of Greece · PDO Nemea',url:'https://winesofgreece.org/pdo/pdo-nemea/'},
 }
 const localZones: Record<string,string[]> = {
   bordeaux:['Left Bank','Right Bank','Entre-Deux-Mers'], medoc:['Saint-Estèphe','Pauillac','Saint-Julien','Margaux'], champagne:['Montagne de Reims','Vallée de la Marne','Côte des Blancs','Côte des Bar'],

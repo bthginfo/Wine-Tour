@@ -67,7 +67,7 @@ export function ServiceKnowledgeLab({articleId,locale}:{articleId:string;locale:
   if(articleId==='glassware-anatomy')return <GlassLab locale={locale}/>
   const group=articleId==='bottle-closures'?c.closure:c.bottle
   const keys=Object.keys(group) as Array<keyof typeof group>
-  return <ObjectLab articleId={articleId as LabId} locale={locale} keys={keys as string[]}/>
+  return <ObjectLab key={articleId} articleId={articleId as LabId} locale={locale} keys={keys as string[]}/>
 }
 
 function GlassLab({locale}:{locale:Locale}){

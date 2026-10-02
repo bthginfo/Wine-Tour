@@ -23,6 +23,7 @@ const roleMetaCopy:Record<Locale,{all:string;professional:string;accounts:string
   fr:{all:'Tous les rôles',professional:'Accès professionnels',accounts:'comptes',workspaces:'espaces',lastSeen:'Dernière connexion',created:'Inscription',never:'Jamais',unsaved:'Modifications non enregistrées'},
   es:{all:'Todos los roles',professional:'Accesos profesionales',accounts:'cuentas',workspaces:'espacios',lastSeen:'Último acceso',created:'Registro',never:'Nunca',unsaved:'Cambios sin guardar'}
 }
+const loadingCopy:Record<Locale,string>={en:'Loading accounts…',de:'Konten werden geladen…',fr:'Chargement des comptes…',es:'Cargando cuentas…'}
 const text:Record<Locale,{
   eyebrow:string;title:string;body:string;search:string;account:string;roles:string;status:string;active:string;disabled:string;
   save:string;saving:string;saved:string;empty:string;previous:string;next:string;page:string;loadError:string;saveError:string;
@@ -45,6 +46,7 @@ export function AccountRoleManager(){
   const [roleFilter,setRoleFilter]=useState<'all'|MembershipRole>('all')
   const [page,setPage]=useState(1)
   const [busy,setBusy]=useState('')
+  const [loading,setLoading]=useState(true)
   const [notice,setNotice]=useState('')
   const [error,setError]=useState('')
   const pageSize=8
@@ -55,6 +57,7 @@ export function AccountRoleManager(){
       .then(async response=>{if(!response.ok)throw new Error();return response.json() as Promise<{users:ManagedAccount[]}>})
       .then(payload=>{if(active){setAccounts(payload.users);setDrafts(Object.fromEntries(payload.users.map(account=>[account.id,{roles:account.roles,disabled:account.disabled}])))} })
       .catch(()=>{if(active)setError(c.loadError)})
+      .finally(()=>{if(active)setLoading(false)})
     return()=>{active=false}
   },[c.loadError])
 
@@ -98,10 +101,11 @@ export function AccountRoleManager(){
       <div><Users/><strong>{accounts.length}</strong><span>{meta.accounts}</span></div>
       <div><ShieldCheck/><strong>{accounts.filter(account=>account.roles.some(role=>role!=='member')).length}</strong><span>{meta.professional}</span></div>
       <div><Building2/><strong>{new Set(accounts.flatMap(account=>account.workspaceIds)).size}</strong><span>{meta.workspaces}</span></div>
-      <nav aria-label={c.roles}><button className={roleFilter==='all'?'active':''} onClick={()=>setRoleFilter('all')}>{meta.all}</button>{roles.map(role=><button key={role} className={roleFilter===role?'active':''} onClick={()=>setRoleFilter(role)}>{c.roleNames[role]} <small>{accounts.filter(account=>account.roles.includes(role)).length}</small></button>)}</nav>
+      <nav aria-label={c.roles}><button type="button" aria-pressed={roleFilter==='all'} className={roleFilter==='all'?'active':''} onClick={()=>setRoleFilter('all')}>{meta.all}</button>{roles.map(role=><button type="button" key={role} aria-pressed={roleFilter===role} className={roleFilter===role?'active':''} onClick={()=>setRoleFilter(role)}>{c.roleNames[role]} <small>{accounts.filter(account=>account.roles.includes(role)).length}</small></button>)}</nav>
     </div>
-    {(notice||error)&&<div className={error?'role-notice error':'role-notice'}>{error?<AlertCircle/>:<Check/>}{error||notice}</div>}
-    <div className="role-account-list">
+    {loading&&<div className="role-notice" role="status" aria-live="polite"><Clock3/>{loadingCopy[locale]}</div>}
+    {(notice||error)&&<div className={error?'role-notice error':'role-notice'} role={error?'alert':'status'} aria-live={error?'assertive':'polite'}>{error?<AlertCircle/>:<Check/>}{error||notice}</div>}
+    <div className="role-account-list" aria-busy={loading}>
       {visible.map(account=>{const draft=drafts[account.id]??{roles:account.roles,disabled:account.disabled};const changed=draft.disabled!==account.disabled||draft.roles.slice().sort().join('|')!==account.roles.slice().sort().join('|');return <article key={account.id}>
         <div className="role-account-identity"><UserRoundCog/><div><small>{c.account}</small><h3>{account.displayName||account.username}</h3><span>@{account.username}</span><div className="account-context"><span><Clock3/>{meta.lastSeen}: {account.lastLoginAt?new Intl.DateTimeFormat(locale,{dateStyle:'medium'}).format(new Date(account.lastLoginAt)):meta.never}</span><span><Building2/>{account.workspaceIds.length} {meta.workspaces}</span><span>{meta.created}: {new Intl.DateTimeFormat(locale,{dateStyle:'medium'}).format(new Date(account.createdAt))}</span></div></div>{changed&&<em>{meta.unsaved}</em>}</div>
         <fieldset><legend>{c.roles}</legend>{roles.map(role=><label key={role} className={draft.roles.includes(role)?'selected':''}>
@@ -111,10 +115,10 @@ export function AccountRoleManager(){
         </label>)}</fieldset>
         <footer>
           <label className="account-state"><input type="checkbox" checked={!draft.disabled} disabled={account.id===user?.id} onChange={()=>setDrafts(current=>({...current,[account.id]:{...draft,disabled:!draft.disabled}}))}/><span><strong>{c.status}</strong><small>{draft.disabled?c.disabled:c.active}</small></span></label>
-          <button className="primary-button" onClick={()=>void save(account)} disabled={busy===account.id}><ShieldCheck/>{busy===account.id?c.saving:c.save}</button>
+          <button type="button" className="primary-button" onClick={()=>void save(account)} disabled={!changed||Boolean(busy)}><ShieldCheck/>{busy===account.id?c.saving:c.save}</button>
         </footer>
       </article>})}
-      {!visible.length&&<div className="role-empty"><UserRoundCog/><p>{c.empty}</p></div>}
+      {!loading&&!error&&!visible.length&&<div className="role-empty"><UserRoundCog/><p>{c.empty}</p></div>}
     </div>
     {pages>1&&<nav className="role-pagination"><button disabled={page===1} onClick={()=>setPage(value=>Math.max(1,value-1))}><ChevronLeft/>{c.previous}</button><span>{c.page} {page} / {pages}</span><button disabled={page===pages} onClick={()=>setPage(value=>Math.min(pages,value+1))}>{c.next}<ChevronRight/></button></nav>}
   </section>

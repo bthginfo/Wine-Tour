@@ -1,5 +1,6 @@
-import { useEffect, useMemo, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { createPortal } from "react-dom";
 import {
   ArrowRight,
   BadgeCheck,
@@ -41,6 +42,7 @@ import { producers, regions, wines } from "./data/catalog";
 import { repository } from "./data/repository";
 import { useLocale } from "./i18n";
 import { useAuth } from "./auth";
+import { useAccessibleDialog } from "./useAccessibleDialog";
 import { useUiCopy } from "./uiCopy";
 import { regionName } from "./localizedContent";
 import type {
@@ -506,6 +508,8 @@ export function EventDetail() {
   },[cachedEvent,id,inviteCode])
   const event=cachedEvent??invitedEvent;
   const [checkout, setCheckout] = useState(false);
+  const checkoutDialogRef=useRef<HTMLDivElement>(null)
+  useAccessibleDialog({active:checkout,onClose:()=>setCheckout(false),ref:checkoutDialogRef})
   const [cellarWineIds, setCellarWineIds] = useState(
     () =>
       new Set(
@@ -686,8 +690,9 @@ export function EventDetail() {
         </div>
         <InfrastructureNotice />
       </section>
-      {checkout && (
+      {checkout && createPortal((
         <div
+          ref={checkoutDialogRef}
           className="business-modal"
           role="dialog"
           aria-modal="true"
@@ -695,6 +700,7 @@ export function EventDetail() {
         >
           <div>
             <button
+              type="button"
               className="modal-close"
               onClick={() => setCheckout(false)}
               aria-label={ui.close}
@@ -717,6 +723,7 @@ export function EventDetail() {
               </strong>
             </div>
             <button
+              type="button"
               className="primary-button ink"
               onClick={() => setCheckout(false)}
             >
@@ -724,7 +731,7 @@ export function EventDetail() {
             </button>
           </div>
         </div>
-      )}
+      ),document.body)}
     </div>
   );
 }

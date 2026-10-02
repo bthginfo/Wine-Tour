@@ -2,11 +2,11 @@ import { useState } from 'react'
 import { Droplets, Mountain, SunMedium, Wine } from 'lucide-react'
 import type { Grape, Region } from './types'
 import type { Locale } from './i18n'
-import { grapeContent, regionContent, regionName, styleLabel, wineContent } from './localizedContent'
+import { grapeContent, grapeEvidenceContent, regionContent, regionName, styleLabel, wineContent } from './localizedContent'
 import { producers, regions, wines } from './data/catalog'
 import ampelographyMedia from './data/ampelographyMedia.generated.json'
-import grapeEvidence from './data/grapeEvidence.generated.json'
 import regionPlate from './assets/knowledge-region-seasons.jpg'
+import './interaction-audit.css'
 
 const regionCopy={
   en:{eyebrow:'Terroir studio',title:'Move the growing conditions',body:'Set a hypothetical comparison and follow possible mechanisms from vine to glass. These controls use no measured vineyard data and are not a quality score.',alt:'Illustrated vineyard through four seasons with roots and soil layers',altitude:'Elevation',water:'Water reserve',exposure:'Sun exposure',low:'Low',middle:'Middle',high:'High',scarce:'Scarce',balanced:'Balanced',ample:'Ample',shaded:'Sheltered',open:'Open',sunny:'Sun-facing',result:'Mechanisms to check',fresh:'Altitude can cool a site, but cold-air inversion may leave lower ground colder on clear nights; compare the actual block.',ripe:'Earlier heat accumulation may advance ripening; check site temperatures and fruit development together.',stress:'Severe water stress can slow photosynthesis; berry size and canopy signals then need checking.',steady:'Compare shoot growth and berry size through the same season; water supply, crop load and rootstock matter.',dilute:'More vigorous growth is possible; watch yield and shading.',cool:'A shaded fruit zone may be cooler; check canopy cover and phenolic development.',even:'Record fruit-zone light and temperature at matched times; canopy leaves alter exposure.',warm:'More exposed fruit can warm and face sunburn risk; canopy cover and picking date matter.'},
@@ -20,6 +20,12 @@ const regionDiagramCaption={
   fr:'Vignoble au fil des saisons · racines et horizons du sol',
   es:'Viñedo a lo largo de las estaciones · raíces y capas del suelo',
 } as const
+const regionModelScope:Record<Locale,(name:string)=>string>={
+  en:name=>`This is a general thought experiment, not measured data or a prediction for ${name}'s vineyards.`,
+  de:name=>`Das ist ein allgemeines Gedankenexperiment, keine Messung und keine Vorhersage für die Weinberge von ${name}.`,
+  fr:name=>`Il s’agit d’une expérience de pensée générale, pas de mesures ni d’une prévision pour les vignobles de ${name}.`,
+  es:name=>`Este es un experimento mental general, no son mediciones ni una predicción para los viñedos de ${name}.`,
+}
 
 function Choice({labels,value,onChange,label}:{labels:readonly string[];value:number;onChange:(value:number)=>void;label:string}){
   return <fieldset className="knowledge-choice"><legend>{label}</legend><div>{labels.map((item,index)=><button type="button" key={item} onClick={()=>onChange(index)} aria-pressed={value===index}>{item}</button>)}</div></fieldset>
@@ -39,6 +45,7 @@ export function RegionTerroirStudio({region,locale}:{region:Region;locale:Locale
   return <section className="knowledge-lab region-terroir-studio">
     <figure><img src={regionPlate} alt={c.alt}/><figcaption><strong>{regionDiagramCaption[locale]}</strong></figcaption></figure>
     <div className="knowledge-lab-panel"><span className="eyebrow">{c.eyebrow}</span><h2>{c.title}</h2><p>{c.body}</p>
+      <p className="interaction-privacy-note">{regionModelScope[locale](regionName(region,locale))}</p>
       <div className="knowledge-controls">
         <div><Mountain/><Choice label={c.altitude} labels={[c.low,c.middle,c.high]} value={altitude} onChange={setAltitude}/></div>
         <div><Droplets/><Choice label={c.water} labels={[c.scarce,c.balanced,c.ample]} value={water} onChange={setWater}/></div>
@@ -77,7 +84,7 @@ export function GrapeExpressionLab({grape,locale}:{grape:Grape;locale:Locale}){
     fr:{eyebrow:'Comparaison de bouteilles',title:`Gardez ${grape.name}. Changez d’origine et de domaine.`,body:'Ce sont des exemples documentés, pas une dégustation contrôlée : origine, domaine et choix de cave peuvent tous varier. Ils ouvrent une question, sans isoler une cause.',select:'Choisissez un exemple de vin documenté',origin:'Origine',producer:'Domaine',style:'Style',composition:'Assemblage',fieldEvidence:'Relevé de terrain',evidenceSource:'Fiche PlantGrape',leaf:'Feuille',cluster:'Grappe'},
     es:{eyebrow:'Comparación de botellas',title:`Mantén ${grape.name}. Cambia origen y productor.`,body:'Son ejemplos documentados, no una cata controlada: pueden cambiar a la vez origen, productor y decisiones de bodega. Úsalos para plantear una pregunta, no para atribuir una causa única.',select:'Elige un ejemplo de vino documentado',origin:'Origen',producer:'Productor',style:'Estilo',composition:'Composición',fieldEvidence:'Registro de campo',evidenceSource:'Ficha PlantGrape',leaf:'Hoja',cluster:'Racimo'},
   }[locale]
-  const field=grapeEvidence.find(item=>item.grapeId===grape.id)?.[locale]
+  const field=grapeEvidenceContent(grape.id,locale)
   const fieldNote=field?({
     en:`${field.cluster.trim().replace(/[.]+$/,'')}. Berry description: ${field.berry.trim().replace(/^the /i,'').replace(/[.]+$/,'')}.`,
     de:`${field.cluster.trim().replace(/[.]+$/,'')}. Beerenbeschreibung: ${field.berry.trim().replace(/^die /i,'').replace(/[.]+$/,'')}.`,

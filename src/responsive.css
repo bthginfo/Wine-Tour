@@ -157,3 +157,74 @@
 
 /* The aroma detail panel is pale paper, so its labels need a dark accent. */
 .aroma-detail .eyebrow{color:var(--wine)!important}
+
+/* Keep catalog refinements readable and make shared dialogs sit above app chrome. */
+.atlas-refinements,.atlas-directory-refinements{padding:18px;margin:0 0 20px;border:1px solid var(--line);border-radius:5px 20px 20px 20px;background:rgba(255,255,255,.28)}
+.atlas-refinement-heading{display:flex;align-items:start;justify-content:space-between;gap:12px;margin-bottom:14px}
+.atlas-refinement-heading h2,.atlas-refinement-heading h3{margin:0;font:700 12px/1.35 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--wine)}
+.atlas-refinement-heading p{margin:4px 0 0;font-size:12px;line-height:1.45}
+.atlas-refinements .atlas-toolbar{margin-bottom:10px}
+.atlas-refinements .atlas-filters{margin:0;padding:12px;border-radius:14px;background:rgba(255,255,255,.35)}
+.atlas-directory-refinements{padding:14px;margin:0 0 22px}
+.atlas-directory-refinements .atlas-directory-tools{margin:0}
+.atlas-map{position:relative}
+.map-empty{position:absolute;z-index:500;left:50%;top:42%;transform:translate(-50%,-50%);width:min(25rem,calc(100% - 2rem));display:grid;justify-items:center;gap:.5rem;padding:1.2rem;border:1px solid rgba(37,25,32,.14);border-radius:16px;background:rgba(255,253,248,.94);box-shadow:0 16px 40px rgba(31,19,26,.15);text-align:center;pointer-events:none}
+.map-empty svg{width:22px;color:var(--wine)}
+.map-empty strong{font-family:var(--serif);font-size:1.4rem;font-weight:400}
+.map-empty span{font-size:.85rem;line-height:1.5;color:var(--muted)}
+.searchable-select-options>div{width:100%;min-height:2.65rem;padding:.55rem .7rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;border-radius:9px;color:#251920;text-align:left;cursor:pointer}
+.searchable-select-options>div:hover,.searchable-select-options>div.active,.searchable-select-options>div[aria-selected=true]{background:#f0e6dc}
+.searchable-select-options>div svg{width:1rem;color:#8f1f3f;flex:0 0 auto}
+.search-overlay{z-index:3200;height:100dvh;overflow-y:auto;overscroll-behavior:contain}
+.modal-backdrop{z-index:2400}
+.business-modal{z-index:2300}
+.journey-builder-feedback{min-height:1.4rem;margin:-14px 0 12px;color:var(--muted);font-size:13px;line-height:1.45}
+.journey-builder-feedback.error{padding:10px 12px;border-left:3px solid #8c1835;background:rgba(140,24,53,.07);color:#7a1730}
+.journey-builder-feedback:empty{display:none}
+.journey-empty{display:flex;align-items:center;gap:12px;padding:22px;border:1px dashed var(--line);border-radius:14px;color:var(--muted);font-size:13px}
+.journey-empty svg{flex:0 0 auto;color:var(--wine)}
+.journey-wine .wine-bottle-art{width:100%;max-width:115px;height:auto;min-height:190px;margin:0 auto}
+.journey-wine-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.journey-wine-links a{min-width:8rem;display:grid;gap:4px;padding:9px 11px;border:1px solid rgba(37,25,32,.12);border-radius:10px;background:rgba(255,255,255,.42)}
+.journey-wine-links small{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.journey-wine-links strong{font-size:12px}
+.map-inspector-empty{display:flex;flex-direction:column;justify-content:center}
+.map-inspector-empty h2{font-size:38px}
+.search-overlay[role=dialog]{outline:none}
+.business-modal[role=dialog]{outline:none}
+.role-manager button[aria-pressed=true]{border-color:rgba(116,35,58,.32);background:rgba(116,35,58,.08);color:var(--wine)}
+.role-manager input:focus-visible+span,.role-manager label:focus-within{outline:2px solid var(--wine-bright);outline-offset:2px}
+.role-manager .primary-button:disabled{opacity:.45}
+.editorial-empty button{min-height:42px}
+
+@media(max-width:820px){
+  .atlas-refinements,.atlas-directory-refinements{margin-right:-18px;margin-left:-18px;border-radius:0;padding:16px 18px}
+  .atlas-refinements .atlas-toolbar{gap:9px}
+  .atlas-refinements .atlas-filters{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px}
+  .atlas-refinements .atlas-filters>label{flex:1 1 145px;min-width:0}
+  .atlas-refinements .atlas-filters>button{flex:1 1 auto;min-height:44px}
+  .atlas-directory-refinements .atlas-directory-tools{grid-template-columns:1fr 1fr}
+  .atlas-directory-refinements .atlas-directory-tools .search-field{grid-column:1/-1}
+  .profile-page .settings-list>a{min-height:76px;padding-block:12px}
+}
+
+@media(max-width:520px){
+  .atlas-refinement-heading p{font-size:11px}
+  .atlas-refinements .segmented{width:100%}
+  .atlas-refinements .segmented button{flex:1;justify-content:center;padding-inline:7px;font-size:11px}
+  .atlas-directory-refinements .atlas-directory-tools{grid-template-columns:minmax(0,1fr)}
+  .atlas-directory-refinements .atlas-directory-tools .search-field{grid-column:1}
+  .cellar-commandbar{grid-template-columns:minmax(0,1fr)!important}
+  .cellar-commandbar .search-field,.cellar-state-filters,.cellar-sort{grid-column:1/-1!important;width:100%;min-width:0}
+  .cellar-state-filters{display:flex;flex-wrap:wrap;justify-content:flex-start;overflow:visible}
+  .cellar-state-filters button{flex:1 1 max-content;white-space:normal;min-width:0}
+  .cellar-sort select{min-width:0}
+}
+
+@media(max-width:520px){
+  .cellar-add-sheet .bottle-photo-field{grid-template-columns:88px minmax(0,1fr);gap:12px;padding:12px;margin:10px 0}
+  .cellar-add-sheet .photo-preview{height:88px}
+  .cellar-add-sheet .bottle-photo-field p{margin:.35rem 0 .55rem;font-size:9px;line-height:1.35}
+  .cellar-add-sheet .bottle-photo-field .secondary-button{min-height:38px;padding:8px 10px;font-size:11px}
+  .cellar-add-sheet .bottle-photo-field .secondary-button svg{width:14px;height:14px}
+}

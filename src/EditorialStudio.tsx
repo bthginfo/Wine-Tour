@@ -424,6 +424,12 @@ const editorOptions: Record<Locale, Record<string, string>> = {
     open: "Abierto",
   },
 };
+const noResultsCopy:Record<Locale,{title:string;clear:string}>={
+  en:{title:'No catalogue records match these filters.',clear:'Clear search and type'},
+  de:{title:'Keine Katalogeinträge passen zu diesen Filtern.',clear:'Suche und Typ zurücksetzen'},
+  fr:{title:'Aucune fiche du catalogue ne correspond à ces filtres.',clear:'Effacer la recherche et le type'},
+  es:{title:'Ningún registro del catálogo coincide con estos filtros.',clear:'Borrar búsqueda y tipo'},
+}
 
 const blankFields = () => ({
   country: "",
@@ -495,6 +501,7 @@ function loadEditorialDrafts(): EditorialDraft[] {
 export function EditorialStudio() {
   const { locale } = useLocale();
   const c = { ...copy[locale], ...backendCopy[locale] };
+  const noResults=noResultsCopy[locale]
   const optionCopy = editorOptions[locale];
   const selectionCopy={en:{search:'Search relationships',empty:'No matching record',selected:'selected'},de:{search:'Beziehungen durchsuchen',empty:'Kein passender Datensatz',selected:'ausgewählt'},fr:{search:'Rechercher les relations',empty:'Aucune fiche correspondante',selected:'sélectionnés'},es:{search:'Buscar relaciones',empty:'No hay registros coincidentes',selected:'seleccionados'}}[locale]
   const [drafts, setDrafts] = useState<EditorialDraft[]>(
@@ -795,7 +802,7 @@ export function EditorialStudio() {
             </span>
           </div>
           <div className="editorial-record-table">
-            {visible.map((row) => (
+            {results.length===0?<div className="editorial-empty" role="status"><Search/><h3>{noResults.title}</h3><button type="button" onClick={()=>{setQuery('');setFilter('all');setPage(1)}}><Filter/>{noResults.clear}</button></div>:visible.map((row) => (
               <article key={`${row.type}-${row.id}`}>
                 <span className={`record-type type-${row.type}`}>
                   {c[row.type]}
@@ -811,7 +818,7 @@ export function EditorialStudio() {
               </article>
             ))}
           </div>
-          <nav className="editorial-pagination" aria-label={c.page}>
+          {results.length>pageSize&&<nav className="editorial-pagination" aria-label={c.page}>
             <button
               disabled={page === 1}
               onClick={() => setPage((value) => value - 1)}
@@ -829,7 +836,7 @@ export function EditorialStudio() {
               {c.next}
               <ChevronRight />
             </button>
-          </nav>
+          </nav>}
         </div>
       )}
       {view === "drafts" && (

@@ -1,9 +1,11 @@
 import {useState} from 'react'
 import {Check,Layers3,NotebookPen,RotateCcw} from 'lucide-react'
+import {useAuth} from './auth'
 import {repository} from './data/repository'
 import {learningCases,learningCaseExperiments,type LearningCase} from './data/learningCases'
 import type {Locale} from './i18n'
 import type {Article,TastingJourney} from './types'
+import {readInteractionValue,scopedInteractionKey,writeInteractionValue} from './interactionStorage'
 import './study-practice.css'
 
 export const referenceGuideLabIds=[
@@ -21,20 +23,13 @@ const studyCopy={
 const completedKey='vine-atlas.guide-progress'
 const noteKey=(articleId:string)=>`vine-atlas.guide-note:${articleId}`
 const experimentCopy={en:'Try it in the glass',de:'Im Glas ausprobieren',fr:'À vérifier dans le verre',es:'Pruébalo en la copa'} as const
-function safeRead<T>(key:string,fallback:T):T{
-  if(typeof window==='undefined')return fallback
-  try{const value=window.localStorage.getItem(key);return value?JSON.parse(value) as T:fallback}catch{return fallback}
-}
-function safeWrite(key:string,value:unknown){
-  if(typeof window==='undefined')return false
-  try{window.localStorage.setItem(key,JSON.stringify(value));return true}catch{return false}
-}
+const localOnlyCopy:Record<Locale,string>={en:'Notes and guide progress stay in this browser; they are not synced to other devices.',de:'Notizen und Guide-Fortschritt bleiben in diesem Browser; sie werden nicht mit anderen Geräten synchronisiert.',fr:'Vos notes et votre progression restent dans ce navigateur ; elles ne sont pas synchronisées avec d’autres appareils.',es:'Tus notas y el progreso de las guías permanecen en este navegador; no se sincronizan con otros dispositivos.'}
 function readStoredIds(key:string){
-  const value=safeRead<unknown>(key,[])
+  const value=readInteractionValue<unknown>(key,[])
   return Array.isArray(value)&&value.every(item=>typeof item==='string')?value:[]
 }
 function readStoredString(key:string){
-  const value=safeRead<unknown>(key,'')
+  const value=readInteractionValue<unknown>(key,'')
   return typeof value==='string'?value:''
 }
 function makeId(prefix:string){
@@ -55,20 +50,28 @@ function readJourneys(){
 
 type TastingNotice='added'|'already'|'failed'|null
 
-export function ReferenceGuideExperience({article,locale}:{article:Article;locale:Locale}){
+export function ReferenceGuideExperience(props:{article:Article;locale:Locale}){
+  const {user}=useAuth()
+  const accountId=user?.id
+  return <ReferenceGuidePractice key={`${props.article.id}:${accountId??'guest'}`} {...props} accountId={accountId}/>
+}
+
+function ReferenceGuidePractice({article,locale,accountId}:{article:Article;locale:Locale;accountId?:string}){
   const c=studyCopy[locale],practice:LearningCase|undefined=learningCases[article.id]
+  const progressStorageKey=scopedInteractionKey(completedKey,accountId)
+  const articleNoteStorageKey=scopedInteractionKey(noteKey(article.id),accountId)
   const [selected,setSelected]=useState<number|null>(null),[submitted,setSubmitted]=useState(false)
-  const [note,setNote]=useState(()=>readStoredString(noteKey(article.id))),[noteStatus,setNoteStatus]=useState<'idle'|'saved'|'failed'>('idle')
-  const [completed,setCompleted]=useState(()=>readStoredIds(completedKey).includes(article.id))
+  const [note,setNote]=useState(()=>readStoredString(articleNoteStorageKey)),[noteStatus,setNoteStatus]=useState<'idle'|'saved'|'failed'>('idle')
+  const [completed,setCompleted]=useState(()=>readStoredIds(progressStorageKey).includes(article.id))
   const [pickerOpen,setPickerOpen]=useState(false),[journeys,setJourneys]=useState<TastingJourney[]>([]),[newTitle,setNewTitle]=useState(''),[tastingNotice,setTastingNotice]=useState<TastingNotice>(null)
   if(!practice)return null
-  const saveNote=()=>setNoteStatus(safeWrite(noteKey(article.id),note)?'saved':'failed')
+  const saveNote=()=>setNoteStatus(writeInteractionValue(articleNoteStorageKey,note)?'saved':'failed')
   const checkAnswer=()=>{if(selected!==null)setSubmitted(true)}
   const retry=()=>{setSelected(null);setSubmitted(false)}
   const finish=()=>{
     if(!submitted||selected!==practice.answer){setTastingNotice(null);return}
-    const next=[...new Set([...readStoredIds(completedKey),article.id])]
-    if(safeWrite(completedKey,next)){setCompleted(true);setTastingNotice(null)}else setTastingNotice('failed')
+    const next=[...new Set([...readStoredIds(progressStorageKey),article.id])]
+    if(writeInteractionValue(progressStorageKey,next)){setCompleted(true);setTastingNotice(null)}else setTastingNotice('failed')
   }
   const openPicker=()=>{setJourneys(readJourneys());setTastingNotice(null);setPickerOpen(true)}
   const addToJourney=(target:TastingJourney)=>{
@@ -86,6 +89,7 @@ export function ReferenceGuideExperience({article,locale}:{article:Article;local
   }
   return <section className="study-practice" aria-labelledby={`study-practice-title-${article.id}`}>
     <header className="study-practice-header"><div><span className="eyebrow">{c.eyebrow}</span><h2 id={`study-practice-title-${article.id}`}>{c.title}</h2><p>{c.intro}</p></div><span className="study-practice-mark">{practice.options.length} {c.options}</span></header>
+    <p className="study-practice-local-note">{localOnlyCopy[locale]}</p>
     <div className="study-practice-grid">
       <form className="study-practice-question" onSubmit={event=>{event.preventDefault();checkAnswer()}}>
         <fieldset>
@@ -98,7 +102,7 @@ export function ReferenceGuideExperience({article,locale}:{article:Article;local
           {submitted&&learningCaseExperiments[article.id]&&<aside className="study-practice-experiment"><span>{experimentCopy[locale]}</span><p>{learningCaseExperiments[article.id][locale]}</p></aside>}
         </fieldset>
       </form>
-      <aside className="study-practice-notes" aria-label={c.notes}><div><NotebookPen size={19}/><div><span className="eyebrow">{c.notes}</span><p>{c.placeholder}</p></div></div><textarea value={note} onChange={event=>{setNote(event.target.value);setNoteStatus('idle')}} onBlur={saveNote} placeholder={c.placeholder} aria-label={c.notes}/>{noteStatus==='saved'&&<small className="study-practice-storage" role="status">{c.noteSaved}</small>}{noteStatus==='failed'&&<small className="study-practice-storage is-error" role="alert">{c.noteFailed}</small>}<div className="study-practice-note-actions"><button type="button" className="secondary-button" onClick={openPicker}><Layers3 size={16}/>{tastingNotice==='added'?c.added:c.add}</button><button type="button" className={`primary-button ${completed?'done':''}`} onClick={finish} disabled={completed||!submitted||selected!==practice.answer} aria-describedby={!completed?`study-practice-hint-${article.id}`:undefined}><Check size={16}/>{completed?c.completed:c.complete}</button></div>{!completed&&<small className="study-practice-hint" id={`study-practice-hint-${article.id}`}>{c.completeHint}</small>}{tastingNotice==='failed'&&<small className="study-practice-storage is-error" role="alert">{c.saveFailed}</small>}{tastingNotice==='already'&&<small className="study-practice-storage" role="status">{c.already}</small>}</aside>
+          <aside className="study-practice-notes" aria-label={c.notes}><div><NotebookPen size={19}/><div><span className="eyebrow">{c.notes}</span><p>{c.placeholder}</p></div></div><textarea value={note} onChange={event=>{setNote(event.target.value);setNoteStatus('idle')}} onBlur={saveNote} placeholder={c.placeholder} aria-label={c.notes}/>{noteStatus==='saved'&&<small className="study-practice-storage" role="status">{c.noteSaved}</small>}{noteStatus==='failed'&&<small className="study-practice-storage is-error" role="alert">{c.noteFailed}</small>}<div className="study-practice-note-actions"><button type="button" className="secondary-button" onClick={openPicker}><Layers3 size={16}/>{tastingNotice==='added'?c.added:c.add}</button><button type="button" aria-live="polite" aria-pressed={completed} className={`primary-button ${completed?'done':''}`} onClick={finish} disabled={completed||!submitted||selected!==practice.answer} aria-describedby={!completed?`study-practice-hint-${article.id}`:undefined}><Check size={16}/>{completed?c.completed:c.complete}</button></div>{!completed&&<small className="study-practice-hint" id={`study-practice-hint-${article.id}`}>{c.completeHint}</small>}{tastingNotice==='failed'&&<small className="study-practice-storage is-error" role="alert">{c.saveFailed}</small>}{tastingNotice==='already'&&<small className="study-practice-storage" role="status">{c.already}</small>}</aside>
     </div>
     {pickerOpen&&<aside className="study-practice-picker" aria-label={c.chooseTasting}><div className="study-practice-picker-head"><div><span className="eyebrow">{c.chooseTasting}</span><p>{c.chooseTastingBody}</p></div><button type="button" className="text-action" onClick={()=>setPickerOpen(false)}>{c.cancel}</button></div>{journeys.length>0&&<div className="study-practice-journeys">{journeys.map(journey=><button type="button" key={journey.id} onClick={()=>addToJourney(journey)}><strong>{journey.title}</strong><small>{journey.chapters.length} {c.chapters}</small><span>→</span></button>)}</div>}{journeys.length===0&&<p className="study-practice-empty">{c.noTastings}</p>}<div className="study-practice-new"><label>{c.newTitle}<input value={newTitle} onChange={event=>setNewTitle(event.target.value)} placeholder={c.newTitlePlaceholder}/></label><button type="button" className="primary-button" onClick={createTasting}>{c.newTasting}</button></div></aside>}
   </section>

@@ -7,9 +7,11 @@ import {useLocale,type Locale} from './i18n'
 import {articleContent} from './localizedContent'
 import {guideImage} from './learningGuideMedia'
 import {LearningPoster} from './LearningPoster'
+import {ReadingText} from './ReadingText'
 import {learningBlockById,learningModuleById,learningModules,schoolCopy,type LearningArchetype,type LearningBlock,type LearningBlockKind,type LearningLevel,type LearningModule,type LearningSchool} from './learningCurriculum'
 import type {TastingChapter,TastingJourney} from './types'
 import {AdaptiveLearningPlanner} from './AdaptiveLearning'
+import './interaction-audit.css'
 
 const ui={
   en:{academy:'Wine school',title:'Learn by looking, changing and tasting',intro:'Explore the questions behind a bottle, test one change at a time, and carry your observations into a real tasting.',search:'Search questions, topics or places',allSchools:'All schools',allLevels:'All levels',allFormats:'All formats',foundation:'Foundation',intermediate:'Intermediate',advanced:'Advanced',continue:'Continue learning',saved:'Saved modules',suggested:'Suggested tasting labs',modules:'modules',results:'results',empty:'No module matches these filters.',clear:'Clear filters',previous:'Previous',next:'Next',page:'Page',progress:'Current',min:'min',open:'Open lesson',save:'Save module',savedAction:'Saved',outcomes:'What you will be able to do',useTasting:'Use in a tasting',addedTasting:'Added to a tasting',addBlock:'Add to a tasting',lessonMap:'In this lesson',tableExperiment:'Take this to the table',complete:'Mark complete',completed:'Completed',sources:'Sources and limits',back:'Back to academy',observe:'Observe',manipulate:'Compare',explain:'Explain',test:'Test in the glass',keep:'Save / use',stage:'Stage',cool:'Cooler / lower',warm:'Warmer / higher',reveal:'Reveal reasoning',reset:'Reset',country:'Country',region:'Region',subregion:'Subregion',site:'Site',scale:'Scale',confidence:'Confidence',low:'Low',high:'High',choose:'Choose one answer',retry:'Try again',correct:'Good comparison.',notQuite:'Not quite.',sourceNote:'Primary and technical sources are provided for verification. They support mechanisms and definitions; they do not make every sensory outcome deterministic.',hostReveal:'Evidence check',selfPaced:'Self-paced',blocks:'blocks',duration:'Duration',format:'Format',continueBody:'Resume at the next unfinished block.',savedBody:'Keep a personal shelf of questions worth revisiting.',tastingBody:'Short practical modules that work well between two wines.',all:'All',journey:'Process journey',anatomy:'Annotated anatomy',sensory:'Sensory lab',map:'Map expedition',comparison:'A/B comparison',simulator:'Simulator',diagnostic:'Diagnostic case',pairing:'Pairing lab',guided:'Guided tasting','producer-case':'Decision chain',notFound:'This field lesson could not be found.',openAcademy:'Open the academy',addWhole:'Add complete lesson',blockAdded:'Learning step added',newJourney:'Learning table'},
@@ -105,7 +107,7 @@ function entityLink(id:string){if(regions.some(item=>item.id===id))return `/regi
 function entityName(id:string){return [...regions,...grapes,...producers,...wines,...aromas].find(item=>item.id===id)?.name??id.replaceAll('-',' ')}
 
 function InteractiveVisual({block,locale}:{block:LearningBlock;locale:Locale}){
-  const c=ui[locale],[value,setValue]=useState(1),[step,setStep]=useState(0),[answer,setAnswer]=useState<number|null>(null),[revealed,setRevealed]=useState(false)
+  const c=ui[locale],[value,setValue]=useState(1),[step,setStep]=useState(0),[answer,setAnswer]=useState<number|null>(null),[revealed,setRevealed]=useState(false),[comparisonChoice,setComparisonChoice]=useState<0|1|null>(null)
   const guidance={
     en:{check:'Choose the method that tests one cause without changing the glass, sample, time or order.',timeline:'Select a phase to see what changes next and which observation could show it.',plate:'Choose a structure. Separate what you can observe from what it may suggest.',map:'Select an origin term or evidence lens to see what it establishes and what it does not.',mapLimit:'This diagram is schematic; it does not show legal vineyard boundaries.',case:'Record an observation separately from your hypothesis. Open one clue at a time; a clue can support a diagnosis without proving a single cause.',dial:'Move one variable only. The response describes a possible direction, never a guaranteed flavour.'},
     de:{check:'Wähle die Methode, die eine Ursache prüft, ohne Glas, Probe, Zeit oder Reihenfolge zu verändern.',timeline:'Wähle eine Phase, um zu sehen, was sich danach verändert und welcher Befund das zeigen könnte.',plate:'Wähle eine Struktur. Trenne sichtbare Beobachtung von ihrer möglichen Deutung.',map:'Wähle einen Herkunftsbegriff oder eine Evidenzebene: Was belegt sie – und was nicht?',mapLimit:'Die Abbildung ist schematisch und zeigt keine rechtlichen Weinbergsgrenzen.',case:'Notiere Beobachtung und Hypothese getrennt. Öffne einen Hinweis nach dem anderen; er kann eine Diagnose stützen, aber nicht eine einzige Ursache beweisen.',dial:'Verändere nur eine Variable. Das Ergebnis beschreibt eine mögliche Richtung, niemals ein garantiertes Aroma.'},
@@ -128,6 +130,28 @@ function InteractiveVisual({block,locale}:{block:LearningBlock;locale:Locale}){
   if(block.kind==='annotated-plate')return <div className="plate-hotspots"><p className="interaction-instruction">{interactionPrompt??guidance.plate}</p><div className="hotspot-list" role="group" aria-label={interactionPrompt??guidance.plate}>{(block.interaction?.labels?.[locale]??stages.slice(0,3)).map((label,index)=><button type="button" key={label} aria-current={step===index?'step':undefined} aria-pressed={step===index} className={step===index?'active':''} onClick={()=>setStep(index)}><span>{String(index+1).padStart(2,'0')}</span>{label}</button>)}</div><p role="status" aria-live="polite">{block.body[locale][step]??block.body[locale][0]}</p></div>
   if(block.kind==='map-lab')return <div className="map-scale-lab"><p className="interaction-instruction">{mapPrompt}</p><span>{mapGroupLabel}</span>{isOriginMap?<div className="germany-learning-map" data-step={step} role="img" aria-label={`${naturalMediaAlt(block.media?.alt[locale]??block.title[locale])} · ${mapGroupLabel}: ${scales[step]??scales[0]}`}><svg viewBox="0 0 440 270" aria-hidden="true"><path className="country-shape" d="M185 18l45 12 17 32 38 18-7 43 28 27-32 31-7 55-58 22-41-30-48-7-7-45 23-31-10-40 36-31z"/><path className="river-line" d="M252 39c-18 32-10 55-34 79-19 19-13 42-47 78"/><path className="mosel-line" d="M218 119c-31 3-29 24-57 17-24-6-24 19-45 15"/><circle cx="148" cy="143" r="7"/><circle cx="230" cy="92" r="7"/></svg><span className="map-label mosel">Mosel</span><span className="map-label rheingau">Rheingau</span><span className="map-scope-highlight" aria-hidden="true">{scales[step]??scales[0]}</span></div>:<div className="learning-locator" data-step={step} role="img" aria-label={`${naturalMediaAlt(block.media?.alt[locale]??block.title[locale])} · ${mapGroupLabel}: ${scales[step]??scales[0]}`}>{scales.map((label,index)=><span key={label} className={step===index?'active':''} style={{'--locator-index':index} as CSSProperties} aria-hidden="true"><i>{index+1}</i><b>{label}</b></span>)}</div>}<div className="map-scope-options" role="group" aria-label={mapGroupLabel}>{scales.map((label,index)=><button type="button" key={label} aria-pressed={step===index} className={step===index?'active':''} onClick={()=>setStep(index)}><i/>{label}</button>)}</div><p role="status" aria-live="polite">{block.body[locale][step]??block.body[locale][0]}</p></div>
   if(block.kind==='decision-case')return <div className="decision-reveal"><p className="interaction-instruction">{interactionPrompt??guidance.case}</p><div className="evidence-vials" role="group" aria-label={c.hostReveal}>{(block.interaction?.labels?.[locale]??stages).map((label,index)=><button type="button" key={label} aria-pressed={revealed&&step===index} className={revealed&&step===index?'active':''} onClick={()=>{setStep(index);setRevealed(true)}}><span>{String(index+1).padStart(2,'0')}</span><b>{label}</b></button>)}</div>{revealed&&<p role="status" aria-live="polite">{block.body[locale][step]??block.body[locale][0]}</p>}<button type="button" className="secondary-button" onClick={()=>{if(revealed){setRevealed(false);setStep(0)}else{setStep(0);setRevealed(true)}}}>{revealed?<RotateCcw/>:<Play/>}{revealed?c.reset:c.reveal}</button></div>
+  if(block.kind==='comparison-lab'&&block.comparison){
+    const comparison=block.comparison
+    return <div className="learning-dial learning-comparison">
+      <p className="interaction-instruction">{comparison.prompt[locale]}</p>
+      <strong className="dial-variable">{block.title[locale]}</strong>
+      <div className="lesson-variable-choices comparison-options" role="group" aria-label={comparison.prompt[locale]}>
+        {[comparison.a[locale],comparison.b[locale]].map((label,index)=><button type="button" key={label} aria-pressed={comparisonChoice===index} className={comparisonChoice===index?'active':''} onClick={()=>setComparisonChoice(index as 0|1)}>{index===0?'A':'B'} · {label}</button>)}
+      </div>
+      {comparisonChoice!==null&&<div className="dial-result" role="status" aria-live="polite"><p>{comparison.outcomes[locale][comparisonChoice]}</p></div>}
+    </div>
+  }
+  if(block.kind==='sensory-lab'&&block.sensory){
+    const sensory=block.sensory
+    return <div className="learning-dial learning-sensory">
+      <p className="interaction-instruction">{sensory.prompt[locale]}</p>
+      <strong className="dial-variable">{sensory.label[locale]}</strong>
+      <div className="lesson-variable-choices" role="group" aria-label={`${sensory.label[locale]}: ${sensory.prompt[locale]}`}>
+        {sensory.choices[locale].map((label,index)=><button type="button" key={label} aria-pressed={value===index} className={value===index?'active':''} onClick={()=>setValue(index)}>{label}</button>)}
+      </div>
+      <div className="dial-result" role="status" aria-live="polite"><p>{sensory.observations[locale][value]}</p></div>
+    </div>
+  }
   if(['comparison-lab','sensory-lab','simulator'].includes(block.kind)){
     const control=block.control,band=value
      const middle={en:'Middle range',de:'Mittlerer Bereich',fr:'Zone intermédiaire',es:'Zona intermedia'}[locale]
@@ -137,54 +161,83 @@ function InteractiveVisual({block,locale}:{block:LearningBlock;locale:Locale}){
   return null
 }
 
-export function PortableLearningBlock({module,block,compact=false,expanded=false}:{module:LearningModule;block:LearningBlock;compact?:boolean;expanded?:boolean}){
+export function PortableLearningBlock({module,block,compact=false,expanded=false,bodyOverride}:{module:LearningModule;block:LearningBlock;compact?:boolean;expanded?:boolean;bodyOverride?:string[]}){
   const {locale}=useLocale(),c=ui[locale],[added,setAdded]=useState(false)
+  const body=bodyOverride??block.body[locale]
   return <section id={block.id} className={`portable-learning-block block-${block.kind} ${compact?'compact':''}`}>
     <header><div><span className="eyebrow">{block.eyebrow[locale]} · {block.duration} {c.min}</span><h2>{block.title[locale]}</h2></div></header>
     {block.media&&<figure className={`learning-plate focus-${block.media.focus??'center'}`}><img src={block.media.src} alt={naturalMediaAlt(block.media.alt[locale])} loading="lazy"/><span className="plate-index">{block.kind==='annotated-plate'?'01 · 02 · 03':block.kind==='map-lab'?`${c.country} → ${c.site}`:`${c.observe} → ${c.test}`}</span></figure>}
-    {block.reading&&<div className="learning-prose authored-reading">{block.reading[locale].map(paragraph=><p key={paragraph}>{paragraph}</p>)}</div>}
+    {block.reading&&<ReadingText paragraphs={block.reading[locale]} locale={locale} className="learning-prose authored-reading"/>}
     {kindSteps.includes(block.kind)&&<InteractiveVisual block={block} locale={locale}/>} 
-    {expanded&&kindSteps.includes(block.kind)&&<div className="learning-prose expanded-learning-prose">{block.body[locale].map(paragraph=><p key={paragraph}>{paragraph}</p>)}</div>}
-    {!kindSteps.includes(block.kind)&&block.kind!=='knowledge-check'&&block.kind!=='sources'&&<div className="learning-prose">{block.body[locale].map(paragraph=><p key={paragraph}>{paragraph}</p>)}</div>}
+    {expanded&&kindSteps.includes(block.kind)&&<ReadingText paragraphs={body} locale={locale} className="learning-prose expanded-learning-prose"/>}
+    {!kindSteps.includes(block.kind)&&block.kind!=='knowledge-check'&&block.kind!=='sources'&&<ReadingText paragraphs={body} locale={locale} className="learning-prose"/>}
     {block.kind==='knowledge-check'&&<InteractiveVisual block={block} locale={locale}/>} 
-    {block.kind==='glossary'&&<dl className="inline-glossary"><div><dt>{module.title[locale]}</dt><dd>{module.summary[locale]}</dd></div><div><dt>{c.confidence}</dt><dd>{block.body[locale][1]}</dd></div></dl>}
     {block.kind==='entity-connections'&&<div className="block-entity-links">{(module.entityIds.length?module.entityIds:['riesling','mosel','chardonnay']).map(id=><Link to={entityLink(id)} key={id}>{entityName(id)}<ChevronRight/></Link>)}</div>}
-    {block.kind==='sources'&&<div className="learning-prose">{block.body[locale].map(paragraph=><p key={paragraph}>{paragraph}</p>)}</div>}
-    {!compact&&block.kind!=='sources'&&<button type="button" className={`add-learning-block ${added?'added':''}`} onClick={()=>{addLearningToJourney(module,locale,block);setAdded(true)}}>{added?<Check/>:<Layers3/>}{added?c.blockAdded:c.addBlock}</button>}
+    {block.kind==='sources'&&<ReadingText paragraphs={body} locale={locale} className="learning-prose"/>}
+    {!compact&&block.kind!=='sources'&&<button type="button" aria-live="polite" className={`add-learning-block ${added?'added':''}`} onClick={()=>{addLearningToJourney(module,locale,block);setAdded(true)}}>{added?<Check/>:<Layers3/>}{added?c.blockAdded:c.addBlock}</button>}
   </section>
+}
+
+type LessonDisplayBlock={block:LearningBlock;body:string[]}
+function lessonDisplayBlocks(module:LearningModule,locale:Locale):LessonDisplayBlock[]{
+  if(module.id!=='wine-as-system')return module.blocks.map(block=>({block,body:block.body[locale]}))
+
+  // The opening, outcomes and table exercise already present these notes. Keep
+  // each explanatory paragraph once, while leaving every interactive state intact.
+  const seen=new Set([module.summary[locale],...module.outcomes[locale],module.experiment[locale]])
+  module.blocks.flatMap(block=>block.reading?.[locale]??[]).forEach(paragraph=>seen.add(paragraph))
+  return module.blocks.flatMap(block=>{
+    if(block.kind==='glossary'){
+      const body=block.body[locale].filter(paragraph=>{
+        if(seen.has(paragraph))return false
+        seen.add(paragraph)
+        return true
+      })
+      return body.length?[{block,body}]:[]
+    }
+    if(block.kind==='sources')return []
+    if(kindSteps.includes(block.kind)||block.kind==='knowledge-check')return [{block,body:block.body[locale]}]
+    const body=block.body[locale].filter(paragraph=>{
+      if(seen.has(paragraph))return false
+      seen.add(paragraph)
+      return true
+    })
+    return [{block,body}]
+  })
 }
 
 export function LearningLesson(){
   const {slug}=useParams(),{locale}=useLocale(),c=ui[locale],module=learningModuleById(slug??'')
+  const lessonBlocks=useMemo(()=>module?lessonDisplayBlocks(module,locale):[],[module,locale])
   const [state,setState]=useState(readState),[added,setAdded]=useState(false),[currentBlock,setCurrentBlock]=useState('')
   useEffect(()=>{
     if(!module)return
     const done=state.blockProgress[module.id]??[]
-    setCurrentBlock(current=>current&&module.blocks.some(block=>block.id===current)?current:module.blocks.find(block=>!done.includes(block.id))?.id??module.blocks[0]?.id??'')
+    setCurrentBlock(current=>current&&lessonBlocks.some(({block})=>block.id===current)?current:lessonBlocks.find(({block})=>!done.includes(block.id))?.block.id??lessonBlocks[0]?.block.id??'')
     const observer=new IntersectionObserver(entries=>{
       const visible=entries.filter(entry=>entry.isIntersecting).sort((a,b)=>Math.abs(a.boundingClientRect.top)-Math.abs(b.boundingClientRect.top))[0]
       if(visible)setCurrentBlock((visible.target as HTMLElement).id)
     },{rootMargin:'-18% 0px -66% 0px',threshold:[0,.2,.6]})
-    module.blocks.forEach(block=>{const element=document.getElementById(block.id);if(element)observer.observe(element)})
+    lessonBlocks.forEach(({block})=>{const element=document.getElementById(block.id);if(element)observer.observe(element)})
     return ()=>observer.disconnect()
-  },[module?.id,state.blockProgress])
+  },[module?.id,lessonBlocks,state.blockProgress])
   if(!module)return <div className="page learning-not-found"><BookOpen/><h1>{c.notFound}</h1><Link className="primary-button ink" to="/learn">{c.openAcademy}</Link></div>
-  const done=(state.blockProgress[module.id]??[]).filter(id=>module.blocks.some(block=>block.id===id)),saved=state.saved.includes(module.id),completed=state.completed.includes(module.id)
+  const storedDone=state.blockProgress[module.id]??[],done=storedDone.filter(id=>lessonBlocks.some(({block})=>block.id===id)),saved=state.saved.includes(module.id),completed=state.completed.includes(module.id)
   const update=(next:LearningState)=>{setState(next);writeState(next)}
   const toggleSaved=()=>update({...state,saved:saved?state.saved.filter(id=>id!==module.id):[...state.saved,module.id]})
-  const markBlock=(id:string)=>{if(done.includes(id))return;update({...state,blockProgress:{...state.blockProgress,[module.id]:[...done,id]}})}
+  const markBlock=(id:string)=>{if(storedDone.includes(id))return;update({...state,blockProgress:{...state.blockProgress,[module.id]:[...storedDone,id]}})}
   // Completion is a learner's bookmark, not a claim of mastery. Preserve the
   // blocks they actually visited instead of manufacturing progress here.
   const finish=()=>update({...state,completed:completed?state.completed.filter(id=>id!==module.id):[...state.completed,module.id]})
   const Icon=archetypeIcon[module.archetype],next=learningModules[(learningModules.indexOf(module)+1)%learningModules.length]
   return <article className={`page learning-lesson lesson-${module.archetype}`}>
     <Link className="back-link" to="/learn"><ArrowLeft/>{c.back}</Link>
-    <header className="lesson-opening"><div><span className="eyebrow">{schoolCopy[module.school].name[locale]} · {c[module.level]}</span><h1>{module.title[locale]}</h1><p>{module.question[locale]}</p><div className="lesson-meta"><span><Clock/>{module.minutes} {c.min}</span><span><Icon/>{c[module.archetype]}</span><span><Layers3/>{module.blocks.length} {c.blocks}</span></div><div className="lesson-actions"><button className="primary-button ink" onClick={()=>{addLearningToJourney(module,locale);setAdded(true)}}>{added?<Check/>:<Layers3/>}{added?c.addedTasting:c.addWhole}</button><button className={`secondary-button ${saved?'active':''}`} onClick={toggleSaved}><Bookmark fill={saved?'currentColor':'none'}/>{saved?c.savedAction:c.save}</button></div></div><div className="opening-question"><span>{c.observe} → {c.manipulate} → {c.test}</span><strong>{String(learningModules.indexOf(module)+1).padStart(2,'0')}</strong><p>{module.summary[locale]}</p></div></header>
+    <header className="lesson-opening"><div><span className="eyebrow">{schoolCopy[module.school].name[locale]} · {c[module.level]}</span><h1>{module.title[locale]}</h1><p>{module.question[locale]}</p><div className="lesson-meta"><span><Clock/>{module.minutes} {c.min}</span><span><Icon/>{c[module.archetype]}</span><span><Layers3/>{lessonBlocks.length} {c.blocks}</span></div><div className="lesson-actions"><button className="primary-button ink" onClick={()=>{addLearningToJourney(module,locale);setAdded(true)}}>{added?<Check/>:<Layers3/>}{added?c.addedTasting:c.addWhole}</button><button className={`secondary-button ${saved?'active':''}`} onClick={toggleSaved}><Bookmark fill={saved?'currentColor':'none'}/>{saved?c.savedAction:c.save}</button></div></div><div className="opening-question"><span>{c.observe} → {c.manipulate} → {c.test}</span><strong>{String(learningModules.indexOf(module)+1).padStart(2,'0')}</strong><p>{module.summary[locale]}</p></div></header>
     <section className="lesson-outcomes"><span className="eyebrow">{c.outcomes}</span><ol>{module.outcomes[locale].map((outcome,index)=><li key={outcome}><span>0{index+1}</span>{outcome}</li>)}</ol></section>
     <LearningPoster module={module} locale={locale}/>
-    <div className="lesson-field-layout"><aside className="lesson-rail" aria-label={c.lessonMap}><span className="eyebrow">{c.lessonMap}</span><i className="lesson-total-progress" style={{'--progress':`${done.length/module.blocks.length*100}%`} as CSSProperties}/>{module.blocks.map((block,index)=>{const isDone=done.includes(block.id),isCurrent=currentBlock===block.id;return <a href={`#${block.id}`} aria-current={isCurrent?'step':undefined} aria-label={`${index+1}. ${block.title[locale]} · ${isCurrent?c.progress:isDone?c.completed:c.next}`} className={`${isDone?'done':''} ${isCurrent?'current':''}`.trim()} key={block.id} onClick={()=>setCurrentBlock(block.id)}><span>{isCurrent?String(index+1).padStart(2,'0'):isDone?<Check/>:String(index+1).padStart(2,'0')}</span><div><strong>{block.title[locale]}</strong></div></a>})}</aside><main className="lesson-blocks">{module.blocks.map(block=>{const isDone=done.includes(block.id);return <div className="lesson-block-wrap" key={block.id}><PortableLearningBlock module={module} block={block}/><button type="button" className={`block-completion-action ${isDone?'completed':''}`} disabled={isDone} onClick={()=>markBlock(block.id)}>{<Check/>}{isDone?c.completed:c.complete}</button></div>})}</main></div>
+    <div className="lesson-field-layout"><aside className="lesson-rail" aria-label={c.lessonMap}><span className="eyebrow">{c.lessonMap}</span><i className="lesson-total-progress" style={{'--progress':`${done.length/lessonBlocks.length*100}%`} as CSSProperties}/>{lessonBlocks.map(({block},index)=>{const isDone=done.includes(block.id),isCurrent=currentBlock===block.id;return <a href={`#${block.id}`} aria-current={isCurrent?'step':undefined} aria-label={`${index+1}. ${block.title[locale]} · ${isCurrent?c.progress:isDone?c.completed:c.next}`} className={`${isDone?'done':''} ${isCurrent?'current':''}`.trim()} key={block.id} onClick={()=>setCurrentBlock(block.id)}><span>{isCurrent?String(index+1).padStart(2,'0'):isDone?<Check/>:String(index+1).padStart(2,'0')}</span><div><strong>{block.title[locale]}</strong></div></a>})}</aside><main className="lesson-blocks">{lessonBlocks.map(({block,body})=>{const isDone=done.includes(block.id);return <div className="lesson-block-wrap" key={block.id}><PortableLearningBlock module={module} block={block} bodyOverride={body}/><button type="button" aria-live="polite" className={`block-completion-action ${isDone?'completed':''}`} disabled={isDone} onClick={()=>markBlock(block.id)}>{<Check/>}{isDone?c.completed:c.complete}</button></div>})}</main></div>
     <section className="table-experiment"><div><span className="eyebrow">{c.tableExperiment}</span><h2>{module.title[locale]}</h2><p>{module.experiment[locale]}</p></div><Wine/></section>
-    <section className="lesson-finish"><button className={`primary-button ${completed?'completed':''}`} onClick={finish}>{completed?<Check/>:<Target/>}{completed?c.completed:c.complete}</button><Link to={`/learn/${next.id}`}><span>{c.next}</span><strong>{next.title[locale]}</strong><ArrowRight/></Link></section>
+    <section className="lesson-finish"><button type="button" aria-live="polite" className={`primary-button ${completed?'completed':''}`} onClick={finish}>{completed?<Check/>:<Target/>}{completed?c.completed:c.complete}</button><Link to={`/learn/${next.id}`}><span>{c.next}</span><strong>{next.title[locale]}</strong><ArrowRight/></Link></section>
   </article>
 }
 

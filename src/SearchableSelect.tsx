@@ -28,6 +28,10 @@ function useOutsideClose(ref: React.RefObject<HTMLDivElement | null>, close: () 
   }, [close, ref]);
 }
 
+function normalizeOptionSearch(value: string) {
+  return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim().toLocaleLowerCase();
+}
+
 export function SearchableSelect({
   label,
   value,
@@ -40,37 +44,51 @@ export function SearchableSelect({
 }: SearchableSelectProps) {
   const id = useId();
   const root = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const optionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [active, setActive] = useState(0);
   const selected = options.find((option) => option.value === value);
   const filtered = useMemo(() => {
-    const needle = query.trim().toLocaleLowerCase();
+    const needle = normalizeOptionSearch(query);
     if (!needle) return options;
     return options.filter((option) =>
-      `${option.label} ${option.keywords ?? ""}`.toLocaleLowerCase().includes(needle),
+      normalizeOptionSearch(`${option.label} ${option.keywords ?? ""}`).includes(needle),
     );
   }, [options, query]);
   useOutsideClose(root, () => setOpen(false));
 
-  useEffect(() => setActive(0), [query, open]);
+  useEffect(() => setActive(Math.max(0, filtered.findIndex((option) => option.value === value))), [query, open, value, filtered]);
+  useEffect(() => {
+    if (!open) return;
+    inputRef.current?.focus();
+    optionRefs.current[active]?.scrollIntoView({ block: "nearest" });
+  }, [active, open]);
+
+  const close = (restoreFocus = false) => {
+    setOpen(false);
+    setQuery("");
+    if (restoreFocus) window.requestAnimationFrame(() => triggerRef.current?.focus());
+  };
 
   const choose = (next: string) => {
     onChange(next);
-    setQuery("");
-    setOpen(false);
+    close(true);
   };
 
   return (
     <div className={`searchable-select ${className}`.trim()} ref={root}>
       <span className="searchable-select-label" id={`${id}-label`}>{label}</span>
       <button
+        ref={triggerRef}
         type="button"
         className="searchable-select-trigger"
         aria-labelledby={`${id}-label ${id}-value`}
         aria-haspopup="listbox"
         aria-expanded={open}
-        onClick={() => setOpen((current) => !current)}
+        onClick={() => open ? close() : setOpen(true)}
       >
         <span id={`${id}-value`} className={selected ? "" : "placeholder"}>{selected?.label ?? placeholder}</span>
         <ChevronDown aria-hidden="true" />
@@ -81,42 +99,52 @@ export function SearchableSelect({
             <Search aria-hidden="true" />
             <span className="sr-only">{searchPlaceholder}</span>
             <input
-              autoFocus
+              ref={inputRef}
+              role="combobox"
+              aria-autocomplete="list"
+              aria-controls={`${id}-options`}
+              aria-expanded={open}
+              aria-activedescendant={filtered[active] ? `${id}-option-${active}` : undefined}
               value={query}
               placeholder={searchPlaceholder}
               onChange={(event) => setQuery(event.target.value)}
               onKeyDown={(event) => {
                 if (event.key === "ArrowDown") {
                   event.preventDefault();
-                  setActive((current) => Math.min(filtered.length - 1, current + 1));
+                  if (filtered.length) setActive((current) => (current + 1) % filtered.length);
                 }
                 if (event.key === "ArrowUp") {
                   event.preventDefault();
-                  setActive((current) => Math.max(0, current - 1));
+                  if (filtered.length) setActive((current) => (current - 1 + filtered.length) % filtered.length);
                 }
+                if (event.key === "Home" && filtered.length) { event.preventDefault(); setActive(0); }
+                if (event.key === "End" && filtered.length) { event.preventDefault(); setActive(filtered.length - 1); }
                 if (event.key === "Enter" && filtered[active]) {
                   event.preventDefault();
                   choose(filtered[active].value);
                 }
-                if (event.key === "Escape") setOpen(false);
+                if (event.key === "Escape") { event.preventDefault(); close(true); }
+                if (event.key === "Tab") setOpen(false);
               }}
             />
-            {query && <button type="button" onClick={() => setQuery("")} aria-label={searchPlaceholder}><X /></button>}
+            {query && <button type="button" tabIndex={-1} onClick={() => {setQuery("");inputRef.current?.focus()}} aria-label={searchPlaceholder}><X /></button>}
           </label>
-          <div className="searchable-select-options" role="listbox" aria-labelledby={`${id}-label`}>
+          <div id={`${id}-options`} className="searchable-select-options" role="listbox" aria-labelledby={`${id}-label`}>
             {filtered.length ? filtered.map((option, index) => (
-              <button
-                type="button"
+              <div
+                ref={element=>{optionRefs.current[index]=element}}
+                id={`${id}-option-${index}`}
                 role="option"
                 aria-selected={value === option.value}
                 className={index === active ? "active" : ""}
                 key={option.value}
                 onMouseEnter={() => setActive(index)}
+                onMouseDown={event=>event.preventDefault()}
                 onClick={() => choose(option.value)}
               >
                 <span>{option.label}</span>
                 {value === option.value && <Check aria-hidden="true" />}
-              </button>
+              </div>
             )) : <p className="searchable-select-empty">{emptyText}</p>}
           </div>
         </div>
@@ -150,16 +178,33 @@ export function SearchableMultiSelect({
 }: SearchableMultiSelectProps) {
   const id = useId();
   const root = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const optionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const [active, setActive] = useState(0);
   const filtered = useMemo(() => {
-    const needle = query.trim().toLocaleLowerCase();
+    const needle = normalizeOptionSearch(query);
     if (!needle) return options;
     return options.filter((option) =>
-      `${option.label} ${option.keywords ?? ""}`.toLocaleLowerCase().includes(needle),
+      normalizeOptionSearch(`${option.label} ${option.keywords ?? ""}`).includes(needle),
     );
   }, [options, query]);
   useOutsideClose(root, () => setOpen(false));
+
+  useEffect(() => setActive(0), [query, open, filtered]);
+  useEffect(() => {
+    if (!open) return;
+    inputRef.current?.focus();
+    optionRefs.current[active]?.scrollIntoView({ block: "nearest" });
+  }, [active, open]);
+
+  const close = (restoreFocus = false) => {
+    setOpen(false);
+    setQuery("");
+    if (restoreFocus) window.requestAnimationFrame(() => triggerRef.current?.focus());
+  };
 
   const toggle = (optionValue: string) => {
     onChange(value.includes(optionValue)
@@ -175,12 +220,13 @@ export function SearchableMultiSelect({
     <div className={`searchable-select searchable-multi ${className}`.trim()} ref={root}>
       <span className="searchable-select-label" id={`${id}-label`}>{label}</span>
       <button
+        ref={triggerRef}
         type="button"
         className="searchable-select-trigger"
         aria-labelledby={`${id}-label ${id}-value`}
         aria-haspopup="listbox"
         aria-expanded={open}
-        onClick={() => setOpen((current) => !current)}
+        onClick={() => open ? close() : setOpen(true)}
       >
         <span id={`${id}-value`}>{value.length ? `${value.length} ${selectedText}` : "—"}</span>
         <ChevronDown aria-hidden="true" />
@@ -200,21 +246,33 @@ export function SearchableMultiSelect({
           <label className="searchable-select-search">
             <Search aria-hidden="true" />
             <span className="sr-only">{searchPlaceholder}</span>
-            <input autoFocus value={query} placeholder={searchPlaceholder} onChange={(event) => setQuery(event.target.value)} onKeyDown={(event) => { if (event.key === "Escape") setOpen(false); }} />
-            {query && <button type="button" onClick={() => setQuery("")} aria-label={searchPlaceholder}><X /></button>}
+            <input ref={inputRef} role="combobox" aria-autocomplete="list" aria-controls={`${id}-options`} aria-expanded={open} aria-activedescendant={filtered[active]?`${id}-option-${active}`:undefined} value={query} placeholder={searchPlaceholder} onChange={(event) => setQuery(event.target.value)} onKeyDown={(event) => {
+              if(event.key==='ArrowDown'&&filtered.length){event.preventDefault();setActive(current=>(current+1)%filtered.length)}
+              if(event.key==='ArrowUp'&&filtered.length){event.preventDefault();setActive(current=>(current-1+filtered.length)%filtered.length)}
+              if(event.key==='Home'&&filtered.length){event.preventDefault();setActive(0)}
+              if(event.key==='End'&&filtered.length){event.preventDefault();setActive(filtered.length-1)}
+              if(event.key==='Enter'&&filtered[active]){event.preventDefault();toggle(filtered[active].value)}
+              if(event.key==='Escape'){event.preventDefault();close(true)}
+              if(event.key==='Tab')setOpen(false)
+            }} />
+            {query && <button type="button" tabIndex={-1} onClick={() => {setQuery("");inputRef.current?.focus()}} aria-label={searchPlaceholder}><X /></button>}
           </label>
-          <div className="searchable-select-options" role="listbox" aria-multiselectable="true" aria-labelledby={`${id}-label`}>
-            {filtered.length ? filtered.map((option) => (
-              <button
-                type="button"
+          <div id={`${id}-options`} className="searchable-select-options" role="listbox" aria-multiselectable="true" aria-labelledby={`${id}-label`}>
+            {filtered.length ? filtered.map((option,index) => (
+              <div
+                ref={element=>{optionRefs.current[index]=element}}
+                id={`${id}-option-${index}`}
                 role="option"
                 aria-selected={value.includes(option.value)}
+                className={index===active?'active':''}
                 key={option.value}
+                onMouseEnter={()=>setActive(index)}
+                onMouseDown={event=>event.preventDefault()}
                 onClick={() => toggle(option.value)}
               >
                 <span>{option.label}</span>
                 {value.includes(option.value) && <Check aria-hidden="true" />}
-              </button>
+              </div>
             )) : <p className="searchable-select-empty">{emptyText}</p>}
           </div>
         </div>

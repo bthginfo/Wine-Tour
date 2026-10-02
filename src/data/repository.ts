@@ -46,6 +46,15 @@ function read<T>(key:string, fallback:T):T {
 }
 function write<T>(key:RepositoryKey,value:T){ localStorage.setItem(keys[key],JSON.stringify(value));schedule(key,value) }
 
+function quarantineUnownedLearningCache(){
+  const raw=localStorage.getItem(keys.learning)
+  if(raw===null)return
+  let archiveKey=`${keys.learning}:legacy-unassigned`,suffix=1
+  while(localStorage.getItem(archiveKey)!==null&&localStorage.getItem(archiveKey)!==raw){archiveKey=`${keys.learning}:legacy-unassigned:${suffix++}`}
+  if(localStorage.getItem(archiveKey)===null)localStorage.setItem(archiveKey,raw)
+  localStorage.removeItem(keys.learning)
+}
+
 function migrateLegacyBusinessCache(){
   if(localStorage.getItem(cacheSchemaKey)===currentCacheSchema)return
   for(const key of businessKeys)localStorage.removeItem(keys[key])
@@ -57,7 +66,11 @@ export async function hydrateRepositoryState(authenticated:boolean,migrateLocal=
   migrateLegacyBusinessCache()
   const localPersonal=new Map<RepositoryKey,unknown>()
   if(authenticated&&migrateLocal){
-    for(const key of personalKeys){const raw=localStorage.getItem(keys[key]);if(raw)try{localPersonal.set(key,JSON.parse(raw))}catch{/* ignore invalid legacy state */}}
+    // A legacy learning cache has no owner marker. Keep its raw bytes under a
+    // non-readable archive key instead of assigning an unknown learner's
+    // bookmarks and progress to the account being registered.
+    quarantineUnownedLearningCache()
+    for(const key of personalKeys){if(key==='learning')continue;const raw=localStorage.getItem(keys[key]);if(raw)try{localPersonal.set(key,JSON.parse(raw))}catch{/* ignore invalid legacy state */}}
   }
   if(authenticated&&!migrateLocal)for(const key of personalKeys)localStorage.removeItem(keys[key])
   let response:Response

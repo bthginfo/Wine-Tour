@@ -1,18 +1,18 @@
 import { CircleMarker, MapContainer, TileLayer } from 'react-leaflet'
 import { useState } from 'react'
-import { ArrowRight, Compass, Droplets, FlaskConical, Grape as GrapeIcon, Layers3, Mountain, Route, SunMedium, ThermometerSun, Wine as WineIcon } from 'lucide-react'
+import { ArrowRight, Compass, Droplets, FlaskConical, Grape as GrapeIcon, Layers3, Mountain, Route, SunMedium, Wine as WineIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import type { Article, Grape, Producer, Region, Wine } from './types'
 import type { Locale } from './i18n'
 import { evidencedRegionProfileIds, grapes, producers, regions } from './data/catalog'
-import { countryLabel, geographicName, grapeContent, producerContent, regionContent, regionName, wineContent } from './localizedContent'
+import { countryLabel, geographicName, grapeContent, grapeEvidenceContent, producerContent, regionContent, regionName, wineContent } from './localizedContent'
 import ampelographyMedia from './data/ampelographyMedia.generated.json'
-import grapeEvidence from './data/grapeEvidence.generated.json'
 import soilAtlas from './assets/vineyard-soil-atlas.jpg'
 import bottleFormsPlate from './assets/wine-bottle-forms.jpg'
 import redGrapeBotanyPlate from './assets/knowledge-grape-botany.jpg'
 import whiteGrapeBotanyPlate from './assets/knowledge-grape-botany-white.jpg'
 import { RegionPortrait } from './RegionPortrait'
+import './interaction-audit.css'
 
 const depthCopy={
   en:{mapEyebrow:'Geographic orientation',mapTitle:'Locate the region before reading its style',mapBody:'The marker uses the atlas coordinate for this region. Zoom level is contextual; appellation boundaries can be much smaller or more complex than the point shown.',soilEyebrow:'Soil field guide',soilTitle:'Read structure, water and roots—not a list of flavours',soilBody:'Geology affects drainage, heat, rooting and vine stress. It does not season wine like an ingredient; the grower’s response remains part of the chain.',water:'Water behaviour',root:'Rooting clue',heat:'Heat and season',compare:'Compare in the atlas',grapeEyebrow:'Variety laboratory',grapeTitle:'One grape, three moving targets',cool:'In a cooler expression',warm:'In a warmer expression',grower:'The grower watches',maker:'The cellar changes',structure:'Structural compass',producerEyebrow:'Estate decision map',producerTitle:'Follow the choices from parcel to bottle',site:'Site and material',harvest:'Harvest threshold',cellar:'Cellar translation',verify:'Primary source',wineEyebrow:'Bottle and evolution',wineTitle:'Read the wine as a sequence, not a snapshot',open:'At opening',air:'With air',table:'At the table',cellarTime:'Across the drinking window',shape:'Bottle shape is history, not a score',shapeBody:'Bordeaux shoulders, Burgundy slopes, slender Rhine forms and pressure-resistant sparkling bottles grew from handling and production needs. None guarantees quality.',lessonEyebrow:'Masterclass extension',lessonTitle:'Turn the lesson into a repeatable skill',myth:'Common shortcut to avoid',mechanism:'Mechanism to explain',comparison:'Comparison to set up',practice:'Practice at the table',question:'A useful next question',connections:'Continue through connected examples'},
@@ -31,6 +31,12 @@ const soilLibrary={
 } as const
 
 type SoilGuide={title:Record<Locale,string>;water:Record<Locale,string>;root:Record<Locale,string>}
+const soilScopeNote:Record<Locale,string>={
+  en:'These are general properties of the material names in this region profile, not measurements from a specific vineyard parcel or predictions of wine flavour.',
+  de:'Die Karten beschreiben allgemeine Eigenschaften der im Regionsprofil genannten Materialien. Sie sind keine Messungen einer bestimmten Parzelle und sagen keinen Weingeschmack voraus.',
+  fr:'Ces fiches décrivent des propriétés générales des matériaux cités dans le profil régional, pas des mesures d’une parcelle précise ni une prévision du goût du vin.',
+  es:'Estas fichas describen propiedades generales de los materiales citados en el perfil regional; no son mediciones de una parcela concreta ni predicciones del sabor del vino.',
+}
 const sandstoneGuide:SoilGuide={
   title:{en:'Sandstone',de:'Sandstein',fr:'Grès',es:'Arenisca'},
   water:{en:'Cement and fracture pattern decide whether sandstone sheds water or keeps reserves.',de:'Bindemittel und Klüfte entscheiden, ob Sandstein Wasser ableitet oder speichert.',fr:'Le ciment et les fractures décident si le grès draine ou garde une réserve.',es:'El cemento y las fracturas deciden si la arenisca drena o conserva reservas.'},
@@ -61,37 +67,43 @@ function mapZoom(country:string){return ['United States','Canada','Argentina','C
 function regionGeographyCopy(region:Region,locale:Locale){
   const content=regionContent(region,locale),country=countryLabel(region.country,locale),name=regionName(region,locale)
   const latitude=`${Math.abs(region.lat).toFixed(1)}° ${region.lat>=0?'N':'S'}`
+  const coordinates=`${latitude} · ${Math.abs(region.lng).toFixed(1)}° ${region.lng>=0?'E':'W'}`
   const zones=region.subregions.slice(0,3).map(zone=>geographicName(zone,locale)).join(', ')
   if(!region.hasRegionalTerroirEvidence)return {
     eyebrow:{en:'Place in context',de:'Ort im Zusammenhang',fr:'Le lieu en contexte',es:'El lugar en contexto'}[locale],
     title:`${name} · ${country}`,
     body:content.summary,
-    caption:`${latitude} · ${Math.abs(region.lng).toFixed(1)}° ${region.lng>=0?'E':'W'}`,
+    caption:coordinates,
   }
-  const localized={
-    en:{eyebrow:'Place in context',title:`${name} in ${country}`,body:`${content.climate.replace(/[.\s]+$/,'')}. At ${latitude}, the length and tempo of the growing season help set the balance between ripeness and retained acidity.${zones?` Named zones such as ${zones} reveal how exposure and ground change within the region.`:''}`,caption:`${name}: ${content.soil}`},
-    de:{eyebrow:'Ort im Zusammenhang',title:`${name} in ${country}`,body:`${content.climate.replace(/[.\s]+$/,'')}. Auf ${latitude} bestimmen Länge und Verlauf der Vegetationsperiode wesentlich das Verhältnis von Reife und erhaltener Säure.${zones?` Benannte Zonen wie ${zones} zeigen, wie sich Exposition und Untergrund innerhalb der Region verändern.`:''}`,caption:`${name}: ${content.soil}`},
-    fr:{eyebrow:'Le lieu en contexte',title:`${name} en ${country}`,body:`${content.climate.replace(/[.\s]+$/,'')}. À ${latitude}, la durée et le rythme du cycle végétatif participent à l’équilibre entre maturité et acidité préservée.${zones?` Des zones nommées comme ${zones} montrent comment exposition et sous-sol varient dans la région.`:''}`,caption:`${name} : ${content.soil}`},
-    es:{eyebrow:'El lugar en contexto',title:`${name} en ${country}`,body:`${content.climate.replace(/[.\s]+$/,'')}. A ${latitude}, la duración y el ritmo del ciclo vegetativo ayudan a definir el equilibrio entre madurez y acidez conservada.${zones?` Zonas como ${zones} muestran cómo cambian la exposición y el suelo dentro de la región.`:''}`,caption:`${name}: ${content.soil}`},
-  }
-  return localized[locale]
+  const placeCopy={
+    en:{eyebrow:'Place in context',zones:'Named subregions: '},
+    de:{eyebrow:'Ort im Zusammenhang',zones:'Benannte Teilregionen: '},
+    fr:{eyebrow:'Le lieu en contexte',zones:'Sous-régions nommées : '},
+    es:{eyebrow:'El lugar en contexto',zones:'Subregiones con nombre: '},
+  }[locale]
+  return {eyebrow:placeCopy.eyebrow,title:`${name} · ${country}`,body:[content.climate.trim(),zones?`${placeCopy.zones}${zones}.`:'' ].filter(Boolean).join(' ')||content.summary,caption:content.soil.trim()?`${name}: ${content.soil}`:coordinates}
 }
 
 export function RegionFieldGuide({region,locale}:{region:Region;locale:Locale}){
   const c=depthCopy[locale],content=regionContent(region,locale),geography=regionGeographyCopy(region,locale),matches=canonicalSoilGuides(region.soil)
   return <section className="region-field-guide">
     <RegionPortrait region={region} locale={locale}/>
-    <div className="locator-card"><div className="depth-heading"><span className="eyebrow">{geography.eyebrow}</span><h2>{geography.title}</h2><p>{geography.body}</p></div><div className="mini-region-map" aria-label={`${regionName(region,locale)} · ${countryLabel(region.country,locale)}`}><MapContainer key={region.id} center={[region.lat,region.lng]} zoom={mapZoom(region.country)} scrollWheelZoom={false} dragging={false} doubleClickZoom={false} zoomControl={false}><TileLayer attribution='&copy; OpenStreetMap contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/><CircleMarker center={[region.lat,region.lng]} radius={9} pathOptions={{color:'#f7efe3',fillColor:'#7d2638',fillOpacity:1,weight:3}}/></MapContainer><span><Compass/>{geography.caption}</span></div></div>
-    {evidencedRegionProfileIds.has(region.id)&&matches.length>0&&<div className="soil-atlas-card"><img src={soilAtlas} alt=""/><div className="depth-heading"><span className="eyebrow">{c.soilEyebrow}</span><h2>{c.soilTitle}</h2><p>{c.soilBody}</p></div><div className="soil-guide-grid">{matches.map(guide=><article key={guide.title.en}><Layers3/><h3>{guide.title[locale]}</h3><dl><div><dt>{c.water}</dt><dd>{guide.water[locale]}</dd></div><div><dt>{c.root}</dt><dd>{guide.root[locale]}</dd></div></dl></article>)}</div></div>}
+    <div className="locator-card"><div className="depth-heading"><span className="eyebrow">{geography.eyebrow}</span><h2>{geography.title}</h2>{geography.body&&<p>{geography.body}</p>}</div><div className="mini-region-map" aria-label={`${regionName(region,locale)} · ${countryLabel(region.country,locale)}`}><MapContainer key={region.id} center={[region.lat,region.lng]} zoom={mapZoom(region.country)} scrollWheelZoom={false} dragging={false} doubleClickZoom={false} zoomControl={false}><TileLayer attribution='&copy; OpenStreetMap contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/><CircleMarker center={[region.lat,region.lng]} radius={9} pathOptions={{color:'#f7efe3',fillColor:'#7d2638',fillOpacity:1,weight:3}}/></MapContainer><span><Compass/>{geography.caption}</span></div></div>
+    {evidencedRegionProfileIds.has(region.id)&&matches.length>0&&<div className="soil-atlas-card"><img src={soilAtlas} alt=""/><div className="depth-heading"><span className="eyebrow">{c.soilEyebrow}</span><h2>{c.soilTitle}</h2><p>{c.soilBody}</p><p>{soilScopeNote[locale]}</p></div><div className="soil-guide-grid">{matches.map(guide=><article key={guide.title.en}><Layers3/><h3>{guide.title[locale]}</h3><dl><div><dt>{c.water}</dt><dd>{guide.water[locale]}</dd></div><div><dt>{c.root}</dt><dd>{guide.root[locale]}</dd></div></dl></article>)}</div></div>}
   </section>
 }
 
 export function GrapeDeepDive({grape,locale}:{grape:Grape;locale:Locale}){
-  const c=depthCopy[locale],content=grapeContent(grape,locale)
-  const evidenceFields=grapeEvidence.find(item=>item.grapeId===grape.id)?.[locale]
-  const structureLabels={en:['Acidity','Tannin','Body'],de:['Säure','Tannin','Körper'],fr:['Acidité','Tanins','Corps'],es:['Acidez','Tanino','Cuerpo']}[locale]
-  const climate={en:{cool:`Longer hang time can preserve ${grape.acidity>=4?'a firm acid line':'delicacy'} while delaying sugar; site exposure and crop load decide whether flavour catches up.`,warm:`Faster sugar accumulation can broaden fruit and body. Shade, water balance and picking date protect definition.`,watch:evidenceFields?`${evidenceFields.growth} ${evidenceFields.risk}`:'Canopy light, berry health, yield, seed and skin maturity, and the gap between sugar and flavour.',make:content.winemaking},de:{cool:`Längere Reife kann ${grape.acidity>=4?'eine feste Säurelinie':'Feinheit'} erhalten und Zucker bremsen; Exposition und Ertrag entscheiden, ob das Aroma nachzieht.`,warm:'Schnellere Zuckerreife kann Frucht und Körper verbreitern. Schatten, Wasserbalance und Lesezeit schützen die Kontur.',watch:evidenceFields?`${evidenceFields.growth} ${evidenceFields.risk}`:'Licht in der Laubwand, Beerengesundheit, Ertrag, Kern- und Schalenreife sowie der Abstand zwischen Zucker und Aroma.',make:content.winemaking},fr:{cool:`Une maturation plus longue peut garder ${grape.acidity>=4?'une acidité ferme':'la finesse'} et ralentir le sucre ; exposition et charge décident si l’arôme suit.`,warm:'Le sucre plus rapide élargit fruit et corps. Ombre, eau et date de récolte gardent la précision.',watch:evidenceFields?`${evidenceFields.growth} ${evidenceFields.risk}`:'Lumière du feuillage, santé des baies, rendement, maturité des pépins et des peaux, écart entre sucre et arôme.',make:content.winemaking},es:{cool:`Una maduración más larga puede conservar ${grape.acidity>=4?'una acidez firme':'delicadeza'} y frenar el azúcar; exposición y carga deciden si alcanza el aroma.`,warm:'La acumulación rápida de azúcar amplía fruta y cuerpo. Sombra, agua y vendimia conservan definición.',watch:evidenceFields?`${evidenceFields.growth} ${evidenceFields.risk}`:'Luz en la vegetación, sanidad, rendimiento, madurez de semillas y pieles, distancia entre azúcar y aroma.',make:content.winemaking}}[locale]
-  return <section className="grape-deep-dive"><div className="depth-heading"><span className="eyebrow">{c.grapeEyebrow}</span><h2>{c.grapeTitle}</h2></div><div className="climate-comparison"><article><ThermometerSun/><span>{c.cool}</span><p>{climate.cool}</p></article><article><SunMedium/><span>{c.warm}</span><p>{climate.warm}</p></article><article><GrapeIcon/><span>{c.grower}</span><p>{climate.watch}</p></article><article><FlaskConical/><span>{c.maker}</span><p>{climate.make}</p></article></div><div className="structure-compass"><span>{c.structure}</span>{([[structureLabels[0],grape.acidity],[structureLabels[1],grape.tannin],[structureLabels[2],grape.body]] as const).map(([label,value])=><div key={label}><small>{label}</small><i><b style={{width:`${value*20}%`}}/></i><strong>{value}/5</strong></div>)}</div></section>
+  const c=depthCopy[locale]
+  const evidenceFields=grapeEvidenceContent(grape.id,locale)
+  const fieldCopy={
+    en:{field:'Vine and fruit observations',empty:'Compare mature leaves, bunches and berries together; one feature alone cannot identify a grape variety.',structureTitle:'Read structure in the glass',structureBody:'Taste two wines side by side at the same serving temperature. Record acidity, tannin texture, body and finish; site, vintage and winemaking can shift each one.'},
+    de:{field:'Beobachtungen an Rebe und Frucht',empty:'Vergleiche ausgewachsene Blätter, Trauben und Beeren gemeinsam; ein einzelnes Merkmal bestimmt keine Rebsorte.',structureTitle:'Struktur im Glas lesen',structureBody:'Verkoste zwei Weine bei gleicher Serviertemperatur nebeneinander. Notiere Säure, Tannintextur, Körper und Nachhall; Lage, Jahrgang und Ausbau können jeden Eindruck verändern.'},
+    fr:{field:'Observations sur la vigne et le fruit',empty:'Comparez ensemble feuilles adultes, grappes et baies ; un seul caractère ne suffit pas à identifier un cépage.',structureTitle:'Lire la structure dans le verre',structureBody:'Goûtez deux vins côte à côte, à la même température de service. Notez acidité, texture des tanins, corps et finale ; site, millésime et élaboration peuvent modifier chacun de ces aspects.'},
+    es:{field:'Observaciones de la vid y el fruto',empty:'Compara hojas adultas, racimos y bayas en conjunto; un solo rasgo no basta para identificar una variedad.',structureTitle:'Leer la estructura en la copa',structureBody:'Prueba dos vinos en paralelo y a la misma temperatura de servicio. Anota acidez, textura del tanino, cuerpo y final; lugar, añada y elaboración pueden cambiar cada aspecto.'},
+  }[locale]
+  const fieldNote=evidenceFields?`${evidenceFields.growth} ${evidenceFields.risk}`:fieldCopy.empty
+  return <section className="grape-deep-dive"><div className="depth-heading"><span className="eyebrow">{c.grapeEyebrow}</span><h2>{c.grapeTitle}</h2></div><div className="climate-comparison"><article><GrapeIcon/><span>{fieldCopy.field}</span><p>{fieldNote}</p></article></div><aside className="structure-compass"><h3>{fieldCopy.structureTitle}</h3><p>{fieldCopy.structureBody}</p></aside></section>
 }
 
 const ampelographyProfiles:Record<string,{leaf:string;cluster:string;berry:string;growth:string;risk:string}>={
@@ -110,8 +122,8 @@ const ampelographyProfiles:Record<string,{leaf:string;cluster:string;berry:strin
 }
 
 function ampelographyText(grape:Grape,locale:Locale){
-  const sourced=grapeEvidence.find(item=>item.grapeId===grape.id)
-  if(sourced)return sourced[locale]
+  const sourced=grapeEvidenceContent(grape.id,locale)
+  if(sourced)return sourced
   const exact=ampelographyProfiles[grape.id]
   const fallback={
     leaf:`A mature ${grape.name} leaf should be read through blade shape, lobe depth, petiolar sinus, teeth, surface blistering and the density of hairs beneath. Compare several healthy mid-shoot leaves; one leaf is never enough for identification.`,
@@ -142,7 +154,13 @@ export function GrapeAmpelography({grape,locale}:{grape:Grape;locale:Locale}){
 
 export function ProducerDecisionMap({producer,region,locale}:{producer:Producer;region:Region;locale:Locale}){
   const c=depthCopy[locale],p=producerContent(producer,region,locale),r=regionContent(region,locale)
-  return <section className="producer-decision-map"><div className="depth-heading"><span className="eyebrow">{c.producerEyebrow}</span><h2>{c.producerTitle}</h2></div><ol><li><span>01</span><Mountain/><div><h3>{c.site}</h3><p>{p.vineyard} {r.soil}</p></div></li><li><span>02</span><SunMedium/><div><h3>{c.harvest}</h3><p>{r.growingSeason}</p></div></li><li><span>03</span><FlaskConical/><div><h3>{c.cellar}</h3><p>{p.cellar}</p></div></li></ol></section>
+  const decisions=[
+    {title:c.site,icon:Mountain,text:[p.vineyard,r.soil].filter(value=>value.trim()).join(' ')},
+    {title:c.harvest,icon:SunMedium,text:r.growingSeason},
+    {title:c.cellar,icon:FlaskConical,text:p.cellar},
+  ].filter(item=>item.text.trim())
+  if(!decisions.length)return null
+  return <section className="producer-decision-map"><div className="depth-heading"><span className="eyebrow">{c.producerEyebrow}</span><h2>{c.producerTitle}</h2></div><ol>{decisions.map((decision,index)=>{const DecisionIcon=decision.icon;return <li key={decision.title}><span>{String(index+1).padStart(2,'0')}</span><DecisionIcon/><div><h3>{decision.title}</h3><p>{decision.text}</p></div></li>})}</ol></section>
 }
 
 export function WineEvolutionLesson({wine,locale}:{wine:Wine;locale:Locale}){
