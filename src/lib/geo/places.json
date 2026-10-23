@@ -1,0 +1,72 @@
+{
+  "pfalz": {
+    "town": "Deidesheim",
+    "lon": 8.1859168,
+    "lat": 49.4075922
+  },
+  "rheinhessen": {
+    "town": "Alsheim",
+    "lon": 8.341793,
+    "lat": 49.7656495
+  },
+  "saar": {
+    "town": "Ayl",
+    "lon": 6.5529894,
+    "lat": 49.6288443
+  },
+  "mosel": {
+    "town": "Bernkastel-Kues",
+    "lon": 7.0708181,
+    "lat": 49.9157398
+  },
+  "ahr": {
+    "town": "Bad Neuenahr-Ahrweiler",
+    "lon": 7.1186671,
+    "lat": 50.5444551
+  },
+  "baden": {
+    "town": "Freiburg im Breisgau",
+    "lon": 7.8494005,
+    "lat": 47.9960901
+  },
+  "franken": {
+    "town": "Würzburg",
+    "lon": 9.9434769,
+    "lat": 49.7780356
+  },
+  "hessische-bergstrasse": {
+    "town": "Heppenheim",
+    "lon": 8.66768,
+    "lat": 49.64999
+  },
+  "mittelrhein": {
+    "town": "Bacharach",
+    "lon": 7.7683997,
+    "lat": 50.0597943
+  },
+  "nahe": {
+    "town": "Bad Kreuznach",
+    "lon": 7.9125221,
+    "lat": 49.8153468
+  },
+  "rheingau": {
+    "town": "Rüdesheim am Rhein",
+    "lon": 7.8902,
+    "lat": 50.0293
+  },
+  "saale-unstrut": {
+    "town": "Freyburg (Unstrut)",
+    "lon": 11.7696956,
+    "lat": 51.2126192
+  },
+  "sachsen": {
+    "town": "Meißen",
+    "lon": 13.4704939,
+    "lat": 51.1630871
+  },
+  "wuerttemberg": {
+    "town": "Stuttgart Uhlbach",
+    "lon": 9.2801628,
+    "lat": 48.775844
+  }
+}

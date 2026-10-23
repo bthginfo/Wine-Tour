@@ -1,13 +1,14 @@
 import { json,error,isHttpError } from '@sveltejs/kit';
 import type { RequestEvent } from '@sveltejs/kit';
 import { z } from 'zod';
+z.config(z.locales.de());
 import { db } from '#lib/server/db.ts';
 import { token,hash,guest,user,requireUser,requireAdmin,host,rate,passwordHash,verifyPassword,setCookie } from '#lib/server/security.ts';
 import { randomInt,randomUUID } from 'node:crypto';
 import { steps } from '#lib/content.ts';
-const credentials=z.object({username:z.string().trim().min(3).max(24).regex(/^[a-zA-Z0-9_äöüÄÖÜß-]+$/,'Nutze Buchstaben, Zahlen, _ oder -.'),password:z.string().min(10,'Nimm bitte mindestens 10 Zeichen.').max(128)});
+const credentials=z.object({username:z.string().trim().min(3,'Der Benutzername braucht mindestens 3 Zeichen.').max(24,'Der Benutzername darf höchstens 24 Zeichen haben.').regex(/^[a-zA-Z0-9_äöüÄÖÜß-]+$/,'Nutze Buchstaben, Zahlen, _ oder -.'),password:z.string().min(10,'Nimm bitte mindestens 10 Zeichen.').max(128)});
 const noteSchema=z.object({text:z.string().max(6000).default(''),aromas:z.array(z.string().max(40)).max(25).default([]),rating:z.number().int().min(0).max(5).default(0),sweetness:z.number().int().min(0).max(5).default(0),acidity:z.number().int().min(0).max(5).default(0)});
-const bottleSchema=z.object({name:z.string().trim().min(1).max(120),producer:z.string().max(120).default(''),region:z.string().max(120).default(''),year:z.string().max(12).default(''),quantity:z.number().int().min(0).max(10000),location:z.string().max(120).default(''),memo:z.string().max(3000).default(''),style:z.enum(['Weiß','Rosé','Rot','Prickelnd','Sonstiges']).default('Weiß')});
+const bottleSchema=z.object({name:z.string().trim().min(1,'Trage bitte den Namen des Weins ein.').max(120,'Der Weinname darf höchstens 120 Zeichen haben.'),producer:z.string().max(120).default(''),region:z.string().max(120).default(''),year:z.string().max(12).default(''),quantity:z.number().int().min(0).max(10000),location:z.string().max(120).default(''),memo:z.string().max(3000).default(''),style:z.enum(['Weiß','Rosé','Rot','Prickelnd','Sonstiges']).default('Weiß')});
 function publicRoom(r:any,includeHost=false){const settings={...r.settings};if(!includeHost)delete settings.redStory;return {code:r.code,name:r.name,step:r.step,version:r.version,closed:r.closed,settings};}
 async function room(code:string){const r=await db()`SELECT * FROM sip.rooms WHERE code=${code}`;if(!r[0])error(404,'Dieses Tasting gibt es nicht. Schau bitte noch einmal auf den Code.');return r[0];}
 async function participant(e:RequestEvent,code:string){const g=await guest(e);const u=await user(e);const rows=await db()`SELECT m.guest_id,m.name FROM sip.members m JOIN sip.guests g ON g.id=m.guest_id WHERE m.room=${code} AND (m.guest_id=${g} OR (${u?.id??null}::text IS NOT NULL AND g.user_id=${u?.id??null})) ORDER BY (m.guest_id=${g}) DESC LIMIT 1`;return rows[0]??null;}
@@ -34,7 +35,7 @@ async function dispatch(e:RequestEvent){
   const t=token();await sql`INSERT INTO sip.sessions(token_hash,user_id,expires_at) VALUES(${hash(t)},${u.id},now()+interval '30 days')`;setCookie(e,'sip_session',t);return json({user:{id:u.id,username:u.username,role:u.role||'member'}});
  }
  if(p==='rooms'&&method==='POST'){
-  const owner=await requireAdmin(e);await rate(e,'create',20);const g=await guest(e);const name=z.string().trim().min(1).max(80).parse(b.name||'Ein Abend, vier Weine');let code='';
+  const owner=await requireAdmin(e);await rate(e,'create',20);const g=await guest(e);const name=z.string().trim().min(1,'Gib deinem Tasting einen Namen.').max(80,'Der Tasting-Name darf höchstens 80 Zeichen haben.').parse(b.name||'Ein Abend, vier Weine');let code='';
   const chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';for(let i=0;i<6;i++)code+=chars[randomInt(chars.length)];const t=token();
   await sql.transaction([sql`INSERT INTO sip.rooms(code,name,host_hash,owner_id) VALUES(${code},${name},${hash(t)},${owner.id})`,sql`INSERT INTO sip.members(room,guest_id,name) VALUES(${code},${g},'Host')`,sql`INSERT INTO sip.events(room,type,payload,request_id) VALUES(${code},'TastingCreated',${JSON.stringify({step:0})}::jsonb,${randomUUID()})`]);
   return json({code});
@@ -43,7 +44,7 @@ async function dispatch(e:RequestEvent){
  if(match){const [,code,action]=match;
   if(!action&&method==='GET'){const r=await room(code);const m=await participant(e,code);const t=e.cookies.get('sip_host_'+code);const u=await user(e);const isHost=u?.role==='admin';if(isHost&&!m){const g=await guest(e);await sql`INSERT INTO sip.members(room,guest_id,name) VALUES(${code},${g},'Host') ON CONFLICT DO NOTHING`;}return json({room:publicRoom(r,isHost),member:m?{name:m.name}:isHost?{name:'Host'}:null,isHost});}
   if(action==='join'&&method==='POST'){
-   await rate(e,'join',200);const r=await room(code);if(r.closed)error(409,'Dieses Tasting ist beendet. Deine bisherigen Notizen findest du unter „Notizen“.');const name=z.string().trim().min(1).max(40).parse(b.name);const g=await guest(e);
+   await rate(e,'join',200);const r=await room(code);if(r.closed)error(409,'Dieses Tasting ist beendet. Deine bisherigen Notizen findest du unter „Notizen“.');const name=z.string().trim().min(1,'Gib bitte deinen Namen ein.').max(40,'Dein Name darf höchstens 40 Zeichen haben.').parse(b.name);const g=await guest(e);
    await sql.transaction([sql`INSERT INTO sip.members(room,guest_id,name) VALUES(${code},${g},${name}) ON CONFLICT(room,guest_id) DO UPDATE SET name=excluded.name`,sql`INSERT INTO sip.events(room,type,payload,request_id) VALUES(${code},'ParticipantJoined','{}'::jsonb,${randomUUID()})`]);return json({room:publicRoom(r)});
   }
   if(action==='members'&&method==='GET'){await host(e,code);return json({members:await sql`SELECT name,joined_at FROM sip.members WHERE room=${code} ORDER BY joined_at`});}

@@ -1,7 +1,7 @@
 <script lang="ts">
  import ThemeToggle from '#lib/components/ThemeToggle.svelte';import{loadEditorial,editorial}from'#lib/editorial.svelte.ts';
  import {t} from '#lib/i18n.ts';
- import '../app.css';import {page} from '$app/state';import {goto} from '$app/navigation';import {onMount} from 'svelte';import Icon from '#lib/components/Icon.svelte';import Modal from '#lib/components/Modal.svelte';import {session,refreshSession,ui,api} from '#lib/client.svelte.ts';
+ import '../app.css';import '../lib/polish.css';import {page} from '$app/state';import {goto} from '$app/navigation';import {onMount} from 'svelte';import Icon from '#lib/components/Icon.svelte';import Modal from '#lib/components/Modal.svelte';import {session,refreshSession,ui,api} from '#lib/client.svelte.ts';
  let {children}=$props();let hydrated=$state(false);let eventName=$state('Ein Abend, vier Weine');let code=$state('');let busy=$state(false);let error=$state('');
  const links=[{href:'/',name:'Übersicht',icon:'home'},{href:'/entdecken',name:'Entdecken',icon:'compass'},{href:'/notizen',name:'Meine Notizen',icon:'notes'},{href:'/keller',name:'Mein Weinkeller',icon:'cellar'}];
  const tasting=$derived(page.url.pathname.startsWith('/tasting/')||page.url.pathname.startsWith('/host/'));

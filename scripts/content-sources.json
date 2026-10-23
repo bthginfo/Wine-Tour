@@ -1,0 +1,237 @@
+{
+  "reviewed": "2026-10-23",
+  "sources": [
+    {
+      "url": "https://www.deutscheweine.de/anbaugebiet/68/pfalz",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.von-winning.de/weingut-von-winning",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.deutscheweine.de/unser-wein/rebsorten",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.deutscheweine.de/wein-speise/191/different-types-of-wine",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://shop.von-winning.de/secco-rose/400-l0226",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.deutscheweine.de/wein-speise/201/secco",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.vdp.de/de/die-weine/die-vdp-regionen/pfalz",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.vdp.de/de/die-winzer/pfalz/von-winning",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.deutscheweine.de/news-medien/meldungen/meldung/1427/white-pinots-on-the-rise-in-germany",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://juwel-weine.de/products/grauburgunder",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://juwel-weine.de/pages/julianeeller",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.deutscheweine.de/anbaugebiet/70/rheinhessen",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.vitipendium.de/Grauer_Burgunder",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.landwirtschaft.de/tier-und-pflanze/pflanze/wein/weisswein-aus-roten-trauben-geht-das",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.deutscheweine.de/anbaugebiet/72/mosel",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.varta-guide.de/freizeit-guide/freizeit-ideen/weinanbaugebiete/jungwinzer/juliane-eller/?p=146348",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.weinland-mosel.de/de/die-region/die-teilregionen",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.deutscheweine.de/rebsorte/105/riesling/",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.margarethenhof-ayl.de/weingut/",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://shop.weingutkilburg.de/weisswein/halbtrocken-feinherb/",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.margarethenhof-ayl.de/",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.deutscheweine.de/wein-probieren/195/geschmacksrichtungen",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.deutscheweine.de/wein-probieren/183/weinaromen",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.deutscheweine.de/wein-speise/259/winzersekt",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.deutscheweine.de/wein-speise/190/weinlagerung/",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.margarethenhof-ayl.de/produkt/schieferstein/",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.deutscheweine.de/anbaugebiet/64/ahr",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.deutscheweine.de/anbaugebiet/65/baden",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.deutscheweine.de/anbaugebiet/66/franken",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.deutscheweine.de/anbaugebiet/67/hessische-bergstrasse",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.deutscheweine.de/anbaugebiet/71/mittelrhein",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.dlg-bwp.de/de/genusswelt-wein/schon-gewusst/flaschenverschluesse-was-kommt-auf-die-flasche",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.deutscheweine.de/anbaugebiet/73/nahe",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.deutscheweine.de/anbaugebiet/74/saale-unstrut",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.deutscheweine.de/rebsorte/108/silvaner/",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.deutscheweine.de/anbaugebiet/69/rheingau",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.deutscheweine.de/anbaugebiet/75/sachsen",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.deutscheweine.de/rebsorte/106/sauvignon-blanc",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.deutscheweine.de/rebsorte/110/wei%C3%9Fburgunder",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.deutscheweine.de/anbaugebiet/76/wuerttemberg",
+      "status": 200,
+      "checked": "2026-10-23"
+    },
+    {
+      "url": "https://www.deutscheweine.de/wein-speise/170/weinprobe",
+      "checked": "2026-10-23",
+      "method": "Primary source, retrieved directly or via web search"
+    },
+    {
+      "url": "https://www.deutscheweine.de/news-medien/meldungen/meldung/594/so-gelingt-die-weinprobe-zu-hause",
+      "checked": "2026-10-23",
+      "method": "Primary source, retrieved directly or via web search"
+    },
+    {
+      "url": "https://www.deutscheweine.de/fileadmin/DWI/Seminare-KD/pdf/Seminarhandbuch.pdf",
+      "checked": "2026-10-23",
+      "method": "Primary source, retrieved directly or via web search"
+    },
+    {
+      "url": "https://www.nidcd.nih.gov/health/taste-disorders",
+      "checked": "2026-10-23",
+      "method": "Primary source, retrieved directly or via web search"
+    }
+  ],
+  "map": {
+    "outline": "Natural Earth 1:50m, public domain",
+    "outlineUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+    "placeCoordinates": "OpenStreetMap contributors, via Nominatim",
+    "placeUrl": "https://www.openstreetmap.org/copyright"
+  },
+  "notes": [
+    "A removed Wine Australia PDF reference returned 404.",
+    "Year-specific wine analyses are not used for an unconfirmed tasting vintage.",
+    "The diagrams show principles, not measurements of a specific wine.",
+    "Research links are kept outside the reading and tasting interface."
+  ]
+}

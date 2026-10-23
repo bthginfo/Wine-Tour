@@ -1,7 +1,7 @@
 import {articles as baseArticles,wines as baseWines,imageCredits,type Article,type Wine} from './content';
 export const editorial=$state<{records:Record<string,{data:any;version:number;updatedAt:string}>;error:string;loaded:boolean}>({records:{},error:'',loaded:false});
 export async function loadEditorial(admin=false){try{const r=await fetch(admin?'/api/admin/content':'/api/content');if(!r.ok)throw Error('Die bearbeiteten Inhalte konnten nicht geladen werden.');editorial.records=(await r.json()).records;editorial.error='';}catch(e){editorial.error=(e as Error).message;}editorial.loaded=true;}
-export const imageSrc=(value:string)=>value?.startsWith('https://')||value?.startsWith('/')?value:'/images/'+value+'.jpg';
+export const imageSrc=(value:string)=>!value?'':value?.startsWith('https://')||value?.startsWith('/')?value:'/images/'+value+'.jpg';
 export const getArticle=(slug:string):Article|undefined=>{const a=baseArticles.find(a=>a.slug===slug);return a?{...a,...editorial.records['article:'+slug]?.data}:undefined;};
 export const getArticles=()=>baseArticles.map(a=>getArticle(a.slug)!);
 export const getWines=():Wine[]=>baseWines.map(w=>({...w,...editorial.records['wine:'+w.id]?.data}));
