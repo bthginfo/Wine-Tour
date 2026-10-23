@@ -1,6 +1,7 @@
 :root{--visual-surface:#f5f7f0;--visual-line:#cbd6c0;--viz-rose:#c98989;--viz-gold:#ba9f5b;--viz-red:#914e66;--motion-ease:cubic-bezier(.2,.7,.2,1)}
 :root[data-theme=dark]{--visual-surface:#243027;--visual-line:#4b5d4c;--viz-rose:#e1a5a3;--viz-gold:#d6bf7e;--viz-red:#c284a0}
 button,a,input,select,textarea{transition:background-color 150ms var(--motion-ease),border-color 150ms var(--motion-ease),box-shadow 150ms var(--motion-ease),color 150ms var(--motion-ease)}
+.admin-tabs button,.filters .filter{transition:box-shadow 150ms var(--motion-ease),transform 150ms var(--motion-ease)}
 .button:active:not(:disabled),.rating-buttons button:active,.aroma-options button:active{transform:scale(.98)}
 .button,.icon-button,.rating-buttons button,.aroma-options button{transition:background-color 150ms var(--motion-ease),border-color 150ms var(--motion-ease),box-shadow 150ms var(--motion-ease),color 150ms var(--motion-ease),transform 150ms var(--motion-ease)}
 @media(hover:hover){.wine-card:hover,.article-card:hover{transform:translateY(-3px);box-shadow:0 9px 25px #18301e0a}.button.primary:hover{box-shadow:0 4px 12px #18301e15}.bottle-enlarge:hover>span{opacity:1;transform:translateY(0)}}
