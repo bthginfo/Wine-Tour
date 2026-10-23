@@ -1,0 +1,889 @@
+{
+  "89f70916aeec27c241befeb2010084a26b171d48989c93023ac0d72b9a435752": {
+    "slug": "pfalz",
+    "voices": {
+      "audio:katja": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/pfalz-katja-1ba9b379588b2a0e5f95.mp3",
+        "duration": 286.248,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Römer, Klöster und 2.000 Jahre Weinbau",
+            "start": 93.288
+          },
+          {
+            "title": "Eine Weinflasche aus dem Römergrab",
+            "start": 131.568
+          },
+          {
+            "title": "Zwischen Waldrand und Rheinebene",
+            "start": 168.84
+          },
+          {
+            "title": "Riesling und seine roten Nachbarn",
+            "start": 207.048
+          },
+          {
+            "title": "Deidesheim, Forst und die Mittelhaardt",
+            "start": 246.936
+          }
+        ]
+      },
+      "audio:conrad": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/pfalz-conrad-210646f50f8f6a0ec27e.mp3",
+        "duration": 267.408,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Römer, Klöster und 2.000 Jahre Weinbau",
+            "start": 86.856
+          },
+          {
+            "title": "Eine Weinflasche aus dem Römergrab",
+            "start": 122.856
+          },
+          {
+            "title": "Zwischen Waldrand und Rheinebene",
+            "start": 158.232
+          },
+          {
+            "title": "Riesling und seine roten Nachbarn",
+            "start": 193.944
+          },
+          {
+            "title": "Deidesheim, Forst und die Mittelhaardt",
+            "start": 231.432
+          }
+        ]
+      }
+    }
+  },
+  "b40f343f5cbdc28a8c575e9e5c03ea0ff1773df92e7eb17cddb3618fe1862c76": {
+    "slug": "von-winning",
+    "voices": {
+      "audio:katja": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/von-winning-katja-3f460145cee066a8b9d9.mp3",
+        "duration": 330.504,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Wie aus einem Erbe mehrere Weingüter wurden",
+            "start": 93.792
+          },
+          {
+            "title": "Warum heute von Winning auf dem Etikett steht",
+            "start": 135.792
+          },
+          {
+            "title": "Sorgfalt im Weinberg, Geduld im Keller",
+            "start": 175.224
+          },
+          {
+            "title": "Was Hefe nach der Gärung noch kann",
+            "start": 215.016
+          },
+          {
+            "title": "Der Keller hatte seine eigene Fasswerkstatt",
+            "start": 252.072
+          },
+          {
+            "title": "Unser Auftakt: Spätburgunder mit Kohlensäure",
+            "start": 293.76
+          }
+        ]
+      },
+      "audio:conrad": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/von-winning-conrad-1be67e5469596e57a646.mp3",
+        "duration": 308.304,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Wie aus einem Erbe mehrere Weingüter wurden",
+            "start": 86.232
+          },
+          {
+            "title": "Warum heute von Winning auf dem Etikett steht",
+            "start": 126.528
+          },
+          {
+            "title": "Sorgfalt im Weinberg, Geduld im Keller",
+            "start": 163.128
+          },
+          {
+            "title": "Was Hefe nach der Gärung noch kann",
+            "start": 199.776
+          },
+          {
+            "title": "Der Keller hatte seine eigene Fasswerkstatt",
+            "start": 234.408
+          },
+          {
+            "title": "Unser Auftakt: Spätburgunder mit Kohlensäure",
+            "start": 273.888
+          }
+        ]
+      }
+    }
+  },
+  "ce164747c047b2e1f09a8661cf55506df27e4408b30dab835eee5b3cde488035": {
+    "slug": "spaetburgunder",
+    "voices": {
+      "audio:katja": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/spaetburgunder-katja-5c748ffb6ae46ca7f24e.mp3",
+        "duration": 267.096,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Eine alte Rebsorte mit vielen Wegen",
+            "start": 74.736
+          },
+          {
+            "title": "Die Familie Pinot",
+            "start": 115.296
+          },
+          {
+            "title": "Dünne Schale, viel Aufmerksamkeit",
+            "start": 156.36
+          },
+          {
+            "title": "Vier Weine aus derselben Traube",
+            "start": 195.72
+          },
+          {
+            "title": "Was an Spätburgunder eigentlich spät ist",
+            "start": 231.24
+          }
+        ]
+      },
+      "audio:conrad": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/spaetburgunder-conrad-7d1e35c8d5b81a4958ab.mp3",
+        "duration": 248.736,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Eine alte Rebsorte mit vielen Wegen",
+            "start": 69.264
+          },
+          {
+            "title": "Die Familie Pinot",
+            "start": 106.92
+          },
+          {
+            "title": "Dünne Schale, viel Aufmerksamkeit",
+            "start": 144.84
+          },
+          {
+            "title": "Vier Weine aus derselben Traube",
+            "start": 181.56
+          },
+          {
+            "title": "Was an Spätburgunder eigentlich spät ist",
+            "start": 215.112
+          }
+        ]
+      }
+    }
+  },
+  "5e2385fad18b700b3b221cc2587ff4cc287c83da8b71d62f5b0146dc48696054": {
+    "slug": "secco",
+    "voices": {
+      "audio:katja": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/secco-katja-30917e8e6d97de9e6815.mp3",
+        "duration": 196.296,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Wie das Prickeln in die Flasche kommt",
+            "start": 87.888
+          },
+          {
+            "title": "Secco, Sekt und Prosecco",
+            "start": 121.008
+          },
+          {
+            "title": "Warum Bläschen an bestimmten Stellen aufsteigen",
+            "start": 157.92
+          }
+        ]
+      },
+      "audio:conrad": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/secco-conrad-0ced1ee0831934a7076e.mp3",
+        "duration": 182.472,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Wie das Prickeln in die Flasche kommt",
+            "start": 81.792
+          },
+          {
+            "title": "Secco, Sekt und Prosecco",
+            "start": 112.08
+          },
+          {
+            "title": "Warum Bläschen an bestimmten Stellen aufsteigen",
+            "start": 146.52
+          }
+        ]
+      }
+    }
+  },
+  "c82c1e0b6e9c6260d8522482e0e0743f4a9a37ff710d90afeb83c5d024c13fce": {
+    "slug": "rheinhessen",
+    "voices": {
+      "audio:katja": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/rheinhessen-katja-5a8f650db76caa151fe4.mp3",
+        "duration": 271.896,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Warum Rheinhessen in Rheinland-Pfalz liegt",
+            "start": 84.912
+          },
+          {
+            "title": "Ein Weinberg aus einer Urkunde von 742",
+            "start": 123.624
+          },
+          {
+            "title": "Hügel, Dörfer und der Rhein",
+            "start": 161.496
+          },
+          {
+            "title": "Löss und Kalkmergel unter den Reben",
+            "start": 199.656
+          },
+          {
+            "title": "Eine neue Generation im Familienweingut",
+            "start": 234.48
+          }
+        ]
+      },
+      "audio:conrad": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/rheinhessen-conrad-69d5f348ea460346fe30.mp3",
+        "duration": 252.672,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Warum Rheinhessen in Rheinland-Pfalz liegt",
+            "start": 79.224
+          },
+          {
+            "title": "Ein Weinberg aus einer Urkunde von 742",
+            "start": 115.248
+          },
+          {
+            "title": "Hügel, Dörfer und der Rhein",
+            "start": 150.168
+          },
+          {
+            "title": "Löss und Kalkmergel unter den Reben",
+            "start": 185.088
+          },
+          {
+            "title": "Eine neue Generation im Familienweingut",
+            "start": 217.464
+          }
+        ]
+      }
+    }
+  },
+  "c597b5e352486a8d9ac80c5d470b384eea249d1fa4ad990515751028f6284960": {
+    "slug": "saar",
+    "voices": {
+      "audio:katja": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/saar-katja-25b631c828f29bbdb2ed.mp3",
+        "duration": 268.536,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Von römischen Keltern zu Klosterweinbergen",
+            "start": 80.016
+          },
+          {
+            "title": "Eine Weinbaukarte für das Finanzamt",
+            "start": 117.552
+          },
+          {
+            "title": "Weinhandel zwischen Krise und Aufschwung",
+            "start": 156.264
+          },
+          {
+            "title": "Die guten Hänge liegen oft seitlich",
+            "start": 195.36
+          },
+          {
+            "title": "Ayl, Ayler und die Ayler Kupp",
+            "start": 233.568
+          }
+        ]
+      },
+      "audio:conrad": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/saar-conrad-7af459001a1f09add906.mp3",
+        "duration": 249.096,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Von römischen Keltern zu Klosterweinbergen",
+            "start": 73.968
+          },
+          {
+            "title": "Eine Weinbaukarte für das Finanzamt",
+            "start": 109.032
+          },
+          {
+            "title": "Weinhandel zwischen Krise und Aufschwung",
+            "start": 145.296
+          },
+          {
+            "title": "Die guten Hänge liegen oft seitlich",
+            "start": 181.2
+          },
+          {
+            "title": "Ayl, Ayler und die Ayler Kupp",
+            "start": 217.008
+          }
+        ]
+      }
+    }
+  },
+  "2bb1dda9e19224ea726c6c20bde0fa4aefa2ff0771ca0ca8da72ffaafd5e9130": {
+    "slug": "margarethenhof",
+    "voices": {
+      "audio:katja": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/margarethenhof-katja-a6aec28463d8775b6d25.mp3",
+        "duration": 289.104,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Eine Familie, zwei Generationen",
+            "start": 86.688
+          },
+          {
+            "title": "Zeit als Teil der Arbeit",
+            "start": 129.768
+          },
+          {
+            "title": "Schiefer an der Saar, Muschelkalk an der Mosel",
+            "start": 170.472
+          },
+          {
+            "title": "Was eine Parzelle besonders macht",
+            "start": 209.976
+          },
+          {
+            "title": "Saarwein in der Allianz Arena",
+            "start": 252.744
+          }
+        ]
+      },
+      "audio:conrad": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/margarethenhof-conrad-cf281fe20a9bd1aeac0f.mp3",
+        "duration": 268.224,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Eine Familie, zwei Generationen",
+            "start": 79.992
+          },
+          {
+            "title": "Zeit als Teil der Arbeit",
+            "start": 120.432
+          },
+          {
+            "title": "Schiefer an der Saar, Muschelkalk an der Mosel",
+            "start": 158.52
+          },
+          {
+            "title": "Was eine Parzelle besonders macht",
+            "start": 195.096
+          },
+          {
+            "title": "Saarwein in der Allianz Arena",
+            "start": 234.48
+          }
+        ]
+      }
+    }
+  },
+  "11323c777912b2956266647be37bcf36d4bbcadc2478c53c3ebc8dd19bdddb99": {
+    "slug": "riesling",
+    "voices": {
+      "audio:katja": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/riesling-katja-8011ee5af383051eb01b.mp3",
+        "duration": 326.616,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Ein Geburtstag aus der Buchhaltung",
+            "start": 86.256
+          },
+          {
+            "title": "Warum ein langer Herbst hilft",
+            "start": 128.136
+          },
+          {
+            "title": "Die Spätlese-Geschichte von 1775",
+            "start": 168.576
+          },
+          {
+            "title": "Riesling und seine Namensvettern",
+            "start": 210.336
+          },
+          {
+            "title": "Von trocken bis süß, von still bis prickelnd",
+            "start": 249.72
+          },
+          {
+            "title": "Wie sich Riesling mit der Zeit verändert",
+            "start": 288.888
+          }
+        ]
+      },
+      "audio:conrad": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/riesling-conrad-77ededea755681417fdb.mp3",
+        "duration": 304.8,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Ein Geburtstag aus der Buchhaltung",
+            "start": 80.64
+          },
+          {
+            "title": "Warum ein langer Herbst hilft",
+            "start": 119.472
+          },
+          {
+            "title": "Die Spätlese-Geschichte von 1775",
+            "start": 157.152
+          },
+          {
+            "title": "Riesling und seine Namensvettern",
+            "start": 196.512
+          },
+          {
+            "title": "Von trocken bis süß, von still bis prickelnd",
+            "start": 233.424
+          },
+          {
+            "title": "Wie sich Riesling mit der Zeit verändert",
+            "start": 269.688
+          }
+        ]
+      }
+    }
+  },
+  "a2e2e0062dbee6940defc8b869947a3d52fbf8bd70c4b3d225903a41d9b926d6": {
+    "slug": "feinherb",
+    "voices": {
+      "audio:katja": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/feinherb-katja-812bbca88eafabb4ab1d.mp3",
+        "duration": 191.688,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Was trocken auf dem Etikett bedeutet",
+            "start": 82.152
+          },
+          {
+            "title": "Süße und Säure können gut zusammenpassen",
+            "start": 119.4
+          },
+          {
+            "title": "Warum Pfirsichduft Süße erwarten lässt",
+            "start": 156.288
+          }
+        ]
+      },
+      "audio:conrad": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/feinherb-conrad-a18e5bee774d4f524201.mp3",
+        "duration": 179.136,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Was trocken auf dem Etikett bedeutet",
+            "start": 76.776
+          },
+          {
+            "title": "Süße und Säure können gut zusammenpassen",
+            "start": 111.504
+          },
+          {
+            "title": "Warum Pfirsichduft Süße erwarten lässt",
+            "start": 145.752
+          }
+        ]
+      }
+    }
+  },
+  "ccbcf54a31c7889fa4cd2718ac8fb0fcfe6568efe9e8f24ffaeb077fa9a25c91": {
+    "slug": "rose",
+    "voices": {
+      "audio:katja": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/rose-katja-a8fdc71d2c07aeca21be.mp3",
+        "duration": 166.512,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Zwei Wege zum Rosé",
+            "start": 58.68
+          },
+          {
+            "title": "Rosé und Rotling",
+            "start": 93.552
+          },
+          {
+            "title": "Die Schale verbindet Rosé und Rotwein",
+            "start": 131.52
+          }
+        ]
+      },
+      "audio:conrad": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/rose-conrad-7b4c398e4d52eb9f0518.mp3",
+        "duration": 154.272,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Zwei Wege zum Rosé",
+            "start": 54.216
+          },
+          {
+            "title": "Rosé und Rotling",
+            "start": 86.64
+          },
+          {
+            "title": "Die Schale verbindet Rosé und Rotwein",
+            "start": 121.944
+          }
+        ]
+      }
+    }
+  },
+  "38c0d5340d26686eac0d1f7e571cf324937f3f769873b3a5b665fa992713ba90": {
+    "slug": "rotwein",
+    "voices": {
+      "audio:katja": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/rotwein-katja-6bdff5897264c100b432.mp3",
+        "duration": 190.128,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Die Schalen bleiben bei der Gärung dabei",
+            "start": 79.56
+          },
+          {
+            "title": "Trocken fühlen und trocken schmecken",
+            "start": 115.272
+          },
+          {
+            "title": "Was Fass und Temperatur verändern",
+            "start": 153.264
+          }
+        ]
+      },
+      "audio:conrad": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/rotwein-conrad-e137b25721edc5625f49.mp3",
+        "duration": 179.088,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Die Schalen bleiben bei der Gärung dabei",
+            "start": 75.024
+          },
+          {
+            "title": "Trocken fühlen und trocken schmecken",
+            "start": 108.672
+          },
+          {
+            "title": "Was Fass und Temperatur verändern",
+            "start": 144.336
+          }
+        ]
+      }
+    }
+  },
+  "5d88d505a0fca3323320cb9ac0c9225227b35e3d02f578214084146eb2927ecd": {
+    "slug": "aromen",
+    "voices": {
+      "audio:katja": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/aromen-katja-6a6e653dc0811038a155.mp3",
+        "duration": 188.136,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Die Nase arbeitet auch im Mund",
+            "start": 79.584
+          },
+          {
+            "title": "Vom Obst zur einzelnen Frucht",
+            "start": 116.736
+          },
+          {
+            "title": "Was Luft und Wärme verändern",
+            "start": 152.064
+          }
+        ]
+      },
+      "audio:conrad": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/aromen-conrad-e6d3c126e72ae1bf2215.mp3",
+        "duration": 176.256,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Die Nase arbeitet auch im Mund",
+            "start": 74.16
+          },
+          {
+            "title": "Vom Obst zur einzelnen Frucht",
+            "start": 108.792
+          },
+          {
+            "title": "Was Luft und Wärme verändern",
+            "start": 142.152
+          }
+        ]
+      }
+    }
+  },
+  "7b604b6b49dc1b660decd021313d190aac6e08d3d0aa825afaf5f9aa45494e09": {
+    "slug": "kork",
+    "voices": {
+      "audio:katja": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/kork-katja-52e8e8578b3eb21be6fb.mp3",
+        "duration": 189.744,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Kork ist Rinde, kein Stück Stamm",
+            "start": 76.824
+          },
+          {
+            "title": "Wie ein Korkfehler riecht",
+            "start": 113.472
+          },
+          {
+            "title": "Warum auch gute Weine einen Schrauber haben",
+            "start": 151.824
+          }
+        ]
+      },
+      "audio:conrad": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/kork-conrad-17afddfa0c4493fb2de1.mp3",
+        "duration": 178.2,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Kork ist Rinde, kein Stück Stamm",
+            "start": 72.432
+          },
+          {
+            "title": "Wie ein Korkfehler riecht",
+            "start": 106.488
+          },
+          {
+            "title": "Warum auch gute Weine einen Schrauber haben",
+            "start": 142.608
+          }
+        ]
+      }
+    }
+  },
+  "58e4891eeeeb4e0d3b18b919faab0f99f5fd28402469177af75050ad58f3f384": {
+    "slug": "spaetburgunder-zwei-roses",
+    "voices": {
+      "audio:katja": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/spaetburgunder-zwei-roses-katja-18b20f6d17519a601209.mp3",
+        "duration": 202.32,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Dieselbe Traube aus zwei Weinregionen",
+            "start": 90.024
+          },
+          {
+            "title": "Duft, Geschmack und Mundgefühl",
+            "start": 129.36
+          },
+          {
+            "title": "Vom Rosé zum Riesling",
+            "start": 166.056
+          }
+        ]
+      },
+      "audio:conrad": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/spaetburgunder-zwei-roses-conrad-5912ad1f7e0075023db9.mp3",
+        "duration": 188.232,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Dieselbe Traube aus zwei Weinregionen",
+            "start": 83.448
+          },
+          {
+            "title": "Duft, Geschmack und Mundgefühl",
+            "start": 120.504
+          },
+          {
+            "title": "Vom Rosé zum Riesling",
+            "start": 154.608
+          }
+        ]
+      }
+    }
+  },
+  "3cf2907772190a90821c3485d5937ce51e29b60b2eb508c0adcb000134e7652d": {
+    "slug": "juwel",
+    "voices": {
+      "audio:katja": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/juwel-katja-10f019cd492277ae455f.mp3",
+        "duration": 317.784,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Mit 23 den Familienbetrieb übernehmen",
+            "start": 89.256
+          },
+          {
+            "title": "Fünf Sorten und eine bewusstere Auswahl",
+            "start": 129.12
+          },
+          {
+            "title": "Leichtere Flaschen, Sonnenstrom und Begrünung",
+            "start": 169.68
+          },
+          {
+            "title": "Juliane steckt im Namen",
+            "start": 212.16
+          },
+          {
+            "title": "Weinbau auch von seiner alltäglichen Seite",
+            "start": 245.616
+          },
+          {
+            "title": "Unser Rosé: Spätburgunder aus Alsheim",
+            "start": 280.872
+          }
+        ]
+      },
+      "audio:conrad": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/juwel-conrad-f8848a62a01f396340d0.mp3",
+        "duration": 296.832,
+        "chapters": [
+          {
+            "title": "Hauptteil",
+            "start": 0
+          },
+          {
+            "title": "Mit 23 den Familienbetrieb übernehmen",
+            "start": 83.016
+          },
+          {
+            "title": "Fünf Sorten und eine bewusstere Auswahl",
+            "start": 121.08
+          },
+          {
+            "title": "Leichtere Flaschen, Sonnenstrom und Begrünung",
+            "start": 159
+          },
+          {
+            "title": "Juliane steckt im Namen",
+            "start": 198.264
+          },
+          {
+            "title": "Weinbau auch von seiner alltäglichen Seite",
+            "start": 229.272
+          },
+          {
+            "title": "Unser Rosé: Spätburgunder aus Alsheim",
+            "start": 262.56
+          }
+        ]
+      }
+    }
+  }
+}

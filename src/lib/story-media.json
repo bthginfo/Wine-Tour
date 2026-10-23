@@ -1,0 +1,17 @@
+{
+  "margarethenhof-estate": {
+    "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/winery/margarethenhof-estate.webp",
+    "source": "https://www.margarethenhof-ayl.de/weingut/",
+    "original": "https://www.margarethenhof-ayl.de/wp-content/uploads/2021/04/Margarethenhof-Das-Weingut-1024x576.jpg"
+  },
+  "juwel-harvest": {
+    "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/winery/juwel-harvest.webp",
+    "source": "https://juwel-weine.de/pages/julianeeller",
+    "original": "https://juwel-weine.de/cdn/shop/files/Juliane_Eller_Ernte_2018_1.jpg?v=1682324603&width=1200"
+  },
+  "winning-vineyard": {
+    "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/winery/winning-vineyard.webp",
+    "source": "https://www.von-winning.de/weingut-von-winning",
+    "original": "https://content.von-winning.de/fileadmin/_processed_/0/3/csm_weingut-deidesheim_9081ab2a54.webp"
+  }
+}

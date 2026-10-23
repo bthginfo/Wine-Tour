@@ -400,7 +400,7 @@
     "character": "Dunkle Früchte, Kräuter und würzige Noten sind möglich. Säure und Gerbstoffe können deutlich ausfallen. Reifezeit im Fass und in der Flasche kann den Eindruck verändern.",
     "botany": "Aglianico reift spät. Ein warmer, ausreichend langer Herbst hilft der Traubenreife; höhere Standorte bringen gleichzeitig kühlere Nächte und einen eigenen Jahresverlauf.",
     "detail": "Aglianico ist die Sorte, Taurasi die Herkunft. Aglianico del Vulture verbindet die Traube mit dem Gebiet am erloschenen Vulkan Monte Vulture.",
-    "fact": "Süditalien bedeutet beim Wein nicht automatisch flaches, heißes Küstenland: Manche Aglianico-Weinberge liegen im Bergland.",
+    "fact": "Auch Süditalien hat hoch gelegene Weinberge: Aglianico wächst zum Teil im Bergland.",
     "aromas": [
       "Dunkle Kirsche",
       "Pflaume",
@@ -476,7 +476,7 @@
     "character": "Pflaume, dunkle Beeren und Veilchen sind mögliche Eindrücke. Je nach Standort und Ausbau können die Weine weich, saftig oder fest und gerbstoffreich wirken.",
     "botany": "Die Sorte kann kräftig wachsen und bei ungünstigem Blütewetter ungleichmäßigen Fruchtansatz zeigen. Wasser, Ertrag und Lesezeitpunkt beeinflussen ihre Balance.",
     "detail": "Côt ist ein französischer Name für Malbec. Cahors ist eine Herkunft; Mendoza ist eine andere. Derselbe Sortenname bedeutet nicht, dass die Weine gleich schmecken.",
-    "fact": "Argentinischer Malbec ist nicht automatisch ein Höhenwein: Auch innerhalb Mendozas liegen die Weinberge auf unterschiedlichen Höhenstufen.",
+    "fact": "Mendozas Malbec-Weinberge liegen auf verschiedenen Höhenstufen, von niedrigeren Flächen bis weit in die Anden.",
     "aromas": [
       "Pflaume",
       "Veilchen",
@@ -497,7 +497,7 @@
     "character": "Dunkle Früchte, Kräuter und Paprika sind mögliche Eindrücke. Gut gereifte Beispiele können weich und würzig wirken. Grüne Noten hängen unter anderem von Reife und Standort ab.",
     "botany": "Carménère reift relativ spät und wächst kräftig. Eine ausreichend lange Saison und passende Laubarbeit sind für die Traubenreife wichtig.",
     "detail": "Die Sorte wurde in Chile lange häufig für Merlot gehalten. Es sind zwei verschiedene Rebsorten; die spätere Identifizierung hat viele Weinberge neu eingeordnet.",
-    "fact": "Ein Kräuter- oder Paprikaduft kann sortentypisch sein und ist nicht automatisch ein Zeichen für einen fehlerhaften Wein.",
+    "fact": "Kräuter und Paprika gehören zu den bekannten Duftvergleichen für Carménère.",
     "aromas": [
       "Dunkle Beeren",
       "Paprika",
@@ -732,7 +732,7 @@
     "character": "Brombeere, Erdbeere und frische Frucht sind mögliche Eindrücke. Sie kann einer Mischung Farbe und Ausgewogenheit geben; der spätere Wein hängt von allen beteiligten Sorten ab.",
     "botany": "Ertrag, Laub und gesunde Trauben müssen zum Standort passen. Eine gleichmäßige Reife ist wichtig, wenn frische Frucht und ausreichende Konzentration zusammenkommen sollen.",
     "detail": "Alfrocheiro Preto ist ein weiterer gebräuchlicher Name. Eine Rebsortenliste auf der Rückseite kann helfen, sie in einer Dão-Cuvée zu entdecken.",
-    "fact": "Ein Wein mit mehreren örtlichen Sorten ist nicht automatisch weniger sorgfältig hergestellt als ein sortenreiner Wein.",
+    "fact": "In portugiesischen Rotweinen teilen sich oft mehrere örtliche Sorten eine Cuvée.",
     "aromas": [
       "Brombeere",
       "Erdbeere",
@@ -867,7 +867,7 @@
     "place": "Mavro ist eine traditionelle dunkle Sorte Zyperns. Sie steht in vielen örtlichen Weinbergen und wird unter anderem für Commandaria verwendet, gemeinsam mit oder neben der weißen Xynisteri.",
     "character": "Aus frischen Trauben können leichtere rote und roséfarbene Weine entstehen. Für Commandaria werden die Trauben in der Sonne getrocknet, wodurch sich Zucker und andere Bestandteile konzentrieren.",
     "botany": "Trockene Sommer und ältere, örtlich angepasste Weinberge gehören zum Rahmen. Für die Traubentrocknung sind gesunde Früchte und sorgfältige Auswahl wichtig.",
-    "detail": "Mavro bedeutet schwarz. Ähnliche Namensbestandteile kommen auch bei anderen griechisch benannten Sorten vor und bedeuten nicht automatisch dieselbe Pflanze.",
+    "detail": "Mavro bedeutet schwarz. Der Wortteil kommt in verschiedenen griechischen Sortennamen vor. Für die genaue Traube ist deshalb der vollständige Name wichtig, etwa Mavro, Mavrodaphne oder Mavrotragano.",
     "fact": "Eine dunkle Traube kann Teil eines bernsteinfarbenen Süßweins sein: Die spätere Farbe hängt auch von Herstellung und Reife ab.",
     "aromas": [
       "Rote Beeren",
@@ -982,7 +982,7 @@
     "place": "Frappato ist besonders im Südosten Siziliens bekannt. In Cerasuolo di Vittoria wird die Sorte mit Nero d’Avola kombiniert. Daneben gibt es sortenreine Weine.",
     "character": "Erdbeere, Himbeere und Blüten sind mögliche Eindrücke. Die Farbe ist häufig eher hell und die Gerbstoffwirkung vergleichsweise fein, abhängig von Reife und Ausbau.",
     "botany": "Warme Standorte können reife Frucht bringen; ein passender Lesezeitpunkt bewahrt Frische. Die Bedingungen unterscheiden sich auch innerhalb des sizilianischen Südostens.",
-    "detail": "Frappato ist eine Sorte, Vittoria ein Ort und Cerasuolo di Vittoria ein roter Herkunftswein. Der Name Cerasuolo bedeutet hier nicht automatisch Rosé.",
+    "detail": "Frappato ist eine Sorte, Vittoria ein Ort und Cerasuolo di Vittoria ein roter Herkunftswein. Cerasuolo verweist hier auf die kirschrote Farbe. Der Wein bleibt ein Rotwein, auch wenn das Wort in anderen Zusammenhängen bei Rosé auftaucht.",
     "fact": "In einer Cuvée kann Frappato Duft und Leichtigkeit ergänzen, während Nero d’Avola häufig mehr Struktur beiträgt.",
     "aromas": [
       "Erdbeere",
@@ -1171,7 +1171,7 @@
     "id": "chardonnay",
     "hook": "Eine Sorte, vom schlanken Chablis bis zum gereiften Fasswein.",
     "place": "Chardonnay ist im Burgund und in der Champagne wichtig und wächst weltweit, etwa in Kalifornien, Australien und Südafrika. Die Sorte wird für Still- und Schaumwein verwendet.",
-    "character": "Apfel, Zitrus oder reifere gelbe Frucht sind möglich. Butter, Toast und Vanille hängen stark von Gärung, Säureabbau und Ausbau ab. Chardonnay ist deshalb nicht automatisch ein schwerer Holzwein.",
+    "character": "Apfel, Zitrus und reife gelbe Frucht sind vertraute Duftvergleiche. Butter, Toast oder Vanille können durch Gärung, biologischen Säureabbau und Ausbau dazukommen. Die Bandbreite reicht von frischen, schlanken Weinen bis zu runden, deutlich vom Holz geprägten Stilen.",
     "botany": "Die kleinen Trauben können in vielen gemäßigten Klimazonen ausreifen. Früher Austrieb macht Frühjahrsfrost an manchen Standorten zum Thema.",
     "detail": "Chablis und Pouilly-Fuissé sind burgundische Herkünfte für Chardonnay. Pouilly-Fumé liegt dagegen an der Loire und steht für Sauvignon Blanc.",
     "fact": "Ein Blanc de Blancs aus der Champagne besteht häufig aus Chardonnay; der Begriff allein bedeutet allgemein weißer Wein aus hellen Trauben.",
@@ -1255,7 +1255,7 @@
     "id": "viognier",
     "hook": "Duftige weiße Weine, besonders von der nördlichen Rhône.",
     "place": "Viognier ist mit Condrieu an der nördlichen Rhône verbunden. Die Sorte wird auch in Südfrankreich, Australien und weiteren Ländern angebaut und manchmal mit roten Trauben gemeinsam vergoren.",
-    "character": "Aprikose, Pfirsich und Blüten sind mögliche Eindrücke. Die Weine können weich und körperreich wirken. Intensive Frucht im Duft bedeutet dabei nicht automatisch Restsüße.",
+    "character": "Aprikose, Pfirsich und Blüten sind vertraute Duftvergleiche. Die Weine können weich und körperreich wirken. Auch ein trockener Viognier kann intensiv nach reifer Frucht duften.",
     "botany": "Die kleinen, kompakten Trauben brauchen eine sorgfältige Wahl des Lesezeitpunkts. Zu frühe oder sehr späte Ernte verändert das Verhältnis von Duft, Säure und Alkohol.",
     "detail": "Condrieu ist eine Herkunft für Viognier. In manchen Côte-Rôtie-Weinen darf etwas Viognier gemeinsam mit Syrah verarbeitet werden.",
     "fact": "Eine helle Traube kann bei manchen traditionellen Rotweinen eine Rolle spielen, ohne den fertigen Wein zu einem Rosé zu machen.",
@@ -1578,7 +1578,7 @@
     "character": "Zitrone, Apfel und dezente Blüten sind mögliche Eindrücke. Die Säure kann frisch wirken; Hefelager und längere Reife verändern die Textur.",
     "botany": "Standort und Ertrag müssen zusammenpassen. Bei zu hohen Erträgen kann der Wein dünner wirken, während gesunde, gut ausgereifte Trauben mehr Balance erlauben.",
     "detail": "Gavi ist eine Herkunft und Cortese die Sorte. Gavi del Comune di Gavi grenzt die Herkunft innerhalb des größeren Gebiets weiter ein.",
-    "fact": "Eine lange Herkunftsangabe kann mehr geografische Genauigkeit bedeuten, nicht automatisch einen höheren Alkoholgehalt.",
+    "fact": "Gavi di Gavi grenzt die Herkunft innerhalb des Gavi-Gebiets genauer ein.",
     "aromas": [
       "Zitrone",
       "Apfel",
@@ -1614,7 +1614,7 @@
     "hook": "Muskateller ist eine Familie aromatischer Rebsorten.",
     "place": "Muscat, Muskateller, Moscato und Moscatel begegnen in vielen Ländern. Gemeint sein können unterschiedliche Sorten, etwa Muscat Blanc à Petits Grains, Muscat of Alexandria oder Muscat Ottonel.",
     "character": "Traubiger Duft, Blüten und Zitrus sind mögliche Eindrücke. Es gibt trockene Stillweine, süße Weine und Schaumweine. Der aromatische Name sagt noch nichts über Restzucker aus.",
-    "botany": "Die einzelnen Mitglieder haben unterschiedliche Eigenschaften bei Reife, Wuchs und Klimaeignung. Eine gemeinsame pauschale Weinbergsbeschreibung wäre deshalb ungenau.",
+    "botany": "Die Muskatfamilie umfasst mehrere Sorten. Sie unterscheiden sich bei Reife, Wuchs und Klimaeignung. Muscat Blanc à Petits Grains und Muscat of Alexandria sind zwei bekannte Mitglieder. Gemeinsam ist vielen der ausgeprägte, an Trauben und Blüten erinnernde Duft.",
     "detail": "Muscat ist kein eindeutiger Name für eine einzige Pflanze. Auch Muscadelle und die Herkunft Muscadet gehören trotz ähnlichem Klang nicht einfach in diese Familie.",
     "fact": "Moscato d’Asti ist ein bestimmter süßer, leicht schäumender Herkunftswein; nicht jeder Muskateller schmeckt so.",
     "aromas": [
@@ -1771,7 +1771,7 @@
     "place": "Sercial wird auf Madeira für einen vergleichsweise trockenen Stil des verstärkten Inselweins verwendet. Auf dem portugiesischen Festland ist die Sorte als Esgana Cão bekannt.",
     "character": "Bei gereiftem Madeira können Zitrusschale, Nüsse und würzige Eindrücke entstehen. Die markante Säure bleibt wichtig; Wärme und Luft während der Herstellung prägen den Geschmack stark.",
     "botany": "Die Sorte reift spät und besitzt viel Säure. Standort und Lesezeitpunkt müssen deshalb gut passen.",
-    "detail": "Sercial ist eine Sorte und eine traditionelle Stilbezeichnung bei Madeira. Ein trockener Stillwein aus derselben Traube ist nicht automatisch ein Madeira.",
+    "detail": "Sercial ist eine Rebsorte und zugleich eine traditionelle Stilbezeichnung bei Madeira. Die Traube kann auch trockenen Stillwein ergeben. Madeira bezeichnet dagegen einen verstärkten Wein mit eigener Herkunft und Herstellung.",
     "fact": "Auch ein trockener wirkender Madeira kann Restzucker enthalten; der Eindruck hängt stark vom Zusammenspiel mit der Säure ab.",
     "aromas": [
       "Zitrusschale",
@@ -2025,7 +2025,7 @@
     "place": "Malvasia begegnet in Italien, Portugal, Spanien und anderen Ländern. Dahinter stehen unterschiedliche Sorten, etwa Malvasia Istriana, Malvasia Fina oder Malvasia di Candia Aromatica.",
     "character": "Manche Malvasias duften stark nach Blüten und Trauben, andere sind zurückhaltender. Trockene, süße, stille und schäumende Weine sind möglich. Ein einheitliches Geschmacksprofil wäre irreführend.",
     "botany": "Die einzelnen Sorten haben unterschiedliche Eigenschaften. Ohne den genaueren Namen lassen sich Reifezeit, Beerenfarbe oder Klimaeignung nicht zuverlässig zusammenfassen.",
-    "detail": "Malvasia ist eine Namensgruppe, keine Garantie enger genetischer Verwandtschaft aller Mitglieder. Der Zusatz hinter dem Namen ist deshalb besonders hilfreich.",
+    "detail": "Malvasia umfasst mehrere Namen und Sorten, die genetisch unterschiedlich sein können. Zusätze wie Istriana oder Bianca Lunga helfen, die konkrete Traube zu erkennen. Hinter dem vertrauten Familiennamen steckt deshalb eine große Bandbreite.",
     "fact": "Malmsey auf Madeira gehört in diesen historischen Namenszusammenhang, ist aber keine weltweit eindeutige einzelne Rebsorte.",
     "aromas": [
       "Je nach Sorte: Blüten",
@@ -2066,7 +2066,7 @@
     "place": "Grillo ist auf Sizilien verbreitet, besonders im Westen der Insel. Die Sorte wird heute häufig als trockener Weißwein abgefüllt und gehört auch zur Tradition des Marsala.",
     "character": "Zitrus, gelbe Früchte und Kräuter sind mögliche Eindrücke. Frische Tankweine unterscheiden sich deutlich von länger gereiften oder verstärkten Varianten.",
     "botany": "Warme, trockene Bedingungen verlangen einen passenden Umgang mit Wasser und Lesezeitpunkt. Der gewünschte Stil bestimmt mit, wann geerntet wird.",
-    "detail": "Marsala ist ein geregelter Herkunftswein und keine Rebsorte. Ein trockener Grillo ist nicht automatisch ein Marsala und muss nicht süß oder verstärkt sein.",
+    "detail": "Grillo kann trockenen Weißwein ergeben und spielt auch bei Marsala eine Rolle. Marsala ist ein geregelter Herkunftswein aus Sizilien mit eigener Herstellung. Der Sortenname Grillo und der Weinname Marsala beantworten also verschiedene Fragen.",
     "fact": "Eine historische Likörweintraube kann heute ebenso für einen frischen, stillen Weißwein stehen.",
     "aromas": [
       "Zitrone",
@@ -2124,7 +2124,7 @@
     "place": "Merwah gehört zu den örtlichen weißen Sorten des Libanon. Manche Produzenten arbeiten mit älteren, hoch gelegenen Beständen und füllen die Sorte eigenständig oder mit Obaideh ab.",
     "character": "Zitrus, Apfel und herbere bis würzige Eindrücke sind möglich. Reife und Kellerarbeit beeinflussen, ob der Wein eher frisch oder dichter wirkt.",
     "botany": "Die konkreten Standorte können hoch und abgelegen liegen. Wasser, Reifezeit und gesunde Trauben bestimmen die Grundlage für den späteren Ausbau.",
-    "detail": "Merwah ist kein verlässlicher Zweitname für Sémillon. Solche früheren Gleichsetzungen sollten nicht als gesicherte botanische Tatsache weitergegeben werden.",
+    "detail": "Merwah ist eine lokale libanesische Rebsorte. Früher wurde sie zum Teil mit Sémillon gleichgesetzt; diese Zuordnung ist botanisch nicht gesichert. Der eigene Name bleibt deshalb die passendere Bezeichnung.",
     "fact": "Traditionelle örtliche Sorten lassen sich auch ohne berühmten internationalen Zweitnamen sinnvoll kennenlernen.",
     "aromas": [
       "Zitrone",
@@ -2414,7 +2414,7 @@
     "character": "Apfel, Aprikose und bei konzentrierten süßen Weinen tropische Frucht sind möglich. Lebendige Säure hilft, deutliche Süße auszubalancieren.",
     "botany": "Vidal ist eine Kreuzung mit mehreren Rebarten im Stammbaum. Die relativ robuste Beerenhaut ist für spätes Hängenlassen und manche Eisweinproduktion hilfreich.",
     "detail": "Eiswein ist eine Herstellungs- und Weinkategorie, keine Rebsorte. Auch Riesling und weitere geeignete Trauben können dafür verwendet werden.",
-    "fact": "Für echten Eiswein werden natürlich gefrorene Trauben verarbeitet; eine süße Vidal-Flasche ist aber nicht automatisch Eiswein.",
+    "fact": "Vidal wird auch für Eiswein verwendet. Dafür werden die Trauben natürlich gefroren gelesen.",
     "aromas": [
       "Aprikose",
       "Apfel",
@@ -2530,7 +2530,7 @@
     "place": "Dornfelder wurde in Württemberg gezüchtet und wird heute unter anderem in Rheinhessen und der Pfalz angebaut. Die Sorte erscheint eigenständig und als Mischpartner.",
     "character": "Dunkle Kirsche, Brombeere und fruchtige Eindrücke sind möglich. Es gibt trockene und süßere Varianten, außerdem Beispiele mit und ohne Holzfassausbau.",
     "botany": "Die Sorte ist wüchsig und kann reich tragen. Ein passender Ertrag und reife, gesunde Trauben bestimmen die spätere Konzentration.",
-    "detail": "Dornfelder ist eine Rebsorte, keine allgemeine Bezeichnung für süßen deutschen Rotwein. Der tatsächliche Restzucker muss am Wein geprüft werden.",
+    "detail": "Dornfelder ist eine dunkle Rebsorte. Sie kann trocken, mit etwas Süße oder deutlich süß ausgebaut werden. Auf dem Etikett kommt zum Sortennamen deshalb eine eigene Geschmacksangabe. Seine intensive Farbe ist ein anderes Merkmal als die Süße.",
     "fact": "Die dunkle Farbe sagt wenig darüber aus, ob ein Rotwein trocken, süß, leicht oder besonders tanninreich schmeckt.",
     "aromas": [
       "Kirsche",
@@ -2549,7 +2549,7 @@
     "place": "Blauer Portugieser wird in Deutschland besonders in Rheinhessen, der Pfalz und an der Ahr angebaut. Daneben gibt es Bestände in anderen mitteleuropäischen Ländern.",
     "character": "Rote Beeren und Kirsche sind mögliche Eindrücke. Leichtere Rotweine und Rosés sind verbreitet; Ertrag und Ausbau können den Stil deutlich verändern.",
     "botany": "Die Sorte reift früh und kann reich tragen. Gesunde Trauben und ein passender Ertrag sind wichtig für Frucht und Ausgewogenheit.",
-    "detail": "Der Name Portugieser ist kein verlässlicher Nachweis einer Herkunft aus Portugal. Sortennamen und tatsächlich gesicherte Herkunftsgeschichte sind unterschiedliche Dinge.",
+    "detail": "Trotz des Namens führt die Herkunftsgeschichte von Portugieser nicht einfach nach Portugal. Sortennamen sind über lange Zeit gewachsen und können von der tatsächlichen Verbreitungsgeschichte abweichen. In Deutschland ist die Sorte vor allem als Rotwein und Weißherbst bekannt.",
     "fact": "Ein deutscher Portugieser ist ein Wein aus einer Rebsorte mit diesem Namen, keine automatisch importierte portugiesische Flasche.",
     "aromas": [
       "Rote Beeren",
@@ -2571,7 +2571,7 @@
     "character": "Rote Johannisbeere, Erdbeere und eine fein herbe Note sind möglich. Die Farbe ist oft hell; viele Weine werden frisch und ohne stark betonten Holzausbau getrunken.",
     "botany": "Die Sorte hat eher große Beeren und reift spät. Warme, geeignete Standorte und ein passender Ertrag sind deshalb auch für einen leichteren Wein wichtig.",
     "detail": "Vernatsch und Schiava können mehrere verwandte, aber unterschiedliche Sortennamen umfassen. Trollinger entspricht genauer Großvernatsch beziehungsweise Schiava Grossa.",
-    "fact": "Ein heller, leichter Rotwein kann aus einer spät reifenden Sorte stammen. Leicht bedeutet nicht automatisch früh geerntet.",
+    "fact": "Trollinger reift vergleichsweise spät und ergibt trotzdem oft helle, leichtere Rotweine.",
     "aromas": [
       "Erdbeere",
       "Rote Johannisbeere",
@@ -2652,7 +2652,7 @@
     "character": "Dunkle Beeren, Kirsche und kräftige Farbe sind mögliche Merkmale. Ausbau und Reife bestimmen, wie weich oder fest der Rotwein wirkt.",
     "botany": "Die erhöhte Widerstandskraft kann den Aufwand beim Pflanzenschutz verringern. Vollständig immun ist die Rebe dadurch nicht; Wetter und Weinberg bleiben entscheidend.",
     "detail": "PIWI beschreibt eine Eigenschaftsgruppe und keine einzelne Sorte. Regent ist ein konkreter Name innerhalb dieser Gruppe.",
-    "fact": "Pilzwiderstandsfähig bedeutet nicht automatisch bio. Anbaumethode und Eigenschaften der Sorte sind zwei unterschiedliche Angaben.",
+    "fact": "Regent gehört zu den pilzwiderstandsfähigen Sorten. Ob ein Wein biologisch angebaut wird, ist eine zusätzliche Entscheidung des Betriebs.",
     "aromas": [
       "Brombeere",
       "Kirsche",

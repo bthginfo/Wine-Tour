@@ -1,10 +1,15 @@
 import type {Article, Wine, Step} from '../content';
 import {tastingWine} from '../tasting-wine';
+import companions from '../locales/de/story-companions.json' with {type:'json'};
+import companionMedia from '../story-media.json' with {type:'json'};
+import regionProfiles from '../locales/de/region-profiles.json' with {type:'json'};
 
 export type TastingNote = {text:string;aromas:string[];rating:number;sweetness:number;acidity:number};
 export type NoteRecord = {room:string;wine:string;data:Partial<TastingNote>;updated_at:string};
 export type ImageCredit = {text:string;url?:string};
-export type PdfArticle = Pick<Article,'slug'|'title'|'intro'|'paragraphs'|'sections'|'fact'|'visual'|'image'|'imagePosition'|'imageFit'> & {credit:ImageCredit;label:string};
+export type PdfCompanion={title:string;image:string;caption:string;credit:ImageCredit;milestones:{year:string;title:string;body:string}[]};
+export type PdfLandscape={title:string;caption:string;parts:{title:string;body:string}[]};
+export type PdfArticle = Pick<Article,'slug'|'title'|'intro'|'paragraphs'|'sections'|'fact'|'visual'|'image'|'imagePosition'|'imageFit'> & {credit:ImageCredit;label:string;companion?:PdfCompanion;landscape?:PdfLandscape};
 export type PdfEntry = {type:'article';wine:number;article:PdfArticle;interlude:boolean}|{type:'notes';wine:number;note:TastingNote}|{type:'pending';wine:number;sections:{title:string;body:string}[]};
 export type TastingBook = {name:string;code:string;participant:string;exportedAt:string;wines:(Wine & {vintage:string})[];entries:PdfEntry[]};
 const score=(n:unknown)=>typeof n==='number'&&Number.isFinite(n)?Math.max(0,Math.min(5,Math.round(n))):0;
@@ -19,7 +24,10 @@ export function makeTastingBook(args:{room:{name:string;code:string;settings:Rec
   if(step.type==='story'||step.type==='break'){
    const a=args.articles.find(a=>a.slug===step.slug);if(!a)continue;
    // Explicit public fields: private host notes and research links never enter the PDF.
-   entries.push({type:'article',wine:step.wine,interlude:step.type==='break',article:{slug:a.slug,title:a.title,intro:a.intro,paragraphs:[...a.paragraphs],sections:a.sections?.map(s=>({...s})),fact:a.fact,visual:a.visual,image:args.imageSrc(a.image),imagePosition:a.imagePosition,imageFit:a.imageFit,credit:args.creditFor(a),label:step.type==='break'?'Weinwissen zwischendurch':step.label}});
+   const companion=companions[a.slug as keyof typeof companions];
+   const photo=companion?companionMedia[companion.photo as keyof typeof companionMedia]:undefined;
+   const landscape=regionProfiles[a.slug as keyof typeof regionProfiles];
+   entries.push({type:'article',wine:step.wine,interlude:step.type==='break',article:{slug:a.slug,title:a.title,intro:a.intro,paragraphs:[...a.paragraphs],sections:a.sections?.map(s=>({...s})),fact:a.fact,visual:a.visual,image:args.imageSrc(a.image),imagePosition:a.imagePosition,imageFit:a.imageFit,credit:args.creditFor(a),label:step.type==='break'?'Weinwissen zwischendurch':step.label,...(landscape?{landscape:structuredClone(landscape)}:{}),...(companion&&photo?{companion:{title:companion.title,image:photo.url,caption:companion.caption,credit:{text:companion.credit,url:photo.source},milestones:companion.milestones.map(m=>({...m}))}}:{})}});
   }else if(step.type==='notes'){
    const records=args.notes.filter(n=>n.room===room.code&&n.wine===wines[step.wine].id).sort((a,b)=>Date.parse(b.updated_at)-Date.parse(a.updated_at));
    let note=cleanNote(records[0]?.data);

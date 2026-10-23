@@ -30,3 +30,14 @@ Other photos: Pfalz by Kmtextor, Rheinhessen by Gerda Arendt, CC BY-SA 4.0. Sour
 The `atlas/` directory contains resized WebP photographs and matching `.thumb.webp` card images from the original atlas. The complete per-file creator, original Wikimedia Commons URL, licence and caption are preserved in [photos.json](../../src/lib/locales/de/atlas/photos.json). All variants preserve the same credit. Images may be cropped by the layout; the editor supports independent desktop/mobile focus positions.
 
 `atlas/world-land.svg` uses the Natural Earth 1:110m land dataset (public domain), https://www.naturalearthdata.com/. It is an approximate location diagram, without invented wine-region boundaries.
+
+## Saar · Ayler Kupp
+
+- `atlas/saar-ayler-kupp.webp` and `atlas/saar-ayler-kupp.thumb.webp`
+- Original: https://commons.wikimedia.org/wiki/File:Ayler-kupp.jpg
+- Photograph: Rudolf Klein, 1 August 2007
+- Licence: CC BY-SA 3.0, https://creativecommons.org/licenses/by-sa/3.0/
+- Changes: resized and converted to WebP; the card thumbnail may show a crop.
+- Depicts the Ayler Kupp near Ayl as regional scenery. The Schieferstein tasting wine is an Ayler Ortswein; the photograph does not assign its grapes to this individual vineyard.
+
+Additional official winery photos and their original URLs are recorded in `src/lib/story-media.json`; captions and photographer credits are in `src/lib/locales/de/story-companions.json`.
