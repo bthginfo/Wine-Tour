@@ -46,7 +46,11 @@ test('notes survive leaving the editor, concurrent saves and account switches wi
   await expect(g.locator('.live-badge')).toContainText('Beendet');await expect(words).toHaveValue('Die letzte Fassung bleibt erhalten.');await expect(g.locator('.recent-session')).toContainText('Die Weinprobe ist beendet.');
   // The completion action stays accurate even if the host revisits an earlier chapter afterwards.
   const closed=(await request(h,'rooms/'+code)).body.room;expect((await request(h,'rooms/'+code+'/advance',{step:0,version:closed.version,requestId:crypto.randomUUID()})).status).toBe(200);
+  // Returning from the PDF page restores the guest's actual last section, including an earlier wine.
+  await open(g,'/tasting/'+code+'?wine=secco');await words.fill('Diese frühere Notiz bleibt mein Ausgangspunkt.');await expect(g.locator('.save-status')).toContainText('Gespeichert');
   await g.setViewportSize({width:320,height:844});expect(await g.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();await g.locator('.tasting-controls').getByRole('button',{name:'Abschluss & PDF',exact:true}).click();await expect(g.locator('.finish-card')).toBeVisible();await expect(g.locator('.tasting-pdf button')).toHaveText('PDF herunterladen');
+  await g.getByRole('button',{name:'Zurück zur Probe',exact:true}).click();await expect(words).toHaveValue('Diese frühere Notiz bleibt mein Ausgangspunkt.');await expect(g.locator('.progress-info')).toContainText('05 / 23');
+  await g.locator('.recent-session').getByRole('button',{name:'Abschluss & PDF',exact:true}).click();await expect(g.locator('.finish-card')).toBeVisible();await g.getByRole('button',{name:'Zurück zur Probe',exact:true}).click();await expect(words).toHaveValue('Diese frühere Notiz bleibt mein Ausgangspunkt.');
   expect(errors).toEqual([]);
  }finally{await hc.close();await gc.close();await bc.close();}
 });
