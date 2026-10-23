@@ -1,4 +1,5 @@
 export type SpeechChapter = {title:string;text:string};
+export const hostNarrationVersion='guide-v2';
 
 /** Keep display copy intact; pronunciation fixes only affect the spoken version. */
 export function hostPronunciation(text:string):string {
@@ -7,7 +8,7 @@ export function hostPronunciation(text:string):string {
   .replace(/\bJUWEL\b/g,'Juwel').replace(/\bJUliane\b/g,'Juliane').replace(/\bELler\b/g,'Eller').replace(/\bVDP\b/g,'Vau De Pe')
   .replace(/\bTCA\b/g,'Te Ce A').replace(/CO₂/g,'Kohlendioxid')
   .replace(/(\d)\s*[–-]\s*(\d)/g,'$1 bis $2').replace(/°\s*C\b/g,' Grad Celsius')
-  .replace(/\s*·\s*/g,'. ').replace(/\n+/g,'. ').replace(/\s+/g,' ').trim();
+  .replace(/\s*·\s*/g,'. ').replace(/\n+/g,' ').replace(/\s+/g,' ').trim();
 }
 
 /** Closed accordion topics are included in full, independently of their visual state. */
@@ -16,8 +17,8 @@ export function hostSpeechChapters(paragraphs:string[]):SpeechChapter[] {
  for(const raw of paragraphs){
   const text=raw.trim();if(!text)continue;const split=text.indexOf('\n');
   if(split>0&&split<110)chapters.push({title:text.slice(0,split),text:text.slice(split+1).trim()});
-  else if(chapters.length&&chapters.at(-1)?.title==='Hauptteil')chapters.at(-1)!.text+='\n\n'+text;
-  else chapters.push({title:'Hauptteil',text});
+  else if(chapters.length&&chapters.at(-1)?.title==='Grundwissen')chapters.at(-1)!.text+='\n\n'+text;
+  else chapters.push({title:'Grundwissen',text});
  }
  return chapters;
 }

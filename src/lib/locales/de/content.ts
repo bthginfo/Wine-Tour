@@ -46,7 +46,7 @@ articles.push(...moreArticles,...practicalArticles,roseComparison.article);
 articles.find(a=>a.slug==='aromen')!.sources.push(source('NIDCD · Geschmack und Geruch','https://www.nidcd.nih.gov/health/taste-disorders'));
 const reviewed=learning as Record<string,{visual:string;sections:ArticleSection[];hostMore?:string[]}>;
 for(const a of articles){const more=reviewed[a.slug];if(more){a.sections=more.sections;a.visual=more.visual;a.host=[...a.host,...more.hostMore||[]];}if(['aromen','kork','trauben','weisse-trauben','weinarten','riesling','tasting','saar-illustration'].includes(a.image))a.image='';}
-for(const a of articles){const background=(hostBackground as Record<string,{sections:ArticleSection[];sources:{label:string;url:string}[]}>)[a.slug];if(background){a.host.push(...background.sections.map(section=>section.title+'\n'+section.body));for(const item of background.sources)if(!a.sources.some(existing=>existing.url===item.url))a.sources.push(item);}}
+for(const a of articles){const background=(hostBackground as Record<string,{guide:string[];sections:ArticleSection[];sources:{label:string;url:string}[]}>)[a.slug];if(background){a.host=[...background.guide,...background.sections.map(section=>section.title+'\n'+section.body)];for(const item of background.sources)if(!a.sources.some(existing=>existing.url===item.url))a.sources.push(item);}}
 for(const [slug,m]of Object.entries(grapeMedia)){const a=articles.find(a=>a.slug===slug)!;Object.assign(a,{image:m.url,imageAlt:m.alt,imageCredit:m.credit,imageSource:m.source,imagePosition:'center center',imagePositionMobile:'center center',imageFit:'cover'});}
 
 for(const a of articles){a.imageFit??=(!imageCreditsLookup(a.image)?'contain':'cover');}

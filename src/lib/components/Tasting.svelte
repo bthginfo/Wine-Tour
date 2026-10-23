@@ -30,7 +30,17 @@
  async function loadMembers(){try{const d=await api('rooms/'+code+'/members');members=d.members;}catch{}}
  async function saveSettings(){settingsBusy=true;error='';try{const d=await api('rooms/'+code+'/settings',settings);room=d.room;settingsOpen=false;}catch(e){error=(e as Error).message;}settingsBusy=false;}
  async function finish(){if(previewing)return;busy=true;try{const d=await api('rooms/'+code+'/advance',{step:steps.length-1,version:room.version,requestId:crypto.randomUUID(),closed:true});room=d.room;index=room.step;finishOpen=false;}catch(e){error=(e as Error).message;}busy=false;}
- function downloadHost(){const text='# '+room.name+'\n\n'+steps.filter(s=>s.type==='story'||s.type==='break').map(s=>{const a=articleBySlug(s.slug!);return a?'## '+wines[s.wine].name+' · '+a.title+'\n\n'+[a.intro,...a.paragraphs,...(a.sections||[]).flatMap(s=>[s.title,s.body]),...a.host,'Gut zu wissen: '+a.fact,...a.sources.map(s=>s.label+': '+s.url)].join('\n\n'):'';}).join('\n\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/markdown;charset=utf-8'}));a.download='sip-happens-hostwissen.md';a.click();URL.revokeObjectURL(a.href);}
+ function downloadHost(){
+  const chapters=steps.filter(s=>s.type==='story'||s.type==='break').map(s=>{
+   const a=articleBySlug(s.slug!);if(!a)return '';
+   const selected=tastingWine(wines[s.wine],room.settings);
+   const paragraphs=a.host.length?a.host:[a.intro,...a.paragraphs,...(a.sections||[]).map(section=>section.title+'\n'+section.body)];
+   const body=paragraphs.map(text=>{const split=text.indexOf('\n');return split>0&&split<110?'### '+text.slice(0,split)+'\n\n'+text.slice(split+1):text;}).join('\n\n');
+   return '## '+selected.name+' · '+a.title+'\n\n'+body;
+  });
+  if(room.settings.redStory)chapters.push('## '+(room.settings.redName||'Rotwein')+' · Eigener Hintergrund\n\n'+room.settings.redStory);
+  const text='# '+room.name+'\n\n'+chapters.join('\n\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/markdown;charset=utf-8'}));a.download='sip-happens-hostwissen.md';a.click();URL.revokeObjectURL(a.href);
+ }
  onMount(async()=>{await load();if(hostMode&&isHost)loadMembers();});onDestroy(()=>{disposed=true;stream?.close();});
 </script>
 <svelte:head><title>{hostMode?'Host · ':''}{room?.name||'Tasting'} {t('m_46c3600dd1')}</title></svelte:head>

@@ -1,6 +1,6 @@
 <script lang="ts">
  import {onMount,onDestroy,untrack} from 'svelte';
- import {hostSpeechChapters,hostSpeechChunks,hostSpeechFingerprint,speechClock} from '#lib/host-speech.ts';
+ import {hostSpeechChapters,hostSpeechChunks,hostSpeechFingerprint,hostNarrationVersion,speechClock} from '#lib/host-speech.ts';
  import copy from '#lib/locales/de/host-player.json';
  import audioCatalog from '#lib/locales/de/host-audio.json';
  import Icon from './Icon.svelte';
@@ -17,7 +17,7 @@
  const chapters=$derived(hostSpeechChapters(paragraphs));
  const chunks=$derived.by(()=>{
   let seconds=0;const list:{text:string;start:number;end:number;chapter:number}[]=[];
-  chapters.forEach((chapter,index)=>hostSpeechChunks([chapter.title===copy.main?chapter.text:chapter.title+'. '+chapter.text],190).forEach(text=>{
+  chapters.forEach((chapter,index)=>hostSpeechChunks([chapter.text],360).forEach(text=>{
    const start=seconds;seconds+=(text.length+1)/14.5;list.push({text,start,end:seconds,chapter:index});
   }));return list;
  });
@@ -28,10 +28,11 @@
  const canPlay=$derived(ready&&enabled&&duration>0&&(!!recording||supported));
  const playing=$derived(status==='playing');
  const extraCount=$derived(chapters.filter(c=>c.title!==copy.main).length);
+ const voiceLabel=$derived(selected==='audio:florian'?copy.florian:selected==='audio:seraphina'?copy.seraphina:voices.find(v=>v.voiceURI===selected)?.name||copy.device);
  function voiceScore(voice:SpeechSynthesisVoice){return (/^de-DE$/i.test(voice.lang)?20:0)+(/natural|neural|premium|enhanced|Google Deutsch|Katja|Anna/i.test(voice.name)?12:0)+(voice.default?3:0);}
  function refreshVoices(){
   voices=(synthesis?.getVoices()||[]).filter(voice=>/^de(?:-|$)/i.test(voice.lang)).sort((a,b)=>voiceScore(b)-voiceScore(a));
-  if(!selected)selected=recordings?.voices['audio:katja']?'audio:katja':voices[0]?.voiceURI||'device';
+  if(!selected)selected=recordings?.voices['audio:florian']?'audio:florian':voices[0]?.voiceURI||'device';
  }
  function cancelNative(){run++;synthesis?.cancel();utterance=undefined;}
  function halt(){cancelNative();audio?.pause();loading=false;}
@@ -59,6 +60,7 @@
   if(recording&&audio){
    const current=++run;loading=true;
    try{
+    if(audio.error){pendingSeek=position;audio.load();}
     audio.playbackRate=rate;audio.volume=volume;audio.muted=volume===0;
     if(audio.readyState)audio.currentTime=position;else pendingSeek=position;
     await audio.play();if(current!==run){audio.pause();return;}status='playing';loading=false;
@@ -73,15 +75,14 @@
   if(recording&&audio){if(audio.readyState)try{audio.currentTime=target;}catch{pendingSeek=target;}else pendingSeek=target;if(status==='ended')status='paused';}
   else if(playing)nativePlay(target);else if(status==='ended')status='paused';
  }
- function changeVoice(value:string){stop();selected=value;hint='';try{localStorage.setItem('sip:hostAudioVoice',value);localStorage.setItem('sip:hostVoice',value);}catch{}}
+ function changeVoice(value:string){stop();selected=value;hint='';try{localStorage.setItem('sip:hostAudioVoice',value);localStorage.setItem('sip:hostVoice',value);localStorage.setItem('sip:hostNarrationVersion',hostNarrationVersion);}catch{}}
  function changeRate(value:number){rate=value;if(audio)audio.playbackRate=rate;if(playing&&!recording)nativePlay(position);try{localStorage.setItem('sip:hostRate',String(rate));}catch{}}
  function changeVolume(value:number){volume=value;if(audio){audio.volume=volume;audio.muted=volume===0;}if(playing&&!recording)nativePlay(position);try{localStorage.setItem('sip:hostVolume',String(volume));}catch{}}
  function beginSeek(){if(!recording&&playing){dragResume=true;pause();}}
  function endSeek(){if(dragResume){dragResume=false;void play();}}
  function metadata(){if(audio&&pendingSeek!==undefined){audio.currentTime=Math.min(pendingSeek,duration);pendingSeek=undefined;}}
  function audioError(){
-  if(!recording)return;halt();selected=voices[0]?.voiceURI||'device';status='paused';position=0;
-  hint=copy.audioFallback;
+  if(!recording)return;halt();status='paused';error=copy.audioFallback;
  }
  function topic(offset:number){const target=currentChapter+offset;if(target>=0&&target<timeline.length)seek(timeline[target].start);}
  onMount(()=>{
@@ -102,8 +103,10 @@
   // A CMS edit invalidates an old recording immediately, including on the current slide.
   untrack(()=>{stop();ready=false;recordings=undefined;});
   hostSpeechFingerprint(source).then(key=>{
-   if(disposed)return;recordings=catalog[key];let saved='',legacy='';try{saved=localStorage.getItem('sip:hostAudioVoice')||'';legacy=localStorage.getItem('sip:hostVoice')||'';}catch{}
-   selected=recordings?.voices[saved]||voices.some(v=>v.voiceURI===saved)?saved:recordings?.voices['audio:katja']?'audio:katja':voices.find(v=>v.voiceURI===legacy)?.voiceURI||voices[0]?.voiceURI||'device';ready=true;
+   if(disposed)return;recordings=catalog[key];let saved='',legacy='',version='';try{saved=localStorage.getItem('sip:hostAudioVoice')||'';legacy=localStorage.getItem('sip:hostVoice')||'';version=localStorage.getItem('sip:hostNarrationVersion')||'';}catch{}
+   // Upgrade old prepared/device defaults once. Explicit choices made in this player persist.
+   if(recordings&&version!==hostNarrationVersion){saved=saved==='audio:katja'?'audio:seraphina':'audio:florian';try{localStorage.setItem('sip:hostAudioVoice',saved);localStorage.setItem('sip:hostNarrationVersion',hostNarrationVersion);}catch{}}
+   selected=recordings?.voices[saved]||voices.some(v=>v.voiceURI===saved)?saved:recordings?.voices['audio:florian']?'audio:florian':voices.find(v=>v.voiceURI===legacy)?.voiceURI||voices[0]?.voiceURI||'device';ready=true;
   }).catch(()=>{if(!disposed){ready=true;refreshVoices();}});
   return()=>{disposed=true;};
  });
@@ -112,7 +115,7 @@
 {#if enabled}
  <section class="host-speech" aria-label={copy.region}>
   {#if recording}<audio bind:this={audio} src={recording.url} preload="none" onloadedmetadata={metadata} ontimeupdate={()=>{if(audio&&pendingSeek===undefined)position=audio.currentTime;}} onpause={()=>{if(playing)status='paused';}} onended={()=>{position=duration;status='ended';loading=false;}} onwaiting={()=>{if(playing)loading=true;}} onplaying={()=>loading=false} onerror={audioError}></audio>{/if}
-  <div class="speech-heading"><span class="speech-symbol" class:playing><Icon name="sound" size={20}/></span><div><strong>{copy.title}</strong><span>{copy.main}{extraCount?' + '+extraCount+' '+(extraCount===1?copy.extra:copy.extras):''}</span></div></div>
+  <div class="speech-heading"><span class="speech-symbol" class:playing><Icon name="sound" size={20}/></span><div><strong>{copy.title}</strong><span>{copy.main}{extraCount?' + '+extraCount+' '+(extraCount===1?copy.extra:copy.extras):''}</span><span class="speech-current-voice">{voiceLabel}{!recording&&voiceLabel!==copy.device?' · '+copy.device:''}</span></div></div>
   <div class="speech-progress"><label class="sr-only" for="host-audio-seek">{copy.timeline}</label><input id="host-audio-seek" type="range" min="0" max={duration||1} step=".1" value={position} aria-valuetext={speechClock(position)+' '+copy.of+' '+speechClock(duration)+(recording?'':' · '+copy.approxTime)} disabled={!canPlay} onpointerdown={beginSeek} oninput={event=>seek(Number(event.currentTarget.value))}/><div><span>{!recording&&ready?copy.approx+' ':''}{speechClock(position)}</span><span>{speechClock(duration)}</span></div></div>
   <div class="speech-transport">
    <button type="button" class="speech-icon" disabled={!canPlay||position<=0} aria-label={copy.backTen} title={copy.backTen} onclick={()=>seek(position-10)}><Icon name="rewind" size={21}/><small>10</small></button>
@@ -121,7 +124,7 @@
   </div>
   <div class="speech-secondary"><button type="button" disabled={!canPlay||currentChapter===0} aria-label={copy.previousTopic} title={copy.previousTopic} onclick={()=>topic(-1)}><Icon name="previous-track" size={17}/><span>{copy.back}</span></button><button type="button" disabled={!canPlay||!loading&&status==='ready'&&position===0} aria-label={copy.stopLabel} onclick={stop}><Icon name="stop" size={15}/>{copy.stop}</button><button type="button" disabled={!canPlay||currentChapter===timeline.length-1} aria-label={copy.nextTopic} title={copy.nextTopic} onclick={()=>topic(1)}><span>{copy.next}</span><Icon name="next-track" size={17}/></button></div>
   {#if timeline.length>1}<label class="speech-topic"><span>{copy.topic}</span><select aria-label={copy.topicLabel} value={currentChapter} disabled={!canPlay} onchange={event=>seek(timeline[Number(event.currentTarget.value)].start)}>{#each timeline as chapter,i}<option value={i}>{i+1}. {chapter.title}</option>{/each}</select></label>{/if}
-  <details class="speech-settings"><summary><Icon name="settings" size={16}/><span>{copy.settings}</span><small>{String(rate).replace('.',',')}×</small><Icon name="next" size={15}/></summary><div class="speech-options"><label><span>{copy.voice}</span><select aria-label={copy.voice} value={selected} onchange={event=>changeVoice(event.currentTarget.value)}>{#if recordings}{#if recordings.voices['audio:katja']}<option value="audio:katja">{copy.katja}</option>{/if}{#if recordings.voices['audio:conrad']}<option value="audio:conrad">{copy.conrad}</option>{/if}{/if}{#each voices as voice}<option value={voice.voiceURI}>{voice.name} · {copy.deviceSuffix}</option>{/each}{#if !voices.length&&!recordings}<option value="device">{copy.device}</option>{/if}</select></label><label><span>{copy.speed}</span><select aria-label={copy.speedLabel} value={rate} onchange={event=>changeRate(Number(event.currentTarget.value))}>{#each [.75,1,1.15,1.25,1.5,1.75,2] as speed}<option value={speed}>{String(speed).replace('.',',')}×</option>{/each}</select></label><label class="speech-volume"><span>{copy.volume}</span><input aria-label={copy.volume} type="range" min="0" max="1" step=".05" value={volume} oninput={event=>changeVolume(Number(event.currentTarget.value))}/><button type="button" aria-label={volume===0?copy.unmute:copy.mute} onclick={()=>changeVolume(volume===0?1:0)}><Icon name={volume===0?'muted':'sound'} size={18}/></button></label></div><p class="speech-note">{recording?copy.neuralHint:copy.deviceHint}</p></details>
+  <details class="speech-settings"><summary><Icon name="settings" size={16}/><span>{copy.settings}</span><small>{String(rate).replace('.',',')}×</small><Icon name="next" size={15}/></summary><div class="speech-options"><label><span>{copy.voice}</span><select aria-label={copy.voice} value={selected} onchange={event=>changeVoice(event.currentTarget.value)}>{#if recordings}{#if recordings.voices['audio:florian']}<option value="audio:florian">{copy.florian}</option>{/if}{#if recordings.voices['audio:seraphina']}<option value="audio:seraphina">{copy.seraphina}</option>{/if}{/if}{#each voices as voice}<option value={voice.voiceURI}>{voice.name} · {copy.deviceSuffix}</option>{/each}{#if !voices.length&&!recordings}<option value="device">{copy.device}</option>{/if}</select></label><label><span>{copy.speed}</span><select aria-label={copy.speedLabel} value={rate} onchange={event=>changeRate(Number(event.currentTarget.value))}>{#each [.75,1,1.15,1.25,1.5,1.75,2] as speed}<option value={speed}>{String(speed).replace('.',',')}×</option>{/each}</select></label><label class="speech-volume"><span>{copy.volume}</span><input aria-label={copy.volume} type="range" min="0" max="1" step=".05" value={volume} oninput={event=>changeVolume(Number(event.currentTarget.value))}/><button type="button" aria-label={volume===0?copy.unmute:copy.mute} onclick={()=>changeVolume(volume===0?1:0)}><Icon name={volume===0?'muted':'sound'} size={18}/></button></label></div><p class="speech-note">{recording?copy.neuralHint:copy.deviceHint}</p></details>
   {#if ready&&!canPlay}<p class="speech-note">{copy.unavailable}</p>{/if}
   {#if hint}<p class="speech-note" role="status">{hint}</p>{/if}
   {#if error}<p class="error" role="alert">{error}</p>{/if}

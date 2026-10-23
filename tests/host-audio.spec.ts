@@ -3,6 +3,7 @@ import {hostPronunciation,hostSpeechChapters,hostSpeechChunks} from '../src/lib/
 import {readCatalog} from '../scripts/catalog-data.cjs';
 import recordings from '../src/lib/locales/de/host-audio.json' with {type:'json'};
 import {createHash} from 'node:crypto';
+import {readFile} from 'node:fs/promises';
 
 const room={code:'AUDI88',name:'Audio-Prüfung',step:7,version:0,closed:false,settings:{}};
 async function fixture(page:Page,admin=true,override:()=>Record<string,any>=()=>({})){
@@ -23,8 +24,10 @@ test('narration includes every closed topic, matches the published copy, and fix
   const a=all.find(a=>a.slug===entry.slug)!;expect(a).toBeTruthy();
   expect(createHash('sha256').update(a.host.map((p:string)=>p.trim()).filter(Boolean).join('\n\n')).digest('hex')).toBe(hash);
   const chapters=hostSpeechChapters(a.host);
+  // The editor uses blank lines between entries. Paragraphs inside a topic use single newlines.
+  expect(a.host.join('\n\n').split(/\n\s*\n/)).toEqual(a.host);
   for(const v of Object.values(entry.voices)){
-   expect(v.chapters.map(c=>c.title)).toEqual(chapters.map(c=>c.title));expect(v.duration).toBeGreaterThan(100);expect(v.chapters.at(-1)!.start).toBeLessThan(v.duration);
+   expect(v.synthesis).toBe('continuous-v2');expect(v.voice).toMatch(/FlorianMultilingualNeural|SeraphinaMultilingualNeural/);expect(v.chapters.map(c=>c.title)).toEqual(chapters.map(c=>c.title));expect(v.duration).toBeGreaterThan(100);expect(v.chapters.at(-1)!.start).toBeLessThan(v.duration);
   }
   for(const c of chapters){const spoken=hostSpeechChunks([c.text]).join(' ');expect(spoken).toBe(hostPronunciation(c.text));}
  }
@@ -33,17 +36,27 @@ test('narration includes every closed topic, matches the published copy, and fix
  expect(hostSpeechChapters(source).map(c=>c.text)).toEqual(['Haupttext.','Auch dieser ganze Text wird vorgelesen.','Bis zum letzten Satz.']);
 });
 
+test('old voice preferences upgrade to the new narration and a failed recording can retry without switching voices',async({page})=>{
+ test.setTimeout(60000);await page.addInitScript(()=>{localStorage.setItem('sip:hostAudioVoice','audio:conrad');localStorage.setItem('sip:hostVoice','old-device-voice');});await fixture(page);
+ const block='**/host-audio/**';await page.route(block,r=>r.abort());await page.goto('/host/AUDI88');
+ const player=page.locator('.host-speech'),audio=player.locator('audio');await expect(audio).toHaveAttribute('src',/juwel-florian/);await expect(player.locator('.speech-current-voice')).toHaveText('Florian');
+ expect(await audio.evaluate((el:HTMLMediaElement)=>el.paused)).toBe(true);await player.getByRole('button',{name:'Hintergrund für den Host vorlesen',exact:true}).click();await expect(player.getByRole('alert')).toBeVisible();
+ await expect(audio).toHaveAttribute('src',/juwel-florian/);await expect(player.locator('.speech-current-voice')).toHaveText('Florian');
+ await page.unroute(block);await player.getByRole('button',{name:'Vorlesen fortsetzen',exact:true}).click();await expect.poll(()=>audio.evaluate((el:HTMLMediaElement)=>el.currentTime)).toBeGreaterThan(.2);await expect(player.getByRole('alert')).toHaveCount(0);
+ await player.getByRole('button',{name:'Vorlesen stoppen',exact:true}).click();
+});
+
 test('host neural audio pauses, seeks within closed topics, changes voice and stops on navigation',async({page})=>{
  test.setTimeout(90000);await page.setViewportSize({width:320,height:880});await fixture(page);
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto('/host/AUDI88');await expect(page.locator('.app-shell')).toHaveAttribute('data-ready','true');
- const player=page.getByRole('region',{name:'Audioplayer für den Host-Hintergrund'});await expect(player).toContainText('Hauptteil + 6 Zusatzthemen');
- const audio=player.locator('audio');await expect(audio).toHaveAttribute('src',/juwel-katja/);expect(await audio.evaluate((el:HTMLMediaElement)=>el.paused&&el.currentTime===0)).toBe(true);
+ const player=page.getByRole('region',{name:'Audioplayer für den Host-Hintergrund'});await expect(player).toContainText('Grundwissen + 6 Zusatzthemen');await expect(page.locator('.host-guide')).toContainText('Hinter JUWEL steht Juliane Eller');await expect(page.locator('.host-guide-heading')).toContainText('Zum Erzählen');await expect(player.locator('.speech-current-voice')).toHaveText('Florian');
+ const audio=player.locator('audio');await expect(audio).toHaveAttribute('src',/juwel-florian/);expect(await audio.evaluate((el:HTMLMediaElement)=>el.paused&&el.currentTime===0)).toBe(true);
  await expect(page.locator('.host-topics details[open]')).toHaveCount(0);
  await player.getByRole('button',{name:'Hintergrund für den Host vorlesen',exact:true}).click();await expect(player.getByRole('button',{name:'Vorlesen pausieren',exact:true})).toBeVisible();
  await expect.poll(()=>audio.evaluate((el:HTMLMediaElement)=>el.currentTime)).toBeGreaterThan(.2);
  await player.getByRole('button',{name:'Vorlesen pausieren',exact:true}).click();const paused=await audio.evaluate((el:HTMLMediaElement)=>({paused:el.paused,time:el.currentTime}));expect(paused.paused).toBe(true);await page.waitForTimeout(350);expect(await audio.evaluate((el:HTMLMediaElement)=>el.currentTime)).toBeCloseTo(paused.time,1);
- const topics=player.getByLabel('Thema zum Vorlesen auswählen',{exact:true});await topics.selectOption('6');const entry=Object.values(recordings).find(v=>v.slug==='juwel')!.voices['audio:katja'];
+ const topics=player.getByLabel('Thema zum Vorlesen auswählen',{exact:true});await topics.selectOption('6');const entry=Object.values(recordings).find(v=>v.slug==='juwel')!.voices['audio:florian'];
  await expect.poll(()=>audio.evaluate((el:HTMLMediaElement)=>el.currentTime)).toBeCloseTo(entry.chapters[6].start,0);expect(await audio.evaluate((el:HTMLMediaElement)=>el.paused)).toBe(true);
  await player.getByRole('button',{name:'Vorlesen fortsetzen',exact:true}).click();await expect(player.getByRole('button',{name:'Vorlesen pausieren',exact:true})).toBeVisible();
  await player.getByRole('button',{name:'10 Sekunden zurück',exact:true}).click();expect(await audio.evaluate((el:HTMLMediaElement)=>el.currentTime)).toBeLessThan(entry.chapters[6].start-8);
@@ -51,9 +64,10 @@ test('host neural audio pauses, seeks within closed topics, changes voice and st
  await player.getByLabel('Abspielposition',{exact:true}).focus();await page.keyboard.press('Home');await page.keyboard.press('ArrowRight');await expect.poll(()=>audio.evaluate((el:HTMLMediaElement)=>el.currentTime)).toBeGreaterThan(0);
  await player.locator('.speech-settings>summary').click();await player.getByLabel('Abspielgeschwindigkeit',{exact:true}).selectOption('1.5');expect(await audio.evaluate((el:HTMLMediaElement)=>el.playbackRate)).toBe(1.5);
  await player.getByRole('button',{name:'Stummschalten',exact:true}).click();expect(await audio.evaluate((el:HTMLMediaElement)=>el.volume)).toBe(0);await player.getByRole('button',{name:'Ton einschalten',exact:true}).click();
- await player.getByLabel('Deutsche Stimme',{exact:true}).selectOption('audio:conrad');await expect(audio).toHaveAttribute('src',/juwel-conrad/);await expect(player.getByLabel('Abspielposition',{exact:true})).toHaveValue('0');
+ await player.getByLabel('Deutsche Stimme',{exact:true}).selectOption('audio:seraphina');await expect(audio).toHaveAttribute('src',/juwel-seraphina/);await expect(player.getByLabel('Abspielposition',{exact:true})).toHaveValue('0');
  await player.getByRole('button',{name:'Hintergrund für den Host vorlesen',exact:true}).click();await expect(player.getByRole('button',{name:'Vorlesen pausieren',exact:true})).toBeVisible();await player.getByRole('button',{name:'Vorlesen stoppen',exact:true}).click();expect(await audio.evaluate((el:HTMLMediaElement)=>el.paused&&el.currentTime===0)).toBe(true);
  await player.getByRole('button',{name:'Hintergrund für den Host vorlesen',exact:true}).click();await expect(player.getByRole('button',{name:'Vorlesen pausieren',exact:true})).toBeVisible();await player.getByLabel('Lautstärke',{exact:true}).evaluate((el:HTMLInputElement)=>{el.value='.4';el.dispatchEvent(new Event('input',{bubbles:true}));});await audio.evaluate(el=>(window as any).__oldHostAudio=el);await page.getByRole('button',{name:'Vorschau weiter',exact:true}).click();expect(await page.evaluate(()=>(window as any).__oldHostAudio.paused)).toBe(true);await expect(page.getByLabel('Lautstärke',{exact:true})).toHaveValue('0.4');
+ const download=page.waitForEvent('download');await page.getByRole('button',{name:'Host-Texte herunterladen',exact:true}).click();const file=await download;const guide=await readFile((await file.path())!,'utf8');expect(guide.match(/Hinter JUWEL steht Juliane Eller/g)).toHaveLength(1);expect(guide).toContain('### Der Geburtstag stammt aus der Buchhaltung');expect(guide).toContain('### Wie aus Rinde ein Flaschenverschluss wird');
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);expect(errors).toEqual([]);
 });
 
@@ -63,8 +77,8 @@ test('an edited host text invalidates old audio immediately; guests never receiv
   Object.defineProperty(window,'EventSource',{value:Events,configurable:true});
  });const host=await context.newPage();let edited=false;
  await fixture(host,true,()=>edited?{'article:juwel':{data:{host:['Der neue Text aus dem Editor.','Mein Zusatzthema\nDieser neue Zusatz gehört ebenfalls dazu.']},version:1}}:{});
- await host.goto('/host/AUDI88');await expect(host.locator('.host-speech audio')).toHaveAttribute('src',/juwel-katja/);
- edited=true;await host.evaluate(()=>(window as any).__publishContent());await expect(host.locator('.host-speech audio')).toHaveCount(0);await expect(host.getByLabel('Thema zum Vorlesen auswählen')).toContainText('Mein Zusatzthema');await expect(host.locator('.host-speech')).toContainText('Hauptteil + 1 Zusatzthema');
+ await host.goto('/host/AUDI88');await expect(host.locator('.host-speech audio')).toHaveAttribute('src',/juwel-florian/);
+ edited=true;await host.evaluate(()=>(window as any).__publishContent());await expect(host.locator('.host-speech audio')).toHaveCount(0);await expect(host.getByLabel('Thema zum Vorlesen auswählen')).toContainText('Mein Zusatzthema');await expect(host.locator('.host-speech')).toContainText('Grundwissen + 1 Zusatzthema');
  const guest=await browser.newPage();await fixture(guest,false);await guest.goto('/tasting/AUDI88');await expect(guest.locator('.story-card')).toBeVisible();await expect(guest.locator('.host-speech')).toHaveCount(0);await expect(guest.locator('audio')).toHaveCount(0);
  await guest.close();await context.close();
 });
@@ -79,7 +93,7 @@ test('device fallback pauses and resumes edited text, pronounces Rhein, and read
  await page.goto('/host/AUDI88');const player=page.locator('.host-speech');await expect(player.locator('audio')).toHaveCount(0);await player.getByRole('button',{name:'Hintergrund für den Host vorlesen',exact:true}).click();
  expect(await page.evaluate(()=>(window as any).__narrator.messages[0].text)).toBe('Die Rhein Ebene und Juwel.');
  await player.getByRole('button',{name:'Vorlesen pausieren',exact:true}).click();const count=await page.evaluate(()=>(window as any).__narrator.messages.length);await player.getByRole('button',{name:'Vorlesen fortsetzen',exact:true}).click();expect(await page.evaluate(()=>(window as any).__narrator.messages.length)).toBe(count+1);
- await player.getByLabel('Thema zum Vorlesen auswählen').selectOption('2');await page.evaluate(()=>(window as any).__narrator.messages.at(-1).onend());expect(await page.evaluate(()=>(window as any).__narrator.messages.at(-1).text)).toContain('Auch dieser letzte Absatz wird vollständig vorgelesen.');expect(await page.locator('.host-topics details[open]').count()).toBe(0);
+ await player.getByLabel('Thema zum Vorlesen auswählen').selectOption('2');expect(await page.evaluate(()=>(window as any).__narrator.messages.at(-1).text)).toBe('Auch dieser letzte Absatz wird vollständig vorgelesen.');expect(await page.locator('.host-topics details[open]').count()).toBe(0);
  await player.locator('.speech-settings>summary').click();await player.getByRole('button',{name:'Stummschalten',exact:true}).click();expect(await page.evaluate(()=>(window as any).__narrator.messages.at(-1).volume)).toBe(0);
  await player.getByLabel('Abspielposition',{exact:true}).focus();await page.keyboard.press('End');await expect(player.getByRole('button',{name:'Hintergrund für den Host vorlesen',exact:true})).toBeVisible();await player.getByRole('button',{name:'Vorlesen stoppen',exact:true}).click();await expect(player.getByLabel('Abspielposition',{exact:true})).toHaveValue('0');await context.close();
 });
