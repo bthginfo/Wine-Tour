@@ -6,6 +6,7 @@ A German, mobile-first companion for guided wine tastings. Svelte 5, SvelteKit 3
 
 - Sign in to the host account at `/konto?next=/admin`. `/admin` lists tastings across devices and provides creation, editorial and media tools. Room creation and host commands require the server-checked admin role. Old browser capability cookies no longer grant access.
 - Share the generated QR code or six-character room code. Guests enter a display name and start at the host's current step.
+- Hosts can open a private preview, browse wines and chapters without advancing guests, and return to the latest active slide from the fixed controls. Only the live “Für alle weiter/zurück” commands broadcast a change.
 - Guests follow the host by default. Any manual navigation pauses following; “Zum Host” resumes it. Notes are always personal.
 - Each wine follows region → producer → grape → wine style → notes. Aroma and closure interludes sit between the wines.
 - The fourth wine is deliberately unconfirmed. Host settings have separate fields for region, producer and grape stories, plus a source URL and private host background. The Riesling is confirmed as Ayler Riesling Schieferstein feinherb. Vintages can be added in host settings.
@@ -48,7 +49,9 @@ Username-only identity has no email-based password recovery. The admin account c
 
 Editorial articles are original German summaries. Research links remain in the data, outside the reading and tasting interface. The first three wines are the specified von Winning Secco Rosé, the regular JUWEL Grauburgunder, and the Margarethenhof Ayler Riesling Schieferstein feinherb. No vintage or fourth wine is invented. Numerical wine analyses are omitted until actual bottles are known.
 
-The knowledge section includes all 13 German growing regions plus Saar, producer profiles, grape varieties, wine styles and practical wine knowledge, including temperature/glass and label reading. It intentionally replaces the old sprawling catalogue with a smaller, reviewed selection; it does not migrate all 222 historical regions or existing user records. Edited host-only background is excluded from public content responses and live events. Baseline general educational material is part of the static catalogue.
+Entdecken includes 431 curated articles: 223 regions across 31 wine countries, 149 grape/variety-name topics, 39 producers, 14 wine styles and six practical knowledge topics. It covers all 222 named regions from the old atlas plus Saar. The legacy grape names resolve to reviewed topics; Malmsey is correctly explained with Madeira wine instead of treated as a distinct botanical variety. Old user records are not migrated. Research remains in article data and is not shown as source links in the reading interface. Edited host background is excluded from public content responses and live events.
+
+The international German catalogue lives in `src/lib/locales/de/atlas/`. Stable slugs and ISO country codes separate identity from translated labels. Country/category filters, accent-tolerant aliases, 36-item pages and remembered return positions keep the larger library usable on mobile. Common background is optional; grape profiles also include a concrete regional example. No numerical taste scores are assigned to unverified wines or grape varieties.
 
 Photography was reused from the existing atlas with original author and licence information. `/entdecken/quellen` and `static/images/ATTRIBUTIONS.md` document provenance. Generic AI illustrations are identified as illustrations. The three confirmed wines use original product photographs from the official winery websites, served from the dedicated public Vercel Blob store. Producer portraits and the von Winning cellar photograph also come from the wineries. `src/lib/winery-media.json` records original asset URLs and attribution, including André Kunz / PFALZWEINFOTO and Peter Bender. Generic SVG artwork remains only for unselected bottles and cellar entries. Fonts are self-hosted under their OFL licences.
 
@@ -59,11 +62,11 @@ Playwright covers theme persistence, host role enforcement, content publishing, 
 
 ## Languages
 
-The app currently exposes German only. Static interface copy lives in `src/lib/locales/de/ui.json` (271 messages), with a typed `t()` lookup in `src/lib/i18n.ts`. Authored German content is separated in `src/lib/locales/de/content.ts` and `src/lib/more-content.ts`. Slugs, wine IDs, commands and stored cellar styles stay stable across languages. To add a language, register its dictionary, add its editorial catalogue with the same stable slugs, then introduce request-scoped locale routing and translate the remaining dynamic copy (validation/API messages, composed labels and state messages). Do not use a shared mutable server-side locale. No inactive language switch is shown to users.
+The app currently exposes German only. Static interface copy lives in `src/lib/locales/de/ui.json`, with a typed `t()` lookup in `src/lib/i18n.ts`. Authored German content is separated in `src/lib/locales/de/content.ts` and `src/lib/more-content.ts`. Slugs, wine IDs, commands and stored cellar styles stay stable across languages. To add a language, register its dictionary, add its editorial catalogue with the same stable slugs, then introduce request-scoped locale routing and translate the remaining dynamic copy (validation/API messages, composed labels and state messages). Do not use a shared mutable server-side locale. No inactive language switch is shown to users.
 
 ## Editorial tools and appearance
 
-`/admin` supports the home introduction and hero, all 34 articles (participant copy, private host background, image credit, separate desktop/mobile focal positions and full-image/cover display), and all four wine records (metadata, tasting prompt and bottle photograph). An image library accepts JPG, PNG, WebP and AVIF up to 3 MB. Uploads are decoded, bounded to 24 megapixels, resized and re-encoded to WebP before storage; arbitrary SVG/HTML uploads are rejected. The application caps its media library at 50 MB.
+`/admin` supports the home introduction and hero, all 431 articles (participant copy, private host background, image credit, separate desktop/mobile focal positions and full-image/cover display), and all four wine records (metadata, tasting prompt and bottle photograph). An image library accepts JPG, PNG, WebP and AVIF up to 3 MB. Uploads are decoded, bounded to 24 megapixels, resized and re-encoded to WebP before storage; arbitrary SVG/HTML uploads are rejected. The application caps its media library at 50 MB.
 
 Editorial changes use a version precondition. A single Postgres statement stores the current record, immutable revision and `ContentPublished` events for open rooms. A stale editor receives 409 rather than overwriting newer work. Active tasting clients reload their appropriate public/admin content after publishing. No HTML from the editor is executed.
 
@@ -73,7 +76,7 @@ The existing Neon database is on its `free_v3` plan. The dedicated `sip-happens-
 
 ## Content depth and motion
 
-All 34 articles now have three titled explanatory sections and at least 200 words of reader copy in the default catalogue. The 18 tasting and core knowledge topics have expanded host background. Guided tasting keeps those sections in an optional disclosure; the knowledge pages show them in full. Both render through `ArticleBody`. Paragraphs, sections, visual selection and host copy remain editable from `/admin`.
+The 34 original tasting/core articles retain their expanded reader copy. All 431 articles have three explanatory sections, with visual profiles, name explanations and regional context in the international catalogue. The 18 tasting and core knowledge topics have expanded host background. Guided tasting keeps those sections in an optional disclosure; the knowledge pages show them in full. Both render through `ArticleBody`. Paragraphs, sections, visual selection and host copy remain editable from `/admin`.
 
 `learning/` contains native SVG/CSS explanations for skin contact, pressure, Pinot colours, aromas, sugar/acidity, fermentation, closures, temperature, label reading and storage. Region locators use a Natural Earth 1:50m Germany outline and place coordinates looked up through OpenStreetMap Nominatim. These are point locators, not invented wine-region boundaries. Three verified grape photographs replace generic illustrations for Pinot Noir, Pinot Gris and Riesling. Original URLs, creators and licences are recorded in `educational-media.json`. Bottle images can be opened at a readable size without leaving notes.
 
@@ -85,7 +88,7 @@ A participant who is still reading or writing when the host ends the tasting rec
 
 The completion screen hides the wine navigation and sidebar, and replaces the disabled forward action with a useful destination. Hosts can close the tasting from the fixed controls. Room-specific wine names and label details use a shared resolver in the tasting, note list/search and PDF. Native dialogs have explicit accessible names, active navigation exposes `aria-current`, and the theme toggle also works when persistent browser storage is blocked.
 
-The expanded Playwright flow covers every article at mobile and desktop widths, image loading, educational controls by keyboard, reduced motion, offline recovery, note editing during a host advance, bottle zoom/focus return, tasting completion, signup/export and cellar editing/deletion.
+The expanded Playwright flow validates the structure, editorial schema and related links of all 431 articles, and checks all 34 original articles plus 12 international examples at mobile and desktop widths, including image loading, educational controls by keyboard, reduced motion, offline recovery, note editing during a host advance, bottle zoom/focus return, tasting completion, signup/export and cellar editing/deletion.
 
 ## Personal tasting PDF
 
@@ -96,3 +99,14 @@ PDF creation runs in the browser, with `pdf-lib` and its font engine loaded on d
 PDF verification downloads the actual document as an anonymous mobile participant and again after registration, parses it to check full notes and privacy, and exercises offline drafts, long notes, updated tasting settings, image failure and recoverable font-loading errors.
 
 Nach dem PDF-Abschluss führt „Zurück zur Probe“ für Gäste zum zuletzt gelesenen Abschnitt. Die Host-Steuerung bleibt chronologisch.
+
+
+## International atlas and navigation
+
+The 214 licensed regional photographs are served locally as WebP, with smaller card thumbnails. Per-image provenance is preserved in `src/lib/locales/de/atlas/photos.json`; no regional photograph is presented as an estate portrait. New regional locators use the public-domain Natural Earth 1:110m land outline, shared through one SVG asset rather than repeated inline geometry. They show approximate geographic locations, not wine-region boundaries. New winery profiles use location/fact diagrams where no verified estate image is provided.
+
+Desktop and tablet navigation has a collapsible icon rail. The browser remembers that choice; keyboard focus and hover reveal link labels. Mobile keeps its bottom navigation. The fixed tasting controls move with the rail. The new wine-style diagrams explain the different production paths with short keyboard-operable steps and bounded animation, including reduced-motion support.
+
+The editor can search the complete catalogue and edit the short factual profiles as well as text and imagery. Articles with an illustration and no photograph can be saved without an artificial image source. Plain research links remain metadata; image credits remain available under Bildnachweise.
+
+Knowledge navigation refreshes published editorial records, so returning to an article does not keep an older text revision in the app. A small optional glossary explains Ausbau and Cuvée where those words occur, before the longer reading sections.

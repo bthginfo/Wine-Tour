@@ -1,0 +1,2820 @@
+[
+  {
+    "id": "cabernet-sauvignon",
+    "hook": "Dunkle Frucht, spürbare Gerbstoffe und eine große Familie.",
+    "place": "Cabernet Sauvignon stammt aus Bordeaux und wächst heute etwa in Kalifornien, Chile, Südafrika und Australien. In Bordeaux wird die Sorte oft mit Merlot und Cabernet Franc gemischt.",
+    "character": "Schwarze Johannisbeere und Kräuter sind mögliche Eindrücke. Die Weine können feste Gerbstoffe haben; Reife und Ausbau verändern ihre Wirkung deutlich.",
+    "botany": "Die kleinen, dunklen Beeren brauchen eine ausreichend lange Reifezeit. Spät ausreifende Trauben passen nicht zu jedem kühlen Standort.",
+    "detail": "Cabernet Sauvignon und Cabernet Franc sind verschiedene Sorten. Cabernet Franc und Sauvignon Blanc sind die Eltern von Cabernet Sauvignon.",
+    "fact": "Vanille oder Röstaromen können vom Fass kommen; sie sind keine in die Traube eingebauten Pflichtaromen.",
+    "aromas": [
+      "Cassis",
+      "Kräuter",
+      "Zeder"
+    ],
+    "countries": [
+      "FR",
+      "US",
+      "CL",
+      "ZA",
+      "AU"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/43",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "merlot",
+    "hook": "Eine Bordeaux-Sorte mit vielen Gesichtern.",
+    "place": "Merlot ist in Bordeaux besonders am rechten Ufer wichtig, etwa in Pomerol und Saint-Émilion. Die Sorte wächst auch in Italien, Chile, den USA und vielen anderen Weinländern.",
+    "character": "Pflaume, Kirsche und weich wirkende Frucht sind häufige Beschreibungen. Kräftige, feste Merlot-Weine gibt es ebenfalls; der Name garantiert keinen sanften Geschmack.",
+    "botany": "Merlot reift üblicherweise früher als Cabernet Sauvignon. Die Pflanze kann kräftig wachsen; Ertrag und Laub müssen zum Standort passen.",
+    "detail": "Eine Bordeaux-Cuvée kann viel Merlot enthalten, ohne dass die Sorte vorne auf dem Etikett steht. Dort hat häufig der Herkunftsname Vorrang.",
+    "fact": "Pomerol ist eine Region und Merlot eine Rebsorte. Beides kann dieselbe Flasche beschreiben.",
+    "aromas": [
+      "Pflaume",
+      "Kirsche",
+      "Kakao"
+    ],
+    "countries": [
+      "FR",
+      "IT",
+      "CL",
+      "US"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/164",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "cabernet-franc",
+    "hook": "Rote Früchte, Kräuter und eine Hauptrolle an der Loire.",
+    "place": "Cabernet Franc steht in Bordeaux oft in Mischungen. An der Loire, etwa in Chinon und Bourgueil, wird er häufig eigenständig abgefüllt. Auch in anderen Ländern wird die Sorte angebaut.",
+    "character": "Himbeere, Johannisbeere und Kräuter können auffallen. Je nach Reife zeigen sich auch Paprikanoten. Der Stil reicht von leicht und frisch bis fest und lagerfähig.",
+    "botany": "Die Sorte reift in der Regel früher als Cabernet Sauvignon. Der Standort und ein guter Lesezeitpunkt helfen, Frucht und grüne Noten auszubalancieren.",
+    "detail": "Cabernet Franc ist keine Kurzform für Cabernet Sauvignon, sondern eine eigene Sorte und eines seiner Elternteile.",
+    "fact": "Ein sortenreiner Cabernet Franc muss nicht nach kräftigem Bordeaux schmecken: Loire-Beispiele können deutlich leichter wirken.",
+    "aromas": [
+      "Himbeere",
+      "Johannisbeere",
+      "Kräuter"
+    ],
+    "countries": [
+      "FR",
+      "IT",
+      "US",
+      "AR"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/42",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "petit-verdot",
+    "hook": "Kleine Beeren, viel Farbe und oft ein kleiner Anteil in der Cuvée.",
+    "place": "Petit Verdot ist mit Bordeaux verbunden und wird heute auch in wärmeren Gegenden wie Spanien, Australien und Kalifornien angebaut. In Mischungen kann bereits ein kleiner Anteil auffallen.",
+    "character": "Dunkle Früchte, Veilchen und kräftige Gerbstoffe sind mögliche Merkmale. Sortenreine Weine können dicht wirken; in Cuvées ergänzt die Sorte Farbe und Struktur.",
+    "botany": "Petit Verdot reift spät. Die langen, empfindlichen Triebe brauchen Halt, und nicht jeder Jahrgang bietet genügend Wärme zur vollständigen Reife.",
+    "detail": "Petit bedeutet klein. Der Name ist keine Angabe zur Flaschengröße oder zum Alkoholgehalt, sondern gehört zur Sorte.",
+    "fact": "Ein geringer Anteil in einer Mischung kann geschmacklich trotzdem eine wichtige Aufgabe haben.",
+    "aromas": [
+      "Brombeere",
+      "Veilchen",
+      "Würze"
+    ],
+    "countries": [
+      "FR",
+      "ES",
+      "AU",
+      "US"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/213",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "pinot-meunier",
+    "hook": "Die weniger bekannte dunkle Traube vieler Champagner.",
+    "place": "Meunier ist neben Pinot Noir und Chardonnay eine der wichtigen Rebsorten der Champagne. Besonders im Marnetal ist sie stark vertreten. In Deutschland heißt sie auch Schwarzriesling.",
+    "character": "Sie kann fruchtige Schaumweine und auch stille Rotweine ergeben. Bei Schaumwein prägen außerdem Hefelager, Mischung und Dosage den Geschmack.",
+    "botany": "Kleine dunkle Beeren und ein auffällig hell behaarter Austrieb kennzeichnen die Sorte. Im kühleren Weinbau ist ihr Verhalten bei Frost ein wichtiges Thema.",
+    "detail": "Schwarzriesling ist kein roter Riesling. Der deutsche Name führt leicht in die falsche Richtung; botanisch gehört die Sorte zur Pinot-Gruppe.",
+    "fact": "Meunier bedeutet Müller: Die feine Behaarung sieht ein wenig aus, als wäre Mehl darübergestäubt.",
+    "aromas": [
+      "Rote Beeren",
+      "Apfel",
+      "Blüten"
+    ],
+    "countries": [
+      "FR",
+      "DE",
+      "GB"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/166",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "gamay",
+    "hook": "Die rote Sorte hinter Beaujolais.",
+    "place": "Gamay ist besonders mit Beaujolais verbunden, wächst aber auch an der Loire und in der Schweiz. In den Beaujolais-Crus entstehen eigenständige, oft länger reifende Rotweine.",
+    "character": "Kirsche, Himbeere und Blüten sind mögliche Eindrücke. Leichte, saftige Varianten stehen neben konzentrierteren Weinen mit deutlicher Struktur.",
+    "botany": "Die Sorte ist fruchtbar und kann reich tragen. Ein passender Ertrag und gesunde, reife Trauben sind deshalb wichtig für die Balance.",
+    "detail": "Beaujolais Nouveau ist ein früh verkaufter Weinstil. Gamay ist die Sorte. Nicht jeder Gamay und nicht jeder Beaujolais ist ein Nouveau.",
+    "fact": "Bananige Noten mancher junger Weine hängen stark mit Gärung und Herstellung zusammen; sie sind kein notwendiges Sortenmerkmal.",
+    "aromas": [
+      "Kirsche",
+      "Himbeere",
+      "Veilchen"
+    ],
+    "countries": [
+      "FR",
+      "CH"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/104",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "syrah-shiraz",
+    "hook": "Eine Sorte, zwei bekannte Namen.",
+    "place": "Syrah ist an der nördlichen Rhône wichtig. In Australien heißt dieselbe Sorte häufig Shiraz. Sie wächst außerdem etwa in Südafrika, Chile und den USA.",
+    "character": "Brombeere, schwarze Olive und Pfeffer können auffallen. Kühlere Standorte ergeben oft andere Gewichte und Düfte als sehr warme. Der Name allein ist keine verlässliche Stilangabe.",
+    "botany": "Die langen Triebe können bei Wind brechen und brauchen Halt. Standort, Wasser und Reifezeit beeinflussen, wie Frucht und Gerbstoffe zusammenpassen.",
+    "detail": "Syrah und Shiraz bezeichnen dieselbe Sorte. Petite Sirah ist dagegen ein anderer Name für Durif und keine kleine Syrah-Version.",
+    "fact": "Der pfeffrige Eindruck mancher Syrah-Weine wird mit dem Aromastoff Rotundon in Verbindung gebracht.",
+    "aromas": [
+      "Brombeere",
+      "Pfeffer",
+      "Olive"
+    ],
+    "countries": [
+      "FR",
+      "AU",
+      "ZA",
+      "CL",
+      "US"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/267",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "grenache-garnacha",
+    "hook": "Warme Herkunft, rote Früchte und viele Mischungen.",
+    "place": "Grenache heißt in Spanien Garnacha und auf Sardinien Cannonau. Die Sorte ist an der südlichen Rhône, in Aragón und im Priorat wichtig; auch Australien besitzt alte Bestände.",
+    "character": "Erdbeere, Kirsche und Kräuter sind mögliche Eindrücke. Rote, roséfarbene und süße Weine entstehen daraus. Die Rotweine müssen trotz reifer Frucht nicht tiefdunkel sein.",
+    "botany": "Die Sorte kommt mit trockenen, warmen Bedingungen vergleichsweise gut zurecht. Kräftiges Wachstum und ein geeigneter Lesezeitpunkt müssen dennoch gesteuert werden.",
+    "detail": "Grenache Noir und Grenache Blanc sind unterschiedliche Farbformen. Der Zusatz Blanc ist daher wichtig, wenn man einen Weißwein sucht.",
+    "fact": "GSM steht für Grenache, Syrah und Mourvèdre beziehungsweise Mataro: drei Sorten in einer verbreiteten roten Mischung.",
+    "aromas": [
+      "Erdbeere",
+      "Kirsche",
+      "Kräuter"
+    ],
+    "countries": [
+      "ES",
+      "FR",
+      "IT",
+      "AU"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/120",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "mourvedre-monastrell",
+    "hook": "Späte Reife und ein kräftiger Partner für rote Cuvées.",
+    "place": "Mourvèdre ist unter anderem in Bandol in Südfrankreich wichtig. In Spanien heißt die Sorte meist Monastrell, in Australien auch Mataro. Jumilla und Yecla sind bekannte spanische Herkünfte.",
+    "character": "Dunkle Beeren, Kräuter und würzige Eindrücke sind möglich. Feste Gerbstoffe kommen häufig vor. Die Sorte wird eigenständig oder zusammen mit Grenache und Syrah ausgebaut.",
+    "botany": "Mourvèdre braucht Wärme und eine lange Saison, um gut auszureifen. Die Anforderungen an Standort und Wasser sind deshalb ein wichtiges Thema.",
+    "detail": "Mourvèdre, Monastrell und Mataro sind Namen derselben Sorte. Ein anderer Landesname auf der Flasche bedeutet hier keine andere Traube.",
+    "fact": "Bandol ist auch für Rosé bekannt; eine dunkle Rebsorte muss also nicht immer als Rotwein enden.",
+    "aromas": [
+      "Brombeere",
+      "Kräuter",
+      "Würze"
+    ],
+    "countries": [
+      "FR",
+      "ES",
+      "AU"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/177",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "cinsault",
+    "hook": "Duftige rote Früchte und eine wichtige Rosé-Traube.",
+    "place": "Cinsault ist im südlichen Frankreich, im Libanon und in Südafrika zu Hause. Die Sorte wird häufig mit anderen roten Trauben gemischt und spielt bei vielen Roséweinen eine Rolle.",
+    "character": "Himbeere, Erdbeere und Blüten sind mögliche Eindrücke. Leichtere, duftige Rotweine sind ebenso möglich wie ein fruchtiger Beitrag zu einer kräftigeren Cuvée.",
+    "botany": "Cinsault hat relativ große Beeren und kommt mit Trockenheit vergleichsweise gut zurecht. Bei sehr hohen Erträgen kann der Wein dünner ausfallen.",
+    "detail": "Cinsaut und Cinsault sind zwei Schreibweisen. In Südafrika war der historische Name Hermitage gebräuchlich; das ist nicht die französische Herkunft Hermitage.",
+    "fact": "Zusammen mit Pinot Noir ist Cinsault ein Elternteil der südafrikanischen Sorte Pinotage.",
+    "aromas": [
+      "Himbeere",
+      "Erdbeere",
+      "Blüten"
+    ],
+    "countries": [
+      "FR",
+      "LB",
+      "ZA"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/69",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "carignan",
+    "hook": "Alte Reben und würzige Rotweine aus warmen Gegenden.",
+    "place": "Carignan ist in Südfrankreich, Spanien und Chile verbreitet. In Spanien begegnet man Namen wie Cariñena oder Mazuelo. Im Priorat spielt die Sorte neben Garnacha eine wichtige Rolle.",
+    "character": "Dunkle Früchte, Kräuter und spürbare Säure sind mögliche Merkmale. Alte Weinberge liefern oft Trauben für eigenständige Abfüllungen; auch Mischungen sind verbreitet.",
+    "botany": "Die Pflanze kann reich tragen und braucht Wärme zur Reife. Ertrag, Luft im Laub und gesunde Trauben bestimmen mit, wie ausgewogen der Wein wird.",
+    "detail": "Cariñena ist sowohl ein Sortenname als auch der Name einer spanischen Herkunft. Ein Wein aus der Region muss deshalb nicht ausschließlich aus dieser Sorte bestehen.",
+    "fact": "Mazuelo auf einem Rioja-Etikett bezeichnet dieselbe Rebsorte wie Carignan.",
+    "aromas": [
+      "Dunkle Kirsche",
+      "Kräuter",
+      "Würze"
+    ],
+    "countries": [
+      "FR",
+      "ES",
+      "CL"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/53",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "tempranillo",
+    "hook": "Spaniens bekannte rote Sorte mit vielen regionalen Namen.",
+    "place": "Tempranillo ist in Rioja und Ribera del Duero wichtig. In Portugal steht dieselbe Sorte als Tinta Roriz oder Aragonez in den Weinbergen. Auch andere Länder bauen sie an.",
+    "character": "Kirsche, Pflaume und würzige Eindrücke sind möglich. Beim Ausbau im Holz können etwa Vanille oder Röstaromen hinzukommen. Ein junger Tankwein und ein lange gereifter Rotwein schmecken entsprechend unterschiedlich.",
+    "botany": "Der Name bezieht sich auf die vergleichsweise frühe Reife. Höhe und Temperaturverlauf verändern trotzdem, wann die Trauben an einem konkreten Ort gelesen werden.",
+    "detail": "Tinto Fino, Tinta del País, Tinta de Toro, Tinta Roriz und Aragonez gehören zu den regionalen Namen. País in Chile ist dagegen eine andere Sorte.",
+    "fact": "Reserva beschreibt bei bestimmten spanischen Weinen eine geregelte Reifekategorie; Tempranillo beschreibt die Traube.",
+    "aromas": [
+      "Kirsche",
+      "Pflaume",
+      "Würze"
+    ],
+    "countries": [
+      "ES",
+      "PT",
+      "AU"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/269",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "sangiovese",
+    "hook": "Die rote Verbindung zwischen Chianti und Brunello.",
+    "place": "Sangiovese ist die wichtigste rote Sorte der Toskana und wächst auch anderswo in Italien. Chianti Classico, Brunello di Montalcino und Vino Nobile di Montepulciano sind bekannte Herkünfte damit.",
+    "character": "Sauerkirsche, Kräuter und frische Säure sind typische Beschreibungen. Je nach Herkunft und Ausbau können die Weine leicht, fest oder sehr konzentriert wirken.",
+    "botany": "Die Sorte braucht einen passenden Standort und genügend Zeit zur Reife. Ertrag und Wetter während der Saison beeinflussen das Gleichgewicht zwischen Säure und reifer Frucht.",
+    "detail": "Brunello und Prugnolo Gentile sind örtliche Namen für Sangiovese. Montepulciano ist zugleich ein Ort in der Toskana und eine andere rote Rebsorte.",
+    "fact": "Vino Nobile di Montepulciano basiert auf Sangiovese; Montepulciano d’Abruzzo auf der Rebsorte Montepulciano.",
+    "aromas": [
+      "Sauerkirsche",
+      "Kräuter",
+      "Veilchen"
+    ],
+    "countries": [
+      "IT",
+      "FR"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/192",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "nebbiolo",
+    "hook": "Helle Farbe kann mit kräftigen Gerbstoffen zusammengehen.",
+    "place": "Nebbiolo ist besonders im Piemont zu Hause. Barolo und Barbaresco sind bekannte Herkünfte. Im nördlichen Piemont und in der Lombardei gibt es weitere eigenständige Beispiele.",
+    "character": "Rose, Kirsche und mit Reife herbere Würze sind mögliche Eindrücke. Die Farbe kann vergleichsweise hell wirken, während Säure und Gerbstoffe deutlich spürbar bleiben.",
+    "botany": "Die Sorte treibt früh aus und reift spät. Eine lange Saison und gut geeignete Hänge sind deshalb wichtig; Frost im Frühjahr kann ein Risiko sein.",
+    "detail": "Spanna und Chiavennasca sind regionale Namen. Barolo ist keine Rebsorte, sondern ein Herkunftswein aus Nebbiolo mit eigenen Regeln.",
+    "fact": "Die Farbtiefe eines Rotweins ist kein verlässlicher Tanninmesser: Nebbiolo liefert dafür ein besonders gutes Beispiel.",
+    "aromas": [
+      "Rose",
+      "Kirsche",
+      "Würze"
+    ],
+    "countries": [
+      "IT"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/315",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "barbera",
+    "hook": "Piemontesische Rotweine mit lebendiger Säure.",
+    "place": "Barbera wächst besonders im Piemont, etwa rund um Asti und Alba. Daneben gibt es Bestände in anderen italienischen Regionen und im Ausland. Sie wird häufig sortenrein abgefüllt.",
+    "character": "Kirsche und Pflaume sind mögliche Eindrücke. Die Säure ist häufig deutlich, während die Gerbstoffe weniger streng wirken können als bei Nebbiolo. Fassausbau verändert Duft und Textur.",
+    "botany": "Barbera kann kräftig wachsen und hohe Erträge liefern. Eine passende Ertragssteuerung und reife Trauben sind wichtig, damit die Säure im Wein gut eingebunden wirkt.",
+    "detail": "Barbera d’Asti und Barbera d’Alba verbinden Sorte und Herkunft. Asti allein kann auch einen ganz anderen, süßen Schaumwein aus Moscato meinen.",
+    "fact": "Frisch wirkende Säure und fester Gerbstoff sind zwei verschiedene Empfindungen; bei Barbera lässt sich das gut vergleichen.",
+    "aromas": [
+      "Kirsche",
+      "Pflaume",
+      "Brombeere"
+    ],
+    "countries": [
+      "IT",
+      "US"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/337",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "corvina",
+    "hook": "Eine der wichtigsten roten Trauben des Valpolicella.",
+    "place": "Corvina wächst vor allem in Venetien rund um Verona. Sie ist ein wichtiger Bestandteil von Valpolicella, Amarone und Recioto. Häufig wird sie mit Corvinone und Rondinella kombiniert.",
+    "character": "Kirsche und rote Früchte sind mögliche Eindrücke. Frischer Valpolicella unterscheidet sich deutlich von konzentriertem Amarone: Für Letzteren werden Trauben vor der Gärung getrocknet.",
+    "botany": "Für die Trocknung müssen gesunde Trauben ausgewählt und gut belüftet gelagert werden. Dadurch verlieren sie Wasser; Zucker und andere Bestandteile konzentrieren sich.",
+    "detail": "Corvina und Corvinone sind verschiedene Sorten. Der ähnliche Name bedeutet nicht, dass Corvinone nur eine größere Beere derselben Sorte ist.",
+    "fact": "Amarone ist trotz der getrockneten Trauben normalerweise ein trockener Wein; Recioto ist die süße Verwandtschaft.",
+    "aromas": [
+      "Kirsche",
+      "Rote Beeren",
+      "Würze"
+    ],
+    "countries": [
+      "IT"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "corvinone",
+    "hook": "Ein eigenständiger Partner in vielen Valpolicella-Weinen.",
+    "place": "Corvinone gehört zu den roten Sorten Venetiens. Sie wird häufig mit Corvina und Rondinella gemischt und kann auch für Amarone und Recioto verwendet werden.",
+    "character": "Kirschige und würzige Eindrücke sind möglich. Der spätere Wein hängt stark davon ab, ob frische oder zuvor getrocknete Trauben verarbeitet werden und wie lange er reift.",
+    "botany": "Die Sorte hat größere Beeren als Corvina. Für die Trocknung zählen Gesundheit, Reife und gute Luftzirkulation, damit die Trauben kontrolliert Wasser verlieren.",
+    "detail": "Corvinone ist eine eigene Sorte. Corvina und Corvinone klingen ähnlich und wachsen oft nebeneinander, sind aber keine austauschbaren botanischen Namen.",
+    "fact": "Appassimento nennt man das Antrocknen der Trauben. Es ist ein Verfahren und keine zusätzliche Rebsorte.",
+    "aromas": [
+      "Kirsche",
+      "Dunkle Beeren",
+      "Würze"
+    ],
+    "countries": [
+      "IT"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "rondinella",
+    "hook": "Eine rote Mischpartnerin aus der Gegend um Verona.",
+    "place": "Rondinella gehört zur Sortenpalette des Valpolicella in Venetien. Zusammen mit Corvina und anderen zugelassenen Sorten kann sie in frischen Rotweinen, Amarone und Recioto vorkommen.",
+    "character": "Rote Früchte und würzige Eindrücke sind möglich. Als Teil einer Mischung ergänzt sie den Gesamtwein; ihr Anteil lässt sich beim Probieren nicht wie eine einzelne Zutat herauslösen.",
+    "botany": "Die Sorte wird auch für das Antrocknen ausgewählt. Gesunde Trauben und ein geeignetes Trockenlager sind dabei ebenso wichtig wie die Bezeichnung der Sorte.",
+    "detail": "Valpolicella ist die Herkunft, Rondinella die Traube. Auf dem vorderen Etikett steht deshalb häufig der Gebietsname, während die Sorten auf der Rückseite erklärt werden.",
+    "fact": "Mehrere traditionelle Sorten können gemeinsam einen Herkunftswein bilden, ohne dass eine einzelne Traube als Hauptname erscheint.",
+    "aromas": [
+      "Rote Beeren",
+      "Kirsche",
+      "Würze"
+    ],
+    "countries": [
+      "IT"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "molinara",
+    "hook": "Eine hellere, säurebetonte Seite der venezianischen Sortenwelt.",
+    "place": "Molinara ist eine traditionelle rote Sorte aus Venetien. Sie kommt in der weiteren Gegend um Verona vor und wurde häufig mit anderen örtlichen Sorten kombiniert.",
+    "character": "Die Weine können eher hell und frisch wirken. Säure und eine leichtere Struktur sind bekannte Merkmale; ein kleiner Anteil in einer Mischung ist geschmacklich nicht isoliert zu beurteilen.",
+    "botany": "Die vergleichsweise helle Beerenhaut und ihre wachsige Oberfläche gehören zum Erscheinungsbild. Ein passender Standort und gesunde Trauben bleiben für die Reife entscheidend.",
+    "detail": "Molinara ist eine Sorte und keine eigene Valpolicella-Kategorie. Ob sie in einem bestimmten Wein enthalten ist, hängt vom Produzenten und den geltenden Regeln der Herkunft ab.",
+    "fact": "Eine rote Cuvée muss nicht aus lauter dunkelfärbenden Sorten bestehen: Heller gefärbte Trauben können Frische und Struktur ergänzen.",
+    "aromas": [
+      "Rote Johannisbeere",
+      "Rote Beeren",
+      "Kräuter"
+    ],
+    "countries": [
+      "IT"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "aglianico",
+    "hook": "Späte Reife und feste Rotweine aus Süditalien.",
+    "place": "Aglianico ist vor allem in Kampanien und der Basilikata wichtig. Taurasi und Aglianico del Vulture sind bekannte Herkünfte. Viele Weinberge liegen höher, als man bei Süditalien zunächst denkt.",
+    "character": "Dunkle Früchte, Kräuter und würzige Noten sind möglich. Säure und Gerbstoffe können deutlich ausfallen. Reifezeit im Fass und in der Flasche kann den Eindruck verändern.",
+    "botany": "Aglianico reift spät. Ein warmer, ausreichend langer Herbst hilft der Traubenreife; höhere Standorte bringen gleichzeitig kühlere Nächte und einen eigenen Jahresverlauf.",
+    "detail": "Aglianico ist die Sorte, Taurasi die Herkunft. Aglianico del Vulture verbindet die Traube mit dem Gebiet am erloschenen Vulkan Monte Vulture.",
+    "fact": "Süditalien bedeutet beim Wein nicht automatisch flaches, heißes Küstenland: Manche Aglianico-Weinberge liegen im Bergland.",
+    "aromas": [
+      "Dunkle Kirsche",
+      "Pflaume",
+      "Kräuter"
+    ],
+    "countries": [
+      "IT"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "montepulciano",
+    "hook": "Eine rote Traube mit einem leicht verwechselbaren Namen.",
+    "place": "Die Rebsorte Montepulciano ist besonders in den Abruzzen und in Mittelitalien verbreitet. Montepulciano d’Abruzzo ist ein bekannter Rotwein daraus. Auch Rosato, etwa Cerasuolo d’Abruzzo, entsteht aus der Sorte.",
+    "character": "Dunkle Kirsche, Pflaume und würzige Noten sind möglich. Die Weine können saftig und unkompliziert oder konzentriert und im Fass gereift sein.",
+    "botany": "Die Sorte treibt eher spät aus und reift ebenfalls spät. Ein ausreichend langer, passender Herbst und gesunde Trauben sind für die Lese wichtig.",
+    "detail": "Die toskanische Stadt Montepulciano ist etwas anderes. Ihr Vino Nobile di Montepulciano basiert auf Sangiovese und nicht auf der gleichnamigen Rebsorte.",
+    "fact": "Cerasuolo d’Abruzzo ist ein Rosé mit eigener Herkunft; die oft kräftigere Farbe macht ihn nicht zum Rotwein.",
+    "aromas": [
+      "Dunkle Kirsche",
+      "Pflaume",
+      "Würze"
+    ],
+    "countries": [
+      "IT"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/383",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "nero-d-avola",
+    "hook": "Siziliens bekannte dunkle Rebsorte.",
+    "place": "Nero d’Avola ist auf Sizilien weit verbreitet. In der Herkunft Cerasuolo di Vittoria wird sie mit Frappato kombiniert. Es gibt außerdem viele sortenreine Weine aus unterschiedlichen Teilen der Insel.",
+    "character": "Dunkle Kirsche, Pflaume und Kräuter sind mögliche Eindrücke. Je nach Höhe, Lesezeitpunkt und Ausbau reichen die Stile von saftig bis dicht und kräftig.",
+    "botany": "Die Sorte passt zu warmen mediterranen Bedingungen. Ein passender Umgang mit Wasser, Ertrag und Lesezeitpunkt hilft, reife Frucht und Frische zusammenzubringen.",
+    "detail": "Calabrese ist ein weiterer Name der Sorte. Trotz dieses Namens ist Nero d’Avola vor allem mit Sizilien verbunden und nicht einfach ein Hinweis auf die Region Kalabrien.",
+    "fact": "Cerasuolo di Vittoria ist ein roter Herkunftswein aus Nero d’Avola und Frappato; Cerasuolo d’Abruzzo dagegen ein Rosé.",
+    "aromas": [
+      "Kirsche",
+      "Pflaume",
+      "Kräuter"
+    ],
+    "countries": [
+      "IT"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/318",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "nerello-mascalese",
+    "hook": "Feinere rote Weine von Siziliens Vulkanhängen.",
+    "place": "Nerello Mascalese ist besonders mit dem Ätna verbunden. Sie steht dort häufig in höher gelegenen Weinbergen und wird für Etna Rosso oft mit etwas Nerello Cappuccio kombiniert.",
+    "character": "Rote Früchte, Kräuter und feine Würze sind mögliche Eindrücke. Die Farbe kann eher hell sein, während Säure und Gerbstoffe deutlich spürbar bleiben.",
+    "botany": "Die Sorte reift spät. Höhe, Hangrichtung und der jeweilige Lavaboden schaffen am Ätna sehr unterschiedliche Standorte und Erntetermine.",
+    "detail": "Nerello Mascalese und Nerello Cappuccio sind verschiedene Sorten. Etna Rosso bezeichnet den Herkunftswein, während eine Contrada einen kleineren örtlichen Bereich beschreiben kann.",
+    "fact": "Ein heller Rotwein vom warmen Sizilien ist kein Widerspruch: Höhe und Rebsorte verändern die Bedingungen deutlich.",
+    "aromas": [
+      "Rote Kirsche",
+      "Kräuter",
+      "Würze"
+    ],
+    "countries": [
+      "IT"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "malbec",
+    "hook": "Von Cahors bis an die Anden.",
+    "place": "Malbec stammt aus Frankreich und ist in Cahors besonders wichtig. In Argentinien hat die Sorte eine zweite große Heimat gefunden, etwa in Mendoza und seinen höher gelegenen Teilgebieten.",
+    "character": "Pflaume, dunkle Beeren und Veilchen sind mögliche Eindrücke. Je nach Standort und Ausbau können die Weine weich, saftig oder fest und gerbstoffreich wirken.",
+    "botany": "Die Sorte kann kräftig wachsen und bei ungünstigem Blütewetter ungleichmäßigen Fruchtansatz zeigen. Wasser, Ertrag und Lesezeitpunkt beeinflussen ihre Balance.",
+    "detail": "Côt ist ein französischer Name für Malbec. Cahors ist eine Herkunft; Mendoza ist eine andere. Derselbe Sortenname bedeutet nicht, dass die Weine gleich schmecken.",
+    "fact": "Argentinischer Malbec ist nicht automatisch ein Höhenwein: Auch innerhalb Mendozas liegen die Weinberge auf unterschiedlichen Höhenstufen.",
+    "aromas": [
+      "Pflaume",
+      "Veilchen",
+      "Brombeere"
+    ],
+    "countries": [
+      "FR",
+      "AR",
+      "CL"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/78",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "carmenere",
+    "hook": "Eine Bordeaux-Sorte mit einer zweiten Heimat in Chile.",
+    "place": "Carménère stammt aus Bordeaux und ist heute besonders mit Chile verbunden. In warmen Tälern wie Colchagua entstehen viele eigenständige Abfüllungen und rote Mischungen.",
+    "character": "Dunkle Früchte, Kräuter und Paprika sind mögliche Eindrücke. Gut gereifte Beispiele können weich und würzig wirken. Grüne Noten hängen unter anderem von Reife und Standort ab.",
+    "botany": "Carménère reift relativ spät und wächst kräftig. Eine ausreichend lange Saison und passende Laubarbeit sind für die Traubenreife wichtig.",
+    "detail": "Die Sorte wurde in Chile lange häufig für Merlot gehalten. Es sind zwei verschiedene Rebsorten; die spätere Identifizierung hat viele Weinberge neu eingeordnet.",
+    "fact": "Ein Kräuter- oder Paprikaduft kann sortentypisch sein und ist nicht automatisch ein Zeichen für einen fehlerhaften Wein.",
+    "aromas": [
+      "Dunkle Beeren",
+      "Paprika",
+      "Kräuter"
+    ],
+    "countries": [
+      "CL",
+      "FR",
+      "IT"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/55",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "tannat",
+    "hook": "Eine kräftige rote Verbindung zwischen Frankreich und Uruguay.",
+    "place": "Tannat ist mit Madiran in Südwestfrankreich verbunden. In Uruguay wurde sie zur besonders wichtigen roten Sorte und wächst etwa in Canelones und Maldonado.",
+    "character": "Dunkle Früchte und kräftige Gerbstoffe sind möglich. Ein sanfterer Ausbau oder eine Mischung kann zugänglichere Weine ergeben. Der Name allein legt die Härte im Mund nicht fest.",
+    "botany": "Die Sorte wächst kräftig und braucht eine geeignete Erziehung. Reife Trauben und die Arbeit mit den Schalen beeinflussen, wie viel Tannin in den Wein gelangt.",
+    "detail": "Tannat und Tannin sind nicht dasselbe: Das eine ist eine Sorte, das andere eine Stoffgruppe, die etwa aus Schalen und Kernen stammen kann.",
+    "fact": "Uruguay zeigt, dass eine ursprünglich französische Traube in einem anderen Land ein ganz eigenes öffentliches Profil entwickeln kann.",
+    "aromas": [
+      "Brombeere",
+      "Pflaume",
+      "Würze"
+    ],
+    "countries": [
+      "FR",
+      "UY"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/268",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "pinotage",
+    "hook": "Eine südafrikanische Kreuzung mit eigenem Charakter.",
+    "place": "Pinotage wurde in Südafrika aus Pinot Noir und Cinsault gekreuzt. Die Sorte wird unter anderem in Stellenbosch, Paarl und Swartland angebaut und ist eng mit dem Weinbau am Kap verbunden.",
+    "character": "Pflaume, rote oder dunkle Beeren und würzige Noten sind möglich. Die Bandbreite reicht von leichteren, frischen Weinen bis zu konzentrierten, deutlich im Holz gereiften Varianten.",
+    "botany": "Die Sorte ist vergleichsweise fruchtbar und kann kompakte Trauben bilden. Der passende Ertrag und gesunde Trauben helfen, die gewünschte Reife zu erreichen.",
+    "detail": "Der Name verbindet Pinot mit dem damaligen südafrikanischen Namen Hermitage für Cinsault. Pinotage ist eine eigene Sorte und keine nachträglich gemischte Cuvée.",
+    "fact": "Die Kreuzung wurde 1925 von Abraham Perold vorgenommen; Pinotage ist also deutlich jünger als viele traditionelle europäische Sorten.",
+    "aromas": [
+      "Pflaume",
+      "Rote Beeren",
+      "Würze"
+    ],
+    "countries": [
+      "ZA"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/319",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "zinfandel-primitivo",
+    "hook": "Zwei bekannte Namen, eine gemeinsame Sortenidentität.",
+    "place": "Zinfandel ist besonders mit Kalifornien verbunden, Primitivo mit Apulien. Die Sorte hat außerdem kroatische Wurzeln und ist dort als Tribidrag beziehungsweise Crljenak Kaštelanski bekannt.",
+    "character": "Brombeere, Pflaume und reife Kirsche sind mögliche Eindrücke. Warme Standorte können kräftige Weine ergeben. Daneben gibt es leichtere rote und roséfarbene Varianten.",
+    "botany": "Die Beeren können innerhalb einer Traube unterschiedlich schnell reifen. Der Erntezeitpunkt ist deshalb wichtig, um Zucker, frische Frucht und getrocknete Aromen auszubalancieren.",
+    "detail": "Primitivo und Zinfandel sind keine grundsätzlich verschiedenen Trauben. Unterschiedliche Herkünfte, Pflanzmaterialien und Ausbauweisen können trotzdem sehr verschiedene Weine ergeben.",
+    "fact": "White Zinfandel ist ein Rosé aus dunklen Zinfandel-Trauben und keine eigene weiße Rebsorte.",
+    "aromas": [
+      "Brombeere",
+      "Pflaume",
+      "Kirsche"
+    ],
+    "countries": [
+      "IT",
+      "US",
+      "HR"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/311",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "blaufrankisch-lemberger",
+    "hook": "Würzige Rotweine aus Mitteleuropa.",
+    "place": "Blaufränkisch ist in Österreich wichtig, besonders im Burgenland. In Deutschland heißt die Sorte Lemberger, in Ungarn Kékfrankos. Sie wächst außerdem in weiteren mitteleuropäischen Weinländern.",
+    "character": "Kirsche, dunkle Beeren und Pfeffer sind mögliche Eindrücke. Säure und Gerbstoffe können deutlich sein. Leichtere Varianten stehen neben konzentrierten, länger gereiften Weinen.",
+    "botany": "Die Sorte treibt früh aus und reift vergleichsweise spät. Sie braucht einen geeigneten warmen Standort und Aufmerksamkeit bei Frühjahrsfrost.",
+    "detail": "Blaufränkisch und Lemberger sind Namen derselben Sorte. Kékfrankos ist die ungarische Bezeichnung; Blaufränkisch ist keine Cuvée aus blauen Trauben.",
+    "fact": "Lemberger hat nichts mit dem ähnlich klingenden Käse Limburger zu tun.",
+    "aromas": [
+      "Kirsche",
+      "Brombeere",
+      "Pfeffer"
+    ],
+    "countries": [
+      "AT",
+      "DE",
+      "HU"
+    ],
+    "sourceUrl": "https://www.austrianwine.com/our-wine/grape-varieties",
+    "sourceLabel": "Austrian Wine · Rebsorten"
+  },
+  {
+    "id": "zweigelt",
+    "hook": "Österreichs verbreitete rote Kreuzung.",
+    "place": "Zweigelt wurde in Österreich aus Blaufränkisch und St. Laurent gezüchtet. Die Sorte wächst in vielen österreichischen Weinregionen und wird sowohl eigenständig als auch in Cuvées abgefüllt.",
+    "character": "Kirsche und rote Früchte sind häufige Eindrücke. Junge Weine können saftig wirken; Fassausbau und höhere Konzentration ergeben kräftigere Varianten.",
+    "botany": "Zweigelt kann gute Erträge liefern. Ein zum Standort passender Ertrag und gesunde Trauben sind wichtig, damit Frucht, Säure und Struktur ausgewogen bleiben.",
+    "detail": "Rotburger ist ein weiterer Name für Zweigelt. Das ist nicht Rotberger, eine andere Kreuzung. Ähnlich klingende Sortennamen können also verschiedene Pflanzen meinen.",
+    "fact": "Zweigelt ist eine gezüchtete Rebsorte; eine Flasche daraus ist nicht einfach eine Mischung seiner beiden Elternweine.",
+    "aromas": [
+      "Kirsche",
+      "Rote Beeren",
+      "Würze"
+    ],
+    "countries": [
+      "AT"
+    ],
+    "sourceUrl": "https://www.austrianwine.com/our-wine/grape-varieties",
+    "sourceLabel": "Austrian Wine · Rebsorten"
+  },
+  {
+    "id": "xinomavro",
+    "hook": "Nordgriechische Rotweine mit Säure und festen Gerbstoffen.",
+    "place": "Xinomavro ist besonders mit Naoussa und Amyndeon im Norden Griechenlands verbunden. Die Sorte ergibt rote Weine, wird aber auch für Rosé und Schaumwein genutzt.",
+    "character": "Rote Früchte, getrocknete Tomate und herbere Würze sind mögliche Eindrücke. Die Farbe kann vergleichsweise hell sein, während Säure und Gerbstoffe deutlich bleiben.",
+    "botany": "Die Sorte wächst kräftig und braucht einen passenden Standort und Ertrag. Reife und sorgfältiger Umgang mit den Schalen beeinflussen die Gerbstoffwirkung.",
+    "detail": "Der Name bedeutet sinngemäß sauer und schwarz. Das ist eine Namensherkunft, keine Vorhersage, dass jeder Wein sauer oder besonders dunkel schmeckt.",
+    "fact": "Naoussa nennt die Herkunft und Xinomavro die Sorte. Die Herkunftsangabe kann auf dem Etikett stärker im Vordergrund stehen.",
+    "aromas": [
+      "Kirsche",
+      "Getrocknete Tomate",
+      "Kräuter"
+    ],
+    "countries": [
+      "GR"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/347",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "agiorgitiko",
+    "hook": "Eine wichtige rote Sorte des Peloponnes.",
+    "place": "Agiorgitiko ist besonders mit Nemea auf dem Peloponnes verbunden. Die Weinberge der Region liegen auf unterschiedlichen Höhen, wodurch Reife und Erntezeit deutlich variieren können.",
+    "character": "Kirsche, Pflaume und würzige Noten sind möglich. Saftige junge Rotweine stehen neben konzentrierteren Fassweinen. Auch Rosé wird aus der Sorte erzeugt.",
+    "botany": "Die Pflanze kann kräftig wachsen und reich tragen. Ein geeigneter Ertrag und zur gewünschten Stilrichtung passende Traubenreife sind deshalb wichtig.",
+    "detail": "Agiorgitiko wird auch als St.-Georgs-Traube übersetzt. Nemea ist dagegen die Herkunft, keine alternative botanische Bezeichnung.",
+    "fact": "Die Höhenunterschiede innerhalb Nemeas sind ein Grund, warum ein einzelner Regionsname mehrere Rotweinstile abdecken kann.",
+    "aromas": [
+      "Kirsche",
+      "Pflaume",
+      "Würze"
+    ],
+    "countries": [
+      "GR"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/342",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "saperavi",
+    "hook": "Dunkle Schale und ungewöhnlich gefärbtes Fruchtfleisch.",
+    "place": "Saperavi ist eine wichtige georgische rote Sorte, besonders in Kachetien. Sie wächst auch außerhalb Georgiens und wird eigenständig oder in Mischungen verarbeitet.",
+    "character": "Dunkle Früchte, kräftige Farbe und spürbare Gerbstoffe sind möglich. Der Ausbau kann im Stahl, Holz oder traditionellen Qvevri stattfinden und ergibt unterschiedliche Texturen.",
+    "botany": "Anders als bei den meisten dunklen Weintrauben ist auch das Fruchtfleisch gefärbt. Solche Sorten können besonders farbintensive Weine ergeben.",
+    "detail": "Qvevri bezeichnet ein großes Tongefäß und keine Traube. Ein Saperavi muss nicht im Qvevri vergoren sein und ist auch nicht zwangsläufig süß.",
+    "fact": "Der Name Saperavi wird sinngemäß mit Färber wiedergegeben und passt zum gefärbten Fruchtfleisch.",
+    "aromas": [
+      "Brombeere",
+      "Dunkle Kirsche",
+      "Würze"
+    ],
+    "countries": [
+      "GE"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/320",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "areni-noir",
+    "hook": "Eine heimische rote Sorte des armenischen Hochlands.",
+    "place": "Areni Noir ist besonders mit Vayots Dzor in Armenien verbunden. Viele Weinberge liegen hoch und erleben warme Tage, kühle Nächte und kalte Winter.",
+    "character": "Rote Früchte, Kirsche und Kräuter sind mögliche Eindrücke. Die Weine können eher fein und frisch wirken, aber auch länger im Holz oder in traditionellen Tongefäßen reifen.",
+    "botany": "Die Bedingungen im Hochland bestimmen, wann die Trauben reif werden. Höhe allein reicht als Erklärung nicht aus; Ausrichtung, Wasser und das Wetter des Jahres zählen mit.",
+    "detail": "Areni ist zugleich ein Ort. Areni Noir nennt die Sorte, während Vayots Dzor die größere Region bezeichnet.",
+    "fact": "Die archäologische Höhle Areni-1 liegt in derselben Region. Sie ist ein historischer Fundort und kein Beleg für das Alter jeder heutigen Rebe.",
+    "aromas": [
+      "Kirsche",
+      "Rote Beeren",
+      "Kräuter"
+    ],
+    "countries": [
+      "AM"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "touriga-nacional",
+    "hook": "Duftige dunkle Trauben aus Portugal.",
+    "place": "Touriga Nacional ist im Dão und im Douro besonders wichtig. Die Sorte wird für trockene Rotweine und als Teil von Portweinmischungen verwendet. Auch andere Länder bauen sie an.",
+    "character": "Veilchen, dunkle Früchte und kräftige Struktur sind mögliche Eindrücke. In Cuvées kann sie Duft und Gerbstoffe beitragen; sortenreine Varianten zeigen je nach Standort unterschiedliche Gewichte.",
+    "botany": "Die Trauben sind eher klein. Reife, Wasserverfügbarkeit und der Umgang mit Ertrag und Laub beeinflussen die spätere Balance.",
+    "detail": "Touriga Nacional und Touriga Franca sind verschiedene Sorten. Beide können im selben Wein vorkommen, ohne dass eine nur ein regionaler Name der anderen wäre.",
+    "fact": "Eine Portweintraube kann auch trockenen Stillwein ergeben. Die Herstellung entscheidet, ob daraus ein verstärkter Wein wird.",
+    "aromas": [
+      "Veilchen",
+      "Brombeere",
+      "Bergamotte"
+    ],
+    "countries": [
+      "PT"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/316",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "baga",
+    "hook": "Eine wichtige rote Sorte der portugiesischen Bairrada.",
+    "place": "Baga ist besonders mit der Bairrada verbunden und wächst auch in anderen portugiesischen Gebieten. Sie wird für rote Stillweine und als Grundlage für Schaumwein verwendet.",
+    "character": "Kirsche, Pflaume und herbere Würze sind möglich. Jung können Säure und Gerbstoffe fest wirken. Mit passender Reife und Ausbau sind auch saftigere, zugängliche Varianten möglich.",
+    "botany": "Die Sorte reift spät. In einer vom Atlantik beeinflussten Region sind gesundes Lesegut und der Verlauf des Herbstwetters deshalb wichtige Themen.",
+    "detail": "Bairrada nennt die Herkunft, Baga die Sorte. Nicht jede Flasche aus der Bairrada besteht vollständig aus Baga; die konkrete Abfüllung zählt.",
+    "fact": "Dunkle Baga-Trauben können auch einen hellen Schaumwein ergeben, wenn der Saft ohne längeren Schalenkontakt verarbeitet wird.",
+    "aromas": [
+      "Kirsche",
+      "Pflaume",
+      "Kräuter"
+    ],
+    "countries": [
+      "PT"
+    ],
+    "sourceUrl": "https://winesofportugal.com/en/portuguese-wines/grape-varieties/",
+    "sourceLabel": "Wines of Portugal · Rebsorten"
+  },
+  {
+    "id": "alfrocheiro",
+    "hook": "Rote Frucht und Farbe in portugiesischen Cuvées.",
+    "place": "Alfrocheiro ist besonders im Dão vertreten und wächst auch in anderen portugiesischen Regionen. Die Sorte wird sowohl eigenständig als auch gemeinsam mit örtlichen roten Partnern abgefüllt.",
+    "character": "Brombeere, Erdbeere und frische Frucht sind mögliche Eindrücke. Sie kann einer Mischung Farbe und Ausgewogenheit geben; der spätere Wein hängt von allen beteiligten Sorten ab.",
+    "botany": "Ertrag, Laub und gesunde Trauben müssen zum Standort passen. Eine gleichmäßige Reife ist wichtig, wenn frische Frucht und ausreichende Konzentration zusammenkommen sollen.",
+    "detail": "Alfrocheiro Preto ist ein weiterer gebräuchlicher Name. Eine Rebsortenliste auf der Rückseite kann helfen, sie in einer Dão-Cuvée zu entdecken.",
+    "fact": "Ein Wein mit mehreren örtlichen Sorten ist nicht automatisch weniger sorgfältig hergestellt als ein sortenreiner Wein.",
+    "aromas": [
+      "Brombeere",
+      "Erdbeere",
+      "Kirsche"
+    ],
+    "countries": [
+      "PT"
+    ],
+    "sourceUrl": "https://winesofportugal.com/en/portuguese-wines/grape-varieties/",
+    "sourceLabel": "Wines of Portugal · Rebsorten"
+  },
+  {
+    "id": "mencia",
+    "hook": "Rote Früchte aus Bierzo und dem Nordwesten Spaniens.",
+    "place": "Mencía ist in Bierzo, Ribeira Sacra und weiteren nordwestspanischen Regionen wichtig. In Portugal heißt dieselbe Sorte Jaen und wird unter anderem im Dão angebaut.",
+    "character": "Kirsche, rote Beeren und Kräuter sind mögliche Eindrücke. Alte Reben und Hanglagen liefern häufig Trauben für eigene Abfüllungen; leichtere und konzentriertere Stile stehen nebeneinander.",
+    "botany": "Die Sorte kann früh reifen. Hangrichtung, Höhe und Erntezeit beeinflussen, wie frisch oder reif die Früchte später wirken.",
+    "detail": "Mencía und Jaen sind zwei Namen derselben Sorte. Eine frühere Vermutung, sie sei identisch mit Cabernet Franc, gilt nicht als richtige Sortenzuordnung.",
+    "fact": "Bierzo ist eine Herkunft, keine zweite Rebsorte. Mencía kann auch aus ganz anderen Orten stammen.",
+    "aromas": [
+      "Kirsche",
+      "Rote Beeren",
+      "Kräuter"
+    ],
+    "countries": [
+      "ES",
+      "PT"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "listan-negro",
+    "hook": "Eine dunkle Sorte der Kanarischen Inseln.",
+    "place": "Listán Negro ist besonders auf Teneriffa und weiteren Kanarischen Inseln verbreitet. Unterschiedliche Höhen und vulkanisch geprägte Standorte schaffen vielfältige Bedingungen.",
+    "character": "Rote Früchte, Kräuter und würzige Eindrücke sind möglich. Die Rotweine können eher hell und frisch wirken; Rosé wird ebenfalls erzeugt.",
+    "botany": "Einige alte Weinberge haben ungewöhnliche Erziehungsformen. Auf Teneriffa werden Reben mancherorts zu langen, miteinander verflochtenen Strängen erzogen.",
+    "detail": "Listán Negro ist nicht Listán Prieto. Letztere heißt in Chile País und in Nordamerika Mission. Der ähnliche erste Name reicht nicht zur Gleichsetzung.",
+    "fact": "Vulkanischer Boden bedeutet nicht, dass im Wein buchstäblich Lava zu schmecken ist; solche Wörter beschreiben Eindrücke, keine Zutaten.",
+    "aromas": [
+      "Rote Kirsche",
+      "Kräuter",
+      "Pfeffer"
+    ],
+    "countries": [
+      "ES"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "pais",
+    "hook": "Eine historische Traube mit neuen, oft leichten Rotweinen.",
+    "place": "País ist in Chile besonders in alten Weinbergen des Südens und der Mitte erhalten, etwa in Maule und Itata. Dieselbe Sorte ist als Listán Prieto und Mission bekannt.",
+    "character": "Rote Früchte, Kräuter und eher leichte Struktur sind möglich. Alte Buschreben werden heute häufig für eigenständige, weniger stark extrahierte Rotweine genutzt.",
+    "botany": "Viele alte Bestände stehen als frei erzogene Buschreben. Das tatsächliche Alter, die Wasserversorgung und der Ertrag unterscheiden sich von Weinberg zu Weinberg.",
+    "detail": "País ist nicht Tinta del País: Dieser spanische Name bezeichnet Tempranillo. Auch Listán Negro ist eine andere Sorte.",
+    "fact": "Mission, País und Listán Prieto erzählen mit unterschiedlichen Namen von der Verbreitung derselben Traube über mehrere Kontinente.",
+    "aromas": [
+      "Erdbeere",
+      "Kirsche",
+      "Kräuter"
+    ],
+    "countries": [
+      "CL",
+      "US",
+      "ES"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "plavac-mali",
+    "hook": "Dunkle Rotweine von Kroatiens Adriaküste.",
+    "place": "Plavac Mali ist besonders in Dalmatien wichtig, etwa auf Pelješac und Hvar. Dingač und Postup sind bekannte Herkünfte mit steilen, sonnigen Weinbergen.",
+    "character": "Dunkle Früchte, getrocknete Beeren und würzige Noten sind möglich. Die Weine können kräftig sein und deutliche Gerbstoffe besitzen.",
+    "botany": "Warme, trockene Hänge unterstützen die Reife. Ein passender Erntezeitpunkt ist wichtig, damit konzentrierte Frucht und frische Anteile ausgewogen bleiben.",
+    "detail": "Plavac Mali ist eine eigene Sorte. Sie ist mit Tribidrag beziehungsweise Zinfandel verwandt, aber nicht dieselbe Traube.",
+    "fact": "Dingač ist eine Herkunft auf der Halbinsel Pelješac und keine zusätzliche Rebsorte.",
+    "aromas": [
+      "Dunkle Kirsche",
+      "Pflaume",
+      "Kräuter"
+    ],
+    "countries": [
+      "HR"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "kalecik-karas",
+    "hook": "Eine türkische rote Sorte aus Zentralanatolien.",
+    "place": "Kalecik Karası ist mit der Gegend um Kalecik nordöstlich von Ankara verbunden. Die Sorte wird inzwischen auch in anderen türkischen Weinregionen angebaut.",
+    "character": "Kirsche, rote Beeren und duftige Würze sind mögliche Eindrücke. Viele Weine wirken eher fein und fruchtbetont als besonders dunkel und massiv.",
+    "botany": "Höhe, trockene Bedingungen und der Temperaturunterschied zwischen Tag und Nacht prägen die ursprünglichen Standorte. Andere Anbauorte können andere Reifeverläufe haben.",
+    "detail": "Kalecik ist ein Ortsname; Karası bedeutet sinngemäß die Dunkle. Die vollständige Bezeichnung benennt die Rebsorte, nicht jede beliebige rote Traube des Ortes.",
+    "fact": "Bei türkischen Sortennamen hilft es, den vollständigen Namen zu lesen: Mehrere unterschiedliche Trauben tragen den Bestandteil Karası.",
+    "aromas": [
+      "Kirsche",
+      "Himbeere",
+      "Blüten"
+    ],
+    "countries": [
+      "TR"
+    ],
+    "sourceUrl": "https://winesofturkey.org/",
+    "sourceLabel": "Wines of Turkey · Rebsorten"
+  },
+  {
+    "id": "okuzgozu",
+    "hook": "Große Beeren und fruchtige Rotweine aus Anatolien.",
+    "place": "Öküzgözü stammt aus Ostanatolien und ist besonders mit Elazığ verbunden. Sie wird eigenständig oder zusammen mit anderen türkischen Sorten, etwa Boğazkere, verarbeitet.",
+    "character": "Rote und dunkle Früchte sowie frische Säure sind mögliche Merkmale. Der Stil kann saftig sein; in einer Mischung beeinflusst der Partner die Gerbstoffe deutlich.",
+    "botany": "Die relativ großen Beeren sind ein bekanntes Merkmal. Hohe Standorte und Unterschiede zwischen Tag und Nacht können den Reifeverlauf beeinflussen.",
+    "detail": "Öküzgözü und Boğazkere sind unterschiedliche Sorten. Dass sie häufig zusammen genannt werden, macht sie nicht zu zwei Namen derselben Traube.",
+    "fact": "Der Name wird mit Ochsenauge übersetzt und bezieht sich auf die auffälligen großen Beeren.",
+    "aromas": [
+      "Kirsche",
+      "Brombeere",
+      "Pflaume"
+    ],
+    "countries": [
+      "TR"
+    ],
+    "sourceUrl": "https://winesofturkey.org/",
+    "sourceLabel": "Wines of Turkey · Rebsorten"
+  },
+  {
+    "id": "mavro",
+    "hook": "Eine zyprische rote Sorte für mehrere Weinstile.",
+    "place": "Mavro ist eine traditionelle dunkle Sorte Zyperns. Sie steht in vielen örtlichen Weinbergen und wird unter anderem für Commandaria verwendet, gemeinsam mit oder neben der weißen Xynisteri.",
+    "character": "Aus frischen Trauben können leichtere rote und roséfarbene Weine entstehen. Für Commandaria werden die Trauben in der Sonne getrocknet, wodurch sich Zucker und andere Bestandteile konzentrieren.",
+    "botany": "Trockene Sommer und ältere, örtlich angepasste Weinberge gehören zum Rahmen. Für die Traubentrocknung sind gesunde Früchte und sorgfältige Auswahl wichtig.",
+    "detail": "Mavro bedeutet schwarz. Ähnliche Namensbestandteile kommen auch bei anderen griechisch benannten Sorten vor und bedeuten nicht automatisch dieselbe Pflanze.",
+    "fact": "Eine dunkle Traube kann Teil eines bernsteinfarbenen Süßweins sein: Die spätere Farbe hängt auch von Herstellung und Reife ab.",
+    "aromas": [
+      "Rote Beeren",
+      "Getrocknete Früchte",
+      "Würze"
+    ],
+    "countries": [
+      "CY"
+    ],
+    "sourceUrl": "https://www.unesco.org.cy/Programmes-Commandaria_and_the_Wine_Traditions_of_the_Commandaria_Villages%2CEN-PROGRAMMES-04-02-03-38%2CEN",
+    "sourceLabel": "Cyprus UNESCO · Commandaria"
+  },
+  {
+    "id": "poulsard",
+    "hook": "Sehr helle Rotweine aus dem Jura.",
+    "place": "Poulsard, auch Ploussard genannt, gehört zu den traditionellen roten Sorten des französischen Jura. Arbois und Pupillin sind bekannte Orte dafür.",
+    "character": "Rote Beeren, Blüten und zarte Würze sind mögliche Eindrücke. Die Weine können so hell sein, dass sie an Rosé erinnern, bleiben aber als Rotwein hergestellt.",
+    "botany": "Die Sorte ist empfindlich gegenüber Frühjahrsfrost, ungünstigem Blütewetter und Hitze. Standort und eine sorgfältige Weinbergsarbeit sind deshalb besonders wichtig.",
+    "detail": "Poulsard und Ploussard sind zwei Namen derselben Sorte. Ein Poulsard ist nicht einfach ein heller Pinot Noir, auch wenn beide im Jura wachsen.",
+    "fact": "Die blasse Farbe verrät wenig über die Sorgfalt im Weinberg oder die aromatische Vielfalt des Weins.",
+    "aromas": [
+      "Erdbeere",
+      "Rote Johannisbeere",
+      "Blüten"
+    ],
+    "countries": [
+      "FR"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/226",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "trousseau",
+    "hook": "Eine rote Jura-Sorte mit portugiesischem Zweitnamen.",
+    "place": "Trousseau ist eine traditionelle rote Sorte des Jura. In Portugal ist dieselbe Sorte als Bastardo bekannt und kann unter anderem in Douro-Weinen vorkommen.",
+    "character": "Rote und dunklere Früchte, Pfeffer und Kräuter sind mögliche Eindrücke. Im Jura kann sie fester und dunkler wirken als Poulsard; der Ausbau verändert das Bild.",
+    "botany": "Die Sorte braucht gut geeignete, ausreichend warme Standorte zur Reife. Kräftiges Wachstum und der passende Ertrag müssen im Weinberg ausbalanciert werden.",
+    "detail": "Trousseau und Bastardo bezeichnen dieselbe Sorte. Der portugiesische Name meint keine minderwertige Mischung, sondern eine konkrete Traube.",
+    "fact": "Eine Sorte kann unter sehr verschiedenen regionalen Namen jahrhundertelang angebaut werden.",
+    "aromas": [
+      "Kirsche",
+      "Pfeffer",
+      "Kräuter"
+    ],
+    "countries": [
+      "FR",
+      "PT"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/277",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "graciano",
+    "hook": "Ein würziger Partner für Rioja und mehr.",
+    "place": "Graciano ist eine traditionelle rote Sorte der Rioja. Sie wird häufig mit Tempranillo kombiniert, es gibt aber auch eigenständige Abfüllungen. In anderen Ländern tauchen weitere Namen auf.",
+    "character": "Dunkle Früchte, Blüten und würzige Noten sind möglich. Die Sorte kann Farbe und frische Säure in eine Mischung einbringen.",
+    "botany": "Graciano reift spät und braucht einen passenden warmen Standort. Ein kleiner Flächenanteil kann trotzdem eine wichtige Aufgabe in einer Cuvée haben.",
+    "detail": "Graciano ist nicht Garnacha: Beide können in Rioja vorkommen, sind aber unterschiedliche Sorten. Die ähnlichen Anfangsbuchstaben helfen botanisch nicht weiter.",
+    "fact": "In einer Rebsortenliste kann Graciano nur wenige Prozent ausmachen und dennoch gezielt für die Balance gewählt worden sein.",
+    "aromas": [
+      "Brombeere",
+      "Veilchen",
+      "Würze"
+    ],
+    "countries": [
+      "ES"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "maturana-tinta",
+    "hook": "Eine seltenere rote Sorte der Rioja.",
+    "place": "Maturana Tinta gehört zu den zugelassenen roten Sorten der Rioja. Sie wird wesentlich seltener genannt als Tempranillo oder Garnacha und erscheint auch in kleinen eigenständigen Abfüllungen.",
+    "character": "Dunkle Früchte und würzige bis kräuterige Eindrücke sind möglich. In Mischungen kann sie Farbe und eine eigene aromatische Note ergänzen.",
+    "botany": "Bei seltenen Sorten ist gesundes Pflanzmaterial wichtig. Reife, Ertrag und der gewählte Standort beeinflussen das Ergebnis ebenso wie bei bekannteren Trauben.",
+    "detail": "Maturana Tinta und Maturana Blanca sind getrennte Sortenbezeichnungen. Der gemeinsame Name bedeutet nicht, dass die Flasche je nach Ausbau weiß oder rot wird.",
+    "fact": "Rioja umfasst mehr Rebsorten als Tempranillo: Die erlaubte Sortenpalette ist breiter als das häufigste Bild der Region.",
+    "aromas": [
+      "Dunkle Beeren",
+      "Kräuter",
+      "Würze"
+    ],
+    "countries": [
+      "ES"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "teroldego",
+    "hook": "Eine dunkle Sorte aus dem Trentino.",
+    "place": "Teroldego ist besonders mit dem Campo Rotaliano im Trentino verbunden. Die Weinberge liegen in einer von Bergen umgebenen Talebene, deren Böden von Flüssen geprägt wurden.",
+    "character": "Brombeere, Kirsche und Veilchen sind mögliche Eindrücke. Die Weine können kräftige Farbe und frische Säure verbinden; der Ausbau reicht vom fruchtigen Tankwein bis zum Fasswein.",
+    "botany": "Talboden bedeutet hier keine beliebig warme Ebene. Berge, Wind und örtliche Böden beeinflussen Wasser und Reife.",
+    "detail": "Teroldego Rotaliano verbindet den Sortennamen mit einer geschützten Herkunft. Lagrein und Marzemino sind andere rote Sorten aus dem weiteren Alpenraum.",
+    "fact": "Die roten Trauben wachsen am Fuß einer ausgeprägt alpinen Landschaft; Weinbau findet dort vor allem in geeigneten Tälern und Hängen statt.",
+    "aromas": [
+      "Brombeere",
+      "Kirsche",
+      "Veilchen"
+    ],
+    "countries": [
+      "IT"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "frappato",
+    "hook": "Duftige rote Früchte aus Sizilien.",
+    "place": "Frappato ist besonders im Südosten Siziliens bekannt. In Cerasuolo di Vittoria wird die Sorte mit Nero d’Avola kombiniert. Daneben gibt es sortenreine Weine.",
+    "character": "Erdbeere, Himbeere und Blüten sind mögliche Eindrücke. Die Farbe ist häufig eher hell und die Gerbstoffwirkung vergleichsweise fein, abhängig von Reife und Ausbau.",
+    "botany": "Warme Standorte können reife Frucht bringen; ein passender Lesezeitpunkt bewahrt Frische. Die Bedingungen unterscheiden sich auch innerhalb des sizilianischen Südostens.",
+    "detail": "Frappato ist eine Sorte, Vittoria ein Ort und Cerasuolo di Vittoria ein roter Herkunftswein. Der Name Cerasuolo bedeutet hier nicht automatisch Rosé.",
+    "fact": "In einer Cuvée kann Frappato Duft und Leichtigkeit ergänzen, während Nero d’Avola häufig mehr Struktur beiträgt.",
+    "aromas": [
+      "Erdbeere",
+      "Himbeere",
+      "Blüten"
+    ],
+    "countries": [
+      "IT"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "mondeuse",
+    "hook": "Würzige Rotweine aus den französischen Alpen.",
+    "place": "Mondeuse Noire ist eine traditionelle rote Sorte Savoyens. Arbin ist ein bekannter Ort dafür. Die Weinberge nutzen geeignete Hänge statt die höchsten alpinen Lagen.",
+    "character": "Dunkle Beeren, Veilchen und Pfeffer sind mögliche Eindrücke. Säure und Gerbstoffe können fest sein; mit Reife verändert sich die Textur.",
+    "botany": "Die Sorte wächst kräftig. Sie reagiert empfindlich auf Trockenheit und braucht eine passende Wahl von Standort und Unterlage.",
+    "detail": "Mondeuse Noire und Mondeuse Blanche sind unterschiedliche Sorten. Auch der ähnliche Klang von Mourvèdre bedeutet keine Identität.",
+    "fact": "Alpiner Weinbau bedeutet nicht, dass Reben im Dauerschnee wachsen: Sonnige, geschützte Hänge sind entscheidend.",
+    "aromas": [
+      "Brombeere",
+      "Veilchen",
+      "Pfeffer"
+    ],
+    "countries": [
+      "FR"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/172",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "touriga-franca",
+    "hook": "Ein wichtiger Teil vieler Douro-Mischungen.",
+    "place": "Touriga Franca ist eine bedeutende rote Sorte des Douro. Sie wird in Portwein und trockenen Rotweinen verwendet und häufig mit anderen örtlichen Sorten kombiniert.",
+    "character": "Dunkle Früchte und blumige Eindrücke sind möglich. Die Sorte kann Duft, Farbe und Struktur beitragen, ohne dass ihr Anteil aus der fertigen Cuvée einzeln herausgeschmeckt werden müsste.",
+    "botany": "Die warmen Hänge des Douro stellen Anforderungen an Wasser und Sonnenschutz. Reifezeit und Standort verändern den späteren Charakter.",
+    "detail": "Touriga Francesa ist ein älterer Name. Touriga Nacional ist dagegen eine andere Sorte, auch wenn beide oft nebeneinander angebaut und gemeinsam verarbeitet werden.",
+    "fact": "Franca und Nacional auf derselben Rebsortenliste sind kein Schreibfehler, sondern zwei verschiedene Trauben.",
+    "aromas": [
+      "Brombeere",
+      "Blüten",
+      "Pflaume"
+    ],
+    "countries": [
+      "PT"
+    ],
+    "sourceUrl": "https://winesofportugal.com/en/portuguese-wines/grape-varieties/",
+    "sourceLabel": "Wines of Portugal · Rebsorten"
+  },
+  {
+    "id": "tinta-barroca",
+    "hook": "Eine traditionelle rote Sorte des Douro.",
+    "place": "Tinta Barroca gehört zur Sortenpalette für Portwein und trockene Douro-Rotweine. Sie wird meist zusammen mit anderen regionalen Trauben verarbeitet.",
+    "character": "Reife dunkle Früchte und ein eher runder Beitrag zur Mischung sind möglich. Der fertige Stil hängt davon ab, ob ein trockener Wein oder ein verstärkter Port entsteht.",
+    "botany": "Die Sorte wächst kräftig und trägt mittelgroße bis große Trauben. Sehr heiße Standorte verlangen Aufmerksamkeit, damit Frucht und Traubengesundheit erhalten bleiben.",
+    "detail": "Tinta Barroca ist eine konkrete Sorte. Tinta Roriz ist ein anderer Name für Tempranillo und nicht dieselbe Pflanze.",
+    "fact": "Portwein besteht häufig aus mehreren örtlichen Sorten; der Name einer einzelnen Traube steht deshalb selten allein im Vordergrund.",
+    "aromas": [
+      "Pflaume",
+      "Brombeere",
+      "Dunkle Kirsche"
+    ],
+    "countries": [
+      "PT"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/324",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "tinto-cao",
+    "hook": "Eine traditionelle Douro-Sorte mit eigenem Beitrag.",
+    "place": "Tinto Cão wird im Douro für Portwein und trockene Rotweine verwendet. Sie kommt meist als Teil einer Mischung vor und ist weniger flächenstark als manche bekannteren Partner.",
+    "character": "Rote Früchte, frische Säure und würzige Eindrücke sind möglich. Der Anteil kann dazu dienen, die Balance einer Cuvée zu ergänzen.",
+    "botany": "Die Sorte reift vergleichsweise spät. Die Auswahl des Standorts und der richtige Erntezeitpunkt sind daher wichtig, auch in einer warmen Region.",
+    "detail": "Tinto Cão ist nicht Tinta Roriz oder Tinta Barroca. Ähnliche Namensanfänge stehen im Portugiesischen häufig nur für die dunkle Traubenfarbe.",
+    "fact": "Der Name wird wörtlich mit roter Hund übersetzt. Das ist eine historische Bezeichnung und keine Geschmacksbeschreibung.",
+    "aromas": [
+      "Rote Beeren",
+      "Kirsche",
+      "Würze"
+    ],
+    "countries": [
+      "PT"
+    ],
+    "sourceUrl": "https://winesofportugal.com/en/portuguese-wines/grape-varieties/",
+    "sourceLabel": "Wines of Portugal · Rebsorten"
+  },
+  {
+    "id": "aleksandrouli",
+    "hook": "Eine rote Traube aus Georgiens Bergregion Racha.",
+    "place": "Aleksandrouli ist mit Racha im Westen Georgiens verbunden. Gemeinsam mit Mujuretuli wird sie für den bekannten halbsüßen Herkunftswein Khvanchkara verwendet.",
+    "character": "Rote und dunkle Beeren sowie blumige Eindrücke sind möglich. Es gibt auch trockene Weine; die Rebsorte selbst ist kein Versprechen für Süße.",
+    "botany": "Die Weinberge liegen vielfach an Hängen im Rioni-Tal. Standort und ausreichend ausgereifte Trauben sind besonders wichtig für den gewünschten Stil.",
+    "detail": "Aleksandrouli und Mujuretuli sind verschiedene Sorten. Khvanchkara bezeichnet einen geregelten Herkunftswein und nicht eine dritte Rebsorte.",
+    "fact": "Ein halbsüßer Wein kann aus denselben Sorten entstehen wie ein trockener; entscheidend ist unter anderem der verbleibende Zucker.",
+    "aromas": [
+      "Rote Beeren",
+      "Kirsche",
+      "Blüten"
+    ],
+    "countries": [
+      "GE"
+    ],
+    "sourceUrl": "https://wine.gov.ge/En/VarietyRed",
+    "sourceLabel": "National Wine Agency Georgia · Rebsorten"
+  },
+  {
+    "id": "mujuretuli",
+    "hook": "Die zweite wichtige Sorte vieler Khvanchkara-Weine.",
+    "place": "Mujuretuli ist besonders in Racha im Westen Georgiens zu Hause. Sie wächst häufig gemeinsam mit Aleksandrouli und ist ein wichtiger Partner für Khvanchkara.",
+    "character": "Beerenfrucht und würzige Eindrücke sind möglich. In einer traditionellen Mischung ist der Gesamtwein wichtiger als der Versuch, jede einzelne Traube herauszuschmecken.",
+    "botany": "Die dunklen, eher länglichen Beeren wachsen an mittelgroßen Trauben. Gesunde Früchte und der passende Lesezeitpunkt sind im örtlichen Klima wichtig.",
+    "detail": "Mujuretuli ist eine eigene Sorte und kein alternativer Name für Aleksandrouli. Beide haben eine enge regionale Verbindung, bleiben aber botanisch verschieden.",
+    "fact": "Gemischte alte Weinberge können mehrere Sorten nebeneinander enthalten, ohne dass jede Reihe sauber nur einer Sorte gehört.",
+    "aromas": [
+      "Dunkle Beeren",
+      "Kirsche",
+      "Würze"
+    ],
+    "countries": [
+      "GE"
+    ],
+    "sourceUrl": "https://wine.gov.ge/En/VarietyRed",
+    "sourceLabel": "National Wine Agency Georgia · Rebsorten"
+  },
+  {
+    "id": "papaskaras",
+    "hook": "Eine traditionelle dunkle Traube Thrakiens.",
+    "place": "Papaskarası stammt aus dem europäischen Teil der Türkei. Sie wird besonders mit Thrakien verbunden und gehört zu den örtlichen Sorten, die neben internationalen Trauben erhalten werden.",
+    "character": "Rote Früchte, frische Säure und würzige Eindrücke sind möglich. Es entstehen rote und roséfarbene Weine sowie Mischungen, abhängig vom Betrieb.",
+    "botany": "Die örtlichen Bedingungen unterscheiden sich zwischen Küste und Inland. Reife, Wasser und Traubengesundheit beeinflussen den Stil stärker als die bloße Bekanntheit einer Sorte.",
+    "detail": "Papaskarası ist nicht Kalecik Karası. Der gemeinsame Bestandteil Karası verweist auf die dunkle Farbe, nicht auf eine gemeinsame Sortenidentität.",
+    "fact": "Seltenere örtliche Sorten können in einer Region weiterleben, obwohl international bekanntere Namen häufiger auf Weinlisten stehen.",
+    "aromas": [
+      "Kirsche",
+      "Rote Beeren",
+      "Kräuter"
+    ],
+    "countries": [
+      "TR"
+    ],
+    "sourceUrl": "https://winesofturkey.org/",
+    "sourceLabel": "Wines of Turkey · Rebsorten"
+  },
+  {
+    "id": "sciaccarellu",
+    "hook": "Duftige Rot- und Roséweine aus Korsika.",
+    "place": "Sciaccarellu ist besonders mit Korsika verbunden, unter anderem mit der Gegend um Ajaccio. Die Sorte wird eigenständig und gemeinsam mit anderen örtlichen Trauben verarbeitet.",
+    "character": "Rote Beeren, Pfeffer und Kräuter sind mögliche Eindrücke. Die Weine können eher hell und duftig wirken; auch Rosé ist ein wichtiger Stil.",
+    "botany": "Sonnige Hänge und mediterrane Bedingungen bilden den Rahmen. Reife und Lesezeitpunkt entscheiden mit, ob Frucht, Alkohol und Säure ausgewogen bleiben.",
+    "detail": "Sciaccarellu heißt in der Toskana Mammolo. Niellucciu ist dagegen eine andere auf Korsika wichtige Sorte und entspricht Sangiovese.",
+    "fact": "Korsika hat mehrere örtlich geläufige Sortennamen; ein ungewohnter Name muss deshalb keine weltweit unbekannte Pflanze bedeuten.",
+    "aromas": [
+      "Erdbeere",
+      "Pfeffer",
+      "Kräuter"
+    ],
+    "countries": [
+      "FR",
+      "IT"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "lambrusco-di-sorbara",
+    "hook": "Helle rote Schaumweine mit viel Frische.",
+    "place": "Lambrusco di Sorbara ist eine Sorte und Teil des Namens einer Herkunft in der Emilia-Romagna. Sie wird für perlende und schäumende Rosé- und Rotweine genutzt.",
+    "character": "Rote Johannisbeere, Himbeere und Blüten sind mögliche Eindrücke. Die Farbe kann überraschend blass sein. Trockenere Varianten wirken durch Säure und Kohlensäure besonders frisch.",
+    "botany": "Die Sorte hat besondere Anforderungen an die Bestäubung und wird traditionell mit geeigneten Partnern im Weinberg angebaut. Das ist eine Frage der Pflanze, nicht der späteren Süßung.",
+    "detail": "Lambrusco ist keine einzelne Sorte, sondern umfasst mehrere unterschiedliche Trauben und Herkunftsweine. Sorbara ist eine davon; Grasparossa ist eine andere.",
+    "fact": "Lambrusco muss nicht süß sein. Auf dem Etikett helfen Angaben wie secco, also trocken.",
+    "aromas": [
+      "Himbeere",
+      "Rote Johannisbeere",
+      "Veilchen"
+    ],
+    "countries": [
+      "IT"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "chardonnay",
+    "hook": "Eine Sorte, vom schlanken Chablis bis zum gereiften Fasswein.",
+    "place": "Chardonnay ist im Burgund und in der Champagne wichtig und wächst weltweit, etwa in Kalifornien, Australien und Südafrika. Die Sorte wird für Still- und Schaumwein verwendet.",
+    "character": "Apfel, Zitrus oder reifere gelbe Frucht sind möglich. Butter, Toast und Vanille hängen stark von Gärung, Säureabbau und Ausbau ab. Chardonnay ist deshalb nicht automatisch ein schwerer Holzwein.",
+    "botany": "Die kleinen Trauben können in vielen gemäßigten Klimazonen ausreifen. Früher Austrieb macht Frühjahrsfrost an manchen Standorten zum Thema.",
+    "detail": "Chablis und Pouilly-Fuissé sind burgundische Herkünfte für Chardonnay. Pouilly-Fumé liegt dagegen an der Loire und steht für Sauvignon Blanc.",
+    "fact": "Ein Blanc de Blancs aus der Champagne besteht häufig aus Chardonnay; der Begriff allein bedeutet allgemein weißer Wein aus hellen Trauben.",
+    "aromas": [
+      "Apfel",
+      "Zitrone",
+      "Geröstetes Brot"
+    ],
+    "countries": [
+      "FR",
+      "US",
+      "AU",
+      "ZA"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/60",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "chenin-blanc",
+    "hook": "Eine Sorte für trockene, süße und schäumende Weine.",
+    "place": "Chenin Blanc ist besonders an der Loire und in Südafrika wichtig. Vouvray und Savennières sind bekannte französische Herkünfte, während am Kap auch alte Buschreben erhalten sind.",
+    "character": "Apfel, Quitte und mit Reife honigartige Eindrücke sind möglich. Die Säure kann deutlich bleiben, auch bei süßen Varianten. Trockene, restsüße und schäumende Stile unterscheiden sich stark.",
+    "botany": "Die Sorte kann reich tragen und braucht einen passenden Ertrag. Gesunde Trauben und der gewünschte Reifegrad sind je nach Weinstil unterschiedlich wichtig.",
+    "detail": "Steen ist ein historischer südafrikanischer Name. Ein Chenin Blanc ist nicht grundsätzlich süß; die konkrete Stilbeschreibung hilft weiter.",
+    "fact": "Dieselbe Rebsorte kann an der Loire sowohl einen sehr trockenen Stillwein als auch einen süßen oder schäumenden Wein ergeben.",
+    "aromas": [
+      "Apfel",
+      "Quitte",
+      "Honig"
+    ],
+    "countries": [
+      "FR",
+      "ZA"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/68",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "semillon",
+    "hook": "Bordeaux-Sorte, Süßweinpartner und australischer Flaschenreifer.",
+    "place": "Sémillon ist in Bordeaux wichtig, trocken oft mit Sauvignon Blanc und süß etwa in Sauternes. In Australien ist das Hunter Valley für eigenständige trockene Beispiele bekannt.",
+    "character": "Zitrus, gelbe Frucht und bei Reife honigartige Noten sind möglich. Ein junger Hunter-Sémillon kann schlank wirken und erst später an Toast erinnern.",
+    "botany": "Die Sorte hat relativ große Beeren und ist unter passenden Bedingungen für Edelfäule geeignet. Dieselbe Empfindlichkeit wäre bei anderem Wetter ein Risiko für gesunde Trauben.",
+    "detail": "Edelfäule bedeutet nicht einfach jede Fäulnis. Es braucht geeignete Bedingungen und sorgfältige Auswahl; trockener Sémillon wird anders gelesen.",
+    "fact": "Toastduft kann durch Flaschenreife entstehen. Er beweist bei Sémillon keinen Ausbau in neuen Holzfässern.",
+    "aromas": [
+      "Zitrone",
+      "Gelbe Frucht",
+      "Honig"
+    ],
+    "countries": [
+      "FR",
+      "AU",
+      "ZA"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/260",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "gruner-veltliner",
+    "hook": "Österreichs bekannte weiße Sorte mit würziger Seite.",
+    "place": "Grüner Veltliner ist besonders in Niederösterreich wichtig, etwa im Weinviertel, Kamptal, Kremstal und in der Wachau. Daneben gibt es kleinere Bestände in anderen Ländern.",
+    "character": "Apfel, Zitrus und pfeffrige Würze sind mögliche Eindrücke. Leichte, frische Weine stehen neben dichten, länger gereiften Varianten. Nicht jede Flasche zeigt dasselbe berühmte Pfefferl.",
+    "botany": "Die Sorte passt zu unterschiedlichen Standorten. Ertrag, Wasser und Traubenreife beeinflussen, wie schlank oder konzentriert der Wein ausfällt.",
+    "detail": "Roter Veltliner ist eine andere Sorte. Der gleiche Namensbestandteil ist kein Beleg für zwei bloße Farbversionen derselben Pflanze.",
+    "fact": "Das österreichische Wort Pfefferl beschreibt einen möglichen würzigen Eindruck, keine Zugabe von Pfeffer zum Wein.",
+    "aromas": [
+      "Apfel",
+      "Zitrone",
+      "Weißer Pfeffer"
+    ],
+    "countries": [
+      "AT",
+      "CZ",
+      "SK"
+    ],
+    "sourceUrl": "https://www.austrianwine.com/our-wine/grape-varieties",
+    "sourceLabel": "Austrian Wine · Rebsorten"
+  },
+  {
+    "id": "viognier",
+    "hook": "Duftige weiße Weine, besonders von der nördlichen Rhône.",
+    "place": "Viognier ist mit Condrieu an der nördlichen Rhône verbunden. Die Sorte wird auch in Südfrankreich, Australien und weiteren Ländern angebaut und manchmal mit roten Trauben gemeinsam vergoren.",
+    "character": "Aprikose, Pfirsich und Blüten sind mögliche Eindrücke. Die Weine können weich und körperreich wirken. Intensive Frucht im Duft bedeutet dabei nicht automatisch Restsüße.",
+    "botany": "Die kleinen, kompakten Trauben brauchen eine sorgfältige Wahl des Lesezeitpunkts. Zu frühe oder sehr späte Ernte verändert das Verhältnis von Duft, Säure und Alkohol.",
+    "detail": "Condrieu ist eine Herkunft für Viognier. In manchen Côte-Rôtie-Weinen darf etwas Viognier gemeinsam mit Syrah verarbeitet werden.",
+    "fact": "Eine helle Traube kann bei manchen traditionellen Rotweinen eine Rolle spielen, ohne den fertigen Wein zu einem Rosé zu machen.",
+    "aromas": [
+      "Aprikose",
+      "Pfirsich",
+      "Blüten"
+    ],
+    "countries": [
+      "FR",
+      "AU",
+      "US"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/288",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "marsanne",
+    "hook": "Eine weiße Rhône-Sorte mit Gewicht und ruhigerem Duft.",
+    "place": "Marsanne ist an der nördlichen Rhône wichtig, etwa in weißen Hermitage-Weinen. Sie wird häufig mit Roussanne kombiniert und wächst auch in Australien und anderen Ländern.",
+    "character": "Birne, gelbe Früchte und mit Reife nussige Eindrücke sind möglich. Der Wein kann eher voll und weich wirken; die Säure hängt auch von Standort und Lesezeitpunkt ab.",
+    "botany": "Die Sorte wächst kräftig und kann reich tragen. Große Trauben mit kleineren Beeren verlangen einen zum Standort passenden Umgang mit Ertrag und Laub.",
+    "detail": "Marsanne und Roussanne sind unterschiedliche Sorten und häufige Partner. Eine weiße Rhône-Cuvée muss deshalb nicht aus nur einer davon bestehen.",
+    "fact": "Ein weniger lauter Duft bedeutet nicht wenig Geschmack: Textur und Körper können bei einem Weißwein stärker auffallen als Blütenaromen.",
+    "aromas": [
+      "Birne",
+      "Gelbe Früchte",
+      "Nüsse"
+    ],
+    "countries": [
+      "FR",
+      "AU"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/156",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "roussanne",
+    "hook": "Eine duftige Partnerin weißer Rhône-Weine.",
+    "place": "Roussanne ist an der Rhône zu Hause und wird dort unter anderem mit Marsanne oder anderen hellen Sorten gemischt. Sie wächst auch in Südfrankreich und außerhalb Europas.",
+    "character": "Birne, Kräuter und blumige bis honigartige Eindrücke sind möglich. Mit Reife können würzige und nussige Noten hinzukommen. Der Ausbau verändert die Textur deutlich.",
+    "botany": "Die langen Triebe brauchen guten Halt. Die Sorte verlangt Aufmerksamkeit im Weinberg; gesunde Trauben und ein passender Lesezeitpunkt sind wichtig.",
+    "detail": "Roussanne und Marsanne sind keine Synonyme. Auf dem Etikett steht bei Herkunftsweinen häufig der Ort, während die Sorten erst in der Beschreibung genannt werden.",
+    "fact": "Auch Weißweine können aus mehreren Rebsorten bestehen; Cuvée ist kein Begriff, der nur für Rotwein gilt.",
+    "aromas": [
+      "Birne",
+      "Kräuter",
+      "Blüten"
+    ],
+    "countries": [
+      "FR",
+      "US",
+      "AU"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/244",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "gewurztraminer",
+    "hook": "Ein kräftiger Duft aus rosa bis rötlich gefärbten Trauben.",
+    "place": "Gewürztraminer ist besonders im Elsass bekannt und wächst auch in Südtirol, Deutschland und weiteren Ländern. Die Beeren sind rosa bis rötlich, obwohl daraus meist Weißwein entsteht.",
+    "character": "Rose, Litschi und Gewürze sind mögliche Eindrücke. Die Weine können trocken oder süß sein. Der aromatische Duft allein verrät den Zuckergehalt nicht.",
+    "botany": "Die Sorte hat kleine Trauben und kann bei ungünstiger Blüte ungleichmäßig ansetzen. Der Standort und Lesezeitpunkt beeinflussen Duft und verbleibende Säure.",
+    "detail": "Traminer umfasst eng verwandte Formen und örtliche Bezeichnungen. Gewürztraminer meint die besonders aromatische Form; der Name ist keine Liste zugesetzter Gewürze.",
+    "fact": "Weißweintrauben müssen nicht grün aussehen: Gewürztraminer ist ein anschauliches Beispiel.",
+    "aromas": [
+      "Rose",
+      "Litschi",
+      "Gewürze"
+    ],
+    "countries": [
+      "FR",
+      "IT",
+      "DE",
+      "AT"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/112",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "albarino-alvarinho",
+    "hook": "Eine Sorte, zwei Namen an Spaniens und Portugals Atlantikseite.",
+    "place": "Albariño ist besonders in Rías Baixas im Nordwesten Spaniens wichtig. In Portugal heißt dieselbe Sorte Alvarinho und ist unter anderem in Monção und Melgaço im Vinho-Verde-Gebiet bekannt.",
+    "character": "Zitrus, Pfirsich und Blüten sind mögliche Eindrücke. Frische Säure ist häufig, doch Hefelager und Fassausbau können dichtere, rundere Varianten ergeben.",
+    "botany": "Die eher kleinen Trauben wachsen oft in feuchten, atlantisch beeinflussten Gegenden. Luft zwischen den Blättern und gesunde Früchte sind daher besonders wichtig.",
+    "detail": "Albariño und Alvarinho bezeichnen dieselbe Sorte. Vinho Verde ist eine portugiesische Herkunft und bedeutet nicht, dass der Wein grün gefärbt oder immer perlend ist.",
+    "fact": "Die Landesgrenze ändert den Namen der Sorte, aber nicht ihre botanische Identität.",
+    "aromas": [
+      "Zitrone",
+      "Pfirsich",
+      "Blüten"
+    ],
+    "countries": [
+      "ES",
+      "PT",
+      "UY"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/300",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "godello",
+    "hook": "Eine weiße Sorte aus dem Nordwesten Spaniens.",
+    "place": "Godello ist besonders mit Valdeorras verbunden und wächst auch in benachbarten Gebieten wie Bierzo und Monterrei. Sie wird häufig sortenrein ausgebaut.",
+    "character": "Apfel, Birne und gelbe Früchte sind mögliche Eindrücke. Der Wein kann frisch oder mit längerem Hefelager dichter und cremiger wirken.",
+    "botany": "Höhe, Hanglage und der passende Lesezeitpunkt beeinflussen die Balance. Auch innerhalb einer Region unterscheiden sich Wasserzugang und Wärme deutlich.",
+    "detail": "Gouveio ist der portugiesische Name derselben Sorte. Godello ist nicht Verdejo, obwohl beide bekannte helle Trauben der Iberischen Halbinsel sind.",
+    "fact": "Hefelager kann die Textur eines Weißweins verändern, ohne dass er dafür in einem neuen Holzfass liegen muss.",
+    "aromas": [
+      "Apfel",
+      "Birne",
+      "Gelbe Früchte"
+    ],
+    "countries": [
+      "ES",
+      "PT"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "verdejo",
+    "hook": "Die bekannte weiße Sorte der spanischen Rueda.",
+    "place": "Verdejo ist besonders mit Rueda auf dem kastilischen Hochland verbunden. Die Sorte wird auch in weiteren spanischen Gebieten angebaut und überwiegend zu trockenen Weißweinen verarbeitet.",
+    "character": "Zitrus, Kräuter und gelegentlich ein leicht herber Nachgeschmack sind mögliche Merkmale. Frische Tankweine stehen neben Beispielen mit Hefelager oder Fassausbau.",
+    "botany": "Die Sorte kommt mit trockenen Bedingungen vergleichsweise gut zurecht. Heiße Tage, kühle Nächte und der Lesezeitpunkt beeinflussen ihre Reife.",
+    "detail": "Verdejo ist nicht Verdelho und nicht Godello. Die ähnlich klingenden Namen bezeichnen verschiedene Rebsorten aus unterschiedlichen traditionellen Zusammenhängen.",
+    "fact": "Rueda ist die Herkunft, Verdejo die Sorte. In Rueda wird auch Sauvignon Blanc angebaut.",
+    "aromas": [
+      "Zitrone",
+      "Kräuter",
+      "Fenchel"
+    ],
+    "countries": [
+      "ES"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/346",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "viura-macabeo",
+    "hook": "Eine Sorte zwischen weißer Rioja und Cava.",
+    "place": "Viura ist der in Rioja gebräuchliche Name für Macabeo. In Katalonien gehört Macabeo zur traditionellen Sortenpalette vieler Cavas. Die Sorte wächst auch im südlichen Frankreich.",
+    "character": "Apfel, Zitrus und dezente Blüten sind mögliche Eindrücke. Frische Jungweine unterscheiden sich stark von lange gereifter weißer Rioja und von Schaumwein.",
+    "botany": "Die Pflanze ist wüchsig und kann große Trauben tragen. Ein passender Ertrag und gesunde Beeren sind wichtig, besonders bei feuchtem Wetter.",
+    "detail": "Viura, Macabeo und die französische Schreibweise Macabeu meinen dieselbe Sorte. Cava ist dagegen ein Herkunftsschaumwein und keine Rebsorte.",
+    "fact": "Eine weiße Rioja kann viele Jahre gereift sein; die Region ist nicht nur eine Rotweinherkunft.",
+    "aromas": [
+      "Apfel",
+      "Zitrone",
+      "Blüten"
+    ],
+    "countries": [
+      "ES",
+      "FR"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/145",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "furmint",
+    "hook": "Von trockenem Tokaj bis zum konzentrierten Süßwein.",
+    "place": "Furmint ist in Ungarn besonders mit Tokaj und Somló verbunden. Die Sorte wächst auch in Nachbarländern, etwa als Šipon in Slowenien.",
+    "character": "Apfel, Birne und mit Reife honigartige Noten sind möglich. Die Säure kann kräftig bleiben. Trockene, schäumende und edelsüße Varianten sind sehr unterschiedlich.",
+    "botany": "Die Sorte reift spät und kann unter geeigneten Bedingungen edelfaule Trauben liefern. Für süße und trockene Weine werden unterschiedliche Reifeziele verfolgt.",
+    "detail": "Tokaj ist eine Herkunft. Tokaji Aszú ist ein bestimmter Süßweinstil; nicht jede Flasche aus Tokaj ist süß und nicht jede enthält ausschließlich Furmint.",
+    "fact": "Furmint zeigt besonders gut, wie wenig die Rebsorte allein über den Zuckergehalt einer Flasche verrät.",
+    "aromas": [
+      "Apfel",
+      "Birne",
+      "Honig"
+    ],
+    "countries": [
+      "HU",
+      "SI",
+      "AT"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/142",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "assyrtiko",
+    "hook": "Griechische Weißweine mit viel Frische, auch aus warmen Lagen.",
+    "place": "Assyrtiko ist besonders mit Santorin verbunden, wächst heute aber auch in anderen Teilen Griechenlands. Die Sorte wird trocken und für bestimmte süße Weine verwendet.",
+    "character": "Zitrus, Kräuter und straffe Säure sind mögliche Merkmale. Manchmal werden salzige Eindrücke beschrieben; das ist eine Wahrnehmung und kein Beleg für Meerwasser im Wein.",
+    "botany": "Auf Santorin werden Reben traditionell oft zu niedrigen Körben erzogen. So sind die Trauben besser vor Wind und starker Sonne geschützt.",
+    "detail": "Santorini ist die Herkunft und Assyrtiko eine wichtige Sorte. Ein Assyrtiko aus dem griechischen Festland hat einen anderen Standort als ein Inselwein.",
+    "fact": "Die Korberziehung heißt Kouloura. Sie ist eine Form der Weinbergsarbeit und kein besonderes Gärgefäß.",
+    "aromas": [
+      "Zitrone",
+      "Kräuter",
+      "Grapefruit"
+    ],
+    "countries": [
+      "GR"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/343",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "carricante",
+    "hook": "Eine wichtige weiße Sorte der Ätna-Hänge.",
+    "place": "Carricante ist besonders am Ätna auf Sizilien zu Hause. Sie ist die zentrale helle Sorte vieler Etna-Bianco-Weine und wächst dort häufig in höheren Lagen.",
+    "character": "Zitrus, Apfel und Kräuter sind mögliche Eindrücke. Die Säure kann deutlich ausfallen; Hefelager und Ausbau verändern Körper und Textur.",
+    "botany": "Die Sorte kann reich tragen und reift spät. Höhe und Hangrichtung beeinflussen, wie lange die Trauben für ihre Reife brauchen.",
+    "detail": "Etna Bianco ist die Herkunftskategorie, Carricante die Sorte. Catarratto ist eine andere sizilianische Traube und kein Zweitname von Carricante.",
+    "fact": "Sizilien kann straffe Weißweine hervorbringen: Der Ätna bietet andere Bedingungen als eine heiße Küstenebene.",
+    "aromas": [
+      "Zitrone",
+      "Apfel",
+      "Kräuter"
+    ],
+    "countries": [
+      "IT"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/381",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "garganega",
+    "hook": "Die wichtigste helle Traube vieler Soave-Weine.",
+    "place": "Garganega ist besonders in Venetien verbreitet. Soave und Gambellara sind bekannte Herkünfte. Aus der Sorte entstehen trockene Weißweine und süße Weine aus angetrockneten Trauben.",
+    "character": "Birne, gelbe Früchte und ein mandelartiger Nachgeschmack sind mögliche Eindrücke. Längeres Hefelager kann die Textur verändern.",
+    "botany": "Die Sorte reift eher spät und kann große Trauben bilden. Der Ertrag und die Wahl des Erntezeitpunkts müssen zum gewünschten Stil passen.",
+    "detail": "Soave ist eine Herkunft und keine Rebsorte. In manchen Soave-Weinen können neben Garganega weitere zugelassene Sorten enthalten sein.",
+    "fact": "Recioto di Soave ist süß und entsteht aus angetrockneten Trauben; ein gewöhnlicher Soave ist typischerweise trocken.",
+    "aromas": [
+      "Birne",
+      "Gelbe Früchte",
+      "Mandel"
+    ],
+    "countries": [
+      "IT"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "verdicchio",
+    "hook": "Frische Weißweine von der italienischen Adriaseite.",
+    "place": "Verdicchio ist besonders in den Marken wichtig. Verdicchio dei Castelli di Jesi und Verdicchio di Matelica sind bekannte Herkünfte mit unterschiedlichen Standorten.",
+    "character": "Zitrus, Apfel und mandelartige Eindrücke sind möglich. Die Weine können jung frisch wirken oder durch Reife und Hefelager mehr Textur gewinnen.",
+    "botany": "Hügel, Höhe und Entfernung zum Meer beeinflussen den Reifeverlauf. Die beiden bekannten Herkunftsgebiete sind daher nicht einfach austauschbare Namen.",
+    "detail": "Trebbiano di Soave ist ein Name für Verdicchio. Trebbiano Toscano ist eine andere Sorte: Der gemeinsame Bestandteil Trebbiano reicht nicht zur Gleichsetzung.",
+    "fact": "Matelica liegt stärker im Landesinneren als viele Weinberge um Jesi; auch innerhalb derselben Region kann das Klima deutlich variieren.",
+    "aromas": [
+      "Zitrone",
+      "Apfel",
+      "Mandel"
+    ],
+    "countries": [
+      "IT"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "vermentino",
+    "hook": "Eine mediterrane Sorte mit mehreren regionalen Namen.",
+    "place": "Vermentino wächst etwa auf Sardinien, in Ligurien, in der Toskana und auf Korsika. In Südfrankreich wird sie häufig Rolle genannt.",
+    "character": "Zitrus, Kräuter und gelbe Früchte sind mögliche Eindrücke. Manche Weine haben einen leicht herben Nachgeschmack. Salzig wirkende Beschreibungen sind Sinneseindrücke, keine Zutatenliste.",
+    "botany": "Die Sorte passt zu warmen mediterranen Bedingungen. Wasser, Ertrag und Lesezeitpunkt beeinflussen, wie frisch oder voll der Weißwein wirkt.",
+    "detail": "Rolle und Vermentino sind Namen derselben Sorte. Pigato ist ebenfalls eng mit dieser Sortenidentität verbunden und regional in Ligurien gebräuchlich.",
+    "fact": "Ein Küstenwein muss nicht nach Salz schmecken. Die Lage am Meer erklärt das Klima besser als einen garantierten Geschmack.",
+    "aromas": [
+      "Zitrone",
+      "Kräuter",
+      "Birne"
+    ],
+    "countries": [
+      "IT",
+      "FR"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/285",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "fiano",
+    "hook": "Eine weiße Sorte aus Kampanien mit Duft und Textur.",
+    "place": "Fiano ist besonders in Kampanien bekannt, etwa als Fiano di Avellino. Sie wird auch in anderen Teilen Süditaliens und im Ausland angebaut.",
+    "character": "Birne, Blüten und mit Reife nussige Eindrücke sind möglich. Die Weine können zugleich frisch und recht dicht wirken. Ausbau auf der Hefe verändert das Mundgefühl.",
+    "botany": "Die Sorte wächst kräftig, ist aber nicht besonders ertragreich. Standort, Wasser und Reifezeit müssen zum gewünschten Gleichgewicht passen.",
+    "detail": "Fiano di Avellino ist eine Herkunft, Fiano die Rebsorte. Greco di Tufo ist ein anderer kampanischer Herkunftswein aus einer anderen Traube.",
+    "fact": "Die Weinberge um Avellino liegen im hügeligen Landesinneren: Süditalien umfasst auch vergleichsweise kühle Weißweinstandorte.",
+    "aromas": [
+      "Birne",
+      "Blüten",
+      "Haselnuss"
+    ],
+    "countries": [
+      "IT",
+      "AU"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/382",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "arneis",
+    "hook": "Eine weiße Abwechslung im roten Piemont.",
+    "place": "Arneis ist besonders mit dem Roero im Piemont verbunden. Neben den bekannteren Nebbiolo-Rotweinen gibt es dort eigenständige Weißweine aus dieser Sorte.",
+    "character": "Birne, weiße Blüten und mandelartige Eindrücke sind möglich. Die Weine werden häufig trocken und fruchtbetont ausgebaut; einzelne Beispiele können länger reifen.",
+    "botany": "Der Lesezeitpunkt ist wichtig, damit Duft und Säure erhalten bleiben. Unterschiedliche Hänge und Böden verändern die Bedingungen innerhalb des Gebiets.",
+    "detail": "Roero Arneis verbindet Herkunft und Rebsorte. Barolo ist dagegen ein roter Herkunftswein aus Nebbiolo und keine stärkere Version von Arneis.",
+    "fact": "Das Piemont ist für Rotwein berühmt, hat aber mehrere traditionelle helle Sorten und eigene Weißweinherkünfte.",
+    "aromas": [
+      "Birne",
+      "Blüten",
+      "Mandel"
+    ],
+    "countries": [
+      "IT"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "cortese",
+    "hook": "Die helle Sorte hinter Gavi.",
+    "place": "Cortese wird vor allem im südöstlichen Piemont angebaut. Gavi beziehungsweise Cortese di Gavi ist die bekannteste Herkunft dafür, nahe der Grenze zu Ligurien.",
+    "character": "Zitrone, Apfel und dezente Blüten sind mögliche Eindrücke. Die Säure kann frisch wirken; Hefelager und längere Reife verändern die Textur.",
+    "botany": "Standort und Ertrag müssen zusammenpassen. Bei zu hohen Erträgen kann der Wein dünner wirken, während gesunde, gut ausgereifte Trauben mehr Balance erlauben.",
+    "detail": "Gavi ist eine Herkunft und Cortese die Sorte. Gavi del Comune di Gavi grenzt die Herkunft innerhalb des größeren Gebiets weiter ein.",
+    "fact": "Eine lange Herkunftsangabe kann mehr geografische Genauigkeit bedeuten, nicht automatisch einen höheren Alkoholgehalt.",
+    "aromas": [
+      "Zitrone",
+      "Apfel",
+      "Blüten"
+    ],
+    "countries": [
+      "IT"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "glera",
+    "hook": "Die wichtigste Traube vieler Prosecco-Weine.",
+    "place": "Glera ist besonders in Nordostitalien verbreitet. Sie ist die zentrale Sorte von Prosecco DOC und Conegliano Valdobbiadene Prosecco Superiore DOCG.",
+    "character": "Birne, Apfel und Blüten sind mögliche Eindrücke. Die meisten bekannten Prosecco-Weine bekommen ihre Kohlensäure durch eine zweite Gärung im Drucktank.",
+    "botany": "Die Sorte wächst kräftig und hat häufig größere, lockerere Trauben. Die langen Triebe brauchen Halt und einen zum Standort passenden Schnitt.",
+    "detail": "Glera ist die Sorte, Prosecco eine geschützte Herkunft. Frizzante und spumante beschreiben unterschiedliche Schaumweinkategorien; sie sind keine zusätzlichen Sorten.",
+    "fact": "Extra Dry ist bei Schaumwein süßer als Brut. Die englisch klingenden Wörter sind als Fachbegriffe leicht missverständlich.",
+    "aromas": [
+      "Birne",
+      "Apfel",
+      "Blüten"
+    ],
+    "countries": [
+      "IT"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/389",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "muscat",
+    "hook": "Muskateller ist eine Familie aromatischer Rebsorten.",
+    "place": "Muscat, Muskateller, Moscato und Moscatel begegnen in vielen Ländern. Gemeint sein können unterschiedliche Sorten, etwa Muscat Blanc à Petits Grains, Muscat of Alexandria oder Muscat Ottonel.",
+    "character": "Traubiger Duft, Blüten und Zitrus sind mögliche Eindrücke. Es gibt trockene Stillweine, süße Weine und Schaumweine. Der aromatische Name sagt noch nichts über Restzucker aus.",
+    "botany": "Die einzelnen Mitglieder haben unterschiedliche Eigenschaften bei Reife, Wuchs und Klimaeignung. Eine gemeinsame pauschale Weinbergsbeschreibung wäre deshalb ungenau.",
+    "detail": "Muscat ist kein eindeutiger Name für eine einzige Pflanze. Auch Muscadelle und die Herkunft Muscadet gehören trotz ähnlichem Klang nicht einfach in diese Familie.",
+    "fact": "Moscato d’Asti ist ein bestimmter süßer, leicht schäumender Herkunftswein; nicht jeder Muskateller schmeckt so.",
+    "aromas": [
+      "Frische Trauben",
+      "Blüten",
+      "Zitrone"
+    ],
+    "countries": [
+      "IT",
+      "FR",
+      "ES",
+      "PT",
+      "GR"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "palomino",
+    "hook": "Die wichtigste helle Traube vieler trockener Sherrys.",
+    "place": "Palomino ist besonders in Andalusien rund um Jerez wichtig. Die Sorte wird für viele trockene Sherrystile genutzt und wächst auch auf den Kanaren, dort häufig als Listán Blanco bezeichnet.",
+    "character": "Bei Sherry prägt die Herstellung den Duft stark: Hefeschicht, Luftkontakt und Reife können etwa Mandel-, Apfel- oder Nussassoziationen ergeben. Das sind nicht einfach feste Traubenaromen.",
+    "botany": "Die Pflanze kann große Trauben und hohe Erträge liefern. Standort und Ertrag beeinflussen die Eignung für den späteren Weinstil.",
+    "detail": "Palomino und Pedro Ximénez sind verschiedene Sorten. Fino und Oloroso bezeichnen Sherrystile, keine Trauben.",
+    "fact": "Sherry ist nicht grundsätzlich süß: Viele bekannte Palomino-Stile sind trocken.",
+    "aromas": [
+      "Apfel",
+      "Mandel",
+      "Nüsse"
+    ],
+    "countries": [
+      "ES"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/138",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "pedro-ximenez",
+    "hook": "Helle Trauben, die sehr dunkle Süßweine ergeben können.",
+    "place": "Pedro Ximénez, oft PX abgekürzt, ist besonders in Andalusien wichtig. Montilla-Moriles und das Sherrygebiet sind bekannte Zusammenhänge.",
+    "character": "Aus angetrockneten Trauben entstehen konzentrierte Süßweine mit Rosinen-, Feigen- und Karamellassoziationen. Es gibt auch trockene Weine aus der Sorte; der Name allein ist keine Zuckerangabe.",
+    "botany": "Für süße Varianten verlieren die Trauben vor der Gärung Wasser. Gesunde Früchte, Wetter und sorgfältige Trocknung bestimmen mit, wie konzentriert das Lesegut wird.",
+    "detail": "Pedro Ximénez aus Spanien ist nicht einfach mit der ähnlich benannten südamerikanischen Pedro Giménez gleichzusetzen. Die vollständige Sortenbezeichnung zählt.",
+    "fact": "Die Traube ist hell, der gereifte Süßwein kann trotzdem tiefbraun aussehen. Herstellung und Reife verändern die Farbe stark.",
+    "aromas": [
+      "Rosinen",
+      "Feigen",
+      "Karamell"
+    ],
+    "countries": [
+      "ES"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "rkatsiteli",
+    "hook": "Eine georgische Sorte für helle und bernsteinfarbene Weine.",
+    "place": "Rkatsiteli ist besonders in Kachetien wichtig und wird auch außerhalb Georgiens angebaut. Die Sorte wird klassisch hell gekeltert oder mit längerem Schalenkontakt verarbeitet.",
+    "character": "Apfel, Quitte und Kräuter sind mögliche Eindrücke. Bei Schalenkontakt können Farbe, Gerbstoffe und herbere Noten hinzukommen. Die Herstellungsweise prägt den Unterschied deutlich.",
+    "botany": "Die Sorte wächst eher aufrecht und kann größere Trauben bilden. Reife, Ertrag und das Klima des einzelnen Standorts beeinflussen die Balance.",
+    "detail": "Qvevri ist ein traditionelles Tongefäß. Rkatsiteli ist die Sorte. Nicht jeder Qvevri-Wein besteht daraus und nicht jeder Rkatsiteli wurde im Ton vergoren.",
+    "fact": "Ein bernsteinfarbener Wein kann aus hellen Trauben stammen, deren Schalen längere Zeit am Saft blieben.",
+    "aromas": [
+      "Apfel",
+      "Quitte",
+      "Kräuter"
+    ],
+    "countries": [
+      "GE"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/418",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "mtsvane",
+    "hook": "Eine aromatische helle Sorte aus Kachetien.",
+    "place": "Mtsvane Kakhuri gehört zu den traditionellen georgischen Sorten Kachetiens. Sie wird eigenständig und mit Partnern wie Rkatsiteli verarbeitet, hell gekeltert oder mit Schalenkontakt.",
+    "character": "Blüten, Zitrus und gelbe Früchte sind mögliche Eindrücke. Längerer Schalenkontakt kann den Wein herber und farbintensiver machen.",
+    "botany": "Gesunde Trauben und der gewünschte Reifegrad sind besonders wichtig, wenn die Schalen lange mitvergoren werden. Der Ausbau kann im Qvevri oder in anderen Gefäßen stattfinden.",
+    "detail": "Mtsvane bedeutet grün. Mtsvane Kakhuri und Goruli Mtsvane sind unterschiedliche Sorten; die verkürzte Namensform allein ist nicht immer eindeutig.",
+    "fact": "Ein einzelnes Wort kann in mehreren Sortennamen vorkommen, ohne dass die Pflanzen identisch sind.",
+    "aromas": [
+      "Blüten",
+      "Zitrone",
+      "Gelbe Früchte"
+    ],
+    "countries": [
+      "GE"
+    ],
+    "sourceUrl": "https://wine.gov.ge/En/VarietyWhite",
+    "sourceLabel": "National Wine Agency Georgia · Rebsorten"
+  },
+  {
+    "id": "kisi",
+    "hook": "Eine weitere helle Seite des georgischen Weinbaus.",
+    "place": "Kisi ist besonders mit Kachetien verbunden. Die Sorte wird für trockene Weißweine und für bernsteinfarbene Weine mit Schalenkontakt verwendet.",
+    "character": "Gelbe Früchte, Blüten und würzige Eindrücke sind möglich. Ein länger auf den Schalen vergorener Wein kann zusätzlich deutliche Gerbstoffe und ein anderes Mundgefühl zeigen.",
+    "botany": "Die Arbeit mit gesunden Trauben und einem passenden Lesezeitpunkt bestimmt die Grundlage. Schalenkontakt verstärkt auch Eigenschaften des Leseguts, die man nicht im Wein haben möchte.",
+    "detail": "Kisi ist eine Rebsorte. Amber Wine beschreibt eine Weinart aus hellen Trauben mit längerem Schalenkontakt und ist keine zusätzliche Traube.",
+    "fact": "Bei hellen Trauben kann der Kontakt mit den Schalen ebenso spürbare Gerbstoffe liefern wie bei Rotwein.",
+    "aromas": [
+      "Gelbe Früchte",
+      "Blüten",
+      "Würze"
+    ],
+    "countries": [
+      "GE"
+    ],
+    "sourceUrl": "https://wine.gov.ge/En/VarietyWhite",
+    "sourceLabel": "National Wine Agency Georgia · Rebsorten"
+  },
+  {
+    "id": "koshu",
+    "hook": "Japans bekannte Weißweintraube mit rosa-grauer Schale.",
+    "place": "Koshu ist besonders in Yamanashi auf Honshu verbreitet. Die Sorte wird häufig zu zarten trockenen Weißweinen verarbeitet, es gibt aber auch Varianten mit Hefelager oder Schalenkontakt.",
+    "character": "Zitrus, Apfel und zurückhaltende blumige Eindrücke sind möglich. Die Weine müssen nicht besonders laut duften; ihre feinere Textur kann stärker im Vordergrund stehen.",
+    "botany": "Die Beeren haben eine rosa bis grauviolette Schale. In Japans feuchterem Klima spielen Belüftung und gesunde Trauben eine wichtige Rolle.",
+    "detail": "Kōshū ist auch ein Ortsname in Yamanashi. Koshu auf einem Etikett kann daher in unterschiedlichen Zusammenhängen auftauchen; die Sortenzeile hilft.",
+    "fact": "Weißwein muss nicht aus grünen Beeren entstehen: Koshu zeigt den Unterschied zwischen Traubenfarbe und Herstellungsweise.",
+    "aromas": [
+      "Zitrone",
+      "Apfel",
+      "Blüten"
+    ],
+    "countries": [
+      "JP"
+    ],
+    "sourceUrl": "https://www.nta.go.jp/english/taxes/liquor_administration/02_01.htm",
+    "sourceLabel": "National Tax Agency Japan · Yamanashi"
+  },
+  {
+    "id": "torrontes",
+    "hook": "Aromatischer Weißwein aus mehreren argentinischen Sortennamen.",
+    "place": "In Argentinien ist vor allem Torrontés Riojano als Weintraube bekannt, etwa aus Salta und dem Cafayate-Tal. Daneben gibt es Torrontés Sanjuanino und Torrontés Mendocino.",
+    "character": "Blüten, Zitrus und traubiger Duft sind mögliche Eindrücke. Der Wein wird häufig trocken ausgebaut, obwohl der Duft an süße Früchte erinnern kann.",
+    "botany": "Torrontés Riojano wächst kräftig und kann reich tragen. Höhe, Wasser und ein passender Ertrag beeinflussen Duft und Balance.",
+    "detail": "Torrontés ist kein weltweit eindeutiger Name für eine einzige Sorte. Auch gleichnamige Trauben in Spanien dürfen nicht pauschal mit der argentinischen gleichgesetzt werden.",
+    "fact": "Ein intensiver Muskatduft bedeutet keinen süßen Wein; Nase und Zunge liefern unterschiedliche Informationen.",
+    "aromas": [
+      "Blüten",
+      "Frische Trauben",
+      "Zitrone"
+    ],
+    "countries": [
+      "AR"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/407",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "sercial",
+    "hook": "Eine helle Sorte, bekannt für trockener wirkenden Madeira.",
+    "place": "Sercial wird auf Madeira für einen vergleichsweise trockenen Stil des verstärkten Inselweins verwendet. Auf dem portugiesischen Festland ist die Sorte als Esgana Cão bekannt.",
+    "character": "Bei gereiftem Madeira können Zitrusschale, Nüsse und würzige Eindrücke entstehen. Die markante Säure bleibt wichtig; Wärme und Luft während der Herstellung prägen den Geschmack stark.",
+    "botany": "Die Sorte reift spät und besitzt viel Säure. Standort und Lesezeitpunkt müssen deshalb gut passen.",
+    "detail": "Sercial ist eine Sorte und eine traditionelle Stilbezeichnung bei Madeira. Ein trockener Stillwein aus derselben Traube ist nicht automatisch ein Madeira.",
+    "fact": "Auch ein trockener wirkender Madeira kann Restzucker enthalten; der Eindruck hängt stark vom Zusammenspiel mit der Säure ab.",
+    "aromas": [
+      "Zitrusschale",
+      "Nüsse",
+      "Würze"
+    ],
+    "countries": [
+      "PT"
+    ],
+    "sourceUrl": "https://winesofportugal.com/en/portuguese-wines/grape-varieties/",
+    "sourceLabel": "Wines of Portugal · Rebsorten"
+  },
+  {
+    "id": "verdelho",
+    "hook": "Eine Sorte zwischen Madeira und trockenen Weißweinen.",
+    "place": "Verdelho ist mit Madeira verbunden, wächst aber auch auf dem portugiesischen Festland, den Azoren und in Australien. Sie kann für verstärkte oder trockene stille Weine verwendet werden.",
+    "character": "Bei frischen Weinen sind Zitrus und gelbe Früchte möglich. Gereifter Madeira zeigt durch Wärme, Luft und Zeit ein ganz anderes Aromabild.",
+    "botany": "Die mittelgroßen Beeren wachsen an eher kleinen bis mittleren Trauben. Reife und Ernteziel unterscheiden sich je nachdem, welcher Weinstil entstehen soll.",
+    "detail": "Verdelho ist nicht Verdejo aus Spanien und nicht der portugiesische Gouveio, der Godello entspricht. Ähnlicher Klang ist keine botanische Gleichheit.",
+    "fact": "Eine Rebsorte kann an einem Ort für Likörwein bekannt sein und andernorts einen trockenen Alltagsweißwein ergeben.",
+    "aromas": [
+      "Zitrus",
+      "Gelbe Früchte",
+      "Nüsse"
+    ],
+    "countries": [
+      "PT",
+      "AU"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/307",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "bual",
+    "hook": "Boal ist auch als Malvasia Fina bekannt.",
+    "place": "Boal beziehungsweise Bual gehört zu den traditionellen Bezeichnungen bei Madeira. Die zugrunde liegende Rebsorte Malvasia Fina wächst außerdem auf dem portugiesischen Festland, etwa im Douro und Dão.",
+    "character": "Bei Madeira verbindet der Stil häufig deutliche Süße mit frischer Säure. Nussige und getrocknet-fruchtige Eindrücke entstehen stark durch Herstellung und Reife.",
+    "botany": "Die Trauben für Stillwein und Madeira werden mit unterschiedlichen Zielen gelesen. Wasser, Reife und das spätere Verfahren beeinflussen das Ergebnis.",
+    "detail": "Malvasia Fina ist nicht jede beliebige Malvasia-Sorte. Der Namensbestandteil Malvasia umfasst mehrere unterschiedliche Trauben und muss genau gelesen werden.",
+    "fact": "Bual auf einem Madeira-Etikett hilft bei der Stilrichtung; es ist kein pauschaler Name für alle süßen Inselweine.",
+    "aromas": [
+      "Getrocknete Früchte",
+      "Nüsse",
+      "Karamell"
+    ],
+    "countries": [
+      "PT"
+    ],
+    "sourceUrl": "https://winesofportugal.com/en/portuguese-wines/grape-varieties/",
+    "sourceLabel": "Wines of Portugal · Rebsorten"
+  },
+  {
+    "id": "ribolla-gialla",
+    "hook": "Eine helle Grenzgängerin zwischen Friaul und Slowenien.",
+    "place": "Ribolla Gialla ist im italienischen Friaul und als Rebula im benachbarten Slowenien wichtig. Sie wird für helle Stillweine, Schaumwein und Weine mit längerem Schalenkontakt verwendet.",
+    "character": "Zitrus, Apfel und frische Säure sind möglich. Bei Schalenkontakt können herbere Textur, dunklere Farbe und würzige Eindrücke hinzukommen.",
+    "botany": "Die Hügellandschaften beiderseits der Grenze bieten unterschiedliche Höhen und Ausrichtungen. Gesunde Trauben sind besonders wichtig für längere Maischegärung.",
+    "detail": "Ribolla Gialla und Rebula sind Namen derselben Sorte. Schioppettino, manchmal Ribolla Nera genannt, ist dagegen eine andere dunkle Sorte.",
+    "fact": "Die Landesgrenze kann den geläufigen Namen ändern, während im Weinberg dieselbe Sorte steht.",
+    "aromas": [
+      "Zitrone",
+      "Apfel",
+      "Kräuter"
+    ],
+    "countries": [
+      "IT",
+      "SI"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "malvasia-istriana",
+    "hook": "Eine wichtige weiße Sorte rund um die nördliche Adria.",
+    "place": "Malvasia Istriana, auf Kroatisch Malvazija Istarska, ist besonders in Istrien bekannt. Sie wächst auch im slowenischen und italienischen Grenzraum.",
+    "character": "Blüten, Birne und gelbe Früchte sind mögliche Eindrücke. Frische Tankweine stehen neben länger gereiften oder auf den Schalen vergorenen Varianten.",
+    "botany": "Höhe, Meeresnähe und örtliche Böden unterscheiden sich innerhalb Istriens. Reife und Ausbau erklären mehr als eine einzige allgemeine Beschreibung der Halbinsel.",
+    "detail": "Malvasia Istriana ist eine konkrete Sorte. Der verkürzte Name Malvasia kann anderswo eine andere Traube meinen.",
+    "fact": "Malvazija Istarska und Malvasia Istriana sind Sprachvarianten; der gemeinsame Namensstamm mit anderen Malvasias reicht dagegen nicht zur Gleichsetzung.",
+    "aromas": [
+      "Blüten",
+      "Birne",
+      "Gelbe Früchte"
+    ],
+    "countries": [
+      "HR",
+      "SI",
+      "IT"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "grasevina",
+    "hook": "Graševina und Welschriesling sind dieselbe Sorte.",
+    "place": "Graševina ist besonders im kontinentalen Kroatien wichtig. Als Welschriesling wächst dieselbe Sorte etwa in Österreich, als Olaszrizling in Ungarn.",
+    "character": "Apfel, Zitrus und ein leicht herber Nachgeschmack sind möglich. Die Weine reichen von frischen trockenen Varianten bis zu süßen Spezialitäten.",
+    "botany": "Die Sorte reift vergleichsweise spät. Der Standort und die Dauer des Herbstes beeinflussen, welcher Reifegrad erreicht wird.",
+    "detail": "Welschriesling ist eine andere Sorte als Riesling. Der gemeinsame Namensteil führt leicht zu falschen Erwartungen an Duft und Stil.",
+    "fact": "Graševina auf einer kroatischen und Welschriesling auf einer österreichischen Flasche können dieselbe Traube bezeichnen.",
+    "aromas": [
+      "Apfel",
+      "Zitrone",
+      "Mandel"
+    ],
+    "countries": [
+      "HR",
+      "AT",
+      "HU"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "narince",
+    "hook": "Eine weiße Sorte aus dem Norden Anatoliens.",
+    "place": "Narince ist besonders mit Tokat nahe dem Yeşilırmak-Fluss verbunden. Sie wird für trockene Weißweine und Mischungen verwendet; einzelne Beispiele reifen im Holz.",
+    "character": "Zitrus, gelbe Früchte und blumige Eindrücke sind möglich. Mit Hefelager oder Fassausbau kann die Textur runder und würziger werden.",
+    "botany": "Die Weinberge nutzen unterschiedliche Höhen und Ausrichtungen. Ein passender Lesezeitpunkt hilft, reife Frucht und ausreichende Säure zu verbinden.",
+    "detail": "Narince und Emir sind verschiedene türkische helle Sorten. Eine Mischung aus beiden enthält also zwei Trauben, keine doppelten Namen derselben Sorte.",
+    "fact": "Narince wird auch wegen ihrer Blätter geschätzt, die in der regionalen Küche für gefüllte Weinblätter verwendet werden.",
+    "aromas": [
+      "Zitrone",
+      "Gelbe Früchte",
+      "Blüten"
+    ],
+    "countries": [
+      "TR"
+    ],
+    "sourceUrl": "https://winesofturkey.org/",
+    "sourceLabel": "Wines of Turkey · Rebsorten"
+  },
+  {
+    "id": "xynisteri",
+    "hook": "Zyperns helle Sorte kann trocken oder süß im Glas landen.",
+    "place": "Xynisteri ist auf Zypern verbreitet und wächst auch an den Hängen des Troodos. Sie wird für trockene Weißweine und für den Süßwein Commandaria verwendet.",
+    "character": "Bei trockenen Varianten sind Zitrus, Apfel und dezente Blüten möglich. Für Commandaria werden Trauben getrocknet; der spätere Geschmack wird dadurch deutlich konzentrierter.",
+    "botany": "Sonnige, trockene Standorte und Höhe beeinflussen die Reife. Für frische Weißweine und getrocknete Süßweintrauben gelten unterschiedliche Ernteziele.",
+    "detail": "Xynisteri ist die Sorte, Commandaria ein geregelter Herkunftswein. Nicht jeder Xynisteri ist deshalb ein Süßwein.",
+    "fact": "In Commandaria dürfen helle Xynisteri- und dunkle Mavro-Trauben verwendet werden.",
+    "aromas": [
+      "Zitrone",
+      "Apfel",
+      "Blüten"
+    ],
+    "countries": [
+      "CY"
+    ],
+    "sourceUrl": "https://www.unesco.org.cy/Programmes-Commandaria_and_the_Wine_Traditions_of_the_Commandaria_Villages%2CEN-PROGRAMMES-04-02-03-38%2CEN",
+    "sourceLabel": "Cyprus UNESCO · Commandaria"
+  },
+  {
+    "id": "savagnin",
+    "hook": "Die weiße Jura-Sorte hinter Vin Jaune und mehr.",
+    "place": "Savagnin ist besonders mit dem französischen Jura verbunden. Sie wird für Vin Jaune, andere Weißweine und teilweise süße Spezialitäten verwendet.",
+    "character": "Apfel, Nüsse und würzige Eindrücke sind möglich. Unter einer Hefeschicht gereifte Varianten schmecken anders als luftgeschützt ausgebaute Weißweine.",
+    "botany": "Die Sorte hat kleine Trauben und Beeren. Mergelige Standorte passen vielerorts gut; Reife und gesunde Früchte bleiben entscheidend.",
+    "detail": "Savagnin ist nicht Sauvignon Blanc. Vin Jaune ist ein besonderer gereifter Weinstil aus Savagnin, keine zusätzliche Sorte und kein Süßwein.",
+    "fact": "Nicht jeder Savagnin riecht nach Walnuss: Die Kellerarbeit kann den Stil stärker verändern als der Sortenname vermuten lässt.",
+    "aromas": [
+      "Apfel",
+      "Walnuss",
+      "Würze"
+    ],
+    "countries": [
+      "FR"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/253",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "aligote",
+    "hook": "Burgunds zweite wichtige helle Rebsorte.",
+    "place": "Aligoté wächst im Burgund neben dem viel bekannteren Chardonnay. Bouzeron ist eine eigene Herkunft für Aligoté, daneben gibt es Bourgogne-Aligoté-Weine.",
+    "character": "Zitrone, grüner Apfel und frische Säure sind mögliche Eindrücke. Alte Reben und sorgfältiger Ausbau können auch dichtere, länger reifende Weine ergeben.",
+    "botany": "Die Sorte ist fruchtbar und passt zu nördlicheren Weinbaugebieten. Ein geeigneter Ertrag und ausgereifte Trauben sind wichtig für die Balance.",
+    "detail": "Bouzeron bezeichnet die Herkunft, Aligoté die Sorte. Ein weißer Burgunder muss also nicht zwangsläufig Chardonnay sein.",
+    "fact": "Aligoté ist traditionell die Grundlage des Kir, wenn der Weißwein mit Crème de Cassis gemischt wird.",
+    "aromas": [
+      "Zitrone",
+      "Apfel",
+      "Blüten"
+    ],
+    "countries": [
+      "FR"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/7",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "muscadelle",
+    "hook": "Eine eigene Bordeaux-Sorte mit blumigem Duft.",
+    "place": "Muscadelle gehört zur hellen Sortenpalette von Bordeaux und Südwestfrankreich. Sie wird häufig in kleinen Anteilen mit Sémillon und Sauvignon Blanc kombiniert.",
+    "character": "Blüten und traubige Eindrücke sind möglich. Die Sorte kann den Duft einer trockenen oder süßen Mischung ergänzen; der Anteil ist häufig klein.",
+    "botany": "Die Pflanze wächst kräftig und ist anfällig für Traubenfäule. Gute Belüftung und passende Standorte helfen, gesunde Früchte zu erhalten.",
+    "detail": "Muscadelle gehört trotz des Namens nicht einfach zur Muskatellerfamilie. Auch Muscadet ist etwas anderes: eine Loire-Herkunft aus Melon de Bourgogne.",
+    "fact": "Ein fast gleich geschriebener Name kann beim Wein eine andere Sorte oder sogar eine ganze Herkunft meinen.",
+    "aromas": [
+      "Blüten",
+      "Trauben",
+      "Zitrus"
+    ],
+    "countries": [
+      "FR",
+      "AU"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/181",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "xarel-lo",
+    "hook": "Eine wichtige weiße Sorte vieler katalanischer Schaumweine.",
+    "place": "Xarel-lo ist besonders im Penedès in Katalonien verbreitet. Sie gehört zusammen mit Macabeo und Parellada zur traditionellen Sortenpalette vieler Cavas.",
+    "character": "Apfel, Zitrus und kräuterige Eindrücke sind möglich. In Schaumwein kommen durch Hefelager zusätzliche Aromen hinzu. Auch eigenständige Stillweine werden erzeugt.",
+    "botany": "Die Sorte kann mit den warmen Bedingungen gut zurechtkommen. Standort, Ertrag und frühe oder spätere Lese verändern Säure und Körper.",
+    "detail": "Cava bezeichnet einen Herkunftsschaumwein, Xarel-lo eine Sorte. Nicht jeder Cava hat exakt dieselbe Mischung aus den drei traditionellen Partnern.",
+    "fact": "Aus einer Schaumweintraube kann ebenso ein stiller Weißwein entstehen; die zweite Gärung macht den Unterschied.",
+    "aromas": [
+      "Apfel",
+      "Zitrone",
+      "Kräuter"
+    ],
+    "countries": [
+      "ES"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "parellada",
+    "hook": "Eine traditionelle helle Traube für Cava.",
+    "place": "Parellada ist besonders in Katalonien bekannt. Zusammen mit Macabeo und Xarel-lo wird sie häufig für Schaumwein verarbeitet, daneben gibt es stille Varianten.",
+    "character": "Zitrus, Apfel und dezente Blüten sind mögliche Eindrücke. Im fertigen Schaumwein prägen zusätzlich Mischung, Hefelager und Dosage den Geschmack.",
+    "botany": "Die Sorte kann große Trauben tragen. Höher gelegene und kühlere Standorte helfen häufig, die gewünschte Frische für Schaumwein zu erhalten.",
+    "detail": "Parellada ist eine Sorte und keine Süßeangabe. Brut oder Extra Dry beschreibt bei Schaumwein etwas anderes als die verwendeten Trauben.",
+    "fact": "Die Angabe der Rebsorten erklärt nur einen Teil eines Schaumweins; zweite Gärung und Lagerdauer verändern ihn zusätzlich.",
+    "aromas": [
+      "Zitrone",
+      "Apfel",
+      "Blüten"
+    ],
+    "countries": [
+      "ES"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/306",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "malvasia",
+    "hook": "Ein gemeinsamer Name für mehrere unterschiedliche Trauben.",
+    "place": "Malvasia begegnet in Italien, Portugal, Spanien und anderen Ländern. Dahinter stehen unterschiedliche Sorten, etwa Malvasia Istriana, Malvasia Fina oder Malvasia di Candia Aromatica.",
+    "character": "Manche Malvasias duften stark nach Blüten und Trauben, andere sind zurückhaltender. Trockene, süße, stille und schäumende Weine sind möglich. Ein einheitliches Geschmacksprofil wäre irreführend.",
+    "botany": "Die einzelnen Sorten haben unterschiedliche Eigenschaften. Ohne den genaueren Namen lassen sich Reifezeit, Beerenfarbe oder Klimaeignung nicht zuverlässig zusammenfassen.",
+    "detail": "Malvasia ist eine Namensgruppe, keine Garantie enger genetischer Verwandtschaft aller Mitglieder. Der Zusatz hinter dem Namen ist deshalb besonders hilfreich.",
+    "fact": "Malmsey auf Madeira gehört in diesen historischen Namenszusammenhang, ist aber keine weltweit eindeutige einzelne Rebsorte.",
+    "aromas": [
+      "Je nach Sorte: Blüten",
+      "Je nach Sorte: Frucht",
+      "Je nach Ausbau: Nüsse"
+    ],
+    "countries": [
+      "IT",
+      "PT",
+      "ES",
+      "HR"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "clairette",
+    "hook": "Eine traditionelle weiße Sorte aus Südfrankreich.",
+    "place": "Clairette Blanche wächst an der südlichen Rhône und in weiteren südfranzösischen Gebieten. Sie kommt in stillen Weinen, Mischungen und bestimmten Schaumweinen vor.",
+    "character": "Apfel, gelbe Früchte und kräuterige Eindrücke sind möglich. Sehr reife Varianten können eher weich wirken; Lesezeitpunkt und Mischung beeinflussen die Frische.",
+    "botany": "Die Sorte wächst kräftig und passt zu trockenen, wenig fruchtbaren Standorten. Ein passender Ertrag ist wichtig für den gewünschten Stil.",
+    "detail": "Clairette de Die ist ein Schaumwein aus einer eigenen Herkunft und enthält traditionell auch Muscat. Der Name allein bedeutet also nicht hundert Prozent Clairette.",
+    "fact": "Ein Herkunftsname kann eine Rebsorte enthalten und trotzdem Regeln für eine Mischung aus mehreren Sorten haben.",
+    "aromas": [
+      "Apfel",
+      "Gelbe Früchte",
+      "Kräuter"
+    ],
+    "countries": [
+      "FR"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/70",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "grillo",
+    "hook": "Eine sizilianische Sorte für trockene Weine und Marsala.",
+    "place": "Grillo ist auf Sizilien verbreitet, besonders im Westen der Insel. Die Sorte wird heute häufig als trockener Weißwein abgefüllt und gehört auch zur Tradition des Marsala.",
+    "character": "Zitrus, gelbe Früchte und Kräuter sind mögliche Eindrücke. Frische Tankweine unterscheiden sich deutlich von länger gereiften oder verstärkten Varianten.",
+    "botany": "Warme, trockene Bedingungen verlangen einen passenden Umgang mit Wasser und Lesezeitpunkt. Der gewünschte Stil bestimmt mit, wann geerntet wird.",
+    "detail": "Marsala ist ein geregelter Herkunftswein und keine Rebsorte. Ein trockener Grillo ist nicht automatisch ein Marsala und muss nicht süß oder verstärkt sein.",
+    "fact": "Eine historische Likörweintraube kann heute ebenso für einen frischen, stillen Weißwein stehen.",
+    "aromas": [
+      "Zitrone",
+      "Gelbe Früchte",
+      "Kräuter"
+    ],
+    "countries": [
+      "IT"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "grenache-blanc",
+    "hook": "Die helle Farbform einer mediterranen Sortenwelt.",
+    "place": "Grenache Blanc ist besonders in Südfrankreich und als Garnacha Blanca in Spanien wichtig. Sie wird eigenständig und in weißen Cuvées verwendet.",
+    "character": "Birne, gelbe Früchte und Kräuter sind mögliche Eindrücke. Je nach Reife und Ausbau können die Weine rund und kräftig oder frischer wirken.",
+    "botany": "Die Sorte passt zu trockenen Bedingungen und hat einen eher aufrechten Wuchs. Erntezeitpunkt und Ertrag beeinflussen das Verhältnis von Körper und Säure.",
+    "detail": "Grenache Blanc und Grenache Noir sind unterschiedliche Farbformen. Garnacha Blanca ist der spanische Name für die helle Variante.",
+    "fact": "Eine weiße Rhône-Cuvée kann mehrere örtliche Sorten enthalten, deren Namen auf dem Vorderetikett gar nicht auftauchen.",
+    "aromas": [
+      "Birne",
+      "Gelbe Früchte",
+      "Kräuter"
+    ],
+    "countries": [
+      "FR",
+      "ES"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/118",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "obaideh",
+    "hook": "Eine lokale helle Sorte aus dem Libanon.",
+    "place": "Obaideh, auch Obeideh geschrieben, gehört zu den traditionellen hellen Trauben des Libanon. Sie wird von einigen Betrieben eigenständig oder mit anderen lokalen Sorten verarbeitet.",
+    "character": "Apfel, Zitrus und mit Reife würzige Eindrücke sind möglich. Der Ausbau reicht von frischen Varianten bis zu länger gereiften Weißweinen.",
+    "botany": "Höhenlage, alte Bestände und die konkrete Weinbergsarbeit unterscheiden sich je nach Betrieb. Eine einzelne allgemeine Klimazahl würde diese Standorte schlecht beschreiben.",
+    "detail": "Obaideh sollte nicht pauschal als libanesischer Chardonnay bezeichnet werden. Ähnliche Stileindrücke oder frühere Vermutungen ersetzen keine gesicherte Sortenidentität.",
+    "fact": "Ein ungewohnter lokaler Sortenname ist ein guter Anlass, auf dem Etikett nach Herkunft und Ausbau zu schauen.",
+    "aromas": [
+      "Apfel",
+      "Zitrus",
+      "Würze"
+    ],
+    "countries": [
+      "LB"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "merwah",
+    "hook": "Eine traditionelle helle Traube des Libanon.",
+    "place": "Merwah gehört zu den örtlichen weißen Sorten des Libanon. Manche Produzenten arbeiten mit älteren, hoch gelegenen Beständen und füllen die Sorte eigenständig oder mit Obaideh ab.",
+    "character": "Zitrus, Apfel und herbere bis würzige Eindrücke sind möglich. Reife und Kellerarbeit beeinflussen, ob der Wein eher frisch oder dichter wirkt.",
+    "botany": "Die konkreten Standorte können hoch und abgelegen liegen. Wasser, Reifezeit und gesunde Trauben bestimmen die Grundlage für den späteren Ausbau.",
+    "detail": "Merwah ist kein verlässlicher Zweitname für Sémillon. Solche früheren Gleichsetzungen sollten nicht als gesicherte botanische Tatsache weitergegeben werden.",
+    "fact": "Traditionelle örtliche Sorten lassen sich auch ohne berühmten internationalen Zweitnamen sinnvoll kennenlernen.",
+    "aromas": [
+      "Zitrone",
+      "Apfel",
+      "Kräuter"
+    ],
+    "countries": [
+      "LB"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "melon-de-bourgogne",
+    "hook": "Die Sorte hinter Muscadet an der Loire.",
+    "place": "Melon de Bourgogne stammt dem Namen nach aus dem Burgund, ist heute aber besonders im Gebiet um Nantes an der unteren Loire wichtig. Dort entstehen Muscadet-Weine.",
+    "character": "Zitrone, Apfel und ein eher zurückhaltender Duft sind möglich. Hefelager kann den Wein runder wirken lassen; frische Säure bleibt häufig ein wichtiger Eindruck.",
+    "botany": "Die Sorte passt zu kühleren, atlantisch beeinflussten Standorten. Gesunde Trauben und der Lesezeitpunkt müssen mit dem feuchteren Klima zusammenpassen.",
+    "detail": "Muscadet ist eine Herkunftsfamilie, Muscat eine andere Sortenwelt und Muscadelle eine eigene Traube. Die ähnlich klingenden Namen sind leicht zu verwechseln.",
+    "fact": "Sur lie bedeutet auf der Hefe. Es beschreibt den Ausbau und keine zusätzliche Rebsorte.",
+    "aromas": [
+      "Zitrone",
+      "Apfel",
+      "Dezente Blüten"
+    ],
+    "countries": [
+      "FR"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/161",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "petit-manseng",
+    "hook": "Kleine Beeren und viel Säure für südwestfranzösische Weine.",
+    "place": "Petit Manseng ist besonders in Jurançon im Südwesten Frankreichs wichtig. Die Sorte wird für konzentrierte süße Weine und auch für trockene Weißweine verwendet.",
+    "character": "Zitrus, exotische Früchte und mit Reife honigartige Eindrücke sind möglich. Selbst bei deutlicher Süße kann die Säure frisch bleiben.",
+    "botany": "Die kleinen, dickschaligen Beeren können lange am Stock hängen und Wasser verlieren. Das konzentriert Zucker und andere Bestandteile, ohne automatisch Edelfäule zu benötigen.",
+    "detail": "Petit Manseng und Gros Manseng sind unterschiedliche Sorten. Beide gehören zur regionalen Weinwelt, sind aber nicht nur Größenangaben desselben Leseguts.",
+    "fact": "Ein Süßwein kann durch eingeschrumpfte, sehr reife Trauben entstehen; nicht jeder Süßwein braucht Edelfäule.",
+    "aromas": [
+      "Zitrone",
+      "Ananas",
+      "Honig"
+    ],
+    "countries": [
+      "FR",
+      "US"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/211",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "gros-manseng",
+    "hook": "Eine wichtige helle Sorte von Jurançon und der Gascogne.",
+    "place": "Gros Manseng wird im Südwesten Frankreichs für trockene und süße Weine angebaut. Sie erscheint eigenständig und in Mischungen, etwa mit Petit Manseng oder örtlichen Partnern.",
+    "character": "Zitrus, gelbe Früchte und markante Säure sind möglich. Der gewünschte Reifegrad und der Ausbau bestimmen, wie schlank, duftig oder konzentriert der Wein wirkt.",
+    "botany": "Die Sorte wächst kräftig und ist fruchtbar. Ein zum Standort passender Ertrag und die Wahl des Lesezeitpunkts sind deshalb wichtig.",
+    "detail": "Gros Manseng ist eine eigene Sorte, kein billigerer Handelsname für Petit Manseng. Eine Cuvée kann beide enthalten.",
+    "fact": "Jurançon Sec bedeutet trockener Jurançon. Ohne das kleine Wort Sec kann in derselben Herkunft ein süßer Stil gemeint sein.",
+    "aromas": [
+      "Zitrus",
+      "Gelbe Früchte",
+      "Ananas"
+    ],
+    "countries": [
+      "FR"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/124",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "encruzado",
+    "hook": "Eine weiße Spezialität des portugiesischen Dão.",
+    "place": "Encruzado ist besonders im Dão verbreitet. Sie wird sortenrein und zusammen mit anderen lokalen hellen Sorten ausgebaut.",
+    "character": "Zitrus, Blüten und gelbe Früchte sind möglich. Hefelager und Holz können mehr Textur bringen; es gibt frische und länger reifende Varianten.",
+    "botany": "Die höher gelegenen Standorte des Dão bieten andere Bedingungen als heiße portugiesische Tieflagen. Reife und Wasserzugang unterscheiden sich je nach Weinberg.",
+    "detail": "Dão ist die Herkunft, Encruzado die Sorte. Eine weiße Dão-Cuvée kann daneben weitere Trauben enthalten, auch wenn sie vorn nicht einzeln genannt werden.",
+    "fact": "Portugal ist nicht nur ein Rotweinland: Der Dão besitzt eine eigenständige traditionelle Weißweinpalette.",
+    "aromas": [
+      "Zitrone",
+      "Blüten",
+      "Gelbe Früchte"
+    ],
+    "countries": [
+      "PT"
+    ],
+    "sourceUrl": "https://winesofportugal.com/en/portuguese-wines/grape-varieties/",
+    "sourceLabel": "Wines of Portugal · Rebsorten"
+  },
+  {
+    "id": "rotgipfler",
+    "hook": "Eine helle Spezialität der österreichischen Thermenregion.",
+    "place": "Rotgipfler wird besonders in der Thermenregion südlich von Wien angebaut. Häufig begegnet sie zusammen mit Zierfandler, daneben gibt es eigenständige Abfüllungen.",
+    "character": "Gelbe Früchte, Birne und würzige Eindrücke sind möglich. Die Weine können trocken oder süß sein und je nach Reife recht kräftig wirken.",
+    "botany": "Die Sorte braucht geeignete warme Standorte. Lesezeitpunkt und gesunde Trauben sind wichtig, damit reife Frucht und ausreichende Säure zusammenpassen.",
+    "detail": "Rotgipfler ist trotz des Namens eine Weißweinsorte. Die Bezeichnung bezieht sich auf rötliche Merkmale an der Pflanze, nicht auf einen roten Weinstil.",
+    "fact": "Rotgipfler und Zierfandler sind zwei verschiedene örtliche Sorten; ihre Mischung ist keine eigene botanische Pflanze.",
+    "aromas": [
+      "Birne",
+      "Gelbe Früchte",
+      "Würze"
+    ],
+    "countries": [
+      "AT"
+    ],
+    "sourceUrl": "https://www.austrianwine.com/our-wine/grape-varieties",
+    "sourceLabel": "Austrian Wine · Rebsorten"
+  },
+  {
+    "id": "zierfandler",
+    "hook": "Eine seltenere helle Sorte aus der Thermenregion.",
+    "place": "Zierfandler ist besonders in der österreichischen Thermenregion bekannt. Sie wird eigenständig oder gemeinsam mit Rotgipfler verarbeitet und kann trockene wie süße Weine ergeben.",
+    "character": "Gelbe Früchte und mit Reife nussige oder honigartige Eindrücke sind möglich. Frische Säure kann auch in konzentrierten Varianten eine wichtige Rolle spielen.",
+    "botany": "Die Beeren können zur Reife rötlich werden. Warme geeignete Standorte und gesunde Trauben helfen, den gewünschten Reifegrad zu erreichen.",
+    "detail": "Spätrot ist ein weiterer Name für Zierfandler. Trotz dieses Namens wird daraus überwiegend Weißwein hergestellt.",
+    "fact": "Rötliche Beerenhaut und der Name Spätrot sagen noch nichts darüber aus, ob der Wein am Ende weiß oder rot im Glas steht.",
+    "aromas": [
+      "Gelbe Früchte",
+      "Nüsse",
+      "Honig"
+    ],
+    "countries": [
+      "AT"
+    ],
+    "sourceUrl": "https://www.austrianwine.com/our-wine/grape-varieties",
+    "sourceLabel": "Austrian Wine · Rebsorten"
+  },
+  {
+    "id": "courbu",
+    "hook": "Eine traditionelle helle Sorte der südwestfranzösischen Pyrenäen.",
+    "place": "Courbu Blanc gehört zu den örtlichen Sorten im Südwesten Frankreichs, etwa in Jurançon und Irouléguy. Meist tritt sie als Partner in einer Mischung auf.",
+    "character": "Zitrus, gelbe Früchte und dezente Blüten sind mögliche Eindrücke. Die konkrete Cuvée wird durch alle beteiligten Sorten und den Ausbau geprägt.",
+    "botany": "Die Nähe zu Pyrenäen und Atlantik bringt je nach Standort andere Bedingungen. Gesunde Trauben und gute Belüftung sind in feuchteren Jahren wichtig.",
+    "detail": "Courbu Blanc und Petit Courbu sind verschiedene Sorten. Der ähnliche Name ist keine verlässliche Kurzform für dieselbe Pflanze.",
+    "fact": "Auf einem Herkunftsetikett müssen seltene Mischpartner nicht groß erscheinen, obwohl sie Teil der örtlichen Tradition sind.",
+    "aromas": [
+      "Zitrus",
+      "Gelbe Früchte",
+      "Blüten"
+    ],
+    "countries": [
+      "FR"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "jacquere",
+    "hook": "Frische, oft leichte Weißweine aus Savoyen.",
+    "place": "Jacquère ist eine wichtige helle Sorte Savoyens. Abymes und Apremont sind bekannte Herkünfte am Fuß des Mont Granier.",
+    "character": "Zitrus, Apfel und eher dezente Blüten sind mögliche Eindrücke. Die Weine werden häufig trocken und frisch ausgebaut; der Alkohol kann vergleichsweise moderat sein.",
+    "botany": "Die Sorte ist fruchtbar und liefert regelmäßig Erträge. Ein passender Ertrag und geeignete sonnige Standorte sind im alpinen Rahmen wichtig.",
+    "detail": "Apremont ist eine Herkunft, Jacquère die Sorte. Altesse ist eine andere savoyische Traube und kein weiterer Name für Jacquère.",
+    "fact": "Ein alpiner Weinberg kann auf Schutt- und Geröllflächen unterhalb großer Felswände liegen, statt weit oben am Gipfel.",
+    "aromas": [
+      "Zitrone",
+      "Apfel",
+      "Blüten"
+    ],
+    "countries": [
+      "FR"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/128",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "hondarrabi-zuri",
+    "hook": "Eine wichtige helle Sorte baskischer Txakoli-Weine.",
+    "place": "Hondarrabi Zuri ist besonders im spanischen Baskenland bekannt. Sie spielt bei den hellen Txakoli-Weinen mehrerer örtlicher Herkünfte eine wichtige Rolle.",
+    "character": "Zitrus, grüner Apfel und frische Säure sind möglich. Manche Txakolis haben eine leichte Kohlensäure, andere wirken stiller und dichter.",
+    "botany": "Das feuchte atlantische Klima macht Luftbewegung und gesunde Trauben wichtig. Küstennahe und weiter im Inland liegende Standorte unterscheiden sich.",
+    "detail": "Txakoli ist ein regionaler Weintyp mit geschützten Herkünften. Hondarrabi Zuri ist die Sorte; Hondarrabi Beltza eine andere, dunkle Traube.",
+    "fact": "Txakoli muss weder stark schäumen noch ausschließlich als sehr junger leichter Weißwein auftreten.",
+    "aromas": [
+      "Zitrone",
+      "Apfel",
+      "Kräuter"
+    ],
+    "countries": [
+      "ES"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "chinuri",
+    "hook": "Eine helle Sorte aus dem georgischen Kartlien.",
+    "place": "Chinuri ist besonders in Kartlien verbreitet. Sie wird für stille Weißweine und als Bestandteil von Schaumwein verwendet, teils zusammen mit anderen örtlichen Sorten.",
+    "character": "Zitrus, Apfel und frische Kräuter sind mögliche Eindrücke. Luftgeschützter Ausbau unterscheidet sich von einer längeren Gärung auf den Schalen.",
+    "botany": "Standort und Reifegrad müssen zum geplanten Stil passen. Für Schaumwein wird häufig eine andere Balance gesucht als für einen konzentrierten Stillwein.",
+    "detail": "Kartli beziehungsweise Kartlien ist die Region, Chinuri die Sorte. Ein georgischer Weißwein muss nicht bernsteinfarben oder im Qvevri vergoren sein.",
+    "fact": "Georgien hat neben seiner Tongefäßtradition auch stille, hell gekelterte Weine und Schaumweine.",
+    "aromas": [
+      "Zitrone",
+      "Apfel",
+      "Kräuter"
+    ],
+    "countries": [
+      "GE"
+    ],
+    "sourceUrl": "https://wine.gov.ge/En/VarietyWhite",
+    "sourceLabel": "National Wine Agency Georgia · Rebsorten"
+  },
+  {
+    "id": "tsolikouri",
+    "hook": "Eine wichtige helle Sorte Westgeorgiens.",
+    "place": "Tsolikouri ist besonders im westlichen Georgien verbreitet, etwa in Imeretien. Es entstehen trockene Weißweine und bestimmte halbsüße Herkunftsweine.",
+    "character": "Gelbe Früchte, Apfel und blumige Eindrücke sind möglich. Die Herstellungsweise kann hell und frisch oder mit längerem Schalenkontakt ausfallen.",
+    "botany": "Das feuchtere westgeorgische Klima verlangt andere Weinbergsarbeit als trockene Teile Kachetiens. Luft zwischen den Blättern und gesunde Trauben sind wichtig.",
+    "detail": "Tsolikouri und Tsitska sind verschiedene Sorten, auch wenn beide in Imeretien vorkommen und gemeinsam verarbeitet werden können.",
+    "fact": "Georgiens Westen ist klimatisch nicht einfach eine Kopie Kachetiens; das zeigt sich auch in den örtlich wichtigen Sorten.",
+    "aromas": [
+      "Apfel",
+      "Gelbe Früchte",
+      "Blüten"
+    ],
+    "countries": [
+      "GE"
+    ],
+    "sourceUrl": "https://wine.gov.ge/En/VarietyWhite",
+    "sourceLabel": "National Wine Agency Georgia · Rebsorten"
+  },
+  {
+    "id": "vitovska",
+    "hook": "Eine helle Spezialität der Karstlandschaft an der Adria.",
+    "place": "Vitovska ist im italienisch-slowenischen Karst rund um Triest zu Hause. Sie wird eigenständig und mit unterschiedlichen Längen des Schalenkontakts ausgebaut.",
+    "character": "Birne, Zitrus und kräuterige Eindrücke sind möglich. Längere Maischegärung kann mehr Farbe und Gerbstoffe bringen, ohne dass der Wein dadurch süß wird.",
+    "botany": "Karge, steinige Standorte und der starke Bora-Wind gehören zur örtlichen Landschaft. Wasser, Erziehung und der passende Lesezeitpunkt beeinflussen die Reben.",
+    "detail": "Carso und Kras sind italienische und slowenische Namen der Karstlandschaft. Vitovska benennt die Sorte, nicht eine zusätzliche Region.",
+    "fact": "Die Bora beeinflusst den Weinberg als Wind. Sie ist kein Aroma, das als Zutat in den Wein gelangt.",
+    "aromas": [
+      "Birne",
+      "Zitrone",
+      "Kräuter"
+    ],
+    "countries": [
+      "IT",
+      "SI"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "emir",
+    "hook": "Eine lokale weiße Sorte des kappadokischen Hochlands.",
+    "place": "Emir ist besonders mit Kappadokien und der Gegend um Nevşehir verbunden. Daraus entstehen trockene Stillweine und auch Schaumweine.",
+    "character": "Grüner Apfel, Zitrus und frische Säure sind mögliche Merkmale. Viele Weine werden eher zurückhaltend ausgebaut, damit die feineren Eindrücke erkennbar bleiben.",
+    "botany": "Höhe, trockene Bedingungen und kalte Winter unterscheiden die ursprünglichen Standorte von warmen Küstenregionen. Gesunde, passend reife Trauben sind die Grundlage.",
+    "detail": "Emir ist nicht Narince. Beide sind türkische helle Sorten und können gemeinsam in einer Mischung vorkommen.",
+    "fact": "Der Name Emir ist ein historischer Herrschertitel. Er beschreibt die Sorte und keine heutige Qualitätsstufe auf dem Etikett.",
+    "aromas": [
+      "Apfel",
+      "Zitrone",
+      "Blüten"
+    ],
+    "countries": [
+      "TR"
+    ],
+    "sourceUrl": "https://winesofturkey.org/",
+    "sourceLabel": "Wines of Turkey · Rebsorten"
+  },
+  {
+    "id": "chasselas",
+    "hook": "Eine Sorte mit Namen wie Gutedel und Fendant.",
+    "place": "Chasselas ist besonders in der Westschweiz wichtig, etwa in der Waadt und im Wallis. In Deutschland heißt die Sorte Gutedel und ist mit dem Markgräflerland verbunden.",
+    "character": "Apfel, Birne und dezente Blüten sind möglich. Der Duft ist häufig zurückhaltend; Textur, Säure und ein leicht herber Abschluss können stärker auffallen.",
+    "botany": "Die Sorte reift vergleichsweise früh und wird auch als Tafeltraube genutzt. Standort und Ertrag bestimmen mit, wie dicht der Wein ausfällt.",
+    "detail": "Fendant ist im Wallis ein gebräuchlicher Weinname für Chasselas. Gutedel und Chasselas bezeichnen dieselbe Sorte, keine zwei verschiedenen Trauben.",
+    "fact": "Eine Sorte kann als frische Traube gegessen und zugleich für einen eigenständigen regionalen Wein verwendet werden.",
+    "aromas": [
+      "Apfel",
+      "Birne",
+      "Blüten"
+    ],
+    "countries": [
+      "CH",
+      "DE",
+      "FR"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/62",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "vidal",
+    "hook": "Eine Kreuzung, die besonders durch kanadischen Eiswein bekannt ist.",
+    "place": "Vidal Blanc wird in Kanada und Teilen der USA angebaut. Die Sorte ist besonders mit Eiswein aus Ontario verbunden, wird aber auch für andere Weißweinstile verwendet.",
+    "character": "Apfel, Aprikose und bei konzentrierten süßen Weinen tropische Frucht sind möglich. Lebendige Säure hilft, deutliche Süße auszubalancieren.",
+    "botany": "Vidal ist eine Kreuzung mit mehreren Rebarten im Stammbaum. Die relativ robuste Beerenhaut ist für spätes Hängenlassen und manche Eisweinproduktion hilfreich.",
+    "detail": "Eiswein ist eine Herstellungs- und Weinkategorie, keine Rebsorte. Auch Riesling und weitere geeignete Trauben können dafür verwendet werden.",
+    "fact": "Für echten Eiswein werden natürlich gefrorene Trauben verarbeitet; eine süße Vidal-Flasche ist aber nicht automatisch Eiswein.",
+    "aromas": [
+      "Aprikose",
+      "Apfel",
+      "Tropische Früchte"
+    ],
+    "countries": [
+      "CA",
+      "US"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "moschofilero",
+    "hook": "Griechischer Weißwein aus rosa gefärbten Trauben.",
+    "place": "Moschofilero ist besonders mit Mantinia auf dem Peloponnes verbunden. Die hoch gelegene Ebene bietet vergleichsweise kühle Bedingungen. Neben Stillwein wird auch Schaumwein erzeugt.",
+    "character": "Blüten, Zitrus und fein würzige Eindrücke sind möglich. Frische Säure ist häufig ein wichtiges Merkmal; die meisten bekannten Beispiele sind helle Weine.",
+    "botany": "Die Sorte hat rosa bis grau gefärbte Beeren und reift spät. Der vergleichsweise kühle Standort verlangt eine passende Wahl des Lesezeitpunkts.",
+    "detail": "Moschofilero ist nicht Muscat, auch wenn der Duft aromatisch sein kann. Mantinia ist die Herkunft und keine zweite Traube.",
+    "fact": "Die Beerenschale kann farbig aussehen, obwohl der Saft ohne längeren Schalenkontakt als Weißwein verarbeitet wird.",
+    "aromas": [
+      "Blüten",
+      "Zitrone",
+      "Würze"
+    ],
+    "countries": [
+      "GR"
+    ],
+    "sourceUrl": "https://www.plantgrape.fr/en/varieties/fruit-varieties/344",
+    "sourceLabel": "PlantGrape · IFV / INRAE / Institut Agro"
+  },
+  {
+    "id": "dafni",
+    "hook": "Eine kretische Sorte mit ungewöhnlicher Kräuternote.",
+    "place": "Dafni ist eine seltenere helle Sorte Kretas. Sie wird von einzelnen Betrieben erhalten und eigenständig abgefüllt, oft als trockener Weißwein.",
+    "character": "Kräuter, besonders an Lorbeer erinnernde Noten, und Zitrus sind mögliche Eindrücke. Wie deutlich sie auftreten, hängt von Reife und Ausbau ab.",
+    "botany": "Warme Inselstandorte verlangen einen passenden Umgang mit Wasser und Reife. Bei seltenen Sorten ist auch die Erhaltung gesunden Pflanzmaterials wichtig.",
+    "detail": "Dafni ist eine Rebsorte. Der Name bedeutet Lorbeer; Lorbeerblätter werden dem Wein deshalb nicht als notwendige Zutat zugesetzt.",
+    "fact": "Ein Aromenvergleich benennt eine Erinnerung: Wenn ein Wein an Lorbeer erinnert, muss keine Pflanze im Fass gelegen haben.",
+    "aromas": [
+      "Lorbeer",
+      "Kräuter",
+      "Zitrone"
+    ],
+    "countries": [
+      "GR"
+    ],
+    "sourceUrl": "https://winesofgreece.org/varieties/",
+    "sourceLabel": "Wines of Greece · Rebsorten"
+  },
+  {
+    "id": "tsitska",
+    "hook": "Eine traditionelle helle Sorte aus Imeretien.",
+    "place": "Tsitska ist besonders mit Imeretien im westlichen Georgien verbunden. Sie wird für stille und schäumende Weine verwendet und häufig mit örtlichen Partnern kombiniert.",
+    "character": "Apfel, Zitrus und frische Säure sind möglich. Schalenkontakt und Gefäßwahl verändern Farbe und Mundgefühl; nicht jeder Wein wird gleich hergestellt.",
+    "botany": "Die feuchteren Bedingungen Westgeorgiens machen gesunde Trauben und gute Belüftung wichtig. Für Schaumwein und Stillwein können unterschiedliche Ernteziele gelten.",
+    "detail": "Tsitska ist nicht Tsolikouri. Beide stehen oft in derselben regionalen Weinwelt und können zusammen in einer Cuvée auftauchen.",
+    "fact": "Ein traditionelles georgisches Tongefäß heißt in Imeretien häufig Churi; Qvevri ist der international bekanntere Begriff.",
+    "aromas": [
+      "Apfel",
+      "Zitrone",
+      "Blüten"
+    ],
+    "countries": [
+      "GE"
+    ],
+    "sourceUrl": "https://wine.gov.ge/En/VarietyWhite",
+    "sourceLabel": "National Wine Agency Georgia · Rebsorten"
+  },
+  {
+    "id": "krakhuna",
+    "hook": "Eine helle imeretische Sorte für kräftigere Weißweine.",
+    "place": "Krakhuna gehört zu den traditionellen Trauben Imeretiens im westlichen Georgien. Sie wird eigenständig und gemeinsam mit anderen örtlichen Sorten verarbeitet.",
+    "character": "Reife gelbe Früchte, Aprikose und würzige Eindrücke sind möglich. Je nach Reife und Ausbau können die Weine dichter wirken als sehr leichte Weißweine.",
+    "botany": "Standort, Ertrag und Lesezeitpunkt beeinflussen Zucker und Säure. Das westgeorgische Klima verlangt Aufmerksamkeit bei der Traubengesundheit.",
+    "detail": "Krakhuna ist eine eigene Sorte und kein Name für einen besonders kräftigen Ausbau von Tsitska oder Tsolikouri.",
+    "fact": "Mehrere traditionelle Sorten derselben kleinen Region können unterschiedliche Aufgaben in einer Mischung übernehmen.",
+    "aromas": [
+      "Aprikose",
+      "Gelbe Früchte",
+      "Würze"
+    ],
+    "countries": [
+      "GE"
+    ],
+    "sourceUrl": "https://wine.gov.ge/En/VarietyWhite",
+    "sourceLabel": "National Wine Agency Georgia · Rebsorten"
+  },
+  {
+    "id": "mueller-thurgau",
+    "hook": "Die Sorte hinter vielen Rivaner-Weinen.",
+    "place": "Müller-Thurgau ist in Deutschland und weiteren mitteleuropäischen Weinländern verbreitet. Die Sorte wurde von Hermann Müller aus dem Schweizer Kanton Thurgau gezüchtet.",
+    "character": "Apfel, Blüten und eine leichte Muskatnote sind mögliche Eindrücke. Die Weine werden trocken und mit Restsüße ausgebaut; der Sortenname bestimmt die Süße nicht.",
+    "botany": "Die Sorte reift früh und passt deshalb auch zu Standorten mit kürzerer Saison. Ertrag und gesunde Trauben beeinflussen, ob der Wein ausgewogen oder eher dünn wirkt.",
+    "detail": "Rivaner ist ein weiterer Name für Müller-Thurgau. Die Eltern sind Riesling und Madeleine Royale, nicht die früher vermutete Kombination Riesling und Silvaner.",
+    "fact": "Der Name Rivaner entstand aus der früheren, später korrigierten Vorstellung über die Elternsorten.",
+    "aromas": [
+      "Apfel",
+      "Blüten",
+      "Muskat"
+    ],
+    "countries": [
+      "DE",
+      "CH",
+      "IT"
+    ],
+    "sourceUrl": "https://www.deutscheweine.de/rebsorten",
+    "sourceLabel": "Deutsches Weininstitut · Rebsorten"
+  },
+  {
+    "id": "dornfelder",
+    "hook": "Eine deutsche rote Kreuzung mit kräftiger Farbe.",
+    "place": "Dornfelder wurde in Württemberg gezüchtet und wird heute unter anderem in Rheinhessen und der Pfalz angebaut. Die Sorte erscheint eigenständig und als Mischpartner.",
+    "character": "Dunkle Kirsche, Brombeere und fruchtige Eindrücke sind möglich. Es gibt trockene und süßere Varianten, außerdem Beispiele mit und ohne Holzfassausbau.",
+    "botany": "Die Sorte ist wüchsig und kann reich tragen. Ein passender Ertrag und reife, gesunde Trauben bestimmen die spätere Konzentration.",
+    "detail": "Dornfelder ist eine Rebsorte, keine allgemeine Bezeichnung für süßen deutschen Rotwein. Der tatsächliche Restzucker muss am Wein geprüft werden.",
+    "fact": "Die dunkle Farbe sagt wenig darüber aus, ob ein Rotwein trocken, süß, leicht oder besonders tanninreich schmeckt.",
+    "aromas": [
+      "Kirsche",
+      "Brombeere",
+      "Pflaume"
+    ],
+    "countries": [
+      "DE"
+    ],
+    "sourceUrl": "https://www.deutscheweine.de/rebsorten",
+    "sourceLabel": "Deutsches Weininstitut · Rebsorten"
+  },
+  {
+    "id": "portugieser",
+    "hook": "Eine traditionelle rote Sorte mit einem irreführenden Namen.",
+    "place": "Blauer Portugieser wird in Deutschland besonders in Rheinhessen, der Pfalz und an der Ahr angebaut. Daneben gibt es Bestände in anderen mitteleuropäischen Ländern.",
+    "character": "Rote Beeren und Kirsche sind mögliche Eindrücke. Leichtere Rotweine und Rosés sind verbreitet; Ertrag und Ausbau können den Stil deutlich verändern.",
+    "botany": "Die Sorte reift früh und kann reich tragen. Gesunde Trauben und ein passender Ertrag sind wichtig für Frucht und Ausgewogenheit.",
+    "detail": "Der Name Portugieser ist kein verlässlicher Nachweis einer Herkunft aus Portugal. Sortennamen und tatsächlich gesicherte Herkunftsgeschichte sind unterschiedliche Dinge.",
+    "fact": "Ein deutscher Portugieser ist ein Wein aus einer Rebsorte mit diesem Namen, keine automatisch importierte portugiesische Flasche.",
+    "aromas": [
+      "Rote Beeren",
+      "Kirsche",
+      "Würze"
+    ],
+    "countries": [
+      "DE",
+      "AT",
+      "HU"
+    ],
+    "sourceUrl": "https://www.deutscheweine.de/rebsorten",
+    "sourceLabel": "Deutsches Weininstitut · Rebsorten"
+  },
+  {
+    "id": "trollinger",
+    "hook": "Württembergs leichterer Rotwein hat südliche Verwandtschaft im Namen.",
+    "place": "Trollinger ist besonders mit Württemberg verbunden. Dieselbe Sorte heißt in Südtirol Großvernatsch und in Italien Schiava Grossa.",
+    "character": "Rote Johannisbeere, Erdbeere und eine fein herbe Note sind möglich. Die Farbe ist oft hell; viele Weine werden frisch und ohne stark betonten Holzausbau getrunken.",
+    "botany": "Die Sorte hat eher große Beeren und reift spät. Warme, geeignete Standorte und ein passender Ertrag sind deshalb auch für einen leichteren Wein wichtig.",
+    "detail": "Vernatsch und Schiava können mehrere verwandte, aber unterschiedliche Sortennamen umfassen. Trollinger entspricht genauer Großvernatsch beziehungsweise Schiava Grossa.",
+    "fact": "Ein heller, leichter Rotwein kann aus einer spät reifenden Sorte stammen. Leicht bedeutet nicht automatisch früh geerntet.",
+    "aromas": [
+      "Erdbeere",
+      "Rote Johannisbeere",
+      "Mandel"
+    ],
+    "countries": [
+      "DE",
+      "IT"
+    ],
+    "sourceUrl": "https://www.deutscheweine.de/rebsorten",
+    "sourceLabel": "Deutsches Weininstitut · Rebsorten"
+  },
+  {
+    "id": "kerner",
+    "hook": "Eine weiße Kreuzung aus einer dunklen und einer hellen Sorte.",
+    "place": "Kerner wurde in Württemberg aus Trollinger und Riesling gekreuzt. Die Sorte wächst in Deutschland, Südtirol und auch auf Japans nördlicher Insel Hokkaido.",
+    "character": "Apfel, Birne und fein würzige bis muskatartige Eindrücke sind möglich. Trockene und süße Varianten können deutlich verschieden wirken.",
+    "botany": "Die Sorte reift ausreichend früh für kühlere Standorte und besitzt eine gute Winterfrostverträglichkeit. Das ersetzt natürlich keine geeignete Lage.",
+    "detail": "Kerner ist kein Riesling-Synonym, sondern eine eigene gezüchtete Sorte. Ein dunkler Elternteil bedeutet nicht, dass die Nachkommen roten Wein ergeben müssen.",
+    "fact": "Der Name erinnert an den Dichter und Arzt Justinus Kerner aus Weinsberg.",
+    "aromas": [
+      "Apfel",
+      "Birne",
+      "Muskat"
+    ],
+    "countries": [
+      "DE",
+      "IT",
+      "JP"
+    ],
+    "sourceUrl": "https://www.deutscheweine.de/rebsorten",
+    "sourceLabel": "Deutsches Weininstitut · Rebsorten"
+  },
+  {
+    "id": "scheurebe",
+    "hook": "Eine aromatische deutsche Sorte mit Johannisbeer- und Zitrusnoten.",
+    "place": "Scheurebe wurde von Georg Scheu gezüchtet und wird unter anderem in Rheinhessen, der Pfalz und in Franken angebaut. In Österreich heißt sie auch Sämling 88.",
+    "character": "Schwarze Johannisbeere, Grapefruit und Blüten sind mögliche Eindrücke. Es gibt trockene, restsüße und edelsüße Weine; intensiver Duft allein beweist keine Süße.",
+    "botany": "Die Wahl von Standort und Lesezeitpunkt beeinflusst das Aromabild deutlich. Für konzentrierte süße Varianten werden andere Reifeziele verfolgt als für einen frischen trockenen Wein.",
+    "detail": "Die Eltern sind Riesling und Bukettrebe. Die ältere Angabe Riesling und Silvaner wurde durch genetische Untersuchungen korrigiert.",
+    "fact": "Cassisduft ist keine Eigenschaft, die nur in Rotwein vorkommt: Scheurebe kann ebenfalls daran erinnern.",
+    "aromas": [
+      "Cassis",
+      "Grapefruit",
+      "Blüten"
+    ],
+    "countries": [
+      "DE",
+      "AT"
+    ],
+    "sourceUrl": "https://www.deutscheweine.de/rebsorten",
+    "sourceLabel": "Deutsches Weininstitut · Rebsorten"
+  },
+  {
+    "id": "bacchus",
+    "hook": "Eine aromatische Kreuzung, auch in England bekannt.",
+    "place": "Bacchus wurde in Deutschland gezüchtet und wächst etwa in Franken und Rheinhessen. Die Sorte hat außerdem im englischen Weinbau einen eigenständigen Platz gefunden.",
+    "character": "Holunderblüte, Kräuter und fruchtige Eindrücke sind möglich. Der Stil reicht von trockenen bis süßeren Varianten und verändert sich mit Standort und Reife.",
+    "botany": "Die vergleichsweise frühe Reife ist für kühlere Weinbaugebiete hilfreich. Gesunde Trauben und ein passender Ertrag bleiben wichtig.",
+    "detail": "Bacchus ist eine konkrete Rebsorte und keine allgemeine Bezeichnung für Wein nach dem römischen Weingott. Sie ist eine Kreuzung mit Silvaner, Riesling und Müller-Thurgau im Stammbaum.",
+    "fact": "Eine in Deutschland gezüchtete Sorte kann in einem anderen Land einen ganz anderen Bekanntheitsgrad entwickeln.",
+    "aromas": [
+      "Holunderblüte",
+      "Kräuter",
+      "Apfel"
+    ],
+    "countries": [
+      "DE",
+      "GB"
+    ],
+    "sourceUrl": "https://www.deutscheweine.de/rebsorten",
+    "sourceLabel": "Deutsches Weininstitut · Rebsorten"
+  },
+  {
+    "id": "regent",
+    "hook": "Eine rote Sorte mit erhöhter Widerstandskraft gegen Pilzkrankheiten.",
+    "place": "Regent wurde in Deutschland gezüchtet und wird in mehreren deutschen Weinregionen angebaut. Sie gehört zu den pilzwiderstandsfähigen Sorten, häufig mit PIWI abgekürzt.",
+    "character": "Dunkle Beeren, Kirsche und kräftige Farbe sind mögliche Merkmale. Ausbau und Reife bestimmen, wie weich oder fest der Rotwein wirkt.",
+    "botany": "Die erhöhte Widerstandskraft kann den Aufwand beim Pflanzenschutz verringern. Vollständig immun ist die Rebe dadurch nicht; Wetter und Weinberg bleiben entscheidend.",
+    "detail": "PIWI beschreibt eine Eigenschaftsgruppe und keine einzelne Sorte. Regent ist ein konkreter Name innerhalb dieser Gruppe.",
+    "fact": "Pilzwiderstandsfähig bedeutet nicht automatisch bio. Anbaumethode und Eigenschaften der Sorte sind zwei unterschiedliche Angaben.",
+    "aromas": [
+      "Brombeere",
+      "Kirsche",
+      "Pflaume"
+    ],
+    "countries": [
+      "DE"
+    ],
+    "sourceUrl": "https://www.deutscheweine.de/rebsorten",
+    "sourceLabel": "Deutsches Weininstitut · Rebsorten"
+  },
+  {
+    "id": "st-laurent",
+    "hook": "Eine mitteleuropäische rote Sorte mit eigener Identität.",
+    "place": "St. Laurent ist besonders in Österreich und Tschechien bekannt. In Österreich wächst sie unter anderem in der Thermenregion und im Burgenland.",
+    "character": "Kirsche, dunklere Beeren und feine Würze sind mögliche Eindrücke. Die Weine können duftig und frisch oder stärker im Holz ausgebaut sein.",
+    "botany": "Die eher frühe Reife und empfindlichen Trauben verlangen passende Standorte und sorgfältige Weinbergsarbeit. Ein kleiner Ertrag allein garantiert noch keinen ausgewogenen Wein.",
+    "detail": "St. Laurent ist keine andere Schreibweise für Pinot Noir. Die beiden werden geschmacklich manchmal verglichen, bleiben aber getrennte Sorten.",
+    "fact": "Zusammen mit Blaufränkisch ist St. Laurent ein Elternteil von Zweigelt.",
+    "aromas": [
+      "Kirsche",
+      "Dunkle Beeren",
+      "Würze"
+    ],
+    "countries": [
+      "AT"
+    ],
+    "sourceUrl": "https://www.austrianwine.com/our-wine/grape-varieties",
+    "sourceLabel": "Austrian Wine · Rebsorten"
+  },
+  {
+    "id": "greco",
+    "hook": "Die helle Sorte hinter Greco di Tufo.",
+    "place": "Greco ist besonders in Kampanien bekannt. Greco di Tufo ist eine geschützte Herkunft im hügeligen Landesinneren; weitere Sorten mit ähnlichen Namen gibt es in Süditalien.",
+    "character": "Zitrus, Birne und ein leicht herber Nachgeschmack sind möglich. Frische Säure und ein recht griffiges Mundgefühl können gemeinsam auftreten.",
+    "botany": "Die Hügellagen bieten andere Bedingungen als die warme Küste. Reife und gesunde Trauben müssen zum gewünschten Gleichgewicht passen.",
+    "detail": "Greco und Greco Bianco sind nicht pauschal gleichzusetzen. Der kurze Name allein ist bei historischen süditalienischen Sortenbezeichnungen nicht immer botanisch eindeutig.",
+    "fact": "Tufo ist ein Ort in Kampanien. Greco di Tufo meint einen Herkunftswein und keine separate Sorte namens Tufo.",
+    "aromas": [
+      "Zitrone",
+      "Birne",
+      "Mandel"
+    ],
+    "countries": [
+      "IT"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "lagrein",
+    "hook": "Südtirols dunkle rote Sorte.",
+    "place": "Lagrein ist besonders mit Südtirol und der Gegend um Bozen verbunden. Neben kräftigeren Rotweinen gibt es Rosé, traditionell auch Kretzer genannt.",
+    "character": "Brombeere, dunkle Kirsche und Veilchen sind mögliche Eindrücke. Der Wein kann tiefe Farbe und deutliche Gerbstoffe haben; Ausbau und Reife verändern die Textur.",
+    "botany": "Die Sorte braucht geeignete warme Standorte. In Südtirol liegen solche Weinberge häufig deutlich tiefer als die kühlen Hochlagen anderer Sorten.",
+    "detail": "Lagrein ist nicht Vernatsch und nicht Teroldego, auch wenn alle zur weiteren Weinwelt Norditaliens gehören. Kretzer beschreibt eine traditionelle Rosé-Bezeichnung.",
+    "fact": "Alpennähe bedeutet nicht überall kühles Wetter: Im Bozner Talkessel können die Sommer ausgesprochen warm sein.",
+    "aromas": [
+      "Brombeere",
+      "Kirsche",
+      "Veilchen"
+    ],
+    "countries": [
+      "IT"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "friulano",
+    "hook": "Eine weiße Sorte aus dem Friaul mit wechselvoller Namensgeschichte.",
+    "place": "Friulano ist besonders in Friaul-Julisch Venetien wichtig. Dieselbe Sorte ist auch unter Namen wie Sauvignonasse oder Sauvignon Vert bekannt.",
+    "character": "Birne, Kräuter und ein mandelartiger Abschluss sind mögliche Eindrücke. Der Stil kann frisch oder mit Hefelager dichter und runder ausfallen.",
+    "botany": "Hänge, Ebenen und Entfernung zur Adria verändern die Reife. Ein passender Ertrag und gesunde Trauben sind die Grundlage.",
+    "detail": "Friulano hieß in Italien früher häufig Tocai Friulano. Das ist kein ungarischer Tokaj und auch kein Sauvignon Blanc, trotz des Namens Sauvignonasse.",
+    "fact": "Historische Sortennamen können aus rechtlichen Gründen verschwinden, obwohl im Weinberg weiterhin dieselbe Pflanze steht.",
+    "aromas": [
+      "Birne",
+      "Kräuter",
+      "Mandel"
+    ],
+    "countries": [
+      "IT",
+      "SI"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "arinto",
+    "hook": "Eine portugiesische helle Sorte mit frischer Säure.",
+    "place": "Arinto wächst in mehreren portugiesischen Weinregionen, etwa bei Lissabon und im Vinho-Verde-Gebiet. Bucelas ist eine bekannte Herkunft mit starkem Arinto-Schwerpunkt.",
+    "character": "Zitrone, Apfel und lebendige Säure sind mögliche Eindrücke. Die Sorte kann Frische in eine weiße Mischung bringen oder eigenständig mit längerem Ausbau erscheinen.",
+    "botany": "Auch in warmen Gegenden kann Arinto vergleichsweise viel Säure behalten. Standort und Lesezeitpunkt bleiben wichtig; keine Sorte ist vom Wetter unabhängig.",
+    "detail": "Pedernã ist ein regionaler Name für Arinto im Vinho-Verde-Gebiet. Arinto dos Açores ist dagegen eine andere Sorte.",
+    "fact": "Ein säurebetonter Wein muss nicht unreif sein: Sorte und Standort können frische Säure auch bei reifen Trauben bewahren.",
+    "aromas": [
+      "Zitrone",
+      "Apfel",
+      "Grapefruit"
+    ],
+    "countries": [
+      "PT"
+    ],
+    "sourceUrl": "https://winesofportugal.com/en/portuguese-wines/grape-varieties/",
+    "sourceLabel": "Wines of Portugal · Rebsorten"
+  },
+  {
+    "id": "tinta-negra",
+    "hook": "Eine dunkle Sorte, wichtig für viele Madeira-Weine.",
+    "place": "Tinta Negra ist auf Madeira weit verbreitet und wird für verschiedene Stile des verstärkten Inselweins verwendet. Sie ist nicht auf eine einzige Süßestufe festgelegt.",
+    "character": "Bei Madeira prägen Wärme, Luft und Reife den Duft stark. Getrocknete Früchte, Nüsse und Karamellassoziationen sind je nach Stil möglich.",
+    "botany": "Die Rebsorte ist an unterschiedliche Inselstandorte angepasst. Der gewünschte spätere Wein bestimmt mit, wie Trauben gelesen und verarbeitet werden.",
+    "detail": "Sercial, Verdelho, Boal und Malvasia sind andere traditionelle Sorten- und Stilbezeichnungen. Tinta Negra ist eine eigene dunkle Traube, kein Sammelbegriff dafür.",
+    "fact": "Eine dunkle Rebsorte kann einen bernsteinfarbenen Likörwein ergeben. Ausbau und Alter verändern die ursprüngliche Farbe stark.",
+    "aromas": [
+      "Getrocknete Früchte",
+      "Nüsse",
+      "Karamell"
+    ],
+    "countries": [
+      "PT"
+    ],
+    "sourceUrl": "https://winesofportugal.com/en/portuguese-wines/grape-varieties/",
+    "sourceLabel": "Wines of Portugal · Rebsorten"
+  },
+  {
+    "id": "voskehat",
+    "hook": "Eine traditionelle helle Sorte Armeniens.",
+    "place": "Voskehat gehört zu den bekannten lokalen weißen Sorten Armeniens. Sie wächst unter anderem im Hochland und wird eigenständig oder mit anderen armenischen Trauben verarbeitet.",
+    "character": "Apfel, gelbe Früchte und blumige Eindrücke sind möglich. Die Kellerarbeit reicht von frischen hellen Varianten bis zu länger gereiften oder auf den Schalen vergorenen Weinen.",
+    "botany": "Höhe, trockene Bedingungen und kalte Winter beeinflussen die Reben. Der genaue Standort und Wasserzugang sind wichtiger als eine einzige pauschale Klimabeschreibung.",
+    "detail": "Voskehat ist eine Sorte, kein Wort für jeden armenischen Weißwein. Kangun und Rkatsiteli sind andere Trauben, die ebenfalls auf örtlichen Etiketten vorkommen.",
+    "fact": "Ein traditioneller Wein kann in modernen Tanks vergoren werden; Sortenalter und Gefäßwahl sind voneinander unabhängig.",
+    "aromas": [
+      "Apfel",
+      "Gelbe Früchte",
+      "Blüten"
+    ],
+    "countries": [
+      "AM"
+    ],
+    "sourceUrl": "https://www.vivc.de/",
+    "sourceLabel": "Vitis International Variety Catalogue · Julius Kühn-Institut"
+  },
+  {
+    "id": "roter-veltliner",
+    "hook": "Eine eigenständige helle Spezialität aus Österreich.",
+    "place": "Roter Veltliner ist besonders mit dem Wagram verbunden. Die Sorte wird deutlich seltener angebaut als Grüner Veltliner und ist eine eigenständige traditionelle Weißweintraube.",
+    "character": "Gelbe Früchte, Birne und würzige Eindrücke sind möglich. Der Stil kann trocken oder süß sein und mit Reife an Textur gewinnen.",
+    "botany": "Die Beeren können sich zur Reife rötlich färben. Warme geeignete Standorte und gesunde Trauben sind wichtig für den gewünschten Reifegrad.",
+    "detail": "Roter Veltliner ist nicht einfach eine rote Version von Grünem Veltliner. Trotz der ähnlichen Namen sind es unterschiedliche Sorten.",
+    "fact": "Der Name rot beschreibt hier nicht die übliche Weinfarbe: Aus Rotem Veltliner entsteht überwiegend Weißwein.",
+    "aromas": [
+      "Birne",
+      "Gelbe Früchte",
+      "Würze"
+    ],
+    "countries": [
+      "AT"
+    ],
+    "sourceUrl": "https://www.austrianwine.com/our-wine/grape-varieties",
+    "sourceLabel": "Austrian Wine · Rebsorten"
+  }
+]

@@ -1,0 +1,367 @@
+{
+  "FR": {
+    "label": "Frankreich",
+    "aliases": [
+      "France"
+    ],
+    "context": "Französische Etiketten nennen häufig die Herkunft sehr deutlich. Die Rebsorte steht nicht immer vorne. AOP bezeichnet einen geschützten Herkunftsrahmen; IGP ist ein anderer geografischer Rahmen. Produzent, Ort, Traube und Süßegrad beantworten trotzdem verschiedene Fragen an dieselbe Flasche.",
+    "source": {
+      "label": "INAO · Herkunftsbezeichnungen",
+      "url": "https://www.inao.gouv.fr/"
+    }
+  },
+  "IT": {
+    "label": "Italien",
+    "aliases": [
+      "Italia",
+      "Italy"
+    ],
+    "context": "DOC und DOCG sind italienische Herkunftsbezeichnungen innerhalb des europäischen DOP-Systems. IGT steht für einen anderen geografischen Rahmen. Rosso bedeutet rot, bianco weiß und rosato rosé. Wörter wie Riserva beziehen sich auf geregelte Anforderungen der jeweiligen Herkunft, nicht auf eine eigene Rebsorte.",
+    "source": {
+      "label": "Federdoc",
+      "url": "https://www.federdoc.com/"
+    }
+  },
+  "ES": {
+    "label": "Spanien",
+    "aliases": [
+      "España",
+      "Espana",
+      "Spain"
+    ],
+    "context": "Spanische Etiketten können Herkunft, Rebsorte und Reifebezeichnung kombinieren. DO und DOCa sind geografische Herkunftsrahmen. Crianza, Reserva und Gran Reserva betreffen geregelte Reifeanforderungen. Tinto bedeutet Rotwein, blanco Weißwein und rosado Rosé; diese Wörter nennen keine Traubensorte.",
+    "source": {
+      "label": "Foods and Wines from Spain",
+      "url": "https://www.foodswinesfromspain.com/"
+    }
+  },
+  "PT": {
+    "label": "Portugal",
+    "aliases": [
+      "Portugal"
+    ],
+    "context": "Portugal hat zahlreiche eigene Rebsorten und viele Cuvées. DOC bezeichnet einen enger geregelten Herkunftsrahmen, IG einen anderen geografischen Rahmen. Tinto heißt rot, branco weiß. Casta bedeutet Rebsorte. Gleich klingende Sortennamen können regional verschieden sein; andere Namen können wiederum dieselbe Rebe bezeichnen.",
+    "source": {
+      "label": "ViniPortugal · Weinregionen",
+      "url": "https://www.winesofportugal.com/en/discover/wine-regions/"
+    }
+  },
+  "DE": {
+    "label": "Deutschland",
+    "aliases": [
+      "Germany",
+      "Deutschland"
+    ],
+    "context": "Deutsche Etiketten nennen häufig Rebsorte und Geschmacksangabe. Riesling oder Spätburgunder beschreibt die Traube, trocken den Süßeeindruck innerhalb eines geregelten Rahmens. Ort und Lage grenzen die Herkunft genauer ein. Ein Prädikat wie Kabinett sagt allein nicht, dass ein Wein süß schmecken muss.",
+    "source": {
+      "label": "German Wine Institute",
+      "url": "https://www.winesofgermany.com/"
+    }
+  },
+  "AT": {
+    "label": "Österreich",
+    "aliases": [
+      "Austria",
+      "Oesterreich"
+    ],
+    "context": "DAC ist ein österreichischer Herkunftsrahmen für gebietstypische Weine. Die genaue Herkunft kann über Gebiet, Ort und Ried immer enger gefasst werden. Ried bezeichnet eine benannte Weinbergslage. Rebsorte, Herkunft und Süße sind verschiedene Angaben; eine einzelne von ihnen erklärt noch nicht den gesamten Wein.",
+    "source": {
+      "label": "Österreich Wein",
+      "url": "https://www.austrianwine.com/"
+    }
+  },
+  "CH": {
+    "label": "Schweiz",
+    "aliases": [
+      "Switzerland",
+      "Suisse",
+      "Svizzera"
+    ],
+    "context": "Schweizer Wein verbindet mehrere Sprachen und kantonale Herkunftssysteme. Chasselas, Gutedel und im Wallis Fendant führen zur selben Rebsorte. Pinot Noir, Blauburgunder und Spätburgunder sind ebenfalls Namensverwandte. Ortsname und genaue Herkunft bleiben neben der Übersetzung wichtig, weil die Weinberge sehr unterschiedliche Bedingungen haben.",
+    "source": {
+      "label": "Swiss Wine",
+      "url": "https://www.swisswine.com/"
+    }
+  },
+  "HU": {
+    "label": "Ungarn",
+    "aliases": [
+      "Hungary",
+      "Magyarország"
+    ],
+    "context": "Auf ungarischen Flaschen begegnen dir oft lokale Namen. Száraz bedeutet trocken, édes süß. Kékfrankos ist als Blaufränkisch bekannt, Furmint eine andere, weiße Sorte. Tokaj nennt eine Herkunft; Aszú und Szamorodni bezeichnen bestimmte Weinstile. Das Land hat daneben viele trockene Weine.",
+    "source": {
+      "label": "Wines of Hungary",
+      "url": "https://winesofhungary.hu/"
+    }
+  },
+  "GR": {
+    "label": "Griechenland",
+    "aliases": [
+      "Greece",
+      "Hellas"
+    ],
+    "context": "Griechische Rebsorten sind oft eng mit bestimmten Gegenden verbunden, werden aber auch andernorts angebaut. Assyrtiko, Xinomavro und Agiorgitiko sind Sortennamen. PDO und PGI nennen Herkunftsrahmen. Weiß, rot oder rosé und der Süßegrad müssen zusätzlich an der konkreten Flasche eingeordnet werden.",
+    "source": {
+      "label": "Wines of Greece",
+      "url": "https://winesofgreece.org/"
+    }
+  },
+  "GE": {
+    "label": "Georgien",
+    "aliases": [
+      "Georgia",
+      "Sakartvelo"
+    ],
+    "context": "Qvevri sind große, häufig eingegrabene Tongefäße, die in Georgien zur Weinbereitung verwendet werden. Weißwein mit längerem Schalenkontakt kann bernsteinfarben werden und Gerbstoffe enthalten. Daneben gibt es direkt gepresste Weißweine und unterschiedliche Rotweine. Gefäß, Farbe, Rebsorte und Süße sind getrennte Merkmale.",
+    "source": {
+      "label": "National Wine Agency of Georgia",
+      "url": "https://wine.gov.ge/En/"
+    }
+  },
+  "SI": {
+    "label": "Slowenien",
+    "aliases": [
+      "Slovenia",
+      "Slovenija"
+    ],
+    "context": "Auf slowenischen Flaschen hilft ein kleiner Wortschatz: suho bedeutet trocken, belo weiß und rdeče rot. Rebsorten und Ortsnamen stehen daneben. Die größeren Weinlandschaften Primorska, Podravje und Posavje besitzen unterschiedliche Einflüsse; eine gemeinsame Landesgrenze ergibt keinen einheitlichen Geschmack.",
+    "source": {
+      "label": "Wines of Slovenia",
+      "url": "https://www.winesofslovenia.com/"
+    }
+  },
+  "HR": {
+    "label": "Kroatien",
+    "aliases": [
+      "Croatia",
+      "Hrvatska"
+    ],
+    "context": "Graševina ist die als Welschriesling bekannte weiße Sorte und nicht derselbe Riesling wie an Rhein oder Mosel. Malvazija Istarska und Plavac Mali sind weitere wichtige lokale Namen. Küste, Inseln und Binnenland bilden sehr unterschiedliche Weinlandschaften. Das Wort suho bedeutet trocken.",
+    "source": {
+      "label": "Croatian Chamber of Economy",
+      "url": "https://croatianwine.eu/"
+    }
+  },
+  "GB": {
+    "label": "England",
+    "aliases": [
+      "United Kingdom",
+      "England",
+      "Großbritannien",
+      "Grossbritannien"
+    ],
+    "context": "Englische Weinberge erzeugen stille Weine und Schaumwein. Chardonnay, Pinot Noir und Meunier spielen für viele Schaumweine eine wichtige Rolle. Traditional method bezeichnet Flaschengärung. Herkunft und Erzeuger stehen daneben; der Begriff sparkling allein beschreibt zunächst nur einen schäumenden Wein.",
+    "source": {
+      "label": "WineGB",
+      "url": "https://winegb.co.uk/"
+    }
+  },
+  "US": {
+    "label": "USA",
+    "aliases": [
+      "United States",
+      "Vereinigte Staaten",
+      "Amerika"
+    ],
+    "context": "AVA steht für American Viticultural Area und grenzt eine geografische Herkunft ab. Eine AVA ist keine Rebsorte und keine Geschmacksbewertung. Auf vielen US-Flaschen wird die Sorte deutlich genannt. Regionen können ineinanderliegen; eine genauere Herkunft erklärt die Lage, nicht automatisch einen besseren Wein.",
+    "source": {
+      "label": "TTB · American Viticultural Areas",
+      "url": "https://www.ttb.gov/wine/american-viticultural-area-ava"
+    }
+  },
+  "CA": {
+    "label": "Kanada",
+    "aliases": [
+      "Canada"
+    ],
+    "context": "Kanadische Weinberge liegen unter sehr unterschiedlichen Bedingungen zwischen Atlantik und Pazifik. In Ontario und British Columbia begegnet dir das VQA-Herkunftssystem. Eiswein ist eine besondere Herstellungsart aus gefrorenen Trauben; daneben bilden trockene Weine und Schaumweine einen wichtigen Teil der jeweiligen regionalen Auswahl.",
+    "source": {
+      "label": "Wine Growers Canada",
+      "url": "https://www.winegrowerscanada.ca/"
+    }
+  },
+  "AR": {
+    "label": "Argentinien",
+    "aliases": [
+      "Argentina"
+    ],
+    "context": "Bodega bedeutet Weingut, cosecha beziehungsweise vendimia verweist auf die Ernte. Auf argentinischen Flaschen werden häufig Sorte und Herkunft genannt. Höhenlagen, Wasserzugang und die Nähe zu den Anden unterscheiden viele Weinberge. Malbec ist wichtig, aber weder die einzige Sorte noch eine allgemeine Geschmacksdefinition für das Land.",
+    "source": {
+      "label": "Wines of Argentina",
+      "url": "https://www.winesofargentina.org/"
+    }
+  },
+  "CL": {
+    "label": "Chile",
+    "aliases": [
+      "Chile"
+    ],
+    "context": "Auf chilenischen Etiketten können Costa, Entre Cordilleras und Andes die Lage innerhalb einer Herkunft genauer beschreiben. Es geht um Küste, Gebiete zwischen den Gebirgen und die Andenseite. Diese Wörter sind geografische Orientierung. Rebsorte, Jahrgang und Kellerarbeit bestimmen weitere Eigenschaften des konkreten Weins.",
+    "source": {
+      "label": "Wines of Chile",
+      "url": "https://www.winesofchile.org/"
+    }
+  },
+  "UY": {
+    "label": "Uruguay",
+    "aliases": [
+      "Uruguay"
+    ],
+    "context": "Tannat ist besonders mit Uruguay verbunden, stammt aber aus Südwestfrankreich. Atlantik, Río de la Plata und unterschiedliche Inlandslagen beeinflussen die Weinberge. Das Land bietet auch weiße Sorten wie Albariño. Eine kräftige rote Leitsorte erklärt deshalb nicht jede uruguayische Flasche.",
+    "source": {
+      "label": "INAVI Uruguay",
+      "url": "https://www.inavi.com.uy/"
+    }
+  },
+  "BR": {
+    "label": "Brasilien",
+    "aliases": [
+      "Brazil",
+      "Brasil"
+    ],
+    "context": "Brasilianischer Weinbau ist regional sehr unterschiedlich. Im Süden stehen unter anderem Serra Gaúcha und Campanha für verschiedene Landschaften. Espumante bedeutet Schaumwein; dabei gibt es unterschiedliche Herstellungsverfahren und Süßegrade. Stille rote und weiße Weine ergänzen diese eigene Schaumweintradition.",
+    "source": {
+      "label": "Wines of Brasil",
+      "url": "https://www.winesofbrasil.com/"
+    }
+  },
+  "ZA": {
+    "label": "Südafrika",
+    "aliases": [
+      "South Africa",
+      "Suedafrika"
+    ],
+    "context": "WO bedeutet Wine of Origin und bezeichnet einen südafrikanischen Herkunftsrahmen. Regionen, Distrikte und kleinere Einheiten helfen beim geografischen Einordnen. Chenin Blanc wurde lange auch Steen genannt. Pinotage ist eine eigenständige Kreuzung aus Pinot Noir und Cinsault; der ähnliche Name macht ihn nicht zu Pinot Noir.",
+    "source": {
+      "label": "Wines of South Africa",
+      "url": "https://www.wosa.co.za/"
+    }
+  },
+  "AU": {
+    "label": "Australien",
+    "aliases": [
+      "Australia"
+    ],
+    "context": "Australische Herkunftsnamen sind als Geographical Indications geregelt. Eine größere Zone kann mehrere Regionen umfassen. Shiraz und Syrah sind dieselbe Rebsorte; der Name allein legt keinen festen Stil fest. Das große Land besitzt warme Binnenregionen ebenso wie kühle Küsten- und Insellagen.",
+    "source": {
+      "label": "Wine Australia · Regionen und Sorten",
+      "url": "https://www.wineaustralia.com/market-insights/regions-and-varieties"
+    }
+  },
+  "NZ": {
+    "label": "Neuseeland",
+    "aliases": [
+      "New Zealand"
+    ],
+    "context": "Neuseeländische Herkunftsnamen helfen beim Einordnen von Insel, Region und teilweise engerer Herkunft. Sauvignon Blanc ist besonders bekannt, doch Pinot Noir, Chardonnay und weitere Sorten gehören ebenso dazu. Die längliche Inselgeografie bringt viele unterschiedliche Kombinationen von Meereseinfluss, Höhe, Regen und Sonnenschein mit sich.",
+    "source": {
+      "label": "New Zealand Winegrowers",
+      "url": "https://www.nzwine.com/en/region/"
+    }
+  },
+  "LB": {
+    "label": "Libanon",
+    "aliases": [
+      "Lebanon"
+    ],
+    "context": "Im Libanon treffen internationale Sorten auf lokale Reben wie Obaideh und Merwah. Die Weinlandschaften reichen von Küstennähe bis in hoch gelegene Binnenregionen. Ein französisch klingender Château-Name nennt einen Betrieb und ist kein Beleg für französische Herkunft der Trauben oder für ein bestimmtes Gebäude.",
+    "source": {
+      "label": "Union Vinicole du Liban",
+      "url": "https://www.lebanesewines.com/"
+    }
+  },
+  "IL": {
+    "label": "Israel",
+    "aliases": [
+      "Israel"
+    ],
+    "context": "Koscher beschreibt Regeln der Herstellung und ist keine Süßestufe oder Geschmacksbewertung. Daneben helfen Rebsorte, Erzeuger und genaue Herkunft beim Einordnen. Küstennahe Gegenden und höhere Lagen besitzen unterschiedliche Bedingungen; internationale Rebsorten werden in mehreren dieser Landschaften angebaut.",
+    "source": {
+      "label": "Israel Wine Producers Association",
+      "url": "https://www.israelwines.co.il/"
+    }
+  },
+  "AM": {
+    "label": "Armenien",
+    "aliases": [
+      "Armenia"
+    ],
+    "context": "Armenien hat alte Weinbautraditionen und eigene Sorten wie Areni Noir und Voskehat. Höhenlage ist in vielen Gebieten ein wichtiger Einfluss. Tongefäße heißen hier unter anderem Karas. Alte Tradition und moderne Kellertechnik können nebeneinander bestehen; ein Gefäßname ersetzt keine Beschreibung der konkreten Flasche.",
+    "source": {
+      "label": "Vine and Wine Foundation of Armenia",
+      "url": "https://vwfa.am/"
+    }
+  },
+  "CN": {
+    "label": "China",
+    "aliases": [
+      "China"
+    ],
+    "context": "Chinesischer Weinbau verteilt sich auf weit entfernte Regionen mit sehr unterschiedlichen Bedingungen. Ningxia im Binnenland und Shandong an der Küste sind zwei Beispiele. Cabernet Sauvignon und weitere internationale Sorten spielen eine wichtige Rolle. Der Landesname allein ist daher eine sehr grobe geografische Angabe.",
+    "source": {
+      "label": "OIV country profile",
+      "url": "https://www.oiv.int/"
+    }
+  },
+  "JP": {
+    "label": "Japan",
+    "aliases": [
+      "Japan"
+    ],
+    "context": "Koshu und Muscat Bailey A sind wichtige Namen im japanischen Weinbau. Dazu kommen Chardonnay, Pinot Noir und weitere Sorten. Zwischen Hokkaido, Nagano und Yamanashi unterscheiden sich Klima und Landschaft deutlich. Ein japanischer Betriebsname oder eine vertraute europäische Rebsorte erklärt noch nicht die genaue Herkunft.",
+    "source": {
+      "label": "Wines of Japan",
+      "url": "https://www.winesofjapan.com/"
+    }
+  },
+  "MX": {
+    "label": "Mexiko",
+    "aliases": [
+      "Mexico",
+      "México",
+      "Mejico"
+    ],
+    "context": "Baja California ist die mexikanische Halbinsel südlich des US-Bundesstaats Kalifornien. Valle bedeutet Tal und bodega Weingut. In den Weinbergen wachsen internationale rote und weiße Sorten. Wasserzugang, Küstenabstand und lokale Böden beeinflussen den Stil; der Landesname steht nicht für eine einzige Art Wein.",
+    "source": {
+      "label": "Consejo Mexicano Vitivinícola",
+      "url": "https://uvayvino.org.mx/"
+    }
+  },
+  "TR": {
+    "label": "Türkei",
+    "aliases": [
+      "Turkey",
+      "Türkiye",
+      "Turkei",
+      "Tuerkei"
+    ],
+    "context": "Narince, Emir, Öküzgözü und Kalecik Karası sind eigenständige türkische Rebsorten. Internationale Sorten werden daneben ebenfalls angebaut. Thrakien, Ägäis und anatolisches Hochland unterscheiden sich deutlich. Ein lokaler Sortenname kann daher beim Kennenlernen mehr helfen als eine pauschale Vorstellung vom Klima des gesamten Landes.",
+    "source": {
+      "label": "Wines of Turkey",
+      "url": "https://www.winesofturkey.org/"
+    }
+  },
+  "CY": {
+    "label": "Zypern",
+    "aliases": [
+      "Cyprus"
+    ],
+    "context": "Xynisteri ist eine wichtige weiße, Mavro eine traditionelle dunkle Sorte Zyperns. Commandaria bezeichnet einen bestimmten Süßwein und seine Herkunft. Daneben gibt es trockene weiße und rote Weine. Insel, Rebsorte und Weinart beantworten verschiedene Fragen, auch wenn sie gemeinsam auf einer Flasche genannt werden.",
+    "source": {
+      "label": "Cyprus Wine Museum",
+      "url": "https://www.cypruswinemuseum.com/"
+    }
+  },
+  "IN": {
+    "label": "Indien",
+    "aliases": [
+      "India"
+    ],
+    "context": "In Teilen des indischen Weinbaus wird der Arbeitsrhythmus an Regen- und Trockenzeit angepasst. Durch passende Schnitttermine kann die Lese in trockenere Monate gelegt werden. Chenin Blanc, Sauvignon Blanc, Shiraz und weitere internationale Sorten werden angebaut. Die genaue Region bleibt neben der Rebsorte wichtig.",
+    "source": {
+      "label": "Indian Grape Processing Board",
+      "url": "https://www.igpb.in/"
+    }
+  }
+}

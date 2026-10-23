@@ -1,0 +1,42 @@
+{
+  "maritime": {
+    "title": "Was die Meeresnähe verändert",
+    "body": "Wasser erwärmt und kühlt sich langsamer als Land. Meeresnähe kann starke Temperatursprünge abmildern. Feuchte Luft und Regen bringen zugleich eigene Aufgaben im Weinberg mit sich: Gesunde Trauben brauchen Luft zwischen den Blättern und einen passenden Lesezeitpunkt. Die Hanglage verändert diesen Rahmen zusätzlich."
+  },
+  "continental": {
+    "title": "Jahreszeiten im Weinberg",
+    "body": "Im Landesinneren fallen die Unterschiede zwischen Sommer und Winter häufig deutlicher aus als direkt an der Küste. Auch warme Tage und kühlere Nächte können zusammentreffen. Für die Trauben zählen dabei nicht nur Sonne und Wärme, sondern ebenfalls Wasser, Reifezeit und das Wetter kurz vor der Lese."
+  },
+  "mediterranean": {
+    "title": "Sonne, Trockenheit und Wasser",
+    "body": "Mediterrane Weinlandschaften haben häufig trockene Sommer und mehr Niederschlag im kühleren Teil des Jahres. Wasserzugang, Schatten und der passende Lesezeitpunkt werden dadurch wichtig. Ein höherer oder dem Wind ausgesetzter Weinberg kann andere Bedingungen haben als ein geschützter Standort derselben Gegend."
+  },
+  "altitude": {
+    "title": "Warum Höhe einen Unterschied macht",
+    "body": "Mit zunehmender Höhe können die Bedingungen kühler werden; zugleich bleibt intensive Sonneneinstrahlung möglich. Große Unterschiede zwischen Tag und Nacht beeinflussen den Reifeverlauf. Höhe ist deshalb eine hilfreiche Orientierung. Wind, Ausrichtung, Wasser und der Verlauf des einzelnen Jahres ergänzen das Bild."
+  },
+  "alpine": {
+    "title": "Weinbau zwischen Bergen",
+    "body": "Alpine Weinberge nutzen oft sonnige, geschützte Hänge statt die höchsten Gipfel. Ausrichtung und Höhe verändern die Wärmemenge, die eine Rebe erhält. Kühle Luft kann sich in tieferen Bereichen sammeln. Deshalb sind ein sonniger Hang und eine benachbarte Talsohle nicht automatisch vergleichbare Standorte."
+  },
+  "lake": {
+    "title": "Was eine große Wasserfläche bewirkt",
+    "body": "Seen speichern Wärme und geben sie langsamer wieder ab als Land. Das kann die Bedingungen an ihren Ufern abmildern. Ob eine bestimmte Parzelle davon profitiert, hängt auch von Entfernung, Wind und Hanglage ab. Der See ist ein Einfluss unter mehreren, keine alleinige Erklärung für den fertigen Wein."
+  },
+  "island": {
+    "title": "Weinbau auf einer Insel",
+    "body": "Auf einer Insel wirken Meer und Wind auf viele Weinberge ein. Höhenunterschiede und verschiedene Küstenseiten können trotzdem sehr unterschiedliche Standorte schaffen. Deshalb lohnt die genauere Herkunft ebenso wie die Rebsorte. Eine salzige Assoziation beim Probieren ist eine Wahrnehmung, kein Nachweis von Meerwasser im Wein."
+  },
+  "arid": {
+    "title": "Mit wenig Regen umgehen",
+    "body": "In trockenen Weinlandschaften ist der Wasserzugang der Reben besonders wichtig. Böden können Feuchtigkeit unterschiedlich gut speichern. Je nach Gegend kommt Bewässerung hinzu. Auch Schatten im Laub und ein passender Lesezeitpunkt helfen, gesunde Trauben mit ausgewogener Reife zu erhalten. Trockenheit ist kein automatisches Qualitätsmerkmal."
+  },
+  "coolCoast": {
+    "title": "Kühle Luft und langsame Reife",
+    "body": "Kühler Meereswind oder Nebel können die Temperaturen im Weinberg senken. Trauben reifen dann unter anderen Bedingungen als in geschützten, wärmeren Lagen weiter im Inland. Entfernung zum Wasser, Täler und Bergzüge bestimmen, wie weit dieser Einfluss reicht. Die Rebsorte muss zu diesen örtlichen Bedingungen passen."
+  },
+  "monsoon": {
+    "title": "Regen- und Trockenzeit",
+    "body": "In einem vom Monsun beeinflussten Klima richtet sich die Arbeit im Weinberg stark nach der Regenzeit. Schnitt und Erntetermin können so gelegt werden, dass die Trauben in trockenere Monate hineinreifen. Dieser Jahresrhythmus unterscheidet sich von der einfachen Vorstellung einer einzigen europäischen Herbstlese."
+  }
+}

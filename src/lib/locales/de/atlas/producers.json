@@ -1,0 +1,2161 @@
+[
+  {
+    "slug": "finca-las-moras",
+    "title": "Finca Las Moras",
+    "country": "AR",
+    "region": "San Juan & Pedernal",
+    "point": {
+      "latitude": -31.7,
+      "longitude": -68.6
+    },
+    "intro": "Malbec und Syrah aus dem trockenen San Juan.",
+    "paragraphs": [
+      "Finca Las Moras ist eine argentinische Kellerei mit Schwerpunkt in San Juan. Die Provinz liegt nördlich von Mendoza und umfasst warme Täler ebenso wie höher gelegene Weinberge. Das Pedernal-Tal ist ein eigener, kühlerer Teil dieser größeren Weinlandschaft.",
+      "Malbec, Syrah und weitere rote Sorten gehören zur Palette. Die verschiedenen Linien reichen von sortenbetonten Weinen bis zu eigenständigen Abfüllungen mit genauerem Herkunftsbezug. Der Name des Hauses allein beschreibt deshalb noch keinen bestimmten Geschmack."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Sonne und trockene Bedingungen machen Wasser zu einer wichtigen Frage. Zwischen Talböden und höheren Lagen verändern sich Temperatur und Reifezeit. Eine konkrete Pedernal-Angabe ist genauer als nur San Juan."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Die einzelnen Weine werden unterschiedlich ausgebaut. Bei einer fruchtbetonten Sortenlinie und einer länger gereiften Abfüllung sind andere Ziele möglich. Fassart und Dauer sollten deshalb am jeweiligen Wein geprüft werden."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Malbec nennt die Sorte, San Juan die Provinz und Pedernal eine genauere Herkunft. Ein Linienname wie Paz ist dagegen ein Name innerhalb des Sortiments. Diese Angaben beantworten verschiedene Fragen."
+      }
+    ],
+    "fact": "San Juan ist eine eigene argentinische Weinprovinz; nicht jeder bekannte Malbec stammt aus Mendoza.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "San Juan & Pedernal"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Malbec · Syrah / Shiraz"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Rot- und Weißwein"
+      }
+    ],
+    "related": [
+      "san-juan-pedernal",
+      "malbec",
+      "syrah-shiraz"
+    ],
+    "sources": [
+      {
+        "label": "Finca Las Moras",
+        "url": "https://www.fincalasmoras.com/en/varietales/"
+      },
+      {
+        "label": "Finca Las Moras",
+        "url": "https://www.fincalasmoras.com/en/reserva/"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "haute-cabriere",
+    "title": "Haute Cabrière",
+    "country": "ZA",
+    "region": "Franschhoek",
+    "point": {
+      "latitude": -33.91,
+      "longitude": 19.12
+    },
+    "intro": "Chardonnay, Pinot Noir und Schaumwein aus Franschhoek.",
+    "paragraphs": [
+      "Haute Cabrière liegt in Franschhoek am südafrikanischen Kap. Die Familie von Arnim hat den Betrieb geprägt. Das Tal ist von Bergen umgeben; einzelne Weinberge unterscheiden sich bei Höhe, Sonne und Meereseinfluss.",
+      "Chardonnay und Pinot Noir stehen besonders im Mittelpunkt. Daraus entstehen Stillweine und Cap Classique unter anderem unter dem Namen Pierre Jourdan. Damit lässt sich gut erkunden, wie dieselben Sorten unterschiedliche Aufgaben im Keller bekommen."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Das Weingut ist mit dem Franschhoek-Tal und dem Pass verbunden. Eine einzelne Lage bildet nicht die ganze Region ab. Bei bestimmten Abfüllungen können genauere Standortangaben zusätzliche Orientierung geben."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Cap Classique erhält seine Kohlensäure durch eine zweite Gärung in der Flasche. Ein stiller Chardonnay-Pinot-Noir-Blend folgt einem anderen Verfahren. Sorte, Farbe und Kohlensäure sind deshalb getrennte Fragen."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Haute Cabrière und Pierre Jourdan stehen für unterschiedliche Teile der Palette. Chardonnay Pinot Noir nennt zwei Sorten in einer Mischung. Cap Classique beschreibt die Schaumweinherstellung und ist keine zusätzliche Traube."
+      }
+    ],
+    "fact": "Ein heller Stillwein kann auch Pinot Noir enthalten: Bei dunklen Trauben lässt sich heller Saft früh von den Schalen trennen.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Franschhoek"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Chardonnay · Spätburgunder / Pinot Noir"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Stillwein · Cap Classique"
+      }
+    ],
+    "related": [
+      "franschhoek",
+      "chardonnay",
+      "spaetburgunder"
+    ],
+    "sources": [
+      {
+        "label": "Haute Cabrière",
+        "url": "https://cabriere.co.za/"
+      },
+      {
+        "label": "Haute Cabrière",
+        "url": "https://cabriere.co.za/wine-tasting/"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "el-esteco",
+    "title": "El Esteco",
+    "country": "AR",
+    "region": "Calchaquí Valleys",
+    "point": {
+      "latitude": -25.9,
+      "longitude": -65.85
+    },
+    "intro": "Torrontés und alte Reben aus Argentiniens hohem Norden.",
+    "paragraphs": [
+      "El Esteco arbeitet in Cafayate in den Calchaquí-Tälern. Die Weinlandschaft liegt im Nordwesten Argentiniens und ist hoch, sonnig und trocken. Damit unterscheidet sie sich deutlich von der einfachen Vorstellung eines überall gleichen argentinischen Klimas.",
+      "Torrontés und Malbec gehören zu den wichtigen Sorten, daneben gibt es weitere rote und weiße Weine. Namen wie Don David und Old Vines ordnen die Kollektion. Einzelne alte Weinberge werden als eigene Herkunft hervorgehoben."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Die Höhe bringt neben intensiver Sonne oft kühlere Nächte. Wasserzugang und der passende Lesezeitpunkt bleiben entscheidend. Cafayate ist ein konkreter Ort innerhalb der größeren Calchaquí-Weinlandschaft."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Die Kellerarbeit richtet sich nach dem Wein. Ein duftiger Torrontés hat andere Ziele als ein konzentrierter Rotwein mit Fassreife. Eine einheitliche Behälter- oder Reifeangabe für alle Linien wäre daher ungenau."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Old Vines meint alte Reben; der Zusatz beschreibt nicht automatisch ein bestimmtes Fass. Don David ist ein Linienname. Sorte und Herkunft stehen als weitere Angaben auf dem Etikett."
+      }
+    ],
+    "fact": "Torrontés kann sehr blumig duften und trotzdem trocken schmecken. Duft und Restzucker sind nicht dasselbe.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Calchaquí Valleys"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Torrontés · Malbec"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Rot- und Weißwein"
+      }
+    ],
+    "related": [
+      "calchaqui-valleys",
+      "torrontes",
+      "malbec"
+    ],
+    "sources": [
+      {
+        "label": "El Esteco",
+        "url": "https://elesteco.com.ar/"
+      },
+      {
+        "label": "El Esteco",
+        "url": "https://elesteco.com.ar/en/don-david-en/david-blend-of-terroirs/"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "bodega-del-fin-del-mundo",
+    "title": "Bodega del Fin del Mundo",
+    "country": "AR",
+    "region": "Patagonia",
+    "point": {
+      "latitude": -39.1,
+      "longitude": -68.2
+    },
+    "intro": "Weine aus Patagonien statt aus dem klassischen Mendoza.",
+    "paragraphs": [
+      "Bodega del Fin del Mundo ist mit dem patagonischen Weinbau Argentiniens verbunden. Die Kellerei liegt im Gebiet von San Patricio del Chañar in Neuquén. Trockene Bedingungen, Wind und große offene Landschaften prägen diesen südlichen Weinraum.",
+      "Die Palette umfasst verschiedene rote und weiße Sorten, darunter Malbec, Pinot Noir und Chardonnay. Reserva- und Gran-Reserva-Linien zeigen unterschiedliche Zusammenstellungen und Ausbauziele. Patagonien ist dabei eine größere Herkunft, keine einzelne Parzelle."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Auch im Süden können die Sommertage warm sein. Kühle Nächte und Wasser aus Bewässerungssystemen spielen eine wichtige Rolle. Die konkrete Lage ist hilfreicher als die pauschale Annahme, südlicher Wein sei immer leicht."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Technische Angaben gehören zum einzelnen Wein und Jahrgang. Ein roter Gran Reserva kann mehrere Sorten und Fassreife verbinden; daraus lässt sich kein gemeinsames Rezept für alle Weiß- und Rotweine ableiten."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Malbec oder Pinot Noir nennt die Sorte. Patagonia nennt die größere Weinlandschaft. Reserva und Gran Reserva sind weitere Angaben innerhalb des Sortiments und sollten im konkreten nationalen Zusammenhang gelesen werden."
+      }
+    ],
+    "fact": "Der Name bedeutet Weingut am Ende der Welt und spielt auf Patagonien an; die Trauben wachsen natürlich nicht am Südpol.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Patagonia"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Malbec · Spätburgunder / Pinot Noir · Chardonnay"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Rot- und Weißwein"
+      }
+    ],
+    "related": [
+      "patagonia",
+      "malbec",
+      "spaetburgunder",
+      "chardonnay"
+    ],
+    "sources": [
+      {
+        "label": "Bodega del Fin del Mundo",
+        "url": "https://bodegadelfindelmundo.com/"
+      },
+      {
+        "label": "Bodega del Fin del Mundo",
+        "url": "https://bodegadelfindelmundo.com/wp-content/uploads/2020/07/FT-ES-Gran-Reserva-2018.pdf"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "trinity-canyon-vineyards",
+    "title": "Trinity Canyon Vineyards",
+    "country": "AM",
+    "region": "Vayots Dzor",
+    "point": {
+      "latitude": 39.75,
+      "longitude": 45.45
+    },
+    "intro": "Armenische Sorten aus dem Hochland von Vayots Dzor.",
+    "paragraphs": [
+      "Trinity Canyon Vineyards entstand 2009 als Projekt dreier Weinfreunde. Der Betrieb arbeitet in Vayots Dzor nahe Areni, einer Region mit sehr langer Weinbaugeschichte. Hohe, trockene Standorte und kalte Winter stellen eigene Anforderungen an die Reben.",
+      "Areni Noir und weitere armenische Sorten stehen im Mittelpunkt. Die Weine verbinden lokale Trauben mit unterschiedlichen heutigen Ausbauweisen. Wer armenischen Wein kennenlernen möchte, kann hier Sorte, Hochland und Gefäßwahl getrennt betrachten."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Der Betrieb ist mit Aghavnadzor in Vayots Dzor verbunden. Höhe und die Unterschiede zwischen Tag und Nacht beeinflussen den Reifeverlauf. Der passende Umgang mit Wasser und Frost bleibt ebenso wichtig wie Sonnenschein."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Traditionelle Tongefäße können neben anderen Gefäßen eingesetzt werden. Die genaue Herstellung hängt von der jeweiligen Abfüllung ab. Ein armenischer Wein muss weder automatisch orange sein noch ausschließlich in Ton vergoren werden."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Trinity ist der Betriebsname, Vayots Dzor die Region und Areni Noir eine Rebsorte. Areni bezeichnet zugleich einen Ort. Diese kleinen Unterschiede helfen, die Angaben auf armenischen Etiketten zu ordnen."
+      }
+    ],
+    "fact": "Der Name Trinity erinnert an die drei Gründer; die nahe Höhle Areni-1 ist ein archäologischer Fundort und kein heutiger Weinkeller des Betriebs.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Vayots Dzor"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Areni Noir · Voskehat"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Rot- und Weißwein"
+      }
+    ],
+    "related": [
+      "vayots-dzor",
+      "areni-noir",
+      "voskehat"
+    ],
+    "sources": [
+      {
+        "label": "Trinity Canyon Vineyards",
+        "url": "https://www.trinitycv.com/"
+      },
+      {
+        "label": "Trinity Canyon Vineyards",
+        "url": "https://www.trinitycv.com/our-story"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "yangarra-estate",
+    "title": "Yangarra Estate Vineyard",
+    "country": "AU",
+    "region": "McLaren Vale",
+    "point": {
+      "latitude": -35.22,
+      "longitude": 138.54
+    },
+    "intro": "Rhône-Sorten auf sandigen Böden in McLaren Vale.",
+    "paragraphs": [
+      "Yangarra liegt in Blewitt Springs innerhalb von McLaren Vale in South Australia. Das Gut konzentriert sich auf Sorten, die auch an der südlichen Rhône wichtig sind. Sandige Böden und höher gelegene Teile der Region gehören zum örtlichen Rahmen.",
+      "Grenache, Shiraz, Roussanne und verschiedene Cuvées stehen in der Kollektion. High Sands ist ein bekannter Grenache-Name des Hauses. Die südfranzösischen Sorten wachsen hier unter australischen Bedingungen und ergeben keine Kopie einer französischen Herkunft."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Blewitt Springs liegt im nordöstlichen Teil von McLaren Vale. Innerhalb des Guts unterscheiden sich Parzellen und Böden. Alte Grenache-Bestände sind ein wichtiger Bezugspunkt, ohne dass Rebenalter allein den fertigen Geschmack festlegt."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Das Gut arbeitet je nach Wein mit unterschiedlichen Gefäßen und Reifewegen. Eine rote Cuvée und ein weißer Roussanne brauchen nicht dieselbe Behandlung. Entscheidend sind die Angaben der konkreten Abfüllung."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "High Sands ist ein Weinname mit genauerem Weinbergsbezug. Grenache ist die Sorte und McLaren Vale die übergeordnete Herkunft. Shiraz und Syrah sind Namen derselben anderen Traube."
+      }
+    ],
+    "fact": "Australien hat alte Grenache-Weinberge; seine Rotweinwelt besteht nicht nur aus Shiraz.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "McLaren Vale"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Grenache / Garnacha · Syrah / Shiraz · Roussanne"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Rot- und Weißwein"
+      }
+    ],
+    "related": [
+      "mclaren-vale",
+      "grenache-garnacha",
+      "syrah-shiraz",
+      "roussanne"
+    ],
+    "sources": [
+      {
+        "label": "Yangarra Estate Vineyard",
+        "url": "https://www.yangarra.com/"
+      },
+      {
+        "label": "Yangarra Estate Vineyard",
+        "url": "https://www.yangarra.com/shop"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "kooyong",
+    "title": "Kooyong",
+    "country": "AU",
+    "region": "Mornington Peninsula",
+    "point": {
+      "latitude": -38.35,
+      "longitude": 145.05
+    },
+    "intro": "Pinot Noir und Chardonnay von der Mornington Peninsula.",
+    "paragraphs": [
+      "Kooyong arbeitet auf der Mornington Peninsula südlich von Melbourne. Die Halbinsel liegt zwischen zwei großen Meeresbuchten und bietet vergleichsweise kühle Bedingungen. Unterschiedliche Höhen und Böden schaffen mehrere eigenständige Standorte innerhalb der Region.",
+      "Pinot Noir und Chardonnay sind der Schwerpunkt. Die Palette unterscheidet unter anderem Estate-, Massale- und benannte Einzellagenweine. Damit lassen sich nicht nur verschiedene Sorten, sondern auch mehrere Herkünfte derselben Sorte vergleichen."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Der Meereseinfluss verändert Temperatur und Reife. Ein einzelner Weinbergsname kann innerhalb der Halbinsel genauer orientieren. Sonnige Hänge und kühlere Stellen liegen näher beieinander, als eine Weltkarte vermuten lässt."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Pinot Noir und Chardonnay werden getrennt nach ihren Eigenschaften ausgebaut. Holz, Hefelager und die Auswahl von Partien können die Textur beeinflussen. Solche Angaben sollten nicht pauschal von einem Etikett auf alle anderen übertragen werden."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Single Vineyard weist auf einen einzelnen Weinberg hin. Estate und Massale sind andere Teile der Kollektion. Die Begriffe sagen nicht automatisch, dass ein Wein süßer oder alkoholreicher ist."
+      }
+    ],
+    "fact": "Victoria besitzt ausgesprochen kühl geprägte Weinregionen; australischer Wein ist kein einheitlicher Hitzestil.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Mornington Peninsula"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Spätburgunder / Pinot Noir · Chardonnay"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Rot- und Weißwein"
+      }
+    ],
+    "related": [
+      "mornington-peninsula",
+      "spaetburgunder",
+      "chardonnay"
+    ],
+    "sources": [
+      {
+        "label": "Kooyong",
+        "url": "https://kooyongwines.com.au/our-wines/"
+      },
+      {
+        "label": "Kooyong",
+        "url": "https://kooyongwines.com.au/"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "yering-station",
+    "title": "Yering Station",
+    "country": "AU",
+    "region": "Yarra Tal",
+    "point": {
+      "latitude": -37.68,
+      "longitude": 145.45
+    },
+    "intro": "Ein historischer Name im vielfältigen Yarra Valley.",
+    "paragraphs": [
+      "Yering Station liegt im Yarra Valley östlich von Melbourne. Die Geschichte des Weinbergs reicht bis 1838 zurück. Heute gehören verschiedene Stillweinlinien und der Schaumwein Yarrabank zur Palette.",
+      "Pinot Noir, Chardonnay und weitere Sorten zeigen unterschiedliche Seiten des Yarra Valley. Die Kollektion reicht von zugänglichen Linien bis zu Reserve- und Einzellagenweinen. Eine historische Adresse bedeutet dabei keine einzige unveränderte Rezeptur."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Das Yarra Valley umfasst wärmere Talbereiche und kühlere höhere Standorte. Diese Unterschiede sind wichtig, wenn Pinot Noir, Chardonnay oder kräftigere rote Sorten miteinander verglichen werden. Der Regionsname allein beschreibt nicht jede Parzelle."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Stille Weine und traditionell flaschenvergorener Schaumwein haben unterschiedliche Produktionswege. Hefelager kann bei beiden eine Rolle spielen, aber in anderer Form. Die konkrete Abfüllung erklärt mehr als ein allgemeines Hausversprechen."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Village, Reserve und Single Vineyard ordnen Teile des Sortiments. Yarrabank bezeichnet die Schaumweinlinie. Chardonnay oder Pinot Noir sind dagegen Rebsorten; diese Angaben sollten getrennt gelesen werden."
+      }
+    ],
+    "fact": "Die Weinbaugeschichte von Yering Station beginnt 1838, also lange vor dem heutigen internationalen Bild australischer Weinmarken.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Yarra Tal"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Spätburgunder / Pinot Noir · Chardonnay"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Stillwein · Schaumwein"
+      }
+    ],
+    "related": [
+      "yarra-valley",
+      "spaetburgunder",
+      "chardonnay"
+    ],
+    "sources": [
+      {
+        "label": "Yering Station",
+        "url": "https://www.yering.com/"
+      },
+      {
+        "label": "Yering Station",
+        "url": "https://www.yering.com/our-wines/"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "casa-valduga",
+    "title": "Casa Valduga",
+    "country": "BR",
+    "region": "Vale dos Vinhedos",
+    "point": {
+      "latitude": -29.18,
+      "longitude": -51.58
+    },
+    "intro": "Brasilianische Still- und Schaumweine mit italienischer Familiengeschichte.",
+    "paragraphs": [
+      "Casa Valduga liegt im Vale dos Vinhedos bei Bento Gonçalves im südbrasilianischen Rio Grande do Sul. Die Familie kam im 19. Jahrhundert aus Italien. Wein, Gastfreundschaft und der Besuch im Keller gehören zur Geschichte des Hauses.",
+      "Chardonnay, Cabernet Franc und weitere internationale Sorten erscheinen in der Kollektion. Neben Stillwein sind Schaumweine wichtig. Einzelne Weine tragen die geschützte Herkunft Vale dos Vinhedos, andere kommen aus weiteren geeigneten Gebieten."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Die Serra Gaúcha ist hügelig und vergleichsweise feucht. Das verlangt andere Weinbergsarbeit als ein trockenes südamerikanisches Hochland. Eine D.O.-Angabe grenzt den Standort und die zulässigen Verfahren genauer ein."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Stillwein und Schaumwein werden mit unterschiedlichen Zielen erzeugt. Bei traditioneller Flaschengärung beeinflusst die Zeit auf der Hefe Duft und Textur. Angaben einer bestimmten Cuvée gelten nicht automatisch für jede Linie des Hauses."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "D.O. Vale dos Vinhedos ist eine Herkunft, Chardonnay eine Sorte. Eine Spätlese- oder Late-Harvest-Angabe betrifft wiederum die Traubenreife und den Weinstil. Ein Herstellername kann mehrere solcher Kategorien umfassen."
+      }
+    ],
+    "fact": "Südbrasiliens Weinlandschaft ist stark von italienischer Einwanderung geprägt und liegt weit von den tropischen Bildern entfernt, die viele mit Brasilien verbinden.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Vale dos Vinhedos"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Chardonnay · Cabernet Franc · Merlot"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Stillwein · Schaumwein"
+      }
+    ],
+    "related": [
+      "vale-dos-vinhedos",
+      "chardonnay",
+      "cabernet-franc",
+      "merlot"
+    ],
+    "sources": [
+      {
+        "label": "Casa Valduga",
+        "url": "https://www.casavalduga.com.br/en/"
+      },
+      {
+        "label": "Casa Valduga",
+        "url": "https://www.casavalduga.com.br/en/produtos/naturelle-2/?safra=gran-reserva-late-harvest"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "katsunuma-jozo",
+    "title": "Katsunuma Jyozo",
+    "country": "JP",
+    "region": "Yamanashi",
+    "point": {
+      "latitude": 35.66,
+      "longitude": 138.57
+    },
+    "intro": "Koshu aus Yamanashi, unter anderem als Aruga Branca.",
+    "paragraphs": [
+      "Katsunuma Jyozo arbeitet seit 1937 in Yamanashi. Der Ort Katsunuma gehört zu den wichtigen Zentren des japanischen Weinbaus. Das von Bergen geschützte Becken bietet andere Bedingungen als die feuchte Küste.",
+      "Koshu steht im Mittelpunkt der Aruga-Branca-Weine. Die Sorte hat rosa-graue Beeren, wird aber überwiegend als Weißwein verarbeitet. Unterschiedliche Weinberge und Ausbauweisen zeigen, dass auch eine zurückhaltend duftende Sorte mehrere Stile ermöglichen kann."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Das Unternehmen unterscheidet Standorte wie Iwai, Yamato und Kaneyama. Böden und Wasserverhältnisse verändern die Bedingungen. Ein genauer Weinbergsname erklärt die Herkunft besser als nur die breite Angabe Japan."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Die Kollektion umfasst verschiedene technische und stilistische Ansätze. Hefelager, Schaumweinherstellung oder andere Verfahren gehören jeweils zur konkreten Abfüllung. Sie sollten nicht als gemeinsames Rezept aller Aruga-Branca-Weine gelesen werden."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Katsunuma Jyozo ist der Betrieb, Aruga Branca eine Weinlinie und Koshu eine Sorte. Yamanashi benennt die größere Herkunft. Koshu ist zugleich ein Ortsname, weshalb der Zusammenhang auf dem Etikett zählt."
+      }
+    ],
+    "fact": "Koshu-Beeren können rosa aussehen, während der Wein hell ins Glas kommt: Frühes Pressen begrenzt den Farbübergang aus den Schalen.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Yamanashi"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Koshu"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Weißwein · Schaumwein"
+      }
+    ],
+    "related": [
+      "yamanashi",
+      "koshu"
+    ],
+    "sources": [
+      {
+        "label": "Katsunuma Jyozo",
+        "url": "https://www.katsunuma-winery.com/company/"
+      },
+      {
+        "label": "Katsunuma Jyozo",
+        "url": "https://www.katsunuma-winery.com/wp-content/uploads/2023/03/2fc98b8aa6170eb3558dd5d9708a15e2.pdf"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "york-winery",
+    "title": "York Winery",
+    "country": "IN",
+    "region": "Nashik",
+    "point": {
+      "latitude": 20,
+      "longitude": 73.78
+    },
+    "intro": "Wein aus Nashik mit Blick auf den Gangapur-Stausee.",
+    "paragraphs": [
+      "York Winery liegt außerhalb von Nashik in Maharashtra, nahe dem Gangapur-Stausee. Der Standort gehört zu Indiens wichtigster Weinlandschaft. Die Arbeit im Weinberg richtet sich stark nach dem Wechsel von Regenzeit und trockeneren Monaten.",
+      "Chenin Blanc und Shiraz gehören zur Palette, daneben gibt es weitere rote und weiße Weine sowie Schaumwein. Eigene Weinberge und die Zusammenarbeit mit Traubenlieferanten ergänzen sich. Der Betriebsname allein erklärt deshalb nicht die Herkunft jeder einzelnen Partie."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Die Region hat einen anderen Jahresrhythmus als Europa. Schnitt und Ernte werden so geplant, dass die Trauben möglichst in günstigere trockene Phasen hineinreifen. Höhe und Gelände verändern das Klima zusätzlich."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Fruchtbetonte Weißweine, Rotweine und Schaumwein verfolgen unterschiedliche Ziele. Holzfassreife oder eine zweite Gärung gelten jeweils für bestimmte Abfüllungen. Ein einzelner Ausbauhinweis sollte nicht auf das ganze Sortiment übertragen werden."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Nashik ist die Region, Chenin Blanc oder Shiraz die Sorte. Shiraz heißt andernorts Syrah. Late Harvest ist eine weitere Stil- beziehungsweise Reifeangabe und keine zusätzliche Traube."
+      }
+    ],
+    "fact": "Indische Weinlese folgt nicht einfach dem europäischen Herbstkalender. Die Monsunzeit beeinflusst den Arbeitsplan wesentlich.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Nashik"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Chenin Blanc · Syrah / Shiraz"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Stillwein · Schaumwein"
+      }
+    ],
+    "related": [
+      "nashik",
+      "chenin-blanc",
+      "syrah-shiraz"
+    ],
+    "sources": [
+      {
+        "label": "York Winery",
+        "url": "https://www.yorkwinery.com/"
+      },
+      {
+        "label": "York Winery",
+        "url": "https://www.thewinesofindia.com/york-winery"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "quails-gate",
+    "title": "Quails’ Gate Estate Winery",
+    "country": "CA",
+    "region": "Okanagan Tal",
+    "point": {
+      "latitude": 49.5,
+      "longitude": -119.6
+    },
+    "intro": "Pinot Noir und Chardonnay am Okanagan Lake.",
+    "paragraphs": [
+      "Quails’ Gate liegt in West Kelowna im kanadischen Okanagan Valley. Das Weingut ist mit der Familie Stewart verbunden. See, Hänge und das vergleichsweise trockene Binnenklima prägen den regionalen Rahmen.",
+      "Pinot Noir und Chardonnay gehören zu den wichtigen Sorten, ergänzt durch weitere Weißweine. Unterschiedliche Linien und Weinberge geben der Kollektion mehrere Ebenen. Kanada zeigt hier eine Seite jenseits des bekannten Eisweins."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Der Okanagan Lake beeinflusst die Bedingungen an den Ufern. Trotzdem ändern sich Wärme, Wasser und Reife von Ort zu Ort. Das große Tal ist keine einzelne gleichmäßige Weinbergslage."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Rot- und Weißweine werden nach ihren jeweiligen Eigenschaften ausgebaut. Bei Pinot Noir können Holz und Reife die Textur verändern, bei Chardonnay spielen auch Hefe und Säureabbau eine Rolle. Die Details gehören zur konkreten Flasche."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Okanagan Valley bezeichnet die Herkunft, Pinot Noir die Sorte. Ein Wein aus Kanada muss nicht süß sein. Ein stiller trockener Chardonnay und ein Eiswein sind sehr unterschiedliche Kategorien."
+      }
+    ],
+    "fact": "Kanadas Weinbau umfasst trockene Rot- und Weißweine, nicht nur natürlich gefrorene Trauben für Eiswein.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Okanagan Tal"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Spätburgunder / Pinot Noir · Chardonnay"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Rot- und Weißwein"
+      }
+    ],
+    "related": [
+      "okanagan-valley",
+      "spaetburgunder",
+      "chardonnay"
+    ],
+    "sources": [
+      {
+        "label": "Quails’ Gate Estate Winery",
+        "url": "https://www.quailsgate.com/"
+      },
+      {
+        "label": "Quails’ Gate Estate Winery",
+        "url": "https://www.quailsgate.com/wp-content/uploads/2025/04/22_PinotNoir.pdf"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "weingut-nittnaus",
+    "title": "Weingut Gebrüder Nittnaus",
+    "country": "AT",
+    "region": "Burgenland",
+    "point": {
+      "latitude": 47.75,
+      "longitude": 16.72
+    },
+    "intro": "Die Brüder Nittnaus aus Gols am Neusiedler See.",
+    "paragraphs": [
+      "Das Weingut Gebrüder Nittnaus liegt in Gols im Burgenland. Andreas und Hans Michael Nittnaus führen den Familienbetrieb. Die Landschaft um den Neusiedler See bietet warme Bedingungen und verschiedene Böden, vom leichteren Flachland bis zu anderen örtlichen Standorten.",
+      "Die Kollektion umfasst weiße, rote und süße Weine. Zweigelt und Blaufränkisch gehören zu den wichtigen roten Namen. Damit zeigt der Betrieb mehrere Seiten derselben Region und lässt sich nicht auf eine einzelne dunkle Cuvée reduzieren."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "See, Wind und Wärme bilden den Rahmen. Welche Bedingungen ein Weinberg hat, hängt zusätzlich von Boden und Lage ab. Feuchte in Seenähe kann für bestimmte Süßweine hilfreich sein, verlangt aber eine sehr genaue Auswahl der Trauben."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Frische Weißweine, rote Mischungen und Süßweine entstehen mit unterschiedlichen Zielen. Reifezeit und Gefäßwahl gehören zum einzelnen Wein. Die Angabe eines Fasses bei einer Cuvée ist deshalb kein gemeinsames Rezept der gesamten Kollektion."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Gebrüder Nittnaus ist der Name dieses Betriebs. Andere österreichische Weingüter tragen ebenfalls den Familiennamen Nittnaus. Für die richtige Zuordnung helfen Gols, der vollständige Name und das konkrete Etikett."
+      }
+    ],
+    "fact": "Ein gleicher Familienname macht zwei Weingüter noch nicht zum selben Betrieb; bei Nittnaus lohnt der genaue Blick.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Burgenland"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Zweigelt · Blaufränkisch / Lemberger"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Rotwein · Weißwein · Süßwein"
+      }
+    ],
+    "related": [
+      "burgenland",
+      "zweigelt",
+      "blaufrankisch-lemberger"
+    ],
+    "sources": [
+      {
+        "label": "Weingut Gebrüder Nittnaus",
+        "url": "https://www.nittnaus.net/en/"
+      },
+      {
+        "label": "Weingut Gebrüder Nittnaus",
+        "url": "https://www.nittnaus.net/en/weine/heideboden-premium/"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "salomon-undhof",
+    "title": "Salomon Undhof",
+    "country": "AT",
+    "region": "Kremstal",
+    "point": {
+      "latitude": 48.4,
+      "longitude": 15.62
+    },
+    "intro": "Riesling und Grüner Veltliner aus Stein an der Donau.",
+    "paragraphs": [
+      "Salomon Undhof liegt in Stein an der Donau im Kremstal. Die Familie Salomon besitzt das Gut seit 1792. Die Weinberge der Umgebung verbinden Donautal, Hänge und unterschiedliche Gesteine; der einzelne Lagenname präzisiert die Herkunft.",
+      "Trockener Riesling und Grüner Veltliner sind wichtige Schwerpunkte. Die Kollektion unterscheidet Gebiets-, Orts- und Lagenweine. Wer dieselbe Sorte aus verschiedenen Weinbergen probiert, kann Herkunft und Ausbau getrennt betrachten."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Die Nähe zur Donau und die Hanglagen prägen den Rahmen, erklären aber nicht jede Parzelle gleich. Wasserzugang, Boden und Ausrichtung unterscheiden sich. Eine Ried-Angabe nennt einen engeren Weinbergsbezug als nur Kremstal."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Die trockenen Weißweine werden je nach Abfüllung mit unterschiedlichen Reifewegen ausgebaut. Hefe, Zeit und Gefäßgröße können das Mundgefühl verändern. Holz muss dabei nicht als lauter Vanilleduft erkennbar sein."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Undhof bezeichnet das österreichische Gut. Die Familie ist auch mit dem Weinbau in Australien verbunden; diese Herkunft sollte nicht mit den Kremstal-Weinen gleichgesetzt werden. Sorte und Landesangabe helfen bei der Zuordnung."
+      }
+    ],
+    "fact": "Ein Familienname kann Weine aus zwei Kontinenten verbinden, ohne dass deren Trauben aus derselben Region stammen.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Kremstal"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Riesling · Grüner Veltliner"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Trockener Weißwein"
+      }
+    ],
+    "related": [
+      "kremstal",
+      "riesling",
+      "gruner-veltliner"
+    ],
+    "sources": [
+      {
+        "label": "Salomon Undhof",
+        "url": "https://salomonwines.com/salomon-undhof/"
+      },
+      {
+        "label": "Salomon Undhof",
+        "url": "https://salomonwines.com/wp/wp-content/uploads/2024/03/Riesling-Terrassen-2024.pdf"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "lackner-tinnacher",
+    "title": "Weingut Lackner-Tinnacher",
+    "country": "AT",
+    "region": "Steiermark",
+    "point": {
+      "latitude": 46.85,
+      "longitude": 15.5
+    },
+    "intro": "Südsteirische Weißweine aus steilen Hügellagen.",
+    "paragraphs": [
+      "Lackner-Tinnacher liegt in Gamlitz in der Südsteiermark. Katharina Tinnacher führt den Familienbetrieb, dessen Geschichte bis ins 18. Jahrhundert reicht. Die Landschaft ist hügelig, viele Weinberge sind steil und unterscheiden sich deutlich bei Ausrichtung und Höhe.",
+      "Sauvignon Blanc, Morillon, Weißburgunder und Gelber Muskateller gehören zur Kollektion. Gebiets- und Lagenweine bieten verschiedene Zugänge. Die Region ist nicht nur für einen laut grasigen Sauvignon-Stil bekannt, sondern für unterschiedliche Reife- und Ausbauweisen."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Die Südsteiermark bekommt vergleichsweise viel Niederschlag. Hanglage, Luft und gesunde Trauben sind deshalb wichtige Themen. Der Betrieb arbeitet biologisch; das beschreibt die Bewirtschaftung und garantiert keinen bestimmten Duft im Glas."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Die einzelnen Weine bekommen unterschiedliche Zeit und Gefäße. Bei Weißwein kann längerer Hefekontakt die Textur verändern. Solche Entscheidungen lassen sich am konkreten Lagenwein sinnvoller nachvollziehen als über eine einzige pauschale Hausbeschreibung."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Morillon ist in der Steiermark ein gebräuchlicher Name für Chardonnay. Sauvignon Blanc und Weißburgunder sind dagegen eigene Sorten. Ried und der folgende Name geben einen genaueren Weinbergsbezug an."
+      }
+    ],
+    "fact": "Morillon und Chardonnay sind zwei Namen derselben Sorte; die regionale Bezeichnung bedeutet keine zusätzliche Traube.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Steiermark"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Sauvignon Blanc · Chardonnay · Weißburgunder / Pinot Blanc"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Weißwein"
+      }
+    ],
+    "related": [
+      "styria",
+      "sauvignon-blanc",
+      "chardonnay",
+      "weissburgunder"
+    ],
+    "sources": [
+      {
+        "label": "Weingut Lackner-Tinnacher",
+        "url": "https://www.tinnacher.at/"
+      },
+      {
+        "label": "Weingut Lackner-Tinnacher",
+        "url": "https://www.tinnacher.at/produkt-kategorie/weine/"
+      },
+      {
+        "label": "Weingut Lackner-Tinnacher",
+        "url": "https://www.tinnacher.at/produkt-kategorie/weine/terroir-weine/"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "mayer-am-pfarrplatz",
+    "title": "Weingut Mayer am Pfarrplatz",
+    "country": "AT",
+    "region": "Wien",
+    "point": {
+      "latitude": 48.22,
+      "longitude": 16.37
+    },
+    "intro": "Wiener Weinbau mitten in einer Großstadt.",
+    "paragraphs": [
+      "Mayer am Pfarrplatz liegt in Heiligenstadt in Wien. Die Geschichte des Betriebs reicht bis 1683 zurück. Weinberge wie am Nussberg und in Alsegg liegen innerhalb der Stadtgrenzen, obwohl viele Menschen Wien eher mit Kaffeehäusern als mit Reben verbinden.",
+      "Wiener Gemischter Satz gehört zur Identität des Hauses. Daneben gibt es sortenreine Weine und genauere Lagenabfüllungen. Der Gemischte Satz verbindet mehrere Trauben bereits im Weinberg, nicht erst als fertige Weine im Keller."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Mehrere Sorten werden beim Gemischten Satz gemeinsam angebaut und gelesen. Ihre Reife kann zum selben Termin unterschiedlich weit sein. Genau dieses Zusammenspiel ist Teil der traditionellen Idee hinter dem Wein."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Gemeinsames Lesen und Vergären unterscheidet den Gemischten Satz von einer nachträglich zusammengestellten Cuvée. Zusätzlich verändern Reife und Gefäßwahl den Stil. Die konkrete Herkunftskategorie besitzt eigene Regeln."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Wiener Gemischter Satz nennt einen geregelten Herkunftswein. Nussberg ist ein örtlicher Weinbergsbezug. Der Betriebsname Mayer am Pfarrplatz steht für den Erzeuger, nicht für eine Rebsorte oder einen Süßegrad."
+      }
+    ],
+    "fact": "Eine Hauptstadt kann eine echte Weinregion sein: Wiens Weinberge liegen innerhalb des Stadtgebiets.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Wien"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Grüner Veltliner · Riesling · Weißburgunder / Pinot Blanc"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Gemischter Satz · Weißwein"
+      }
+    ],
+    "related": [
+      "vienna",
+      "gruner-veltliner",
+      "riesling",
+      "weissburgunder"
+    ],
+    "sources": [
+      {
+        "label": "Weingut Mayer am Pfarrplatz",
+        "url": "https://weingut-mayer-am.pfarrplatz.at/en/"
+      },
+      {
+        "label": "Weingut Mayer am Pfarrplatz",
+        "url": "https://weingut-mayer-am.pfarrplatz.at/en/vineyards/"
+      },
+      {
+        "label": "Weingut Mayer am Pfarrplatz",
+        "url": "https://weingut-mayer-am.pfarrplatz.at/en/winery/"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "josef-fritz",
+    "title": "Weingut Josef Fritz",
+    "country": "AT",
+    "region": "Wagram",
+    "point": {
+      "latitude": 48.35,
+      "longitude": 15.98
+    },
+    "intro": "Roter Veltliner als Schwerpunkt am Wagram.",
+    "paragraphs": [
+      "Das Weingut Josef Fritz liegt in Zaußenberg am Wagram. Die Familie konzentriert sich besonders auf Roten Veltliner. Die Gegend nördlich der Donau ist für ihre Lösslandschaft bekannt, besitzt aber auch andere örtliche Bodenverhältnisse.",
+      "Roter Veltliner steht neben Grünem Veltliner, Riesling und weiteren Sorten in der Kollektion. Einzelne Lagen machen genauere Herkunftsunterschiede sichtbar. Trotz des Wortes rot handelt es sich beim wichtigen Schwerpunkt des Hauses um eine Weißweinsorte."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Wärme, Wasser und die Eigenschaften des Bodens beeinflussen die Reife. Tiefgründiger Löss ist ein anderer Standort als ein flachgründiger steiniger Hang. Ein einzelner Regionsname ersetzt diese Unterschiede nicht."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Der Betrieb baut verschiedene Weine mit unterschiedlichen Zielen aus. Zeit auf der Hefe und Gefäßwahl können Textur und Duft verändern. Eine konkrete Fassangabe sollte deshalb bei der jeweiligen Abfüllung gelesen werden."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Roter und Grüner Veltliner sind verschiedene Sorten. Wagram bezeichnet die Region, Zaußenberg den Ort und eine Ried einen genaueren Weinberg. Diese Angaben sind keine Abstufungen von trocken bis süß."
+      }
+    ],
+    "fact": "Roter Veltliner ist keine rote Version des Grünen Veltliners. Der ähnliche Name führt leicht zu dieser falschen Vorstellung.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Wagram"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Roter Veltliner · Grüner Veltliner · Riesling"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Weißwein · Schaumwein"
+      }
+    ],
+    "related": [
+      "wagram",
+      "roter-veltliner",
+      "gruner-veltliner",
+      "riesling"
+    ],
+    "sources": [
+      {
+        "label": "Weingut Josef Fritz",
+        "url": "https://www.weingut-fritz.at/en/"
+      },
+      {
+        "label": "Weingut Josef Fritz",
+        "url": "https://www.weingut-fritz.at/en/roter-veltliner.html"
+      },
+      {
+        "label": "Weingut Josef Fritz",
+        "url": "https://www.weingut-fritz.at/en/vineyards.html"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "ebner-ebenauer",
+    "title": "Weingut Ebner-Ebenauer",
+    "country": "AT",
+    "region": "Weinviertel",
+    "point": {
+      "latitude": 48.65,
+      "longitude": 16.4
+    },
+    "intro": "Poysdorfer Weißweine und Schaumwein mit viel Zeit.",
+    "paragraphs": [
+      "Ebner-Ebenauer liegt in Poysdorf im Weinviertel. Marion und Manfred Ebner-Ebenauer führen den Familienbetrieb. Die Gegend ist besonders mit Grünem Veltliner verbunden; unterschiedliche Böden und ältere Weinberge geben der Kollektion mehrere Herkunftsebenen.",
+      "Grüner Veltliner, Riesling und Chardonnay sind wichtige Sorten. Daneben ist das Haus für Schaumweine bekannt. Alte Reben und benannte Einzellagen stehen im Sortiment für genauere Herkunft, sind aber kein gemeinsamer garantierter Geschmack."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Ein alter Weinberg bringt eine eigene Geschichte und Wurzelstruktur mit. Sein tatsächlicher Ertrag und Wasserzugang müssen trotzdem passen. Rebenalter allein ersetzt weder gesunde Früchte noch einen geeigneten Lesezeitpunkt."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Längere Reife und Hefekontakt spielen bei ausgewählten Weinen eine Rolle. Schaumwein hat zusätzlich eine zweite Gärung und ein eigenes Hefelager. Die Verfahren sollten nicht von einer Linie auf das gesamte Sortiment übertragen werden."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Weinviertel ist die Region, Poysdorf der Ort. Alte Reben beschreibt die Herkunft des Leseguts, nicht automatisch ein neues Holzfass. Grüner Veltliner und Riesling sind unterschiedliche Sorten."
+      }
+    ],
+    "fact": "Poysdorf ist sowohl ein wichtiger Weißweinort als auch eng mit österreichischer Schaumweinproduktion verbunden.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Weinviertel"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Grüner Veltliner · Riesling · Chardonnay"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Weißwein · Schaumwein"
+      }
+    ],
+    "related": [
+      "weinviertel",
+      "gruner-veltliner",
+      "riesling",
+      "chardonnay"
+    ],
+    "sources": [
+      {
+        "label": "Weingut Ebner-Ebenauer",
+        "url": "https://ebner-ebenauer.at/"
+      },
+      {
+        "label": "Weingut Ebner-Ebenauer",
+        "url": "https://ebner-ebenauer.at/weine/"
+      },
+      {
+        "label": "Weingut Ebner-Ebenauer",
+        "url": "https://ebner-ebenauer.at/weinkeller/"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "weingut-ratzenberger",
+    "title": "Weingut Ratzenberger",
+    "country": "DE",
+    "region": "Mittelrhein",
+    "point": {
+      "latitude": 50.17,
+      "longitude": 7.68
+    },
+    "intro": "Riesling aus den steilen Hängen rund um Bacharach.",
+    "paragraphs": [
+      "Das Weingut Ratzenberger liegt in Bacharach-Steeg am Mittelrhein. Die Familie arbeitet in den steilen Hängen der Flusslandschaft. Jochen Ratzenberger ist eng mit dem Betrieb verbunden; der Riesling steht deutlich im Mittelpunkt.",
+      "Bacharacher Lagen wie St. Jost, Wolfshöhle und Posten geben der Kollektion genaue Ortsbezüge. Neben Riesling gibt es weitere Sorten und Schaumwein. Die einzelnen Lagennamen lassen sich besser vergleichen als die pauschale Vorstellung eines einzigen Schiefergeschmacks."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Steile Weinberge verlangen viel Handarbeit und einen sorgfältigen Umgang mit Boden und Wasser. Hangrichtung und Höhe verändern die Reife. Schiefer ist ein Gestein am Standort, keine Zutat, die direkt in den Wein gelangt."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Trockene und restsüße Rieslinge sowie Schaumwein haben unterschiedliche Ziele. Zeit, Hefekontakt und die gewählte Abfüllung bestimmen den Ausbau. Der Name einer Lage verrät noch keinen festen Zuckergehalt."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Bacharacher nennt den Weinort. St. Jost oder Wolfshöhle nennt einen genaueren Weinberg. Riesling bezeichnet die Sorte; trocken oder eine andere Stilbeschreibung beantwortet die Frage nach der geschmacklichen Richtung."
+      }
+    ],
+    "fact": "Mittelrhein und Rheingau sind benachbarte, aber unterschiedliche deutsche Anbaugebiete. Bacharach gehört zum Mittelrhein.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Mittelrhein"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Riesling · Grauburgunder / Pinot Gris · Spätburgunder / Pinot Noir"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Riesling · Schaumwein"
+      }
+    ],
+    "related": [
+      "mittelrhein",
+      "riesling",
+      "grauburgunder",
+      "spaetburgunder"
+    ],
+    "sources": [
+      {
+        "label": "Weingut Ratzenberger",
+        "url": "https://www.weingut-ratzenberger.de/"
+      },
+      {
+        "label": "Weingut Ratzenberger",
+        "url": "https://www.vdp.de/de/die-weine/weinbergonline/weingut/ratzenberger"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "domaine-de-souch",
+    "title": "Domaine de Souch",
+    "country": "FR",
+    "region": "Jurançon",
+    "point": {
+      "latitude": 43.3,
+      "longitude": -0.4
+    },
+    "intro": "Trockener und süßer Jurançon mit Blick auf die Pyrenäen.",
+    "paragraphs": [
+      "Domaine de Souch liegt bei Laroin nahe Pau im Südwesten Frankreichs. Die Familie Hégoburu begann dort 1987 mit dem Weinbau. Hügel und der Blick auf die Pyrenäen gehören zur Landschaft, nicht zu einem einheitlichen Geschmacksrezept.",
+      "Petit Manseng, Gros Manseng und Courbu sind wichtige Sorten. Die Kollektion umfasst trockenen Jurançon Sec und süße Weine. Damit lässt sich gut verstehen, dass Region und Rebsorte allein noch nicht die Süße einer Flasche verraten."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Die Hänge liegen im Einflussbereich von Atlantik und Pyrenäen. Traubengesundheit und sorgfältige Auswahl zur Lese sind entscheidend. Der Betrieb ist mit biologischer und biodynamischer Bewirtschaftung verbunden; das beschreibt die Arbeit im Weinberg."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Für süße Manseng-Weine können sehr reife, am Stock eingeschrumpfte Trauben wichtig sein. Trockene Varianten verfolgen andere Ziele. Eine einheitliche Ernte- oder Fassangabe für alle Cuvées wäre deshalb nicht passend."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Sec bedeutet trocken. Moelleux weist auf einen süßen Stil hin. Marie-Kattalin und Monplaisir sind Namen einzelner Weine, keine zusätzlichen Trauben. Jurançon bezeichnet die Herkunft."
+      }
+    ],
+    "fact": "Ein Jurançon kann trocken oder süß sein. Das kleine Wort Sec auf dem Etikett macht einen entscheidenden Unterschied.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Jurançon"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Petit Manseng · Gros Manseng · Courbu"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Trockener Weißwein · Süßwein"
+      }
+    ],
+    "related": [
+      "jurancon",
+      "petit-manseng",
+      "gros-manseng",
+      "courbu"
+    ],
+    "sources": [
+      {
+        "label": "Domaine de Souch",
+        "url": "https://domainedesouch.com/"
+      },
+      {
+        "label": "Domaine de Souch",
+        "url": "https://www.vins-jurancon.fr/vigneron/53-domaine-de-souch"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "marchesi-di-barolo",
+    "title": "Marchesi di Barolo",
+    "country": "IT",
+    "region": "Barolo",
+    "point": {
+      "latitude": 44.61,
+      "longitude": 7.94
+    },
+    "intro": "Nebbiolo und benannte Weinberge rund um Barolo.",
+    "paragraphs": [
+      "Marchesi di Barolo arbeitet in historischen Kellern im Ort Barolo. Das Haus ist mit der Familie Abbona verbunden. Die Langhe-Hügel bieten wechselnde Anteile von Ton, Kalk und Sand sowie unterschiedliche Höhen und Hangrichtungen.",
+      "Nebbiolo steht im Zentrum der Barolo-Weine. Cannubi, Sarmassa und Coste di Rose sind wichtige benannte Herkünfte innerhalb der Palette. Daneben führt das Haus weitere piemontesische Weine; nicht jede Flasche ist deshalb automatisch ein Barolo."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Die einzelnen Hügel unterscheiden sich bei Boden und Ausrichtung. Getrennte Ernte und Verarbeitung helfen, diese Herkunftsunterschiede zu erhalten. Ein bekannter Weinbergsname ist genauer als nur die größere Region Piemont."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Nebbiolo bringt oft deutlich spürbare Säure und Gerbstoffe mit. Reife in verschiedenen Gefäßen und die Zeit in der Flasche verändern den Eindruck. Die konkrete Dauer gehört zum jeweiligen Wein und Jahrgang."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Barolo ist eine geschützte Herkunft, Nebbiolo die Sorte und Cannubi ein engerer geografischer Name. Diese Wörter beantworten unterschiedliche Fragen und sind keine bloßen Synonyme für kräftigen Rotwein."
+      }
+    ],
+    "fact": "Ein Barolo kann vergleichsweise hell aussehen und trotzdem feste Gerbstoffe haben. Dunklere Farbe bedeutet nicht automatisch mehr Struktur.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Barolo"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Nebbiolo · Barbera"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Rotwein · Weißwein"
+      }
+    ],
+    "related": [
+      "barolo",
+      "nebbiolo",
+      "barbera"
+    ],
+    "sources": [
+      {
+        "label": "Marchesi di Barolo",
+        "url": "https://marchesibarolo.com/en/territory/"
+      },
+      {
+        "label": "Marchesi di Barolo",
+        "url": "https://marchesibarolo.com/en/wines/"
+      },
+      {
+        "label": "Marchesi di Barolo",
+        "url": "https://marchesibarolo.com/en/wines/cannubi/"
+      },
+      {
+        "label": "Marchesi di Barolo",
+        "url": "https://marchesibarolo.com/en/wines/coste-di-rose/"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "raul-perez-bodegas-y-vinedos",
+    "title": "Raúl Pérez Bodegas y Viñedos",
+    "country": "ES",
+    "region": "Bierzo",
+    "point": {
+      "latitude": 42.55,
+      "longitude": -6.59
+    },
+    "intro": "Mencía und alte Weinberge im Nordwesten Spaniens.",
+    "paragraphs": [
+      "Raúl Pérez ist besonders mit Bierzo und seinem Heimatort Valtuille verbunden. Seine Arbeit umfasst zugleich Projekte in weiteren nordwestspanischen Regionen. Der Betriebsname steht deshalb nicht für einen einzigen unveränderlichen Weinberg oder ein festes Sortiment.",
+      "Mencía-geprägte Bierzo-Weine stehen in diesem Überblick im Mittelpunkt. Namen wie Ultreia und La Vizcaína ordnen unterschiedliche Projekte und Abfüllungen. Alte örtliche Weinberge können mehr als eine Sorte enthalten und werden nicht immer als völlig sortenreiner Block bewirtschaftet."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Hänge, Höhen und Böden unterscheiden sich im Bierzo deutlich. Ein genauer Parzellenname kann die Herkunft weiter eingrenzen. Alte Reben sind ein wichtiger Bezug, doch Wasser und Traubengesundheit bleiben ebenso entscheidend."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Pérez arbeitet mit traditionellen Verfahren und je nach Wein unterschiedlichen Gefäßen und Reifewegen. Eine pauschale Gleichung wie wenig Eingriff gleich kein Holz würde die tatsächlichen Möglichkeiten zu stark vereinfachen."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Ultreia ist ein Projektname, Mencía eine Sorte und Bierzo eine Herkunft. Ein weiterer Parzellenname präzisiert den Ort. Nicht jede Flasche mit dem Namen Raúl Pérez stammt automatisch aus derselben Region."
+      }
+    ],
+    "fact": "Mencía heißt in Portugal Jaen. Der Grenzübertritt kann den geläufigen Namen ändern, nicht die Sorte selbst.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Bierzo"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Mencía"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Vor allem Rotwein"
+      }
+    ],
+    "related": [
+      "bierzo",
+      "mencia"
+    ],
+    "sources": [
+      {
+        "label": "Raúl Pérez Bodegas y Viñedos",
+        "url": "https://bodega.raulperez.com/bodega/"
+      },
+      {
+        "label": "Raúl Pérez Bodegas y Viñedos",
+        "url": "https://bodega.raulperez.com/en/a-closer-look/"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "casa-de-mouraz",
+    "title": "Casa de Mouraz",
+    "country": "PT",
+    "region": "Dão",
+    "point": {
+      "latitude": 40.55,
+      "longitude": -7.9
+    },
+    "intro": "Örtliche Sorten zwischen Wald und Weinbergen im Dão.",
+    "paragraphs": [
+      "Casa de Mouraz liegt im portugiesischen Dão. António und seine Familie zogen 2000 von Lissabon nach Mouraz zurück. Die Weinberge liegen in einer Landschaft mit Kiefern, Eichen und Kastanien; Granit prägt viele örtliche Standorte.",
+      "Touriga Nacional, Baga, Jaen und weitere lokale Sorten kommen in roten Weinen vor. Encruzado ist ein wichtiger weißer Name. Alte gemischte Bestände und unterschiedliche Parzellen geben den Weinen mehrere Herkunftsbezüge."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Das Weingut arbeitet biologisch und nutzt biodynamische Methoden. Solche Angaben beschreiben die Bewirtschaftung, nicht einen garantierten Geschmack. Böden, Wasser und die Reife des konkreten Jahres bestimmen die Trauben weiterhin mit."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Einzelne Parzellen werden getrennt verarbeitet. Bei bestimmten Weinen kommen natürliche Gärung, Hefelager und gebrauchte Holzfässer vor. Welche Kombination gilt, hängt von der Abfüllung ab; nicht jeder Wein folgt demselben Ablauf."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Dão ist die Herkunft. Encruzado nennt eine helle Sorte, Jaen entspricht der spanischen Mencía. Tinto bedeutet rot und Branco weiß. Diese einfachen Wörter helfen bereits, die Kollektion zu ordnen."
+      }
+    ],
+    "fact": "Ein alter gemischter Weinberg kann mehrere Sorten gemeinsam tragen; eine Cuvée muss nicht erst aus fertigen Weinen zusammengesetzt werden.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Dão"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Touriga Nacional · Baga · Encruzado"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Rot- und Weißwein"
+      }
+    ],
+    "related": [
+      "dao",
+      "touriga-nacional",
+      "baga",
+      "encruzado"
+    ],
+    "sources": [
+      {
+        "label": "Casa de Mouraz",
+        "url": "https://www.casademouraz.com/en/project/"
+      },
+      {
+        "label": "Casa de Mouraz",
+        "url": "https://www.casademouraz.com/en/wines/"
+      },
+      {
+        "label": "Casa de Mouraz",
+        "url": "https://www.casademouraz.com/en/portfolio/casa-de-mouraz-tinto/"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "semeli-estate",
+    "title": "Semeli Estate",
+    "country": "GR",
+    "region": "Nemea",
+    "point": {
+      "latitude": 37.82,
+      "longitude": 22.66
+    },
+    "intro": "Agiorgitiko aus den Hügeln von Nemea.",
+    "paragraphs": [
+      "Semeli Estate liegt in Koutsi in der griechischen Region Nemea auf dem Peloponnes. Die höher gelegenen Weinberge erleben andere Bedingungen als warme tiefe Ebenen. Eigene Flächen und die Zusammenarbeit mit örtlichen Winzern ergänzen den Betrieb.",
+      "Agiorgitiko steht im Mittelpunkt der Nemea-Rotweine. Reserve, Grande Reserve und weitere Abfüllungen unterscheiden die Palette. Daneben zeigt das Sortiment auch andere griechische Weinseiten; ein Herstellername ist nicht mit einer einzelnen Herkunft gleichzusetzen."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Koutsi und weitere Orte der Region liegen auf unterschiedlichen Höhen. Dadurch verschieben sich Temperatur und Reife. Die Herkunft Nemea umfasst mehrere Standorte und erklärt deshalb nicht jeden Wein mit demselben kurzen Klimasatz."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Bei roten Reserve-Weinen spielt Fassreife eine Rolle; die konkrete Dauer unterscheidet sich nach Abfüllung. Ein süßer Rotwein folgt wieder anderen Zielen. Die Angaben des jeweiligen Weins sind genauer als ein pauschaler Hausstil."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Agiorgitiko ist die Sorte, Nemea die Herkunft und Koutsi ein Ort. Reserve ist eine weitere geregelte beziehungsweise nationale Stil- und Reifeangabe. Diese Wörter sind keine drei verschiedenen Trauben."
+      }
+    ],
+    "fact": "Nemea liegt auf dem Peloponnes. Griechischer Wein kommt also nicht nur von den bekannten Urlaubsinseln.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Nemea"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Agiorgitiko · Moschofilero"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Rot- und Weißwein"
+      }
+    ],
+    "related": [
+      "nemea",
+      "agiorgitiko",
+      "moschofilero"
+    ],
+    "sources": [
+      {
+        "label": "Semeli Estate",
+        "url": "https://www.semeliestate.gr/estate/vineyards/"
+      },
+      {
+        "label": "Semeli Estate",
+        "url": "https://www.semeliestate.gr/wine/semeli-nemea-reserve/?lang=el"
+      },
+      {
+        "label": "Semeli Estate",
+        "url": "https://www.semeliestate.gr/front/"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "dr-loosen",
+    "title": "Dr. Loosen",
+    "country": "DE",
+    "region": "Mosel",
+    "point": {
+      "latitude": 49.95,
+      "longitude": 7.05
+    },
+    "intro": "Mosel-Riesling aus bekannten Lagen rund um Bernkastel.",
+    "paragraphs": [
+      "Dr. Loosen liegt in Bernkastel-Kues an der Mosel. Ernst Loosen hat das Familienweingut international bekannt gemacht. Steile Hänge und Schiefer prägen viele Weinberge; die einzelnen Lagen besitzen unterschiedliche Ausrichtungen und Wasserverhältnisse.",
+      "Riesling ist der klare Schwerpunkt. Die Palette umfasst trockene und restsüße Weine sowie genauere Lagenabfüllungen. Ein berühmter Moselname verrät daher noch nicht, ob die Flasche trocken, feinherb oder deutlich süß schmecken wird."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Orte wie Bernkastel, Wehlen und Ürzig stehen für unterschiedliche Weinberge entlang der Mosel. Ein Lagenname präzisiert die Herkunft. Er ist kein festes Rezept für einen bestimmten Pfirsich- oder Schieferduft."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Bei ausgewählten trockenen Lagenweinen spielen gebrauchte Holzfässer und längeres Hefelager eine Rolle. Das Holz muss dabei nicht nach Vanille riechen. Andere Abfüllungen verfolgen andere Ziele und sollten nach ihren eigenen Angaben gelesen werden."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "GG steht beim VDP für ein trockenes Großes Gewächs aus einer klassifizierten Lage. Kabinett ist dagegen eine Prädikatsangabe und nicht automatisch ein Synonym für süß. Die gesamte Bezeichnung zählt."
+      }
+    ],
+    "fact": "Ein großes gebrauchtes Holzfass kann vor allem der Reife dienen, ohne den Wein mit einem starken Holzduft zu überdecken.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Mosel"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Riesling"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Trockener und restsüßer Riesling"
+      }
+    ],
+    "related": [
+      "mosel",
+      "riesling"
+    ],
+    "sources": [
+      {
+        "label": "Dr. Loosen",
+        "url": "https://drloosen.com/"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "domaine-huet",
+    "title": "Domaine Huet",
+    "country": "FR",
+    "region": "Vouvray",
+    "point": {
+      "latitude": 47.41,
+      "longitude": 0.8
+    },
+    "intro": "Drei bekannte Vouvray-Weinberge und eine Rebsorte: Chenin Blanc.",
+    "paragraphs": [
+      "Domaine Huet liegt in Vouvray an der Loire. Le Haut-Lieu, Le Mont und Clos du Bourg sind drei zentrale Weinberge des Hauses. Unterschiedliche Böden und die Lage oberhalb des Flusses bilden den geografischen Rahmen.",
+      "Chenin Blanc liefert trockene, halbtrockene, süße und schäumende Weine. Das Sortiment zeigt damit besonders anschaulich, wie stark Reifegrad und Herstellung denselben Sortennamen verändern können. Ein einzelner Weinbergsname verrät die Süße noch nicht."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Le Haut-Lieu, Le Mont und Clos du Bourg sind eigenständige Standorte. Tonigere, kieselhaltige und kalkhaltige Bereiche bieten unterschiedliche Bedingungen. Die Namen sind geografische Hinweise, keine Liste zugesetzter Geschmacksstoffe."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Die Trauben werden je nach Reife und gewünschtem Stil ausgewählt. Ein trockener Chenin und ein süßer Moelleux brauchen nicht dasselbe Lesegut. Schaumwein bekommt eine weitere Gärung und einen eigenen Reifeweg."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Sec bedeutet trocken, Demi-Sec halbtrocken und Moelleux einen süßen Stil. Pétillant bezeichnet eine perlende Variante. Der Name Vouvray kann über all diesen unterschiedlichen Weinen stehen, weil er die Herkunft und nicht nur die Süße bezeichnet."
+      }
+    ],
+    "fact": "Drei Flaschen aus demselben Weinberg können verschiedene Süßestile zeigen, obwohl überall Chenin Blanc verwendet wurde.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Vouvray"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Chenin Blanc"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Weißwein · Süßwein · Schaumwein"
+      }
+    ],
+    "related": [
+      "vouvray",
+      "chenin-blanc"
+    ],
+    "sources": [
+      {
+        "label": "Domaine Huet",
+        "url": "https://www.domainehuet.com/"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "pontet-canet",
+    "title": "Château Pontet-Canet",
+    "country": "FR",
+    "region": "Pauillac",
+    "point": {
+      "latitude": 45.2,
+      "longitude": -0.75
+    },
+    "intro": "Pauillac-Rotwein mit Blick auf Weinberg und Ausbaugefäße.",
+    "paragraphs": [
+      "Château Pontet-Canet liegt in Pauillac im Médoc, auf der linken Seite des Bordeaux-Gebiets. Kiesgeprägte Weinberge gehören zum Standort. Das Gut arbeitet biologisch und biodynamisch; diese Angaben beschreiben die Bewirtschaftung, nicht eine garantierte Aromaliste.",
+      "Cabernet Sauvignon und Merlot sind wichtige Sorten, ergänzt durch Cabernet Franc und Petit Verdot. Die Mischung verändert sich nach dem Jahrgang. Auf dem Etikett steht vor allem der Name des Châteaus und die Herkunft Pauillac."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Kies, Wasserabzug und die Wärme des Standorts beeinflussen die Reben. Auch bei einer bekannten Adresse entscheidet das Wetter des Jahres mit. Ein großes Herkunftsgebiet ist nie vollständig mit einem einzigen Weinberg gleichzusetzen."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Das Gut verwendet neben Eichenfässern auch besondere Betonamphoren für Teile des Ausbaus. Das Material beeinflusst die Reife anders als neues Holz. Die genaue Aufteilung gehört zum jeweiligen Jahrgang und ist keine ewige feste Formel."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Grand Cru Classé en 1855 verweist auf die historische Médoc-Klassifikation. Pauillac nennt die Herkunft, Pontet-Canet den Erzeuger. Keiner dieser Begriffe ersetzt die Angabe der Rebsorten oder beschreibt einen Süßegrad."
+      }
+    ],
+    "fact": "Eine Amphore muss nicht aus Ton bestehen: Pontet-Canet verwendet auch eigens entwickelte Betonbehälter für den Ausbau.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Pauillac"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Cabernet Sauvignon · Merlot · Cabernet Franc"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Rotwein"
+      }
+    ],
+    "related": [
+      "pauillac",
+      "cabernet-sauvignon",
+      "merlot",
+      "cabernet-franc"
+    ],
+    "sources": [
+      {
+        "label": "Château Pontet-Canet",
+        "url": "https://www.pontet-canet.com/en/"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "chateau-musar",
+    "title": "Château Musar",
+    "country": "LB",
+    "region": "Bekaa Tal",
+    "point": {
+      "latitude": 33.85,
+      "longitude": 35.9
+    },
+    "intro": "Libanesische Weine, deren Keller und Weinberge getrennt liegen.",
+    "paragraphs": [
+      "Château Musar hat seinen Keller in Ghazir im Libanon. Die roten Weine sind eng mit Trauben aus der Bekaa verbunden. Für die weißen Weine spielen lokale Sorten und andere hoch gelegene Standorte eine wichtige Rolle.",
+      "Cabernet Sauvignon, Cinsault und Carignan prägen den bekannten roten Musar. Der weiße Château Musar verbindet Obaideh und Merwah. Beide Farben zeigen, wie stark längere Reife Duft und Textur verändern kann, ohne dass der Wein deshalb süß sein muss."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Die Bekaa liegt zwischen zwei Gebirgen und deutlich oberhalb der Küste. Weiße Musar-Trauben kommen aus eigenen Hochlandzusammenhängen. Die Adresse des Kellers allein ist deshalb keine ausreichende Beschreibung der Traubenherkunft."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Zeit ist bei den bekannten Château-Musar-Abfüllungen wichtig. Fass- und Flaschenreife können würzige, herbere oder honigartige Eindrücke entwickeln. Jüngere Linien des Hauses sollten nicht einfach mit derselben Reifeerwartung gelesen werden."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Château Musar bezeichnet eine bestimmte Linie und den bekannten Hausnamen. Musar Jeune ist eine andere Kollektion. Obaideh und Merwah sind lokale Rebsorten; sie sollten nicht pauschal als Chardonnay und Sémillon umbenannt werden."
+      }
+    ],
+    "fact": "Ghazir nennt den Kellerort, Bekaa eine wichtige Traubenherkunft. Ein Weingut muss seine Reben nicht direkt neben dem Keller stehen haben.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Bekaa Tal"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Cabernet Sauvignon · Cinsault · Obaideh"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Rot- und Weißwein"
+      }
+    ],
+    "related": [
+      "bekaa-valley",
+      "cabernet-sauvignon",
+      "cinsault",
+      "obaideh"
+    ],
+    "sources": [
+      {
+        "label": "Château Musar",
+        "url": "https://chateaumusar.com/"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "niepoort",
+    "title": "Niepoort",
+    "country": "PT",
+    "region": "Douro",
+    "point": {
+      "latitude": 41.17,
+      "longitude": -7.55
+    },
+    "intro": "Portwein und trockene Weine aus mehreren portugiesischen Regionen.",
+    "paragraphs": [
+      "Niepoort ist ein historisches Portweinhaus und zugleich ein wichtiger Name für trockene portugiesische Weine. Der Douro steht im Mittelpunkt, daneben gehören Projekte in Bairrada, Dão und weiteren Regionen zur Arbeit des Hauses.",
+      "Alte gemischte Weinberge und örtliche Sorten sind wichtige Bezugspunkte. Rote und weiße Stillweine stehen neben Ruby, Tawny und anderen Portkategorien. Ein gemeinsamer Erzeugername bedeutet deshalb weder gleiche Herkunft noch denselben Alkohol- oder Süßegrad."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Im Douro unterscheiden sich Höhen, Hangrichtungen und Wasserzugang stark. In Bairrada wirken dagegen andere Böden und der Atlantik stärker mit. Die Region auf der konkreten Flasche ist hilfreicher als eine einzige Beschreibung der ganzen Firma."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Für trockenen Wein wird anders vergoren als für Port, bei dem die Gärung mit Weinalkohol unterbrochen wird. Fassgröße, Luftkontakt und Zeit schaffen weitere Unterschiede. Die Kategorie ist deshalb eine wichtige erste Orientierung."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Redoma, Batuta und andere Namen bezeichnen Abfüllungen oder Linien. Douro und Dão sind Herkünfte; Ruby und Tawny Portstile. Die Wörter sollten getrennt gelesen werden, statt sie als Rangliste von gut nach besser zu verstehen."
+      }
+    ],
+    "fact": "Eine Douro-Flasche von einem Portweinhaus kann vollständig trockener Stillwein sein. Der Produzent legt die Weinkategorie nicht allein fest.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Douro"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Touriga Nacional · Baga · Encruzado"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Stillwein · Portwein"
+      }
+    ],
+    "related": [
+      "douro",
+      "touriga-nacional",
+      "baga",
+      "encruzado"
+    ],
+    "sources": [
+      {
+        "label": "Niepoort",
+        "url": "https://niepoort.pt/"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "lopez-de-heredia",
+    "title": "López de Heredia",
+    "country": "ES",
+    "region": "Rioja Alta",
+    "point": {
+      "latitude": 42.46,
+      "longitude": -2.67
+    },
+    "intro": "Traditionelle Rioja aus Haro, auch in Weiß und Rosé.",
+    "paragraphs": [
+      "López de Heredia sitzt in Haro in der Rioja Alta. Das Familienhaus ist eng mit Namen wie Viña Tondonia, Viña Bosconia, Viña Cubillo und Viña Gravonia verbunden. Die einzelnen Weinberge und Abfüllungen besitzen unterschiedliche Rollen.",
+      "Tempranillo ist bei den roten Weinen wichtig, ergänzt durch weitere Rioja-Sorten. Weiße Weine und Rosé gehören ebenfalls zur Kollektion. Die längere Reife vieler Abfüllungen kann Duft und Farbe stark verändern, ohne automatisch Süße zu erzeugen."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Die Weinberge liegen in unterschiedlichen Bereichen um Haro. Ein Viña-Name ist ein konkreter Herkunfts- und Produktbezug, nicht einfach eine frei übersetzbare Geschmacksangabe. Unterschiedliche Böden und Lagen beeinflussen die Reife."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Fass- und Flaschenreife sind zentrale Teile des Hausstils. Dabei können würzige, nussige und gereifte Fruchtassoziationen entstehen. Die konkrete Dauer und Zusammensetzung unterscheiden sich nach Wein; ein einzelnes Datenblatt gilt nicht für die ganze Palette."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Viña Tondonia ist nicht der Name einer Rebsorte. Rioja nennt die Herkunft, Reserva oder Gran Reserva eine Reifekategorie. Ein weißer gereifter Rioja ist deshalb keine ungewöhnliche Färbung eines roten Tempranillo."
+      }
+    ],
+    "fact": "Rioja besitzt eine lange Weißweintradition. Gereifte weiße Weine können eine ganz andere Seite der Region zeigen als junger Rotwein.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Rioja Alta"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Tempranillo · Grenache / Garnacha · Viura / Macabeo"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Rotwein · Weißwein · Rosé"
+      }
+    ],
+    "related": [
+      "rioja-alta",
+      "tempranillo",
+      "grenache-garnacha",
+      "viura-macabeo"
+    ],
+    "sources": [
+      {
+        "label": "López de Heredia",
+        "url": "https://www.lopezdeheredia.com/english/"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "antinori",
+    "title": "Marchesi Antinori",
+    "country": "IT",
+    "region": "Chianti Classico",
+    "point": {
+      "latitude": 43.47,
+      "longitude": 11.28
+    },
+    "intro": "Toskanische Herkünfte, mehrere Güter und berühmte rote Cuvées.",
+    "paragraphs": [
+      "Marchesi Antinori ist ein toskanisches Familienhaus mit mehreren Weingütern. Chianti Classico ist ein wichtiger Bezug, doch das Unternehmen arbeitet auch in anderen Regionen. Für die konkrete Flasche zählen deshalb das jeweilige Gut und die Herkunft.",
+      "Sangiovese spielt eine zentrale Rolle. Tignanello verbindet Sangiovese mit Cabernet Sauvignon und Cabernet Franc. Andere Abfüllungen folgen anderen Sorten- und Herkunftsregeln; der Name Antinori ist kein gemeinsames Rezept für alle Weine."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Das Tignanello-Weingut liegt im Chianti-Classico-Gebiet. Unterschiedliche Weinberge und Höhen schaffen verschiedene Bedingungen. Eine Firmengeschichte über viele Generationen ersetzt die genaue Betrachtung des einzelnen Standorts nicht."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Bei Tignanello gehören Mischung und Ausbau in kleineren Holzfässern zum historischen Profil. Andere Weine des Hauses können andere Gefäße oder Reifewege nutzen. Der konkrete Weinname ist deshalb wichtiger als eine pauschale Erwartung an Holzduft."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Tignanello ist ein Weinname, Toscana eine Herkunftsangabe und Sangiovese eine Sorte. Ein Wein aus dem geografischen Chianti-Classico-Gebiet muss nicht unter der Herkunft Chianti Classico abgefüllt werden, wenn er einer anderen Kategorie folgt."
+      }
+    ],
+    "fact": "Die geografische Lage eines Weinbergs und die rechtliche Herkunftskategorie auf seiner Flasche sind eng verbunden, aber nicht immer dieselbe Bezeichnung.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Chianti Classico"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Sangiovese · Cabernet Sauvignon · Cabernet Franc"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Rot- und Weißwein"
+      }
+    ],
+    "related": [
+      "chianti-classico",
+      "sangiovese",
+      "cabernet-sauvignon",
+      "cabernet-franc"
+    ],
+    "sources": [
+      {
+        "label": "Marchesi Antinori",
+        "url": "https://www.antinori.it/en/"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "familia-torres",
+    "title": "Familia Torres",
+    "country": "ES",
+    "region": "Penedès",
+    "point": {
+      "latitude": 41.35,
+      "longitude": 1.7
+    },
+    "intro": "Penedès, internationale Sorten und die Wiederentdeckung örtlicher Trauben.",
+    "paragraphs": [
+      "Familia Torres wurde als Kellerei in Vilafranca del Penedès gegründet. Das Familienunternehmen arbeitet heute in mehreren katalanischen Herkünften. Penedès, Conca de Barberà und Priorat haben unterschiedliche Landschaften und dürfen nicht zu einem einzigen Weinberg zusammengezogen werden.",
+      "Cabernet Sauvignon und Chardonnay stehen neben örtlichen und wiederentdeckten Sorten. Namen wie Mas La Plana, Milmanda und Clos Ancestral gehören zu verschiedenen Abfüllungen. Das Sortiment zeigt deshalb mehrere Seiten Kataloniens und nicht einen einzigen gleichbleibenden Stil."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Höhe, Entfernung zum Meer und unterschiedliche Böden verändern die Reife. Torres arbeitet auch an der Erhaltung älterer örtlicher Sorten. Welche davon tatsächlich in einer Flasche enthalten sind, steht in ihrer konkreten Zusammensetzung."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Die Kellerarbeit richtet sich nach Sorte, Herkunft und Wein. Ein Chardonnay und eine rote Cuvée haben andere Ziele. Fassausbau ist eine Möglichkeit; die genaue Holzart und Dauer sollte nicht von einem bekannten Etikett auf alle anderen übertragen werden."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Mas La Plana ist ein bestimmter Wein aus dem Penedès. Milmanda ist mit einer anderen Herkunft verbunden. Familia Torres nennt den Erzeuger; die Regions- und Sortenangaben ordnen die einzelne Flasche genauer ein."
+      }
+    ],
+    "fact": "Die Wiederentdeckung einer alten Rebsorte beginnt mit Pflanzen im Weinberg, nicht mit einem neuen Fantasienamen auf einem vorhandenen Wein.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Penedès"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Cabernet Sauvignon · Chardonnay"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Rot- und Weißwein"
+      }
+    ],
+    "related": [
+      "penedes",
+      "cabernet-sauvignon",
+      "chardonnay"
+    ],
+    "sources": [
+      {
+        "label": "Familia Torres",
+        "url": "https://www.torres.es/en/"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "catena-zapata",
+    "title": "Catena Zapata",
+    "country": "AR",
+    "region": "Mendoza",
+    "point": {
+      "latitude": -33,
+      "longitude": -68.85
+    },
+    "intro": "Malbec und die Suche nach geeigneten Höhenlagen in Mendoza.",
+    "paragraphs": [
+      "Catena Zapata ist ein argentinisches Familienweingut in Mendoza. Nicolás und Laura Catena sind wichtige Namen seiner Geschichte. Der Betrieb hat besonders die Unterschiede zwischen Weinbergen auf verschiedenen Höhen untersucht und öffentlich sichtbar gemacht.",
+      "Malbec ist ein Schwerpunkt, daneben sind Cabernet Sauvignon und Chardonnay wichtig. Der Adrianna-Weinberg in Gualtallary ist ein bekannter genauer Herkunftsbezug. Nicht jede Flasche des Hauses kommt aus derselben Parzelle oder aus derselben Höhe."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Höhere Standorte können kühlere Bedingungen mit intensiver Sonne verbinden. Wasserzugang, Boden und Hanglage ergänzen das Bild. Höhe allein ist deshalb keine einfache Punktzahl für besseren Wein und kein garantierter Geschmackswert."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Unterschiedliche Weinberge und Partien können getrennt verarbeitet werden. Mischung, Fass und Reife richten sich nach der Abfüllung. Ein einzelner berühmter Lagenwein erklärt nicht automatisch den Ausbau einer zugänglicheren Sortenlinie."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Mendoza ist die größere Region, Gualtallary ein genauerer Ort und Adrianna ein Weinberg. Malbec nennt die Sorte. Diese Herkunftsebenen sind keine Synonyme und sollten beim Vergleichen auseinandergehalten werden."
+      }
+    ],
+    "fact": "Adrianna wurde gezielt als kühlerer Standort innerhalb Mendozas entwickelt; argentinischer Weinbau findet auf sehr unterschiedlichen Höhen statt.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Mendoza"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Malbec · Cabernet Sauvignon · Chardonnay"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Rot- und Weißwein"
+      }
+    ],
+    "related": [
+      "mendoza",
+      "malbec",
+      "cabernet-sauvignon",
+      "chardonnay"
+    ],
+    "sources": [
+      {
+        "label": "Catena Zapata",
+        "url": "https://catenazapata.com/"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "cloudy-bay",
+    "title": "Cloudy Bay",
+    "country": "NZ",
+    "region": "Marlborough",
+    "point": {
+      "latitude": -41.52,
+      "longitude": 173.88
+    },
+    "intro": "Sauvignon Blanc aus Marlborough und weitere neuseeländische Herkünfte.",
+    "paragraphs": [
+      "Cloudy Bay ist eng mit Marlborough auf der neuseeländischen Südinsel verbunden. Der Betrieb hat zur internationalen Bekanntheit von Sauvignon Blanc aus dieser Region beigetragen. Die Bergsilhouette auf dem Etikett bezieht sich auf die umliegende Landschaft.",
+      "Sauvignon Blanc steht neben Chardonnay, Pinot Noir und weiteren Weinen. Te Koko zeigt eine anders ausgebaute Sauvignon-Seite. Mit Te Wahi gibt es außerdem einen Pinot-Noir-Bezug zu Central Otago; nicht jede Flasche des Hauses stammt aus Marlborough."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Marlborough umfasst mehrere Täler und Standorte. Sonne, kühle Nächte und Wasserverhältnisse beeinflussen die Trauben. Central Otago liegt deutlich weiter südlich im Landesinneren und hat einen anderen klimatischen Rahmen."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Ein frischer Sauvignon und ein länger ausgebauter Wein wie Te Koko können dieselbe Sorte verschieden zeigen. Hefekontakt und Holz beeinflussen Duft und Textur. Sortenname und Hersteller allein legen deshalb keinen einheitlichen Stil fest."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Marlborough und Central Otago sind Regionen, Sauvignon Blanc und Pinot Noir Sorten. Te Koko und Te Wahi sind Namen einzelner Weine. Der genaue Herkunftshinweis schützt vor der Annahme, alles komme aus einem einzigen Tal."
+      }
+    ],
+    "fact": "Ein bekannter Sauvignon-Produzent kann auch Pinot Noir aus einer ganz anderen Region abfüllen.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Marlborough"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Sauvignon Blanc · Chardonnay · Spätburgunder / Pinot Noir"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Rot- und Weißwein"
+      }
+    ],
+    "related": [
+      "marlborough",
+      "sauvignon-blanc",
+      "chardonnay",
+      "spaetburgunder"
+    ],
+    "sources": [
+      {
+        "label": "Cloudy Bay",
+        "url": "https://www.cloudybay.com/"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "concha-y-toro",
+    "title": "Concha y Toro",
+    "country": "CL",
+    "region": "Maipo",
+    "point": {
+      "latitude": -33.65,
+      "longitude": -70.65
+    },
+    "intro": "Ein chilenisches Haus mit Weinbergen in mehreren Tälern.",
+    "paragraphs": [
+      "Concha y Toro ist ein bekannter chilenischer Erzeuger mit historischem Bezug zu Pirque im Maipo-Tal. Seine Weine stammen aus mehreren chilenischen Anbaugebieten. Küstennahe und andennahe Standorte bieten deutlich unterschiedliche Bedingungen.",
+      "Cabernet Sauvignon ist im Maipo ein wichtiger Schwerpunkt. Carménère, Sauvignon Blanc, Chardonnay und weitere Sorten gehören zur breiten Kollektion. Die Marke auf der Flasche ersetzt daher nicht die Frage nach Tal und Sorte."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Andennähe, Flussterrassen und Höhe prägen viele Maipo-Weinberge. Andere Linien nutzen andere Täler mit anderem Klima. Eine allgemeine Beschreibung Chiles kann deshalb weder einen kühlen Küsten-Sauvignon noch jeden kräftigen Cabernet ausreichend erklären."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Die Produktionsweise hängt von der Abfüllung ab. Frische Weißweine, junge rote Sortenweine und länger gereifte Cuvées verfolgen unterschiedliche Ziele. Holzfassangaben sollten beim konkreten Wein gelesen und nicht auf alle Marken übertragen werden."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Casillero del Diablo, Marqués de Casa Concha und Terrunyo sind unterschiedliche Namen innerhalb des Angebots. Maipo bezeichnet eine Herkunft, Cabernet Sauvignon eine Sorte. Diese Angaben helfen mehr als eine angenommene einheitliche Hausrezeptur."
+      }
+    ],
+    "fact": "Chiles lange schmale Form schafft sehr unterschiedliche Weinlandschaften; Nähe zum Pazifik und Nähe zu den Anden sind verschiedene Einflüsse.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "Maipo"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Cabernet Sauvignon · Carmenère · Sauvignon Blanc"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Rot- und Weißwein"
+      }
+    ],
+    "related": [
+      "maipo",
+      "cabernet-sauvignon",
+      "carmenere",
+      "sauvignon-blanc"
+    ],
+    "sources": [
+      {
+        "label": "Concha y Toro",
+        "url": "https://conchaytoro.com/"
+      }
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "penfolds",
+    "title": "Penfolds",
+    "country": "AU",
+    "region": "South Australia",
+    "point": {
+      "latitude": -34.923,
+      "longitude": 138.677
+    },
+    "intro": "Ein australisches Haus, das bewusst mehrere Herkünfte verbindet.",
+    "paragraphs": [
+      "Penfolds hat seinen historischen Ausgangspunkt im Magill Estate bei Adelaide in South Australia. Die Geschichte reicht bis 1844 zurück. Heute arbeitet das Haus mit Weinbergen aus mehreren Regionen; nicht jede Abfüllung ist ein einzelner Lagenwein.",
+      "Shiraz und Cabernet Sauvignon sind wichtige rote Sorten, daneben gibt es unter anderem Chardonnay. Grange ist ein bekannter Weinname. Die Kollektion umfasst sowohl regional eingegrenzte als auch bewusst aus mehreren Herkünften zusammengestellte Weine."
+    ],
+    "sections": [
+      {
+        "title": "Rund um die Weinberge",
+        "body": "Barossa, McLaren Vale und weitere Gebiete haben unterschiedliche Temperaturen und Böden. Die Auswahl von Trauben aus mehreren Regionen ist Teil des Ansatzes mancher Weine. Das ist eine bewusste Produktionsentscheidung, keine fehlende Herkunft jeder einzelnen Traube."
+      },
+      {
+        "title": "Im Keller",
+        "body": "Verschiedene Partien können nach Reife und Eigenschaften zusammengestellt werden. Holz, Gefäßgröße und Zeit beeinflussen den Hausstil. Ein einzelner Grange-Jahrgang ist aber kein gemeinsames Rezept für alle roten und weißen Abfüllungen."
+      },
+      {
+        "title": "Die Etiketten lesen",
+        "body": "Bin und eine folgende Zahl sind Namen innerhalb des Sortiments, keine einfache Rangliste nach Qualität. Die konkrete Landes- und Regionsangabe ist wichtig, da das Unternehmen auch außerhalb Australiens Projekte führt."
+      }
+    ],
+    "fact": "Eine Cuvée kann mehrere Weinberge oder Regionen verbinden und trotzdem sehr genau geplant sein. Einzellage ist nur eine mögliche Form der Herkunft.",
+    "facts": [
+      {
+        "label": "Weinregion",
+        "value": "South Australia"
+      },
+      {
+        "label": "Beispiele für Sorten",
+        "value": "Syrah / Shiraz · Cabernet Sauvignon · Chardonnay"
+      },
+      {
+        "label": "Im Sortiment",
+        "value": "Rot- und Weißwein"
+      }
+    ],
+    "related": [
+      "barossa-valley",
+      "mclaren-vale",
+      "syrah-shiraz",
+      "cabernet-sauvignon"
+    ],
+    "sources": [
+      {
+        "label": "Penfolds",
+        "url": "https://www.penfolds.com/en-au/wines/regions.html"
+      }
+    ],
+    "aliases": []
+  }
+]

@@ -1,0 +1,1266 @@
+{
+  "cabernet-sauvignon": {
+    "slug": "cabernet-sauvignon",
+    "title": "Cabernet Sauvignon",
+    "color": "red",
+    "aliases": [
+      "Cabernet Sauvignon"
+    ]
+  },
+  "merlot": {
+    "slug": "merlot",
+    "title": "Merlot",
+    "color": "red",
+    "aliases": [
+      "Merlot"
+    ]
+  },
+  "cabernet-franc": {
+    "slug": "cabernet-franc",
+    "title": "Cabernet Franc",
+    "color": "red",
+    "aliases": [
+      "Cabernet Franc"
+    ]
+  },
+  "petit-verdot": {
+    "slug": "petit-verdot",
+    "title": "Petit Verdot",
+    "color": "red",
+    "aliases": [
+      "Petit Verdot"
+    ]
+  },
+  "pinot-noir": {
+    "slug": "spaetburgunder",
+    "title": "Spätburgunder / Pinot Noir",
+    "color": "red",
+    "aliases": [
+      "Pinot Noir",
+      "Spätburgunder",
+      "Blauburgunder",
+      "Pinot Nero"
+    ]
+  },
+  "pinot-meunier": {
+    "slug": "pinot-meunier",
+    "title": "Meunier",
+    "color": "red",
+    "aliases": [
+      "Pinot Meunier",
+      "Meunier",
+      "Schwarzriesling"
+    ]
+  },
+  "gamay": {
+    "slug": "gamay",
+    "title": "Gamay",
+    "color": "red",
+    "aliases": [
+      "Gamay"
+    ]
+  },
+  "syrah-shiraz": {
+    "slug": "syrah-shiraz",
+    "title": "Syrah / Shiraz",
+    "color": "red",
+    "aliases": [
+      "Syrah / Shiraz",
+      "Syrah",
+      "Shiraz"
+    ]
+  },
+  "grenache-garnacha": {
+    "slug": "grenache-garnacha",
+    "title": "Grenache / Garnacha",
+    "color": "red",
+    "aliases": [
+      "Grenache / Garnacha",
+      "Grenache",
+      "Garnacha",
+      "Cannonau"
+    ]
+  },
+  "mourvedre-monastrell": {
+    "slug": "mourvedre-monastrell",
+    "title": "Mourvèdre / Monastrell",
+    "color": "red",
+    "aliases": [
+      "Mourvèdre / Monastrell",
+      "Mourvèdre",
+      "Monastrell",
+      "Mataro"
+    ]
+  },
+  "cinsault": {
+    "slug": "cinsault",
+    "title": "Cinsault",
+    "color": "red",
+    "aliases": [
+      "Cinsault"
+    ]
+  },
+  "carignan": {
+    "slug": "carignan",
+    "title": "Carignan",
+    "color": "red",
+    "aliases": [
+      "Carignan"
+    ]
+  },
+  "tempranillo": {
+    "slug": "tempranillo",
+    "title": "Tempranillo",
+    "color": "red",
+    "aliases": [
+      "Tempranillo",
+      "Tinto Fino",
+      "Tinta Roriz",
+      "Aragonez",
+      "Tinta de Toro"
+    ]
+  },
+  "sangiovese": {
+    "slug": "sangiovese",
+    "title": "Sangiovese",
+    "color": "red",
+    "aliases": [
+      "Sangiovese",
+      "Brunello",
+      "Prugnolo Gentile",
+      "Niellucciu"
+    ]
+  },
+  "nebbiolo": {
+    "slug": "nebbiolo",
+    "title": "Nebbiolo",
+    "color": "red",
+    "aliases": [
+      "Nebbiolo"
+    ]
+  },
+  "barbera": {
+    "slug": "barbera",
+    "title": "Barbera",
+    "color": "red",
+    "aliases": [
+      "Barbera"
+    ]
+  },
+  "corvina": {
+    "slug": "corvina",
+    "title": "Corvina",
+    "color": "red",
+    "aliases": [
+      "Corvina"
+    ]
+  },
+  "corvinone": {
+    "slug": "corvinone",
+    "title": "Corvinone",
+    "color": "red",
+    "aliases": [
+      "Corvinone"
+    ]
+  },
+  "rondinella": {
+    "slug": "rondinella",
+    "title": "Rondinella",
+    "color": "red",
+    "aliases": [
+      "Rondinella"
+    ]
+  },
+  "molinara": {
+    "slug": "molinara",
+    "title": "Molinara",
+    "color": "red",
+    "aliases": [
+      "Molinara"
+    ]
+  },
+  "aglianico": {
+    "slug": "aglianico",
+    "title": "Aglianico",
+    "color": "red",
+    "aliases": [
+      "Aglianico"
+    ]
+  },
+  "montepulciano": {
+    "slug": "montepulciano",
+    "title": "Montepulciano",
+    "color": "red",
+    "aliases": [
+      "Montepulciano",
+      "Montepulciano-Traube"
+    ]
+  },
+  "nero-d-avola": {
+    "slug": "nero-d-avola",
+    "title": "Nero d’Avola",
+    "color": "red",
+    "aliases": [
+      "Nero d’Avola"
+    ]
+  },
+  "nerello-mascalese": {
+    "slug": "nerello-mascalese",
+    "title": "Nerello Mascalese",
+    "color": "red",
+    "aliases": [
+      "Nerello Mascalese"
+    ]
+  },
+  "malbec": {
+    "slug": "malbec",
+    "title": "Malbec",
+    "color": "red",
+    "aliases": [
+      "Malbec"
+    ]
+  },
+  "carmenere": {
+    "slug": "carmenere",
+    "title": "Carmenère",
+    "color": "red",
+    "aliases": [
+      "Carmenère"
+    ]
+  },
+  "tannat": {
+    "slug": "tannat",
+    "title": "Tannat",
+    "color": "red",
+    "aliases": [
+      "Tannat"
+    ]
+  },
+  "pinotage": {
+    "slug": "pinotage",
+    "title": "Pinotage",
+    "color": "red",
+    "aliases": [
+      "Pinotage"
+    ]
+  },
+  "zinfandel-primitivo": {
+    "slug": "zinfandel-primitivo",
+    "title": "Zinfandel / Primitivo",
+    "color": "red",
+    "aliases": [
+      "Zinfandel / Primitivo",
+      "Zinfandel",
+      "Primitivo"
+    ]
+  },
+  "blaufrankisch-lemberger": {
+    "slug": "blaufrankisch-lemberger",
+    "title": "Blaufränkisch / Lemberger",
+    "color": "red",
+    "aliases": [
+      "Blaufränkisch / Lemberger",
+      "Blaufränkisch",
+      "Lemberger"
+    ]
+  },
+  "zweigelt": {
+    "slug": "zweigelt",
+    "title": "Zweigelt",
+    "color": "red",
+    "aliases": [
+      "Zweigelt"
+    ]
+  },
+  "xinomavro": {
+    "slug": "xinomavro",
+    "title": "Xinomavro",
+    "color": "red",
+    "aliases": [
+      "Xinomavro"
+    ]
+  },
+  "agiorgitiko": {
+    "slug": "agiorgitiko",
+    "title": "Agiorgitiko",
+    "color": "red",
+    "aliases": [
+      "Agiorgitiko"
+    ]
+  },
+  "saperavi": {
+    "slug": "saperavi",
+    "title": "Saperavi",
+    "color": "red",
+    "aliases": [
+      "Saperavi"
+    ]
+  },
+  "areni-noir": {
+    "slug": "areni-noir",
+    "title": "Areni Noir",
+    "color": "red",
+    "aliases": [
+      "Areni Noir"
+    ]
+  },
+  "touriga-nacional": {
+    "slug": "touriga-nacional",
+    "title": "Touriga Nacional",
+    "color": "red",
+    "aliases": [
+      "Touriga Nacional"
+    ]
+  },
+  "baga": {
+    "slug": "baga",
+    "title": "Baga",
+    "color": "red",
+    "aliases": [
+      "Baga"
+    ]
+  },
+  "alfrocheiro": {
+    "slug": "alfrocheiro",
+    "title": "Alfrocheiro",
+    "color": "red",
+    "aliases": [
+      "Alfrocheiro"
+    ]
+  },
+  "mencia": {
+    "slug": "mencia",
+    "title": "Mencía",
+    "color": "red",
+    "aliases": [
+      "Mencía",
+      "Jaen"
+    ]
+  },
+  "listan-negro": {
+    "slug": "listan-negro",
+    "title": "Listán Negro",
+    "color": "red",
+    "aliases": [
+      "Listán Negro"
+    ]
+  },
+  "pais": {
+    "slug": "pais",
+    "title": "País",
+    "color": "red",
+    "aliases": [
+      "País",
+      "Listán Prieto",
+      "Mission"
+    ]
+  },
+  "plavac-mali": {
+    "slug": "plavac-mali",
+    "title": "Plavac Mali",
+    "color": "red",
+    "aliases": [
+      "Plavac Mali"
+    ]
+  },
+  "kalecik-karas": {
+    "slug": "kalecik-karas",
+    "title": "Kalecik Karası",
+    "color": "red",
+    "aliases": [
+      "Kalecik Karası"
+    ]
+  },
+  "okuzgozu": {
+    "slug": "okuzgozu",
+    "title": "Öküzgözü",
+    "color": "red",
+    "aliases": [
+      "Öküzgözü"
+    ]
+  },
+  "mavro": {
+    "slug": "mavro",
+    "title": "Mavro",
+    "color": "red",
+    "aliases": [
+      "Mavro"
+    ]
+  },
+  "poulsard": {
+    "slug": "poulsard",
+    "title": "Poulsard",
+    "color": "red",
+    "aliases": [
+      "Poulsard"
+    ]
+  },
+  "trousseau": {
+    "slug": "trousseau",
+    "title": "Trousseau",
+    "color": "red",
+    "aliases": [
+      "Trousseau",
+      "Bastardo"
+    ]
+  },
+  "graciano": {
+    "slug": "graciano",
+    "title": "Graciano",
+    "color": "red",
+    "aliases": [
+      "Graciano"
+    ]
+  },
+  "maturana-tinta": {
+    "slug": "maturana-tinta",
+    "title": "Maturana Tinta",
+    "color": "red",
+    "aliases": [
+      "Maturana Tinta"
+    ]
+  },
+  "teroldego": {
+    "slug": "teroldego",
+    "title": "Teroldego",
+    "color": "red",
+    "aliases": [
+      "Teroldego"
+    ]
+  },
+  "frappato": {
+    "slug": "frappato",
+    "title": "Frappato",
+    "color": "red",
+    "aliases": [
+      "Frappato"
+    ]
+  },
+  "mondeuse": {
+    "slug": "mondeuse",
+    "title": "Mondeuse",
+    "color": "red",
+    "aliases": [
+      "Mondeuse"
+    ]
+  },
+  "touriga-franca": {
+    "slug": "touriga-franca",
+    "title": "Touriga Franca",
+    "color": "red",
+    "aliases": [
+      "Touriga Franca"
+    ]
+  },
+  "tinta-barroca": {
+    "slug": "tinta-barroca",
+    "title": "Tinta Barroca",
+    "color": "red",
+    "aliases": [
+      "Tinta Barroca"
+    ]
+  },
+  "tinto-cao": {
+    "slug": "tinto-cao",
+    "title": "Tinto Cão",
+    "color": "red",
+    "aliases": [
+      "Tinto Cão"
+    ]
+  },
+  "chardonnay": {
+    "slug": "chardonnay",
+    "title": "Chardonnay",
+    "color": "white",
+    "aliases": [
+      "Chardonnay",
+      "Morillon"
+    ]
+  },
+  "sauvignon-blanc": {
+    "slug": "sauvignon-blanc",
+    "title": "Sauvignon Blanc",
+    "color": "white",
+    "aliases": [
+      "Sauvignon Blanc"
+    ]
+  },
+  "riesling": {
+    "slug": "riesling",
+    "title": "Riesling",
+    "color": "white",
+    "aliases": [
+      "Riesling"
+    ]
+  },
+  "chenin-blanc": {
+    "slug": "chenin-blanc",
+    "title": "Chenin Blanc",
+    "color": "white",
+    "aliases": [
+      "Chenin Blanc"
+    ]
+  },
+  "semillon": {
+    "slug": "semillon",
+    "title": "Sémillon",
+    "color": "white",
+    "aliases": [
+      "Sémillon"
+    ]
+  },
+  "pinot-gris": {
+    "slug": "grauburgunder",
+    "title": "Grauburgunder / Pinot Gris",
+    "color": "white",
+    "aliases": [
+      "Pinot Gris",
+      "Grauburgunder",
+      "Ruländer",
+      "Pinot Grigio"
+    ]
+  },
+  "pinot-blanc": {
+    "slug": "weissburgunder",
+    "title": "Weißburgunder / Pinot Blanc",
+    "color": "white",
+    "aliases": [
+      "Pinot Blanc",
+      "Weißburgunder",
+      "Pinot Bianco"
+    ]
+  },
+  "gruner-veltliner": {
+    "slug": "gruner-veltliner",
+    "title": "Grüner Veltliner",
+    "color": "white",
+    "aliases": [
+      "Grüner Veltliner"
+    ]
+  },
+  "silvaner": {
+    "slug": "silvaner",
+    "title": "Silvaner",
+    "color": "white",
+    "aliases": [
+      "Silvaner"
+    ]
+  },
+  "viognier": {
+    "slug": "viognier",
+    "title": "Viognier",
+    "color": "white",
+    "aliases": [
+      "Viognier"
+    ]
+  },
+  "marsanne": {
+    "slug": "marsanne",
+    "title": "Marsanne",
+    "color": "white",
+    "aliases": [
+      "Marsanne"
+    ]
+  },
+  "roussanne": {
+    "slug": "roussanne",
+    "title": "Roussanne",
+    "color": "white",
+    "aliases": [
+      "Roussanne"
+    ]
+  },
+  "gewurztraminer": {
+    "slug": "gewurztraminer",
+    "title": "Gewürztraminer",
+    "color": "white",
+    "aliases": [
+      "Gewürztraminer"
+    ]
+  },
+  "albarino-alvarinho": {
+    "slug": "albarino-alvarinho",
+    "title": "Albariño / Alvarinho",
+    "color": "white",
+    "aliases": [
+      "Albariño / Alvarinho",
+      "Albariño",
+      "Alvarinho"
+    ]
+  },
+  "godello": {
+    "slug": "godello",
+    "title": "Godello",
+    "color": "white",
+    "aliases": [
+      "Godello",
+      "Gouveio"
+    ]
+  },
+  "verdejo": {
+    "slug": "verdejo",
+    "title": "Verdejo",
+    "color": "white",
+    "aliases": [
+      "Verdejo"
+    ]
+  },
+  "viura-macabeo": {
+    "slug": "viura-macabeo",
+    "title": "Viura / Macabeo",
+    "color": "white",
+    "aliases": [
+      "Viura / Macabeo",
+      "Viura",
+      "Macabeo"
+    ]
+  },
+  "furmint": {
+    "slug": "furmint",
+    "title": "Furmint",
+    "color": "white",
+    "aliases": [
+      "Furmint"
+    ]
+  },
+  "assyrtiko": {
+    "slug": "assyrtiko",
+    "title": "Assyrtiko",
+    "color": "white",
+    "aliases": [
+      "Assyrtiko"
+    ]
+  },
+  "carricante": {
+    "slug": "carricante",
+    "title": "Carricante",
+    "color": "white",
+    "aliases": [
+      "Carricante"
+    ]
+  },
+  "garganega": {
+    "slug": "garganega",
+    "title": "Garganega",
+    "color": "white",
+    "aliases": [
+      "Garganega"
+    ]
+  },
+  "verdicchio": {
+    "slug": "verdicchio",
+    "title": "Verdicchio",
+    "color": "white",
+    "aliases": [
+      "Verdicchio"
+    ]
+  },
+  "vermentino": {
+    "slug": "vermentino",
+    "title": "Vermentino",
+    "color": "white",
+    "aliases": [
+      "Vermentino"
+    ]
+  },
+  "fiano": {
+    "slug": "fiano",
+    "title": "Fiano",
+    "color": "white",
+    "aliases": [
+      "Fiano"
+    ]
+  },
+  "arneis": {
+    "slug": "arneis",
+    "title": "Arneis",
+    "color": "white",
+    "aliases": [
+      "Arneis"
+    ]
+  },
+  "cortese": {
+    "slug": "cortese",
+    "title": "Cortese",
+    "color": "white",
+    "aliases": [
+      "Cortese"
+    ]
+  },
+  "glera": {
+    "slug": "glera",
+    "title": "Glera",
+    "color": "white",
+    "aliases": [
+      "Glera"
+    ]
+  },
+  "muscat": {
+    "slug": "muscat",
+    "title": "Muskateller (Sortenfamilie)",
+    "color": "family",
+    "aliases": [
+      "Muscat",
+      "Muskateller",
+      "Moscato",
+      "Moscatel"
+    ]
+  },
+  "palomino": {
+    "slug": "palomino",
+    "title": "Palomino",
+    "color": "white",
+    "aliases": [
+      "Palomino"
+    ]
+  },
+  "pedro-ximenez": {
+    "slug": "pedro-ximenez",
+    "title": "Pedro Ximénez",
+    "color": "white",
+    "aliases": [
+      "Pedro Ximénez"
+    ]
+  },
+  "rkatsiteli": {
+    "slug": "rkatsiteli",
+    "title": "Rkatsiteli",
+    "color": "white",
+    "aliases": [
+      "Rkatsiteli"
+    ]
+  },
+  "mtsvane": {
+    "slug": "mtsvane",
+    "title": "Mtsvane Kakhuri",
+    "color": "white",
+    "aliases": [
+      "Mtsvane"
+    ]
+  },
+  "kisi": {
+    "slug": "kisi",
+    "title": "Kisi",
+    "color": "white",
+    "aliases": [
+      "Kisi"
+    ]
+  },
+  "koshu": {
+    "slug": "koshu",
+    "title": "Koshu",
+    "color": "white",
+    "aliases": [
+      "Koshu"
+    ]
+  },
+  "torrontes": {
+    "slug": "torrontes",
+    "title": "Torrontés",
+    "color": "family",
+    "aliases": [
+      "Torrontés"
+    ]
+  },
+  "sercial": {
+    "slug": "sercial",
+    "title": "Sercial",
+    "color": "white",
+    "aliases": [
+      "Sercial",
+      "Esgana Cão"
+    ]
+  },
+  "verdelho": {
+    "slug": "verdelho",
+    "title": "Verdelho",
+    "color": "white",
+    "aliases": [
+      "Verdelho"
+    ]
+  },
+  "bual": {
+    "slug": "bual",
+    "title": "Boal / Bual",
+    "color": "white",
+    "aliases": [
+      "Bual",
+      "Boal",
+      "Malvasia Fina"
+    ]
+  },
+  "malmsey": {
+    "slug": "madeira-wein",
+    "title": "Madeira-Malvasia / Malmsey",
+    "color": "white",
+    "aliases": [
+      "Malmsey"
+    ]
+  },
+  "ribolla-gialla": {
+    "slug": "ribolla-gialla",
+    "title": "Ribolla Gialla",
+    "color": "white",
+    "aliases": [
+      "Ribolla Gialla",
+      "Rebula"
+    ]
+  },
+  "malvasia-istriana": {
+    "slug": "malvasia-istriana",
+    "title": "Malvasia Istriana",
+    "color": "white",
+    "aliases": [
+      "Malvasia Istriana",
+      "Malvazija Istarska",
+      "Malvazija"
+    ]
+  },
+  "grasevina": {
+    "slug": "grasevina",
+    "title": "Graševina / Welschriesling",
+    "color": "white",
+    "aliases": [
+      "Graševina",
+      "Welschriesling"
+    ]
+  },
+  "narince": {
+    "slug": "narince",
+    "title": "Narince",
+    "color": "white",
+    "aliases": [
+      "Narince"
+    ]
+  },
+  "xynisteri": {
+    "slug": "xynisteri",
+    "title": "Xynisteri",
+    "color": "white",
+    "aliases": [
+      "Xynisteri"
+    ]
+  },
+  "savagnin": {
+    "slug": "savagnin",
+    "title": "Savagnin",
+    "color": "white",
+    "aliases": [
+      "Savagnin"
+    ]
+  },
+  "aligote": {
+    "slug": "aligote",
+    "title": "Aligoté",
+    "color": "white",
+    "aliases": [
+      "Aligoté"
+    ]
+  },
+  "muscadelle": {
+    "slug": "muscadelle",
+    "title": "Muscadelle",
+    "color": "white",
+    "aliases": [
+      "Muscadelle"
+    ]
+  },
+  "xarel-lo": {
+    "slug": "xarel-lo",
+    "title": "Xarel-lo",
+    "color": "white",
+    "aliases": [
+      "Xarel-lo",
+      "Xarel·lo"
+    ]
+  },
+  "parellada": {
+    "slug": "parellada",
+    "title": "Parellada",
+    "color": "white",
+    "aliases": [
+      "Parellada"
+    ]
+  },
+  "malvasia": {
+    "slug": "malvasia",
+    "title": "Malvasia (Namensfamilie)",
+    "color": "family",
+    "aliases": [
+      "Malvasia"
+    ]
+  },
+  "clairette": {
+    "slug": "clairette",
+    "title": "Clairette",
+    "color": "white",
+    "aliases": [
+      "Clairette"
+    ]
+  },
+  "grillo": {
+    "slug": "grillo",
+    "title": "Grillo",
+    "color": "white",
+    "aliases": [
+      "Grillo"
+    ]
+  },
+  "grenache-blanc": {
+    "slug": "grenache-blanc",
+    "title": "Grenache Blanc",
+    "color": "white",
+    "aliases": [
+      "Grenache Blanc"
+    ]
+  },
+  "obaideh": {
+    "slug": "obaideh",
+    "title": "Obaideh",
+    "color": "white",
+    "aliases": [
+      "Obaideh"
+    ]
+  },
+  "merwah": {
+    "slug": "merwah",
+    "title": "Merwah",
+    "color": "white",
+    "aliases": [
+      "Merwah"
+    ]
+  },
+  "melon-de-bourgogne": {
+    "slug": "melon-de-bourgogne",
+    "title": "Melon de Bourgogne",
+    "color": "white",
+    "aliases": [
+      "Melon de Bourgogne"
+    ]
+  },
+  "petit-manseng": {
+    "slug": "petit-manseng",
+    "title": "Petit Manseng",
+    "color": "white",
+    "aliases": [
+      "Petit Manseng"
+    ]
+  },
+  "gros-manseng": {
+    "slug": "gros-manseng",
+    "title": "Gros Manseng",
+    "color": "white",
+    "aliases": [
+      "Gros Manseng"
+    ]
+  },
+  "encruzado": {
+    "slug": "encruzado",
+    "title": "Encruzado",
+    "color": "white",
+    "aliases": [
+      "Encruzado"
+    ]
+  },
+  "rotgipfler": {
+    "slug": "rotgipfler",
+    "title": "Rotgipfler",
+    "color": "white",
+    "aliases": [
+      "Rotgipfler"
+    ]
+  },
+  "zierfandler": {
+    "slug": "zierfandler",
+    "title": "Zierfandler",
+    "color": "white",
+    "aliases": [
+      "Zierfandler"
+    ]
+  },
+  "courbu": {
+    "slug": "courbu",
+    "title": "Courbu",
+    "color": "white",
+    "aliases": [
+      "Courbu"
+    ]
+  },
+  "jacquere": {
+    "slug": "jacquere",
+    "title": "Jacquère",
+    "color": "white",
+    "aliases": [
+      "Jacquère"
+    ]
+  },
+  "hondarrabi-zuri": {
+    "slug": "hondarrabi-zuri",
+    "title": "Hondarrabi Zuri",
+    "color": "white",
+    "aliases": [
+      "Hondarrabi Zuri"
+    ]
+  },
+  "chinuri": {
+    "slug": "chinuri",
+    "title": "Chinuri",
+    "color": "white",
+    "aliases": [
+      "Chinuri"
+    ]
+  },
+  "tsolikouri": {
+    "slug": "tsolikouri",
+    "title": "Tsolikouri",
+    "color": "white",
+    "aliases": [
+      "Tsolikouri"
+    ]
+  },
+  "vitovska": {
+    "slug": "vitovska",
+    "title": "Vitovska",
+    "color": "white",
+    "aliases": [
+      "Vitovska"
+    ]
+  },
+  "emir": {
+    "slug": "emir",
+    "title": "Emir",
+    "color": "white",
+    "aliases": [
+      "Emir"
+    ]
+  },
+  "chasselas": {
+    "slug": "chasselas",
+    "title": "Chasselas / Gutedel",
+    "color": "white",
+    "aliases": [
+      "Chasselas",
+      "Gutedel",
+      "Fendant"
+    ]
+  },
+  "vidal": {
+    "slug": "vidal",
+    "title": "Vidal",
+    "color": "white",
+    "aliases": [
+      "Vidal"
+    ]
+  },
+  "moschofilero": {
+    "slug": "moschofilero",
+    "title": "Moschofilero",
+    "color": "white",
+    "aliases": [
+      "Moschofilero"
+    ]
+  },
+  "dafni": {
+    "slug": "dafni",
+    "title": "Dafni",
+    "color": "white",
+    "aliases": [
+      "Dafni"
+    ]
+  },
+  "tsitska": {
+    "slug": "tsitska",
+    "title": "Tsitska",
+    "color": "white",
+    "aliases": [
+      "Tsitska"
+    ]
+  },
+  "krakhuna": {
+    "slug": "krakhuna",
+    "title": "Krakhuna",
+    "color": "white",
+    "aliases": [
+      "Krakhuna"
+    ]
+  },
+  "aleksandrouli": {
+    "slug": "aleksandrouli",
+    "title": "Aleksandrouli",
+    "color": "red",
+    "aliases": [
+      "Aleksandrouli"
+    ]
+  },
+  "mujuretuli": {
+    "slug": "mujuretuli",
+    "title": "Mujuretuli",
+    "color": "red",
+    "aliases": [
+      "Mujuretuli"
+    ]
+  },
+  "papaskaras": {
+    "slug": "papaskaras",
+    "title": "Papaskarası",
+    "color": "red",
+    "aliases": [
+      "Papaskarası"
+    ]
+  },
+  "sciaccarellu": {
+    "slug": "sciaccarellu",
+    "title": "Sciaccarellu",
+    "color": "red",
+    "aliases": [
+      "Sciaccarellu",
+      "Mammolo"
+    ]
+  },
+  "lambrusco-di-sorbara": {
+    "slug": "lambrusco-di-sorbara",
+    "title": "Lambrusco di Sorbara",
+    "color": "red",
+    "aliases": [
+      "Lambrusco di Sorbara"
+    ]
+  },
+  "mueller-thurgau": {
+    "slug": "mueller-thurgau",
+    "title": "Müller-Thurgau",
+    "color": "white",
+    "aliases": [
+      "Müller-Thurgau",
+      "Rivaner"
+    ]
+  },
+  "dornfelder": {
+    "slug": "dornfelder",
+    "title": "Dornfelder",
+    "color": "red",
+    "aliases": [
+      "Dornfelder"
+    ]
+  },
+  "portugieser": {
+    "slug": "portugieser",
+    "title": "Blauer Portugieser",
+    "color": "red",
+    "aliases": [
+      "Blauer Portugieser",
+      "Portugieser"
+    ]
+  },
+  "trollinger": {
+    "slug": "trollinger",
+    "title": "Trollinger / Großvernatsch",
+    "color": "red",
+    "aliases": [
+      "Trollinger / Großvernatsch",
+      "Trollinger",
+      "Großvernatsch",
+      "Schiava Grossa"
+    ]
+  },
+  "kerner": {
+    "slug": "kerner",
+    "title": "Kerner",
+    "color": "white",
+    "aliases": [
+      "Kerner"
+    ]
+  },
+  "scheurebe": {
+    "slug": "scheurebe",
+    "title": "Scheurebe",
+    "color": "white",
+    "aliases": [
+      "Scheurebe",
+      "Sämling 88"
+    ]
+  },
+  "bacchus": {
+    "slug": "bacchus",
+    "title": "Bacchus",
+    "color": "white",
+    "aliases": [
+      "Bacchus"
+    ]
+  },
+  "regent": {
+    "slug": "regent",
+    "title": "Regent",
+    "color": "red",
+    "aliases": [
+      "Regent"
+    ]
+  },
+  "st-laurent": {
+    "slug": "st-laurent",
+    "title": "St. Laurent",
+    "color": "red",
+    "aliases": [
+      "St. Laurent",
+      "Sankt Laurent"
+    ]
+  },
+  "greco": {
+    "slug": "greco",
+    "title": "Greco",
+    "color": "white",
+    "aliases": [
+      "Greco"
+    ]
+  },
+  "lagrein": {
+    "slug": "lagrein",
+    "title": "Lagrein",
+    "color": "red",
+    "aliases": [
+      "Lagrein"
+    ]
+  },
+  "friulano": {
+    "slug": "friulano",
+    "title": "Friulano",
+    "color": "white",
+    "aliases": [
+      "Friulano",
+      "Sauvignonasse",
+      "Sauvignon Vert"
+    ]
+  },
+  "arinto": {
+    "slug": "arinto",
+    "title": "Arinto",
+    "color": "white",
+    "aliases": [
+      "Arinto",
+      "Pedernã"
+    ]
+  },
+  "tinta-negra": {
+    "slug": "tinta-negra",
+    "title": "Tinta Negra",
+    "color": "red",
+    "aliases": [
+      "Tinta Negra"
+    ]
+  },
+  "voskehat": {
+    "slug": "voskehat",
+    "title": "Voskehat",
+    "color": "white",
+    "aliases": [
+      "Voskehat"
+    ]
+  },
+  "roter-veltliner": {
+    "slug": "roter-veltliner",
+    "title": "Roter Veltliner",
+    "color": "white",
+    "aliases": [
+      "Roter Veltliner"
+    ]
+  }
+}

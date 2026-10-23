@@ -23,3 +23,10 @@
 - `licensed-regions/wurttemberg-stuttgart-uhlbach.jpg` — "Blick von Uhlbach auf Württemberg (2009).jpg," Jochen Teufel, [source file page](https://commons.wikimedia.org/wiki/File:Blick_von_Uhlbach_auf_W%C3%BCrttemberg_(2009).jpg), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). Derived from a 1280-pixel Commons thumbnail; aspect ratio retained.
 
 Other photos: Pfalz by Kmtextor, Rheinhessen by Gerda Arendt, CC BY-SA 4.0. Sources are listed in /entdecken/quellen. Other illustrations are AI generated originals reused from the existing Wine Atlas; bottle SVGs are original interface illustrations.
+
+
+## International atlas photographs
+
+The `atlas/` directory contains resized WebP photographs and matching `.thumb.webp` card images from the original atlas. The complete per-file creator, original Wikimedia Commons URL, licence and caption are preserved in [photos.json](../../src/lib/locales/de/atlas/photos.json). All variants preserve the same credit. Images may be cropped by the layout; the editor supports independent desktop/mobile focus positions.
+
+`atlas/world-land.svg` uses the Natural Earth 1:110m land dataset (public domain), https://www.naturalearthdata.com/. It is an approximate location diagram, without invented wine-region boundaries.

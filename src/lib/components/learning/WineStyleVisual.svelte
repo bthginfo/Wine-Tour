@@ -1,0 +1,7 @@
+<script lang="ts">
+ import {onMount} from 'svelte';import {fade} from 'svelte/transition';import {prefersReducedMotion} from 'svelte/motion';
+ import diagrams from '#lib/locales/de/atlas/style-visuals.json';import Glass from './Glass.svelte';import Icon from '../Icon.svelte';
+ let root=$state<HTMLDivElement>();onMount(()=>{if(!root)return;const node=root;const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){node.classList.add('visual-visible');observer.disconnect();}},{threshold:.2});observer.observe(node);return()=>observer.disconnect();});
+ let {slug}:{slug:string}=$props();let selected=$state(0);const profile=$derived(diagrams[slug as keyof typeof diagrams]);
+</script>
+{#if profile}<div bind:this={root} class="learning-visual wine-style-diagram" data-visual="wine-style"><div class="visual-heading"><span class="eyebrow">HERSTELLUNG VERSTEHEN</span><h3>{profile.title}</h3></div><div class="style-process"><Glass color={profile.color} bubbles={profile.bubbles}/><div class="style-stage-options" role="group" aria-label="Herstellungsschritt auswählen">{#each profile.stages as stage,i}<button type="button" aria-pressed={selected===i} class:active={selected===i} onclick={()=>selected=i}><span>0{i+1}</span>{stage.title}<Icon name="next" size={16}/></button>{/each}</div></div>{#key selected}<div class="visual-explanation" in:fade={{duration:prefersReducedMotion.current?0:130}}><h4>{profile.stages[selected].title}</h4><p>{profile.stages[selected].body}</p></div>{/key}</div>{/if}
