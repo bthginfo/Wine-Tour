@@ -1,0 +1,44 @@
+{
+  "secco": {
+    "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/winery/secco-bottle.webp",
+    "alt": "von Winning Secco Rosé, Originalflasche",
+    "credit": "© André Kunz / PFALZWEINFOTO · von Winning",
+    "source": "https://shop.von-winning.de/secco-rose/400-l0226",
+    "original": "https://content.shop.von-winning.de/media/d4/4c/d3/1764753999/Secco-Rose-2025_fd2f7d08446e4a2d422fbf4d53c7270c.png?ts=1764755962"
+  },
+  "juwel": {
+    "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/winery/juwel-bottle.webp",
+    "alt": "JUWEL Grauburgunder trocken, Originalflasche",
+    "credit": "© JUWEL Weine",
+    "source": "https://juwel-weine.de/products/grauburgunder",
+    "original": "https://juwel-weine.de/cdn/shop/products/JUWELGrauburgunderGutswein_anp_2ae8a823-dd12-444b-9c11-ff15a4dda87b-32_1400x.png?v=1669070254"
+  },
+  "riesling": {
+    "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/winery/riesling-bottle.webp",
+    "alt": "Margarethenhof Schieferstein Riesling, Originalflasche",
+    "credit": "© Margarethenhof",
+    "source": "https://www.margarethenhof-ayl.de/produkt/schieferstein/",
+    "original": "https://www.margarethenhof-ayl.de/wp-content/uploads/2021/05/Schieferstein-Riesling.jpg"
+  },
+  "nicolas": {
+    "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/winery/nicolas.webp",
+    "alt": "Nicolas Weber an der Saar",
+    "credit": "© Peter Bender / Margarethenhof",
+    "source": "https://www.margarethenhof-ayl.de/weingut/",
+    "original": "https://www.margarethenhof-ayl.de/wp-content/uploads/2024/02/Margarethenhof_©peterbender23_232-1024x683.jpg"
+  },
+  "juliane": {
+    "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/winery/juliane.webp",
+    "alt": "Juliane Eller zwischen Weinreben",
+    "credit": "© Peter Bender / JUWEL Weine",
+    "source": "https://juwel-weine.de/pages/julianeeller",
+    "original": "https://juwel-weine.de/cdn/shop/files/JuWelxFendt_Juni26__peterbender_79_cb2d2392-8aec-4688-a356-1d9b53cc3bd4.jpg?v=1780394627&width=2000"
+  },
+  "winning": {
+    "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/winery/winning.webp",
+    "alt": "Fasskeller des Weinguts von Winning in Deidesheim",
+    "credit": "© von Winning",
+    "source": "https://www.von-winning.de/weingut-von-winning",
+    "original": "https://content.von-winning.de/fileadmin/user_upload/Startseite/winning-weingut.jpg"
+  }
+}

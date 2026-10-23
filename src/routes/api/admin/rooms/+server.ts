@@ -1,0 +1,2 @@
+import {json} from '@sveltejs/kit';import type {RequestEvent} from '@sveltejs/kit';import {requireAdmin} from '#lib/server/security.ts';import {db} from '#lib/server/db.ts';
+export async function GET(e:RequestEvent){await requireAdmin(e);return json({rooms:await db()`SELECT r.code,r.name,r.step,r.closed,r.created_at,count(m.guest_id)::int AS participants FROM sip.rooms r LEFT JOIN sip.members m ON m.room=r.code AND m.name<>'Host' GROUP BY r.code ORDER BY r.created_at DESC LIMIT 100`});}

@@ -9,3 +9,8 @@ CREATE INDEX IF NOT EXISTS sip_events_room_id ON sip.events(room,id);
 CREATE TABLE IF NOT EXISTS sip.notes (guest_id text REFERENCES sip.guests(id), room text REFERENCES sip.rooms(code), wine text NOT NULL, data jsonb NOT NULL, updated_at timestamptz NOT NULL DEFAULT now(), PRIMARY KEY(guest_id,room,wine));
 CREATE TABLE IF NOT EXISTS sip.cellar (id text PRIMARY KEY, user_id text REFERENCES sip.users(id), data jsonb NOT NULL, updated_at timestamptz NOT NULL DEFAULT now());
 CREATE TABLE IF NOT EXISTS sip.ratelimits (key text PRIMARY KEY, count integer NOT NULL, resets_at timestamptz NOT NULL);
+ALTER TABLE sip.users ADD COLUMN IF NOT EXISTS role text NOT NULL DEFAULT 'member';
+ALTER TABLE sip.rooms ADD COLUMN IF NOT EXISTS owner_id text REFERENCES sip.users(id);
+CREATE TABLE IF NOT EXISTS sip.editorial (key text PRIMARY KEY, data jsonb NOT NULL, version integer NOT NULL DEFAULT 1, updated_by text REFERENCES sip.users(id), updated_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE IF NOT EXISTS sip.editorial_history (id bigserial PRIMARY KEY,key text NOT NULL,data jsonb NOT NULL,version integer NOT NULL,actor text REFERENCES sip.users(id),created_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE IF NOT EXISTS sip.media (id text PRIMARY KEY,url text NOT NULL,size integer NOT NULL,alt text NOT NULL,credit text NOT NULL DEFAULT '',source text NOT NULL DEFAULT '',created_by text REFERENCES sip.users(id),created_at timestamptz NOT NULL DEFAULT now());

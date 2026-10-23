@@ -1,10 +1,13 @@
 <script lang="ts">
+ import ThemeToggle from '#lib/components/ThemeToggle.svelte';import{loadEditorial,editorial}from'#lib/editorial.svelte.ts';
  import {t} from '#lib/i18n.ts';
  import '../app.css';import {page} from '$app/state';import {goto} from '$app/navigation';import {onMount} from 'svelte';import Icon from '#lib/components/Icon.svelte';import Modal from '#lib/components/Modal.svelte';import {session,refreshSession,ui,api} from '#lib/client.svelte.ts';
  let {children}=$props();let hydrated=$state(false);let eventName=$state('Ein Abend, vier Weine');let code=$state('');let busy=$state(false);let error=$state('');
  const links=[{href:'/',name:'Übersicht',icon:'home'},{href:'/entdecken',name:'Entdecken',icon:'compass'},{href:'/notizen',name:'Meine Notizen',icon:'notes'},{href:'/keller',name:'Mein Weinkeller',icon:'cellar'}];
  const tasting=$derived(page.url.pathname.startsWith('/tasting/')||page.url.pathname.startsWith('/host/'));
- onMount(()=>{hydrated=true;refreshSession();});
+ onMount(async()=>{await refreshSession();hydrated=true;});
+ $effect(()=>{if(session.loaded)void loadEditorial(session.user?.role==='admin');});
+ function hostStart(){if(session.user?.role==='admin'){error='';ui.createOpen=true;}else goto('/konto?next=/admin');}
  async function create(){busy=true;error='';try{const d=await api('rooms',{name:eventName});ui.createOpen=false;await refreshSession();await goto('/host/'+d.code);}catch(e){error=(e as Error).message;}busy=false;}
  function join(){error='';const c=code.trim().toUpperCase().replace(/\s/g,'');if(!/^[A-Z2-9]{6}$/.test(c)){error='Der Tasting-Code hat 6 Zeichen.';return;}ui.joinOpen=false;goto('/tasting/'+c);}
 </script>
@@ -14,13 +17,13 @@
  <aside class="sidebar">
   <a class="brand" href="/"><span class="brand-symbol"><Icon name="wine" size={25}/></span><span>{t('m_958c0dd838')}<span class="brand-dot">.</span></span></a>
   <div class="workspace-label">{t('m_7f03923f99')}</div>
-  <nav aria-label={t('m_1970d9e843')}>{#each links as link}<a href={link.href} class:active={link.href==='/'?page.url.pathname==='/':page.url.pathname.startsWith(link.href)}><Icon name={link.icon}/><span>{link.name}</span>{#if link.icon==='notes'&&session.notes.length}<span class="nav-count">{session.notes.length}</span>{/if}</a>{/each}</nav>
-  <div class="sidebar-invite"><span class="mini-icon"><Icon name="users"/></span><strong>{t('m_592895e815')}</strong><p>{t('m_ce9471cad4')}<br/>{t('m_17f86efa3a')}</p><button class="text-button" onclick={()=>{error='';ui.createOpen=true;}}>{t('m_07701a8057')} <Icon name="external" size={17}/></button></div>
-  <a href="/konto" class="profile"><span class="avatar">{session.user?.username?.slice(0,1).toUpperCase()||'S'}</span><span><strong>{session.user?.username||'Schön, dass du da bist'}</strong><small>{session.user?'Dein Konto':'Ganz entspannt entdecken'}</small></span><Icon name="next" size={16}/></a>
+  <nav aria-label={t('m_1970d9e843')}>{#each links as link}<a href={link.href} class:active={link.href==='/'?page.url.pathname==='/':page.url.pathname.startsWith(link.href)}><Icon name={link.icon}/><span>{link.name}</span>{#if link.icon==='notes'&&session.notes.length}<span class="nav-count">{session.notes.length}</span>{/if}</a>{/each}{#if session.user?.role==='admin'}<a href='/admin' class:active={page.url.pathname.startsWith('/admin')}><Icon name='settings'/><span>Host-Bereich</span></a>{/if}</nav>
+  <div class="sidebar-invite"><span class="mini-icon"><Icon name="users"/></span><strong>{t('m_592895e815')}</strong><p>{t('m_ce9471cad4')}<br/>{t('m_17f86efa3a')}</p><button class="text-button" onclick={hostStart}>{t('m_07701a8057')} <Icon name="external" size={17}/></button></div>
+  <a href="/konto" class="profile"><span class="avatar">{session.user?.username?.slice(0,1).toUpperCase()||'S'}</span><span><strong>{session.user?.username||'Mein Konto'}</strong><small>{session.user?'Angemeldet':'Anmelden oder registrieren'}</small></span><Icon name="next" size={16}/></a>
  </aside>
  <div class="main-column">
-  <header class="topbar"><a href="/" class="mobile-brand"><Icon name="wine" size={23}/> {t('m_958c0dd838')}<span>.</span></a><div class="breadcrumb"><span>{t('m_6bd3ec741b')}</span><Icon name="next" size={13}/><span>{tasting?'Tasting':page.url.pathname.startsWith('/entdecken')?'Entdecken':page.url.pathname.startsWith('/notizen')?'Meine Notizen':page.url.pathname.startsWith('/keller')?'Mein Weinkeller':page.url.pathname.startsWith('/konto')?'Dein Konto':'Übersicht'}</span></div><div class="top-actions"><a class="search-shortcut" href="/entdecken"><Icon name="search" size={17}/><span>{t('m_87ff9cd72d')}</span></a><button class="button subtle compact" onclick={()=>{error='';ui.joinOpen=true;}}><Icon name="qr" size={16}/><span>{t('m_3343d5e09d')}</span></button><a href="/konto" class="avatar small-avatar" aria-label={t('m_a7cdda91da')}>{session.user?.username?.slice(0,1).toUpperCase()||'S'}</a></div></header>
-  <main id="main">{@render children()}</main>
+  <header class="topbar"><a href="/" class="mobile-brand"><Icon name="wine" size={23}/> {t('m_958c0dd838')}<span>.</span></a><div class="breadcrumb"><span>{t('m_6bd3ec741b')}</span><Icon name="next" size={13}/><span>{tasting?'Tasting':page.url.pathname.startsWith('/entdecken')?'Entdecken':page.url.pathname.startsWith('/notizen')?'Meine Notizen':page.url.pathname.startsWith('/keller')?'Mein Weinkeller':page.url.pathname.startsWith('/konto')?'Dein Konto':'Übersicht'}</span></div><div class="top-actions"><ThemeToggle/>{#if session.user?.role==='admin'}<a href="/admin" class="icon-button" aria-label="Host-Bereich" title="Host-Bereich"><Icon name="settings" size={19}/></a>{/if}<a class="search-shortcut" href="/entdecken"><Icon name="search" size={17}/><span>{t('m_87ff9cd72d')}</span></a><button class="button subtle compact" onclick={()=>{error='';ui.joinOpen=true;}}><Icon name="qr" size={16}/><span>{t('m_3343d5e09d')}</span></button><a href="/konto" class="avatar small-avatar" aria-label={t('m_a7cdda91da')}>{session.user?.username?.slice(0,1).toUpperCase()||'S'}</a></div></header>
+  <main id="main">{#if editorial.error}<div class="content-warning" role="status">{editorial.error}<button class="text-button" onclick={()=>loadEditorial(session.user?.role==='admin')}>Erneut laden</button></div>{/if}{@render children()}</main>
   <footer class="site-footer"><span>{t('m_7e0bbb4f9a')}</span><a href="/entdecken/quellen">{t('m_f0666c5067')}</a><a href="/konto#daten">{t('m_ac23494317')}</a><span>{t('m_3e1ee75c0b')}</span></footer>
  </div>
 </div>
