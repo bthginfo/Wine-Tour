@@ -54,7 +54,8 @@ export function syncPendingNotes():Promise<void>{
    // One queue serializes edits, including edits made while a previous request is in flight.
    while(owner===session.draftOwner){
     const next=pendingDrafts()[0];if(!next)break;
-    await api('rooms/'+next.room+'/notes',{wine:next.wine,data:next.draft.data},'POST',{keepalive:true,signal:AbortSignal.timeout(10000)});
+    const controller=new AbortController();const deadline=setTimeout(()=>controller.abort(),10000);
+    try{await api('rooms/'+next.room+'/notes',{wine:next.wine,data:next.draft.data},'POST',{keepalive:true,signal:controller.signal});}finally{clearTimeout(deadline);}
     if(owner!==session.draftOwner)break;
     const current=readDraft(next.key);
     if(current?.owner===owner&&current.updated===next.draft.updated)storeDraft(next.key,{...current,pending:false});

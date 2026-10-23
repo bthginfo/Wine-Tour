@@ -6,7 +6,7 @@
  const links=[{href:'/',name:'Übersicht',icon:'home'},{href:'/entdecken',name:'Entdecken',icon:'compass'},{href:'/notizen',name:'Meine Notizen',icon:'notes'},{href:'/keller',name:'Mein Weinkeller',icon:'cellar'}];
  const tasting=$derived(page.url.pathname.startsWith('/tasting/')||page.url.pathname.startsWith('/host/'));
  onMount(()=>{
-  const retry=()=>{if(navigator.onLine)void syncPendingNotes();};
+  const retry=()=>{if(navigator.onLine){if(!session.draftOwner)void refreshSession().then(()=>syncPendingNotes());else void syncPendingNotes();}};
   void refreshSession().then(()=>{hydrated=true;retry();});
   window.addEventListener('online',retry);window.addEventListener('focus',retry);window.addEventListener('pagehide',retry);
   const interval=setInterval(retry,30000);

@@ -3,7 +3,8 @@
  let{room,participant}:{room:{code:string;name:string;settings:Record<string,any>};participant:string}=$props();let busy=$state(false);let progress=$state('');let error=$state('');let finished=$state(false);
  async function download(){if(busy)return;busy=true;error='';finished=false;progress=t('pdf.preparing');await tick();try{
   const renderer=await import('../pdf/render');let notes=session.notes;let draftOwner=session.draftOwner;
-  try{const r=await fetch('/api/me',{signal:AbortSignal.timeout(8000)});if(!r.ok)throw Error('Notizen konnten nicht geladen werden.');const latest=await r.json();notes=latest.notes;draftOwner=latest.draftOwner;}catch{if(!session.loaded)throw Error(t('pdf.notesError'));}
+  const controller=new AbortController();const deadline=setTimeout(()=>controller.abort(),8000);
+  try{const r=await fetch('/api/me',{signal:controller.signal});if(!r.ok)throw Error('Notizen konnten nicht geladen werden.');const latest=await r.json();notes=latest.notes;draftOwner=latest.draftOwner;}catch{if(!session.loaded)throw Error(t('pdf.notesError'));}finally{clearTimeout(deadline);}
   const book=makeTastingBook({room,participant,wines:getWines(),articles:getArticles(),steps,notes,draftOwner,readDraft:readNoteDraft,imageSrc,creditFor});const result=await renderer.renderTastingPdf(book,message=>progress=message);
   const url=URL.createObjectURL(new Blob([result.bytes as BlobPart],{type:'application/pdf'}));const a=document.createElement('a');a.href=url;a.download=bookFilename(book);document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);finished=true;progress=result.missingImages?t('pdf.imageWarning'):t('pdf.ready');
  }catch(e){error=e instanceof Error&&e.message.startsWith('Diese PDF ist zu umfangreich')?e.message:t('pdf.errorHelp');progress='';}finally{busy=false;}}

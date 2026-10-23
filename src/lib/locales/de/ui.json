@@ -291,5 +291,7 @@
   "notes.syncing": "Deine Notizen werden übertragen …",
   "notes.pendingOne": "Eine Notiz ist auf diesem Gerät gesichert. Sie wird automatisch übertragen, sobald die Verbindung wieder da ist.",
   "notes.pendingMany": "{count} Notizen sind auf diesem Gerät gesichert. Sie werden automatisch übertragen, sobald die Verbindung wieder da ist.",
-  "tasting.back": "Zurück zur Probe"
+  "tasting.back": "Zurück zur Probe",
+  "notes.loadError": "Deine Notizen konnten nicht geladen werden. Bitte versuch es noch einmal.",
+  "notes.reload": "Erneut laden"
 }

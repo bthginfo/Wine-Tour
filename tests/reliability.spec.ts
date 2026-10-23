@@ -11,8 +11,11 @@ test('notes survive leaving the editor, concurrent saves and account switches wi
   await open(h,'/');expect((await request(h,'auth/login',{username:process.env.SIP_ADMIN_USERNAME||'juliu1',password:process.env.SIP_ADMIN_PASSWORD})).status).toBe(200);
   const created=await request(h,'rooms',{name:'Test · Verlässliche Notizen'});expect(created.status).toBe(200);const code=created.body.code;
   const settings={redName:'Rotes Finale im Test',redProducer:'Betrieb im Test',redRegion:'Region im Test',redGrape:'Traube im Test',redStory:'',redSource:'',rieslingLabel:'',vintages:['','','','']};expect((await request(h,'rooms/'+code+'/settings',settings)).status).toBe(200);
+  let identityUnavailable=true;await gc.route('**/api/me',route=>identityUnavailable?route.fulfill({status:503,contentType:'application/json',body:JSON.stringify({error:'Verbindung im Test unterbrochen.'})}):route.continue());
   await open(g,'/tasting/'+code);await g.getByLabel('Dein Name',{exact:true}).fill('Kim');await g.getByRole('button',{name:'Ich bin dabei',exact:true}).click();await expect(g.locator('.story-card')).toBeVisible();
-  await open(g,'/tasting/'+code+'?wine=rot');const words=g.getByLabel('Deine Worte',{exact:true});await expect(words).toBeEnabled();
+  await open(g,'/tasting/'+code+'?wine=rot');const words=g.getByLabel('Deine Worte',{exact:true});await expect(words).toBeDisabled();await expect(g.locator('.note-load-error')).toBeVisible();await g.screenshot({path:'/workspace/shared/sip-audit/note-load-error.png',fullPage:true,animations:'disabled'});identityUnavailable=false;await g.locator('.note-load-error').getByRole('button',{name:'Erneut laden',exact:true}).click();await expect(words).toBeEnabled();await gc.unroute('**/api/me');
+  // Older Safari supports AbortController but has no AbortSignal.timeout convenience method.
+  await g.evaluate(()=>Object.defineProperty(AbortSignal,'timeout',{value:undefined,configurable:true}));
   let unavailable=true;let delayNext=false;let saving=false;
   await gc.route('**/api/rooms/'+code+'/notes',async route=>{if(unavailable){await route.abort();return;}if(delayNext){delayNext=false;saving=true;await new Promise(resolve=>setTimeout(resolve,1200));}await route.continue();});
   await words.fill('Mein Entwurf bleibt auch nach dem Seitenwechsel da.');await expect(g.locator('.save-status')).toContainText('Wird später übertragen.');
