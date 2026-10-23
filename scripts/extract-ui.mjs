@@ -2,7 +2,7 @@
 import {parse} from 'svelte/compiler';
 import {readFile,writeFile,readdir,mkdir} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
-const dictionary={};
+const dictionary=JSON.parse(await readFile('src/lib/locales/de/ui.json','utf8').catch(()=>'{}'));
 const key=s=>{const k='m_'+createHash('sha1').update(s).digest('hex').slice(0,10);dictionary[k]=s;return k;};
 async function files(dir){return (await Promise.all((await readdir(dir,{withFileTypes:true})).map(e=>e.isDirectory()?files(dir+'/'+e.name):[dir+'/'+e.name]))).flat();}
 for(const file of (await files('src')).filter(f=>f.endsWith('.svelte'))){

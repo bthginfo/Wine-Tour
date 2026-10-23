@@ -180,7 +180,7 @@
   "m_6fe8179b29": "Die Fotos zeigen die benannten Landschaften, keine bestimmten Weinberge der drei Betriebe. Die Illustrationen zeigen allgemeine Motive und wurden mit KI für den bisherigen Wine Atlas erstellt. Die kleinen Flaschen sind eigens gezeichnete Illustrationen, keine Abbildungen der Originaletiketten.",
   "m_cdcface46a": "Bildnachweise",
   "m_20f3c842d9": "Original & Lizenz ↗",
-  "m_7a0179edde": "Anzeige als beschnittenes Vorschaubild. Die Bilddatei steht weiterhin unter CC BY-SA 4.0.",
+  "m_7a0179edde": "Anzeige als beschnittenes Vorschaubild. Die Bilddatei behält die jeweils oben genannte Lizenz.",
   "m_e4737af5bc": "Übrige Illustrationen: eigene KI-generierte Motive aus dem bestehenden Wine Atlas. Keine dokumentarischen Fotos von Weingütern, Personen oder einzelnen Rebsorten.",
   "m_f954627d38": "Zum Nachlesen",
   "m_24bd75b8ea": "Mein Weinkeller · Sip Happens",
@@ -267,5 +267,7 @@
   "m_c01776ed8f": "Deine Notizen werden geladen …",
   "m_2f8079851f": "Das erste Glas wartet schon.",
   "m_13a770cc54": "Im Tasting kannst du zu jedem Wein Notizen, Aromen und eine persönliche Bewertung festhalten.",
-  "m_dd9c0a53c8": "Einem Tasting beitreten"
+  "m_dd9c0a53c8": "Einem Tasting beitreten",
+  "tasting.following": "Du folgst dem Host.",
+  "tasting.free": "Du kannst jederzeit selbst blättern."
 }
