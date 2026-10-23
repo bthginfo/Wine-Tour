@@ -269,5 +269,16 @@
   "m_13a770cc54": "Im Tasting kannst du zu jedem Wein Notizen, Aromen und eine persönliche Bewertung festhalten.",
   "m_dd9c0a53c8": "Einem Tasting beitreten",
   "tasting.following": "Du folgst dem Host.",
-  "tasting.free": "Du kannst jederzeit selbst blättern."
+  "tasting.free": "Du kannst jederzeit selbst blättern.",
+  "pdf.eyebrow": "Dein Abend zum Mitnehmen",
+  "pdf.title": "Die Weinprobe als PDF.",
+  "pdf.description": "Alle Inhalte der Probe, die Weine und deine persönlichen Tasting Notes in einem gestalteten Heft.",
+  "pdf.download": "PDF herunterladen",
+  "pdf.preparing": "PDF wird erstellt …",
+  "pdf.noAccount": "Auch ohne Konto. Mit deinen eigenen Notizen.",
+  "pdf.ready": "Deine PDF ist bereit. Du kannst sie jederzeit erneut herunterladen.",
+  "pdf.error": "Die PDF konnte gerade nicht erstellt werden.",
+  "pdf.notesError": "Deine Notizen konnten nicht geladen werden. Bitte versuche es erneut.",
+  "pdf.imageWarning": "Deine PDF ist fertig. Ein Bild war nicht erreichbar; Inhalte und Notizen sind vollständig enthalten.",
+  "pdf.errorHelp": "Prüfe deine Verbindung und versuche es noch einmal. Deine Notizen bleiben erhalten."
 }

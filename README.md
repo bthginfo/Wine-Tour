@@ -80,3 +80,11 @@ All 34 articles now have three titled explanatory sections and at least 200 word
 Motion uses short state transitions and brief, in-view SVG animation. There are no perpetual background animations, canvas/WebGL renders or animation libraries. All added motion respects `prefers-reduced-motion`. Editing a note pauses live following; the participant explicitly resumes with “Zum Host”. Offline drafts retry and are saved when connectivity returns.
 
 The expanded Playwright flow covers every article at mobile and desktop widths, image loading, educational controls by keyboard, reduced motion, offline recovery, note editing during a host advance, bottle zoom/focus return, tasting completion, signup/export and cellar editing/deletion.
+
+## Personal tasting PDF
+
+The final tasting screen offers a PDF download before optional registration. The A4 booklet includes a personal cover, clickable wine overview, the full public tasting articles and illustrations in tasting order, room-specific red wine details/vintages, and each participant's own notes, aromas, rating and perception scales. It includes expanded article sections even when a reading disclosure was closed. Private host copy and notes from other participants or tastings are excluded.
+
+PDF creation runs in the browser, with `pdf-lib` and its font engine loaded on demand. No personal PDF is uploaded to Blob or stored on the server. It fetches current owned notes and merges newer pending drafts belonging to the same browser identity. Font instances use the existing OFL-licensed site fonts; the committed TTF files can be regenerated with `scripts/prepare-pdf-fonts.py`. Photography is embedded with credits; unavailable images receive a clean diagram fallback and a visible download notice. Long notes continue onto additional pages without truncation. Unsupported font glyphs, including emoji, use inline image glyphs.
+
+PDF verification downloads the actual document as an anonymous mobile participant and again after registration, parses it to check full notes and privacy, and exercises offline drafts, long notes, updated tasting settings, image failure and recoverable font-loading errors.
