@@ -1,4 +1,5 @@
 import type {Article, Wine, Step} from '../content';
+import {tastingWine} from '../tasting-wine';
 
 export type TastingNote = {text:string;aromas:string[];rating:number;sweetness:number;acidity:number};
 export type NoteRecord = {room:string;wine:string;data:Partial<TastingNote>;updated_at:string};
@@ -12,7 +13,7 @@ export function cleanNote(value:Partial<TastingNote>|null|undefined):TastingNote
 }
 export function makeTastingBook(args:{room:{name:string;code:string;settings:Record<string,any>};participant:string;wines:Wine[];articles:Article[];steps:Step[];notes:NoteRecord[];draftOwner:string;readDraft:(key:string)=>string|null;imageSrc:(key:string)=>string;creditFor:(a:Article)=>ImageCredit}):TastingBook {
  const {room}=args;const config=room.settings||{};
- const wines=args.wines.map((w,i)=>({...w,name:i===3&&config.redName?config.redName:i===2&&config.rieslingLabel?config.rieslingLabel:w.name,producer:i===3&&config.redProducer?config.redProducer:w.producer,region:i===3&&config.redRegion?config.redRegion:w.region,grape:i===3&&config.redGrape?config.redGrape:w.grape,vintage:config.vintages?.[i]||''}));
+ const wines=args.wines.map(w=>tastingWine(w,config));
  const entries:PdfEntry[]=[];
  for(const step of args.steps){
   if(step.type==='story'||step.type==='break'){
@@ -22,7 +23,8 @@ export function makeTastingBook(args:{room:{name:string;code:string;settings:Rec
   }else if(step.type==='notes'){
    const records=args.notes.filter(n=>n.room===room.code&&n.wine===wines[step.wine].id).sort((a,b)=>Date.parse(b.updated_at)-Date.parse(a.updated_at));
    let note=cleanNote(records[0]?.data);
-   try{const draft=JSON.parse(args.readDraft(`sip:note:${room.code}:${wines[step.wine].id}`)||'null');if(args.draftOwner&&draft?.owner===args.draftOwner&&draft.pending&&Number.isFinite(draft.updated)&&(!records[0]||draft.updated>Date.parse(records[0].updated_at)))note=cleanNote(draft.data);}catch{}
+   // An unsent local edit remains authoritative even if an older request arrived at the server later.
+   try{const draft=JSON.parse(args.readDraft(`sip:note:${room.code}:${wines[step.wine].id}`)||'null');if(args.draftOwner&&draft?.owner===args.draftOwner&&draft.pending&&Number.isFinite(draft.updated))note=cleanNote(draft.data);}catch{}
    entries.push({type:'notes',wine:step.wine,note});
   }else if(step.type==='pending'&&step.part===0){
    const sections=[{title:config.redRegion||'Die Region',body:config.redRegionText||''},{title:config.redProducer||'Das Weingut',body:config.redProducerText||''},{title:config.redGrape||'Die Rebsorte',body:config.redGrapeText||''}].filter(s=>s.body);

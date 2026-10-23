@@ -19,18 +19,19 @@ async function dispatch(e:RequestEvent){
  if(p==='me'){
   const u=await user(e);const g=await guest(e);
   const notes=await sql`SELECT n.room,n.wine,n.data,n.updated_at,r.name AS room_name,(r.settings - 'redStory') AS room_settings FROM sip.notes n JOIN sip.guests g ON g.id=n.guest_id JOIN sip.rooms r ON r.code=n.room WHERE n.guest_id=${g} OR (${u?.id??null}::text IS NOT NULL AND g.user_id=${u?.id??null}) ORDER BY n.updated_at DESC`;
-  const rooms=await sql`SELECT r.code,r.name,r.step,r.closed,r.host_hash FROM sip.members m JOIN sip.rooms r ON r.code=m.room JOIN sip.guests g ON g.id=m.guest_id WHERE m.guest_id=${g} OR (${u?.id??null}::text IS NOT NULL AND g.user_id=${u?.id??null}) ORDER BY r.created_at DESC LIMIT 12`;
-  return json({user:u,draftOwner:g,notes,rooms:rooms.map(({host_hash,...r})=>({...r,isHost:u?.role==='admin'}))});
+  const rooms=await sql`SELECT r.code,r.name,r.step,r.closed,(r.settings - 'redStory') AS settings FROM sip.members m JOIN sip.rooms r ON r.code=m.room JOIN sip.guests g ON g.id=m.guest_id WHERE m.guest_id=${g} OR (${u?.id??null}::text IS NOT NULL AND g.user_id=${u?.id??null}) ORDER BY r.created_at DESC LIMIT 12`;
+  return json({user:u,draftOwner:g,notes,rooms:rooms.map(r=>({...r,isHost:u?.role==='admin'}))});
  }
  if(p==='auth/logout'&&method==='POST'){const t=e.cookies.get('sip_session');if(t)await sql`DELETE FROM sip.sessions WHERE token_hash=${hash(t)}`;e.cookies.delete('sip_session',{path:'/'});e.cookies.delete('sip_guest',{path:'/'});return json({ok:true});}
  if((p==='auth/register'||p==='auth/login')&&method==='POST'){
-  const c=credentials.parse(b);const normalized=c.username.toLocaleLowerCase('de-DE');await rate(e,'auth-network',200);await rate(e,'auth-account:'+normalized,10);const g=await guest(e);let u:any;
+  const c=credentials.parse(b);const normalized=c.username.toLocaleLowerCase('de-DE');await rate(e,'auth-network',200);await rate(e,'auth-account:'+normalized,10);let u:any;
   if(p.endsWith('register')){
    const existing=await sql`SELECT id FROM sip.users WHERE normalized=${normalized}`;if(existing[0])error(409,'Dieser Username ist schon vergeben. Probier einen anderen.');
    const id=randomUUID();const pass=passwordHash(c.password);
    const rows=await sql`INSERT INTO sip.users(id,username,normalized,password) VALUES(${id},${c.username},${normalized},${pass}) ON CONFLICT(normalized) DO NOTHING RETURNING id,username`;if(!rows[0])error(409,'Dieser Username ist schon vergeben.');u=rows[0];
   } else {const rows=await sql`SELECT * FROM sip.users WHERE normalized=${normalized}`;if(!rows[0]){passwordHash(c.password);error(401,'Username oder Passwort stimmt nicht.');}if(!verifyPassword(c.password,rows[0].password))error(401,'Username oder Passwort stimmt nicht.');u=rows[0];}
-  // Only attach an anonymous guest. A previous account can never be reassigned.
+  // Keep anonymous notes on signup; rotate guest identity when switching accounts.
+  const g=await guest(e,u.id);
   await sql`UPDATE sip.guests SET user_id=${u.id} WHERE id=${g} AND (user_id IS NULL OR user_id=${u.id})`;
   const t=token();await sql`INSERT INTO sip.sessions(token_hash,user_id,expires_at) VALUES(${hash(t)},${u.id},now()+interval '30 days')`;setCookie(e,'sip_session',t);return json({user:{id:u.id,username:u.username,role:u.role||'member'}});
  }
@@ -42,7 +43,7 @@ async function dispatch(e:RequestEvent){
  }
  const match=p.match(/^rooms\/([A-Z2-9]{6})(?:\/(join|advance|stream|notes|settings|members))?$/);
  if(match){const [,code,action]=match;
-  if(!action&&method==='GET'){const r=await room(code);const m=await participant(e,code);const t=e.cookies.get('sip_host_'+code);const u=await user(e);const isHost=u?.role==='admin';if(isHost&&!m){const g=await guest(e);await sql`INSERT INTO sip.members(room,guest_id,name) VALUES(${code},${g},'Host') ON CONFLICT DO NOTHING`;}return json({room:publicRoom(r,isHost),member:m?{name:m.name}:isHost?{name:'Host'}:null,isHost});}
+  if(!action&&method==='GET'){const r=await room(code);const m=await participant(e,code);const u=await user(e);const isHost=u?.role==='admin';if(isHost&&!m){const g=await guest(e);await sql`INSERT INTO sip.members(room,guest_id,name) VALUES(${code},${g},'Host') ON CONFLICT DO NOTHING`;}return json({room:publicRoom(r,isHost),member:m?{name:m.name}:isHost?{name:'Host'}:null,isHost});}
   if(action==='join'&&method==='POST'){
    await rate(e,'join',200);const r=await room(code);if(r.closed)error(409,'Dieses Tasting ist beendet. Deine bisherigen Notizen findest du unter „Notizen“.');const name=z.string().trim().min(1,'Gib bitte deinen Namen ein.').max(40,'Dein Name darf höchstens 40 Zeichen haben.').parse(b.name);const g=await guest(e);
    await sql.transaction([sql`INSERT INTO sip.members(room,guest_id,name) VALUES(${code},${g},${name}) ON CONFLICT(room,guest_id) DO UPDATE SET name=excluded.name`,sql`INSERT INTO sip.events(room,type,payload,request_id) VALUES(${code},'ParticipantJoined','{}'::jsonb,${randomUUID()})`]);return json({room:publicRoom(r)});
@@ -64,7 +65,7 @@ async function dispatch(e:RequestEvent){
    await sql`INSERT INTO sip.notes(guest_id,room,wine,data) VALUES(${g},${code},${wine},${JSON.stringify(data)}::jsonb) ON CONFLICT(guest_id,room,wine) DO UPDATE SET data=excluded.data,updated_at=now()`;return json({ok:true});
   }
   if(action==='stream'&&method==='GET'){
-   const roomRecord=await room(code);const viewer=await user(e);const allowHost=viewer?.role==='admin';const membership=await participant(e,code);if(!membership)error(403,'Tritt zuerst dem Tasting bei.');const g=membership.guest_id;
+   await room(code);const viewer=await user(e);const allowHost=viewer?.role==='admin';const membership=await participant(e,code);if(!membership)error(403,'Tritt zuerst dem Tasting bei.');
    let cursor=Number(e.request.headers.get('last-event-id')||e.url.searchParams.get('cursor')||0);if(!Number.isSafeInteger(cursor)||cursor<0)cursor=0;const enc=new TextEncoder();let timer:ReturnType<typeof setTimeout>;let cancelled=false;
    const stream=new ReadableStream({async start(controller){const started=Date.now();const send=(s:string)=>{if(!cancelled)controller.enqueue(enc.encode(s));};
     const poll=async()=>{if(cancelled)return;try {const events=await sql`SELECT id,type,payload FROM sip.events WHERE room=${code} AND id>${cursor} ORDER BY id LIMIT 100`;for(const event of events){if(event.payload.settings&&!allowHost){event.payload={...event.payload,settings:{...event.payload.settings}};delete event.payload.settings.redStory;}cursor=Number(event.id);send(`id: ${cursor}\nevent: tasting\ndata: ${JSON.stringify(event)}\n\n`);}send(': keepalive\n\n');if(Date.now()-started>22000){cancelled=true;controller.close();return;}timer=setTimeout(poll,1000);}catch{cancelled=true;controller.close();}};await poll();},cancel(){cancelled=true;clearTimeout(timer);}});
