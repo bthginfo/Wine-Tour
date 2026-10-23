@@ -23,7 +23,7 @@ async function dispatch(e:RequestEvent){
  }
  if(p==='auth/logout'&&method==='POST'){const t=e.cookies.get('sip_session');if(t)await sql`DELETE FROM sip.sessions WHERE token_hash=${hash(t)}`;e.cookies.delete('sip_session',{path:'/'});e.cookies.delete('sip_guest',{path:'/'});return json({ok:true});}
  if((p==='auth/register'||p==='auth/login')&&method==='POST'){
-  await rate(e,'auth',15);const c=credentials.parse(b);const normalized=c.username.toLocaleLowerCase('de-DE');const g=await guest(e);let u:any;
+  const c=credentials.parse(b);const normalized=c.username.toLocaleLowerCase('de-DE');await rate(e,'auth-network',200);await rate(e,'auth-account:'+normalized,10);const g=await guest(e);let u:any;
   if(p.endsWith('register')){
    const existing=await sql`SELECT id FROM sip.users WHERE normalized=${normalized}`;if(existing[0])error(409,'Dieser Username ist schon vergeben. Probier einen anderen.');
    const id=randomUUID();const pass=passwordHash(c.password);
@@ -43,7 +43,7 @@ async function dispatch(e:RequestEvent){
  if(match){const [,code,action]=match;
   if(!action&&method==='GET'){const r=await room(code);const m=await participant(e,code);const t=e.cookies.get('sip_host_'+code);const isHost=!!t&&hash(t)===r.host_hash;return json({room:publicRoom(r,isHost),member:m?{name:m.name}:null,isHost});}
   if(action==='join'&&method==='POST'){
-   await rate(e,'join',40);const r=await room(code);if(r.closed)error(409,'Dieses Tasting ist beendet. Deine bisherigen Notizen findest du unter „Notizen“.');const name=z.string().trim().min(1).max(40).parse(b.name);const g=await guest(e);
+   await rate(e,'join',200);const r=await room(code);if(r.closed)error(409,'Dieses Tasting ist beendet. Deine bisherigen Notizen findest du unter „Notizen“.');const name=z.string().trim().min(1).max(40).parse(b.name);const g=await guest(e);
    await sql.transaction([sql`INSERT INTO sip.members(room,guest_id,name) VALUES(${code},${g},${name}) ON CONFLICT(room,guest_id) DO UPDATE SET name=excluded.name`,sql`INSERT INTO sip.events(room,type,payload,request_id) VALUES(${code},'ParticipantJoined','{}'::jsonb,${randomUUID()})`]);return json({room:publicRoom(r)});
   }
   if(action==='members'&&method==='GET'){await host(e,code);return json({members:await sql`SELECT name,joined_at FROM sip.members WHERE room=${code} ORDER BY joined_at`});}

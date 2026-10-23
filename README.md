@@ -40,7 +40,7 @@ The new tables live exclusively in schema `sip`. The existing Wine Atlas schema 
 
 ## Security and practical limits
 
-Passwords use Node scrypt with a random salt. Random account tokens are stored only as SHA-256 hashes, with a 30-day expiry. Cookies are HttpOnly, SameSite=Lax, and Secure on HTTPS. Mutation routes check Origin. Schema validation bounds input sizes; login, join and room creation are database rate limited. Host and record ownership checks run at the server boundary, including SSE membership. API responses are non-cacheable.
+Passwords use Node scrypt with a random salt. Random account tokens are stored only as SHA-256 hashes, with a 30-day expiry. Cookies are HttpOnly, SameSite=Lax, and Secure on HTTPS. Mutation routes check Origin. Schema validation bounds input sizes; login, join and room creation are database rate limited. Auth has both an account-specific limit and a larger network limit so guests sharing event Wi-Fi can each create an account. Host and record ownership checks run at the server boundary, including SSE membership. API responses are non-cacheable.
 
 Username-only identity has no email-based password recovery. Host capability is tied to the creating browser. Do not clear that browser's cookies before the event. A public room code is an invitation, not an identity check; anyone receiving it can join. Closing a room prevents new joins but preserves existing members' access and notes.
 
