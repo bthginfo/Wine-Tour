@@ -1,0 +1,11 @@
+CREATE SCHEMA IF NOT EXISTS sip;
+CREATE TABLE IF NOT EXISTS sip.users (id text PRIMARY KEY, username text NOT NULL, normalized text UNIQUE NOT NULL, password text NOT NULL, created_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE IF NOT EXISTS sip.sessions (token_hash text PRIMARY KEY, user_id text NOT NULL REFERENCES sip.users(id), expires_at timestamptz NOT NULL);
+CREATE TABLE IF NOT EXISTS sip.guests (id text PRIMARY KEY, user_id text REFERENCES sip.users(id), created_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE IF NOT EXISTS sip.rooms (code text PRIMARY KEY, name text NOT NULL, host_hash text NOT NULL, step integer NOT NULL DEFAULT 0, version integer NOT NULL DEFAULT 0, closed boolean NOT NULL DEFAULT false, settings jsonb NOT NULL DEFAULT '{}', created_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE IF NOT EXISTS sip.members (room text REFERENCES sip.rooms(code), guest_id text REFERENCES sip.guests(id), name text NOT NULL, joined_at timestamptz NOT NULL DEFAULT now(), PRIMARY KEY(room,guest_id));
+CREATE TABLE IF NOT EXISTS sip.events (id bigserial PRIMARY KEY, room text REFERENCES sip.rooms(code), type text NOT NULL, payload jsonb NOT NULL, request_id text UNIQUE NOT NULL, created_at timestamptz NOT NULL DEFAULT now());
+CREATE INDEX IF NOT EXISTS sip_events_room_id ON sip.events(room,id);
+CREATE TABLE IF NOT EXISTS sip.notes (guest_id text REFERENCES sip.guests(id), room text REFERENCES sip.rooms(code), wine text NOT NULL, data jsonb NOT NULL, updated_at timestamptz NOT NULL DEFAULT now(), PRIMARY KEY(guest_id,room,wine));
+CREATE TABLE IF NOT EXISTS sip.cellar (id text PRIMARY KEY, user_id text REFERENCES sip.users(id), data jsonb NOT NULL, updated_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE IF NOT EXISTS sip.ratelimits (key text PRIMARY KEY, count integer NOT NULL, resets_at timestamptz NOT NULL);

@@ -1,45 +1,39 @@
 {
-  "name": "vine-atlas",
-  "private": true,
+  "name": "sip-happens",
   "version": "1.0.0",
-  "type": "module",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && tsc -p tsconfig.server.json --pretty false && npm run validate:release && vite build",
-    "typecheck": "tsc -b --pretty false && tsc -p tsconfig.server.json --pretty false",
-    "validate:catalog": "node scripts/validate-catalog.mjs",
-    "validate:learning": "node scripts/validate-learning.mjs",
-    "validate:security": "node scripts/validate-security.mjs",
-    "validate:release": "npm run validate:catalog && npm run validate:learning && npm run validate:security",
-    "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate",
-    "db:seed": "tsx scripts/seed-database.ts",
-    "db:admin": "tsx scripts/create-admin.ts",
-    "db:check": "tsx scripts/check-database.ts"
+    "dev": "node --env-file-if-exists=.env node_modules/vite/bin/vite.js",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "db:migrate": "node --env-file=.env scripts/migrate.mjs",
+    "test": "playwright test"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
   "dependencies": {
-    "@vercel/blob": "^2.7.0",
-    "@vercel/functions": "^3.9.1",
-    "@vitejs/plugin-react": "latest",
-    "drizzle-orm": "^0.45.2",
-    "leaflet": "latest",
-    "lucide-react": "latest",
-    "pg": "^8.22.0",
-    "qrcode.react": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-leaflet": "latest",
-    "react-router-dom": "latest"
+    "@neondatabase/serverless": "^1.2.0",
+    "@sveltejs/adapter-vercel": "^7.0.1",
+    "@sveltejs/kit": "^3.1.0",
+    "@sveltejs/vite-plugin-svelte": "^7.3.1",
+    "lucide-svelte": "^1.0.1",
+    "qrcode": "^1.5.4",
+    "svelte": "^5.57.2",
+    "svelte-check": "^4.7.7",
+    "typescript": "^6.0.3",
+    "vite": "^8.3.5",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
-    "@types/leaflet": "latest",
-    "@types/node": "24.10.13",
-    "@types/pg": "^8.21.0",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
-    "drizzle-kit": "^0.31.10",
-    "tsx": "^4.23.11",
-    "typescript": "5.9.3",
-    "vite": "latest"
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^26.6.5",
+    "@types/qrcode": "^1.5.6"
+  },
+  "imports": {
+    "#lib/*": "./src/lib/*"
   }
 }

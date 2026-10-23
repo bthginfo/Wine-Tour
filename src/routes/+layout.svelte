@@ -1,0 +1,29 @@
+<script lang="ts">
+ import {t} from '#lib/i18n.ts';
+ import '../app.css';import {page} from '$app/state';import {goto} from '$app/navigation';import {onMount} from 'svelte';import Icon from '#lib/components/Icon.svelte';import Modal from '#lib/components/Modal.svelte';import {session,refreshSession,ui,api} from '#lib/client.svelte.ts';
+ let {children}=$props();let hydrated=$state(false);let eventName=$state('Ein Abend, vier Weine');let code=$state('');let busy=$state(false);let error=$state('');
+ const links=[{href:'/',name:'Übersicht',icon:'home'},{href:'/entdecken',name:'Entdecken',icon:'compass'},{href:'/notizen',name:'Meine Notizen',icon:'notes'},{href:'/keller',name:'Mein Weinkeller',icon:'cellar'}];
+ const tasting=$derived(page.url.pathname.startsWith('/tasting/')||page.url.pathname.startsWith('/host/'));
+ onMount(()=>{hydrated=true;refreshSession();});
+ async function create(){busy=true;error='';try{const d=await api('rooms',{name:eventName});ui.createOpen=false;await refreshSession();await goto('/host/'+d.code);}catch(e){error=(e as Error).message;}busy=false;}
+ function join(){error='';const c=code.trim().toUpperCase().replace(/\s/g,'');if(!/^[A-Z2-9]{6}$/.test(c)){error='Der Tasting-Code hat 6 Zeichen.';return;}ui.joinOpen=false;goto('/tasting/'+c);}
+</script>
+<svelte:head><title>{t('m_8e320d4735')}</title><meta name="description" content="Weintastings gemeinsam erleben. Entdecke Regionen, lerne die Menschen hinter den Weinen kennen und behalte deine eigenen Verkostungsnotizen."/></svelte:head>
+<a href="#main" class="skip-link">{t('m_e2b85f019f')}</a>
+<div class:immersive={tasting} class="app-shell" data-ready={hydrated} inert={!hydrated}>
+ <aside class="sidebar">
+  <a class="brand" href="/"><span class="brand-symbol"><Icon name="wine" size={25}/></span><span>{t('m_958c0dd838')}<span class="brand-dot">.</span></span></a>
+  <div class="workspace-label">{t('m_7f03923f99')}</div>
+  <nav aria-label={t('m_1970d9e843')}>{#each links as link}<a href={link.href} class:active={link.href==='/'?page.url.pathname==='/':page.url.pathname.startsWith(link.href)}><Icon name={link.icon}/><span>{link.name}</span>{#if link.icon==='notes'&&session.notes.length}<span class="nav-count">{session.notes.length}</span>{/if}</a>{/each}</nav>
+  <div class="sidebar-invite"><span class="mini-icon"><Icon name="users"/></span><strong>{t('m_592895e815')}</strong><p>{t('m_ce9471cad4')}<br/>{t('m_17f86efa3a')}</p><button class="text-button" onclick={()=>{error='';ui.createOpen=true;}}>{t('m_07701a8057')} <Icon name="external" size={17}/></button></div>
+  <a href="/konto" class="profile"><span class="avatar">{session.user?.username?.slice(0,1).toUpperCase()||'S'}</span><span><strong>{session.user?.username||'Schön, dass du da bist'}</strong><small>{session.user?'Dein Konto':'Ganz entspannt entdecken'}</small></span><Icon name="next" size={16}/></a>
+ </aside>
+ <div class="main-column">
+  <header class="topbar"><a href="/" class="mobile-brand"><Icon name="wine" size={23}/> {t('m_958c0dd838')}<span>.</span></a><div class="breadcrumb"><span>{t('m_6bd3ec741b')}</span><Icon name="next" size={13}/><span>{tasting?'Tasting':page.url.pathname.startsWith('/entdecken')?'Entdecken':page.url.pathname.startsWith('/notizen')?'Meine Notizen':page.url.pathname.startsWith('/keller')?'Mein Weinkeller':page.url.pathname.startsWith('/konto')?'Dein Konto':'Übersicht'}</span></div><div class="top-actions"><a class="search-shortcut" href="/entdecken"><Icon name="search" size={17}/><span>{t('m_87ff9cd72d')}</span></a><button class="button subtle compact" onclick={()=>{error='';ui.joinOpen=true;}}><Icon name="qr" size={16}/><span>{t('m_3343d5e09d')}</span></button><a href="/konto" class="avatar small-avatar" aria-label={t('m_a7cdda91da')}>{session.user?.username?.slice(0,1).toUpperCase()||'S'}</a></div></header>
+  <main id="main">{@render children()}</main>
+  <footer class="site-footer"><span>{t('m_7e0bbb4f9a')}</span><a href="/entdecken/quellen">{t('m_f0666c5067')}</a><a href="/konto#daten">{t('m_ac23494317')}</a><span>{t('m_3e1ee75c0b')}</span></footer>
+ </div>
+</div>
+{#if !tasting}<nav class="bottom-nav" aria-label={t('m_23f0292a1d')}>{#each links as link}<a href={link.href} class:active={link.href==='/'?page.url.pathname==='/':page.url.pathname.startsWith(link.href)}><Icon name={link.icon} size={21}/><span>{link.icon==='cellar'?'Weinkeller':link.icon==='notes'?'Notizen':link.name}</span></a>{/each}</nav>{/if}
+<Modal bind:open={ui.createOpen} title={t('m_b667ecd5d1')}><p class="muted">{t('m_dedb2db874')}</p><form onsubmit={(e)=>{e.preventDefault();create();}}><label>{t('m_da85c7b39a')}<input bind:value={eventName} required maxlength="80"/></label><div class="callout"><Icon name="help"/><p>{t('m_cc6aea9289')}</p></div>{#if error}<p class="error" role="alert">{error}</p>{/if}<button class="button primary full" disabled={busy}>{busy?'Wird vorbereitet …':'Tasting erstellen'}<Icon name="right" size={18}/></button></form></Modal>
+<Modal bind:open={ui.joinOpen} title={t('m_7ea62773b3')}><p class="muted">{t('m_5ed3d089c3')}</p><form onsubmit={(e)=>{e.preventDefault();join();}}><label>{t('m_cbb8ed2da8')}<input class="code-input" bind:value={code} placeholder={t('m_8c7e313268')} maxlength="8" autocomplete="off" required/></label>{#if error}<p class="error" role="alert">{error}</p>{/if}<button class="button primary full">{t('m_76e64e6548')}<Icon name="right" size={18}/></button></form></Modal>
