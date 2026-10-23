@@ -47,9 +47,9 @@ Username-only identity has no email-based password recovery. The admin account c
 
 ## Content and imagery
 
-Editorial articles are original German summaries. Research links remain in the data, outside the reading and tasting interface. The first three wines are the specified von Winning Secco Rosé, the regular JUWEL Grauburgunder, and the Margarethenhof Ayler Riesling Schieferstein feinherb. No vintage or fourth wine is invented. Numerical wine analyses are omitted until actual bottles are known.
+Editorial articles are original German summaries. Research links remain in the data, outside the reading and tasting interface. The first three wines are the specified von Winning Secco Rosé, the dry JUWEL Rosé (Spätburgunder), and the Margarethenhof Ayler Riesling Schieferstein feinherb. No vintage or fourth wine is invented. Numerical wine analyses are omitted until actual bottles are known.
 
-Entdecken includes 431 curated articles: 223 regions across 31 wine countries, 149 grape/variety-name topics, 39 producers, 14 wine styles and six practical knowledge topics. It covers all 222 named regions from the old atlas plus Saar. The legacy grape names resolve to reviewed topics; Malmsey is correctly explained with Madeira wine instead of treated as a distinct botanical variety. Old user records are not migrated. Research remains in article data and is not shown as source links in the reading interface. Edited host background is excluded from public content responses and live events.
+Entdecken includes 432 curated articles: 223 regions across 31 wine countries, 149 grape/variety-name topics, 39 producers, 14 wine styles and six practical knowledge topics. It covers all 222 named regions from the old atlas plus Saar. The legacy grape names resolve to reviewed topics; Malmsey is correctly explained with Madeira wine instead of treated as a distinct botanical variety. Old user records are not migrated. Research remains in article data and is not shown as source links in the reading interface. Edited host background is excluded from public content responses and live events.
 
 The international German catalogue lives in `src/lib/locales/de/atlas/`. Stable slugs and ISO country codes separate identity from translated labels. Country/category filters, accent-tolerant aliases, 36-item pages and remembered return positions keep the larger library usable on mobile. Common background is optional; grape profiles also include a concrete regional example. No numerical taste scores are assigned to unverified wines or grape varieties.
 
@@ -66,7 +66,7 @@ The app currently exposes German only. Static interface copy lives in `src/lib/l
 
 ## Editorial tools and appearance
 
-`/admin` supports the home introduction and hero, all 431 articles (participant copy, private host background, image credit, separate desktop/mobile focal positions and full-image/cover display), and all four wine records (metadata, tasting prompt and bottle photograph). An image library accepts JPG, PNG, WebP and AVIF up to 3 MB. Uploads are decoded, bounded to 24 megapixels, resized and re-encoded to WebP before storage; arbitrary SVG/HTML uploads are rejected. The application caps its media library at 50 MB.
+`/admin` supports the home introduction and hero, all 432 articles (participant copy, private host background, image credit, separate desktop/mobile focal positions and full-image/cover display), and all four wine records (metadata, tasting prompt and bottle photograph). An image library accepts JPG, PNG, WebP and AVIF up to 3 MB. Uploads are decoded, bounded to 24 megapixels, resized and re-encoded to WebP before storage; arbitrary SVG/HTML uploads are rejected. The application caps its media library at 50 MB.
 
 Editorial changes use a version precondition. A single Postgres statement stores the current record, immutable revision and `ContentPublished` events for open rooms. A stale editor receives 409 rather than overwriting newer work. Active tasting clients reload their appropriate public/admin content after publishing. No HTML from the editor is executed.
 
@@ -76,7 +76,7 @@ The existing Neon database is on its `free_v3` plan. The dedicated `sip-happens-
 
 ## Content depth and motion
 
-The 34 original tasting/core articles retain their expanded reader copy. All 431 articles have three explanatory sections, with visual profiles, name explanations and regional context in the international catalogue. The 18 tasting and core knowledge topics have expanded host background. Guided tasting keeps those sections in an optional disclosure; the knowledge pages show them in full. Both render through `ArticleBody`. Paragraphs, sections, visual selection and host copy remain editable from `/admin`.
+The 34 original tasting/core articles retain their expanded reader copy. All 432 articles have three explanatory sections, with visual profiles, name explanations and regional context in the international catalogue. The 18 tasting and core knowledge topics have expanded host background. Guided tasting keeps those sections in an optional disclosure; the knowledge pages show them in full. Both render through `ArticleBody`. Paragraphs, sections, visual selection and host copy remain editable from `/admin`.
 
 `learning/` contains native SVG/CSS explanations for skin contact, pressure, Pinot colours, aromas, sugar/acidity, fermentation, closures, temperature, label reading and storage. Region locators use a Natural Earth 1:50m Germany outline and place coordinates looked up through OpenStreetMap Nominatim. These are point locators, not invented wine-region boundaries. Three verified grape photographs replace generic illustrations for Pinot Noir, Pinot Gris and Riesling. Original URLs, creators and licences are recorded in `educational-media.json`. Bottle images can be opened at a readable size without leaving notes.
 
@@ -88,7 +88,7 @@ A participant who is still reading or writing when the host ends the tasting rec
 
 The completion screen hides the wine navigation and sidebar, and replaces the disabled forward action with a useful destination. Hosts can close the tasting from the fixed controls. Room-specific wine names and label details use a shared resolver in the tasting, note list/search and PDF. Native dialogs have explicit accessible names, active navigation exposes `aria-current`, and the theme toggle also works when persistent browser storage is blocked.
 
-The expanded Playwright flow validates the structure, editorial schema and related links of all 431 articles, and checks all 34 original articles plus 12 international examples at mobile and desktop widths, including image loading, educational controls by keyboard, reduced motion, offline recovery, note editing during a host advance, bottle zoom/focus return, tasting completion, signup/export and cellar editing/deletion.
+The expanded Playwright flow validates the structure, editorial schema and related links of all 432 articles, and checks all 34 original articles plus 12 international examples at mobile and desktop widths, including image loading, educational controls by keyboard, reduced motion, offline recovery, note editing during a host advance, bottle zoom/focus return, tasting completion, signup/export and cellar editing/deletion.
 
 ## Personal tasting PDF
 
@@ -110,3 +110,5 @@ Desktop and tablet navigation has a collapsible icon rail. The browser remembers
 The editor can search the complete catalogue and edit the short factual profiles as well as text and imagery. Articles with an illustration and no photograph can be saved without an artificial image source. Plain research links remain metadata; image credits remain available under Bildnachweise.
 
 Knowledge navigation refreshes published editorial records, so returning to an article does not keep an older text revision in the app. A small optional glossary explains Ausbau and Cuvée where those words occur, before the longer reading sections.
+
+The second tasting slot uses JUWEL Rosé (Spätburgunder, dry); its stable `juwel` note ID and the 23-step sequence are preserved. A comparison of the two rosés connects carbonation, colour and sweetness. Host background includes 64 titled topics, grouped by story, region and producer. Host-only read-aloud uses the device’s German speech voices, starts on explicit play and cancels on stop or slide/navigation changes. No external TTS service is provisioned.

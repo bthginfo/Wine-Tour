@@ -7,7 +7,7 @@ import type{TastingBook,PdfArticle,TastingNote,ImageCredit}from'./model';
 const W=595.28,H=841.89,M=46,CW=W-M*2,BOTTOM=785;
 const c=(s:string)=>rgb(parseInt(s.slice(1,3),16)/255,parseInt(s.slice(3,5),16)/255,parseInt(s.slice(5,7),16)/255);
 const ink=c('#263c30'),muted=c('#607060'),paper=c('#fbfbf7'),line=c('#dde3d6'),forest=c('#233d30'),lime=c('#dce9c3'),white=rgb(1,1,1),rose=c('#eedbd6'),gold=c('#b18a38');
-const tones=[c('#e9d1d0'),c('#e1e8ce'),c('#eee2bd'),c('#e4d6dd')];
+const tones=[c('#e9d1d0'),c('#f0dad4'),c('#eee2bd'),c('#e4d6dd')];
 const tidy=(s:string)=>s.normalize('NFC').replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/g,'').replace(/\t/g,'    ');
 const segmenter=new Intl.Segmenter('de',{granularity:'grapheme'});
 const chars=(s:string)=>Array.from(segmenter.segment(s),x=>x.segment);
@@ -54,6 +54,9 @@ class BookLayout{
    const colors=kind==='skins'?[c('#dfd59d'),c('#d9a09a'),c('#8b4960')]:kind==='pinot'?[c('#745268'),c('#c69c9d'),c('#c9d298')]:[c('#dfd59d'),c('#d9a09a'),c('#dfd59d')];
    for(let i=0;i<3;i++){const cell=w/3,cx=x+cell*(i+.5);if(kind==='pinot'){for(const [dx,dy]of[[-8,0],[8,0],[0,14]])this.circle(cx+dx,y+35+dy,9,colors[i]);}else this.glass(cx-17,y+14,34,colors[i],kind==='bubbles'?i*3:0);this.text(labels[i],cx-this.width(labels[i],9,this.fonts.bold)/2,y+75,9,this.fonts.bold);const lines=this.wrap(detail[i],7.8,cell-12);lines.forEach((l,n)=>this.text(l,cx-this.width(l,7.8)/2,y+94+n*10,7.8,this.fonts.regular,muted));}
    if(kind==='bubbles')this.text('Überdruck bei 20 °C · vereinfachter Vergleich',x+pad,y+h-14,6.8,this.fonts.regular,muted);
+  }else if(kind==='rose-compare'){
+   for(let i=0;i<2;i++){const cell=w/2,left=x+i*cell;this.glass(left+16,y+19,35,c('#d9a09a'),i===0?5:0);const name=i===0?'Secco Rosé':'JUWEL Rosé';const detail=i===0?'Perlwein · halbtrocken':'Stillwein · trocken';this.text(name,left+68,y+25,11,this.fonts.heading);this.wrap(detail,8.2,cell-78).forEach((l,n)=>this.text(l,left+68,y+46+n*12,8.2,this.fonts.regular,muted));}
+   this.text('Beide aus Spätburgunder · Farbe und Süße getrennt betrachten',x+pad,y+101,8,this.fonts.regular,muted);
   }else if(kind==='aromas'){
    const families=[['Zitrus','Zitrone · Grapefruit · Limette'],['Helle Frucht','Apfel · Birne · Pfirsich'],['Rote Frucht','Erdbeere · Kirsche · Himbeere'],['Blüten','Rose · Akazie · Holunderblüte'],['Kräuter','Gras · Heu · Kräuter'],['Würze','Pfeffer · Vanille · Nelke']];
    families.forEach(([name,words],i)=>{const left=x+pad+(i%2)*(w/2),top=y+13+Math.floor(i/2)*38;this.circle(left+3,top+6,3,i===2?c('#c2898b'):forest);this.text(name,left+13,top,9,this.fonts.bold);this.text(words,left+13,top+15,7.4,this.fonts.regular,muted);});

@@ -1,0 +1,62 @@
+{
+  "article": {
+    "slug": "spaetburgunder-zwei-roses",
+    "category": "Weinwissen",
+    "title": "Spätburgunder, zweimal Rosé",
+    "eyebrow": "Die gleiche Traube im zweiten Glas",
+    "intro": "Unser Secco und der JUWEL Rosé werden beide aus Spätburgunder gemacht. Trotzdem gibt es im Glas einiges zu vergleichen.",
+    "paragraphs": [
+      "Spätburgunder kennen wir schon aus dem Secco. Auch Juliane Eller verwendet diese dunkle Rebsorte für ihren Rosé. Pinot Noir ist ihr französischer Name. Für die rosa Farbe braucht es keine rosa Traube: Der weitgehend helle Saft nimmt beim Kontakt mit den dunklen Schalen etwas Farbe auf.",
+      "Beim zweiten Wein wechseln wir von der Pfalz nach Rheinhessen und von von Winning zu JUWEL. Aus Perlwein wird Stillwein. Dass beide Weine aus derselben Sorte gemacht sind, macht die Unterschiede übersichtlich. Gleiche Traube bedeutet aber keine gleiche Rezeptur: Standort, Traubenreife und Kellerarbeit wirken ebenfalls mit."
+    ],
+    "sections": [
+      {
+        "title": "Prickeln ist ein eigener Eindruck",
+        "body": "Beim Secco gehört spürbare Kohlensäure zum Stil. Sie bringt Bewegung ins Glas und prickelt auf der Zunge. Der JUWEL ist ein Stillwein. Still bedeutet dabei nicht, dass kein einziges Bläschen auftreten darf. Es beschreibt die Weinart, nicht eine Garantie für völlige Gasfreiheit. Frische Säure und Prickeln lassen sich deshalb als zwei Eindrücke getrennt beschreiben."
+      },
+      {
+        "title": "Rosa verrät noch keinen Geschmack",
+        "body": "Ein kräftigeres Rosa kann unter anderem mit der Traube und dem Kontakt zu ihren Schalen zusammenhängen. Es misst weder Süße noch Qualität. Der JUWEL ist als trocken beschrieben, der Secco im Hersteller-Shop als halbtrocken. Für unseren Vergleich helfen diese Angaben mehr als eine Vermutung anhand der Farbe. Wie süß ein Schluck wirkt, ist wiederum eine eigene Beobachtung."
+      },
+      {
+        "title": "Beeren im Duft, Süße auf der Zunge",
+        "body": "JUWEL nennt Erdbeere und schwarze Johannisbeere als Duftvergleiche. Solche Beschreibungen meinen Erinnerungen an Früchte. Sie sind keine Zutatenliste und keine Vorgabe für deine Notizen. Ein Wein kann an Beeren erinnern und trotzdem trocken schmecken. Beim anschließenden feinherben Riesling bleibt diese Trennung hilfreich: Dort können Frucht, Süße und Säure ganz anders zusammenspielen."
+      }
+    ],
+    "host": [
+      "Die beiden ersten Weine teilen sich Rebsorte und Farbfamilie. Spätburgunder ist eine dunkle Sorte, deren Saft weitgehend hell ist. Farbe gelangt vor allem über den Kontakt mit den Beerenschalen in den Wein. Ein roséfarbener Grundwein kann später als Stillwein abgefüllt oder zu Perlwein verperlt werden. Rosé und Secco beantworten deshalb verschiedene Fragen: Farbe und Weinart.",
+      "Beim Vergleich verändern sich mehrere Dinge gleichzeitig. Neben der Kohlensäure wechseln Betrieb und Region. Dazu können Unterschiede in Reife, Pressung, Gärung und Ausbau kommen. Aus den zwei Gläsern lässt sich also nicht ableiten, dass jeder Unterschied allein von der Kohlensäure stammt. Die gemeinsame Rebsorte ist ein guter Bezugspunkt, aber kein kontrollierter Versuch.",
+      "Prickeln, Säure und Süße sind sinnvolle getrennte Beschreibungen. Kohlensäure ist im Perlwein deutlich spürbar. Die Weinsäuren beeinflussen den sauren beziehungsweise frischen Eindruck; verbleibender Zucker kann Süße beitragen. Die Wahrnehmung entsteht aus dem Zusammenspiel und ist nicht an einer einzelnen Zahl oder an der Zahl sichtbarer Bläschen abzulesen.",
+      "Die aktuellen Produktseiten nennen JUWEL Rosé trocken und von Winning Secco Rosé halbtrocken. Jahrgangsbezogene Analysewerte übernehmen wir erst nach Abgleich mit den ausgeschenkten Flaschen. Gerade beim Vergleich verschiedener Weinarten sind Geschmackswörter eine Orientierung und kein Ersatz für die konkrete Kennzeichnung. Die Angaben trocken und halbtrocken gehören zudem nicht zu einer Qualitätsrangfolge.",
+      "Der Übergang zum Riesling führt den Vergleich weiter: Jetzt ändern sich Traube, Region und Farbfamilie. Feinherb ist keine gesetzlich festgelegte Restzuckerspanne. Die Säure des Rieslings kann eine vorhandene Süße anders wirken lassen. Eine Notiz wie mehr Pfirsich im Duft, spürbare Süße, frischer Schluss trennt diese Eindrücke bereits klar, ohne Fachvokabular vorauszusetzen."
+    ],
+    "fact": "Spätburgunder steckt in beiden ersten Weinen. Der eine ist Perlwein, der andere Stillwein.",
+    "image": "",
+    "visual": "rose-compare",
+    "sources": [
+      {"label": "JUWEL · Rosé", "url": "https://juwel-weine.de/products/rose"},
+      {"label": "von Winning · Secco Rosé", "url": "https://shop.von-winning.de/secco-rose/400-l0226"},
+      {"label": "Deutsches Weininstitut · Secco", "url": "https://www.deutscheweine.de/wein-speise/201/secco"},
+      {"label": "Deutsches Weininstitut · Geschmacksrichtungen", "url": "https://www.deutscheweine.de/wein-probieren/195/geschmacksrichtungen"},
+      {"label": "Deutsches Weininstitut · Spätburgunder", "url": "https://www.deutscheweine.de/rebsorte/94/sp%C3%A4tburgunder"}
+    ],
+    "related": ["spaetburgunder", "rose", "secco", "feinherb", "temperatur"],
+    "countries": ["DE"],
+    "aliases": ["Rosé vergleichen", "zwei Rosés", "Stillwein und Perlwein"]
+  },
+  "visual": {
+    "eyebrow": "Gleiche Traube, zwei Weine",
+    "title": "Was fällt dir im Vergleich auf?",
+    "caption": "Beide aus Spätburgunder · Farben schematisch",
+    "groupLabel": "Rosé-Vergleich erkunden",
+    "wines": [
+      {"id": "secco", "fallback": "Secco Rosé", "detail": "Perlwein · halbtrocken"},
+      {"id": "juwel", "fallback": "JUWEL Rosé", "detail": "Stillwein · trocken"}
+    ],
+    "topics": [
+      {"label": "Prickeln", "title": "Bläschen und Säure getrennt wahrnehmen", "body": "Der Secco prickelt, der JUWEL ist ein Stillwein. Wie frisch ein Wein wirkt, hängt auch von seiner Säure ab. Prickeln und Säure können in deinen Notizen getrennt stehen."},
+      {"label": "Farbe", "title": "Der Farbton verrät nicht die Süße", "body": "Dunkle Spätburgunder-Schalen geben Farbe an den hellen Saft ab. Mehr Rosa bedeutet nicht automatisch mehr Süße. Auch ein heller Rosé kann intensiv duften."},
+      {"label": "Süße", "title": "Beeren riechen heißt nicht süß schmecken", "body": "Der JUWEL ist trocken, der Secco wird vom Hersteller als halbtrocken beschrieben. Fruchtnamen helfen beim Riechen. Wie viel Süße du im Mund wahrnimmst, ist eine zweite Frage."}
+    ]
+  }
+}
