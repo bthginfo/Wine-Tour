@@ -40,7 +40,13 @@ test('notes survive leaving the editor, concurrent saves and account switches wi
   expect((await request(g,'auth/login',{username:aName,password})).status).toBe(200);expect((await request(g,'me')).body.notes.find((n:any)=>n.room===code).data.text).toBe('Die letzte Fassung bleibt erhalten.');
   // Completion has one clear host action and no disabled forward button or unrelated wine card.
   const advanced=await request(h,'rooms/'+code+'/advance',{step:22,version:1,requestId:crypto.randomUUID()});expect(advanced.status).toBe(200);await open(h,'/host/'+code);await expect(h.locator('.finish-card')).toBeVisible();await expect(h.locator('.tasting-aside')).toHaveCount(0);await expect(h.locator('.selection-list')).toHaveCount(0);
+  await open(g,'/tasting/'+code+'?wine=rot');await expect(words).toHaveValue('Die letzte Fassung bleibt erhalten.');
   await h.getByRole('button',{name:'Tasting für neue Gäste schließen',exact:true}).click();await expect(h.getByRole('dialog',{name:'Tasting schließen?'})).toBeVisible();await h.getByRole('button',{name:'Tasting schließen',exact:true}).click();await expect(h.locator('.live-badge')).toContainText('Beendet');
+  // Closing announces the PDF without pulling a guest out of their own notes.
+  await expect(g.locator('.live-badge')).toContainText('Beendet');await expect(words).toHaveValue('Die letzte Fassung bleibt erhalten.');await expect(g.locator('.recent-session')).toContainText('Die Weinprobe ist beendet.');
+  // The completion action stays accurate even if the host revisits an earlier chapter afterwards.
+  const closed=(await request(h,'rooms/'+code)).body.room;expect((await request(h,'rooms/'+code+'/advance',{step:0,version:closed.version,requestId:crypto.randomUUID()})).status).toBe(200);
+  await g.setViewportSize({width:320,height:844});expect(await g.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();await g.locator('.tasting-controls').getByRole('button',{name:'Abschluss & PDF',exact:true}).click();await expect(g.locator('.finish-card')).toBeVisible();await expect(g.locator('.tasting-pdf button')).toHaveText('PDF herunterladen');
   expect(errors).toEqual([]);
  }finally{await hc.close();await gc.close();await bc.close();}
 });

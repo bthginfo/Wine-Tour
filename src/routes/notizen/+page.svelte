@@ -1,9 +1,10 @@
 <script lang="ts">
+ import {searchText} from '#lib/search.ts';
  import {tastingWine} from '#lib/tasting-wine.ts';
  import {t} from '#lib/i18n.ts';
  import {session,ui,noteSync,syncPendingNotes} from '#lib/client.svelte.ts';import{getWines}from'#lib/editorial.svelte.ts';const wines=$derived(getWines());import Icon from '#lib/components/Icon.svelte';import WineBottle from '#lib/components/WineBottle.svelte';let search=$state('');
  const allNotes=$derived(session.notes.map(note=>({...note,wineInfo:tastingWine(wines.find(w=>w.id===note.wine)!,note.room_settings||{})})));
- const notes=$derived(allNotes.filter(n=>`${n.wineInfo.name} ${n.wineInfo.producer} ${n.wineInfo.region} ${n.wineInfo.vintage} ${n.data.text} ${n.room_name}`.toLocaleLowerCase('de-DE').includes(search.trim().toLocaleLowerCase('de-DE'))));
+ const notes=$derived(allNotes.filter(n=>searchText(`${n.wineInfo.name} ${n.wineInfo.producer} ${n.wineInfo.region} ${n.wineInfo.vintage} ${n.data.text} ${n.room_name}`).includes(searchText(search.trim()))));
  function download(){const blob=new Blob([JSON.stringify(session.notes,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='meine-tasting-notizen.json';a.click();URL.revokeObjectURL(a.href);}
 </script>
 <svelte:head><title>{t('m_8917f9bf62')}</title></svelte:head>

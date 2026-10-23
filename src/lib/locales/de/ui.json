@@ -293,5 +293,11 @@
   "notes.pendingMany": "{count} Notizen sind auf diesem Gerät gesichert. Sie werden automatisch übertragen, sobald die Verbindung wieder da ist.",
   "tasting.back": "Zurück zur Probe",
   "notes.loadError": "Deine Notizen konnten nicht geladen werden. Bitte versuch es noch einmal.",
-  "notes.reload": "Erneut laden"
+  "notes.reload": "Erneut laden",
+  "tasting.finishedNotice": "Die Weinprobe ist beendet.",
+  "tasting.finishLink": "Abschluss & PDF",
+  "tasting.finishShort": "Abschluss",
+  "tasting.finishedReading": "Du kannst weiter nachlesen und deine Notizen ergänzen. Deine persönliche PDF findest du auf der Abschlussseite.",
+  "catalog.reset": "Alle Artikel anzeigen",
+  "cellar.edit": "Flasche bearbeiten"
 }
