@@ -67,9 +67,27 @@ test('host neural audio pauses, seeks within closed topics, changes voice and st
  await player.getByRole('button',{name:'Stummschalten',exact:true}).click();expect(await audio.evaluate((el:HTMLMediaElement)=>el.volume)).toBe(0);await player.getByRole('button',{name:'Ton einschalten',exact:true}).click();
  await player.getByLabel('Deutsche Stimme',{exact:true}).selectOption('audio:seraphina');await expect(audio).toHaveAttribute('src',/juwel-seraphina/);await expect(player.getByLabel('Abspielposition',{exact:true})).toHaveValue('0');
  await player.getByRole('button',{name:'Hintergrund für den Host vorlesen',exact:true}).click();await expect(player.getByRole('button',{name:'Vorlesen pausieren',exact:true})).toBeVisible();await player.getByRole('button',{name:'Vorlesen stoppen',exact:true}).click();expect(await audio.evaluate((el:HTMLMediaElement)=>el.paused&&el.currentTime===0)).toBe(true);
- await player.getByRole('button',{name:'Hintergrund für den Host vorlesen',exact:true}).click();await expect(player.getByRole('button',{name:'Vorlesen pausieren',exact:true})).toBeVisible();await player.getByLabel('Lautstärke',{exact:true}).evaluate((el:HTMLInputElement)=>{el.value='.4';el.dispatchEvent(new Event('input',{bubbles:true}));});await audio.evaluate(el=>(window as any).__oldHostAudio=el);await page.getByRole('button',{name:'Vorschau weiter',exact:true}).click();expect(await page.evaluate(()=>(window as any).__oldHostAudio.paused)).toBe(true);await expect(page.getByLabel('Lautstärke',{exact:true})).toHaveValue('0.4');
+ await player.getByRole('button',{name:'Hintergrund für den Host vorlesen',exact:true}).click();await expect(player.getByRole('button',{name:'Vorlesen pausieren',exact:true})).toBeVisible();await player.getByLabel('Lautstärke',{exact:true}).evaluate((el:HTMLInputElement)=>{el.value='.4';el.dispatchEvent(new Event('input',{bubbles:true}));});await audio.evaluate((el:HTMLMediaElement)=>(window as any).__oldHostAudio=el);await page.getByRole('button',{name:'Vorschau weiter',exact:true}).click();expect(await page.evaluate(()=>(window as any).__oldHostAudio.paused)).toBe(true);await expect(page.getByLabel('Lautstärke',{exact:true})).toHaveValue('0.4');
  const download=page.waitForEvent('download');await page.getByRole('button',{name:'Host-Texte herunterladen',exact:true}).click();const file=await download;const guide=await readFile((await file.path())!,'utf8');expect(guide.match(/Hinter JUWEL steht Juliane Eller/g)).toHaveLength(1);expect(guide).toContain('### Der Geburtstag stammt aus der Buchhaltung');expect(guide).toContain('### Wie aus Rinde ein Flaschenverschluss wird');
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);expect(errors).toEqual([]);
+});
+
+test('a burst of unchanged content notifications keeps narration playing and loads content once',async({page})=>{
+ await page.addInitScript(()=>{
+  class Events {listeners:Record<string,Function>={};onopen:any;onerror:any;constructor(){(window as any).__publishContent=()=>this.listeners.tasting?.({data:JSON.stringify({type:'ContentPublished'})});}addEventListener(name:string,fn:Function){this.listeners[name]=fn;}close(){}}
+  Object.defineProperty(window,'EventSource',{value:Events,configurable:true});
+ });
+ const original=readCatalog().all.find(a=>a.slug==='juwel')!.host;let reads=0;
+ await fixture(page,true,()=>{reads++;return {'article:juwel':{data:{host:original},version:1}};});
+ await page.goto('/host/AUDI88');const player=page.locator('.host-speech'),audio=player.locator('audio');await expect(audio).toHaveAttribute('src',/juwel-florian/);
+ await audio.evaluate((el:HTMLMediaElement)=>{(window as any).__refreshPauses=0;el.addEventListener('pause',()=>{(window as any).__refreshPauses++;});});
+ await player.getByRole('button',{name:'Hintergrund für den Host vorlesen',exact:true}).click();await expect.poll(()=>audio.evaluate((el:HTMLMediaElement)=>el.currentTime)).toBeGreaterThan(.2);
+ const position=await audio.evaluate((el:HTMLMediaElement)=>el.currentTime),before=reads;
+ await page.evaluate(()=>{for(let i=0;i<8;i++)(window as any).__publishContent();});
+ await expect.poll(()=>reads).toBe(before+1);await expect.poll(()=>audio.evaluate((el:HTMLMediaElement)=>el.currentTime)).toBeGreaterThan(position+.3);
+ expect(await audio.evaluate((el:HTMLMediaElement)=>el.paused)).toBe(false);expect(await page.evaluate(()=>(window as any).__refreshPauses)).toBe(0);
+ await expect(player.getByRole('button',{name:'Vorlesen pausieren',exact:true})).toBeVisible();
+ await player.getByRole('button',{name:'Vorlesen stoppen',exact:true}).click();
 });
 
 test('an edited host text invalidates old audio immediately; guests never receive a player',async({browser})=>{

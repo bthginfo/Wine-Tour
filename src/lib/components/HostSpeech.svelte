@@ -14,6 +14,7 @@
  let audio=$state<HTMLAudioElement>(),mounted=$state(false);
  let synthesis:SpeechSynthesis|undefined,utterance:SpeechSynthesisUtterance|undefined;
  let run=0,pendingSeek:number|undefined,clock:ReturnType<typeof setInterval>|undefined,lastTick=0,activeEnd=0,dragResume=false;
+ const narrationText=$derived(JSON.stringify(paragraphs));
  const chapters=$derived(hostSpeechChapters(paragraphs));
  const chunks=$derived.by(()=>{
   let seconds=0;const list:{text:string;start:number;end:number;chapter:number}[]=[];
@@ -99,7 +100,8 @@
  $effect(()=>{if(!enabled)stop();});
  $effect(()=>{
   if(!mounted)return;
-  const source=[...paragraphs];let disposed=false;
+  // Loading the same published content must not interrupt an active recording.
+  const source=JSON.parse(narrationText) as string[];let disposed=false;
   // A CMS edit invalidates an old recording immediately, including on the current slide.
   untrack(()=>{stop();ready=false;recordings=undefined;});
   hostSpeechFingerprint(source).then(key=>{
