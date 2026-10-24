@@ -184,11 +184,15 @@
       {
         "label": "IVDP · Portwein",
         "url": "https://www.ivdp.pt/en/wines/port-wines/introduction"
+      },
+      {
+        "label": "IVDP · Besondere Kategorien",
+        "url": "https://www.ivdp.pt/en/wines/port-wines/special-categories/"
       }
     ],
     "category": "Weinarten",
     "eyebrow": "Herstellung & Stil",
-    "visual": "wine-style",
+    "visual": "port-styles",
     "image": ""
   },
   {
@@ -333,11 +337,15 @@
       {
         "label": "Comité Champagne · Herstellung",
         "url": "https://www.champagne.fr/en/about-champagne/how-champagne-is-made"
+      },
+      {
+        "label": "Comité Champagne · Assemblage",
+        "url": "https://www.champagne.fr/system/files/2023-06/Fiches_Elaboration_Champagne_FR%20%281%29.pdf"
       }
     ],
     "category": "Weinarten",
     "eyebrow": "Herstellung & Stil",
-    "visual": "wine-style",
+    "visual": "champagne-blend",
     "image": ""
   },
   {
@@ -382,11 +390,15 @@
       {
         "label": "Consejo Regulador · Cava",
         "url": "https://www.cava.wine/en/"
+      },
+      {
+        "label": "D.O. Cava · Reifekategorien",
+        "url": "https://www.cava.wine/es/origen/la-etiqueta-del-cava/"
       }
     ],
     "category": "Weinarten",
     "eyebrow": "Herstellung & Stil",
-    "visual": "wine-style",
+    "visual": "cava-age",
     "image": ""
   },
   {

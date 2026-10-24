@@ -100,8 +100,8 @@
         "body": "Dünne Beerenschalen und oft dicht sitzende Beeren machen Spätburgunder empfindlich. Wenn es lange feucht bleibt, trocknet eine dicht gepackte Traube langsamer ab. Beschädigte Beeren können dann problematisch werden. Eine luftige Laubwand und gesunde Trauben sind deshalb besonders wertvoll.\nBeim Lesezeitpunkt geht es um mehrere Dinge gleichzeitig. Die Trauben sollen reif genug sein, noch Frische besitzen und gesund bleiben. Länger hängen lassen ist nicht automatisch die bessere Entscheidung. Wetter und Zustand der Beeren spielen mit. Der spätere Stil eines Rosés oder Rotweins beginnt damit im Weinberg, lange bevor im Keller gepresst oder vergoren wird."
       },
       {
-        "title": "Die Schale liefert Farbe und Mundgefühl",
-        "body": "Für Rosé gelangt ein Teil der Farbstoffe aus der Schale in den hellen Saft. Bei Rotwein kommen durch den längeren Kontakt während der Gärung auch mehr Gerbstoffe dazu. Diese Gerbstoffe heißen Tannine. Man spürt sie häufig als trockenes, leicht raues oder zusammenziehendes Gefühl an Zahnfleisch und Wangen.\nEin kräftiger schwarzer Tee macht den Unterschied zwischen Geschmack und Mundgefühl gut verständlich. Das zusammenziehende Gefühl ist etwas anderes als der saure Geschmack einer Zitrone. Beim Rotwein am Ende des Abends begegnet uns dieser Unterschied wieder. Im Rosé steht meist weniger Gerbstoff im Vordergrund, die Verbindung zur dunklen Traube bleibt trotzdem bestehen."
+        "title": "Was Winzer bei der Auswahl von Reben beachten",
+        "body": "Innerhalb derselben Rebsorte können Reben unterschiedliche Eigenschaften besitzen. Durch Vermehrung ausgesuchter Pflanzen bleiben solche Ausprägungen erhalten. Klone unterscheiden sich zum Beispiel im Wuchs, in der Größe und Lockerheit ihrer Trauben oder im Reifeverhalten. Ein Weinberg kann deshalb schon bei der Pflanzung auf den Standort und den geplanten Weinstil abgestimmt werden.\nLockere Trauben lassen nach Regen mehr Luft zwischen die Beeren. Das kann beim Abtrocknen helfen. Trotzdem lösen einzelne Eigenschaften nicht alle Probleme. Boden, Wasser, Wetter und die Arbeit im Weinberg bleiben wichtig. Es gibt daher keinen einen Klon, der an jedem Ort automatisch den besten Wein ergibt. Hinter einer Flasche steckt schon lange vor der Kellerarbeit eine Reihe solcher Entscheidungen."
       },
       {
         "title": "Was an Spätburgunder spät ist",
@@ -116,12 +116,16 @@
       {
         "label": "Vitipendium · Spätburgunder",
         "url": "https://www.vitipendium.de/Sp%C3%A4tburgunder"
+      },
+      {
+        "label": "Plantgrape · Pinot noir",
+        "url": "https://www.plantgrape.fr/en/varieties/fruit-varieties/218/export"
       }
     ],
     "guide": [
-      "In unseren ersten beiden Weinen steckt Spätburgunder. Auf französischen Flaschen heißt dieselbe Rebsorte Pinot Noir. Die Beeren sind dunkel, der Saft im Inneren ist aber weitgehend hell. Die Farbe sitzt vor allem in den Schalen. Das erklärt eine ganze Reihe von Weinen, die auf den ersten Blick kaum verwandt aussehen.",
-      "Wer dunkle Trauben zügig und schonend presst, kann daraus einen hellen Blanc de Noirs machen. Etwas mehr Kontakt mit den Schalen gibt Rosa. Wenn der Saft mit den Schalen vergärt, wird daraus Rotwein. Aus passenden Grundweinen kann später außerdem etwas Prickelndes werden. Rebsorte, Farbe und Weinart sind also drei Entscheidungen, die zusammenkommen.",
-      "Spätburgunder hat vergleichsweise dünne Schalen und braucht im Weinberg viel Aufmerksamkeit. Viele Trauben sind dicht gepackt; bei feuchtem Wetter ist ihre Gesundheit besonders wichtig. Im Duft begegnen uns oft Vergleiche mit Kirsche, Erdbeere oder anderen roten Früchten. Unser Secco aus der Pfalz und der JUWEL Rosé aus Rheinhessen geben uns die Gelegenheit, dieselbe Traube in zwei Stilen kennenzulernen. Gemeinsam bleibt die Sorte, es ändern sich Herkunft, Betrieb und Verarbeitung."
+      "In unseren ersten beiden Gläsern steckt Spätburgunder. Pinot Noir ist der französische Name für dieselbe Sorte. Sie kommt aus der großen Pinot-Familie und ist eng mit dem Burgund verbunden. Grau- und Weißburgunder gehören ebenfalls dazu. Die Reben wurden über lange Zeit vermehrt; dabei traten Veränderungen auf, unter anderem bei der Beerenfarbe. So begegnen uns heute dunkle, graurosa und helle Verwandte.",
+      "Im Weinberg ist Spätburgunder anspruchsvoll. Seine Schalen sind vergleichsweise dünn, und bei vielen Reben sitzen die Beeren eng zusammen. Nach Regen trocknen solche Trauben langsamer ab. Winzer achten deshalb auf eine luftige Laubwand, gesunde Beeren und den passenden Lesetermin. Eine Rebsorte ist außerdem nicht überall gleich: Verschiedene Klone können sich im Wuchs und im Aufbau der Traube unterscheiden.",
+      "Ein Klon ist eine Ausprägung, die durch Vermehrung erhalten wird. Das Wort beschreibt hier also die Auswahl von Reben mit bestimmten Eigenschaften. Für einen feuchten Standort kann eine locker aufgebaute Traube hilfreich sein. Bei Spätburgunder gibt es viele solcher Ausprägungen. Im Glas begegnen oft Erinnerungen an Kirsche, Erdbeere oder Himbeere. Unsere beiden Betriebe machen daraus Rosé: einmal prickelnd, einmal still. Die verschiedenen Wege zur rosa Farbe nehmen wir später beim JUWEL genauer auseinander."
     ]
   },
   "secco": {
@@ -279,7 +283,7 @@
   "rose": {
     "sections": [
       {
-        "title": "Zwei Wege zu einem rosa Wein",
+        "title": "Direktpressen, Schalenkontakt und Saignée",
         "body": "Bei der Direktpressung kommen dunkle Trauben zügig in die Presse. Dabei kann bereits ein wenig Farbe aus den Schalen in den Saft gelangen. Bei kurzer Maischestandzeit bleiben Saft und Schalen vor dem Pressen eine Weile zusammen. „Maische“ bezeichnet das Gemisch aus Saft und festen Traubenteilen.\nEin weiterer Weg heißt Saignée: Aus einer Rotweinmaische wird Saft abgezogen und getrennt weiter vergoren. Der abgezogene Saft kann Rosé ergeben. Alle diese Verfahren nutzen die Farbe der Schale. Welches gewählt wird, hängt vom gewünschten Wein ab. Das Prinzip lässt sich an unseren Spätburgunder-Rosés gut verstehen: Heller Saft und dunkle Schalen bieten mehrere Möglichkeiten für den Keller."
       },
       {
@@ -393,7 +397,7 @@
       },
       {
         "title": "Warum ein langer Herbst für Riesling wertvoll ist",
-        "body": "Riesling gehört zu den langsam reifenden Sorten. Die Trauben brauchen Zeit, um Reife und Aroma zu entwickeln. Ein sonniger Herbst kann deshalb besonders hilfreich sein. Gleichzeitig muss das Wetter die Trauben gesund halten. Dauerregen und Fäulnis verändern, wie lange sie sinnvoll am Stock bleiben können.\nIn kühleren Regionen hilft die Wahl passender Hänge. Ihre Ausrichtung bestimmt, wie viel Sonne die Reben erreichen kann. Riesling kann dabei seine Säure gut bewahren. Das erklärt, warum ein reifer, nach Pfirsich duftender Wein trotzdem sehr frisch wirken kann. Fruchtreife und Säure schließen sich nicht aus. Bei unserem feinherben Wein kommt verbleibende Süße als dritter Teil dazu."
+        "body": "Riesling gehört zu den langsam reifenden Sorten. Die Trauben brauchen Zeit, um Reife und Aroma zu entwickeln. Ein sonniger Herbst kann deshalb besonders hilfreich sein. Gleichzeitig muss das Wetter die Trauben gesund halten. Dauerregen und Fäulnis verändern, wie lange sie sinnvoll am Stock bleiben können.\nIn kühleren Regionen hilft die Wahl passender Hänge. Ihre Ausrichtung bestimmt, wie viel Sonne die Reben erreichen kann. Riesling kann dabei seine Säure gut bewahren. Das erklärt, warum ein reifer, nach Pfirsich duftender Wein trotzdem sehr frisch wirken kann. Fruchtreife und Säure schließen sich nicht aus."
       },
       {
         "title": "Die verspätete Erlaubnis zur Lese von 1775",
@@ -404,8 +408,8 @@
         "body": "In Teilen Badens heißt Riesling auch Klingelberger. Das ist ein regionaler Name für dieselbe Sorte. Schwarzriesling gehört dagegen zur Pinot-Familie und ist eine rote Traube. Auch Welschriesling ist eine eigene Rebsorte.\nÄhnliche Namen können beim Wein also verschiedene Verwandtschaften vermuten lassen. Auf internationalen Flaschen kommen noch Übersetzungen und regionale Namen dazu. Für unseren Abend ist die wichtigste Unterscheidung einfach: Im Schieferstein steckt Riesling, eine helle Sorte mit einer eigenen Geschichte und typischerweise lebhafter Säure. Der französische Pinot Noir aus den beiden ersten Gläsern führt hingegen zum Spätburgunder zurück."
       },
       {
-        "title": "Eine Sorte von trocken bis edelsüß",
-        "body": "Aus Riesling lassen sich trockene Weine, feinherbe Stile, fruchtsüße und sehr süße Weine machen. Auch für Sekt wird die Sorte verwendet. Die Traube bringt die Voraussetzungen mit; der Erntezeitpunkt und die Verarbeitung bestimmen den Weg mit.\nWährend der Gärung verbrauchen Hefen Zucker. Wie viel im fertigen Wein verbleibt, beeinflusst seine Süße. Dazu kommen Säure, Alkohol und Temperatur als Teile des Gesamteindrucks. Ein Sortenname allein verrät deshalb keinen Zuckergehalt. Wer Riesling bisher nur aus einer süßen oder sehr säurebetonten Flasche kennt, kennt eine mögliche Seite dieser Sorte. Eine andere Flasche kann deutlich anders wirken."
+        "title": "Warum ein sonniger Hang mehr als eine schöne Aussicht ist",
+        "body": "Die Ausrichtung eines Hangs beeinflusst, wann und wie lange die Sonne die Reben erreicht. In kühleren Regionen kann das für spät reifende Sorten entscheidend sein. Auch die Umgebung spielt mit: Ein geschützter Weinberg verhält sich anders als eine offene, dem Wind ausgesetzte Fläche. Darum können selbst benachbarte Weinberge unterschiedliche Voraussetzungen haben.\nFür Riesling sind solche Unterschiede besonders interessant, weil seine langsame Reife Zeit braucht. Ein warmer Herbst kann helfen, doch die Trauben müssen gesund bleiben. Zwischen dem gewünschten Duft, der Frische und dem Risiko von Fäulnis muss ein Betrieb abwägen. Das ist einer der Gründe, weshalb die Weinlese kein überall identischer Termin im Kalender ist."
       },
       {
         "title": "Was sich mit den Jahren verändern kann",
@@ -424,12 +428,16 @@
       {
         "label": "Margarethenhof · Schieferstein",
         "url": "https://www.margarethenhof-ayl.de/produkt/schieferstein/"
+      },
+      {
+        "label": "Hochschule Geisenheim · Rebphänologie",
+        "url": "https://rebschutz.hs-geisenheim.de/rebentwicklung/rebphaenologie.php"
       }
     ],
     "guide": [
-      "Jetzt haben wir mit Riesling eine helle Rebsorte im Glas. Sie gehört besonders eng zum deutschen Weinbau und kann sehr unterschiedliche Weine ergeben: trocken, feinherb oder süß, still oder als Sekt. Auf der Flasche steht der Sortenname deshalb neben weiteren Angaben zum Stil.",
-      "Riesling reift langsam und behält oft eine lebhafte Säure. Ein langer Herbst mit passenden Bedingungen hilft den Trauben, Aroma und Reife zu entwickeln. An der Saar passen gut ausgerichtete Hänge und diese langsame Entwicklung zusammen. Im Duft können Zitrone, Apfel, Pfirsich oder Aprikose auftauchen. Beim Ayler Schieferstein passt auch Mango als Vergleich. Diese Wörter beschreiben Erinnerungen beim Riechen.",
-      "Unser Riesling ist feinherb. Etwas verbleibende Süße kann die Säure weicher wirken lassen, während die Säure dem Wein Frische gibt. Darum können „fruchtig“, „süßlich“ und „frisch“ im selben Glas gut zusammenpassen. Das lässt sich vom JUWEL Rosé unterscheiden, der trocken ist und eher an rote Beeren erinnert. Mit Riesling wechseln wir also Traube, Region und Fruchtwelt, behalten aber dieselben einfachen Fragen: Was rieche ich, wie schmeckt der Schluck und wie fühlt er sich an?"
+      "Nach den beiden Rosés kommt mit Riesling eine helle Rebsorte ins Glas. Riesling reift vergleichsweise langsam. Das macht einen langen Herbst mit passenden Bedingungen wertvoll: Die Trauben können Aromen entwickeln, während die Sorte oft eine lebhafte Säure bewahrt. An der Saar helfen sonnige, gut ausgerichtete Hänge dabei, auch in einer kühleren Umgebung reife Trauben zu ernten.",
+      "Der Weg beginnt im Frühjahr. Aus den Knospen wachsen Triebe und Blätter. Die jungen Teile sind empfindlich gegen Spätfrost. Später blüht die Rebe mit winzigen, eher unauffälligen Blüten. Daraus entwickeln sich nach der Befruchtung die Beeren. Schon das Wetter zu dieser Zeit beeinflusst, wie die spätere Traube aufgebaut ist. Im Sommer wachsen die Beeren, werden schließlich weicher und verändern ihre Zusammensetzung.",
+      "Während der Reife steigt der Zucker in den Beeren, Säure wird abgebaut und die Aromen verändern sich. Der Lesetermin hängt deshalb von mehreren Dingen ab: Wie reif schmecken die Trauben, wie gesund sind sie und welches Wetter steht bevor? Länger warten ist nicht automatisch besser. Für unterschiedliche Weinstile können verschiedene Zeitpunkte passen. Unser Ayler Riesling Schieferstein stammt aus der Lese 2023. Beim Riechen können Pfirsich, Aprikose oder Mango als Erinnerungen auftauchen. Seine Geschmacksangabe feinherb schauen wir uns gleich als eigenes Thema an."
     ]
   },
   "feinherb": {

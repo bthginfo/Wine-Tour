@@ -1,12 +1,194 @@
 {
- "orange-wein":{"title":"Die hellen Schalen bleiben dabei.","color":"#c99046","bubbles":0,"stages":[{"title":"Helle Trauben","body":"Die Grundfarbe der Traube ist hell; der spätere Wein kann trotzdem bernsteinfarben werden."},{"title":"Mit den Schalen gären","body":"Aus den Schalen können Farbe und Gerbstoffe in den Wein gelangen."},{"title":"Trennen und ausbauen","body":"Nach dem Schalenkontakt folgen Pressen und Ausbau. Dauer und Gefäß verändern den Stil."}]},
- "suesswein":{"title":"Drei Wege zu konzentrierter Süße.","color":"#d0ad5b","bubbles":0,"stages":[{"title":"Länger reifen","body":"Sehr reife oder unter passenden Bedingungen edelfaule Trauben können konzentrierten Saft liefern."},{"title":"Trauben trocknen","body":"Wenn Wasser verdunstet, konzentrieren sich Zucker und andere Traubenbestandteile."},{"title":"Gefroren pressen","body":"Bei Eiswein bleibt ein Teil des Wassers als Eis zurück. Nicht jeder Süßwein nutzt dieses Verfahren."}]},
- "likoerwein":{"title":"Die Zugabe und der Zeitpunkt zählen.","color":"#a67959","bubbles":0,"stages":[{"title":"Wein vergären","body":"Hefe wandelt Traubenzucker in Alkohol und Kohlendioxid um."},{"title":"Alkohol zugeben","body":"Der Zeitpunkt hängt vom konkreten Stil ab. Eine unterbrochene Gärung kann natürlichen Zucker erhalten."},{"title":"Passend reifen","body":"Gefäß, Luftkontakt und Zeit unterscheiden fruchtige von stärker gereiften Stilen."}]},
- "portwein":{"title":"Die Gärung wird unterbrochen.","color":"#874354","bubbles":0,"stages":[{"title":"Trauben vergären","body":"Aus den örtlichen Sorten beginnt Wein zu entstehen. Ein Teil des Zuckers wird vergoren."},{"title":"Gärung stoppen","body":"Zugegebener Weinalkohol unterbricht die Gärung. Ein Teil des Traubenzuckers bleibt erhalten."},{"title":"Stil entwickeln","body":"Die weitere Reife führt unter anderem in die fruchtigere Ruby- oder die stärker gereifte Tawny-Stilwelt."}]},
- "sherry":{"title":"Hefe und Luft verändern die Reife.","color":"#b68d52","bubbles":0,"stages":[{"title":"Unter Flor","body":"Eine natürliche Hefeschicht prägt die biologische Reife etwa bei Fino."},{"title":"Mit Luftkontakt","body":"Oxidative Reife kann nussige und würzige Eindrücke entwickeln, etwa bei Oloroso."},{"title":"Beide Phasen","body":"Amontillado verbindet eine frühere Florphase mit späterer oxidativer Reife. Die Wege sind unterschiedliche Stile."}]},
- "madeira-wein":{"title":"Wärme gehört hier zum Verfahren.","color":"#ad703f","bubbles":0,"stages":[{"title":"Vergären und verstärken","body":"Die Zugabe von Alkohol und ihr Zeitpunkt hängen mit dem gewünschten Süßegrad zusammen."},{"title":"Mit Wärme reifen","body":"Estufagem erwärmt kontrolliert; Canteiro nutzt längere Fassreife in warmen Lagerräumen."},{"title":"Weiter entwickeln","body":"Zeit und Luftkontakt verändern Duft und Farbe. Frische Säure bleibt für die Balance wichtig."}]},
- "champagner":{"title":"Die zweite Gärung findet in der Flasche statt.","color":"#d7c585","bubbles":5,"stages":[{"title":"Grundwein","body":"Zunächst entsteht ein stiller Wein. Verschiedene Sorten, Orte und Jahrgänge können kombiniert werden."},{"title":"Flaschengärung","body":"Die zweite Gärung erzeugt Kohlendioxid, das in der geschlossenen Flasche unter Druck erhalten bleibt."},{"title":"Hefelager","body":"Während der Reife auf der Hefe können sich Textur und brotige oder briocheartige Eindrücke entwickeln."}]},
- "cava":{"title":"Traditionelle Methode, spanische Herkunft.","color":"#d1bf82","bubbles":5,"stages":[{"title":"Grundwein","body":"Zugelassene Sorten ergeben die Grundlage. Macabeo, Xarel-lo und Parellada sind traditionelle Partner."},{"title":"Flaschengärung","body":"Die zweite Gärung erfolgt in der Flasche. Die Kohlensäure wird dabei durch Hefe gebildet."},{"title":"Hefelager","body":"Reife auf der Hefe verändert den Wein. Reifekategorie und Süßeangabe beantworten verschiedene Fragen."}]},
- "prosecco":{"title":"Meist entsteht die Kohlensäure im Drucktank.","color":"#d7cb96","bubbles":5,"stages":[{"title":"Glera vergären","body":"Die wichtigste Rebsorte liefert den Grundwein. Prosecco bezeichnet die geschützte Herkunft."},{"title":"Zweite Gärung","body":"Bei der verbreiteten Tankmethode erzeugt Hefe die Kohlensäure in einem geschlossenen Drucktank."},{"title":"Unter Druck abfüllen","body":"Der Schaumwein wird abgefüllt, ohne seine Kohlensäure zu verlieren. Frizzante und Spumante sind verschiedene Kategorien."}]},
- "rotwein":{"title":"Vom Schalenkontakt bis zur Fassreife.","color":"#874354","bubbles":0,"stages":[{"title":"Mit den Schalen gären","body":"In der Maische lösen sich Farbe und Gerbstoffe aus den dunklen Traubenbestandteilen. Anschließend wird der Wein von den festen Teilen getrennt."},{"title":"Im Eichenfass reifen","body":"Unser Juan Gil Etiqueta Plata reift rund zwölf Monate im Eichenfass. Dabei können würzige und geröstete Duftnoten dazukommen."},{"title":"Im Glas vergleichen","body":"Dunkle Frucht riechen, Säure schmecken, Gerbstoffe fühlen: Das sind unterschiedliche Eindrücke. Ein fruchtiger Duft sagt nichts über die Süße aus."}]}
+  "orange-wein": {
+    "title": "Die hellen Schalen bleiben dabei.",
+    "color": "#c99046",
+    "bubbles": 0,
+    "stages": [
+      {
+        "title": "Helle Trauben",
+        "body": "Die Grundfarbe der Traube ist hell; der spätere Wein kann trotzdem bernsteinfarben werden."
+      },
+      {
+        "title": "Mit den Schalen gären",
+        "body": "Aus den Schalen können Farbe und Gerbstoffe in den Wein gelangen."
+      },
+      {
+        "title": "Trennen und ausbauen",
+        "body": "Nach dem Schalenkontakt folgen Pressen und Ausbau. Dauer und Gefäß verändern den Stil."
+      }
+    ]
+  },
+  "suesswein": {
+    "title": "Drei Wege zu konzentrierter Süße.",
+    "color": "#d0ad5b",
+    "bubbles": 0,
+    "stages": [
+      {
+        "title": "Länger reifen",
+        "body": "Sehr reife oder unter passenden Bedingungen edelfaule Trauben können konzentrierten Saft liefern."
+      },
+      {
+        "title": "Trauben trocknen",
+        "body": "Wenn Wasser verdunstet, konzentrieren sich Zucker und andere Traubenbestandteile."
+      },
+      {
+        "title": "Gefroren pressen",
+        "body": "Bei Eiswein bleibt ein Teil des Wassers als Eis zurück. Nicht jeder Süßwein nutzt dieses Verfahren."
+      }
+    ],
+    "layout": "choices"
+  },
+  "likoerwein": {
+    "title": "Die Zugabe und der Zeitpunkt zählen.",
+    "color": "#a67959",
+    "bubbles": 0,
+    "stages": [
+      {
+        "title": "Wein vergären",
+        "body": "Hefe wandelt Traubenzucker in Alkohol und Kohlendioxid um."
+      },
+      {
+        "title": "Alkohol zugeben",
+        "body": "Der Zeitpunkt hängt vom konkreten Stil ab. Eine unterbrochene Gärung kann natürlichen Zucker erhalten."
+      },
+      {
+        "title": "Passend reifen",
+        "body": "Gefäß, Luftkontakt und Zeit unterscheiden fruchtige von stärker gereiften Stilen."
+      }
+    ]
+  },
+  "portwein": {
+    "title": "Die Gärung wird unterbrochen.",
+    "color": "#874354",
+    "bubbles": 0,
+    "stages": [
+      {
+        "title": "Trauben vergären",
+        "body": "Aus den örtlichen Sorten beginnt Wein zu entstehen. Ein Teil des Zuckers wird vergoren."
+      },
+      {
+        "title": "Gärung stoppen",
+        "body": "Zugegebener Weinalkohol unterbricht die Gärung. Ein Teil des Traubenzuckers bleibt erhalten."
+      },
+      {
+        "title": "Stil entwickeln",
+        "body": "Die weitere Reife führt unter anderem in die fruchtigere Ruby- oder die stärker gereifte Tawny-Stilwelt."
+      }
+    ]
+  },
+  "sherry": {
+    "title": "Hefe und Luft verändern die Reife.",
+    "color": "#b68d52",
+    "bubbles": 0,
+    "stages": [
+      {
+        "title": "Unter Flor",
+        "body": "Eine natürliche Hefeschicht prägt die biologische Reife etwa bei Fino."
+      },
+      {
+        "title": "Mit Luftkontakt",
+        "body": "Oxidative Reife kann nussige und würzige Eindrücke entwickeln, etwa bei Oloroso."
+      },
+      {
+        "title": "Beide Phasen",
+        "body": "Amontillado verbindet eine frühere Florphase mit späterer oxidativer Reife. Die Wege sind unterschiedliche Stile."
+      }
+    ],
+    "layout": "choices"
+  },
+  "madeira-wein": {
+    "title": "Wärme gehört hier zum Verfahren.",
+    "color": "#ad703f",
+    "bubbles": 0,
+    "stages": [
+      {
+        "title": "Vergären und verstärken",
+        "body": "Die Zugabe von Alkohol und ihr Zeitpunkt hängen mit dem gewünschten Süßegrad zusammen."
+      },
+      {
+        "title": "Mit Wärme reifen",
+        "body": "Estufagem erwärmt kontrolliert; Canteiro nutzt längere Fassreife in warmen Lagerräumen."
+      },
+      {
+        "title": "Weiter entwickeln",
+        "body": "Zeit und Luftkontakt verändern Duft und Farbe. Frische Säure bleibt für die Balance wichtig."
+      }
+    ]
+  },
+  "champagner": {
+    "title": "Die zweite Gärung findet in der Flasche statt.",
+    "color": "#d7c585",
+    "bubbles": 5,
+    "stages": [
+      {
+        "title": "Grundwein",
+        "body": "Zunächst entsteht ein stiller Wein. Verschiedene Sorten, Orte und Jahrgänge können kombiniert werden."
+      },
+      {
+        "title": "Flaschengärung",
+        "body": "Die zweite Gärung erzeugt Kohlendioxid, das in der geschlossenen Flasche unter Druck erhalten bleibt."
+      },
+      {
+        "title": "Hefelager",
+        "body": "Während der Reife auf der Hefe können sich Textur und brotige oder briocheartige Eindrücke entwickeln."
+      }
+    ]
+  },
+  "cava": {
+    "title": "Traditionelle Methode, spanische Herkunft.",
+    "color": "#d1bf82",
+    "bubbles": 5,
+    "stages": [
+      {
+        "title": "Grundwein",
+        "body": "Zugelassene Sorten ergeben die Grundlage. Macabeo, Xarel-lo und Parellada sind traditionelle Partner."
+      },
+      {
+        "title": "Flaschengärung",
+        "body": "Die zweite Gärung erfolgt in der Flasche. Die Kohlensäure wird dabei durch Hefe gebildet."
+      },
+      {
+        "title": "Hefelager",
+        "body": "Reife auf der Hefe verändert den Wein. Reifekategorie und Süßeangabe beantworten verschiedene Fragen."
+      }
+    ]
+  },
+  "prosecco": {
+    "title": "Meist entsteht die Kohlensäure im Drucktank.",
+    "color": "#d7cb96",
+    "bubbles": 5,
+    "stages": [
+      {
+        "title": "Glera vergären",
+        "body": "Die wichtigste Rebsorte liefert den Grundwein. Prosecco bezeichnet die geschützte Herkunft."
+      },
+      {
+        "title": "Zweite Gärung",
+        "body": "Bei der verbreiteten Tankmethode erzeugt Hefe die Kohlensäure in einem geschlossenen Drucktank."
+      },
+      {
+        "title": "Unter Druck abfüllen",
+        "body": "Der Schaumwein wird abgefüllt, ohne seine Kohlensäure zu verlieren. Frizzante und Spumante sind verschiedene Kategorien."
+      }
+    ]
+  },
+  "rotwein": {
+    "title": "Vom Schalenkontakt bis zur Fassreife.",
+    "color": "#874354",
+    "bubbles": 0,
+    "stages": [
+      {
+        "title": "Mit den Schalen gären",
+        "body": "Bei der Maischegärung lösen sich Farbe und Gerbstoffe aus den dunklen Traubenbestandteilen. Anschließend wird der Wein von den festen Teilen getrennt."
+      },
+      {
+        "title": "Im Eichenfass reifen",
+        "body": "Unser Juan Gil Etiqueta Plata reift rund zwölf Monate im Eichenfass. Dabei können würzige und geröstete Duftnoten dazukommen."
+      },
+      {
+        "title": "Im Glas vergleichen",
+        "body": "Dunkle Frucht riechen, Säure schmecken, Gerbstoffe fühlen: Das sind unterschiedliche Eindrücke. Ein fruchtiger Duft sagt nichts über die Süße aus."
+      }
+    ]
+  }
 }

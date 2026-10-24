@@ -2,40 +2,6 @@
   "5cb39c0a57095e5de758e0094326c510c99f281b06aa717012b193b1bc5f2efa": {
     "slug": "pfalz",
     "voices": {
-      "audio:florian": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/pfalz-florian-2a03cadfeb355ab15c9e.mp3",
-        "duration": 273.672,
-        "chapters": [
-          {
-            "title": "Grundwissen",
-            "start": 0
-          },
-          {
-            "title": "Warum der Wald für den Wein wichtig ist",
-            "start": 81.325
-          },
-          {
-            "title": "Was der Boden mit den Trauben zu tun hat",
-            "start": 122.15
-          },
-          {
-            "title": "Von römischen Keltern zu Klosterweinbergen",
-            "start": 161.137
-          },
-          {
-            "title": "Die Flasche, die seit der Römerzeit geschlossen ist",
-            "start": 200.088
-          },
-          {
-            "title": "Eine Weinstraße bis ins Elsass",
-            "start": 235.113
-          }
-        ],
-        "voice": "de-DE-FlorianMultilingualNeural",
-        "rate": "+0%",
-        "pitch": "+0Hz",
-        "synthesis": "continuous-v2"
-      },
       "audio:seraphina": {
         "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/pfalz-seraphina-ee4ea1ed235a98870a2e.mp3",
         "duration": 315.048,
@@ -69,50 +35,46 @@
         "rate": "+0%",
         "pitch": "+0Hz",
         "synthesis": "continuous-v2"
-      }
-    }
-  },
-  "ec0d0c83847ffb511f7e2109c2f3b0e28b6ca6fd5d0a3a43ea76335cba1cd955": {
-    "slug": "von-winning",
-    "voices": {
+      },
       "audio:florian": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/von-winning-florian-8e084fe6659da6c27581.mp3",
-        "duration": 325.68,
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/pfalz-florian-2a03cadfeb355ab15c9e.mp3",
+        "duration": 273.672,
         "chapters": [
           {
             "title": "Grundwissen",
             "start": 0
           },
           {
-            "title": "Eine Erbschaft hinter mehreren Deidesheimer Weingütern",
-            "start": 77.263
+            "title": "Warum der Wald für den Wein wichtig ist",
+            "start": 81.325
           },
           {
-            "title": "Wie der Name wechselte",
-            "start": 120.975
+            "title": "Was der Boden mit den Trauben zu tun hat",
+            "start": 122.15
           },
           {
-            "title": "Was hinter der Arbeit im Weinberg steckt",
-            "start": 161.975
+            "title": "Von römischen Keltern zu Klosterweinbergen",
+            "start": 161.137
           },
           {
-            "title": "Spontangärung und Hefelager verständlich erklärt",
-            "start": 202.438
+            "title": "Die Flasche, die seit der Römerzeit geschlossen ist",
+            "start": 200.088
           },
           {
-            "title": "Warum im alten Keller eine Fasswerkstatt war",
-            "start": 246.387
-          },
-          {
-            "title": "Was wir davon im ersten Glas wiederfinden",
-            "start": 288.988
+            "title": "Eine Weinstraße bis ins Elsass",
+            "start": 235.113
           }
         ],
         "voice": "de-DE-FlorianMultilingualNeural",
         "rate": "+0%",
         "pitch": "+0Hz",
         "synthesis": "continuous-v2"
-      },
+      }
+    }
+  },
+  "ec0d0c83847ffb511f7e2109c2f3b0e28b6ca6fd5d0a3a43ea76335cba1cd955": {
+    "slug": "von-winning",
+    "voices": {
       "audio:seraphina": {
         "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/von-winning-seraphina-f629a06b2db6e5ef8117.mp3",
         "duration": 375.168,
@@ -150,15 +112,53 @@
         "rate": "+0%",
         "pitch": "+0Hz",
         "synthesis": "continuous-v2"
+      },
+      "audio:florian": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/von-winning-florian-8e084fe6659da6c27581.mp3",
+        "duration": 325.68,
+        "chapters": [
+          {
+            "title": "Grundwissen",
+            "start": 0
+          },
+          {
+            "title": "Eine Erbschaft hinter mehreren Deidesheimer Weingütern",
+            "start": 77.263
+          },
+          {
+            "title": "Wie der Name wechselte",
+            "start": 120.975
+          },
+          {
+            "title": "Was hinter der Arbeit im Weinberg steckt",
+            "start": 161.975
+          },
+          {
+            "title": "Spontangärung und Hefelager verständlich erklärt",
+            "start": 202.438
+          },
+          {
+            "title": "Warum im alten Keller eine Fasswerkstatt war",
+            "start": 246.387
+          },
+          {
+            "title": "Was wir davon im ersten Glas wiederfinden",
+            "start": 288.988
+          }
+        ],
+        "voice": "de-DE-FlorianMultilingualNeural",
+        "rate": "+0%",
+        "pitch": "+0Hz",
+        "synthesis": "continuous-v2"
       }
     }
   },
-  "9d334e5317111cf37b7ef14f7a23c02ff78856f8486120551defd22c540b1ff6": {
+  "23b7179862e2964ac6eb73ab05f532e87c39b06ce122de72ac4ff0c690df7a3d": {
     "slug": "spaetburgunder",
     "voices": {
       "audio:florian": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/spaetburgunder-florian-0b16e5f314da8ab362bb.mp3",
-        "duration": 259.488,
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/spaetburgunder-florian-e0508b950c7f44a58c9e.mp3",
+        "duration": 277.488,
         "chapters": [
           {
             "title": "Grundwissen",
@@ -166,23 +166,23 @@
           },
           {
             "title": "Pinot Noir und seine lange Geschichte",
-            "start": 67.525
+            "start": 79.2
           },
           {
             "title": "Die Verwandtschaft von Schwarz, Grau und Weiß",
-            "start": 107.075
+            "start": 118.75
           },
           {
             "title": "Warum die Sorte Aufmerksamkeit braucht",
-            "start": 146.825
+            "start": 158.5
           },
           {
-            "title": "Die Schale liefert Farbe und Mundgefühl",
-            "start": 185.088
+            "title": "Was Winzer bei der Auswahl von Reben beachten",
+            "start": 196.762
           },
           {
             "title": "Was an Spätburgunder spät ist",
-            "start": 222.762
+            "start": 240.775
           }
         ],
         "voice": "de-DE-FlorianMultilingualNeural",
@@ -191,8 +191,8 @@
         "synthesis": "continuous-v2"
       },
       "audio:seraphina": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/spaetburgunder-seraphina-2690fd85698ef6c7ff6b.mp3",
-        "duration": 300.048,
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/spaetburgunder-seraphina-ba1ce5c956814f0f01a0.mp3",
+        "duration": 319.656,
         "chapters": [
           {
             "title": "Grundwissen",
@@ -200,23 +200,23 @@
           },
           {
             "title": "Pinot Noir und seine lange Geschichte",
-            "start": 78.625
+            "start": 91.138
           },
           {
             "title": "Die Verwandtschaft von Schwarz, Grau und Weiß",
-            "start": 124.638
+            "start": 137.05
           },
           {
             "title": "Warum die Sorte Aufmerksamkeit braucht",
-            "start": 170.613
+            "start": 183.312
           },
           {
-            "title": "Die Schale liefert Farbe und Mundgefühl",
-            "start": 214.262
+            "title": "Was Winzer bei der Auswahl von Reben beachten",
+            "start": 226.775
           },
           {
             "title": "Was an Spätburgunder spät ist",
-            "start": 257.762
+            "start": 277.375
           }
         ],
         "voice": "de-DE-SeraphinaMultilingualNeural",
@@ -583,12 +583,12 @@
       }
     }
   },
-  "ded5cb2ffaa94c18678dbd36138305bc2e926d29c72414c63d6635c929cdd70a": {
+  "56948b393bc0105adb8d81ce1c1606cc6fa0009a857e25f6b1cb6e6ea3feb73e": {
     "slug": "riesling",
     "voices": {
       "audio:florian": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/riesling-florian-e1792dbb99eb451e7f16.mp3",
-        "duration": 305.088,
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/riesling-florian-a940ff696f6e35547d76.mp3",
+        "duration": 315.768,
         "chapters": [
           {
             "title": "Grundwissen",
@@ -596,27 +596,27 @@
           },
           {
             "title": "Der Geburtstag stammt aus der Buchhaltung",
-            "start": 67.725
+            "start": 80.525
           },
           {
             "title": "Warum ein langer Herbst für Riesling wertvoll ist",
-            "start": 105.412
+            "start": 118.213
           },
           {
             "title": "Die verspätete Erlaubnis zur Lese von 1775",
-            "start": 146.238
+            "start": 154.625
           },
           {
             "title": "Klingelberger ist Riesling, Schwarzriesling ist etwas anderes",
-            "start": 186.787
+            "start": 195.175
           },
           {
-            "title": "Eine Sorte von trocken bis edelsüß",
-            "start": 223.825
+            "title": "Warum ein sonniger Hang mehr als eine schöne Aussicht ist",
+            "start": 232.262
           },
           {
             "title": "Was sich mit den Jahren verändern kann",
-            "start": 262.712
+            "start": 273.387
           }
         ],
         "voice": "de-DE-FlorianMultilingualNeural",
@@ -625,8 +625,8 @@
         "synthesis": "continuous-v2"
       },
       "audio:seraphina": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/riesling-seraphina-8ad3d4ff9e3841b9b617.mp3",
-        "duration": 352.392,
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/riesling-seraphina-53f3ecd15ddd09caa182.mp3",
+        "duration": 363.48,
         "chapters": [
           {
             "title": "Grundwissen",
@@ -634,27 +634,27 @@
           },
           {
             "title": "Der Geburtstag stammt aus der Buchhaltung",
-            "start": 78.037
+            "start": 91.737
           },
           {
             "title": "Warum ein langer Herbst für Riesling wertvoll ist",
-            "start": 121.375
+            "start": 135.088
           },
           {
             "title": "Die verspätete Erlaubnis zur Lese von 1775",
-            "start": 168.775
+            "start": 177.2
           },
           {
             "title": "Klingelberger ist Riesling, Schwarzriesling ist etwas anderes",
-            "start": 215.188
+            "start": 223.738
           },
           {
-            "title": "Eine Sorte von trocken bis edelsüß",
-            "start": 258.363
+            "title": "Warum ein sonniger Hang mehr als eine schöne Aussicht ist",
+            "start": 267.025
           },
           {
             "title": "Was sich mit den Jahren verändern kann",
-            "start": 303.625
+            "start": 314.863
           }
         ],
         "voice": "de-DE-SeraphinaMultilingualNeural",
@@ -721,11 +721,11 @@
       }
     }
   },
-  "53e668e2541df2e15e913e2c87a27bbe2f3218087ba4a70924c94a9f8c44607a": {
+  "f1c1eba55a6642eada77f3252962c7ef323e1361bee4cc3c30f05e6ae23c5ab7": {
     "slug": "rose",
     "voices": {
       "audio:florian": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/rose-florian-5492bac26a96c88b63cc.mp3",
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/rose-florian-6408cc75de69a6feea58.mp3",
         "duration": 181.896,
         "chapters": [
           {
@@ -733,7 +733,7 @@
             "start": 0
           },
           {
-            "title": "Zwei Wege zu einem rosa Wein",
+            "title": "Direktpressen, Schalenkontakt und Saignée",
             "start": 68.513
           },
           {
@@ -751,7 +751,7 @@
         "synthesis": "continuous-v2"
       },
       "audio:seraphina": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/rose-seraphina-7fb81e7aef3e2abcaa87.mp3",
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/rose-seraphina-b918a8ef5495b82224da.mp3",
         "duration": 209.232,
         "chapters": [
           {
@@ -759,7 +759,7 @@
             "start": 0
           },
           {
-            "title": "Zwei Wege zu einem rosa Wein",
+            "title": "Direktpressen, Schalenkontakt und Saignée",
             "start": 78.312
           },
           {
@@ -781,40 +781,6 @@
   "cf10ac585f42d078f3fb850a1313bf2d0d8ab2c13fe8417ead2a7c3cc49561ec": {
     "slug": "rotwein",
     "voices": {
-      "audio:seraphina": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/rotwein-seraphina-ed09e0323141f7fde8fd.mp3",
-        "duration": 363.096,
-        "chapters": [
-          {
-            "title": "Grundwissen",
-            "start": 0
-          },
-          {
-            "title": "Was mit der Maische während der Gärung passiert",
-            "start": 99.825
-          },
-          {
-            "title": "Das trockene Gefühl nach dem Schluck",
-            "start": 148.613
-          },
-          {
-            "title": "Warum Holz nach Vanille oder Röstaromen riechen kann",
-            "start": 199.65
-          },
-          {
-            "title": "Fruchtiger Duft ist keine Zuckerangabe",
-            "start": 254.162
-          },
-          {
-            "title": "Temperatur, Luft und etwas zu essen",
-            "start": 308.087
-          }
-        ],
-        "voice": "de-DE-SeraphinaMultilingualNeural",
-        "rate": "+0%",
-        "pitch": "+0Hz",
-        "synthesis": "continuous-v2"
-      },
       "audio:florian": {
         "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/rotwein-florian-defbf16cc32634aa025e.mp3",
         "duration": 314.328,
@@ -845,6 +811,40 @@
           }
         ],
         "voice": "de-DE-FlorianMultilingualNeural",
+        "rate": "+0%",
+        "pitch": "+0Hz",
+        "synthesis": "continuous-v2"
+      },
+      "audio:seraphina": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/rotwein-seraphina-ed09e0323141f7fde8fd.mp3",
+        "duration": 363.096,
+        "chapters": [
+          {
+            "title": "Grundwissen",
+            "start": 0
+          },
+          {
+            "title": "Was mit der Maische während der Gärung passiert",
+            "start": 99.825
+          },
+          {
+            "title": "Das trockene Gefühl nach dem Schluck",
+            "start": 148.613
+          },
+          {
+            "title": "Warum Holz nach Vanille oder Röstaromen riechen kann",
+            "start": 199.65
+          },
+          {
+            "title": "Fruchtiger Duft ist keine Zuckerangabe",
+            "start": 254.162
+          },
+          {
+            "title": "Temperatur, Luft und etwas zu essen",
+            "start": 308.087
+          }
+        ],
+        "voice": "de-DE-SeraphinaMultilingualNeural",
         "rate": "+0%",
         "pitch": "+0Hz",
         "synthesis": "continuous-v2"
@@ -968,32 +968,6 @@
   "25a4a1767bf941e7240f7f41f26b368d50164901cf2a862c1fc3a59b98c9f554": {
     "slug": "spaetburgunder-zwei-roses",
     "voices": {
-      "audio:seraphina": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/spaetburgunder-zwei-roses-seraphina-4258cdbb4b5d623b4b18.mp3",
-        "duration": 207.432,
-        "chapters": [
-          {
-            "title": "Grundwissen",
-            "start": 0
-          },
-          {
-            "title": "Zwei Rosés und mehrere Unterschiede",
-            "start": 77.737
-          },
-          {
-            "title": "Fruchtig riechen und süß schmecken",
-            "start": 120.875
-          },
-          {
-            "title": "Was uns beim Riesling wieder begegnet",
-            "start": 163.963
-          }
-        ],
-        "voice": "de-DE-SeraphinaMultilingualNeural",
-        "rate": "+0%",
-        "pitch": "+0Hz",
-        "synthesis": "continuous-v2"
-      },
       "audio:florian": {
         "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/spaetburgunder-zwei-roses-florian-d93e1226c1ce2a8f3f69.mp3",
         "duration": 179.808,
@@ -1016,6 +990,32 @@
           }
         ],
         "voice": "de-DE-FlorianMultilingualNeural",
+        "rate": "+0%",
+        "pitch": "+0Hz",
+        "synthesis": "continuous-v2"
+      },
+      "audio:seraphina": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/spaetburgunder-zwei-roses-seraphina-4258cdbb4b5d623b4b18.mp3",
+        "duration": 207.432,
+        "chapters": [
+          {
+            "title": "Grundwissen",
+            "start": 0
+          },
+          {
+            "title": "Zwei Rosés und mehrere Unterschiede",
+            "start": 77.737
+          },
+          {
+            "title": "Fruchtig riechen und süß schmecken",
+            "start": 120.875
+          },
+          {
+            "title": "Was uns beim Riesling wieder begegnet",
+            "start": 163.963
+          }
+        ],
+        "voice": "de-DE-SeraphinaMultilingualNeural",
         "rate": "+0%",
         "pitch": "+0Hz",
         "synthesis": "continuous-v2"
@@ -1171,40 +1171,6 @@
   "56243fa66842ed4dfdaa55671c4798604cf2c8158392a7f919282b953bff8416": {
     "slug": "mourvedre-monastrell",
     "voices": {
-      "audio:seraphina": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/mourvedre-monastrell-seraphina-baa4f9ccde816271be1e.mp3",
-        "duration": 357.432,
-        "chapters": [
-          {
-            "title": "Grundwissen",
-            "start": 0
-          },
-          {
-            "title": "Zuckerreife und reife Gerbstoffe",
-            "start": 102.125
-          },
-          {
-            "title": "Farbe und Griff aus der Beerenschale",
-            "start": 152.7
-          },
-          {
-            "title": "Wenn der Rebe Wasser fehlt",
-            "start": 207.95
-          },
-          {
-            "title": "Monastrell, Mourvèdre und Mataro",
-            "start": 255.938
-          },
-          {
-            "title": "Duftwörter und das Gefühl im Mund",
-            "start": 306.762
-          }
-        ],
-        "voice": "de-DE-SeraphinaMultilingualNeural",
-        "rate": "+0%",
-        "pitch": "+0Hz",
-        "synthesis": "continuous-v2"
-      },
       "audio:florian": {
         "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/mourvedre-monastrell-florian-6e77f5fff1acc892255e.mp3",
         "duration": 310.416,
@@ -1235,6 +1201,40 @@
           }
         ],
         "voice": "de-DE-FlorianMultilingualNeural",
+        "rate": "+0%",
+        "pitch": "+0Hz",
+        "synthesis": "continuous-v2"
+      },
+      "audio:seraphina": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/mourvedre-monastrell-seraphina-baa4f9ccde816271be1e.mp3",
+        "duration": 357.432,
+        "chapters": [
+          {
+            "title": "Grundwissen",
+            "start": 0
+          },
+          {
+            "title": "Zuckerreife und reife Gerbstoffe",
+            "start": 102.125
+          },
+          {
+            "title": "Farbe und Griff aus der Beerenschale",
+            "start": 152.7
+          },
+          {
+            "title": "Wenn der Rebe Wasser fehlt",
+            "start": 207.95
+          },
+          {
+            "title": "Monastrell, Mourvèdre und Mataro",
+            "start": 255.938
+          },
+          {
+            "title": "Duftwörter und das Gefühl im Mund",
+            "start": 306.762
+          }
+        ],
+        "voice": "de-DE-SeraphinaMultilingualNeural",
         "rate": "+0%",
         "pitch": "+0Hz",
         "synthesis": "continuous-v2"

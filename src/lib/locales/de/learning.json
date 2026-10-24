@@ -42,7 +42,7 @@
     ]
   },
   "spaetburgunder": {
-    "visual": "skins",
+    "visual": "pinot",
     "sections": [
       {
         "title": "Wie aus dunklen Trauben heller Wein wird",
@@ -126,7 +126,7 @@
     ]
   },
   "grauburgunder": {
-    "visual": "pinot",
+    "visual": "none",
     "sections": [
       {
         "title": "Die Burgunderfamilie",
@@ -212,7 +212,7 @@
     ]
   },
   "riesling": {
-    "visual": "balance",
+    "visual": "riesling-season",
     "sections": [
       {
         "title": "Ein Geburtstag am 13. März",
@@ -254,7 +254,7 @@
     ]
   },
   "rose": {
-    "visual": "skins",
+    "visual": "rose-methods",
     "sections": [
       {
         "title": "Wie die Farbe aus der Schale kommt",
@@ -334,7 +334,7 @@
     ]
   },
   "sekt": {
-    "visual": "bubbles",
+    "visual": "sekt-bottle",
     "sections": [
       {
         "title": "Kohlensäure aus der Gärung",
@@ -564,7 +564,7 @@
     ]
   },
   "silvaner": {
-    "visual": "aromas",
+    "visual": "none",
     "sections": [
       {
         "title": "Ein dezenter Duft ist kein Mangel",
@@ -581,7 +581,7 @@
     ]
   },
   "weissburgunder": {
-    "visual": "pinot",
+    "visual": "none",
     "sections": [
       {
         "title": "Eine Verwandtschaft, drei bekannte Namen",
@@ -598,7 +598,7 @@
     ]
   },
   "sauvignon-blanc": {
-    "visual": "aromas",
+    "visual": "none",
     "sections": [
       {
         "title": "Zwischen grünen und tropischen Eindrücken",

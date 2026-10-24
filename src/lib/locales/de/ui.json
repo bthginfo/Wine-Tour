@@ -86,7 +86,7 @@
   "m_8276ffdfdc": "Über die Region",
   "m_875b4cebdd": "Über den Betrieb",
   "m_4591677467": "Über die Rebsorte(n)",
-  "m_a8ae1387f6": "Mehr Hintergrund nur für den Host",
+  "m_a8ae1387f6": "Mehr Hintergrund zum Thema",
   "m_9a82de5c8a": "Mehr über die Region, das Weingut und die Rebsorte.",
   "m_6b4f0475c9": "Quellenlink",
   "m_1a66279d96": "https://…",
@@ -265,7 +265,7 @@
   "tasting.free": "Du kannst jederzeit selbst blättern.",
   "pdf.eyebrow": "Dein Abend zum Mitnehmen",
   "pdf.title": "Die Weinprobe als PDF.",
-  "pdf.description": "Alle Inhalte der Probe, die Weine und deine persönlichen Tasting Notes in einem gestalteten Heft.",
+  "pdf.description": "Die Weine, das Wissen aus der Probe und deine persönlichen Tasting Notes. Auf Wunsch mit allen ausführlichen Erklärungen zum Weiterlesen.",
   "pdf.download": "PDF herunterladen",
   "pdf.preparing": "PDF wird erstellt …",
   "pdf.noAccount": "Auch ohne Konto. Mit deinen eigenen Notizen.",
@@ -327,5 +327,6 @@
   "host.speechVoice": "Deutsche Stimme",
   "host.speechUnsupported": "Vorlesen ist in diesem Browser nicht verfügbar.",
   "host.speechError": "Das Vorlesen konnte nicht gestartet werden. Probiere es noch einmal.",
-  "host.speechPlaying": "Der Host-Hintergrund wird vorgelesen."
+  "host.speechPlaying": "Der Host-Hintergrund wird vorgelesen.",
+  "pdf.additionalInfo": "Zusatzinfos und ausführliche Hintergründe einbeziehen"
 }

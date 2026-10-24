@@ -1,0 +1,164 @@
+{
+  "rose-methods": {
+    "kind": "rose-methods",
+    "eyebrow": "ROSÉ IM KELLER",
+    "title": "Drei Wege zum Rosa.",
+    "caption": "Drei allgemeine Verfahren der Rosébereitung. Die Zeichnungen zeigen das Grundprinzip.",
+    "items": [
+      {
+        "label": "Direktpressen",
+        "title": "Farbe schon beim Pressen",
+        "body": "Dunkle Trauben werden direkt gepresst. Bereits dabei kann etwas Farbe aus den Schalen in den Saft übergehen. Danach vergärt der abgetrennte Saft."
+      },
+      {
+        "label": "Schalenkontakt",
+        "title": "Erst ziehen lassen, dann pressen",
+        "body": "Die angequetschten Trauben bleiben kurz mit ihrem Saft zusammen. Hat er genügend Farbe aufgenommen, werden die Schalen abgetrennt. Der rosa Saft vergärt anschließend für sich."
+      },
+      {
+        "label": "Saignée",
+        "title": "Rosa Saft aus dem Rotweintank",
+        "body": "Aus einem Ansatz für Rotwein wird ein Teil des Safts abgezogen, solange er noch rosa ist. Dieser Saft vergärt getrennt zum Rosé. Die übrige Maische bleibt für den Rotwein zurück."
+      }
+    ]
+  },
+  "riesling-season": {
+    "kind": "riesling-season",
+    "eyebrow": "EIN JAHR AN DER REBE",
+    "title": "Riesling braucht einen langen Atem.",
+    "caption": "Der Ablauf im Weinberg, vereinfacht. Wetter und Standort bestimmen den Zeitpunkt; feste Kalenderdaten gibt es dafür nicht.",
+    "items": [
+      {
+        "label": "Austrieb",
+        "title": "Aus Knospen werden Triebe",
+        "body": "Mit der Wärme im Frühjahr öffnen sich die Knospen. Junge Blätter und Triebe wachsen heran. In dieser frühen Phase können Spätfröste empfindliche Teile der Rebe schädigen."
+      },
+      {
+        "label": "Blüte",
+        "title": "Winzige Blüten, spätere Beeren",
+        "body": "Die Blütenstände der Rebe sind unscheinbar. Nach erfolgreicher Befruchtung entwickeln sich daraus die Beeren. Schon das Wetter zur Blüte kann beeinflussen, wie die spätere Traube aufgebaut ist."
+      },
+      {
+        "label": "Reife",
+        "title": "Die Beeren verändern sich",
+        "body": "Die Beeren werden weicher, Zucker sammelt sich an und Säure wird abgebaut. Gleichzeitig entwickeln sich die Aromen. Riesling reift langsam und kann von sonnigen Herbsttagen besonders profitieren."
+      },
+      {
+        "label": "Lese",
+        "title": "Der passende Moment für den Wein",
+        "body": "Für die Lese zählen Reife, Traubengesundheit und Wetter zusammen. Für einen frischen Wein kann ein anderer Zeitpunkt passen als für einen sehr reifen Stil. Einfach länger warten ist deshalb keine allgemeine Qualitätsregel."
+      }
+    ]
+  },
+  "sekt-bottle": {
+    "kind": "sekt-bottle",
+    "eyebrow": "TRADITIONELLE FLASCHENGÄRUNG",
+    "title": "Was in der Flasche passiert.",
+    "caption": "Eine Methode der Sektherstellung. Andere Sekte erhalten ihre zweite Gärung im Drucktank.",
+    "items": [
+      {
+        "label": "Grundwein",
+        "title": "Am Anfang ist der Wein noch still",
+        "body": "Zuerst wird ein geeigneter Grundwein erzeugt. Für die nächste Gärung kommen Hefe und eine bemessene Menge Zucker dazu. Die druckfeste Flasche wird verschlossen."
+      },
+      {
+        "label": "Zweite Gärung",
+        "title": "Die Hefe sorgt für die Bläschen",
+        "body": "Die Hefe setzt den zugegebenen Zucker um. Dabei entstehen etwas zusätzlicher Alkohol und Kohlendioxid. In der geschlossenen Flasche kann das Gas nicht entweichen und bleibt unter Druck im Wein."
+      },
+      {
+        "label": "Hefelager",
+        "title": "Zeit mit der Hefe",
+        "body": "Nach der Gärung bleibt der Wein auf der Hefe liegen. Dieser Kontakt kann Duft und Mundgefühl verändern. Je nach Wein können etwa brotige oder briocheartige Eindrücke dazukommen."
+      },
+      {
+        "label": "Degorgieren",
+        "title": "Das Hefedepot kommt heraus",
+        "body": "Durch Rütteln wird das Depot zum Flaschenhals bewegt. Beim Degorgieren wird es entfernt. Anschließend wird der Wein fertiggestellt und mit dem endgültigen Verschluss versehen."
+      }
+    ]
+  },
+  "champagne-blend": {
+    "kind": "champagne-blend",
+    "eyebrow": "ASSEMBLAGE",
+    "title": "Wie ein Champagner zusammenkommt.",
+    "caption": "Diese Bausteine können kombiniert werden. Es gibt ebenso Champagner aus einer Sorte, einem Weinberg oder einem einzigen Jahrgang.",
+    "items": [
+      {
+        "label": "Rebsorten",
+        "title": "Verschiedene Trauben zusammenbringen",
+        "body": "Chardonnay, Pinot Noir und Meunier sind die wichtigsten Sorten der Champagne. Ihre Grundweine können einander ergänzen. Die Zusammensetzung richtet sich nach dem gewünschten Wein; eine feste Mischung gibt es nicht."
+      },
+      {
+        "label": "Weinberge",
+        "title": "Orte mit eigener Prägung",
+        "body": "Grundweine aus verschiedenen Weinbergen und Gemeinden bringen unterschiedliche Voraussetzungen mit. Lage, Boden und Traubenreife prägen den einzelnen Wein. Bei der Assemblage wird entschieden, was zusammenpasst."
+      },
+      {
+        "label": "Jahrgänge",
+        "title": "Aktuelle Ernte und Reserveweine",
+        "body": "Viele Champagner ohne Jahrgangsangabe verbinden Weine aus verschiedenen Ernten. Zurückgelegte Reserveweine machen das möglich. Ein Jahrgangschampagner stammt dagegen aus der Ernte des angegebenen Jahres."
+      }
+    ]
+  },
+  "cava-age": {
+    "kind": "cava-age",
+    "eyebrow": "ZEIT AUF DER HEFE",
+    "title": "Vier Reifekategorien für Cava.",
+    "caption": "Mindestzeiten der Flaschenreife auf der Hefe. Für die höheren Kategorien gelten weitere Herkunfts- und Produktionsvorgaben. Reifezeit und Süße sind getrennte Angaben.",
+    "items": [
+      {
+        "label": "Guarda",
+        "title": "Cava de Guarda",
+        "months": 9,
+        "body": "Mindestens neun Monate reift dieser Cava auf der Hefe in der Flasche. Die Angabe beschreibt eine Mindestdauer. Ein einzelner Wein kann länger reifen."
+      },
+      {
+        "label": "Reserva",
+        "title": "Cava de Guarda Superior Reserva",
+        "months": 18,
+        "body": "Reserva reift mindestens 18 Monate auf der Hefe. Die Kategorie gehört zu Guarda Superior. Ob der Wein etwa Brut oder Brut Nature ist, steht zusätzlich auf dem Etikett."
+      },
+      {
+        "label": "Gran Reserva",
+        "title": "Cava de Guarda Superior Gran Reserva",
+        "months": 30,
+        "body": "Für Gran Reserva sind mindestens 30 Monate Hefelager vorgeschrieben. Längere Reife kann Textur und Duft verändern. Wie sich das zeigt, hängt auch vom Grundwein und dem Ausbau ab."
+      },
+      {
+        "label": "Paraje Calificado",
+        "title": "Cava de Paraje Calificado",
+        "months": 36,
+        "body": "Mindestens 36 Monate Hefelager gehören zu dieser Kategorie aus einer qualifizierten Einzellage. Neben der Zeit zählen besondere Vorgaben an Herkunft und Erzeugung."
+      }
+    ]
+  },
+  "port-styles": {
+    "kind": "port-styles",
+    "eyebrow": "PORTWEIN ENTDECKEN",
+    "title": "Ruby, Tawny, Vintage oder LBV?",
+    "caption": "Stilfamilien und besondere Kategorien. Vintage und LBV gehören zur Ruby-Stilwelt; die Begriffe stehen also nicht alle auf derselben Ebene.",
+    "items": [
+      {
+        "label": "Ruby",
+        "title": "Rote Frucht bewahren",
+        "body": "Ruby ist die Stilfamilie mit dunklerer Farbe und fruchtbetontem Charakter. Innerhalb dieser Familie gibt es verschiedene Kategorien. Der Name beschreibt keine eigene Traubensorte."
+      },
+      {
+        "label": "Tawny",
+        "title": "Fassreife prägt den Stil",
+        "body": "Tawny entwickelt sich mit Luftkontakt im Holz. Je nach Reife können Nüsse, getrocknete Früchte und wärmere Farbtöne in den Vordergrund treten. Auch hier gibt es unterschiedliche Reifekategorien."
+      },
+      {
+        "label": "Vintage",
+        "title": "Ein Jahrgang für die Flaschenreife",
+        "body": "Vintage Port stammt aus einer einzigen Ernte und wird nach zwei bis drei Jahren abgefüllt. Er kann sich danach lange in der Flasche entwickeln und dabei ein Depot bilden."
+      },
+      {
+        "label": "LBV",
+        "title": "Late Bottled Vintage",
+        "body": "Auch LBV stammt aus einem Jahrgang, bleibt aber vor der Abfüllung vier bis sechs Jahre im Holz. Viele sind beim Kauf trinkbereit. Einige können in der Flasche weiterreifen; Hinweise auf dem Etikett helfen beim Einordnen."
+      }
+    ]
+  }
+}

@@ -1,4 +1,6 @@
 <script lang="ts">
+ import LearningScene from './LearningScene.svelte';
+ import {learningScene} from '#lib/learning-scene.ts';
  import StoryCompanion from './StoryCompanion.svelte';
  import ArticleFacts from './ArticleFacts.svelte';
  import RegionProfile from './RegionProfile.svelte';
@@ -7,13 +9,13 @@
  import WineStyleVisual from './WineStyleVisual.svelte';
  import AtlasVisual from './AtlasVisual.svelte';
  import type{Article,Wine}from'#lib/content.ts';import{getWines}from'#lib/editorial.svelte.ts';import LearningVisual from'./LearningVisual.svelte';import WineBottle from'../WineBottle.svelte';import Icon from'../Icon.svelte';
- let{article,compact=false,activeWine}:{article:Article;compact?:boolean;activeWine?:Wine}=$props();const readingCopy=$derived([article.intro,...article.paragraphs,...(article.sections||[]).map(s=>s.body)].join(' ').toLocaleLowerCase('de-DE'));const terms=$derived(glossary.filter(entry=>entry.matches.some(word=>readingCopy.includes(word))));const featuredWine=$derived(article.visual==='producer'?(activeWine?.slugs[1]===article.slug?activeWine:getWines().find(w=>w.slugs[1]===article.slug)):undefined);
+ let{article,compact=false,activeWine}:{article:Article;compact?:boolean;activeWine?:Wine}=$props();const scene=$derived(learningScene(article.visual,article.slug));const readingCopy=$derived([article.intro,...article.paragraphs,...(article.sections||[]).map(s=>s.body)].join(' ').toLocaleLowerCase('de-DE'));const terms=$derived(glossary.filter(entry=>entry.matches.some(word=>readingCopy.includes(word))));const featuredWine=$derived(article.visual==='producer'?(activeWine?.slugs[1]===article.slug?activeWine:getWines().find(w=>w.slugs[1]===article.slug)):undefined);
 </script>
 <div class="article-body">
  <div class="prose article-opening">{#if article.paragraphs[0]}<p>{article.paragraphs[0]}</p>{/if}</div>
  {#if article.atlas&&article.visual!=='atlas'}<ArticleFacts title={article.title} profile={article.atlas}/>{/if}
  {#if terms.length}<details class="wine-words"><summary><Icon name="book" size={15}/><span>Weinwörter kurz erklärt</span><Icon name="next" size={16}/></summary><dl>{#each terms as entry}<div><dt>{entry.term}</dt><dd>{entry.meaning}</dd></div>{/each}</dl></details>{/if}
- {#if article.visual==='rose-compare'}<RoseComparison/>{:else if article.visual==='atlas'&&article.atlas}<AtlasVisual {article}/>{:else if article.visual==='wine-style'}{#key article.slug}<WineStyleVisual slug={article.slug}/>{/key}{:else if article.visual&&article.visual!=='none'&&article.visual!=='producer'}{#key article.slug}<LearningVisual kind={article.visual} slug={article.slug}/>{/key}{:else if featuredWine}<section class="wine-passport" aria-label={'Unser Wein von '+featuredWine.producer}><WineBottle wine={featuredWine} interactive/><div><span class="eyebrow">UNSER WEIN</span><h3>{featuredWine.name}</h3><p>{featuredWine.producer}</p><dl>{#if featuredWine.vintage}<div><dt>Jahrgang</dt><dd>{featuredWine.vintage}</dd></div>{/if}<div><dt>Herkunft</dt><dd>{featuredWine.region}</dd></div><div><dt>Rebsorte</dt><dd>{featuredWine.grape}</dd></div><div><dt>Im Glas</dt><dd>{featuredWine.style}</dd></div></dl></div></section>{/if}
+ {#if scene&&article.visual!=='wine-style'}{#key article.slug}<LearningScene {scene}/>{/key}{:else if article.visual==='rose-compare'}<RoseComparison/>{:else if article.visual==='atlas'&&article.atlas}<AtlasVisual {article}/>{:else if article.visual==='wine-style'}{#key article.slug}<WineStyleVisual slug={article.slug}/>{/key}{:else if article.visual&&article.visual!=='none'&&article.visual!=='producer'}{#key article.slug}<LearningVisual kind={article.visual} slug={article.slug}/>{/key}{:else if featuredWine}<section class="wine-passport" class:compact-passport={compact} aria-label={'Unser Wein von '+featuredWine.producer}><WineBottle wine={featuredWine} interactive/><div><span class="eyebrow">UNSER WEIN</span><h3>{featuredWine.name}</h3><p>{featuredWine.producer}</p><dl>{#if featuredWine.vintage}<div><dt>Jahrgang</dt><dd>{featuredWine.vintage}</dd></div>{/if}<div><dt>Herkunft</dt><dd>{featuredWine.region}</dd></div><div><dt>Rebsorte</dt><dd>{featuredWine.grape}</dd></div><div><dt>Im Glas</dt><dd>{featuredWine.style}</dd></div></dl></div></section>{/if}
  <div class="prose article-opening">{#each article.paragraphs.slice(1) as p}<p>{p}</p>{/each}</div>
  <RegionProfile slug={article.slug}/>
  <StoryCompanion slug={article.slug}/>

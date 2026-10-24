@@ -44,7 +44,7 @@ function regionArticle(r:RegionRow):Article{
  const parent=Object.entries(parentGroups).find(([,children])=>children.includes(r.id))?.[0];
  const aliases=[...(extraRegionAliases[r.id]||[]),...(parent?[parent,...(extraRegionAliases[parent]||[])]:[])];
  return {slug:regionSlug(r.id),category:'Regionen',title:r.title,eyebrow:country.label,intro:r.hook,countries:[code],aliases,
- paragraphs:[r.place,r.wine],sections:[{title:'Der Name auf der Flasche',body:r.detail},{title:'Herkunft kurz erklärt',body:country.context},theme],
+ paragraphs:[r.place,r.wine],sections:[{title:'Der Name auf der Flasche',body:r.detail},theme],
  host:[r.place+' '+r.wine,r.detail+' '+theme.body],fact:r.fact,visual:'atlas',...articlePhoto(r.id),
  atlas:{kind:'region',country:country.label,countryCode:code,point:{latitude:r.latitude,longitude:r.longitude},facts:[{label:'Weinland',value:country.label},{label:'Beispiele für Rebsorten',value:grapeNames.join(' · ')||'Mehrere regionale Sorten'},{label:'Region',value:r.title}]},
  sources:[country.source,...(r.sourceUrl?[source(r.sourceLabel||r.title,r.sourceUrl)]:[])],
@@ -52,10 +52,10 @@ function regionArticle(r:RegionRow):Article{
 }
 function grapeArticle(r:GrapeRow):Article{
  const v=varieties[r.id];if(!v)throw Error('Rebsorte ohne Index '+r.id);const exampleValue=(grapeExamples as Record<string,string>)[r.id];const example=(regionData as RegionRow[]).find(region=>exampleValue?region.id===exampleValue:region.grapes.includes(r.id));const context=example?example.title+': '+example.detail:exampleValue||'';const namesDetail=r.detail+(context?'\n\n'+context:'');const codes=r.countries.filter(c=>c in countryData) as CountryCode[];const names=codes.map(c=>countryData[c].label);
- const color=v.color==='red'?'red':v.color==='family'?'family':'white';const technique=color==='red'?'Schalenkontakt und Gerbstoffe':'Pressen, Hefe und Ausbau';
- const techniqueText=color==='red'?'Bei der Gärung mit den Schalen gelangen Farbe und Gerbstoffe in den Wein. Wie kräftig beides ausfällt, hängt auch von Reife, Kontaktzeit und Kellerarbeit ab. Tannin kann ein trockenes Gefühl am Zahnfleisch erzeugen. Es ist etwas anderes als die frische, speichelanregende Wirkung von Säure.':'Beim Pressen, Vergären und Reifen kann derselbe Sortenname sehr unterschiedliche Weine ergeben. Ein weitgehend luftgeschützter Tankausbau bewahrt andere Eindrücke als ein Ausbau mit längerem Hefekontakt oder im Holzfass. Ob ein Wein süß schmeckt, hängt vom verbleibenden Zucker ab; fruchtiger Duft allein verrät das nicht.';
+ const color=v.color==='red'?'red':v.color==='family'?'family':'white';
+
  return {slug:v.slug,category:'Rebsorten',title:v.title,eyebrow:color==='red'?'Dunkle Rebsorte':color==='family'?'Sortenfamilie und Namen':'Helle Rebsorte',intro:r.hook,countries:codes,aliases:v.aliases,
- paragraphs:[r.place,r.character],sections:[{title:'Im Weinberg',body:r.botany},{title:'Namen und Unterschiede',body:namesDetail},{title:technique,body:techniqueText}],
+ paragraphs:[r.place,r.character],sections:[{title:'Im Weinberg',body:r.botany},{title:'Namen und Unterschiede',body:namesDetail}],
  host:[r.place+' '+r.character,r.botany+' '+r.detail],fact:r.fact,image:'',visual:'atlas',atlas:{kind:'grape',country:names.join(' · '),color,facts:[{label:'Beispiele für Weinländer',value:names.slice(0,4).join(' · ')},{label:'Traubenfarbe',value:color==='red'?'Dunkle Beeren':color==='family'?'Je nach Sorte unterschiedlich':['gewurztraminer','moschofilero','koshu','zierfandler'].includes(r.id)?'Rosa bis rötlich-graue Beeren':'Helle Beeren'},{label:'Weitere Namen',value:v.aliases.filter(a=>a!==v.title).slice(0,3).join(' · ')||'Meist unter diesem Namen bekannt'}],aromas:r.aromas},sources:[source(r.sourceLabel,r.sourceUrl)],related:[...(regionData as RegionRow[]).filter(region=>region.grapes.includes(r.id)).slice(0,3).map(region=>regionSlug(region.id)),color==='red'?'rotwein':'weisswein','aromen']};
 }
 function producerArticle(r:ProducerRow):Article{

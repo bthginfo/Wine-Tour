@@ -1,5 +1,6 @@
 import {moreArticles} from '../../more-content';
 import learning from './learning.json';
+import learningRevision from './learning-revision.json';
 import {practicalArticles} from './practical';
 import grapeMedia from '../../educational-media.json';
 import media from '../../winery-media.json';
@@ -10,7 +11,7 @@ import tastingProfiles from './tasting-profiles.json';
 import redFinale from './red-finale.json';
 export type ArticleSection={title:string;body:string};
 export type AtlasProfile={kind:'region'|'grape'|'producer';countryCode?:string;country:string;point?:{latitude:number;longitude:number};color?:'red'|'white'|'family';facts:{label:string;value:string}[];aromas?:string[]};
-export type Article = { countries?:string[]; aliases?:string[]; atlas?:AtlasProfile; slug: string; category: string; title: string; eyebrow: string; intro: string; paragraphs: string[]; sections?:ArticleSection[]; visual?:string; host: string[]; fact: string; image: string; imageFit?:string; imagePosition?:string; imagePositionMobile?:string; imageAlt?:string; imageCredit?:string; imageSource?:string; sources: {label:string;url:string}[]; related?:string[] };
+export type Article = { countries?:string[]; aliases?:string[]; atlas?:AtlasProfile; slug: string; category: string; title: string; eyebrow: string; intro: string; paragraphs: string[]; sections?:ArticleSection[]; additionalInfo?:ArticleSection[]; visual?:string; host: string[]; fact: string; image: string; imageFit?:string; imagePosition?:string; imagePositionMobile?:string; imageAlt?:string; imageCredit?:string; imageSource?:string; sources: {label:string;url:string}[]; related?:string[] };
 const source = (label:string,url:string) => ({label,url});
 const dwi = (path:string) => source('Deutsches Weininstitut',`https://www.deutscheweine.de/${path}`);
 const regions = dwi('regionen');
@@ -50,6 +51,7 @@ const reviewed=learning as Record<string,{visual:string;sections:ArticleSection[
 for(const a of articles){const more=reviewed[a.slug];if(more){a.sections=more.sections;a.visual=more.visual;a.host=[...a.host,...more.hostMore||[]];}if(['aromen','kork','trauben','weisse-trauben','weinarten','riesling','tasting','saar-illustration'].includes(a.image))a.image='';}
 for(const a of articles){const background=(hostBackground as Record<string,{guide:string[];sections:ArticleSection[];sources:{label:string;url:string}[]}>)[a.slug];if(background){a.host=[...background.guide,...background.sections.map(section=>section.title+'\n'+section.body)];for(const item of background.sources)if(!a.sources.some(existing=>existing.url===item.url))a.sources.push(item);}}
 for(const a of articles){const profile=(tastingProfiles as Record<string,AtlasProfile>)[a.slug];if(profile)a.atlas=profile;}
+for(const a of articles){const revision=(learningRevision as Record<string,Partial<Article>>)[a.slug];if(revision){const {sources,...fields}=revision;Object.assign(a,fields);for(const source of sources||[])if(!a.sources.some(s=>s.url===source.url))a.sources.push(source);}}
 for(const [slug,m]of Object.entries(grapeMedia)){const a=articles.find(a=>a.slug===slug)!;Object.assign(a,{image:m.url,imageAlt:m.alt,imageCredit:m.credit,imageSource:m.source,imagePosition:'center center',imagePositionMobile:'center center',imageFit:'cover'});}
 
 for(const a of articles){a.imageFit??=(!imageCreditsLookup(a.image)?'contain':'cover');}
