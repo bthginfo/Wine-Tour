@@ -77,3 +77,7 @@ dialog[open]{animation:dialog-appear 180ms var(--motion-ease) both}dialog[open]:
 .wine-words{border:1px solid var(--line);border-radius:10px;margin:20px 0;color:var(--ink)}.wine-words summary{display:flex;align-items:center;gap:10px;min-height:46px;padding:12px 15px;cursor:pointer;list-style:none;font-size:12px;font-weight:600}.wine-words summary::-webkit-details-marker{display:none}.wine-words summary>svg:last-child{margin-left:auto;transition:transform .18s}.wine-words[open] summary>svg:last-child{transform:rotate(90deg)}.wine-words summary:focus-visible{outline:3px solid var(--focus,#91ac6d);outline-offset:3px;border-radius:9px}.wine-words dl{display:grid;gap:15px;margin:0;padding:4px 15px 17px}.wine-words dt{font-weight:650;font-size:13px;margin-bottom:5px}.wine-words dd{margin:0;font-size:13px;line-height:1.8;color:var(--muted)}
 
 @media(min-width:901px){.compact-passport{display:none}}
+
+.article-card-image.producer-image .pill{top:auto;bottom:10px}
+
+.story-visual.producer-hero{height:clamp(240px,25vw,360px)}
