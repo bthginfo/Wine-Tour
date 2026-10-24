@@ -6,6 +6,7 @@ export function hostPronunciation(text:string):string {
  return text.replace(/https?:\/\/\S+/g,'').replace(/\*\*/g,'')
   .replace(/Rheinebene(n)?/g,(_,plural)=>'Rhein Ebene'+(plural||''))
   .replace(/\bJUWEL\b/g,'Juwel').replace(/\bJUliane\b/g,'Juliane').replace(/\bELler\b/g,'Eller').replace(/\bVDP\b/g,'Vau De Pe')
+  .replace(/\bIII\s+Freunde\b/gi,'Drei Freunde')
   .replace(/\bTCA\b/g,'Te Ce A').replace(/CO₂/g,'Kohlendioxid')
   .replace(/(\d)\s*[–-]\s*(\d)/g,'$1 bis $2').replace(/°\s*C\b/g,' Grad Celsius')
   .replace(/\s*·\s*/g,'. ').replace(/\n+/g,' ').replace(/\s+/g,' ').trim();

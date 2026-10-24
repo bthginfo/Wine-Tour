@@ -1,10 +1,10 @@
 {
-  "a52b079553e7538b32ead6993f5b812aac23fcef18172070b5e81e90397b7a08": {
+  "5cb39c0a57095e5de758e0094326c510c99f281b06aa717012b193b1bc5f2efa": {
     "slug": "pfalz",
     "voices": {
       "audio:seraphina": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/pfalz-seraphina-5e41122c53f4bd248a93.mp3",
-        "duration": 308.952,
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/pfalz-seraphina-ee4ea1ed235a98870a2e.mp3",
+        "duration": 315.048,
         "chapters": [
           {
             "title": "Grundwissen",
@@ -12,23 +12,23 @@
           },
           {
             "title": "Warum der Wald für den Wein wichtig ist",
-            "start": 87.412
+            "start": 93.463
           },
           {
             "title": "Was der Boden mit den Trauben zu tun hat",
-            "start": 134.525
+            "start": 140.562
           },
           {
             "title": "Von römischen Keltern zu Klosterweinbergen",
-            "start": 179.613
+            "start": 185.2
           },
           {
             "title": "Die Flasche, die seit der Römerzeit geschlossen ist",
-            "start": 224.562
+            "start": 230.262
           },
           {
             "title": "Eine Weinstraße bis ins Elsass",
-            "start": 264.55
+            "start": 270.363
           }
         ],
         "voice": "de-DE-SeraphinaMultilingualNeural",
@@ -37,8 +37,8 @@
         "synthesis": "continuous-v2"
       },
       "audio:florian": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/pfalz-florian-213a577ddba4daf80f3a.mp3",
-        "duration": 267.912,
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/pfalz-florian-2a03cadfeb355ab15c9e.mp3",
+        "duration": 273.672,
         "chapters": [
           {
             "title": "Grundwissen",
@@ -46,23 +46,23 @@
           },
           {
             "title": "Warum der Wald für den Wein wichtig ist",
-            "start": 75.575
+            "start": 81.325
           },
           {
             "title": "Was der Boden mit den Trauben zu tun hat",
-            "start": 116.4
+            "start": 122.15
           },
           {
             "title": "Von römischen Keltern zu Klosterweinbergen",
-            "start": 155.387
+            "start": 161.137
           },
           {
             "title": "Die Flasche, die seit der Römerzeit geschlossen ist",
-            "start": 194.338
+            "start": 200.088
           },
           {
             "title": "Eine Weinstraße bis ins Elsass",
-            "start": 229.363
+            "start": 235.113
           }
         ],
         "voice": "de-DE-FlorianMultilingualNeural",
@@ -72,12 +72,12 @@
       }
     }
   },
-  "bdabdeeaf6b5e8e506ad1849c39b34ff8133dc77b6fddb97deec3566fcfb8d36": {
+  "ec0d0c83847ffb511f7e2109c2f3b0e28b6ca6fd5d0a3a43ea76335cba1cd955": {
     "slug": "von-winning",
     "voices": {
       "audio:florian": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/von-winning-florian-302d754bd2318138b2f8.mp3",
-        "duration": 322.176,
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/von-winning-florian-8e084fe6659da6c27581.mp3",
+        "duration": 325.68,
         "chapters": [
           {
             "title": "Grundwissen",
@@ -85,27 +85,27 @@
           },
           {
             "title": "Eine Erbschaft hinter mehreren Deidesheimer Weingütern",
-            "start": 74.1
+            "start": 77.263
           },
           {
             "title": "Wie der Name wechselte",
-            "start": 117.487
+            "start": 120.975
           },
           {
             "title": "Was hinter der Arbeit im Weinberg steckt",
-            "start": 158.488
+            "start": 161.975
           },
           {
             "title": "Spontangärung und Hefelager verständlich erklärt",
-            "start": 198.95
+            "start": 202.438
           },
           {
             "title": "Warum im alten Keller eine Fasswerkstatt war",
-            "start": 242.9
+            "start": 246.387
           },
           {
             "title": "Was wir davon im ersten Glas wiederfinden",
-            "start": 285.5
+            "start": 288.988
           }
         ],
         "voice": "de-DE-FlorianMultilingualNeural",
@@ -114,8 +114,8 @@
         "synthesis": "continuous-v2"
       },
       "audio:seraphina": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/von-winning-seraphina-4f4880d244a58fb148a1.mp3",
-        "duration": 371.112,
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/von-winning-seraphina-f629a06b2db6e5ef8117.mp3",
+        "duration": 375.168,
         "chapters": [
           {
             "title": "Grundwissen",
@@ -123,27 +123,27 @@
           },
           {
             "title": "Eine Erbschaft hinter mehreren Deidesheimer Weingütern",
-            "start": 85.5
+            "start": 89.338
           },
           {
             "title": "Wie der Name wechselte",
-            "start": 134.637
+            "start": 139.25
           },
           {
             "title": "Was hinter der Arbeit im Weinberg steckt",
-            "start": 182.088
+            "start": 186.8
           },
           {
             "title": "Spontangärung und Hefelager verständlich erklärt",
-            "start": 229.088
+            "start": 233.512
           },
           {
             "title": "Warum im alten Keller eine Fasswerkstatt war",
-            "start": 280.875
+            "start": 284.913
           },
           {
             "title": "Was wir davon im ersten Glas wiederfinden",
-            "start": 329.95
+            "start": 334.137
           }
         ],
         "voice": "de-DE-SeraphinaMultilingualNeural",
@@ -283,46 +283,12 @@
       }
     }
   },
-  "c1fef03842780fac0c4acdd8eb15c8a0da5ed2d72a58e1a0b1b7fe7936fe8308": {
+  "5a370b825a574b988b3b57096732a12652cb5edcf911abf494f6202fe5c365e3": {
     "slug": "rheinhessen",
     "voices": {
-      "audio:seraphina": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/rheinhessen-seraphina-1ddaeed6add8e3a2fee2.mp3",
-        "duration": 305.352,
-        "chapters": [
-          {
-            "title": "Grundwissen",
-            "start": 0
-          },
-          {
-            "title": "Warum ein hessischer Name in Rheinland-Pfalz geblieben ist",
-            "start": 80.65
-          },
-          {
-            "title": "Ein Weinberg mit einer Urkunde aus dem Jahr 742",
-            "start": 125.9
-          },
-          {
-            "title": "Was die Hügel am Klima verändern",
-            "start": 171.812
-          },
-          {
-            "title": "Löss und Kalkmergel unter dem JUWEL Rosé",
-            "start": 216.175
-          },
-          {
-            "title": "Wie eine neue Generation den Familienbetrieb verändert",
-            "start": 260.125
-          }
-        ],
-        "voice": "de-DE-SeraphinaMultilingualNeural",
-        "rate": "+0%",
-        "pitch": "+0Hz",
-        "synthesis": "continuous-v2"
-      },
       "audio:florian": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/rheinhessen-florian-9bfadeb6f15ffd920264.mp3",
-        "duration": 266.448,
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/rheinhessen-florian-43efc404343b041bfc70.mp3",
+        "duration": 272.016,
         "chapters": [
           {
             "title": "Grundwissen",
@@ -330,38 +296,72 @@
           },
           {
             "title": "Warum ein hessischer Name in Rheinland-Pfalz geblieben ist",
-            "start": 69.625
+            "start": 75.188
           },
           {
             "title": "Ein Weinberg mit einer Urkunde aus dem Jahr 742",
-            "start": 109.35
+            "start": 114.912
           },
           {
             "title": "Was die Hügel am Klima verändern",
-            "start": 149.45
+            "start": 155.012
           },
           {
             "title": "Löss und Kalkmergel unter dem JUWEL Rosé",
-            "start": 189
+            "start": 194.562
           },
           {
             "title": "Wie eine neue Generation den Familienbetrieb verändert",
-            "start": 226.963
+            "start": 232.525
           }
         ],
         "voice": "de-DE-FlorianMultilingualNeural",
         "rate": "+0%",
         "pitch": "+0Hz",
         "synthesis": "continuous-v2"
+      },
+      "audio:seraphina": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/rheinhessen-seraphina-63d1e7f54f5d8ca5e4bc.mp3",
+        "duration": 314.28,
+        "chapters": [
+          {
+            "title": "Grundwissen",
+            "start": 0
+          },
+          {
+            "title": "Warum ein hessischer Name in Rheinland-Pfalz geblieben ist",
+            "start": 88.35
+          },
+          {
+            "title": "Ein Weinberg mit einer Urkunde aus dem Jahr 742",
+            "start": 133.8
+          },
+          {
+            "title": "Was die Hügel am Klima verändern",
+            "start": 180.05
+          },
+          {
+            "title": "Löss und Kalkmergel unter dem JUWEL Rosé",
+            "start": 224.738
+          },
+          {
+            "title": "Wie eine neue Generation den Familienbetrieb verändert",
+            "start": 268.675
+          }
+        ],
+        "voice": "de-DE-SeraphinaMultilingualNeural",
+        "rate": "+0%",
+        "pitch": "+0Hz",
+        "synthesis": "continuous-v2"
       }
     }
   },
-  "1f002475d695118b3319dd8413bdf8a68650631610736c6aed77517d32015b84": {
+  "51bc408a550766720a30ad435ff9f7e4731aa098a3bf8419336d2bc17086093f": {
     "slug": "juwel",
     "voices": {
       "audio:florian": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/juwel-florian-f7efc76daca6b8380460.mp3",
-        "duration": 311.568,
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/juwel-florian-6f7a45bfc0041186999b.mp3",
+        "duration": 319.68,
         "chapters": [
           {
             "title": "Grundwissen",
@@ -369,27 +369,27 @@
           },
           {
             "title": "Mit 23 das Lebenswerk der Eltern übernehmen",
-            "start": 71.2
+            "start": 76.112
           },
           {
             "title": "Warum fünf Sorten ein anderer Plan sind als 35",
-            "start": 112.287
+            "start": 117.2
           },
           {
             "title": "Der Name verrät schon die Winzerin",
-            "start": 153.725
+            "start": 158.637
           },
           {
             "title": "Nachhaltigkeit im Alltag des Weinguts",
-            "start": 190.488
+            "start": 195.4
           },
           {
-            "title": "Was man vom Weinbau übers Jahr mitbekommt",
-            "start": 231.725
+            "title": "Eine Facebook-Nachricht und die III Freunde",
+            "start": 236.637
           },
           {
             "title": "Unser Rosé und der Vergleich mit dem Secco",
-            "start": 271.238
+            "start": 279.35
           }
         ],
         "voice": "de-DE-FlorianMultilingualNeural",
@@ -398,8 +398,8 @@
         "synthesis": "continuous-v2"
       },
       "audio:seraphina": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/juwel-seraphina-a15f5b68c3da91792176.mp3",
-        "duration": 358.512,
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/juwel-seraphina-dc4425ac70db0b90cccc.mp3",
+        "duration": 367.44,
         "chapters": [
           {
             "title": "Grundwissen",
@@ -407,27 +407,27 @@
           },
           {
             "title": "Mit 23 das Lebenswerk der Eltern übernehmen",
-            "start": 81.713
+            "start": 86.75
           },
           {
             "title": "Warum fünf Sorten ein anderer Plan sind als 35",
-            "start": 129.188
+            "start": 134.012
           },
           {
             "title": "Der Name verrät schon die Winzerin",
-            "start": 176.875
+            "start": 181.725
           },
           {
             "title": "Nachhaltigkeit im Alltag des Weinguts",
-            "start": 219.012
+            "start": 223.875
           },
           {
-            "title": "Was man vom Weinbau übers Jahr mitbekommt",
-            "start": 266.75
+            "title": "Eine Facebook-Nachricht und die III Freunde",
+            "start": 271.587
           },
           {
             "title": "Unser Rosé und der Vergleich mit dem Secco",
-            "start": 312.012
+            "start": 320.837
           }
         ],
         "voice": "de-DE-SeraphinaMultilingualNeural",
@@ -437,46 +437,12 @@
       }
     }
   },
-  "ed462859fbdbe930d4df65668845e2092e7c43db78c86b5183adc8ae9313d116": {
+  "93f84f5800cba23aa0c6cf98d14b434000d591c130ab4948fcc9a1a3ce93caf2": {
     "slug": "saar",
     "voices": {
-      "audio:seraphina": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/saar-seraphina-314952273510b3215a0b.mp3",
-        "duration": 299.616,
-        "chapters": [
-          {
-            "title": "Grundwissen",
-            "start": 0
-          },
-          {
-            "title": "Weshalb die guten Weinberge oft seitlich liegen",
-            "start": 78.112
-          },
-          {
-            "title": "Was Schiefer für eine Rebe bedeutet",
-            "start": 120.362
-          },
-          {
-            "title": "Römer, Klöster und eine lange Weinlandschaft",
-            "start": 162.875
-          },
-          {
-            "title": "Eine berühmte Weinbaukarte fürs Finanzamt",
-            "start": 209.162
-          },
-          {
-            "title": "Ayl, Ayler und die Namen auf der Flasche",
-            "start": 257.275
-          }
-        ],
-        "voice": "de-DE-SeraphinaMultilingualNeural",
-        "rate": "+0%",
-        "pitch": "+0Hz",
-        "synthesis": "continuous-v2"
-      },
       "audio:florian": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/saar-florian-2b4201ae8aa667800757.mp3",
-        "duration": 260.616,
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/saar-florian-380df092e3d71fbdb0e5.mp3",
+        "duration": 261.576,
         "chapters": [
           {
             "title": "Grundwissen",
@@ -484,38 +450,72 @@
           },
           {
             "title": "Weshalb die guten Weinberge oft seitlich liegen",
-            "start": 67.513
+            "start": 68.475
           },
           {
             "title": "Was Schiefer für eine Rebe bedeutet",
-            "start": 103.862
+            "start": 104.825
           },
           {
             "title": "Römer, Klöster und eine lange Weinlandschaft",
-            "start": 140.238
+            "start": 141.2
           },
           {
             "title": "Eine berühmte Weinbaukarte fürs Finanzamt",
-            "start": 181.15
+            "start": 182.113
           },
           {
             "title": "Ayl, Ayler und die Namen auf der Flasche",
-            "start": 223.275
+            "start": 224.238
           }
         ],
         "voice": "de-DE-FlorianMultilingualNeural",
         "rate": "+0%",
         "pitch": "+0Hz",
         "synthesis": "continuous-v2"
+      },
+      "audio:seraphina": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/saar-seraphina-509e6ddb2d37bc096c8d.mp3",
+        "duration": 301.104,
+        "chapters": [
+          {
+            "title": "Grundwissen",
+            "start": 0
+          },
+          {
+            "title": "Weshalb die guten Weinberge oft seitlich liegen",
+            "start": 79.463
+          },
+          {
+            "title": "Was Schiefer für eine Rebe bedeutet",
+            "start": 121.688
+          },
+          {
+            "title": "Römer, Klöster und eine lange Weinlandschaft",
+            "start": 164.325
+          },
+          {
+            "title": "Eine berühmte Weinbaukarte fürs Finanzamt",
+            "start": 210.787
+          },
+          {
+            "title": "Ayl, Ayler und die Namen auf der Flasche",
+            "start": 258.688
+          }
+        ],
+        "voice": "de-DE-SeraphinaMultilingualNeural",
+        "rate": "+0%",
+        "pitch": "+0Hz",
+        "synthesis": "continuous-v2"
       }
     }
   },
-  "7cc7664a90672a47aaaf042d308ea1b9b3f7a5e18a56f93af6dd898fff07a88c": {
+  "084145adfea0d859ec7f5b9790296432afd5365302151b8a1dbed7591aebef52": {
     "slug": "margarethenhof",
     "voices": {
       "audio:florian": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/margarethenhof-florian-a8239ae1c954db27cb64.mp3",
-        "duration": 269.328,
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/margarethenhof-florian-496e4794fcf8fd6e326f.mp3",
+        "duration": 277.776,
         "chapters": [
           {
             "title": "Grundwissen",
@@ -523,23 +523,23 @@
           },
           {
             "title": "Eine Familie mit zwei Weinlandschaften",
-            "start": 70.112
+            "start": 71.662
           },
           {
             "title": "Warum Zeit im Keller ein Arbeitsmittel ist",
-            "start": 111.75
+            "start": 113.3
           },
           {
             "title": "Was bei unserem Schieferstein im Keller passiert",
-            "start": 154.463
+            "start": 156.012
           },
           {
             "title": "Was eine einzelne Parzelle ausmachen kann",
-            "start": 192.512
+            "start": 194.062
           },
           {
-            "title": "Wie Saarwein in die Allianz Arena kommt",
-            "start": 233.912
+            "title": "Von Geisenheim nach Südafrika",
+            "start": 235.463
           }
         ],
         "voice": "de-DE-FlorianMultilingualNeural",
@@ -548,8 +548,8 @@
         "synthesis": "continuous-v2"
       },
       "audio:seraphina": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/margarethenhof-seraphina-ea9b068492c7b1fec8fc.mp3",
-        "duration": 311.808,
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/margarethenhof-seraphina-e9c1fb229f509cce6be5.mp3",
+        "duration": 321.744,
         "chapters": [
           {
             "title": "Grundwissen",
@@ -557,23 +557,23 @@
           },
           {
             "title": "Eine Familie mit zwei Weinlandschaften",
-            "start": 81.225
+            "start": 82.825
           },
           {
             "title": "Warum Zeit im Keller ein Arbeitsmittel ist",
-            "start": 129.225
+            "start": 130.725
           },
           {
             "title": "Was bei unserem Schieferstein im Keller passiert",
-            "start": 178.675
+            "start": 179.838
           },
           {
             "title": "Was eine einzelne Parzelle ausmachen kann",
-            "start": 223.275
+            "start": 224.25
           },
           {
-            "title": "Wie Saarwein in die Allianz Arena kommt",
-            "start": 271.325
+            "title": "Von Geisenheim nach Südafrika",
+            "start": 272.413
           }
         ],
         "voice": "de-DE-SeraphinaMultilingualNeural",
@@ -781,32 +781,6 @@
   "96654e4c161d899fc274256b362fd1f8da3c7064c04cb41f40f9e31d0e793bcc": {
     "slug": "rotwein",
     "voices": {
-      "audio:seraphina": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/rotwein-seraphina-c2f336a6f96f28c10218.mp3",
-        "duration": 211.752,
-        "chapters": [
-          {
-            "title": "Grundwissen",
-            "start": 0
-          },
-          {
-            "title": "Was während der Gärung mit den Schalen passiert",
-            "start": 79.838
-          },
-          {
-            "title": "Gerbstoffe fühlen, Süße und Säure schmecken",
-            "start": 124.175
-          },
-          {
-            "title": "Was Fass und Temperatur verändern",
-            "start": 164.762
-          }
-        ],
-        "voice": "de-DE-SeraphinaMultilingualNeural",
-        "rate": "+0%",
-        "pitch": "+0Hz",
-        "synthesis": "continuous-v2"
-      },
       "audio:florian": {
         "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/rotwein-florian-d90b4033990a879b9e52.mp3",
         "duration": 183.504,
@@ -829,6 +803,32 @@
           }
         ],
         "voice": "de-DE-FlorianMultilingualNeural",
+        "rate": "+0%",
+        "pitch": "+0Hz",
+        "synthesis": "continuous-v2"
+      },
+      "audio:seraphina": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/rotwein-seraphina-c2f336a6f96f28c10218.mp3",
+        "duration": 211.752,
+        "chapters": [
+          {
+            "title": "Grundwissen",
+            "start": 0
+          },
+          {
+            "title": "Was während der Gärung mit den Schalen passiert",
+            "start": 79.838
+          },
+          {
+            "title": "Gerbstoffe fühlen, Süße und Säure schmecken",
+            "start": 124.175
+          },
+          {
+            "title": "Was Fass und Temperatur verändern",
+            "start": 164.762
+          }
+        ],
+        "voice": "de-DE-SeraphinaMultilingualNeural",
         "rate": "+0%",
         "pitch": "+0Hz",
         "synthesis": "continuous-v2"
@@ -952,32 +952,6 @@
   "25a4a1767bf941e7240f7f41f26b368d50164901cf2a862c1fc3a59b98c9f554": {
     "slug": "spaetburgunder-zwei-roses",
     "voices": {
-      "audio:seraphina": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/spaetburgunder-zwei-roses-seraphina-4258cdbb4b5d623b4b18.mp3",
-        "duration": 207.432,
-        "chapters": [
-          {
-            "title": "Grundwissen",
-            "start": 0
-          },
-          {
-            "title": "Zwei Rosés und mehrere Unterschiede",
-            "start": 77.737
-          },
-          {
-            "title": "Fruchtig riechen und süß schmecken",
-            "start": 120.875
-          },
-          {
-            "title": "Was uns beim Riesling wieder begegnet",
-            "start": 163.963
-          }
-        ],
-        "voice": "de-DE-SeraphinaMultilingualNeural",
-        "rate": "+0%",
-        "pitch": "+0Hz",
-        "synthesis": "continuous-v2"
-      },
       "audio:florian": {
         "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/spaetburgunder-zwei-roses-florian-d93e1226c1ce2a8f3f69.mp3",
         "duration": 179.808,
@@ -1000,6 +974,32 @@
           }
         ],
         "voice": "de-DE-FlorianMultilingualNeural",
+        "rate": "+0%",
+        "pitch": "+0Hz",
+        "synthesis": "continuous-v2"
+      },
+      "audio:seraphina": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/spaetburgunder-zwei-roses-seraphina-4258cdbb4b5d623b4b18.mp3",
+        "duration": 207.432,
+        "chapters": [
+          {
+            "title": "Grundwissen",
+            "start": 0
+          },
+          {
+            "title": "Zwei Rosés und mehrere Unterschiede",
+            "start": 77.737
+          },
+          {
+            "title": "Fruchtig riechen und süß schmecken",
+            "start": 120.875
+          },
+          {
+            "title": "Was uns beim Riesling wieder begegnet",
+            "start": 163.963
+          }
+        ],
+        "voice": "de-DE-SeraphinaMultilingualNeural",
         "rate": "+0%",
         "pitch": "+0Hz",
         "synthesis": "continuous-v2"

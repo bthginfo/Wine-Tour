@@ -1,0 +1,140 @@
+{
+  "pfalz": {
+    "kind": "region",
+    "country": "Deutschland",
+    "countryCode": "DE",
+    "facts": [
+      {
+        "label": "Rebfläche",
+        "value": "23.640 Hektar · 2025"
+      },
+      {
+        "label": "Weinbau",
+        "value": "Seit rund 2.000 Jahren"
+      },
+      {
+        "label": "Typische Rebsorten",
+        "value": "Riesling, Dornfelder, Grauburgunder, Spätburgunder und Weißburgunder"
+      },
+      {
+        "label": "Bekannte Weingüter",
+        "value": "von Winning, Dr. Bürklin-Wolf und Reichsrat von Buhl"
+      }
+    ]
+  },
+  "rheinhessen": {
+    "kind": "region",
+    "country": "Deutschland",
+    "countryCode": "DE",
+    "facts": [
+      {
+        "label": "Rebfläche",
+        "value": "27.657 Hektar · 2025"
+      },
+      {
+        "label": "Der Regionsname",
+        "value": "Seit 1816"
+      },
+      {
+        "label": "Typische Rebsorten",
+        "value": "Riesling, Müller-Thurgau, Dornfelder, Grauburgunder und Silvaner"
+      },
+      {
+        "label": "Bekannte Weingüter",
+        "value": "JUWEL, Keller, Wittmann und Battenfeld Spanier"
+      }
+    ]
+  },
+  "saar": {
+    "kind": "region",
+    "country": "Deutschland",
+    "countryCode": "DE",
+    "facts": [
+      {
+        "label": "Rebfläche",
+        "value": "Rund 800 Hektar"
+      },
+      {
+        "label": "Hauptrebsorte",
+        "value": "Riesling · etwa 83 Prozent der Rebfläche"
+      },
+      {
+        "label": "Weitere Rebsorten",
+        "value": "Weißburgunder, Grauburgunder und Spätburgunder"
+      },
+      {
+        "label": "Bekannte Weingüter",
+        "value": "Margarethenhof, Egon Müller, Van Volxem und Peter Lauer"
+      }
+    ]
+  },
+  "von-winning": {
+    "kind": "producer",
+    "country": "Deutschland",
+    "countryCode": "DE",
+    "facts": [
+      {
+        "label": "Gegründet",
+        "value": "1849 · als Weingut Deinhard"
+      },
+      {
+        "label": "Eigene Weinberge",
+        "value": "Rund 50 Hektar"
+      },
+      {
+        "label": "Geschäftsführer",
+        "value": "Stephan Attmann"
+      },
+      {
+        "label": "Rebsorten, unter anderem",
+        "value": "Riesling, Sauvignon Blanc, Chardonnay, Weißburgunder und Spätburgunder"
+      }
+    ]
+  },
+  "juwel": {
+    "kind": "producer",
+    "country": "Deutschland",
+    "countryCode": "DE",
+    "facts": [
+      {
+        "label": "JUWEL gegründet",
+        "value": "2013 · Familienbetrieb übernommen"
+      },
+      {
+        "label": "Rebfläche",
+        "value": "Rund 20 Hektar"
+      },
+      {
+        "label": "Geführt von",
+        "value": "Juliane Eller · Alsheim"
+      },
+      {
+        "label": "Fünf Kernsorten",
+        "value": "Riesling, Weißburgunder, Grauburgunder, Silvaner und Spätburgunder"
+      }
+    ]
+  },
+  "margarethenhof": {
+    "kind": "producer",
+    "country": "Deutschland",
+    "countryCode": "DE",
+    "facts": [
+      {
+        "label": "Familie Weber",
+        "value": "Seit 1986 · Nicolas seit Jahrgang 2020"
+      },
+      {
+        "label": "Rebfläche",
+        "value": "Rund 21 Hektar an Saar und südlicher Weinmosel"
+      },
+      {
+        "label": "Geführt von",
+        "value": "Jürgen, Dorothee und Nicolas Weber"
+      },
+      {
+        "label": "Rebsorten, unter anderem",
+        "value": "Riesling, Elbling, Weißburgunder, Grauburgunder und Spätburgunder"
+      }
+    ]
+  }
+}

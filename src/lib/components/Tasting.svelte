@@ -36,7 +36,7 @@
    const selected=tastingWine(wines[s.wine],room.settings);
    const paragraphs=a.host.length?a.host:[a.intro,...a.paragraphs,...(a.sections||[]).map(section=>section.title+'\n'+section.body)];
    const body=paragraphs.map(text=>{const split=text.indexOf('\n');return split>0&&split<110?'### '+text.slice(0,split)+'\n\n'+text.slice(split+1):text;}).join('\n\n');
-   return '## '+selected.name+' · '+a.title+'\n\n'+body;
+   return '## '+selected.name+' · '+a.title+'\n\n'+body+(a.fact?'\n\n### Gut zu wissen\n\n'+a.fact:'');
   });
   if(room.settings.redStory)chapters.push('## '+(room.settings.redName||'Rotwein')+' · Eigener Hintergrund\n\n'+room.settings.redStory);
   const text='# '+room.name+'\n\n'+chapters.join('\n\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/markdown;charset=utf-8'}));a.download='sip-happens-hostwissen.md';a.click();URL.revokeObjectURL(a.href);

@@ -1,29 +1,77 @@
 {
- "von-winning": {
-  "eyebrow":"Vom Familiengut zum heutigen Weingut",
-  "title":"Drei Namen, eine Geschichte",
-  "photo":"winning-vineyard",
-  "alt":"Blick von einem Weinberg auf Deidesheim bei tief stehender Sonne",
-  "caption":"Weinberge bei Deidesheim, der Heimat von von Winning.",
-  "credit":"Foto: von Winning",
-  "milestones":[{"year":"1849","title":"Friedrich Deinhard gründet das Gut","body":"Die Grundlage ist der Erbteil seiner Frau Auguste aus der Familie Jordan."},{"year":"1908","title":"Leopold von Winning übernimmt","body":"Er gibt dem Weingut seinen späteren Namen."},{"year":"2008","title":"Der Name kehrt zurück","body":"Seit diesem Jahrgang steht wieder von Winning auf den Etiketten."}]
- },
- "juwel": {
-  "eyebrow":"Julianes Weg in Alsheim",
-  "title":"Ein Familienweingut verändert sich",
-  "photo":"juwel-harvest",
-  "alt":"Juliane Eller trägt während der Weinlese einen Eimer mit Trauben zwischen den Rebzeilen",
-  "caption":"Juliane Eller bei der Weinlese. Die Trauben werden direkt im Weinberg ausgewählt.",
-  "credit":"Bild: JUWEL Weine",
-  "milestones":[{"year":"2013","title":"Mit 23 zurück nach Alsheim","body":"Nach dem Studium übernimmt Juliane den Betrieb ihrer Eltern und gründet JUWEL."},{"year":"35 → 5","title":"Weniger Rebsorten","body":"Die Familie konzentriert ihre Arbeit auf eine kleinere Auswahl."},{"year":"2023","title":"Fair’n Green","body":"Die Zertifizierung bezieht Umwelt, Wirtschaft und soziale Bedingungen ein."}]
- },
- "margarethenhof": {
-  "eyebrow":"Familie Weber in Ayl",
-  "title":"Zwei Generationen, zwei Flüsse",
-  "photo":"margarethenhof-estate",
-  "alt":"Das historische Gutsgebäude und der moderne Anbau des Margarethenhofs in Ayl",
-  "caption":"Der Margarethenhof in Ayl. Seine Weinberge liegen an Saar und südlicher Weinmosel.",
-  "credit":"Foto: Margarethenhof",
-  "milestones":[{"year":"1986","title":"Jürgen und Dorothee Weber","body":"Die beiden beginnen mit der Bewirtschaftung des Familienweinguts."},{"year":"2020","title":"Nicolas kommt dazu","body":"Nach dem Studium bringt der Sohn seine Ideen in den Betrieb ein."},{"year":"Saar + Mosel","title":"Zwei verschiedene Böden","body":"Schiefer an der Saar, Muschelkalk an der südlichen Weinmosel."}]
- }
+  "von-winning": {
+    "eyebrow": "Vom Familiengut zum heutigen Weingut",
+    "title": "Drei Namen, eine Geschichte",
+    "photo": "winning-vineyard",
+    "alt": "Blick von einem Weinberg auf Deidesheim bei tief stehender Sonne",
+    "caption": "Weinberge bei Deidesheim, der Heimat von von Winning.",
+    "credit": "Foto: von Winning",
+    "milestones": [
+      {
+        "year": "1849",
+        "title": "Friedrich Deinhard gründet das Gut",
+        "body": "Die Grundlage ist der Erbteil seiner Frau Auguste aus der Familie Jordan."
+      },
+      {
+        "year": "1908",
+        "title": "Leopold von Winning übernimmt",
+        "body": "Er gibt dem Weingut seinen späteren Namen."
+      },
+      {
+        "year": "2008",
+        "title": "Der Name kehrt zurück",
+        "body": "Seit diesem Jahrgang steht wieder von Winning auf den Etiketten."
+      }
+    ]
+  },
+  "juwel": {
+    "eyebrow": "Julianes Weg in Alsheim",
+    "title": "Ein Familienweingut verändert sich",
+    "photo": "juwel-harvest",
+    "alt": "Juliane Eller trägt während der Weinlese einen Eimer mit Trauben zwischen den Rebzeilen",
+    "caption": "Juliane Eller bei der Weinlese. Die Trauben werden direkt im Weinberg ausgewählt.",
+    "credit": "Bild: JUWEL Weine",
+    "milestones": [
+      {
+        "year": "2013",
+        "title": "Mit 23 zurück nach Alsheim",
+        "body": "Nach dem Studium übernimmt Juliane den Betrieb ihrer Eltern und gründet JUWEL."
+      },
+      {
+        "year": "2017",
+        "title": "Der erste III-Freunde-Wein",
+        "body": "Mit Joko Winterscheidt und Matthias Schweighöfer bringt sie einen Grauburgunder heraus."
+      },
+      {
+        "year": "2023",
+        "title": "Konzentration auf JUWEL",
+        "body": "Juliane steigt bei III Freunde aus. JUWEL wird im selben Jahr Fair’n-Green-zertifiziert."
+      }
+    ]
+  },
+  "margarethenhof": {
+    "eyebrow": "Familie Weber in Ayl",
+    "title": "Zwei Generationen, zwei Flüsse",
+    "photo": "margarethenhof-estate",
+    "alt": "Das historische Gutsgebäude und der moderne Anbau des Margarethenhofs in Ayl",
+    "caption": "Der Margarethenhof in Ayl. Seine Weinberge liegen an Saar und südlicher Weinmosel.",
+    "credit": "Foto: Margarethenhof",
+    "milestones": [
+      {
+        "year": "1986",
+        "title": "Jürgen und Dorothee Weber",
+        "body": "Die beiden beginnen mit der Bewirtschaftung des Familienweinguts."
+      },
+      {
+        "year": "2020",
+        "title": "Nicolas kommt dazu",
+        "body": "Nach dem Studium bringt der Sohn seine Ideen in den Betrieb ein."
+      },
+      {
+        "year": "Saar + Mosel",
+        "title": "Zwei verschiedene Böden",
+        "body": "Schiefer an der Saar, Muschelkalk an der südlichen Weinmosel."
+      }
+    ]
+  }
 }
