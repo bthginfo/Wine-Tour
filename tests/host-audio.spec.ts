@@ -19,7 +19,7 @@ async function fixture(page:Page,admin=true,override:()=>Record<string,any>=()=>
 }
 
 test('narration includes every closed topic, matches the published copy, and fixes Rhine pronunciation',()=>{
- const {all}=readCatalog();const entries=Object.entries(recordings);expect(entries).toHaveLength(15);
+ const {all}=readCatalog();const entries=Object.entries(recordings);expect(entries).toHaveLength(18);
  for(const [hash,entry] of entries){
   const a=all.find(a=>a.slug===entry.slug)!;expect(a).toBeTruthy();
   expect(createHash('sha256').update(a.host.map((p:string)=>p.trim()).filter(Boolean).join('\n\n')).digest('hex')).toBe(hash);
@@ -32,6 +32,7 @@ test('narration includes every closed topic, matches the published copy, and fix
   for(const c of chapters){const spoken=hostSpeechChunks([c.text]).join(' ');expect(spoken).toBe(hostPronunciation(c.text));}
  }
  expect(hostPronunciation('Rheinebene, JUWEL und 10–12 °C.')).toBe('Rhein Ebene, Juwel und 10 bis 12 Grad Celsius.');
+ expect(hostPronunciation('Juan Gil aus Jumilla. Etiqueta Plata.')).toBe('Chuan Chil aus Chumija. Etikéta Pláta.');
  const source=['Haupttext.','Zusatzthema\nAuch dieser ganze Text wird vorgelesen.','Noch ein Thema\nBis zum letzten Satz.'];
  expect(hostSpeechChapters(source).map(c=>c.text)).toEqual(['Haupttext.','Auch dieser ganze Text wird vorgelesen.','Bis zum letzten Satz.']);
 });

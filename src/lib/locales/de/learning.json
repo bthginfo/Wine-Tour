@@ -275,24 +275,20 @@
     ]
   },
   "rotwein": {
-    "visual": "skins",
+    "visual": "wine-style",
     "sections": [
       {
-        "title": "Wie der Tresterhut entsteht",
-        "body": "Während der Gärung steigen Schalen und andere feste Traubenteile im Saft nach oben. Diese Schicht heißt Tresterhut. Im Keller werden Saft und Schalen wieder zusammengebracht, etwa durch Untertauchen oder Überpumpen. So lässt sich beeinflussen, wie intensiv sich Farbe und Gerbstoffe lösen. Nach dem gewünschten Kontakt werden die festen Teile vom Wein getrennt."
+        "title": "Was das Eichenfass verändert",
+        "body": "Holz kann Duftstoffe an den Wein abgeben. Je nach Fass erinnern sie an Vanille, Gewürze, Rauch oder etwas Geröstetes. Größe, Alter, Holzart und Röstung des Fasses machen dabei einen Unterschied. Gleichzeitig entwickelt sich der Wein während der Lagerung weiter. Zwölf Monate im Fass beschreiben eine Dauer; sie sagen nicht, dass jeder dieser Weine gleich intensiv nach Holz riecht. Beim Silver Label treffen reife Monastrell-Frucht und die Einflüsse des Ausbaus aufeinander."
       },
       {
-        "title": "Tannin erinnert an schwarzen Tee",
-        "body": "Kräftig gezogener schwarzer Tee kann den Mund etwas rau und zusammenziehend wirken lassen. So ähnlich kann sich Tannin im Rotwein anfühlen. Das ist ein Mundgefühl. Trocken auf dem Etikett beschreibt dagegen den Geschmack in Bezug auf Zucker. Süße, Säure und Gerbstoffgefühl lassen sich deshalb gut als drei eigene Eindrücke notieren."
+        "title": "Frucht, Säure und Gerbstoff unterscheiden",
+        "body": "Ein Wein kann nach sehr reifen Beeren duften und trotzdem trocken sein. Duft und Zucker sind unterschiedliche Eindrücke. Säure regt häufig den Speichelfluss an. Gerbstoffe können dagegen ein trockenes, leicht raues Gefühl an Zahnfleisch und Wangen hinterlassen. Dazu kommt der Körper: Wirkt der Wein eher leicht oder füllt er den Mund stärker aus? Diese Beobachtungen helfen, den Juan Gil mit dem feinherben Riesling davor zu vergleichen, ohne dass einer von beiden „besser“ sein muss."
       },
       {
-        "title": "Etwas kühler einschenken",
-        "body": "Viele Rotweine wirken bei etwa 16 bis 18 Grad angenehm, leichtere Stile auch darunter. Ein warmes Wohnzimmer ist häufig wärmer. Bei zu hoher Temperatur fällt Alkohol oft deutlicher auf. Ein kurz gekühlter Wein wird im Glas wieder wärmer; kleine Mengen nachzuschenken kann den Eindruck über den Abend gleichmäßiger halten."
+        "title": "Was beim Essen dazu passt",
+        "body": "Kräftige, herzhafte Speisen können einen Rotwein wie diesen gut begleiten: gebratene Pilze, geschmortes Gemüse, Linsen, gereifter Käse oder etwas vom Grill. Röstaromen im Essen können einen Anschluss an die Fassnoten im Wein schaffen. Sehr süße Speisen lassen einen trockenen Rotwein dagegen oft herber wirken. Für die Verkostung selbst helfen ein Schluck Wasser und etwas neutrales Brot zwischen den Weinen. In deine Notiz passen eigene Worte: zum Beispiel saftige Frucht, weiche Gerbstoffe oder ein warmes Gefühl nach dem Schluck."
       }
-    ],
-    "hostMore": [
-      "Der Tresterhut entsteht, weil feste Traubenteile während der Gärung nach oben treiben. Beim Untertauchen oder Überpumpen kommen sie wieder mit Saft zusammen. So beeinflusst der Keller die Herauslösung von Farbe und Gerbstoffen.",
-      "Holz kann zum Duft und zur Struktur beitragen. Wie stark, hängt von Fassgröße, Alter und Nutzungsdauer ab. Traubentannin ist bereits vor dem Fass vorhanden. Ein Rotwein kann also spürbare Gerbstoffe haben, obwohl er in einem Tank statt im Holzfass gereift ist."
     ]
   },
   "aromen": {

@@ -20,14 +20,18 @@ export function makeTastingBook(args:{room:{name:string;code:string;settings:Rec
  const {room}=args;const config=room.settings||{};
  const wines=args.wines.map(w=>tastingWine(w,config));
  const entries:PdfEntry[]=[];
+ const legacyRedSections=[{title:config.redRegion||'Die Region',body:config.redRegionText||''},{title:config.redProducer||'Das Weingut',body:config.redProducerText||''},{title:config.redGrape||'Die Rebsorte',body:config.redGrapeText||''}].filter(s=>s.body);
+ let legacyRedIncluded=false;
  for(const step of args.steps){
   if(step.type==='story'||step.type==='break'){
+   // Preserve earlier room-specific text alongside the new authored chapters.
+   if(step.wine===3&&!legacyRedIncluded&&legacyRedSections.length&&!args.steps.some(s=>s.wine===3&&s.type==='pending')){entries.push({type:'pending',wine:3,sections:legacyRedSections});legacyRedIncluded=true;}
    const a=args.articles.find(a=>a.slug===step.slug);if(!a)continue;
    // Explicit public fields: private host notes and research links never enter the PDF.
    const companion=companions[a.slug as keyof typeof companions];
    const photo=companion?companionMedia[companion.photo as keyof typeof companionMedia]:undefined;
    const landscape=regionProfiles[a.slug as keyof typeof regionProfiles];
-   entries.push({type:'article',wine:step.wine,interlude:step.type==='break',article:{slug:a.slug,title:a.title,intro:a.intro,paragraphs:[...a.paragraphs],sections:a.sections?.map(s=>({...s})),fact:a.fact,visual:a.visual,image:args.imageSrc(a.image),imagePosition:a.imagePosition,imageFit:a.imageFit,credit:args.creditFor(a),label:step.type==='break'?'Weinwissen zwischendurch':step.label,...(a.atlas&&a.visual!=='atlas'?{profile:a.atlas.facts.map(fact=>({label:fact.label,value:fact.value}))}:{}),...(landscape?{landscape:structuredClone(landscape)}:{}),...(companion&&photo?{companion:{title:companion.title,image:photo.url,caption:companion.caption,credit:{text:companion.credit,url:photo.source},milestones:companion.milestones.map(m=>({...m}))}}:{})}});
+   entries.push({type:'article',wine:step.wine,interlude:step.type==='break',article:{slug:a.slug,title:a.title,intro:a.intro,paragraphs:[...a.paragraphs],sections:a.sections?.map(s=>({...s})),fact:a.fact,visual:a.visual,image:args.imageSrc(a.image),imagePosition:a.imagePosition,imageFit:a.imageFit,credit:args.creditFor(a),label:step.type==='break'?'Weinwissen zwischendurch':step.label,...(a.atlas?{profile:a.atlas.facts.map(fact=>({label:fact.label,value:fact.value}))}:{}),...(landscape?{landscape:structuredClone(landscape)}:{}),...(companion&&photo?{companion:{title:companion.title,image:photo.url,caption:companion.caption,credit:{text:companion.credit,url:photo.source},milestones:companion.milestones.map(m=>({...m}))}}:{})}});
   }else if(step.type==='notes'){
    const records=args.notes.filter(n=>n.room===room.code&&n.wine===wines[step.wine].id).sort((a,b)=>Date.parse(b.updated_at)-Date.parse(a.updated_at));
    let note=cleanNote(records[0]?.data);

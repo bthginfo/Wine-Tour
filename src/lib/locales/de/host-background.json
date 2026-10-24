@@ -242,7 +242,7 @@
     "guide": [
       "Hinter JUWEL steht Juliane Eller aus Alsheim. Sie gründete ihre Marke 2013, als sie mit 23 Jahren das Weingut ihrer Eltern übernahm. Zuvor hatte sie Weinbau und Önologie in Geisenheim studiert. Önologie ist die Lehre von der Weinbereitung: Wie aus Trauben Wein wird und welche Entscheidungen dafür im Keller getroffen werden.",
       "Die Familie bewirtschaftet rund 20 Hektar in Alsheim, Gimbsheim und Guntersblum. Aus ungefähr 35 Sorten wurden fünf Kernsorten: Riesling, Weißburgunder, Grauburgunder, Silvaner und Spätburgunder. Zum Wechsel gehörte auch die eigene Flaschenmarke. An die Stelle des Fassweinverkaufs trat stärker der direkte Kontakt mit den Menschen, die den fertigen Wein trinken. Die Ernte stellt die Familie schrittweise auf selektive Handlese um.",
-      "Unser zweites Glas ist der trockene JUWEL Rosé aus Spätburgunder. Seine Trauben wachsen auf Löss und Kalkmergel. Erdbeere und schwarze Johannisbeere passen als Duftvergleiche. Das ist etwas anderes als die Süße auf der Zunge: Ein trockener Wein kann sehr fruchtig riechen. Nach dem Secco fällt das ausgeprägte Prickeln weg. Im stillen Rosé treten Säure und Textur anders hervor. Beim Vergleich können wir diese Eindrücke einzeln beschreiben und für beide Gläser passende eigene Worte finden."
+      "Unser zweites Glas ist der trockene JUWEL Rosé aus Spätburgunder aus dem Jahrgang 2023. Seine Trauben wachsen auf Löss und Kalkmergel. Erdbeere und schwarze Johannisbeere passen als Duftvergleiche. Das ist etwas anderes als die Süße auf der Zunge: Ein trockener Wein kann sehr fruchtig riechen. Nach dem Secco fällt das ausgeprägte Prickeln weg. Im stillen Rosé treten Säure und Textur anders hervor. Beim Vergleich können wir diese Eindrücke einzeln beschreiben und für beide Gläser passende eigene Worte finden."
     ]
   },
   "spaetburgunder-zwei-roses": {
@@ -382,7 +382,7 @@
     "guide": [
       "Den Margarethenhof in Ayl führen Jürgen, Dorothee und Nicolas Weber. Die Eltern betreiben das Weingut seit 1986. Nicolas kam mit dem Jahrgang 2020 dazu und verantwortet die Arbeit im Keller. Die Familie bewirtschaftet rund 21 Hektar, etwa zur Hälfte an der Saar und an der südlichen Weinmosel.",
       "Nicolas studierte Weinbau und Önologie in Geisenheim. Für praktische Erfahrung ging er auch ins Ausland. 2020 musste er sein Praktikum in Südafrika wegen der Pandemie vorzeitig beenden. Zurück an der Saar begann sein erster Jahrgang im Familienbetrieb. Zu seiner Arbeit gehören naturnaher Weinbau, Geduld für die Entwicklung der Weine und möglichst wenige Eingriffe.",
-      "Die zwei Flüsse bringen unterschiedliche Bedingungen mit: Schiefer und Riesling prägen die Saarseite. Auf Muschelkalk an der südlichen Weinmosel wachsen auch Elbling und Burgundersorten. Unser Ayler Riesling Schieferstein gehört zur Saar. Er wird von Hand gelesen und spontan vergoren. Vorhandene Hefen beginnen mit der Gärung, Nicolas begleitet den Verlauf. Der feinherbe Stil verbindet etwas verbleibende Süße mit der Säure des Rieslings; im Duft passen Pfirsich, Aprikose oder Mango als Erinnerungen."
+      "Die zwei Flüsse bringen unterschiedliche Bedingungen mit: Schiefer und Riesling prägen die Saarseite. Auf Muschelkalk an der südlichen Weinmosel wachsen auch Elbling und Burgundersorten. Unser Ayler Riesling Schieferstein aus dem Jahrgang 2023 gehört zur Saar. Er wird von Hand gelesen und spontan vergoren. Vorhandene Hefen beginnen mit der Gärung, Nicolas begleitet den Verlauf. Der feinherbe Stil verbindet etwas verbleibende Süße mit der Säure des Rieslings; im Duft passen Pfirsich, Aprikose oder Mango als Erinnerungen."
     ]
   },
   "riesling": {
@@ -522,30 +522,235 @@
     ]
   },
   "rotwein": {
+    "guide": [
+      "Unser rotes Finale ist der Juan Gil Etiqueta Plata aus dem Jahrgang 2023. Etiqueta Plata heißt Silberetikett, auf Englisch Silver Label. Der Wein kommt aus Jumilla, besteht aus Monastrell und ist trocken. Die Trauben werden ökologisch angebaut. Nach der Gärung reift der Wein ungefähr zwölf Monate im Eichenfass. Im Glas kommen damit die Frucht der Traube, Gerbstoffe aus der Rotweinbereitung und Einflüsse der Reife zusammen.",
+      "Für die Rotweinbereitung bleiben Saft, Schalen und Kerne während der Gärung zunächst zusammen. Das Gemisch heißt Maische. Daraus lösen sich Farbe und Gerbstoffe, die Tannine. Diese können ein trockenes, leicht zusammenziehendes Gefühl im Mund auslösen, weil sie mit Eiweißen im Speichel reagieren. Trocken fühlen und trocken schmecken beschreiben zwei verschiedene Dinge: Die Geschmacksangabe trocken bezieht sich auf Zucker. Ein trockener Wein kann also weiche oder deutlich griffige Gerbstoffe haben.",
+      "Für diesen Wein passen etwa 15 bis 18 Grad. Sehr warm servierter Rotwein lässt Alkohol oft stärker hervortreten. Ein Duft nach dunklen Beeren oder Pflaume bedeutet dagegen nicht automatisch Süße. Dazu können würzige und geröstete Eindrücke aus der Fassreife kommen. Nach dem feinherben Riesling ist das ein guter neuer Vergleich: Dort haben wir Süße und Säure beobachtet, hier kommen Körper und Gerbstoffe deutlicher dazu. Ein Schluck Wasser zwischen den Weinen hilft, den nächsten Eindruck wieder für sich wahrzunehmen."
+    ],
     "sections": [
       {
-        "title": "Was während der Gärung mit den Schalen passiert",
-        "body": "Bei der Maischegärung bleiben Saft und feste Traubenteile zusammen. Hefen verarbeiten Zucker zu Alkohol und Kohlendioxid. Das entstehende Gas lässt Schalen und andere feste Teile nach oben treiben. An der Oberfläche bildet sich der sogenannte Tresterhut.\nIm Keller wird dieser Hut zum Beispiel untergetaucht oder mit gärendem Saft übergossen. So kommen Flüssigkeit und Schalen wieder zusammen. Temperatur, Kontaktzeit und solche Handgriffe beeinflussen, wie viel Farbe und Gerbstoff in den Wein übergehen. Der spätere Stil hängt also auch davon ab, wie diese Phase begleitet wird. Nach dem Trennen der festen Teile entwickelt sich der junge Rotwein weiter."
+        "title": "Was mit der Maische während der Gärung passiert",
+        "body": "Hefen verarbeiten Zucker zu Alkohol und Kohlendioxid. Bei Rotwein bleiben die dunklen Schalen dabei. Das entstehende Gas treibt Schalen oft nach oben, wo sich ein sogenannter Tresterhut bildet. Damit Wein und feste Bestandteile gleichmäßig miteinander in Kontakt bleiben, wird dieser Hut je nach Verfahren untergetaucht oder mit Flüssigkeit übergossen. Beim Überpumpen wird Wein aus dem unteren Tankbereich nach oben befördert.\nWie häufig und wie kräftig das geschieht, beeinflusst die Extraktion, also das Herauslösen von Stoffen. Auch Temperatur und Dauer spielen mit. Nach dem gewünschten Kontakt werden Wein und feste Teile getrennt, die verbliebene Maische wird gepresst. Diese allgemeinen Arbeitsschritte erklären den Rotweinstil."
       },
       {
-        "title": "Gerbstoffe fühlen, Süße und Säure schmecken",
-        "body": "Tannine können sich besonders am Zahnfleisch und an den Innenseiten der Wangen bemerkbar machen. Das Gefühl reicht von sanft bis deutlich zusammenziehend. Wie stark es wirkt, hängt von Trauben, Verarbeitung und Entwicklung des Weins ab.\nDie Geschmacksangabe trocken beantwortet eine andere Frage: Wie viel Zucker ist nach der Gärung im Wein geblieben? Ein trockener Rotwein kann sich weich anfühlen oder kräftige Gerbstoffe haben. Ebenso sagt ein süßlicher Fruchtduft nichts Sicheres über den Restzucker. Mit Duft, Geschmack und Mundgefühl als getrennten Beobachtungen lässt sich auch ein ungewohnter Rotwein verständlich beschreiben."
+        "title": "Das trockene Gefühl nach dem Schluck",
+        "body": "Speichel enthält Eiweiße, die den Mund gleitfähig halten. Tannine können sich an solche Eiweiße binden. Dadurch fühlen sich Wangen, Zunge oder Zahnfleisch weniger glatt an. Der Fachbegriff dafür heißt Adstringenz. Das bekannte Beispiel ist kräftig gezogener schwarzer Tee. Ein ähnlicher Eindruck kann auch von der Schale mancher Nüsse kommen.\nGerbstoffe haben unterschiedliche Formen und wirken nicht alle gleich. Reife der Trauben, der Umgang mit Schalen und Kernen sowie die weitere Lagerung beeinflussen das Gefühl. Säure lässt sich davon unterscheiden: Sie wirkt frisch und regt häufig den Speichelfluss an. Für die persönliche Notiz reicht eine ehrliche Beschreibung wie fein, samtig, griffig oder etwas rau. Sie muss keine chemische Messung ersetzen."
       },
       {
-        "title": "Was Fass und Temperatur verändern",
-        "body": "Ein Holzfass kann zusätzliche Duftnoten wie Vanille, Gewürze oder Röstaromen beitragen. Wie stark das auffällt, hängt unter anderem von Größe, Alter und Nutzungsdauer des Fasses ab. Traubengerbstoffe kommen bereits aus der Beere. Ein im Tank gereifter Rotwein kann deshalb ebenfalls deutliches Tannin besitzen.\nBeim Servieren sind für viele Rotweine etwa 16 bis 18 Grad ein guter Ausgangspunkt. Ein sehr warmer Raum macht den Wein schnell wärmer, als ihm guttut. Dann kann Alkohol stärker auffallen. Etwas kühler eingeschenkt hat er Zeit, im Glas anzukommen. Welche Temperatur am besten passt, lässt sich mit der gewählten Flasche und dem eigenen Eindruck genauer herausfinden."
+        "title": "Warum Holz nach Vanille oder Röstaromen riechen kann",
+        "body": "Ein Eichenfass ist nicht nur ein Behälter. Holzbestandteile können Duftstoffe an den Wein abgeben. Beim Fassbau wird die Innenseite häufig erhitzt. Diese Röstung, das Toasting, verändert die später möglichen Eindrücke. Je nach Holz und Verarbeitung erinnern sie zum Beispiel an Vanille, Gewürze, Rauch oder Geröstetes. Wie viel davon im Wein auffällt, hängt auch von Größe und Alter des Fasses ab.\nEin neues kleines Fass hat im Verhältnis zur Weinmenge mehr Kontaktfläche als ein großes. Ein mehrfach benutztes Fass gibt meist weniger intensive Holzaromen ab als ein neues. Daneben entwickelt sich der Wein während der Lagerung weiter. Rund zwölf Monate Eichenfass beim Etiqueta Plata beschreiben also einen Teil seiner Herstellung. Sie sind keine Garantie für eine bestimmte Menge an Vanilleduft."
+      },
+      {
+        "title": "Fruchtiger Duft ist keine Zuckerangabe",
+        "body": "Reife Frucht verbinden wir im Alltag oft mit Süße. Bei Wein kann diese Verbindung täuschen: Ein Glas riecht nach Brombeere oder Pflaume und schmeckt beim Schluck trotzdem trocken. Der Duft stammt von flüchtigen Aromastoffen. Süße hängt dagegen unter anderem vom Zucker ab, der nach der Gärung im Wein übrig geblieben ist. Auch Alkohol und andere Bestandteile verändern den Gesamteindruck.\nUnser feinherber Riesling konnte Süße mit frischer Säure verbinden. Der Monastrell setzt andere Schwerpunkte. Körper beschreibt, wie leicht oder füllig sich der Wein im Mund anfühlt. Gerbstoffe bringen den Griff dazu. Diese Beobachtungen lassen sich einzeln festhalten: erst der Duft, dann Süße und Säure, dann das Gefühl und das, was nach dem Schluck bleibt. So entsteht eine brauchbare Beschreibung auch ohne Vorerfahrung."
+      },
+      {
+        "title": "Temperatur, Luft und etwas zu essen",
+        "body": "Die Empfehlung für diesen Wein liegt bei 15 bis 18 Grad. Das ist in vielen Wohnungen kühler als die heutige Raumtemperatur. Eine kurze Kühlung vor dem Einschenken kann deshalb helfen. Ein sehr warmes Glas kann alkoholischer wirken; ist der Wein zu kalt, zeigt er seinen Duft oft zurückhaltender und die Gerbstoffe können fester erscheinen. Mit etwas Zeit im Glas verändern sich diese Eindrücke wieder.\nBeim Essen bieten sich kräftige, herzhafte Gerichte an: gebratene Pilze, Linsen, geschmortes Gemüse, gereifter Käse oder Grillgerichte. Röstaromen können eine Verbindung zum Fassausbau schaffen. Viel Süße im Essen lässt einen trockenen Rotwein häufig herber erscheinen. Beim Tasting selbst reichen Wasser und neutrales Brot, damit das nächste Glas nicht nur gegen den Geschmack des vorherigen Essens antreten muss."
       }
     ],
     "sources": [
       {
-        "label": "DWI · Weinarten",
+        "label": "Deutsches Weininstitut · Weinarten",
         "url": "https://www.deutscheweine.de/wein-speise/191/different-types-of-wine"
+      },
+      {
+        "label": "Viñas Familia Gil · Etiqueta Plata",
+        "url": "https://store.gilfamily.es/products/item/juan_gil_etiqueta_plata/es"
+      },
+      {
+        "label": "Viñas Familia Gil · Technisches Datenblatt Etiqueta Plata",
+        "url": "https://store.gilfamily.es/products/item/6/juan-gil-etiqueta-plata/pdf"
+      },
+      {
+        "label": "IWSC · Juan Gil Silver Label Monastrell 2023",
+        "url": "https://iwsc.net/results/detail/167736/silver-label-monastrell-2023"
+      },
+      {
+        "label": "Deutsches Weininstitut · Wein und Speisen",
+        "url": "https://www.deutscheweine.de/wein-speise"
+      },
+      {
+        "label": "DOP Jumilla · Weinlese und Bereitung",
+        "url": "https://jumilla.wine/en/harvesting-winemaking/"
+      },
+      {
+        "label": "Deutsches Weininstitut · Seminarhandbuch und Weinbereitung",
+        "url": "https://www.deutscheweine.de/fileadmin/DWI/Seminare-KD/pdf/Seminarhandbuch.pdf"
+      }
+    ]
+  },
+  "jumilla": {
+    "guide": [
+      "Für unser letztes Glas geht es nach Spanien, genauer nach Jumilla im Südosten des Landes. Die Weinberge liegen im Inland zwischen Murcia und Albacete. Jumilla ist der Name einer Stadt und zugleich einer geschützten Weinherkunft. Diese Herkunft umfasst sieben Gemeinden und rund 20.300 Hektar registrierte Weinberge. Seit 1966 gibt es die Denominación de Origen. Hinter der Abkürzung DOP steckt heute die geschützte Ursprungsbezeichnung: ein Gebiet mit Regeln für seine Weine.",
+      "Die Landschaft sieht deutlich anders aus als an der Saar. Viele Weinberge liegen auf einer Hochebene zwischen Bergketten, etwa 350 bis 980 Meter über dem Meer. Im Sommer kann es über 40 Grad heiß werden. Die Nächte sind oft deutlich kühler, im Winter kann es frieren. Dazu kommen ungefähr 300 Millimeter Regen im Jahr. Wasser ist knapp, obwohl die Böden an vielen Stellen genug Tiefe und Speicherfähigkeit haben, um einen Teil der winterlichen Niederschläge für die Reben verfügbar zu halten.",
+      "Die wichtigste Rebsorte heißt Monastrell. Sie bedeckt ungefähr 70 Prozent der Rebfläche. Daneben gibt es unter anderem Syrah, Garnacha Tintorera, Tempranillo und Cabernet Sauvignon. Wer weitere Betriebe kennenlernen möchte, findet neben Juan Gil auch Casa Castillo, Luzón und Olivares. Für unseren Vergleich zählt zunächst der Wechsel der Bedingungen: Wir kommen von Riesling an der Saar und probieren jetzt einen Rotwein aus einer warmen, trockenen Hochlandregion. Mehr Farbe und ein griffigeres Mundgefühl hängen dabei auch mit der anderen Traube und ihrer Verarbeitung zusammen."
+    ],
+    "sections": [
+      {
+        "title": "Sieben Gemeinden, zwei Verwaltungsregionen",
+        "body": "Jumilla gehört zur Region Murcia. Sechs weitere Gemeinden der Weinherkunft liegen in der Provinz Albacete und damit in Castilla-La Mancha: Albatana, Fuente-Álamo, Hellín, Montealegre del Castillo, Ontur und Tobarra. Eine Weinregion folgt also nicht immer derselben Grenze wie eine politische Verwaltungseinheit. Hier verbinden Landschaft, Böden und Weinbau Orte auf beiden Seiten dieser Grenze.\nDie Rebflächenstatistik für 2025 liegt bei rund 20.300 Hektar. Das sind die eingetragenen Weinberge der DOP, nicht die Gesamtfläche dieser sieben Gemeinden. Monastrell nimmt davon ungefähr sieben Zehntel ein. Diese Größenordnung macht verständlich, warum man den Namen der Sorte in Jumilla so häufig hört und auf den Flaschen wiederfindet."
+      },
+      {
+        "title": "Warum die Höhe beim heißen Sommer mitspielt",
+        "body": "Südspanischer Wein bedeutet nicht automatisch, dass die Trauben in einem gleichmäßig heißen Flachland wachsen. In Jumilla liegen die Weinberge erhöht und zwischen mehreren Gebirgszügen. Mit Höhe, Hangrichtung und Luftbewegung ändern sich die Bedingungen. Ein Standort mit kühleren Nächten kann andere Reifebedingungen haben als eine tiefer gelegene, geschützte Parzelle.\nFür eine spät reifende Sorte ist das interessant. Monastrell braucht Wärme und Zeit; gleichzeitig sollen die Trauben ihre Frische behalten. Tagsüber entstehen unter passenden Bedingungen Zucker und Aromavorstufen. Während der weiteren Reife verändert sich auch die Säure. Die Temperatur ist dabei ein Einfluss unter mehreren. Ein sonniger Hang, ein anderer Boden oder eine frühere Lese können das Ergebnis zusätzlich verschieben."
+      },
+      {
+        "title": "Was Trockenanbau tatsächlich bedeutet",
+        "body": "Viele ältere Weinberge werden ohne zusätzliche Bewässerung bewirtschaftet. Das nennt sich Trockenanbau, auf Spanisch secano. Die Reben leben vom Niederschlag und von den Wasservorräten im Boden. Dafür ist wichtig, wie tief die Wurzeln kommen, welche Schichten Wasser halten und wie viele Pflanzen sich die verfügbare Menge teilen. Die helle, steinige Oberfläche erzählt davon nur einen Teil.\nMonastrell ist gut an trockene Bedingungen angepasst. Ganz ohne Wasser kann aber auch diese Sorte nicht wachsen. Wird es zu knapp, schränkt die Rebe ihre Tätigkeit ein; starke Trockenheit kann die Reife verlangsamen. Deshalb wäre „je trockener, desto besser“ die falsche Schlussfolgerung. Ein Weinberg braucht ein Verhältnis zwischen Standort, Traubenmenge und Wasserversorgung, das auch durch die Saison trägt."
+      },
+      {
+        "title": "Die freie Buschform im Weinberg",
+        "body": "Auf Fotos aus Jumilla sieht man häufig niedrige, einzelne Rebstöcke mit kräftigen alten Stämmen. Die Form heißt en vaso. Mehrere kurze Arme wachsen vom Stamm aus, statt dass alle Triebe in einer hohen Drahtwand stehen. Das Laub kann die Trauben etwas beschatten. Die einzelnen Reben haben häufig mehr Platz um sich herum als in dicht bepflanzten Anlagen.\nBei alten Stöcken wird jedes Jahr auf demselben dauerhaften Holz weitergearbeitet. Der Winterrückschnitt bestimmt mit, wie viele Triebe und Trauben in der nächsten Saison wachsen sollen. Eine alte Rebe liefert nicht automatisch besseren Wein. Sie kann aber ein eingespieltes Verhältnis zwischen Wurzeln, Holz und Ertrag haben. Das Erhalten dieser Weinberge bedeutet viel Handarbeit und genaue Beobachtung."
+      },
+      {
+        "title": "Eine Region entwickelt ihre eigene Flasche",
+        "body": "Im 19. Jahrhundert wurden Weine aus Jumilla auch nach Frankreich verkauft. Dort zerstörte die Reblaus große Weinbergsflächen, und die Nachfrage nach Wein aus anderen Regionen stieg. Kräftige Farbe und Alkohol machten Jumilla-Weine für den Verschnitt interessant. Später erreichte die Reblaus auch dieses Gebiet. Die Vorstellung, Jumilla sei davon völlig verschont geblieben, stimmt also nicht.\nEin Teil alter, wurzelechter Weinberge ist trotzdem erhalten. Wurzelecht heißt: Die europäische Rebe wächst auf ihren eigenen Wurzeln und wurde nicht auf eine andere Unterlage gepfropft. Heute stehen regionale Herkunft, alte Reben und sorgfältige eigene Abfüllungen viel stärker im Vordergrund. Betriebe wie Juan Gil und Casa Castillo gehören zu dieser Entwicklung. Die Geschichte reicht damit von großem Fasshandel bis zu Weinen, deren konkreten Betrieb wir auf dem Etikett sehen."
       }
     ],
+    "sources": [
+      {
+        "label": "DOP Jumilla · Rebflächen 2025",
+        "url": "https://jumilla.wine/estadisticas/"
+      },
+      {
+        "label": "DOP Jumilla · Landschaft, Klima und Böden",
+        "url": "https://jumilla.wine/somos-jumilla/"
+      },
+      {
+        "label": "DOP Jumilla · Geschichte",
+        "url": "https://jumilla.wine/historia-milenaria/"
+      },
+      {
+        "label": "DOP Jumilla · Alte Reben und Trockenanbau",
+        "url": "https://jumilla.wine/en/our-vines/"
+      },
+      {
+        "label": "DOP Jumilla · Rebsorten",
+        "url": "https://jumilla.wine/en/our-grape-varieties/"
+      },
+      {
+        "label": "DOP Jumilla · Eingetragene Betriebe",
+        "url": "https://jumilla.wine/wp-content/uploads/2023/02/CENSOS-CRDOP-JUMILLA-2023_c.pdf"
+      }
+    ]
+  },
+  "juan-gil": {
     "guide": [
-      "Unser vierter Wein wird noch ausgewählt. Die Grundlage für Rotwein können wir schon kennenlernen: Meist werden dunkle Trauben verwendet, deren Saft weitgehend hell ist. Die rote Farbe kommt vor allem aus den Schalen. Anders als bei der üblichen Rosébereitung bleibt der Saft während der Gärung mit den festen Traubenteilen zusammen.",
-      "Dabei werden neben Farbe auch Gerbstoffe gelöst. Sie heißen Tannine und sitzen unter anderem in Schalen und Kernen. Im Mund können sie ein leicht raues oder zusammenziehendes Gefühl hinterlassen. Ein kräftiger schwarzer Tee macht dieses Gefühl gut verständlich. Säure schmeckt dagegen sauer und kann den Speichelfluss anregen. Beides kann im selben Rotwein vorkommen.",
-      "Das Wort trocken hat hier zwei mögliche Bedeutungen im Gespräch. Ein Wein kann sich durch Gerbstoffe trocken im Mund anfühlen. Die Geschmacksangabe trocken beschreibt dagegen seinen Restzucker. Für den Vergleich mit den beiden Rosés ist das besonders interessant: Die Schalen verbinden die Weinarten, der längere Kontakt verändert Farbe und Mundgefühl. Region, Betrieb und Rebsorte ergänzen wir, sobald die konkrete Flasche feststeht. Bis dahin bleibt die Erklärung bei dem, was für Rotwein allgemein gilt."
+      "Hinter unserem Rotwein steht die Familie Gil aus Jumilla. Juan Gil Jiménez gründete die Bodega 1916. Bodega bedeutet hier Weingut oder Weinkellerei. Er war ursprünglich Steinmetz und begann mitten in der Stadt mit der Weinbereitung. Sein Sohn und später seine Enkel führten den Betrieb weiter. Heute stehen Miguel und Ángel Gil Vera für die vierte Generation. Zur Bodega Juan Gil gehören rund 750 Hektar eigene Weinberge in Jumilla. Diese Fläche bezieht sich auf den Betrieb hier, nicht auf sämtliche Weingüter der Familie in Spanien.",
+      "Der heutige Betrieb liegt nordwestlich von Jumilla, im höher gelegenen Término de Arriba, rund 700 Meter über dem Meer. Die wichtigste Rebsorte ist Monastrell. Daneben werden unter anderem Syrah, Cabernet Sauvignon, Merlot und Petit Verdot angebaut. Im Weinberg spielen alte Reben, steinige Kalkböden und eine begrenzte Wasserversorgung eine große Rolle. Im Keller kommen dazu moderne Tanks und die Möglichkeit, die Temperatur während der Gärung genau zu steuern.",
+      "Unser Wein heißt Etiqueta Plata, also Silberetikett; auf Englisch steht Silver Label auf der Flasche. Wir probieren den Jahrgang 2023. Er besteht aus Monastrell aus alten, ökologisch bewirtschafteten Weinbergen und reift ungefähr zwölf Monate im Eichenfass. Die Familie verbindet den Erhalt dieser Weinberge mit technischer Weiterentwicklung im Keller. Solarenergie und ein sparsamerer Umgang mit Wasser und Energie gehören ebenfalls zur Arbeit. Bei diesem Wein treffen damit eine lange Betriebsgeschichte, eine regionale Rebsorte und heutige Kellertechnik zusammen."
+    ],
+    "sections": [
+      {
+        "title": "Der Anfang beim Steinmetz",
+        "body": "Der Gründer hieß Juan Gil Jiménez. Als er 1916 mit der Bodega begann, wechselte er aus dem Steinmetzhandwerk in die Weinbereitung. Sein Sohn Juan Gil Guerrero führte die Arbeit fort. Danach festigten der Enkel Juan Gil González und dessen Bruder Paco den Betrieb. Mehrere Männer der Familie trugen also den Vornamen Juan. Auf dem Etikett steht damit ein Name, der über Generationen mit dem Betrieb verbunden blieb.\nDie ursprüngliche Bodega lag im Zentrum von Jumilla. Der heutige Betrieb befindet sich außerhalb der Stadt, nahe den Weinbergen im Gebiet La Aragona. Dieser Weg vom Stadtkeller zur heutigen Anlage erklärt, wie eine historische Gründung und ein moderner Keller zusammengehören können. Das Jahr 1916 beschreibt den Beginn der Familiengeschichte im Wein, nicht das Alter jedes heutigen Gebäudes."
+      },
+      {
+        "title": "Rosario Vera und die nächste Generation",
+        "body": "1977 starb Juan Gil González. Seine Frau Rosario Vera sorgte dafür, dass die Familie mit ihren neun Kindern zusammenblieb und der Betrieb weiterbestehen konnte. In der folgenden Generation wurde aus dem Weingut in Jumilla eine größere Familie von Betrieben in verschiedenen spanischen Weinregionen. Eine Bodega in der Rioja trägt heute den Namen Rosario Vera.\nBei der Gruppe bleibt der Bezug zum jeweiligen Ort wichtig. Monastrell gehört nach Jumilla, andere Regionen bringen ihre eigenen Rebsorten und Bedingungen mit. Der Name Gil Family Estates auf Unterlagen oder in einer Bildunterschrift bezeichnet deshalb die Familie von Betrieben. Unser Etiqueta Plata stammt aus der ursprünglichen Bodega Juan Gil und trägt die geschützte Herkunft Jumilla."
+      },
+      {
+        "title": "Wenig Trauben und die Arbeit an der Auswahl",
+        "body": "Die Trauben für Etiqueta Plata kommen aus alten Weinbergen mit geringem Ertrag. Dahinter steht die Menge, die ein Weinberg tatsächlich trägt. Eine geringere Erntemenge kann der Rebe helfen, die vorhandenen Trauben unter schwierigen Bedingungen zu versorgen. Sie ist für sich genommen aber noch kein Beweis für Weinqualität. Gesunde Beeren und passende Reife bleiben entscheidend.\nBei Monastrell lohnt sich ein genauer Blick auf die Trauben, weil Beeren innerhalb einer Traube unterschiedlich weit entwickelt sein können. Vor und während der Lese wird deshalb auf den Zustand der Frucht geachtet. Im Keller soll anschließend kontrolliert gearbeitet werden. Temperatursteuerung, saubere Behälter und ein sorgfältiger Umgang mit Schalen und Kernen beeinflussen, welche Gerbstoffe und Aromen in den Wein gelangen."
+      },
+      {
+        "title": "Was der Ausbau im Keller leistet",
+        "body": "Für Etiqueta Plata gären Saft, Schalen und Kerne in Edelstahltanks bei kontrollierter Temperatur. Die Hefen verarbeiten den Zucker; dabei entstehen Alkohol, Kohlendioxid und Wärme. Die Kühlung hilft, den Verlauf zu steuern. Anschließend wird der junge Wein von den festen Bestandteilen getrennt und weiter ausgebaut.\nVor beziehungsweise im Rahmen der Reife findet auch die malolaktische Gärung statt. Dabei wandeln Bakterien die kräftigere Apfelsäure in mildere Milchsäure um. Das ist ein anderer Vorgang als die alkoholische Gärung. Der Wein liegt danach rund zwölf Monate im Eichenfass. Holz und Reifezeit können Duft und Mundgefühl verändern. Ein trockener, fruchtbetonter Rotwein kann dadurch würzige oder geröstete Nuancen bekommen, ohne dass Frucht oder Gewürze zugesetzt wurden."
+      },
+      {
+        "title": "Bio, Kühlung und Solarstrom",
+        "body": "Die Trauben für unseren Etiqueta Plata werden ökologisch angebaut. Bio-Anbau legt unter anderem Regeln für zugelassene Mittel und die Bewirtschaftung fest. Er sagt nicht, ob ein fertiger Wein leicht, kräftig, weich oder besonders gerbstoffreich schmecken wird. Dafür zählen Sorte, Standort, Reife und Verarbeitung weiter mit.\nEin Weinkeller benötigt Energie, zum Beispiel um gärenden Wein zu kühlen. Auf dem Foto des Betriebs stehen Solarmodule direkt neben Weinbergen. Bei Juan Gil gehören erneuerbare Energie, die Kontrolle des Verbrauchs und ein bewusster Umgang mit natürlichen Ressourcen zur Weiterentwicklung des Betriebs. Das sind zusätzliche Fragen zur Arbeit am Wein. Sie ersetzen weder die Bio-Regeln noch die sensorische Beurteilung einer einzelnen Flasche."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Viñas Familia Gil · Familiengeschichte",
+        "url": "https://www.gilfamily.us/gil-family.html"
+      },
+      {
+        "label": "DOP Jumilla · Bodegas Juan Gil",
+        "url": "https://jumilla.wine/en/project/bodegas-juan-gil/"
+      },
+      {
+        "label": "Harpers · Juan Gil und seine Weinberge",
+        "url": "https://harpers.co.uk/news/fullstory.php/aid/31650/Boutinot_adds_Juan_Gil_to_portfolio_.html"
+      },
+      {
+        "label": "Boutinot / Hattersley · Silver Label 2023 und Weingut",
+        "url": "https://www.hattersleywines.com/tech_sheet/4327/juan_gil_silver_label_monastrell"
+      },
+      {
+        "label": "Viñas Familia Gil · Nachhaltigkeit",
+        "url": "https://gilfamily.es/bodegas_juan_gil/sostenibilidad/es"
+      },
+      {
+        "label": "Viñas Familia Gil · Etiqueta Plata",
+        "url": "https://store.gilfamily.es/products/item/juan_gil_etiqueta_plata/es"
+      },
+      {
+        "label": "Viñas Familia Gil · Technisches Datenblatt Etiqueta Plata",
+        "url": "https://store.gilfamily.es/products/item/6/juan-gil-etiqueta-plata/pdf"
+      },
+      {
+        "label": "Deutsches Weininstitut · Seminarhandbuch und Weinbereitung",
+        "url": "https://www.deutscheweine.de/fileadmin/DWI/Seminare-KD/pdf/Seminarhandbuch.pdf"
+      }
+    ]
+  },
+  "mourvedre-monastrell": {
+    "guide": [
+      "Monastrell ist die rote Rebsorte in unserem letzten Wein. Sie stammt aus Spanien und gehört besonders zum Südosten des Landes. Wer Mourvèdre auf einer französischen Flasche oder Mataro auf einer australischen liest, hat denselben Sortennamen in einer anderen Sprache vor sich. Unser Juan Gil Etiqueta Plata besteht vollständig aus Monastrell. Es ist also keine Mischung mit Cabernet Sauvignon oder anderen Sorten.",
+      "Die Beeren sind dunkelblau bis fast schwarz und haben kräftige Schalen. Der Saft im Inneren ist weitgehend farblos. Für Rotwein bleiben Saft und Schalen während der Gärung zusammen. Aus den Schalen kommen Farbe und ein Teil der Gerbstoffe. Die Gerbstoffe heißen auch Tannine. Sie können sich am Zahnfleisch oder an den Innenseiten der Wangen trocken und leicht zusammenziehend anfühlen, ähnlich wie bei einem kräftigen schwarzen Tee. Dieses Gefühl ist etwas anderes als die Angabe trocken auf dem Etikett.",
+      "Monastrell braucht eine lange, warme Saison und reift spät. Die Sorte kommt mit trockenen Bedingungen recht gut zurecht, bleibt aber auf verfügbares Wasser angewiesen. Jumillas Sonne, die Höhe der Weinberge und die Bedingungen im Herbst spielen beim Ausreifen zusammen. Dunkle Beeren, Pflaume, Kräuter und Würze passen häufig als Duftvergleiche. Wie weich oder fest die Gerbstoffe wirken, hängt von der Traubenreife und von der Kellerarbeit ab. Der Unterschied zum Spätburgunder am Anfang liegt deshalb sowohl in der Sorte als auch in der anderen Herstellung: Dort Rosé und Perlwein, hier ein im Fass gereifter Rotwein."
+    ],
+    "sections": [
+      {
+        "title": "Zuckerreife und reife Gerbstoffe",
+        "body": "Eine reifende Traube verändert sich an mehreren Stellen gleichzeitig. Zucker sammelt sich im Saft, Säure nimmt häufig ab, die Beeren bilden Aromastoffe und auch Schalen und Kerne entwickeln sich weiter. Bei einem Rotwein ist wichtig, wie sich diese festen Teile später während der Gärung verhalten. Der Zuckergehalt allein sagt darüber zu wenig.\nMonastrell gehört zu den spät reifenden Sorten. Der Betrieb muss einen Lesezeitpunkt finden, bei dem Frucht und Gerbstoffe ausreichend entwickelt sind, ohne dass die Frische zu sehr verloren geht. Wird zu früh gelesen, können unreif wirkende Pflanzennoten oder harte Gerbstoffe auffallen. Sehr späte Lese kann wiederum andere Probleme mit sich bringen. Die Entscheidung braucht den Blick auf die ganzen Trauben und auf den gewünschten Weinstil."
+      },
+      {
+        "title": "Farbe und Griff aus der Beerenschale",
+        "body": "Bei dunklen Trauben sitzen viele Farbstoffe in den äußeren Zellschichten der Beere. Auch Gerbstoffe stecken in Schalen und Kernen. Während der Gärung gelangen Stoffe aus diesen festen Teilen in die Flüssigkeit. Temperatur, Dauer, Alkoholentwicklung und Bewegung der Maische beeinflussen diesen Vorgang. Eine dicke Schale ist deshalb ein Ausgangspunkt, aber noch keine feste Vorhersage für das spätere Glas.\nSpätburgunder und Monastrell unterscheiden sich in ihren Beereneigenschaften. Trotzdem wäre „Monastrell ist immer hart“ zu pauschal. Sorgfältig ausgereifte Trauben und ein passender Umgang mit der Maische können reife, geschmeidige Gerbstoffe ergeben. Im Vergleich unserer Weine lassen sich Sorte und Herstellungsweise nicht vollständig auseinanderrechnen: Die Spätburgunderweine waren hell gekeltert beziehungsweise nur kurz mit den Schalen in Kontakt."
+      },
+      {
+        "title": "Wenn der Rebe Wasser fehlt",
+        "body": "Wurzeln nehmen Wasser aus dem Boden auf. Über die Blätter verdunstet ein Teil davon; zugleich ermöglichen kleine Öffnungen in den Blättern den Gasaustausch. Damit die Rebe bei Trockenheit nicht zu viel Wasser verliert, kann sie diese Öffnungen stärker schließen. Das schützt die Pflanze, verlangsamt aber auch ihre Arbeit.\nEine trockenheitsverträgliche Sorte wächst deshalb nicht unabhängig von ihrer Umgebung. Tiefe Böden und gut erschlossene Wurzelschichten können helfen. Die Menge an Blättern und Trauben muss ebenfalls zum Standort passen. Bei älteren Buschreben in Jumilla ist dieses Gleichgewicht über viele Jahre gewachsen. Ein sehr trockenes Jahr fordert trotzdem Entscheidungen im Weinberg und kann die Erntemenge verringern."
+      },
+      {
+        "title": "Monastrell, Mourvèdre und Mataro",
+        "body": "Die Sorte hat sich von Spanien aus in andere Weinregionen verbreitet. In Frankreich begegnet sie besonders in der Provence und an der südlichen Rhône. Mit Bandol ist der Name Mourvèdre eng verbunden. In Australien wird häufig Mataro verwendet. Die Namen erzählen von Verbreitung und örtlicher Gewohnheit, nicht von drei verschiedenen Trauben.\nEin sortenreiner Monastrell und ein französischer Wein mit Mourvèdre können trotzdem deutlich unterschiedlich schmecken. Die Herkunft bringt andere Böden und andere Wetterverläufe mit. Dazu kommen die Arbeit im Weinberg, der Erntezeitpunkt und der Ausbau. Auch eine Mischung mehrerer Sorten verändert das Bild. Unser Silver Label macht es für diesen Abend einfacher, die Sorte in einer eigenständigen Abfüllung kennenzulernen."
+      },
+      {
+        "title": "Duftwörter und das Gefühl im Mund",
+        "body": "Dunkle Frucht ist erst einmal eine Gruppe von Erinnerungen: etwa Brombeere, Pflaume oder schwarze Johannisbeere. Kräuter und würzige Eindrücke können dazukommen. Solche Begriffe beschreiben, woran der Geruch erinnert. Sie sind keine Liste zugesetzter Zutaten und auch keine Aufgabe, bei der alle dieselbe Frucht finden müssen.\nBeim Schluck lässt sich danach das Mundgefühl getrennt betrachten. Wirkt der Wein saftig oder eher trocknend? Sind die Gerbstoffe fein, weich oder deutlich griffig? Bleibt nach dem Schlucken eher Frucht, Würze oder Wärme? Mit diesen Worten wird eine Notiz genauer, ohne dass man dafür viele Fachbegriffe braucht. Holz kann noch andere Duftnoten ergänzen; diese gehören zum Ausbau und nicht ausschließlich zur Monastrell-Traube."
+      }
+    ],
+    "sources": [
+      {
+        "label": "PlantGrape · Mourvèdre / Monastrell",
+        "url": "https://www.plantgrape.fr/en/varieties/fruit-varieties/177"
+      },
+      {
+        "label": "Monastrell España · Herkunft und Eigenschaften",
+        "url": "https://www.monastrell.org/en/monastrell-grapes"
+      },
+      {
+        "label": "DOP Jumilla · Rebsorten",
+        "url": "https://jumilla.wine/en/our-grape-varieties/"
+      },
+      {
+        "label": "DOP Jumilla · Weinlese und Bereitung",
+        "url": "https://jumilla.wine/en/harvesting-winemaking/"
+      },
+      {
+        "label": "DOP Jumilla · Alte Reben und Trockenanbau",
+        "url": "https://jumilla.wine/en/our-vines/"
+      },
+      {
+        "label": "IWSC · Juan Gil Silver Label Monastrell 2023",
+        "url": "https://iwsc.net/results/detail/167736/silver-label-monastrell-2023"
+      }
     ]
   }
 }

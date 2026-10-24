@@ -1,0 +1,335 @@
+{
+  "articles": [
+    {
+      "slug": "jumilla",
+      "category": "Regionen",
+      "title": "Jumilla",
+      "eyebrow": "Hochland im Südosten Spaniens",
+      "countries": [
+        "ES"
+      ],
+      "aliases": [
+        "DOP Jumilla",
+        "DO Jumilla",
+        "Murcia",
+        "Albacete"
+      ],
+      "intro": "Viel Sonne, wenig Regen und Weinberge im Hochland. In Jumilla wächst Monastrell auf steinigen Kalkböden – die Traube für unser rotes Finale.",
+      "paragraphs": [
+        "Jumilla liegt im Südosten Spaniens, im Landesinneren zwischen Murcia und Albacete. Das Anbaugebiet umfasst sieben Gemeinden und rund 20.300 Hektar registrierte Weinberge. Es ist damit deutlich größer als das Stadtgebiet von Jumilla. Die geschützte Herkunft besteht seit 1966; Wein wurde hier schon lange vorher gemacht.",
+        "Die Weinberge liegen etwa 350 bis 980 Meter über dem Meer. Zwischen ihnen ziehen sich Bergketten durch die Landschaft. Sommer können sehr heiß werden, die Nächte im Hochland sind oft deutlich kühler. Im Winter gibt es auch Frost. Mit ungefähr 300 Millimetern Regen im Jahr ist Wasser knapp: Das entspricht 300 Litern auf einem Quadratmeter, verteilt über ein ganzes Jahr.",
+        "Monastrell bedeckt rund 70 Prozent der Rebfläche. Daneben wachsen zum Beispiel Syrah, Garnacha Tintorera, Tempranillo und Cabernet Sauvignon. Bekannte Weingüter sind Juan Gil, Casa Castillo, Luzón und Olivares. Unser Wein kommt von Juan Gil aus dem höher gelegenen Teil um Jumilla. Statt der frischen Riesling-Säure von der Saar lernen wir nun einen kräftigeren Rotwein mit spürbaren Gerbstoffen kennen."
+      ],
+      "sections": [
+        {
+          "title": "Reben mit Platz um sich herum",
+          "body": "Viele ältere Reben wachsen hier als einzelne, niedrige Büsche. Auf Spanisch heißt diese Erziehung „en vaso“. Die Reben stehen also nicht überall in langen, hoch aufgebundenen Laubwänden. Der Abstand zwischen den Pflanzen hilft, die begrenzten Wasservorräte im Boden auf weniger Rebstöcke zu verteilen. Ihre Blätter können die Trauben vor direkter Sonne schützen. Viele Weinberge werden ohne zusätzliche Bewässerung bewirtschaftet. Dafür müssen Boden, Wurzeln und der Regen der kühleren Monate zusammenpassen."
+        },
+        {
+          "title": "Kalkboden ist mehr als eine helle Oberfläche",
+          "body": "An vielen Stellen sieht man helle Steine und wenig üppigen Bewuchs. Entscheidend ist auch das, was darunterliegt: Bodentiefe, feine Bestandteile und Risse im Gestein beeinflussen, wie Wasser gespeichert wird und wo Wurzeln wachsen können. Ein steiniger Weinberg ist deshalb nicht automatisch völlig trocken unter der Oberfläche. Derselbe Sommer kann zwei Parzellen unterschiedlich treffen. Kalk im Boden bedeutet übrigens nicht, dass man später Kalkstückchen oder einen bestimmten mineralischen Geschmack im Wein finden müsste."
+        },
+        {
+          "title": "Von der Fassware zur eigenen Flasche",
+          "body": "Jumilla lieferte lange kräftige Weine, die auch außerhalb der Region mit anderen Weinen verschnitten wurden. Im 19. Jahrhundert stieg die Nachfrage aus Frankreich, als dort die Reblaus Weinberge zerstörte. Später traf die Reblaus auch Jumilla. Heute stehen eigene Herkunft und einzelne Betriebe stärker im Mittelpunkt. Alte Monastrell-Reben, sorgfältigere Auswahl der Trauben und kontrollierte Gärung haben diesen Wandel mitgetragen. Die Bezeichnung DOP steht für eine geschützte Herkunft mit gemeinsamen Regeln; sie ist kein einzelnes Weingut."
+        }
+      ],
+      "host": [],
+      "fact": "Beim Traubenfest im August gibt es in Jumilla sogar einen Wettbewerb im Weitwerfen einzelner Monastrell-Beeren. Die Fiesta de la Vendimia füllt die Stadt mit Umzügen und Veranstaltungen rund um den Wein.",
+      "visual": "region",
+      "image": "/images/atlas/jumilla-yecla.webp",
+      "imageFit": "cover",
+      "imagePosition": "center center",
+      "imagePositionMobile": "center center",
+      "imageAlt": "Luftaufnahme der Monastrell-Weinberge der Finca CQ in Jumilla, Murcia",
+      "imageCredit": "Foto: Malegaetan · CC BY-SA 4.0",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:Vi%C3%B1edos_de_Finca_CQ_(Casa_Quemada)_en_Jumilla,_Murcia,_Espa%C3%B1a.jpg",
+      "sources": [
+        {
+          "label": "DOP Jumilla · Rebflächen 2025",
+          "url": "https://jumilla.wine/estadisticas/"
+        },
+        {
+          "label": "DOP Jumilla · Landschaft, Klima und Böden",
+          "url": "https://jumilla.wine/somos-jumilla/"
+        },
+        {
+          "label": "DOP Jumilla · Geschichte",
+          "url": "https://jumilla.wine/historia-milenaria/"
+        },
+        {
+          "label": "DOP Jumilla · Alte Reben und Trockenanbau",
+          "url": "https://jumilla.wine/en/our-vines/"
+        },
+        {
+          "label": "DOP Jumilla · Rebsorten",
+          "url": "https://jumilla.wine/en/our-grape-varieties/"
+        },
+        {
+          "label": "DOP Jumilla · Eingetragene Betriebe",
+          "url": "https://jumilla.wine/wp-content/uploads/2023/02/CENSOS-CRDOP-JUMILLA-2023_c.pdf"
+        },
+        {
+          "label": "Ruta del Vino Jumilla · Fiesta de la Vendimia",
+          "url": "https://rutadelvinojumilla.com/federacion-de-penas-fiestas-de-la-vendimia-de-jumilla/"
+        }
+      ],
+      "related": [
+        "juan-gil",
+        "mourvedre-monastrell",
+        "rotwein"
+      ]
+    },
+    {
+      "slug": "juan-gil",
+      "category": "Weingüter",
+      "title": "Juan Gil",
+      "eyebrow": "Seit 1916 in Jumilla",
+      "countries": [
+        "ES"
+      ],
+      "aliases": [
+        "Bodegas Juan Gil",
+        "Viñas Familia Gil",
+        "Gil Family Estates",
+        "Etiqueta Plata",
+        "Silver Label"
+      ],
+      "intro": "1916 gründete Juan Gil Jiménez seine Bodega in Jumilla. Heute führt die Familie den Betrieb in vierter Generation. Monastrell ist bis heute die wichtigste Traube.",
+      "paragraphs": [
+        "Juan Gil Jiménez war Steinmetz, bevor er 1916 eine eigene Bodega gründete. Die ersten Weine entstanden mitten in Jumilla. Sein Sohn und später seine Enkel führten den Betrieb weiter. Heute stehen die Brüder Miguel und Ángel Gil Vera für die vierte Generation. Zur Bodega gehören rund 750 Hektar eigene Weinberge in der Region.",
+        "Der heutige Betrieb liegt nordwestlich der Stadt im Gebiet Término de Arriba, rund 700 Meter über dem Meer. Monastrell wächst hier neben Sorten wie Syrah, Cabernet Sauvignon, Merlot und Petit Verdot. Alte Reben und moderne Kellertechnik gehören zusammen: Bei der Gärung lässt sich die Temperatur steuern, während draußen jeder Weinberg mit seiner eigenen Reife beobachtet wird.",
+        "Wir trinken den Etiqueta Plata, auf Englisch Silver Label, aus dem Jahrgang 2023. Er besteht vollständig aus Monastrell aus alten, ökologisch bewirtschafteten Weinbergen und reift etwa zwölf Monate im Eichenfass. Zur Arbeit der Familie gehören außerdem ein sparsamerer Umgang mit Ressourcen und Solarenergie. Auf dem Bild sieht man die Solaranlage neben den Weinbergen."
+      ],
+      "sections": [
+        {
+          "title": "Eine Familie, mehrere Generationen",
+          "body": "Nach dem frühen Tod von Juan Gil González im Jahr 1977 hielt seine Frau Rosario Vera die Familie mit neun Kindern zusammen. In der nächsten Generation entwickelte sich aus dem Betrieb in Jumilla eine Gruppe mit Weingütern in mehreren spanischen Regionen. Ein Weingut in der Rioja trägt heute Rosario Veras Namen. Der Familienname verbindet die Betriebe; jeder arbeitet aber mit den Trauben und Bedingungen seines Standorts. Unser Wein gehört zur ursprünglichen Bodega Juan Gil in Jumilla."
+        },
+        {
+          "title": "Alte Reben, genauer hinschauen",
+          "body": "Alte Reben sind keine Garantie für guten Wein. Interessant sind ihr Wurzelsystem, ihr Gleichgewicht und die Menge und Qualität ihrer Trauben. Für Etiqueta Plata werden alte Monastrell-Weinberge mit geringem Ertrag genutzt. Im Keller gärt der Saft zunächst mit den Schalen in Edelstahltanks. Anschließend folgen weiterer Ausbau und Fassreife. Temperaturkontrolle hilft dabei, den Verlauf der Gärung zu begleiten. Sie ersetzt weder gesunde Trauben noch die Arbeit im Weinberg."
+        },
+        {
+          "title": "Bio und Energie im Alltag",
+          "body": "Der Etiqueta Plata wird aus ökologisch angebauten Trauben gemacht. Bio regelt vor allem die Bewirtschaftung und die zugelassenen Mittel; daraus folgt kein bestimmter Geschmack. Bei Juan Gil kommen weitere Maßnahmen dazu: Solarstrom, ein bewussterer Umgang mit Wasser und die Auswertung des Energieverbrauchs. Das Foto mit den Solarmodulen zeigt einen Teil dieser Arbeit. Die Fragen sind dabei sehr praktisch: Wo braucht der Keller Strom, wann muss gekühlt werden und wie lassen sich die vorhandenen Ressourcen besser nutzen?"
+        }
+      ],
+      "host": [],
+      "fact": "Zum hundertjährigen Bestehen startete die Familie 2016 einen Wettbewerb für Filmmusik: den Gil Soundtrack Award. Junge Komponistinnen und Komponisten schreiben dafür Musik zu einem Kurzfilm.",
+      "visual": "producer",
+      "image": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/winery/juan-gil-vineyards-solar-686bcb5ab9ce.webp",
+      "imageFit": "contain",
+      "imagePosition": "center center",
+      "imagePositionMobile": "center center",
+      "imageAlt": "Weinberge und Solaranlage von Viñas Familia Gil in Jumilla",
+      "imageCredit": "© Viñas Familia Gil",
+      "imageSource": "https://gilfamily.es/bodegas_juan_gil/sostenibilidad/es",
+      "sources": [
+        {
+          "label": "Viñas Familia Gil · Familiengeschichte",
+          "url": "https://www.gilfamily.us/gil-family.html"
+        },
+        {
+          "label": "DOP Jumilla · Bodegas Juan Gil",
+          "url": "https://jumilla.wine/en/project/bodegas-juan-gil/"
+        },
+        {
+          "label": "Harpers · Juan Gil und seine Weinberge",
+          "url": "https://harpers.co.uk/news/fullstory.php/aid/31650/Boutinot_adds_Juan_Gil_to_portfolio_.html"
+        },
+        {
+          "label": "Boutinot / Hattersley · Silver Label 2023 und Weingut",
+          "url": "https://www.hattersleywines.com/tech_sheet/4327/juan_gil_silver_label_monastrell"
+        },
+        {
+          "label": "Viñas Familia Gil · Nachhaltigkeit",
+          "url": "https://gilfamily.es/bodegas_juan_gil/sostenibilidad/es"
+        },
+        {
+          "label": "Viñas Familia Gil · Etiqueta Plata",
+          "url": "https://store.gilfamily.es/products/item/juan_gil_etiqueta_plata/es"
+        },
+        {
+          "label": "Viñas Familia Gil · Technisches Datenblatt Etiqueta Plata",
+          "url": "https://store.gilfamily.es/products/item/6/juan-gil-etiqueta-plata/pdf"
+        },
+        {
+          "label": "Gil Soundtrack Award · Erste Ausgabe 2016",
+          "url": "https://gilsoundtrack.com/edicion_2016"
+        }
+      ],
+      "related": [
+        "jumilla",
+        "mourvedre-monastrell",
+        "rotwein"
+      ]
+    },
+    {
+      "slug": "mourvedre-monastrell",
+      "category": "Rebsorten",
+      "title": "Monastrell",
+      "eyebrow": "Auch Mourvèdre und Mataro genannt",
+      "countries": [
+        "ES",
+        "FR",
+        "AU"
+      ],
+      "aliases": [
+        "Monastrell",
+        "Mourvèdre",
+        "Mourvedre",
+        "Mataro"
+      ],
+      "intro": "Dunkle Beeren, dicke Schalen und eine lange Reifezeit. Monastrell fühlt sich in warmen Gegenden wohl und bringt Farbe und Gerbstoffe mit.",
+      "paragraphs": [
+        "Monastrell stammt aus Spanien. In Frankreich heißt dieselbe Sorte Mourvèdre, in Australien häufig Mataro. Sie gehört besonders zu den Weinlandschaften im Südosten Spaniens. Unser Juan Gil besteht zu 100 Prozent daraus. Anders als beim Spätburgunder der ersten beiden Gläser begegnet uns damit eine Sorte mit kräftigeren Beerenschalen und oft deutlicherer Struktur.",
+        "Die Beeren sind dunkelblau bis fast schwarz. Ihr Fruchtfleisch liefert weitgehend farblosen Saft. Viel Farbe und Gerbstoff stecken in den Schalen; während der Rotweingärung gelangen sie in den Wein. Gerbstoffe heißen auch Tannine. Im Mund können sie ein griffiges, leicht zusammenziehendes Gefühl hinterlassen, ähnlich wie schwarzer Tee. Je nach Traubenreife und Verarbeitung fühlt sich das fein und weich oder fester an.",
+        "Monastrell reift spät und braucht eine lange warme Saison. In Jumilla helfen Sonne und trockene Bedingungen beim Ausreifen, während kühlere Nächte im Herbst die Reife begleiten. Im Glas passen oft Begriffe wie dunkle Beeren, Pflaume, Kräuter oder Gewürze. Das sind Duftvergleiche. Fassreife kann weitere Eindrücke dazubringen, etwa Röstaromen."
+      ],
+      "sections": [
+        {
+          "title": "Reif ist mehr als süß",
+          "body": "Im Weinberg steigt beim Reifen der Zucker in den Beeren. Zugleich verändern sich Säure, Schalen, Kerne und Aromastoffe. Für einen Rotwein zählt deshalb auch, wie reif sich die Gerbstoffe entwickeln. Ein hoher Zuckergehalt allein löst diese Aufgabe nicht. Bei einer spät reifenden Sorte wie Monastrell muss die Lese sorgfältig gewählt werden: Zu früh geerntete Trauben können unreif wirken, sehr späte Lese kann Frische kosten. Es geht um mehrere Entwicklungen, die zusammenpassen sollen."
+        },
+        {
+          "title": "Trockenheit aushalten hat Grenzen",
+          "body": "Monastrell kommt mit trockenen Bedingungen vergleichsweise gut zurecht. Trotzdem braucht jede Rebe Wasser. Tiefe, durchwurzelbare Böden können Vorräte aus den regenreicheren Monaten zugänglich machen. Bei anhaltendem Wassermangel schließt die Pflanze ihre Spaltöffnungen und arbeitet langsamer; zu viel Stress kann die Reife bremsen. Wenig Regen ist also kein automatisches Qualitätsrezept. Standort, Bodenpflege und die Menge an Trauben pro Rebe müssen zur verfügbaren Wasserversorgung passen."
+        },
+        {
+          "title": "Dieselbe Sorte auf anderen Etiketten",
+          "body": "In Südfrankreich ist Mourvèdre besonders mit Bandol verbunden. In Australien kann Mataro auf dem Etikett stehen. Der andere Name macht daraus keine andere Traube. Standort und Verarbeitung können die Weine trotzdem stark verändern. Ein warmer Herkunftsort erklärt einen Teil des Stils; Erntezeitpunkt, Ertrag, Gärung und Ausbau kommen dazu. Monastrell kann eigenständig abgefüllt werden oder Teil einer Mischung mehrerer Rebsorten sein. Unser Silver Label zeigt die Sorte für sich."
+        }
+      ],
+      "host": [],
+      "fact": "Auf australischen Etiketten steht „GSM“ für Grenache, Shiraz und Mourvèdre beziehungsweise Mataro. Das M gehört also zu derselben Rebsorte wie unsere Monastrell.",
+      "visual": "atlas",
+      "image": "",
+      "atlas": {
+        "kind": "grape",
+        "country": "Spanien · Frankreich · Australien",
+        "countryCode": "ES",
+        "color": "red",
+        "facts": [
+          {
+            "label": "Herkunft der Sorte",
+            "value": "Spanien"
+          },
+          {
+            "label": "Weitere Namen",
+            "value": "Mourvèdre · Mataro"
+          },
+          {
+            "label": "Beeren und Reife",
+            "value": "Dunkle, dickschalige Beeren · späte Reife"
+          },
+          {
+            "label": "Unser Wein",
+            "value": "Juan Gil Etiqueta Plata · 100 % Monastrell"
+          }
+        ],
+        "aromas": [
+          "Dunkle Beeren",
+          "Pflaume",
+          "Kräuter",
+          "Würze"
+        ]
+      },
+      "sources": [
+        {
+          "label": "PlantGrape · Mourvèdre / Monastrell",
+          "url": "https://www.plantgrape.fr/en/varieties/fruit-varieties/177"
+        },
+        {
+          "label": "Monastrell España · Herkunft und Eigenschaften",
+          "url": "https://www.monastrell.org/en/monastrell-grapes"
+        },
+        {
+          "label": "DOP Jumilla · Rebsorten",
+          "url": "https://jumilla.wine/en/our-grape-varieties/"
+        },
+        {
+          "label": "DOP Jumilla · Weinlese und Bereitung",
+          "url": "https://jumilla.wine/en/harvesting-winemaking/"
+        },
+        {
+          "label": "DOP Jumilla · Alte Reben und Trockenanbau",
+          "url": "https://jumilla.wine/en/our-vines/"
+        },
+        {
+          "label": "IWSC · Juan Gil Silver Label Monastrell 2023",
+          "url": "https://iwsc.net/results/detail/167736/silver-label-monastrell-2023"
+        },
+        {
+          "label": "Great Australian GSM Challenge · Die drei Rebsorten",
+          "url": "https://gsmchallenge.com.au/"
+        }
+      ],
+      "related": [
+        "jumilla",
+        "juan-gil",
+        "spaetburgunder",
+        "rotwein"
+      ]
+    }
+  ],
+  "rotwein": {
+    "eyebrow": "Unser Finale · Juan Gil Etiqueta Plata 2023",
+    "intro": "Nach Rosé und Riesling kommt Monastrell aus Jumilla ins Glas. Jetzt geht es um dunkle Frucht, Fassreife und das Gefühl von Gerbstoffen.",
+    "paragraphs": [
+      "Unser vierter Wein ist der Juan Gil Etiqueta Plata, auch Silver Label genannt, Jahrgang 2023. Er ist ein trockener Bio-Rotwein aus 100 Prozent Monastrell. Die Trauben stammen aus alten Weinbergen auf kalkreichen, steinigen Böden in Jumilla. Nach der Gärung reift der Wein rund zwölf Monate im Eichenfass.",
+      "Rotwein entsteht, wenn der Saft mit den dunklen Schalen vergärt. Dieses Gemisch aus Saft, Schalen und Kernen heißt Maische. Dabei lösen sich Farbe und Gerbstoffe. Die Gerbstoffe, auch Tannine genannt, reagieren mit Eiweißen im Speichel. Deshalb kann sich der Mund nach einem Schluck trockener oder griffiger anfühlen. Das ist etwas anderes als die Geschmacksangabe trocken, die sich auf den Zucker bezieht.",
+      "Reife dunkle Beeren, Pflaume, Gewürze oder etwas Geröstetes sind mögliche Vergleiche für den Duft. Zum Probieren passt eine Temperatur von etwa 15 bis 18 Grad. In einem sehr warmen Glas kann der Alkohol stärker auffallen. Ein erster Schluck und ein zweiter nach ein paar Minuten zeigen oft, wie sich Duft und Mundgefühl mit Luft und Wärme verändern."
+    ],
+    "sections": [
+      {
+        "title": "Was das Eichenfass verändert",
+        "body": "Holz kann Duftstoffe an den Wein abgeben. Je nach Fass erinnern sie an Vanille, Gewürze, Rauch oder etwas Geröstetes. Größe, Alter, Holzart und Röstung des Fasses machen dabei einen Unterschied. Gleichzeitig entwickelt sich der Wein während der Lagerung weiter. Zwölf Monate im Fass beschreiben eine Dauer; sie sagen nicht, dass jeder dieser Weine gleich intensiv nach Holz riecht. Beim Silver Label treffen reife Monastrell-Frucht und die Einflüsse des Ausbaus aufeinander."
+      },
+      {
+        "title": "Frucht, Säure und Gerbstoff unterscheiden",
+        "body": "Ein Wein kann nach sehr reifen Beeren duften und trotzdem trocken sein. Duft und Zucker sind unterschiedliche Eindrücke. Säure regt häufig den Speichelfluss an. Gerbstoffe können dagegen ein trockenes, leicht raues Gefühl an Zahnfleisch und Wangen hinterlassen. Dazu kommt der Körper: Wirkt der Wein eher leicht oder füllt er den Mund stärker aus? Diese Beobachtungen helfen, den Juan Gil mit dem feinherben Riesling davor zu vergleichen, ohne dass einer von beiden „besser“ sein muss."
+      },
+      {
+        "title": "Was beim Essen dazu passt",
+        "body": "Kräftige, herzhafte Speisen können einen Rotwein wie diesen gut begleiten: gebratene Pilze, geschmortes Gemüse, Linsen, gereifter Käse oder etwas vom Grill. Röstaromen im Essen können einen Anschluss an die Fassnoten im Wein schaffen. Sehr süße Speisen lassen einen trockenen Rotwein dagegen oft herber wirken. Für die Verkostung selbst helfen ein Schluck Wasser und etwas neutrales Brot zwischen den Weinen. In deine Notiz passen eigene Worte: zum Beispiel saftige Frucht, weiche Gerbstoffe oder ein warmes Gefühl nach dem Schluck."
+      }
+    ],
+    "visual": "wine-style",
+    "image": "",
+    "fact": "Bei Färbertrauben wie Dunkelfelder ist schon der Saft dunkelrot. Sie unterscheiden sich darin von den meisten anderen roten Rebsorten.",
+    "sources": [
+      {
+        "label": "Deutsches Weininstitut · Weinarten",
+        "url": "https://www.deutscheweine.de/wein-speise/191/different-types-of-wine"
+      },
+      {
+        "label": "Viñas Familia Gil · Etiqueta Plata",
+        "url": "https://store.gilfamily.es/products/item/juan_gil_etiqueta_plata/es"
+      },
+      {
+        "label": "Viñas Familia Gil · Technisches Datenblatt Etiqueta Plata",
+        "url": "https://store.gilfamily.es/products/item/6/juan-gil-etiqueta-plata/pdf"
+      },
+      {
+        "label": "IWSC · Juan Gil Silver Label Monastrell 2023",
+        "url": "https://iwsc.net/results/detail/167736/silver-label-monastrell-2023"
+      },
+      {
+        "label": "Deutsches Weininstitut · Wein und Speisen",
+        "url": "https://www.deutscheweine.de/wein-speise"
+      },
+      {
+        "label": "Vitipendium · Dunkelfelder",
+        "url": "https://vitipendium.de/Dunkelfelder"
+      }
+    ],
+    "related": [
+      "mourvedre-monastrell",
+      "juan-gil",
+      "jumilla",
+      "rose",
+      "aromen"
+    ]
+  }
+}

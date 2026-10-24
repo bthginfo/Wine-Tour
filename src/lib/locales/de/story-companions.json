@@ -73,5 +73,55 @@
         "body": "Schiefer an der Saar, Muschelkalk an der südlichen Weinmosel."
       }
     ]
+  },
+  "juan-gil": {
+    "eyebrow": "Familie Gil in Jumilla",
+    "title": "Vom Stadtkeller zum heutigen Betrieb",
+    "photo": "juan-gil-archive",
+    "alt": "Historisches Schwarzweißporträt aus dem Familienarchiv der Gils",
+    "caption": "Eine Aufnahme aus dem Familienarchiv der Gils. Die Geschichte der Bodega beginnt 1916.",
+    "credit": "Foto: Viñas Familia Gil · Familienarchiv",
+    "milestones": [
+      {
+        "year": "1916",
+        "title": "Eine eigene Bodega",
+        "body": "Der Steinmetz Juan Gil Jiménez beginnt in Jumilla mit dem Weinbau und der Weinbereitung."
+      },
+      {
+        "year": "2001",
+        "title": "Die vierte Generation baut aus",
+        "body": "Die Familie entwickelt den Betrieb mit moderner Kellertechnik weiter."
+      },
+      {
+        "year": "2023",
+        "title": "Unser Jahrgang",
+        "body": "Der Etiqueta Plata wird aus Monastrell gemacht und reift rund zwölf Monate im Eichenfass."
+      }
+    ]
+  },
+  "jumilla": {
+    "eyebrow": "Weinberge im trockenen Hochland",
+    "title": "Wie alte Reben hier wachsen",
+    "photo": "jumilla-old-vines",
+    "alt": "Alter Rebstock auf steinigem Boden in Jumilla, aufgenommen im Frühling",
+    "caption": "Ein alter Rebstock im Frühling. Der dicke Stamm und die freie Buschform prägen viele ältere Weinberge in Jumilla.",
+    "credit": "Foto: Consejo Regulador DOP Jumilla",
+    "milestones": [
+      {
+        "year": "Winter",
+        "title": "Wasser für den Boden",
+        "body": "Der Regen der kühleren Monate hilft, Vorräte für die folgende Saison aufzubauen."
+      },
+      {
+        "year": "Sommer",
+        "title": "Trauben unter dem Laub",
+        "body": "Die Blätter können die Beeren vor direkter Sonneneinstrahlung schützen."
+      },
+      {
+        "year": "Herbst",
+        "title": "Zeit für Monastrell",
+        "body": "Die spät reifende Sorte braucht eine lange Saison. Der Erntezeitpunkt wird nach der Reife gewählt."
+      }
+    ]
   }
 }

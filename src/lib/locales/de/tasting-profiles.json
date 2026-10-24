@@ -136,5 +136,59 @@
         "value": "Riesling, Elbling, Weißburgunder, Grauburgunder und Spätburgunder"
       }
     ]
+  },
+  "jumilla": {
+    "kind": "region",
+    "country": "Spanien",
+    "countryCode": "ES",
+    "point": {
+      "latitude": 38.479,
+      "longitude": -1.325
+    },
+    "facts": [
+      {
+        "label": "Rebfläche",
+        "value": "Rund 20.300 Hektar · 2025"
+      },
+      {
+        "label": "Geschützte Herkunft",
+        "value": "Seit 1966 · Murcia und Albacete"
+      },
+      {
+        "label": "Typische Rebsorten",
+        "value": "Monastrell, Syrah, Garnacha Tintorera, Tempranillo und Cabernet Sauvignon"
+      },
+      {
+        "label": "Bekannte Weingüter",
+        "value": "Juan Gil, Casa Castillo, Luzón und Olivares"
+      }
+    ]
+  },
+  "juan-gil": {
+    "kind": "producer",
+    "country": "Spanien",
+    "countryCode": "ES",
+    "point": {
+      "latitude": 38.558,
+      "longitude": -1.384
+    },
+    "facts": [
+      {
+        "label": "Gegründet",
+        "value": "1916 · Juan Gil Jiménez"
+      },
+      {
+        "label": "Eigene Weinberge",
+        "value": "Rund 750 Hektar in Jumilla"
+      },
+      {
+        "label": "Familie",
+        "value": "Miguel und Ángel Gil Vera · vierte Generation"
+      },
+      {
+        "label": "Rebsorten, unter anderem",
+        "value": "Monastrell, Syrah, Cabernet Sauvignon, Merlot und Petit Verdot"
+      }
+    ]
   }
 }

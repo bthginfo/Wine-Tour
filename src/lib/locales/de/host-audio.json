@@ -2,40 +2,6 @@
   "5cb39c0a57095e5de758e0094326c510c99f281b06aa717012b193b1bc5f2efa": {
     "slug": "pfalz",
     "voices": {
-      "audio:seraphina": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/pfalz-seraphina-ee4ea1ed235a98870a2e.mp3",
-        "duration": 315.048,
-        "chapters": [
-          {
-            "title": "Grundwissen",
-            "start": 0
-          },
-          {
-            "title": "Warum der Wald für den Wein wichtig ist",
-            "start": 93.463
-          },
-          {
-            "title": "Was der Boden mit den Trauben zu tun hat",
-            "start": 140.562
-          },
-          {
-            "title": "Von römischen Keltern zu Klosterweinbergen",
-            "start": 185.2
-          },
-          {
-            "title": "Die Flasche, die seit der Römerzeit geschlossen ist",
-            "start": 230.262
-          },
-          {
-            "title": "Eine Weinstraße bis ins Elsass",
-            "start": 270.363
-          }
-        ],
-        "voice": "de-DE-SeraphinaMultilingualNeural",
-        "rate": "+0%",
-        "pitch": "+0Hz",
-        "synthesis": "continuous-v2"
-      },
       "audio:florian": {
         "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/pfalz-florian-2a03cadfeb355ab15c9e.mp3",
         "duration": 273.672,
@@ -66,6 +32,40 @@
           }
         ],
         "voice": "de-DE-FlorianMultilingualNeural",
+        "rate": "+0%",
+        "pitch": "+0Hz",
+        "synthesis": "continuous-v2"
+      },
+      "audio:seraphina": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/pfalz-seraphina-ee4ea1ed235a98870a2e.mp3",
+        "duration": 315.048,
+        "chapters": [
+          {
+            "title": "Grundwissen",
+            "start": 0
+          },
+          {
+            "title": "Warum der Wald für den Wein wichtig ist",
+            "start": 93.463
+          },
+          {
+            "title": "Was der Boden mit den Trauben zu tun hat",
+            "start": 140.562
+          },
+          {
+            "title": "Von römischen Keltern zu Klosterweinbergen",
+            "start": 185.2
+          },
+          {
+            "title": "Die Flasche, die seit der Römerzeit geschlossen ist",
+            "start": 230.262
+          },
+          {
+            "title": "Eine Weinstraße bis ins Elsass",
+            "start": 270.363
+          }
+        ],
+        "voice": "de-DE-SeraphinaMultilingualNeural",
         "rate": "+0%",
         "pitch": "+0Hz",
         "synthesis": "continuous-v2"
@@ -356,12 +356,12 @@
       }
     }
   },
-  "51bc408a550766720a30ad435ff9f7e4731aa098a3bf8419336d2bc17086093f": {
+  "a0453555211da120d6e4f8246b8e48931006dabdebb86228d22e05d3a828fd59": {
     "slug": "juwel",
     "voices": {
       "audio:florian": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/juwel-florian-6f7a45bfc0041186999b.mp3",
-        "duration": 319.68,
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/juwel-florian-3a1e1d9fab11f7f3d9d7.mp3",
+        "duration": 321.648,
         "chapters": [
           {
             "title": "Grundwissen",
@@ -369,27 +369,27 @@
           },
           {
             "title": "Mit 23 das Lebenswerk der Eltern übernehmen",
-            "start": 76.112
+            "start": 78.1
           },
           {
             "title": "Warum fünf Sorten ein anderer Plan sind als 35",
-            "start": 117.2
+            "start": 119.188
           },
           {
             "title": "Der Name verrät schon die Winzerin",
-            "start": 158.637
+            "start": 160.625
           },
           {
             "title": "Nachhaltigkeit im Alltag des Weinguts",
-            "start": 195.4
+            "start": 197.387
           },
           {
             "title": "Eine Facebook-Nachricht und die III Freunde",
-            "start": 236.637
+            "start": 238.625
           },
           {
             "title": "Unser Rosé und der Vergleich mit dem Secco",
-            "start": 279.35
+            "start": 281.337
           }
         ],
         "voice": "de-DE-FlorianMultilingualNeural",
@@ -398,8 +398,8 @@
         "synthesis": "continuous-v2"
       },
       "audio:seraphina": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/juwel-seraphina-dc4425ac70db0b90cccc.mp3",
-        "duration": 367.44,
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/juwel-seraphina-72269adbed80f9396b4d.mp3",
+        "duration": 370.296,
         "chapters": [
           {
             "title": "Grundwissen",
@@ -407,27 +407,27 @@
           },
           {
             "title": "Mit 23 das Lebenswerk der Eltern übernehmen",
-            "start": 86.75
+            "start": 89.175
           },
           {
             "title": "Warum fünf Sorten ein anderer Plan sind als 35",
-            "start": 134.012
+            "start": 136.65
           },
           {
             "title": "Der Name verrät schon die Winzerin",
-            "start": 181.725
+            "start": 184.2
           },
           {
             "title": "Nachhaltigkeit im Alltag des Weinguts",
-            "start": 223.875
+            "start": 226.4
           },
           {
             "title": "Eine Facebook-Nachricht und die III Freunde",
-            "start": 271.587
+            "start": 274.363
           },
           {
             "title": "Unser Rosé und der Vergleich mit dem Secco",
-            "start": 320.837
+            "start": 323.613
           }
         ],
         "voice": "de-DE-SeraphinaMultilingualNeural",
@@ -510,12 +510,12 @@
       }
     }
   },
-  "084145adfea0d859ec7f5b9790296432afd5365302151b8a1dbed7591aebef52": {
+  "cc42a6ee390e8520f0d09fb09d49a14b626b42980a4ea06b67d6c0d3297965a8": {
     "slug": "margarethenhof",
     "voices": {
       "audio:florian": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/margarethenhof-florian-496e4794fcf8fd6e326f.mp3",
-        "duration": 277.776,
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/margarethenhof-florian-e336b0de3c3aa363a2f9.mp3",
+        "duration": 279.84,
         "chapters": [
           {
             "title": "Grundwissen",
@@ -523,23 +523,23 @@
           },
           {
             "title": "Eine Familie mit zwei Weinlandschaften",
-            "start": 71.662
+            "start": 73.725
           },
           {
             "title": "Warum Zeit im Keller ein Arbeitsmittel ist",
-            "start": 113.3
+            "start": 115.362
           },
           {
             "title": "Was bei unserem Schieferstein im Keller passiert",
-            "start": 156.012
+            "start": 158.075
           },
           {
             "title": "Was eine einzelne Parzelle ausmachen kann",
-            "start": 194.062
+            "start": 196.125
           },
           {
             "title": "Von Geisenheim nach Südafrika",
-            "start": 235.463
+            "start": 237.525
           }
         ],
         "voice": "de-DE-FlorianMultilingualNeural",
@@ -548,8 +548,8 @@
         "synthesis": "continuous-v2"
       },
       "audio:seraphina": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/margarethenhof-seraphina-e9c1fb229f509cce6be5.mp3",
-        "duration": 321.744,
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/margarethenhof-seraphina-a362f230fb4de7c7f31d.mp3",
+        "duration": 324.36,
         "chapters": [
           {
             "title": "Grundwissen",
@@ -557,23 +557,23 @@
           },
           {
             "title": "Eine Familie mit zwei Weinlandschaften",
-            "start": 82.825
+            "start": 85.213
           },
           {
             "title": "Warum Zeit im Keller ein Arbeitsmittel ist",
-            "start": 130.725
+            "start": 133.062
           },
           {
             "title": "Was bei unserem Schieferstein im Keller passiert",
-            "start": 179.838
+            "start": 182.562
           },
           {
             "title": "Was eine einzelne Parzelle ausmachen kann",
-            "start": 224.25
+            "start": 226.975
           },
           {
             "title": "Von Geisenheim nach Südafrika",
-            "start": 272.413
+            "start": 275.188
           }
         ],
         "voice": "de-DE-SeraphinaMultilingualNeural",
@@ -778,57 +778,73 @@
       }
     }
   },
-  "96654e4c161d899fc274256b362fd1f8da3c7064c04cb41f40f9e31d0e793bcc": {
+  "cf10ac585f42d078f3fb850a1313bf2d0d8ab2c13fe8417ead2a7c3cc49561ec": {
     "slug": "rotwein",
     "voices": {
-      "audio:florian": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/rotwein-florian-d90b4033990a879b9e52.mp3",
-        "duration": 183.504,
+      "audio:seraphina": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/rotwein-seraphina-ed09e0323141f7fde8fd.mp3",
+        "duration": 363.096,
         "chapters": [
           {
             "title": "Grundwissen",
             "start": 0
           },
           {
-            "title": "Was während der Gärung mit den Schalen passiert",
-            "start": 69.375
+            "title": "Was mit der Maische während der Gärung passiert",
+            "start": 99.825
           },
           {
-            "title": "Gerbstoffe fühlen, Süße und Säure schmecken",
-            "start": 107.7
+            "title": "Das trockene Gefühl nach dem Schluck",
+            "start": 148.613
           },
           {
-            "title": "Was Fass und Temperatur verändern",
-            "start": 142.938
+            "title": "Warum Holz nach Vanille oder Röstaromen riechen kann",
+            "start": 199.65
+          },
+          {
+            "title": "Fruchtiger Duft ist keine Zuckerangabe",
+            "start": 254.162
+          },
+          {
+            "title": "Temperatur, Luft und etwas zu essen",
+            "start": 308.087
           }
         ],
-        "voice": "de-DE-FlorianMultilingualNeural",
+        "voice": "de-DE-SeraphinaMultilingualNeural",
         "rate": "+0%",
         "pitch": "+0Hz",
         "synthesis": "continuous-v2"
       },
-      "audio:seraphina": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/rotwein-seraphina-c2f336a6f96f28c10218.mp3",
-        "duration": 211.752,
+      "audio:florian": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/rotwein-florian-defbf16cc32634aa025e.mp3",
+        "duration": 314.328,
         "chapters": [
           {
             "title": "Grundwissen",
             "start": 0
           },
           {
-            "title": "Was während der Gärung mit den Schalen passiert",
-            "start": 79.838
+            "title": "Was mit der Maische während der Gärung passiert",
+            "start": 85.875
           },
           {
-            "title": "Gerbstoffe fühlen, Süße und Säure schmecken",
-            "start": 124.175
+            "title": "Das trockene Gefühl nach dem Schluck",
+            "start": 128.175
           },
           {
-            "title": "Was Fass und Temperatur verändern",
-            "start": 164.762
+            "title": "Warum Holz nach Vanille oder Röstaromen riechen kann",
+            "start": 172.4
+          },
+          {
+            "title": "Fruchtiger Duft ist keine Zuckerangabe",
+            "start": 219.762
+          },
+          {
+            "title": "Temperatur, Luft und etwas zu essen",
+            "start": 267.238
           }
         ],
-        "voice": "de-DE-SeraphinaMultilingualNeural",
+        "voice": "de-DE-FlorianMultilingualNeural",
         "rate": "+0%",
         "pitch": "+0Hz",
         "synthesis": "continuous-v2"
@@ -895,32 +911,6 @@
   "9ff986d369042e0173395388396a75ffa79494a237e0bab15fbdd8e8ec92523a": {
     "slug": "kork",
     "voices": {
-      "audio:florian": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/kork-florian-24201a0350d23778239b.mp3",
-        "duration": 182.736,
-        "chapters": [
-          {
-            "title": "Grundwissen",
-            "start": 0
-          },
-          {
-            "title": "Wie aus Rinde ein Flaschenverschluss wird",
-            "start": 61.987
-          },
-          {
-            "title": "Wie sich Korkton bemerkbar macht",
-            "start": 103.487
-          },
-          {
-            "title": "Warum auch guter Rotwein einen Schrauber haben kann",
-            "start": 143.588
-          }
-        ],
-        "voice": "de-DE-FlorianMultilingualNeural",
-        "rate": "+0%",
-        "pitch": "+0Hz",
-        "synthesis": "continuous-v2"
-      },
       "audio:seraphina": {
         "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/kork-seraphina-401194e1f9e6e2c91df6.mp3",
         "duration": 211.008,
@@ -946,12 +936,64 @@
         "rate": "+0%",
         "pitch": "+0Hz",
         "synthesis": "continuous-v2"
+      },
+      "audio:florian": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/kork-florian-24201a0350d23778239b.mp3",
+        "duration": 182.736,
+        "chapters": [
+          {
+            "title": "Grundwissen",
+            "start": 0
+          },
+          {
+            "title": "Wie aus Rinde ein Flaschenverschluss wird",
+            "start": 61.987
+          },
+          {
+            "title": "Wie sich Korkton bemerkbar macht",
+            "start": 103.487
+          },
+          {
+            "title": "Warum auch guter Rotwein einen Schrauber haben kann",
+            "start": 143.588
+          }
+        ],
+        "voice": "de-DE-FlorianMultilingualNeural",
+        "rate": "+0%",
+        "pitch": "+0Hz",
+        "synthesis": "continuous-v2"
       }
     }
   },
   "25a4a1767bf941e7240f7f41f26b368d50164901cf2a862c1fc3a59b98c9f554": {
     "slug": "spaetburgunder-zwei-roses",
     "voices": {
+      "audio:seraphina": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/spaetburgunder-zwei-roses-seraphina-4258cdbb4b5d623b4b18.mp3",
+        "duration": 207.432,
+        "chapters": [
+          {
+            "title": "Grundwissen",
+            "start": 0
+          },
+          {
+            "title": "Zwei Rosés und mehrere Unterschiede",
+            "start": 77.737
+          },
+          {
+            "title": "Fruchtig riechen und süß schmecken",
+            "start": 120.875
+          },
+          {
+            "title": "Was uns beim Riesling wieder begegnet",
+            "start": 163.963
+          }
+        ],
+        "voice": "de-DE-SeraphinaMultilingualNeural",
+        "rate": "+0%",
+        "pitch": "+0Hz",
+        "synthesis": "continuous-v2"
+      },
       "audio:florian": {
         "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/spaetburgunder-zwei-roses-florian-d93e1226c1ce2a8f3f69.mp3",
         "duration": 179.808,
@@ -977,29 +1019,222 @@
         "rate": "+0%",
         "pitch": "+0Hz",
         "synthesis": "continuous-v2"
-      },
-      "audio:seraphina": {
-        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/spaetburgunder-zwei-roses-seraphina-4258cdbb4b5d623b4b18.mp3",
-        "duration": 207.432,
+      }
+    }
+  },
+  "ad5f8b98e3ab44275b3da30ae893a1c2bf7dfa93b1e11a1eeb9c84d89a943855": {
+    "slug": "jumilla",
+    "voices": {
+      "audio:florian": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/jumilla-florian-70b91ab9ea9f2805188c.mp3",
+        "duration": 326.208,
         "chapters": [
           {
             "title": "Grundwissen",
             "start": 0
           },
           {
-            "title": "Zwei Rosés und mehrere Unterschiede",
-            "start": 77.737
+            "title": "Sieben Gemeinden, zwei Verwaltungsregionen",
+            "start": 93.325
           },
           {
-            "title": "Fruchtig riechen und süß schmecken",
-            "start": 120.875
+            "title": "Warum die Höhe beim heißen Sommer mitspielt",
+            "start": 138.425
           },
           {
-            "title": "Was uns beim Riesling wieder begegnet",
-            "start": 163.963
+            "title": "Was Trockenanbau tatsächlich bedeutet",
+            "start": 184.738
+          },
+          {
+            "title": "Die freie Buschform im Weinberg",
+            "start": 231.2
+          },
+          {
+            "title": "Eine Region entwickelt ihre eigene Flasche",
+            "start": 275.288
+          }
+        ],
+        "voice": "de-DE-FlorianMultilingualNeural",
+        "rate": "+0%",
+        "pitch": "+0Hz",
+        "synthesis": "continuous-v2"
+      },
+      "audio:seraphina": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/jumilla-seraphina-394f1d409026d9f9a428.mp3",
+        "duration": 378.288,
+        "chapters": [
+          {
+            "title": "Grundwissen",
+            "start": 0
+          },
+          {
+            "title": "Sieben Gemeinden, zwei Verwaltungsregionen",
+            "start": 108.438
+          },
+          {
+            "title": "Warum die Höhe beim heißen Sommer mitspielt",
+            "start": 161.15
+          },
+          {
+            "title": "Was Trockenanbau tatsächlich bedeutet",
+            "start": 215.075
+          },
+          {
+            "title": "Die freie Buschform im Weinberg",
+            "start": 268.6
+          },
+          {
+            "title": "Eine Region entwickelt ihre eigene Flasche",
+            "start": 319.225
           }
         ],
         "voice": "de-DE-SeraphinaMultilingualNeural",
+        "rate": "+0%",
+        "pitch": "+0Hz",
+        "synthesis": "continuous-v2"
+      }
+    }
+  },
+  "f75c1319467acbe87baf27074d833e2cc4e6b2f03f419c84c2f7b0c0eb559e78": {
+    "slug": "juan-gil",
+    "voices": {
+      "audio:florian": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/juan-gil-florian-5b45b3da16de299302c7.mp3",
+        "duration": 322.224,
+        "chapters": [
+          {
+            "title": "Grundwissen",
+            "start": 0
+          },
+          {
+            "title": "Der Anfang beim Steinmetz",
+            "start": 94.55
+          },
+          {
+            "title": "Rosario Vera und die nächste Generation",
+            "start": 142.688
+          },
+          {
+            "title": "Wenig Trauben und die Arbeit an der Auswahl",
+            "start": 186.275
+          },
+          {
+            "title": "Was der Ausbau im Keller leistet",
+            "start": 230.537
+          },
+          {
+            "title": "Bio, Kühlung und Solarstrom",
+            "start": 277.425
+          }
+        ],
+        "voice": "de-DE-FlorianMultilingualNeural",
+        "rate": "+0%",
+        "pitch": "+0Hz",
+        "synthesis": "continuous-v2"
+      },
+      "audio:seraphina": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/juan-gil-seraphina-5cb9b0f943d0463543ac.mp3",
+        "duration": 375.264,
+        "chapters": [
+          {
+            "title": "Grundwissen",
+            "start": 0
+          },
+          {
+            "title": "Der Anfang beim Steinmetz",
+            "start": 110.95
+          },
+          {
+            "title": "Rosario Vera und die nächste Generation",
+            "start": 166.7
+          },
+          {
+            "title": "Wenig Trauben und die Arbeit an der Auswahl",
+            "start": 218.075
+          },
+          {
+            "title": "Was der Ausbau im Keller leistet",
+            "start": 269.375
+          },
+          {
+            "title": "Bio, Kühlung und Solarstrom",
+            "start": 323.613
+          }
+        ],
+        "voice": "de-DE-SeraphinaMultilingualNeural",
+        "rate": "+0%",
+        "pitch": "+0Hz",
+        "synthesis": "continuous-v2"
+      }
+    }
+  },
+  "56243fa66842ed4dfdaa55671c4798604cf2c8158392a7f919282b953bff8416": {
+    "slug": "mourvedre-monastrell",
+    "voices": {
+      "audio:seraphina": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/mourvedre-monastrell-seraphina-baa4f9ccde816271be1e.mp3",
+        "duration": 357.432,
+        "chapters": [
+          {
+            "title": "Grundwissen",
+            "start": 0
+          },
+          {
+            "title": "Zuckerreife und reife Gerbstoffe",
+            "start": 102.125
+          },
+          {
+            "title": "Farbe und Griff aus der Beerenschale",
+            "start": 152.7
+          },
+          {
+            "title": "Wenn der Rebe Wasser fehlt",
+            "start": 207.95
+          },
+          {
+            "title": "Monastrell, Mourvèdre und Mataro",
+            "start": 255.938
+          },
+          {
+            "title": "Duftwörter und das Gefühl im Mund",
+            "start": 306.762
+          }
+        ],
+        "voice": "de-DE-SeraphinaMultilingualNeural",
+        "rate": "+0%",
+        "pitch": "+0Hz",
+        "synthesis": "continuous-v2"
+      },
+      "audio:florian": {
+        "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/host-audio/mourvedre-monastrell-florian-6e77f5fff1acc892255e.mp3",
+        "duration": 310.416,
+        "chapters": [
+          {
+            "title": "Grundwissen",
+            "start": 0
+          },
+          {
+            "title": "Zuckerreife und reife Gerbstoffe",
+            "start": 87.662
+          },
+          {
+            "title": "Farbe und Griff aus der Beerenschale",
+            "start": 131.55
+          },
+          {
+            "title": "Wenn der Rebe Wasser fehlt",
+            "start": 180.488
+          },
+          {
+            "title": "Monastrell, Mourvèdre und Mataro",
+            "start": 221.35
+          },
+          {
+            "title": "Duftwörter und das Gefühl im Mund",
+            "start": 265.387
+          }
+        ],
+        "voice": "de-DE-FlorianMultilingualNeural",
         "rate": "+0%",
         "pitch": "+0Hz",
         "synthesis": "continuous-v2"

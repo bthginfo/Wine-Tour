@@ -5,6 +5,7 @@ export const hostNarrationVersion='guide-v2';
 export function hostPronunciation(text:string):string {
  return text.replace(/https?:\/\/\S+/g,'').replace(/\*\*/g,'')
   .replace(/Rheinebene(n)?/g,(_,plural)=>'Rhein Ebene'+(plural||''))
+  .replace(/Juan Gil/g,'Chuan Chil').replace(/Jumilla/g,'Chumija').replace(/Etiqueta Plata/g,'Etikéta Pláta').replace(/\bDOP\b/g,'De Oh Pe').replace(/\ben vaso\b/g,'en Basso')
   .replace(/\bJUWEL\b/g,'Juwel').replace(/\bJUliane\b/g,'Juliane').replace(/\bELler\b/g,'Eller').replace(/\bVDP\b/g,'Vau De Pe')
   .replace(/\bIII\s+Freunde\b/gi,'Drei Freunde')
   .replace(/\bTCA\b/g,'Te Ce A').replace(/CO₂/g,'Kohlendioxid')

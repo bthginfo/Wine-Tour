@@ -12,5 +12,5 @@ exports.readCatalog=()=>{
   const run=vm.runInNewContext('(function(exports,module,require){'+code+'\n})',{structuredClone,URL},{filename:file,timeout:10000});run(module.exports,module,read);return module.exports;
  }
  const core=load(root+'/lib/content.ts');const atlas=load(root+'/lib/atlas-content.ts');
- return {all:[...core.articles,...atlas.atlasArticles].map(atlas.enrichAtlasArticle),atlasCountries:atlas.atlasCountries,canonicalAtlasSlug:atlas.canonicalAtlasSlug,varieties:load(root+'/lib/locales/de/atlas/variety-index.json'),photos:load(root+'/lib/locales/de/atlas/photos.json'),articleSchema:load(root+'/lib/editorial-schema.ts').articleSchema};
+ return {all:[...core.articles,...atlas.atlasArticles].map(atlas.enrichAtlasArticle),wines:core.wines,steps:core.steps,atlasCountries:atlas.atlasCountries,canonicalAtlasSlug:atlas.canonicalAtlasSlug,varieties:load(root+'/lib/locales/de/atlas/variety-index.json'),photos:load(root+'/lib/locales/de/atlas/photos.json'),articleSchema:load(root+'/lib/editorial-schema.ts').articleSchema};
 };

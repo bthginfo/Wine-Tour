@@ -61,11 +61,11 @@ function grapeArticle(r:GrapeRow):Article{
 function producerArticle(r:ProducerRow):Article{
  const country=countryData[r.country as CountryCode];return {slug:r.slug,category:'Weingüter',title:r.title,eyebrow:r.region+' · '+country.label,intro:r.intro,countries:[r.country],aliases:r.aliases||[],paragraphs:r.paragraphs,sections:r.sections,host:[...r.paragraphs,...r.sections.map(s=>s.body)],fact:r.fact,visual:'atlas',...articlePhoto(r.imageRegion||''),atlas:{kind:'producer',country:country.label,countryCode:r.country,point:r.point,facts:r.facts},related:r.related,sources:r.sources};
 }
-const coreSlugs=new Set(['spaetburgunder','grauburgunder','weissburgunder','riesling','silvaner','sauvignon-blanc']);
+const coreSlugs=new Set(['spaetburgunder','grauburgunder','weissburgunder','riesling','silvaner','sauvignon-blanc','mourvedre-monastrell']);
 export const atlasArticles:Article[]=[...(regionData as RegionRow[]).map(regionArticle),...(grapeData as GrapeRow[]).map(grapeArticle).filter(a=>!coreSlugs.has(a.slug)),...(producerData as ProducerRow[]).map(producerArticle),...styleData as Article[]];
 const atlasIndex=new Map(atlasArticles.map(a=>[a.slug,a]));
 export const atlasArticleBySlug=(slug:string)=>atlasIndex.get(slug);
-export function canonicalAtlasSlug(slug:string){return ({malmsey:'madeira-wein','pinot-noir':'spaetburgunder','pinot-gris':'grauburgunder','pinot-blanc':'weissburgunder',wurttemberg:'wuerttemberg'} as Record<string,string>)[slug]||slug;}
+export function canonicalAtlasSlug(slug:string){return ({malmsey:'madeira-wein','pinot-noir':'spaetburgunder','pinot-gris':'grauburgunder','pinot-blanc':'weissburgunder',wurttemberg:'wuerttemberg',monastrell:'mourvedre-monastrell'} as Record<string,string>)[slug]||slug;}
 const coreGrapeCountries:Record<string,string[]>={spaetburgunder:['DE','FR','US','NZ'],grauburgunder:['DE','FR','IT'],weissburgunder:['DE','FR','IT','AT'],riesling:['DE','FR','AT','AU','NZ'],silvaner:['DE','FR'],'sauvignon-blanc':['FR','NZ','CL','ZA']};
 export function enrichAtlasArticle(a:Article):Article{
  if(a.countries)return a;const v=Object.values(varieties).find(v=>v.slug===a.slug);return {...a,countries:coreGrapeCountries[a.slug]||(a.category==='Regionen'||a.category==='Weingüter'?['DE']:[]),aliases:[...(a.aliases||[]),...(v?.aliases||[]),a.slug]};

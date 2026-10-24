@@ -40,5 +40,19 @@
     "credit": "© von Winning",
     "source": "https://www.von-winning.de/weingut-von-winning",
     "original": "https://content.von-winning.de/fileadmin/user_upload/Startseite/winning-weingut.jpg"
+  },
+  "rot": {
+    "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/winery/juan-gil-silver-bottle-16e8ab4e1bce.webp",
+    "alt": "Juan Gil Etiqueta Plata / Silver Label, Originalflasche des Weinguts",
+    "credit": "© Viñas Familia Gil",
+    "source": "https://www.gilfamily.us/wineries/bodegas-juan-gil/juan-gil-silver-label/117/eng.html",
+    "original": "https://www.gilfamily.us/assets/img/wines/117-juan-gil-silver-label-1761145209.png"
+  },
+  "juan-gil": {
+    "url": "https://jrqpvtdvwlve0oc5.public.blob.vercel-storage.com/winery/juan-gil-vineyards-solar-686bcb5ab9ce.webp",
+    "alt": "Weinberge und Solaranlage von Viñas Familia Gil in Jumilla",
+    "credit": "© Viñas Familia Gil",
+    "source": "https://gilfamily.es/bodegas_juan_gil/sostenibilidad/es",
+    "original": "https://gilfamily.es/media/page/files/sostenibilidad.jpg"
   }
 }
