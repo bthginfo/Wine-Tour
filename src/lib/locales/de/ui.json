@@ -328,5 +328,13 @@
   "host.speechUnsupported": "Vorlesen ist in diesem Browser nicht verfügbar.",
   "host.speechError": "Das Vorlesen konnte nicht gestartet werden. Probiere es noch einmal.",
   "host.speechPlaying": "Der Host-Hintergrund wird vorgelesen.",
-  "pdf.additionalInfo": "Zusatzinfos und ausführliche Hintergründe einbeziehen"
+  "pdf.additionalInfo": "Zusatzinfos und ausführliche Hintergründe einbeziehen",
+  "home.tastingLive": "WEINPROBE LÄUFT",
+  "home.alreadyJoined": "Du bist schon dabei",
+  "home.returnExplanation": "Du kommst zum aktuellen Stand der Weinprobe zurück.",
+  "home.currentWine": "Gerade im Glas · Wein",
+  "home.returnHost": "Zur Host-Ansicht",
+  "home.returnTasting": "Zur laufenden Weinprobe",
+  "home.otherTasting": "Andere Weinprobe öffnen",
+  "home.otherOngoingTastings": "weitere laufende Weinproben"
 }

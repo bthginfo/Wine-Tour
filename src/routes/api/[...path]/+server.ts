@@ -19,7 +19,7 @@ async function dispatch(e:RequestEvent){
  if(p==='me'){
   const u=await user(e);const g=await guest(e);
   const notes=await sql`SELECT n.room,n.wine,n.data,n.updated_at,r.name AS room_name,(r.settings - 'redStory') AS room_settings FROM sip.notes n JOIN sip.guests g ON g.id=n.guest_id JOIN sip.rooms r ON r.code=n.room WHERE n.guest_id=${g} OR (${u?.id??null}::text IS NOT NULL AND g.user_id=${u?.id??null}) ORDER BY n.updated_at DESC`;
-  const rooms=await sql`SELECT r.code,r.name,r.step,r.closed,(r.settings - 'redStory') AS settings FROM sip.members m JOIN sip.rooms r ON r.code=m.room JOIN sip.guests g ON g.id=m.guest_id WHERE m.guest_id=${g} OR (${u?.id??null}::text IS NOT NULL AND g.user_id=${u?.id??null}) ORDER BY r.created_at DESC LIMIT 12`;
+  const rooms=await sql`SELECT r.code,r.name,r.step,r.closed,(r.settings - 'redStory') AS settings FROM sip.rooms r WHERE EXISTS(SELECT 1 FROM sip.members m JOIN sip.guests g ON g.id=m.guest_id WHERE m.room=r.code AND (m.guest_id=${g} OR (${u?.id??null}::text IS NOT NULL AND g.user_id=${u?.id??null}))) ORDER BY r.closed ASC,r.created_at DESC LIMIT 12`;
   return json({user:u,draftOwner:g,notes,rooms:rooms.map(r=>({...r,isHost:u?.role==='admin'}))});
  }
  if(p==='auth/logout'&&method==='POST'){const t=e.cookies.get('sip_session');if(t)await sql`DELETE FROM sip.sessions WHERE token_hash=${hash(t)}`;e.cookies.delete('sip_session',{path:'/'});e.cookies.delete('sip_guest',{path:'/'});return json({ok:true});}

@@ -1,12 +1,21 @@
 import {t} from './i18n';
+import {readTastingVisit} from './tasting-return';
 const browser = typeof window !== 'undefined';
-export const session = $state<{user:any;notes:any[];rooms:any[];draftOwner:string;loaded:boolean;error:string}>({user:null,notes:[],rooms:[],draftOwner:'',loaded:false,error:''});
+export const session = $state<{user:any;notes:any[];rooms:any[];lastTasting:string;draftOwner:string;loaded:boolean;error:string}>({user:null,notes:[],rooms:[],lastTasting:'',draftOwner:'',loaded:false,error:''});
 export const noteSync = $state({pending:0,syncing:false,error:''});
 export const ui = $state({createOpen:false,joinOpen:false});
 
 type Draft = {owner:string;data:any;updated:number;pending:boolean};
 const memoryDrafts = new Map<string,Draft>();
 let syncing:Promise<void>|undefined;
+let tastingVisit:{owner:string;code:string}|undefined;
+const visitKey='sip:tasting:return';
+export function rememberTasting(code:string){
+ if(!browser||!session.draftOwner||!/^[A-Z2-9]{6}$/.test(code))return;
+ if(tastingVisit?.owner===session.draftOwner&&tastingVisit.code===code)return;
+ tastingVisit={owner:session.draftOwner,code};session.lastTasting=code;
+ try{localStorage.setItem(visitKey,JSON.stringify(tastingVisit));}catch{}
+}
 export function noteKey(room:string,wine:string){return `sip:note:${room}:${wine}`;}
 
 export async function api(path:string,body?:unknown,method?:string,options:RequestInit={}){
@@ -36,7 +45,10 @@ function mergeDrafts(notes:any[]){
 }
 export async function refreshSession(){
  if(!browser)return;
- try{const d=await api('me');session.user=d.user;session.rooms=d.rooms;session.draftOwner=d.draftOwner;session.notes=mergeDrafts(d.notes);session.error='';}catch(e){session.error=(e as Error).message;}
+ try{const d=await api('me');session.user=d.user;session.rooms=d.rooms;session.draftOwner=d.draftOwner;
+  let stored:string|null=null;try{stored=localStorage.getItem(visitKey);}catch{}
+  tastingVisit=tastingVisit?.owner===d.draftOwner?tastingVisit:readTastingVisit(stored,d.draftOwner);
+  session.lastTasting=tastingVisit?.code||'';session.notes=mergeDrafts(d.notes);session.error='';}catch(e){session.error=(e as Error).message;}
  session.loaded=true;
 }
 export function saveNoteDraft(room:string,wine:string,data:unknown){

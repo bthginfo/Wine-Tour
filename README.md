@@ -143,3 +143,11 @@ Spätburgunder owns the Pinot family comparison; Rosé explores direct pressing,
 Participant PDFs include the authored host explanations and all deeper topics as “Zusatzinfos”, including published CMS changes. Exact repeated paragraphs are omitted. An enabled-by-default export checkbox can leave this reading out. This sharing applies to editorial explanations, not `room.settings.redStory`, other participants’ notes, player controls or audio metadata.
 
 Portrait framing uses the official landscape Juliane Eller photograph so her face fits the reading and tasting heroes across device sizes. Producer heroes use a taller responsive frame and place their chapter badge below the photo. Producer catalogue badges sit at the lower edge. The PDF uses a taller estate-image frame too.
+
+## Returning to an ongoing tasting
+
+The home page promotes the last visited open membership with a direct guest or host link. It loads the current room projection on entry; participants keep their name and notes. Other joined open tastings are available in a secondary list. `/api/me` prioritizes open rooms and uses membership existence rather than a join that can duplicate a room across account-linked browser identities.
+
+The remembered room code is scoped to `draftOwner`, grants no access, and is used only when it matches a membership returned by the server. Blocked storage falls back to the current in-memory visit or the server's open memberships. Returning home refreshes session data so a finished tasting does not remain the main action.
+
+`src/lib/illustration-art.ts` provides original detailed vector artwork for the vine season, rosé methods, bottle fermentation, assemblage, Cava ageing, Port styles, red-wine production, glasses and grapes. SVG templates contain no participant or editorial text; identifiers and colors are sanitized. The screen uses native SVG with restrained motion and reduced-motion support. The PDF reuses the same artwork at print resolution while retaining selectable headings, explanations and notes.

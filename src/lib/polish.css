@@ -81,3 +81,6 @@ dialog[open]{animation:dialog-appear 180ms var(--motion-ease) both}dialog[open]:
 .article-card-image.producer-image .pill{top:auto;bottom:10px}
 
 .story-visual.producer-hero{height:clamp(240px,25vw,360px)}
+
+:root{--art-ink:#465b4d;--art-line:#adb9a7;--art-surface:#edf1e6;--art-back:#f7f8f1;--art-leaf:#69885c;--art-land:#dce5cc;--art-haze:#d5dfc4}
+:root[data-theme=dark]{--art-ink:#b9cbb4;--art-line:#77917a;--art-surface:#2a3c30;--art-back:#203126;--art-leaf:#a6be84;--art-land:#45613f;--art-haze:#668350}

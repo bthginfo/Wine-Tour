@@ -14,7 +14,7 @@
   return()=>{clearInterval(interval);window.removeEventListener('online',retry);window.removeEventListener('focus',retry);window.removeEventListener('pagehide',retry);};
  });
  $effect(()=>{if(session.loaded)void loadEditorial(session.user?.role==='admin');});
- afterNavigate(({from})=>{if(from&&session.loaded)void loadEditorial(session.user?.role==='admin');});
+ afterNavigate(({from,to})=>{if(from&&session.loaded){void loadEditorial(session.user?.role==='admin');if(to?.url.pathname==='/')void refreshSession();}});
  function toggleSidebar(){sidebarCollapsed=!sidebarCollapsed;document.documentElement.dataset.sidebar=sidebarCollapsed?'collapsed':'expanded';try{localStorage.setItem('sip:sidebar',sidebarCollapsed?'collapsed':'expanded');}catch{}}
  function hostStart(){if(session.user?.role==='admin'){error='';ui.createOpen=true;}else goto('/konto?next=/admin');}
  async function create(){busy=true;error='';try{const d=await api('rooms',{name:eventName});ui.createOpen=false;await refreshSession();await goto('/host/'+d.code);}catch(e){error=(e as Error).message;}busy=false;}

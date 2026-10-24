@@ -3,6 +3,7 @@ import fontkit from '@pdf-lib/fontkit';
 import shape from '../geo/germany.json';
 import iberia from '../geo/iberia.json';
 import places from '../geo/places.json';
+import {illustrationSvg,grapeSvg,wineGlassSvg,type ArtworkKind} from '../illustration-art';
 import type{TastingBook,PdfArticle,TastingNote,ImageCredit}from'./model';
 
 const W=595.28,H=841.89,M=46,CW=W-M*2,BOTTOM=785;
@@ -22,6 +23,27 @@ async function picture(url:string,doc:PDFDocument):Promise<Picture>{
  const data=await bytes(url);const bitmap=await createImageBitmap(new Blob([data as BlobPart]));
  try{const scale=Math.min(1,1250/Math.max(bitmap.width,bitmap.height));const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(bitmap.width*scale));canvas.height=Math.max(1,Math.round(bitmap.height*scale));const ctx=canvas.getContext('2d')!;ctx.fillStyle='#fbfbf7';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.drawImage(bitmap,0,0,canvas.width,canvas.height);const blob=await new Promise<Blob>((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(Error('Bild konnte nicht umgewandelt werden.')),'image/jpeg',.86));return{image:await doc.embedJpg(await blob.arrayBuffer()),width:canvas.width,height:canvas.height};}finally{bitmap.close();}
 }
+const artworkKinds=new Set(['riesling-season','rose-methods','sekt-bottle','champagne-blend','cava-age','port-styles']);
+const artworkKey=(kind:string,stage:number)=>'art:'+kind+':'+stage;
+const colorHex=(color:RGB)=>'#'+[color.red,color.green,color.blue].map(v=>Math.round(v*255).toString(16).padStart(2,'0')).join('');
+async function vectorPicture(svg:string,doc:PDFDocument):Promise<Picture>{
+ const url=URL.createObjectURL(new Blob([svg],{type:'image/svg+xml'}));const img=new Image();
+ try{img.src=url;await img.decode();const canvas=document.createElement('canvas');canvas.width=img.naturalWidth;canvas.height=img.naturalHeight;const ctx=canvas.getContext('2d')!;ctx.drawImage(img,0,0);const blob=await new Promise<Blob>((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(Error('Illustration konnte nicht exportiert werden.')),'image/png'));return{image:await doc.embedPng(await blob.arrayBuffer()),width:canvas.width,height:canvas.height};}finally{URL.revokeObjectURL(url);}
+}
+async function prepareArtwork(book:TastingBook,doc:PDFDocument,pictures:Map<string,Picture>){
+ const jobs=new Map<string,string>();
+ const addGlass=(color:string,bubbles=0)=>{const key='art:glass:'+color+':'+bubbles;jobs.set(key,wineGlassSvg(color,bubbles,key,true));};
+ for(const entry of book.entries){if(entry.type!=='article')continue;const a=entry.article,scene=a.scene;
+  if(scene&&(artworkKinds.has(scene.kind)||(scene.kind==='wine-style'&&a.slug==='rotwein')))for(let i=0;i<scene.items.length;i++){const kind=scene.kind==='wine-style'&&a.slug==='rotwein'?'rotwein':scene.kind,key=artworkKey(kind,i);jobs.set(key,illustrationSvg(kind as ArtworkKind,i,key,true));}
+  if(a.visual==='pinot')for(const[i,color]of['#6c455e','#bc9492','#bfc78c'].entries())jobs.set(artworkKey('pinot',i),grapeSvg(color,'print-pinot-'+i,true));
+  if(a.visual==='bubbles')for(const[color,bubbles]of[['#dfd59d',0],['#d9a09a',3],['#dfd59d',6]]as const)addGlass(color,bubbles);
+  if(a.visual==='skins')for(const color of['#dfd59d','#d9a09a','#8b4960'])addGlass(color);
+  if(a.visual==='rose-compare'){addGlass('#d9a09a',5);addGlass('#d9a09a');}
+ }
+ addGlass('#94536c');if(book.entries.some(e=>e.type==='pending'))addGlass('#91526b');
+ const cover=book.entries.find(e=>e.type==='article'&&e.article.slug==='pfalz');if(cover?.type!=='article'||!pictures.has(cover.article.image)){addGlass('#e9d1d0',3);addGlass('#f0dad4');addGlass('#eee2bd');}
+ const pending=[...jobs.entries()];let cursor=0;await Promise.all(Array.from({length:3},async()=>{while(cursor<pending.length){const[key,svg]=pending[cursor++];pictures.set(key,await vectorPicture(svg,doc));}}));
+}
 class BookLayout{
  page!:PDFPage;y=65;context='';lastArticleWine=-1;pages:{page:PDFPage;context:string;cover:boolean}[]=[];links:Link[]=[];chapterPages=new Map<number,number>();notePages=new Map<number,number>();usedCredits=new Map<string,ImageCredit>();
  constructor(public doc:PDFDocument,public fonts:Fonts,public pictures:Map<string,Picture>,public glyphs:Map<string,Glyph>,public book:TastingBook){}
@@ -38,42 +60,26 @@ class BookLayout{
  title(text:string,size=30){const lines=this.wrap(text,size,CW,this.fonts.heading);for(const l of lines){this.ensure(size*1.23);this.text(l,M,this.y,size,this.fonts.heading);this.y+=size*1.23;}this.y+=11;}
  eyebrow(text:string,gap=22){this.text(text.toLocaleUpperCase('de-DE'),M,this.y,8.1,this.fonts.bold,muted);this.y+=gap;}
  image(url:string,x:number,top:number,w:number,h:number,fit='cover',position='center center',credit?:ImageCredit){const pic=this.pictures.get(url);if(!pic)return false;const scale=fit==='contain'?Math.min(w/pic.width,h/pic.height):Math.max(w/pic.width,h/pic.height);const iw=pic.width*scale,ih=pic.height*scale;const px=position.includes('left')?0:position.includes('right')?1:.5;const py=position.includes('top')?0:position.includes('bottom')?1:.5;this.page.pushOperators(pushGraphicsState(),rectangle(x,H-top-h,w,h),clip(),endPath());this.page.drawImage(pic.image,{x:x+(w-iw)*px,y:H-top-h+(h-ih)*(1-py),width:iw,height:ih});this.page.pushOperators(popGraphicsState());if(credit)this.usedCredits.set(url,credit);return true;}
- glass(x:number,top:number,size:number,color:RGB,bubbles=0){this.page.drawSvgPath('M8 0 C5 20 4 34 23 39 C42 34 41 20 38 0 Z',{x,y:H-top,scale:size/46,borderColor:muted,borderWidth:.8});this.page.drawSvgPath('M8 18 C7 28 10 36 23 38 C36 35 39 28 38 18 Z',{x,y:H-top,scale:size/46,color});this.page.drawLine({start:{x:x+size/2,y:H-top-size*.85},end:{x:x+size/2,y:H-top-size*1.32},color:muted,thickness:.7});this.rule(x+size*.23,top+size*1.34,size*.54,muted,.7);for(let i=0;i<bubbles;i++)this.circle(x+size*(.31+(i%3)*.15),top+size*(.46+Math.floor(i/3)*.13),1,white);}
+ glass(x:number,top:number,size:number,color:RGB,bubbles=0){const artwork=this.pictures.get('art:glass:'+colorHex(color)+':'+bubbles);if(artwork){this.page.drawImage(artwork.image,{x,y:H-top-size*205/140,width:size,height:size*205/140});return;}this.page.drawSvgPath('M8 0 C5 20 4 34 23 39 C42 34 41 20 38 0 Z',{x,y:H-top,scale:size/46,borderColor:muted,borderWidth:.8});this.page.drawSvgPath('M8 18 C7 28 10 36 23 38 C36 35 39 28 38 18 Z',{x,y:H-top,scale:size/46,color});this.page.drawLine({start:{x:x+size/2,y:H-top-size*.85},end:{x:x+size/2,y:H-top-size*1.32},color:muted,thickness:.7});this.rule(x+size*.23,top+size*1.34,size*.54,muted,.7);for(let i=0;i<bubbles;i++)this.circle(x+size*(.31+(i%3)*.15),top+size*(.46+Math.floor(i/3)*.13),1,white);}
  star(x:number,top:number,filled:boolean){const points=Array.from({length:10},(_,i)=>{const a=-Math.PI/2+i*Math.PI/5,r=i%2?3.4:7.4;return`${7.5+Math.cos(a)*r},${7.5+Math.sin(a)*r}`;});this.page.drawSvgPath('M'+points.join(' L')+' Z',{x,y:H-top,color:filled?gold:line});}
  map(slug:string,x:number,top:number,w:number,h:number){if(slug==='jumilla'){const scale=Math.min(w/280,(h-16)/230),left=x+(w-280*scale)/2;for(const [path,color]of[[iberia.portugal,'#e4e8dc'],[iberia.spain,'#d7e0ce']])this.page.drawSvgPath(path,{x:left,y:H-top,scale,color:c(color)});const px=left+iberia.point.x*scale,py=top+iberia.point.y*scale;this.circle(px,py,4,rose);this.circle(px,py,1.9,forest);this.text('Jumilla · Spanien',x+(w-this.width('Jumilla · Spanien',8,this.fonts.bold))/2,top+h-13,8,this.fonts.bold);return;}const place=places[slug as keyof typeof places];if(!place)return;const scale=Math.min(w/280,(h-16)/335);this.page.drawSvgPath(shape.path,{x:x+(w-280*scale)/2,y:H-top,scale,color:c('#d7e0ce')});const px=x+(w-280*scale)/2+(place.lon-5.5)*24*scale,py=top+(55.5-place.lat)*38*scale;this.circle(px,py,5.5,rose);this.circle(px,py,2.4,forest);const tw=this.width(place.town,8,this.fonts.bold);this.text(place.town,x+(w-tw)/2,top+h-13,8,this.fonts.bold);}
- visual(a:PdfArticle){if(a.scene){if(this.pictures.has(a.image)){this.ensure(119);this.image(a.image,M,this.y,CW,108,a.imageFit||'cover',a.imagePosition,a.credit);this.y+=119;}this.learningScene(a.scene);return;}const pic=this.pictures.get(a.image);const kind=a.visual;const height=kind==='producer'?160:['bubbles','aromas','balance','closures','rose-compare'].includes(kind||'')?124:108;this.ensure(height+21);const y=this.y;
+ visual(a:PdfArticle){if(a.scene){if(this.pictures.has(a.image)){this.ensure(119);this.image(a.image,M,this.y,CW,108,a.imageFit||'cover',a.imagePosition,a.credit);this.y+=119;}this.learningScene(a.scene,a.slug);return;}const pic=this.pictures.get(a.image);const kind=a.visual;const height=kind==='producer'?160:['bubbles','aromas','balance','closures','rose-compare'].includes(kind||'')?124:108;this.ensure(height+21);const y=this.y;
   if(kind==='region'){this.rect(M,y,CW,height,c('#eef2e7'));if(pic)this.image(a.image,M,y,CW-145,height,a.imageFit||'cover',a.imagePosition,a.credit);else{this.text(a.slug==='jumilla'?'LAGE IN SPANIEN':'LAGE IN DEUTSCHLAND',M+20,y+25,8,this.fonts.bold,muted);this.text(a.title,M+20,y+45,25,this.fonts.heading);this.text('Ein Ort als Bezugspunkt,',M+20,y+86,9,this.fonts.regular,muted);this.text('keine Grenze des Anbaugebiets.',M+20,y+101,9,this.fonts.regular,muted);}this.map(a.slug,M+CW-135,y+7,125,height-14);
   }else if(pic&&(kind==='producer'||!kind||kind==='none')){const portrait=pic.height>pic.width;this.rect(M,y,CW,height,c('#edf0e7'));const featured=this.book.wines.find(w=>w.slugs.includes(a.slug));if(portrait&&featured){this.image(a.image,M,y,172,height,'cover',a.imagePosition,a.credit);this.image(featured.bottleImage||'',M+190,y+8,46,height-16,'contain','center',{text:featured.bottleCredit||featured.producer,url:featured.bottleSource});this.text('UNSER WEIN',M+253,y+16,7.2,this.fonts.bold,muted);this.wrap(featured.name,14,CW-272,this.fonts.heading).forEach((l,i)=>this.text(l,M+253,y+35+i*18,14,this.fonts.heading));this.wrap(featured.style,8.8,CW-272).forEach((l,i)=>this.text(l,M+253,y+84+i*12,8.8,this.fonts.regular,muted));}else this.image(a.image,M,y,CW,height,a.imageFit||'cover',a.imagePosition,a.credit);
   }else if(pic){this.image(a.image,M,y,145,height,'cover',a.imagePosition,a.credit);this.diagram(kind||'skins',M+160,y,CW-160,height);}
   else if(kind&&kind!=='none')this.diagram(a.slug==='mourvedre-monastrell'?'monastrell':a.slug==='rotwein'?'red-wine':kind,M,y,CW,height);else return;
   this.y+=height+11;
  }
- learningScene(scene:NonNullable<PdfArticle['scene']>){
+ learningScene(scene:NonNullable<PdfArticle['scene']>,slug:string){
   this.ensure(160);this.eyebrow(scene.eyebrow,18);this.heading(scene.title,15);
-  const top=this.y,cell=CW/scene.items.length;
-  this.rect(M,top,CW,82,c('#eef2e7'));
-  for(const [i,item] of scene.items.entries()){
-   const x=M+(i+.5)*cell,cy=top+31;
-   if(scene.kind==='riesling-season'){
-    this.page.drawLine({start:{x,y:H-cy-18},end:{x,y:H-cy+15},color:c('#94745e'),thickness:2});
-    if(i===0){this.circle(x-4,cy-9,5,c('#a8b58a'));this.circle(x+4,cy-9,5,c('#8da176'));}
-    else for(const [dx,dy]of[[-6,-7],[6,-7],[0,5]])this.circle(x+dx,cy+dy,i===1?2.5:6,i===1?gold:i===2?c('#91a776'):c('#c3bd79'));
-   }else if(scene.kind==='rose-methods'){
-    this.rect(x-18,cy-17,36,33,c('#edddd9'),muted);this.rect(x-16,cy,32,14,c('#d6a09d'));if(i===0){this.rule(x-23,cy-23,46,muted,1.4);this.rule(x-20,cy-8,40,muted,1.4);}else if(i===1){for(const dx of[-10,0,10])this.circle(x+dx,cy-4,3,c('#8d596b'));}else{this.rule(x+18,cy+2,16,c('#d6a09d'),2);this.rect(x+30,cy+2,3,15,c('#d6a09d'));}
-   }else if(scene.kind==='sekt-bottle'){
-    this.rect(x-13,cy-8,26,31,c('#d9cb99'),muted);this.rect(x-5,cy-25,10,17,c('#d9cb99'),muted);
-    if(i===1)for(const[dx,dy]of[[-5,0],[5,8],[0,-8]])this.circle(x+dx,cy+dy,1.3,white);
-    if(i===2)this.rect(x-11,cy+17,22,4,c('#a6946d'));if(i===3)this.circle(x,cy-32,2.5,c('#a6946d'));
-   }else if(scene.kind==='champagne-blend'){
-    this.circle(x,cy,15,[c('#9d6e80'),c('#8a9d7b'),c('#d3bc82')][i]);this.text(String(i+1),x-3,cy-6,10,this.fonts.bold,white);
-   }else if(scene.kind==='cava-age'){
-    const months=String(item.months);this.text(months,x-this.width(months,23,this.fonts.heading)/2,cy-19,23,this.fonts.heading);this.text('Monate',x-this.width('Monate',7.5)/2,cy+10,7.5,this.fonts.regular,muted);
-   }else if(scene.kind==='port-styles'){
-    if(i===1||i===3){this.rect(x-15,cy-18,30,35,i===1?c('#b78b68'):c('#8e6674'));this.rule(x-15,cy-7,30,white);this.rule(x-15,cy+7,30,white);}else{this.rect(x-10,cy-10,20,29,c('#874354'));this.rect(x-4,cy-23,8,13,c('#874354'));this.rect(x-8,cy-2,16,12,white);}
-   }else this.glass(x-13,cy-20,26,c(scene.color||'#b18a38'));
-   const labels=this.wrap(item.label,8.1,cell-12,this.fonts.bold);for(const [n,label]of labels.entries())this.text(label,x-this.width(label,8.1,this.fonts.bold)/2,top+59+n*10,8.1,this.fonts.bold);
+  const artKind=scene.kind==='wine-style'?slug:scene.kind;
+  const hasArt=this.pictures.has(artworkKey(artKind,0));
+  if(hasArt){
+   const gap=12,cell=(CW-gap)/2,height=126;
+   for(let i=0;i<scene.items.length;i+=2){this.ensure(height+9);const top=this.y;for(let j=0;j<2&&i+j<scene.items.length;j++){const x=M+j*(cell+gap),pic=this.pictures.get(artworkKey(artKind,i+j))!;this.rect(x,top,cell,height,c('#eef2e7'));const w=cell-12,h=w*240/520;this.page.drawImage(pic.image,{x:x+6,y:H-top-h-2,width:w,height:h});const label=scene.items[i+j].label;this.text(label,x+(cell-this.width(label,8.4,this.fonts.bold))/2,top+height-17,8.4,this.fonts.bold);}this.y+=height+9;}
+  }else{
+   const height=80;this.ensure(height+12);const top=this.y;this.rect(M,this.y,CW,height,c('#eef2e7'));for(const[i,item]of scene.items.entries()){const cell=CW/scene.items.length,x=M+(i+.5)*cell;this.glass(x-13,top+8,26,c(scene.color||'#b18a38'));this.wrap(item.label,8.1,cell-12,this.fonts.bold).forEach((label,n)=>this.text(label,x-this.width(label,8.1,this.fonts.bold)/2,top+58+n*10,8.1,this.fonts.bold));}this.y+=height+12;
   }
-  this.y+=94;
   const gap=12,column=(CW-gap)/2,pad=14;
   for(let i=0;i<scene.items.length;i+=2){
    const row=scene.items.slice(i,i+2).map(item=>({title:this.wrap(item.title,10,column-pad*2,this.fonts.heading),body:this.wrap(item.body,9,column-pad*2)}));
@@ -92,7 +98,7 @@ class BookLayout{
    const labels=kind==='bubbles'?['Stillwein','Secco','Sekt']:kind==='pinot'?['Spätburgunder','Grauburgunder','Weißburgunder']:['Hell','Rosé','Rot'];
    const detail=kind==='bubbles'?['Ohne Perlwein-Druck','1–2,5 bar','Ab 3,5 bar']:kind==='pinot'?['Pinot Noir','Pinot Gris / Grigio','Pinot Blanc / Bianco']:['Früh pressen','Kurzer Schalenkontakt','Mit Schalen gären'];
    const colors=kind==='skins'?[c('#dfd59d'),c('#d9a09a'),c('#8b4960')]:kind==='pinot'?[c('#745268'),c('#c69c9d'),c('#c9d298')]:[c('#dfd59d'),c('#d9a09a'),c('#dfd59d')];
-   for(let i=0;i<3;i++){const cell=w/3,cx=x+cell*(i+.5);if(kind==='pinot'){for(const [dx,dy]of[[-8,0],[8,0],[0,14]])this.circle(cx+dx,y+35+dy,9,colors[i]);}else this.glass(cx-17,y+14,34,colors[i],kind==='bubbles'?i*3:0);this.text(labels[i],cx-this.width(labels[i],9,this.fonts.bold)/2,y+75,9,this.fonts.bold);const lines=this.wrap(detail[i],7.8,cell-12);lines.forEach((l,n)=>this.text(l,cx-this.width(l,7.8)/2,y+94+n*10,7.8,this.fonts.regular,muted));}
+   for(let i=0;i<3;i++){const cell=w/3,cx=x+cell*(i+.5);if(kind==='pinot'){const pic=this.pictures.get(artworkKey('pinot',i));if(pic)this.page.drawImage(pic.image,{x:cx-35,y:H-y-73,width:70,height:70});else for(const [dx,dy]of[[-8,0],[8,0],[0,14]])this.circle(cx+dx,y+35+dy,9,colors[i]);}else this.glass(cx-17,y+14,34,colors[i],kind==='bubbles'?i*3:0);this.text(labels[i],cx-this.width(labels[i],9,this.fonts.bold)/2,y+75,9,this.fonts.bold);const lines=this.wrap(detail[i],7.8,cell-12);lines.forEach((l,n)=>this.text(l,cx-this.width(l,7.8)/2,y+94+n*10,7.8,this.fonts.regular,muted));}
    if(kind==='bubbles')this.text('Überdruck bei 20 °C · vereinfachter Vergleich',x+pad,y+h-14,6.8,this.fonts.regular,muted);
   }else if(kind==='rose-compare'){
    for(let i=0;i<2;i++){const cell=w/2,left=x+i*cell;this.glass(left+16,y+19,35,c('#d9a09a'),i===0?5:0);const name=i===0?'Secco Rosé':'JUWEL Rosé';const detail=i===0?'Perlwein · halbtrocken':'Stillwein · trocken';this.text(name,left+68,y+25,11,this.fonts.heading);this.wrap(detail,8.2,cell-78).forEach((l,n)=>this.text(l,left+68,y+46+n*12,8.2,this.fonts.regular,muted));}
@@ -204,6 +210,7 @@ export async function renderTastingPdf(book:TastingBook,onProgress:(message:stri
  const fonts={regular:embedded[0],bold:embedded[1],heading:embedded[2]};
  const urls=[...new Set([...book.wines.map(w=>w.bottleImage||''),...book.entries.flatMap(e=>e.type==='article'?[e.article.image,e.article.companion?.image||'']:[])].filter(Boolean))];const pictures=new Map<string,Picture>();const failedImages:string[]=[];let cursor=0;
  await Promise.all(Array.from({length:3},async()=>{while(cursor<urls.length){const url=urls[cursor++];try{pictures.set(url,await picture(url,doc));}catch{failedImages.push(url);}}}));
+ onProgress('Die Illustrationen werden eingefügt …');await prepareArtwork(book,doc,pictures);
  // Inline fallback glyphs preserve e.g. a participant's emoji without replacing their words.
  const supported=new Set(fonts.regular.getCharacterSet());const glyphs=new Map<string,Glyph>();const allText='→ '+book.name+'\n'+book.participant+'\n'+book.wines.map(w=>[w.name,w.producer,w.grape,w.region,w.vintage,w.hint,w.bottleCredit||''].join(' ')).join('\n')+'\n'+book.entries.map(e=>e.type==='notes'?[e.note.text,...e.note.aromas].join(' '):e.type==='article'?[e.article.title,e.article.intro,...e.article.paragraphs,...(e.article.sections||[]).flatMap(s=>[s.title,s.body]),...(e.article.additionalInfo||[]).flatMap(s=>[s.title,s.body]),...(e.article.scene?[e.article.scene.title,e.article.scene.caption,...e.article.scene.items.flatMap(s=>[s.label,s.title,s.body])]:[]),e.article.fact,e.article.credit.text,...(e.article.profile?e.article.profile.flatMap(fact=>[fact.label,fact.value]):[]),...(e.article.companion?[e.article.companion.title,e.article.companion.caption,...e.article.companion.milestones.flatMap(m=>[m.year,m.title,m.body])]:[]),...(e.article.landscape?[e.article.landscape.title,e.article.landscape.caption,...e.article.landscape.parts.flatMap(p=>[p.title,p.body])]:[])].join(' '):e.sections.flatMap(s=>[s.title,s.body]).join(' ')).join('\n');
  for(const char of new Set(chars(tidy(allText)))){if(char==='\n'||[...char].every(c=>supported.has(c.codePointAt(0)!)))continue;const canvas=document.createElement('canvas');const context=canvas.getContext('2d')!;context.font='48px sans-serif';const measured=context.measureText(char);canvas.width=Math.max(12,Math.ceil(measured.width)+4);canvas.height=64;context.font='48px sans-serif';context.textBaseline='alphabetic';context.fillStyle='#263c30';context.fillText(char,2,49);const blob=await new Promise<Blob>(resolve=>canvas.toBlob(b=>resolve(b!),'image/png'));glyphs.set(char,{image:await doc.embedPng(await blob.arrayBuffer()),ratio:canvas.width/48});}
